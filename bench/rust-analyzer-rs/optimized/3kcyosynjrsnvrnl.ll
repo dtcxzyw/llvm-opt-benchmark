@@ -329,7 +329,7 @@ define hidden { ptr, i64 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17hcf
   br i1 %25, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17h61fa6180c96ad587E.exit.thread7.i.i.i", label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.preheader.i.i.i
-  %.promoted.i.i.i = load i64, ptr %8, align 8, !alias.scope !37, !noalias !40
+  %.promoted.i.i.i = load i64, ptr %8, align 8, !alias.scope !36, !noalias !31
   %.promoted37.i.i.i = load i8, ptr %10, align 8, !alias.scope !37, !noalias !40
   br label %26
 

@@ -3339,7 +3339,7 @@ define internal fastcc noundef align 8 ptr @_ZN5serde2de9MapAccess10next_value17
   br i1 %122, label %.lr.ph.i94.lr.ph.i.i.i.i.i, label %.loopexit148.i.i.i.i.i
 
 .lr.ph.i94.lr.ph.i.i.i.i.i:                       ; preds = %.preheader.i.i.i.i.i
-  %.promoted.i.i.i.i.i = load i64, ptr %35, align 1, !alias.scope !989
+  %.promoted.i.i.i.i.i = load i64, ptr %35, align 1, !alias.scope !897
   %123 = load ptr, ptr %22, align 8, !alias.scope !897, !noalias !7, !nonnull !7, !align !8, !noundef !7
   %124 = load i64, ptr %.0.val, align 8, !alias.scope !897
   %125 = load ptr, ptr %37, align 8, !alias.scope !897, !nonnull !7
@@ -3350,13 +3350,13 @@ define internal fastcc noundef align 8 ptr @_ZN5serde2de9MapAccess10next_value17
   %.045190.i.i.i.i.i = phi i8 [ %.045.ph.i.i.i.i.i, %.lr.ph.i94.lr.ph.i.i.i.i.i ], [ %152, %148 ]
   %.047189.i.i.i.i.i = phi i1 [ %.047.ph.i.i.i.i.i, %.lr.ph.i94.lr.ph.i.i.i.i.i ], [ true, %148 ]
   %127 = phi i64 [ %.promoted.i.i.i.i.i, %.lr.ph.i94.lr.ph.i.i.i.i.i ], [ %149, %148 ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !992)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !989)
   br label %128
 
 128:                                              ; preds = %132, %.lr.ph.i94.i.i.i.i.i
   %129 = phi i64 [ %126, %.lr.ph.i94.i.i.i.i.i ], [ %133, %132 ]
   %130 = getelementptr inbounds [0 x i8], ptr %123, i64 0, i64 %129
-  %131 = load i8, ptr %130, align 1, !noalias !995, !noundef !7
+  %131 = load i8, ptr %130, align 1, !noalias !992, !noundef !7
   switch i8 %131, label %.loopexit.i.i.i.i.i [
     i8 32, label %132
     i8 10, label %132
@@ -3369,7 +3369,7 @@ define internal fastcc noundef align 8 ptr @_ZN5serde2de9MapAccess10next_value17
 
 132:                                              ; preds = %128, %128, %128, %128
   %133 = add i64 %129, 1
-  store i64 %133, ptr %18, align 8, !alias.scope !1003, !noalias !1006
+  store i64 %133, ptr %18, align 8, !alias.scope !1000, !noalias !1003
   %exitcond.not.i95.i.i.i.i.i = icmp eq i64 %133, %121
   br i1 %exitcond.not.i95.i.i.i.i.i, label %.loopexit148.i.i.i.i.i, label %128
 
@@ -3411,7 +3411,7 @@ define internal fastcc noundef align 8 ptr @_ZN5serde2de9MapAccess10next_value17
 
 143:                                              ; preds = %138
   %144 = add i64 %129, 1
-  store i64 %144, ptr %18, align 8, !alias.scope !1007
+  store i64 %144, ptr %18, align 8, !alias.scope !1004
   br label %.critedge.i.i.i.i.i
 
 .critedge.i.i.i.i.i:                              ; preds = %143, %138, %.loopexit.i.i.i.i.i
@@ -3421,18 +3421,18 @@ define internal fastcc noundef align 8 ptr @_ZN5serde2de9MapAccess10next_value17
 
 146:                                              ; preds = %141, %139
   %147 = add i64 %129, 1
-  store i64 %147, ptr %18, align 8, !alias.scope !1010
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !1013)
+  store i64 %147, ptr %18, align 8, !alias.scope !1007
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !1010)
   %.not147.i.i.i.i.i = icmp eq i64 %127, 0
   br i1 %.not147.i.i.i.i.i, label %"_ZN75_$LT$serde_json..de..MapAccess$LT$R$GT$$u20$as$u20$serde..de..MapAccess$GT$15next_value_seed17h58e2e579c33d684fE.exit", label %148
 
 148:                                              ; preds = %146
   %149 = add i64 %127, -1
-  store i64 %149, ptr %35, align 8, !alias.scope !989
+  store i64 %149, ptr %35, align 8, !alias.scope !1013
   %150 = icmp ult i64 %149, %124
   tail call void @llvm.assume(i1 %150)
   %151 = getelementptr inbounds i8, ptr %125, i64 %149
-  %152 = load i8, ptr %151, align 1, !noalias !1013, !noundef !7
+  %152 = load i8, ptr %151, align 1, !noalias !1010, !noundef !7
   %153 = icmp ult i64 %147, %121
   br i1 %153, label %.lr.ph.i94.i.i.i.i.i, label %.loopexit148.i.i.i.i.i
 
@@ -12655,31 +12655,31 @@ attributes #23 = { noreturn }
 !986 = distinct !{!986, !987, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h6dbea7f6cfc55994E: argument 0"}
 !987 = distinct !{!987, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h6dbea7f6cfc55994E"}
 !988 = !{!986, !895, !892, !889, !886}
-!989 = !{!990, !895, !892, !889, !886}
-!990 = distinct !{!990, !991, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h6dbea7f6cfc55994E: argument 0"}
-!991 = distinct !{!991, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h6dbea7f6cfc55994E"}
-!992 = !{!993}
-!993 = distinct !{!993, !994, !"_ZN10serde_json2de21Deserializer$LT$R$GT$16parse_whitespace17h3d8c4a7731c69838E: argument 1"}
-!994 = distinct !{!994, !"_ZN10serde_json2de21Deserializer$LT$R$GT$16parse_whitespace17h3d8c4a7731c69838E"}
-!995 = !{!996, !998, !999, !1001, !1002, !993}
-!996 = distinct !{!996, !997, !"_ZN70_$LT$serde_json..read..SliceRead$u20$as$u20$serde_json..read..Read$GT$4peek17h1b1cca4fa88827daE.llvm.7552671539937577661: argument 0"}
-!997 = distinct !{!997, !"_ZN70_$LT$serde_json..read..SliceRead$u20$as$u20$serde_json..read..Read$GT$4peek17h1b1cca4fa88827daE.llvm.7552671539937577661"}
-!998 = distinct !{!998, !997, !"_ZN70_$LT$serde_json..read..SliceRead$u20$as$u20$serde_json..read..Read$GT$4peek17h1b1cca4fa88827daE.llvm.7552671539937577661: argument 1"}
-!999 = distinct !{!999, !1000, !"_ZN68_$LT$serde_json..read..StrRead$u20$as$u20$serde_json..read..Read$GT$4peek17h3891df68bc384475E.llvm.7552671539937577661: argument 0"}
-!1000 = distinct !{!1000, !"_ZN68_$LT$serde_json..read..StrRead$u20$as$u20$serde_json..read..Read$GT$4peek17h3891df68bc384475E.llvm.7552671539937577661"}
-!1001 = distinct !{!1001, !1000, !"_ZN68_$LT$serde_json..read..StrRead$u20$as$u20$serde_json..read..Read$GT$4peek17h3891df68bc384475E.llvm.7552671539937577661: argument 1"}
-!1002 = distinct !{!1002, !994, !"_ZN10serde_json2de21Deserializer$LT$R$GT$16parse_whitespace17h3d8c4a7731c69838E: argument 0"}
-!1003 = !{!1004, !993, !895, !892, !889, !886}
-!1004 = distinct !{!1004, !1005, !"_ZN68_$LT$serde_json..read..StrRead$u20$as$u20$serde_json..read..Read$GT$7discard17h4ff859b1e7f92213E.llvm.7552671539937577661: argument 0"}
-!1005 = distinct !{!1005, !"_ZN68_$LT$serde_json..read..StrRead$u20$as$u20$serde_json..read..Read$GT$7discard17h4ff859b1e7f92213E.llvm.7552671539937577661"}
-!1006 = !{!1002}
+!989 = !{!990}
+!990 = distinct !{!990, !991, !"_ZN10serde_json2de21Deserializer$LT$R$GT$16parse_whitespace17h3d8c4a7731c69838E: argument 1"}
+!991 = distinct !{!991, !"_ZN10serde_json2de21Deserializer$LT$R$GT$16parse_whitespace17h3d8c4a7731c69838E"}
+!992 = !{!993, !995, !996, !998, !999, !990}
+!993 = distinct !{!993, !994, !"_ZN70_$LT$serde_json..read..SliceRead$u20$as$u20$serde_json..read..Read$GT$4peek17h1b1cca4fa88827daE.llvm.7552671539937577661: argument 0"}
+!994 = distinct !{!994, !"_ZN70_$LT$serde_json..read..SliceRead$u20$as$u20$serde_json..read..Read$GT$4peek17h1b1cca4fa88827daE.llvm.7552671539937577661"}
+!995 = distinct !{!995, !994, !"_ZN70_$LT$serde_json..read..SliceRead$u20$as$u20$serde_json..read..Read$GT$4peek17h1b1cca4fa88827daE.llvm.7552671539937577661: argument 1"}
+!996 = distinct !{!996, !997, !"_ZN68_$LT$serde_json..read..StrRead$u20$as$u20$serde_json..read..Read$GT$4peek17h3891df68bc384475E.llvm.7552671539937577661: argument 0"}
+!997 = distinct !{!997, !"_ZN68_$LT$serde_json..read..StrRead$u20$as$u20$serde_json..read..Read$GT$4peek17h3891df68bc384475E.llvm.7552671539937577661"}
+!998 = distinct !{!998, !997, !"_ZN68_$LT$serde_json..read..StrRead$u20$as$u20$serde_json..read..Read$GT$4peek17h3891df68bc384475E.llvm.7552671539937577661: argument 1"}
+!999 = distinct !{!999, !991, !"_ZN10serde_json2de21Deserializer$LT$R$GT$16parse_whitespace17h3d8c4a7731c69838E: argument 0"}
+!1000 = !{!1001, !990, !895, !892, !889, !886}
+!1001 = distinct !{!1001, !1002, !"_ZN68_$LT$serde_json..read..StrRead$u20$as$u20$serde_json..read..Read$GT$7discard17h4ff859b1e7f92213E.llvm.7552671539937577661: argument 0"}
+!1002 = distinct !{!1002, !"_ZN68_$LT$serde_json..read..StrRead$u20$as$u20$serde_json..read..Read$GT$7discard17h4ff859b1e7f92213E.llvm.7552671539937577661"}
+!1003 = !{!999}
+!1004 = !{!1005, !895, !892, !889, !886}
+!1005 = distinct !{!1005, !1006, !"_ZN68_$LT$serde_json..read..StrRead$u20$as$u20$serde_json..read..Read$GT$7discard17h4ff859b1e7f92213E.llvm.7552671539937577661: argument 0"}
+!1006 = distinct !{!1006, !"_ZN68_$LT$serde_json..read..StrRead$u20$as$u20$serde_json..read..Read$GT$7discard17h4ff859b1e7f92213E.llvm.7552671539937577661"}
 !1007 = !{!1008, !895, !892, !889, !886}
 !1008 = distinct !{!1008, !1009, !"_ZN68_$LT$serde_json..read..StrRead$u20$as$u20$serde_json..read..Read$GT$7discard17h4ff859b1e7f92213E.llvm.7552671539937577661: argument 0"}
 !1009 = distinct !{!1009, !"_ZN68_$LT$serde_json..read..StrRead$u20$as$u20$serde_json..read..Read$GT$7discard17h4ff859b1e7f92213E.llvm.7552671539937577661"}
-!1010 = !{!1011, !895, !892, !889, !886}
-!1011 = distinct !{!1011, !1012, !"_ZN68_$LT$serde_json..read..StrRead$u20$as$u20$serde_json..read..Read$GT$7discard17h4ff859b1e7f92213E.llvm.7552671539937577661: argument 0"}
-!1012 = distinct !{!1012, !"_ZN68_$LT$serde_json..read..StrRead$u20$as$u20$serde_json..read..Read$GT$7discard17h4ff859b1e7f92213E.llvm.7552671539937577661"}
-!1013 = !{!990}
+!1010 = !{!1011}
+!1011 = distinct !{!1011, !1012, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h6dbea7f6cfc55994E: argument 0"}
+!1012 = distinct !{!1012, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h6dbea7f6cfc55994E"}
+!1013 = !{!1011, !895, !892, !889, !886}
 !1014 = !{!1015}
 !1015 = distinct !{!1015, !1016, !"_ZN10serde_json2de21Deserializer$LT$R$GT$16parse_whitespace17h3d8c4a7731c69838E: argument 1"}
 !1016 = distinct !{!1016, !"_ZN10serde_json2de21Deserializer$LT$R$GT$16parse_whitespace17h3d8c4a7731c69838E"}

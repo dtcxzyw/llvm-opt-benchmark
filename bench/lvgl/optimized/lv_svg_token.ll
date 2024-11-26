@@ -362,15 +362,15 @@ _lv_svg_token_process.exit:                       ; preds = %51
   br label %_svg_parser_comment.exit
 
 _svg_parser_comment.exit.loopexit:                ; preds = %125
-  store ptr %storemerge.i56, ptr %15, align 8, !tbaa !15
+  store ptr %storemerge.i56, ptr %15, align 8
   br label %_svg_parser_comment.exit
 
 _svg_parser_comment.exit.loopexit76:              ; preds = %.lr.ph
-  store ptr %storemerge.i48, ptr %15, align 8, !tbaa !15
+  store ptr %storemerge.i48, ptr %15, align 8
   br label %_svg_parser_comment.exit
 
 _svg_parser_comment.exit.loopexit77:              ; preds = %105
-  store ptr %storemerge.i, ptr %15, align 8, !tbaa !15
+  store ptr %storemerge.i, ptr %15, align 8
   br label %_svg_parser_comment.exit
 
 _svg_parser_comment.exit:                         ; preds = %._svg_parser_comment.exit_crit_edge, %_svg_parser_comment.exit.loopexit77, %_svg_parser_comment.exit.loopexit76, %_svg_parser_comment.exit.loopexit, %51, %.thread.i58, %.thread.i50, %.thread.i, %127, %135, %_lv_svg_token_process.exit, %116, %.thread, %76, %24

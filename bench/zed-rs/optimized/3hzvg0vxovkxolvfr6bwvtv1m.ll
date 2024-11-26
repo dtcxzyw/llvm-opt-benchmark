@@ -18339,7 +18339,7 @@ define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..take_while..TakeWhi
   br i1 %16, label %.lr.ph.preheader.i, label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h6ce311e45186db55E.llvm.18293271457274314417.exit"
 
 .lr.ph.preheader.i:                               ; preds = %6
-  %.promoted30.i.i = load i64, ptr %11, align 8, !alias.scope !4393, !noalias !4388
+  %.promoted30.i.i = load i64, ptr %11, align 8, !alias.scope !4389, !noalias !4390
   %17 = sub i64 %1, %9
   %18 = add i64 %17, %.promoted.i.i
   br label %.lr.ph.i
@@ -18453,7 +18453,7 @@ define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..take_while..TakeWhi
   br i1 %18, label %.lr.ph.preheader.i, label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h12787b0a2250b693E.llvm.18293271457274314417.exit"
 
 .lr.ph.preheader.i:                               ; preds = %6
-  %.promoted33.i.i = load i64, ptr %11, align 8, !alias.scope !4456, !noalias !4451
+  %.promoted33.i.i = load i64, ptr %11, align 8, !alias.scope !4452, !noalias !4453
   %19 = sub i64 %1, %9
   %20 = add i64 %19, %.promoted.i.i
   br label %.lr.ph.i
@@ -18667,7 +18667,7 @@ define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..take_while..TakeWhi
   br i1 %18, label %.lr.ph.preheader, label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %6
-  %.promoted33.i = load i64, ptr %11, align 8, !alias.scope !4553, !noalias !4550
+  %.promoted33.i = load i64, ptr %11, align 8, !alias.scope !4525, !noalias !4551
   %19 = add i64 %.promoted.i, %1
   %20 = sub i64 %19, %9
   br label %.lr.ph
@@ -19036,7 +19036,7 @@ define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..take_while..TakeWhi
   br i1 %16, label %.lr.ph.preheader, label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %6
-  %.promoted30.i = load i64, ptr %11, align 8, !alias.scope !4708, !noalias !4705
+  %.promoted30.i = load i64, ptr %11, align 8, !alias.scope !4680, !noalias !4706
   %17 = add i64 %.promoted.i, %1
   %18 = sub i64 %17, %9
   br label %.lr.ph
@@ -19141,7 +19141,7 @@ define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..take_while..TakeWhi
   br i1 %16, label %.lr.ph.preheader, label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %6
-  %.promoted51.i = load i64, ptr %11, align 8, !alias.scope !4765, !noalias !4762
+  %.promoted51.i = load i64, ptr %11, align 8, !alias.scope !4737, !noalias !4763
   %17 = add i64 %.promoted.i, %1
   %18 = sub i64 %17, %9
   br label %.lr.ph
@@ -19378,7 +19378,7 @@ define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..take_while..TakeWhi
   br i1 %16, label %.lr.ph.preheader, label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %6
-  %.promoted49.i = load i64, ptr %11, align 8, !alias.scope !4868, !noalias !4865
+  %.promoted49.i = load i64, ptr %11, align 8, !alias.scope !4840, !noalias !4866
   %17 = add i64 %.promoted.i, %1
   %18 = sub i64 %17, %9
   br label %.lr.ph

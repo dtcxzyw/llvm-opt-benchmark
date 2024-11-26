@@ -1346,7 +1346,7 @@ define hidden noundef zeroext i1 @"_ZN4ring4limb34parse_big_endian_and_pad_const
   %12 = load i64, ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8, !nonnull !4, !align !5
-  %.promoted47 = load i64, ptr %7, align 8, !alias.scope !213
+  %.promoted47 = load i64, ptr %7, align 8
   %.pre = load i64, ptr %6, align 8
   br label %15
 

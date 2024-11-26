@@ -1757,7 +1757,7 @@ define hidden noundef range(i8 0, 3) i8 @_ZN11markup5ever4util12buffer_queue11Bu
   %20 = load i64, ptr %0, align 8
   %21 = getelementptr inbounds i8, ptr %0, i64 8
   %22 = load ptr, ptr %21, align 8, !nonnull !4
-  %.promoted84 = load i64, ptr %19, align 8, !alias.scope !372, !noalias !375
+  %.promoted84 = load i64, ptr %19, align 8
   br label %28
 
 23:                                               ; preds = %.lr.ph, %231

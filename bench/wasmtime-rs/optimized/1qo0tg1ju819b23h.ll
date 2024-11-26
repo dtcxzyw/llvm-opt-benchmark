@@ -19509,7 +19509,7 @@ _ZN18wasmtime_cranelift5debug9transform5utils23get_function_frame_info17h0d4451c
   br i1 %398, label %.preheader, label %430
 
 .preheader:                                       ; preds = %397
-  %.promoted = load i64, ptr %112, align 8, !alias.scope !1322
+  %.promoted = load i64, ptr %112, align 8
   %399 = load i64, ptr %91, align 8
   br label %434
 

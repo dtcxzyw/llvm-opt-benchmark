@@ -897,7 +897,7 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
   %11 = getelementptr inbounds i8, ptr %2, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %2, i64 8
-  %.promoted = load i64, ptr %13, align 8, !alias.scope !179
+  %.promoted = load i64, ptr %13, align 8
   br label %16
 
 14:                                               ; preds = %3
@@ -912,12 +912,12 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
   %.0 = phi i64 [ 0, %6 ], [ %26, %23 ]
   %18 = getelementptr inbounds ptr, ptr %0, i64 %.0
   %.val20 = load ptr, ptr %18, align 8, !nonnull !7, !noundef !7
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !186)
-  %.val.i.i.i.i = load i64, ptr %.val20, align 8, !noalias !186, !noundef !7
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !179)
+  %.val.i.i.i.i = load i64, ptr %.val20, align 8, !noalias !179, !noundef !7
   %19 = icmp ne i64 %.val.i.i.i.i, 0
   tail call void @llvm.assume(i1 %19)
   %20 = add i64 %.val.i.i.i.i, 1
-  store i64 %20, ptr %.val20, align 8, !noalias !186
+  store i64 %20, ptr %.val20, align 8, !noalias !179
   %21 = icmp eq i64 %20, 0
   br i1 %21, label %22, label %23
 
@@ -926,12 +926,12 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
   unreachable
 
 23:                                               ; preds = %16
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !187)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !188)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !182)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !185)
   %24 = getelementptr inbounds ptr, ptr %12, i64 %17
-  store ptr %.val20, ptr %24, align 8, !noalias !179
+  store ptr %.val20, ptr %24, align 8, !noalias !188
   %25 = add i64 %17, 1
-  store i64 %25, ptr %13, align 8, !alias.scope !179
+  store i64 %25, ptr %13, align 8, !alias.scope !188
   %26 = add nuw i64 %.0, 1
   %27 = icmp eq i64 %26, %10
   br i1 %27, label %28, label %16
@@ -1386,14 +1386,14 @@ attributes #22 = { nounwind }
 !176 = distinct !{!176, !177, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6c75c870bb11f177E: argument 0"}
 !177 = distinct !{!177, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6c75c870bb11f177E"}
 !178 = distinct !{!178, !177, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6c75c870bb11f177E: argument 1"}
-!179 = !{!180, !182, !184}
-!180 = distinct !{!180, !181, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted28_$u7b$$u7b$closure$u7d$$u7d$17h91aba522577a375dE: argument 0"}
-!181 = distinct !{!181, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted28_$u7b$$u7b$closure$u7d$$u7d$17h91aba522577a375dE"}
-!182 = distinct !{!182, !183, !"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h01ec0b097b5a79e5E: argument 0"}
-!183 = distinct !{!183, !"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h01ec0b097b5a79e5E"}
-!184 = distinct !{!184, !185, !"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h9433a8e6df352b26E: argument 0"}
-!185 = distinct !{!185, !"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h9433a8e6df352b26E"}
-!186 = !{!184}
-!187 = !{!182}
-!188 = !{!180}
+!179 = !{!180}
+!180 = distinct !{!180, !181, !"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h9433a8e6df352b26E: argument 0"}
+!181 = distinct !{!181, !"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h9433a8e6df352b26E"}
+!182 = !{!183}
+!183 = distinct !{!183, !184, !"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h01ec0b097b5a79e5E: argument 0"}
+!184 = distinct !{!184, !"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h01ec0b097b5a79e5E"}
+!185 = !{!186}
+!186 = distinct !{!186, !187, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted28_$u7b$$u7b$closure$u7d$$u7d$17h91aba522577a375dE: argument 0"}
+!187 = distinct !{!187, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted28_$u7b$$u7b$closure$u7d$$u7d$17h91aba522577a375dE"}
+!188 = !{!186, !183, !180}
 !189 = !{i64 0, i64 -9223372036854775806}

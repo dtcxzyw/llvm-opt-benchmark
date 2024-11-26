@@ -779,7 +779,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
 19:                                               ; preds = %18
   %20 = landingpad { ptr, i32 }
           cleanup
-  store ptr %16, ptr %9, align 8, !alias.scope !309, !noalias !312
+  store ptr %16, ptr %9, align 8
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h31db3b6058ec61a7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4) #29
           to label %.body.i unwind label %21, !noalias !340
 
@@ -815,7 +815,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
 _ZN4core4iter6traits8iterator8Iterator4fold17hf8a9afbe74753c99E.llvm.9153134991762065841.exit: ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h705f92eab9444ad5E.llvm.9153134991762065841.exit.i", %23, %2
   %29 = phi ptr [ %.promoted, %2 ], [ %16, %23 ], [ %16, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h705f92eab9444ad5E.llvm.9153134991762065841.exit.i" ]
   %.lcssa = phi i64 [ %.sroa.5.0.copyload, %2 ], [ %14, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h705f92eab9444ad5E.llvm.9153134991762065841.exit.i" ], [ %25, %23 ]
-  store ptr %29, ptr %9, align 8, !alias.scope !309, !noalias !312
+  store ptr %29, ptr %9, align 8
   %30 = icmp ne ptr %.sroa.0.0.copyload, null
   tail call void @llvm.assume(i1 %30)
   store i64 %.lcssa, ptr %.sroa.0.0.copyload, align 8, !noalias !343

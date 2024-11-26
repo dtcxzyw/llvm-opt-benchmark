@@ -4130,8 +4130,8 @@ define noundef i64 @_ZN4rope4Rope15point_to_offset17hdbb3044344a3fa12E(ptr noali
   br i1 %154, label %183, label %186
 
 155:                                              ; preds = %.thread62.i.i.i
-  store i32 %110, ptr %99, align 4, !noalias !883
-  store i32 %109, ptr %16, align 4, !noalias !883
+  store i32 %110, ptr %99, align 4, !noalias !882
+  store i32 %109, ptr %16, align 4, !noalias !882
   %cond.i.i.i = icmp ugt i64 %152, %107
   br i1 %cond.i.i.i, label %.noexc14, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h3813691f8e6c06eeE.exit"
 
@@ -4258,8 +4258,8 @@ define noundef i64 @_ZN4rope4Rope15point_to_offset17hdbb3044344a3fa12E(ptr noali
           to label %.body unwind label %181
 
 .noexc17:                                         ; preds = %183
-  store i32 0, ptr %99, align 4, !noalias !883
-  store i32 %184, ptr %16, align 4, !noalias !883
+  store i32 0, ptr %99, align 4, !noalias !882
+  store i32 %184, ptr %16, align 4, !noalias !882
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10), !noalias !883
   call void @_ZN3std9backtrace9Backtrace7capture17haac13786173b9ed6E(ptr noalias nocapture noundef nonnull sret([48 x i8]) align 8 dereferenceable(48) %10)
   %192 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hf1c8299dd29f90d0E monotonic, align 8, !noalias !883
@@ -4699,8 +4699,8 @@ define internal fastcc noundef i64 @_ZN4rope4Rope26point_utf16_to_offset_impl17h
   br i1 %156, label %157, label %.thread82.i.i.i
 
 157:                                              ; preds = %154
-  store i32 0, ptr %100, align 4, !noalias !965
-  store i32 %155, ptr %17, align 4, !noalias !965
+  store i32 0, ptr %100, align 4, !noalias !964
+  store i32 %155, ptr %17, align 4, !noalias !964
   br i1 %3, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h5c86b4332b80830fE.exit", label %.noexc15
 
 158:                                              ; preds = %152
@@ -4822,8 +4822,8 @@ define internal fastcc noundef i64 @_ZN4rope4Rope26point_utf16_to_offset_impl17h
   br i1 %193, label %.thread82.i.i.i, label %221
 
 194:                                              ; preds = %158
-  store i32 %160, ptr %100, align 4, !noalias !965
-  store i32 %110, ptr %17, align 4, !noalias !965
+  store i32 %160, ptr %100, align 4, !noalias !964
+  store i32 %110, ptr %17, align 4, !noalias !964
   br i1 %3, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h5c86b4332b80830fE.exit", label %.noexc18
 
 195:                                              ; preds = %207, %199

@@ -21248,7 +21248,7 @@ _ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EEC2EmRKS2_RKS3_.exit: ; preds = %.lr.p
   br i1 %.not273, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EEC2EmRKS2_RKS3_.exit
-  %.promoted = load ptr, ptr %60, align 8, !noalias !2846
+  %.promoted = load ptr, ptr %60, align 8
   %.val4.i59 = load ptr, ptr %41, align 8, !noalias !2846
   %.val5.i60 = load ptr, ptr %42, align 8, !noalias !2846
   %104 = icmp eq ptr %.val4.i59, %.val5.i60
@@ -22146,7 +22146,7 @@ _ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EEC2EmRKS2_RKS3_.exit: ; preds = %.lr.p
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EEC2EmRKS2_RKS3_.exit
-  %.promoted = load ptr, ptr %49, align 8, !noalias !3060
+  %.promoted = load ptr, ptr %49, align 8
   %.val4.i47 = load ptr, ptr %30, align 8, !noalias !3060
   %.val5.i48 = load ptr, ptr %31, align 8, !noalias !3060
   %93 = icmp eq ptr %.val4.i47, %.val5.i48
@@ -22818,7 +22818,7 @@ _ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EEC2EmRKS2_RKS3_.exit: ; preds = %.lr.p
   br i1 %.not290, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EEC2EmRKS2_RKS3_.exit
-  %.promoted = load ptr, ptr %66, align 8, !noalias !3302
+  %.promoted = load ptr, ptr %66, align 8
   %.val4.i55 = load ptr, ptr %47, align 8, !noalias !3302
   %.val5.i56 = load ptr, ptr %48, align 8, !noalias !3302
   %188 = icmp eq ptr %.val4.i55, %.val5.i56
@@ -23656,7 +23656,7 @@ _ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EEC2EmRKS2_RKS3_.exit: ; preds = %.lr.p
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EEC2EmRKS2_RKS3_.exit
-  %.promoted = load ptr, ptr %55, align 8, !noalias !3504
+  %.promoted = load ptr, ptr %55, align 8
   %.val4.i43 = load ptr, ptr %36, align 8, !noalias !3504
   %.val5.i44 = load ptr, ptr %37, align 8, !noalias !3504
   %177 = icmp eq ptr %.val4.i43, %.val5.i44

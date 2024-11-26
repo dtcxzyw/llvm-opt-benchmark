@@ -942,7 +942,7 @@ define hidden void @"_ZN89_$LT$alloc..string..String$u20$as$u20$core..iter..trai
   %22 = getelementptr inbounds i8, ptr %6, i64 24
   %23 = getelementptr inbounds i8, ptr %6, i64 8
   %24 = load ptr, ptr %22, align 8, !alias.scope !254, !noalias !257, !nonnull !4, !noundef !4
-  %.promoted.i = load ptr, ptr %23, align 8, !alias.scope !254, !noalias !257
+  %.promoted.i = load ptr, ptr %23, align 8
   %25 = icmp eq ptr %.promoted.i, %24
   br i1 %25, label %_ZN4core4iter6traits8iterator8Iterator4fold17h85bb17b82b43236cE.llvm.7332432948095119766.exit.i, label %.lr.ph
 
@@ -953,7 +953,7 @@ define hidden void @"_ZN89_$LT$alloc..string..String$u20$as$u20$core..iter..trai
 27:                                               ; preds = %.lr.ph
   %28 = landingpad { ptr, i32 }
           cleanup
-  store ptr %30, ptr %23, align 8, !alias.scope !254, !noalias !257
+  store ptr %30, ptr %23, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5), !noalias !260
   store ptr %6, ptr %5, align 8, !noalias !260
   invoke void @"_ZN157_$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h43b66302c425ea9eE.llvm.10559302552934589985"(ptr noalias noundef nonnull align 8 dereferenceable(8) %5)
@@ -979,7 +979,7 @@ define hidden void @"_ZN89_$LT$alloc..string..String$u20$as$u20$core..iter..trai
 
 _ZN4core4iter6traits8iterator8Iterator4fold17h85bb17b82b43236cE.llvm.7332432948095119766.exit.i: ; preds = %"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17ha3ddb0b0194a9794E.exit.i.i", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h3c24e048d44517b9E.exit"
   %.lcssa = phi ptr [ %.promoted.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h3c24e048d44517b9E.exit" ], [ %30, %"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17ha3ddb0b0194a9794E.exit.i.i" ]
-  store ptr %.lcssa, ptr %23, align 8, !alias.scope !254, !noalias !257
+  store ptr %.lcssa, ptr %23, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !267
   store ptr %6, ptr %4, align 8, !noalias !267
   call void @"_ZN157_$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h43b66302c425ea9eE.llvm.10559302552934589985"(ptr noalias noundef nonnull align 8 dereferenceable(8) %4)

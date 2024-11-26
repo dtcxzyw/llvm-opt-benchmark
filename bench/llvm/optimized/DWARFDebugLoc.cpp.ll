@@ -634,7 +634,7 @@ define dso_local void @_ZNK4llvm13DWARFDebugLoc17visitLocationListEPmNS_12functi
   store ptr null, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 25
-  %.promoted = load ptr, ptr %0, align 8, !alias.scope !7
+  %.promoted = load ptr, ptr %0, align 8
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %14 = getelementptr inbounds i8, ptr %8, i64 56
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -707,7 +707,6 @@ _ZNK4llvm13DataExtractor5getU8ERNS0_6CursorERNS_15SmallVectorImplIhEEj.exit: ; p
   br i1 %.not.i, label %53, label %52
 
 52:                                               ; preds = %50
-  call void @llvm.experimental.noalias.scope.decl(metadata !7)
   store ptr null, ptr %10, align 8, !noalias !7
   br label %57
 

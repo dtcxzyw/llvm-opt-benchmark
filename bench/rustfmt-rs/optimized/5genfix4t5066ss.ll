@@ -8852,7 +8852,7 @@ _ZN4core3str7pattern13simd_contains17haaf0d830b0f7cf0eE.exit: ; preds = %18
   br i1 %103, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17he7c268187cb709a7E.exit", label %.lr.ph.i42
 
 .lr.ph.i42:                                       ; preds = %.preheader.i41
-  %.promoted.i = load i64, ptr %100, align 8, !alias.scope !2522, !noalias !2525
+  %.promoted.i = load i64, ptr %100, align 8
   %104 = getelementptr inbounds i8, ptr %7, i64 24
   %105 = getelementptr inbounds i8, ptr %7, i64 72
   %106 = load ptr, ptr %105, align 8, !alias.scope !2522, !noalias !2525, !nonnull !5, !align !57, !noundef !5
@@ -8980,7 +8980,7 @@ _ZN4core3str11validations15next_code_point17h875c6555aba9a391E.exit.thread.i.i: 
 
 170:                                              ; preds = %_ZN4core3str7pattern13simd_contains17haaf0d830b0f7cf0eE.exit
   %171 = getelementptr inbounds i8, ptr %7, i64 56
-  %172 = load i64, ptr %171, align 8, !noalias !5, !noundef !5
+  %172 = load i64, ptr %171, align 8, !noundef !5
   %173 = icmp eq i64 %172, -1
   %174 = getelementptr inbounds i8, ptr %7, i64 72
   %175 = load ptr, ptr %174, align 8, !alias.scope !2517, !noalias !2520, !nonnull !5, !align !57, !noundef !5
@@ -8998,7 +8998,7 @@ _ZN4core3str11validations15next_code_point17h875c6555aba9a391E.exit.thread.i.i: 
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2537)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2540)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2542)
-  %.promoted.i48 = load i64, ptr %182, align 8, !alias.scope !2537, !noalias !2544
+  %.promoted.i48 = load i64, ptr %182, align 8
   %185 = add i64 %.promoted.i48, %183
   %.not3855.i49 = icmp ult i64 %185, %177
   br i1 %.not3855.i49, label %.lr.ph.i52, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17he7c268187cb709a7E.exit"
@@ -9110,7 +9110,7 @@ _ZN4core3str11validations15next_code_point17h875c6555aba9a391E.exit.thread.i.i: 
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2550)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2553)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2555)
-  %.promoted.i43 = load i64, ptr %182, align 8, !alias.scope !2550, !noalias !2557
+  %.promoted.i43 = load i64, ptr %182, align 8
   %240 = add i64 %.promoted.i43, %183
   %.not3855.i = icmp ult i64 %240, %177
   br i1 %.not3855.i, label %.lr.ph.i46, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17he7c268187cb709a7E.exit"

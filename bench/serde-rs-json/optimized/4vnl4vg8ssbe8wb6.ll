@@ -1217,7 +1217,7 @@ define noalias noundef nonnull align 8 ptr @_ZN10serde_json5error10make_error17h
   %19 = getelementptr inbounds i8, ptr %2, i64 80
   %20 = load i64, ptr %19, align 8, !alias.scope !124, !noalias !127, !noundef !4
   %.promoted.i.i.i = load i8, ptr %15, align 1, !alias.scope !124, !noalias !127
-  %.promoted35.i.i.i = load i64, ptr %16, align 8, !alias.scope !124, !noalias !127
+  %.promoted35.i.i.i = load i64, ptr %16, align 8, !noalias !114
   %21 = trunc nuw i8 %.promoted.i.i.i to i1
   %22 = icmp eq i64 %.promoted35.i.i.i, 0
   br i1 %22, label %"_ZN4core3str21_$LT$impl$u20$str$GT$5rfind17h37edd6da2056eb06E.exit.i", label %.lr.ph.i.i
@@ -1357,7 +1357,7 @@ _ZN4core3str11validations23next_code_point_reverse17hfc431cb914af8ad0E.exit.thre
   tail call void @llvm.experimental.noalias.scope.decl(metadata !142)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !144)
   %96 = getelementptr inbounds i8, ptr %2, i64 48
-  %.promoted.i = load i64, ptr %96, align 8, !alias.scope !139, !noalias !146
+  %.promoted.i = load i64, ptr %96, align 8
   %97 = sub i64 %.promoted.i, %95
   %.not3663.i = icmp ult i64 %97, %91
   br i1 %.not3663.i, label %.lr.ph.i, label %"_ZN4core3str21_$LT$impl$u20$str$GT$5rfind17h37edd6da2056eb06E.exit.i.thread"
@@ -1370,7 +1370,7 @@ _ZN4core3str11validations23next_code_point_reverse17hfc431cb914af8ad0E.exit.thre
   %102 = getelementptr inbounds i8, ptr %2, i64 64
   %103 = getelementptr inbounds i8, ptr %2, i64 24
   %104 = load i64, ptr %103, align 8, !alias.scope !139, !noalias !146
-  %.promoted64.i = load i64, ptr %102, align 8, !alias.scope !139, !noalias !146
+  %.promoted64.i = load i64, ptr %102, align 8
   br label %105
 
 105:                                              ; preds = %.backedge.i, %.lr.ph.i

@@ -981,7 +981,7 @@ for.body232.lr.ph:                                ; preds = %while.end
   %sub.ptr.rhs.cast.i201 = ptrtoint ptr %114 to i64
   %sub.ptr.sub.i202 = sub i64 %sub.ptr.lhs.cast.i200, %sub.ptr.rhs.cast.i201
   %sub.ptr.div.i203 = ashr exact i64 %sub.ptr.sub.i202, 2
-  %a_.promoted = load double, ptr %a_, align 8, !tbaa !18
+  %a_.promoted = load double, ptr %a_, align 8
   %115 = load ptr, ptr %factors_, align 8, !tbaa !14
   %umax = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i203, i64 1)
   br label %for.body232

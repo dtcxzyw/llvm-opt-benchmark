@@ -50174,7 +50174,7 @@ define internal fastcc void @"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u
   br i1 %7, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17h1335f518ce6489b6E.exit.thread7", label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %.promoted = load i64, ptr %4, align 8, !alias.scope !11464, !noalias !11467
+  %.promoted = load i64, ptr %4, align 8
   %8 = getelementptr inbounds i8, ptr %1, i64 24
   %9 = getelementptr inbounds i8, ptr %1, i64 72
   %10 = load ptr, ptr %9, align 8, !alias.scope !11464, !noalias !11467, !nonnull !4, !align !5, !noundef !4
@@ -58833,7 +58833,7 @@ _ZN5typst4math8fragment12MathFragment6ascent17hb0484c60265da4fcE.exit287.i: ; pr
   br i1 %.not61.i, label %.loopexit.i, label %501
 
 .loopexit.i:                                      ; preds = %498, %489
-  store i64 %491, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !13177, !noalias !12827
+  store i64 %491, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !12827
   br label %.outer.i
 
 .outer.i:                                         ; preds = %547, %.loopexit.i
@@ -58955,7 +58955,7 @@ _ZN5typst4math8fragment12MathFragment6ascent17hb0484c60265da4fcE.exit287.i: ; pr
   br i1 %.not.not.i.i, label %.loopexit, label %489
 
 544:                                              ; preds = %"_ZN69_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h6153c203e42a2d4eE.exit.i"
-  store i64 %491, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !13177, !noalias !12827
+  store i64 %491, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !12827
   %545 = fsub double %.0.i.i.i160.i, %.0.i.i.i2.i330.i
   %546 = fcmp ult double %545, 0.000000e+00
   br i1 %546, label %.noexc339.i, label %547

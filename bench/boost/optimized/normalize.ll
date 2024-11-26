@@ -590,7 +590,7 @@ define hidden void @_ZN5boost4urls6detail9ci_digestENS_4core17basic_string_viewI
   br i1 %.not9, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %3
-  %.promoted = load i64, ptr %2, align 8, !tbaa !14
+  %.promoted = load i64, ptr %2, align 8
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
@@ -1773,7 +1773,7 @@ _ZNK5boost4core17basic_string_viewIcE6substrEmm.exit.i: ; preds = %18
   br i1 %38, label %._crit_edge, label %15, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %32, %13
-  store i64 0, ptr %11, align 8, !tbaa !10
+  store i64 0, ptr %11, align 8
   %39 = load i64, ptr %10, align 8, !tbaa !10
   %40 = icmp eq i64 %39, 0
   br i1 %40, label %41, label %13, !llvm.loop !35

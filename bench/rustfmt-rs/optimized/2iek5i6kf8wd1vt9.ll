@@ -6315,9 +6315,9 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
   br i1 %6, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %.promoted19 = load ptr, ptr %5, align 8, !alias.scope !1578
-  %.promoted18 = load i16, ptr %4, align 8, !alias.scope !1578
-  %.promoted14 = load ptr, ptr %0, align 8, !alias.scope !1578
+  %.promoted19 = load ptr, ptr %5, align 8
+  %.promoted18 = load i16, ptr %4, align 8
+  %.promoted14 = load ptr, ptr %0, align 8
   br label %8
 
 "_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h6c3e877d910d170dE.exit.loopexit": ; preds = %.preheader.i.i.i.i.i.i
@@ -6329,17 +6329,17 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
   %.lcssa101740 = phi ptr [ %.promoted14, %.lr.ph ], [ %.lcssa1015, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h6c3e877d910d170dE.exit.loopexit" ]
   %10 = phi i16 [ %.promoted18, %.lr.ph ], [ %19, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h6c3e877d910d170dE.exit.loopexit" ]
   %.lcssa2239 = phi ptr [ %.promoted19, %.lr.ph ], [ %.lcssa20, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h6c3e877d910d170dE.exit.loopexit" ]
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !1578)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !1579)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !1580)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1581)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !1582)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !1583)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !1584)
   %.not.not.i11.i.i.i.i = icmp eq i16 %10, 0
   br i1 %.not.not.i11.i.i.i.i, label %.lr.ph.i.i.i.i, label %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbb0d681aeae14045E.exit"
 
 ._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i
   %11 = xor i16 %15, -1
-  store ptr %17, ptr %5, align 8, !alias.scope !1578
-  store ptr %16, ptr %0, align 8, !alias.scope !1578
+  store ptr %17, ptr %5, align 8, !alias.scope !1584
+  store ptr %16, ptr %0, align 8, !alias.scope !1584
   br label %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbb0d681aeae14045E.exit"
 
 .lr.ph.i.i.i.i:                                   ; preds = %8, %.lr.ph.i.i.i.i
@@ -20211,13 +20211,13 @@ define hidden void @"_ZN9hashbrown3raw16RawIter$LT$T$GT$13drop_elements17h939de7
   br i1 %5, label %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h00c593fc26ab1db6E.llvm.8986235990505969818.exit.thread", label %.preheader
 
 .preheader:                                       ; preds = %1
-  %.promoted = load ptr, ptr %0, align 8, !alias.scope !4369
+  %.promoted = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 24
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = getelementptr inbounds i8, ptr %2, i64 8
   %9 = getelementptr inbounds i8, ptr %2, i64 16
   %.promoted10 = load i16, ptr %6, align 8, !alias.scope !4369
-  %.promoted11 = load ptr, ptr %7, align 8, !alias.scope !4369
+  %.promoted11 = load ptr, ptr %7, align 8
   br label %10
 
 "_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h00c593fc26ab1db6E.llvm.8986235990505969818.exit.thread": ; preds = %"_ZN9hashbrown3raw15Bucket$LT$T$GT$4drop17h0a8f827674f66a58E.llvm.8986235990505969818.exit", %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h00c593fc26ab1db6E.llvm.8986235990505969818.exit", %1
@@ -40784,17 +40784,17 @@ attributes #61 = { cold }
 !1575 = distinct !{!1575, !"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h50da4e734d9aa843E"}
 !1576 = distinct !{!1576, !1577, !"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbb0d681aeae14045E: argument 0"}
 !1577 = distinct !{!1577, !"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbb0d681aeae14045E"}
-!1578 = !{!1579, !1572, !1574, !1576}
-!1579 = distinct !{!1579, !1580, !"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17h68cc6dae5f2116afE.llvm.8986235990505969818: argument 0"}
-!1580 = distinct !{!1580, !"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17h68cc6dae5f2116afE.llvm.8986235990505969818"}
-!1581 = !{!1576}
-!1582 = !{!1574}
-!1583 = !{!1572}
-!1584 = !{!1579}
-!1585 = !{!1586, !1579, !1572, !1574, !1576}
+!1578 = !{!1576}
+!1579 = !{!1574}
+!1580 = !{!1572}
+!1581 = !{!1582}
+!1582 = distinct !{!1582, !1583, !"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17h68cc6dae5f2116afE.llvm.8986235990505969818: argument 0"}
+!1583 = distinct !{!1583, !"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17h68cc6dae5f2116afE.llvm.8986235990505969818"}
+!1584 = !{!1582, !1572, !1574, !1576}
+!1585 = !{!1586, !1582, !1572, !1574, !1576}
 !1586 = distinct !{!1586, !1587, !"_ZN4core9core_arch3x864sse214_mm_load_si12817h3b3b1b39223e77a5E.llvm.8986235990505969818: argument 0"}
 !1587 = distinct !{!1587, !"_ZN4core9core_arch3x864sse214_mm_load_si12817h3b3b1b39223e77a5E.llvm.8986235990505969818"}
-!1588 = !{!1589, !1579, !1572, !1574, !1576}
+!1588 = !{!1589, !1582, !1572, !1574, !1576}
 !1589 = distinct !{!1589, !1590, !"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h370a863902cbbb67E.llvm.8986235990505969818: argument 0"}
 !1590 = distinct !{!1590, !"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h370a863902cbbb67E.llvm.8986235990505969818"}
 !1591 = !{!1592}

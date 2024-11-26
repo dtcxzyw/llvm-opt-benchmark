@@ -12338,7 +12338,7 @@ _ZN10serde_json3ser6indent17he2a0242a1b38bcfeE.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.
   call void @llvm.experimental.noalias.scope.decl(metadata !3446)
   %383 = add i64 %361, -1
   store i64 %383, ptr %93, align 8, !alias.scope !3446, !noalias !3449
-  %384 = load i64, ptr %18, align 8, !range !293, !noalias !3449, !noundef !9
+  %384 = load i64, ptr %18, align 8, !range !293, !noalias !3202, !noundef !9
   %.not.not.i.i34.i.i.i.i.i.i.i = icmp eq i64 %384, 0
   br i1 %.not.not.i.i34.i.i.i.i.i.i.i, label %391, label %385
 
@@ -12831,8 +12831,8 @@ _ZN10serde_json3ser6indent17he2a0242a1b38bcfeE.exit.i.i12.i.i.i.i.i.i.i: ; preds
   br label %"_ZN79_$LT$serde_json..ser..PrettyFormatter$u20$as$u20$serde_json..ser..Formatter$GT$10end_object17hf209e155edc4c05eE.exit.i13.i.i.i.i.i.i.i"
 
 560:                                              ; preds = %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17he57417ce393d2f8fE.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i"
-  store i64 0, ptr %93, align 8, !alias.scope !3565, !noalias !3571
-  store i64 1, ptr %18, align 8, !alias.scope !3568, !noalias !3571
+  store i64 0, ptr %93, align 8, !noalias !3202
+  store i64 1, ptr %18, align 8, !noalias !3202
   %.val.i8.i.i.i.i.i.i.i = load ptr, ptr %.val3.i.i33.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !3600, !nonnull !9, !noundef !9
   call void @llvm.experimental.noalias.scope.decl(metadata !3601), !noalias !3602
   %561 = load i64, ptr %176, align 8, !alias.scope !3601, !noalias !3600, !noundef !9

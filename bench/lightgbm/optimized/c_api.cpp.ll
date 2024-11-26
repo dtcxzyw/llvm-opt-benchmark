@@ -46499,9 +46499,9 @@ _ZNSt6vectorISt4pairIidESaIS1_EE7reserveEm.exit.i.i.i: ; preds = %_ZNSt12_Vector
   br i1 %.not.i.i.i.i.i.i, label %48, label %_ZNKSt8functionIFSt4pairIidEiEEclEi.exit.i.i.i.i
 
 48:                                               ; preds = %.lr.ph.i.i.i
-  store ptr %24, ptr %20, align 8, !alias.scope !509
-  store ptr %23, ptr %0, align 8, !alias.scope !509
-  store ptr %22, ptr %10, align 8, !alias.scope !509
+  store ptr %24, ptr %20, align 8
+  store ptr %23, ptr %0, align 8
+  store ptr %22, ptr %10, align 8
   invoke void @_ZSt25__throw_bad_function_callv() #39
           to label %.noexc6.i.i.i unwind label %.loopexit.split-lp.loopexit.split-lp.i.i.i, !noalias !509
 
@@ -46567,9 +46567,9 @@ _ZNKSt8functionIFSt4pairIidEiEEclEi.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i
   br i1 %76, label %.invoke.i.i.i.loopexit, label %_ZNKSt6vectorISt4pairIidESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i.i.i
 
 .invoke.i.i.i.loopexit:                           ; preds = %72
-  store ptr %24, ptr %20, align 8, !alias.scope !509
-  store ptr %23, ptr %0, align 8, !alias.scope !509
-  store ptr %22, ptr %10, align 8, !alias.scope !509
+  store ptr %24, ptr %20, align 8
+  store ptr %23, ptr %0, align 8
+  store ptr %22, ptr %10, align 8
   br label %.invoke.i.i.i
 
 .invoke.i.i.i:                                    ; preds = %.invoke.i.i.i.loopexit, %3
@@ -46632,17 +46632,17 @@ _ZNSt6vectorISt4pairIidESaIS1_EE17_M_realloc_insertIJRiRdEEEvN9__gnu_cxx17__norm
 .loopexit16.i.i.i:                                ; preds = %_ZNKSt8functionIFSt4pairIidEiEEclEi.exit.i.i.i.i
   %lpad.loopexit.i.i.i = landingpad { ptr, i32 }
           cleanup
-  store ptr %24, ptr %20, align 8, !alias.scope !509
-  store ptr %23, ptr %0, align 8, !alias.scope !509
-  store ptr %22, ptr %10, align 8, !alias.scope !509
+  store ptr %24, ptr %20, align 8
+  store ptr %23, ptr %0, align 8
+  store ptr %22, ptr %10, align 8
   br label %.loopexit.split-lp.i.i.i
 
 .loopexit.split-lp.loopexit.i.i.i:                ; preds = %84
   %lpad.loopexit17.i.i.i = landingpad { ptr, i32 }
           cleanup
-  store ptr %24, ptr %20, align 8, !alias.scope !509
-  store ptr %23, ptr %0, align 8, !alias.scope !509
-  store ptr %22, ptr %10, align 8, !alias.scope !509
+  store ptr %24, ptr %20, align 8
+  store ptr %23, ptr %0, align 8
+  store ptr %22, ptr %10, align 8
   br label %.loopexit.split-lp.i.i.i
 
 .loopexit.split-lp.loopexit.split-lp.i.i.i:       ; preds = %.invoke.i.i.i, %48, %_ZNSt12_Vector_baseISt4pairIidESaIS1_EE11_M_allocateEm.exit.i.i.i.i
@@ -46678,9 +46678,9 @@ _ZNSt6vectorISt4pairIidESaIS1_EE12emplace_backIJRiRdEEEvDpOT_.exit.i.i.i: ; pred
   br i1 %107, label %21, label %"_ZSt10__invoke_rISt6vectorISt4pairIidESaIS2_EERZ31LGBM_BoosterPredictSparseOutputE3$_0JlEENSt9enable_ifIXsr6__and_ISt6__not_ISt7is_voidIT_EESt14is_convertibleINSt15__invoke_resultIT0_JDpT1_EE4typeESA_EEE5valueESA_E4typeEOSF_DpOSG_.exit.loopexit", !llvm.loop !514
 
 "_ZSt10__invoke_rISt6vectorISt4pairIidESaIS2_EERZ31LGBM_BoosterPredictSparseOutputE3$_0JlEENSt9enable_ifIXsr6__and_ISt6__not_ISt7is_voidIT_EESt14is_convertibleINSt15__invoke_resultIT0_JDpT1_EE4typeESA_EEE5valueESA_E4typeEOSF_DpOSG_.exit.loopexit": ; preds = %_ZNSt6vectorISt4pairIidESaIS1_EE12emplace_backIJRiRdEEEvDpOT_.exit.i.i.i
-  store ptr %101, ptr %20, align 8, !alias.scope !509
-  store ptr %100, ptr %0, align 8, !alias.scope !509
-  store ptr %99, ptr %10, align 8, !alias.scope !509
+  store ptr %101, ptr %20, align 8
+  store ptr %100, ptr %0, align 8
+  store ptr %99, ptr %10, align 8
   br label %"_ZSt10__invoke_rISt6vectorISt4pairIidESaIS2_EERZ31LGBM_BoosterPredictSparseOutputE3$_0JlEENSt9enable_ifIXsr6__and_ISt6__not_ISt7is_voidIT_EESt14is_convertibleINSt15__invoke_resultIT0_JDpT1_EE4typeESA_EEE5valueESA_E4typeEOSF_DpOSG_.exit"
 
 "_ZSt10__invoke_rISt6vectorISt4pairIidESaIS2_EERZ31LGBM_BoosterPredictSparseOutputE3$_0JlEENSt9enable_ifIXsr6__and_ISt6__not_ISt7is_voidIT_EESt14is_convertibleINSt15__invoke_resultIT0_JDpT1_EE4typeESA_EEE5valueESA_E4typeEOSF_DpOSG_.exit": ; preds = %"_ZSt10__invoke_rISt6vectorISt4pairIidESaIS2_EERZ31LGBM_BoosterPredictSparseOutputE3$_0JlEENSt9enable_ifIXsr6__and_ISt6__not_ISt7is_voidIT_EESt14is_convertibleINSt15__invoke_resultIT0_JDpT1_EE4typeESA_EEE5valueESA_E4typeEOSF_DpOSG_.exit.loopexit", %_ZNSt6vectorISt4pairIidESaIS1_EE7reserveEm.exit.i.i.i
@@ -50353,9 +50353,9 @@ _ZNSt6vectorISt4pairIidESaIS1_EE7reserveEm.exit.i.i.i: ; preds = %_ZNSt12_Vector
   br i1 %.not.i.i.i.i.i.i, label %47, label %_ZNKSt8functionIFSt4pairIidEiEEclEi.exit.i.i.i.i
 
 47:                                               ; preds = %.lr.ph.i.i.i
-  store ptr %23, ptr %19, align 8, !alias.scope !568
-  store ptr %22, ptr %0, align 8, !alias.scope !568
-  store ptr %21, ptr %10, align 8, !alias.scope !568
+  store ptr %23, ptr %19, align 8
+  store ptr %22, ptr %0, align 8
+  store ptr %21, ptr %10, align 8
   invoke void @_ZSt25__throw_bad_function_callv() #39
           to label %.noexc6.i.i.i unwind label %.loopexit.split-lp.loopexit.split-lp.i.i.i, !noalias !568
 
@@ -50421,9 +50421,9 @@ _ZNKSt8functionIFSt4pairIidEiEEclEi.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i
   br i1 %75, label %.invoke.i.i.i.loopexit, label %_ZNKSt6vectorISt4pairIidESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i.i.i
 
 .invoke.i.i.i.loopexit:                           ; preds = %71
-  store ptr %23, ptr %19, align 8, !alias.scope !568
-  store ptr %22, ptr %0, align 8, !alias.scope !568
-  store ptr %21, ptr %10, align 8, !alias.scope !568
+  store ptr %23, ptr %19, align 8
+  store ptr %22, ptr %0, align 8
+  store ptr %21, ptr %10, align 8
   br label %.invoke.i.i.i
 
 .invoke.i.i.i:                                    ; preds = %.invoke.i.i.i.loopexit, %3
@@ -50486,17 +50486,17 @@ _ZNSt6vectorISt4pairIidESaIS1_EE17_M_realloc_insertIJRiRdEEEvN9__gnu_cxx17__norm
 .loopexit16.i.i.i:                                ; preds = %_ZNKSt8functionIFSt4pairIidEiEEclEi.exit.i.i.i.i
   %lpad.loopexit.i.i.i = landingpad { ptr, i32 }
           cleanup
-  store ptr %23, ptr %19, align 8, !alias.scope !568
-  store ptr %22, ptr %0, align 8, !alias.scope !568
-  store ptr %21, ptr %10, align 8, !alias.scope !568
+  store ptr %23, ptr %19, align 8
+  store ptr %22, ptr %0, align 8
+  store ptr %21, ptr %10, align 8
   br label %.loopexit.split-lp.i.i.i
 
 .loopexit.split-lp.loopexit.i.i.i:                ; preds = %83
   %lpad.loopexit17.i.i.i = landingpad { ptr, i32 }
           cleanup
-  store ptr %23, ptr %19, align 8, !alias.scope !568
-  store ptr %22, ptr %0, align 8, !alias.scope !568
-  store ptr %21, ptr %10, align 8, !alias.scope !568
+  store ptr %23, ptr %19, align 8
+  store ptr %22, ptr %0, align 8
+  store ptr %21, ptr %10, align 8
   br label %.loopexit.split-lp.i.i.i
 
 .loopexit.split-lp.loopexit.split-lp.i.i.i:       ; preds = %.invoke.i.i.i, %47, %_ZNSt12_Vector_baseISt4pairIidESaIS1_EE11_M_allocateEm.exit.i.i.i.i
@@ -50532,9 +50532,9 @@ _ZNSt6vectorISt4pairIidESaIS1_EE12emplace_backIJRiRdEEEvDpOT_.exit.i.i.i: ; pred
   br i1 %106, label %20, label %"_ZSt10__invoke_rISt6vectorISt4pairIidESaIS2_EERZ25LGBM_BoosterPredictForCSCE3$_0JiEENSt9enable_ifIXsr6__and_ISt6__not_ISt7is_voidIT_EESt14is_convertibleINSt15__invoke_resultIT0_JDpT1_EE4typeESA_EEE5valueESA_E4typeEOSF_DpOSG_.exit.loopexit", !llvm.loop !573
 
 "_ZSt10__invoke_rISt6vectorISt4pairIidESaIS2_EERZ25LGBM_BoosterPredictForCSCE3$_0JiEENSt9enable_ifIXsr6__and_ISt6__not_ISt7is_voidIT_EESt14is_convertibleINSt15__invoke_resultIT0_JDpT1_EE4typeESA_EEE5valueESA_E4typeEOSF_DpOSG_.exit.loopexit": ; preds = %_ZNSt6vectorISt4pairIidESaIS1_EE12emplace_backIJRiRdEEEvDpOT_.exit.i.i.i
-  store ptr %100, ptr %19, align 8, !alias.scope !568
-  store ptr %99, ptr %0, align 8, !alias.scope !568
-  store ptr %98, ptr %10, align 8, !alias.scope !568
+  store ptr %100, ptr %19, align 8
+  store ptr %99, ptr %0, align 8
+  store ptr %98, ptr %10, align 8
   br label %"_ZSt10__invoke_rISt6vectorISt4pairIidESaIS2_EERZ25LGBM_BoosterPredictForCSCE3$_0JiEENSt9enable_ifIXsr6__and_ISt6__not_ISt7is_voidIT_EESt14is_convertibleINSt15__invoke_resultIT0_JDpT1_EE4typeESA_EEE5valueESA_E4typeEOSF_DpOSG_.exit"
 
 "_ZSt10__invoke_rISt6vectorISt4pairIidESaIS2_EERZ25LGBM_BoosterPredictForCSCE3$_0JiEENSt9enable_ifIXsr6__and_ISt6__not_ISt7is_voidIT_EESt14is_convertibleINSt15__invoke_resultIT0_JDpT1_EE4typeESA_EEE5valueESA_E4typeEOSF_DpOSG_.exit": ; preds = %"_ZSt10__invoke_rISt6vectorISt4pairIidESaIS2_EERZ25LGBM_BoosterPredictForCSCE3$_0JiEENSt9enable_ifIXsr6__and_ISt6__not_ISt7is_voidIT_EESt14is_convertibleINSt15__invoke_resultIT0_JDpT1_EE4typeESA_EEE5valueESA_E4typeEOSF_DpOSG_.exit.loopexit", %_ZNSt6vectorISt4pairIidESaIS1_EE7reserveEm.exit.i.i.i
@@ -53258,9 +53258,9 @@ define internal void @"_ZNSt17_Function_handlerIFSt6vectorISt4pairIidESaIS2_EEiE
   br i1 %7, label %.invoke.i.i.i, label %10
 
 .invoke.i.i.i.loopexit:                           ; preds = %64
-  store ptr %23, ptr %14, align 8, !alias.scope !619
-  store ptr %20, ptr %0, align 8, !alias.scope !619
-  store ptr %19, ptr %11, align 8, !alias.scope !619
+  store ptr %23, ptr %14, align 8
+  store ptr %20, ptr %0, align 8
+  store ptr %19, ptr %11, align 8
   br label %.invoke.i.i.i
 
 .invoke.i.i.i:                                    ; preds = %.invoke.i.i.i.loopexit, %3
@@ -53352,9 +53352,9 @@ _ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEiZNK8Ligh
   br i1 %.not.i.i8.i.i.i.i, label %56, label %_ZNKSt8functionIFdPK10ArrowArraylEEclES2_l.exit.i.i.i.i
 
 56:                                               ; preds = %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEiZNK8LightGBM17ArrowChunkedArray8IteratorIdEixIiEEdT_EUlllE_ESD_SD_SD_RKT0_T1_.exit.i.i.i.i
-  store ptr %23, ptr %14, align 8, !alias.scope !619
-  store ptr %20, ptr %0, align 8, !alias.scope !619
-  store ptr %19, ptr %11, align 8, !alias.scope !619
+  store ptr %23, ptr %14, align 8
+  store ptr %20, ptr %0, align 8
+  store ptr %19, ptr %11, align 8
   invoke void @_ZSt25__throw_bad_function_callv() #39
           to label %.noexc9.i.i.i unwind label %.loopexit.split-lp.i.i.i, !noalias !619
 
@@ -53448,9 +53448,9 @@ _ZNSt6vectorISt4pairIidESaIS1_EE12emplace_backIJidEEEvDpOT_.exit.i.i.i: ; preds 
 .loopexit.i.i.i:                                  ; preds = %74, %_ZNKSt8functionIFdPK10ArrowArraylEEclES2_l.exit.i.i.i.i
   %lpad.loopexit.i.i.i = landingpad { ptr, i32 }
           cleanup
-  store ptr %23, ptr %14, align 8, !alias.scope !619
-  store ptr %20, ptr %0, align 8, !alias.scope !619
-  store ptr %19, ptr %11, align 8, !alias.scope !619
+  store ptr %23, ptr %14, align 8
+  store ptr %20, ptr %0, align 8
+  store ptr %19, ptr %11, align 8
   br label %93
 
 .loopexit.split-lp.i.i.i:                         ; preds = %56, %_ZNSt12_Vector_baseISt4pairIidESaIS1_EE11_M_allocateEm.exit.i.i.i.i, %.invoke.i.i.i
@@ -53473,9 +53473,9 @@ _ZNSt6vectorISt4pairIidESaIS1_EED2Ev.exit.i.i.i:  ; preds = %95, %93
   resume { ptr, i32 } %lpad.phi.i.i.i
 
 "_ZSt10__invoke_rISt6vectorISt4pairIidESaIS2_EERZ27LGBM_BoosterPredictForArrowE3$_0JiEENSt9enable_ifIXsr6__and_ISt6__not_ISt7is_voidIT_EESt14is_convertibleINSt15__invoke_resultIT0_JDpT1_EE4typeESA_EEE5valueESA_E4typeEOSF_DpOSG_.exit.loopexit": ; preds = %_ZNSt6vectorISt4pairIidESaIS1_EE12emplace_backIJidEEEvDpOT_.exit.i.i.i
-  store ptr %88, ptr %14, align 8, !alias.scope !619
-  store ptr %85, ptr %0, align 8, !alias.scope !619
-  store ptr %84, ptr %11, align 8, !alias.scope !619
+  store ptr %88, ptr %14, align 8
+  store ptr %85, ptr %0, align 8
+  store ptr %84, ptr %11, align 8
   br label %"_ZSt10__invoke_rISt6vectorISt4pairIidESaIS2_EERZ27LGBM_BoosterPredictForArrowE3$_0JiEENSt9enable_ifIXsr6__and_ISt6__not_ISt7is_voidIT_EESt14is_convertibleINSt15__invoke_resultIT0_JDpT1_EE4typeESA_EEE5valueESA_E4typeEOSF_DpOSG_.exit"
 
 "_ZSt10__invoke_rISt6vectorISt4pairIidESaIS2_EERZ27LGBM_BoosterPredictForArrowE3$_0JiEENSt9enable_ifIXsr6__and_ISt6__not_ISt7is_voidIT_EESt14is_convertibleINSt15__invoke_resultIT0_JDpT1_EE4typeESA_EEE5valueESA_E4typeEOSF_DpOSG_.exit": ; preds = %"_ZSt10__invoke_rISt6vectorISt4pairIidESaIS2_EERZ27LGBM_BoosterPredictForArrowE3$_0JiEENSt9enable_ifIXsr6__and_ISt6__not_ISt7is_voidIT_EESt14is_convertibleINSt15__invoke_resultIT0_JDpT1_EE4typeESA_EEE5valueESA_E4typeEOSF_DpOSG_.exit.loopexit", %10
@@ -56907,9 +56907,9 @@ _ZNSt6vectorISt4pairIidESaIS1_EE7reserveEm.exit.i.i.i: ; preds = %_ZNSt12_Vector
   br i1 %51, label %52, label %_ZNKSt6vectorISt4pairIidESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i.i.i
 
 52:                                               ; preds = %47
-  store ptr %31, ptr %24, align 8, !alias.scope !699
-  store ptr %30, ptr %0, align 8, !alias.scope !699
-  store ptr %29, ptr %21, align 8, !alias.scope !699
+  store ptr %31, ptr %24, align 8
+  store ptr %30, ptr %0, align 8
+  store ptr %29, ptr %21, align 8
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.16) #39
           to label %.noexc5.i.i.i unwind label %.loopexit.split-lp.i.i.i, !noalias !699
 
@@ -56968,9 +56968,9 @@ _ZNSt6vectorISt4pairIidESaIS1_EE17_M_realloc_insertIJRiRdEEEvN9__gnu_cxx17__norm
 .loopexit.i.i.i:                                  ; preds = %58
   %lpad.loopexit.i.i.i = landingpad { ptr, i32 }
           cleanup
-  store ptr %31, ptr %24, align 8, !alias.scope !699
-  store ptr %30, ptr %0, align 8, !alias.scope !699
-  store ptr %29, ptr %21, align 8, !alias.scope !699
+  store ptr %31, ptr %24, align 8
+  store ptr %30, ptr %0, align 8
+  store ptr %29, ptr %21, align 8
   br label %72
 
 .loopexit.split-lp.i.i.i:                         ; preds = %52, %_ZNSt12_Vector_baseISt4pairIidESaIS1_EE11_M_allocateEm.exit.i.i.i.i, %19
@@ -57020,9 +57020,9 @@ _ZNSt6vectorISt4pairIidESaIS1_EE12emplace_backIJRiRdEEEvDpOT_.exit.i.i.i: ; pred
   br i1 %89, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i.loopexit, !llvm.loop !707
 
 ._crit_edge.i.i.i.loopexit:                       ; preds = %_ZNSt6vectorISt4pairIidESaIS1_EE12emplace_backIJRiRdEEEvDpOT_.exit.i.i.i
-  store ptr %79, ptr %24, align 8, !alias.scope !699
-  store ptr %78, ptr %0, align 8, !alias.scope !699
-  store ptr %77, ptr %21, align 8, !alias.scope !699
+  store ptr %79, ptr %24, align 8
+  store ptr %78, ptr %0, align 8
+  store ptr %77, ptr %21, align 8
   br label %._crit_edge.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %._crit_edge.i.i.i.loopexit, %_ZNSt6vectorISt4pairIidESaIS1_EE7reserveEm.exit.i.i.i, %20
@@ -57275,9 +57275,9 @@ _ZNSt6vectorISt4pairIidESaIS1_EE7reserveEm.exit.i.i.i: ; preds = %_ZNSt12_Vector
   br i1 %62, label %63, label %_ZNKSt6vectorISt4pairIidESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i.i.i
 
 63:                                               ; preds = %58
-  store ptr %42, ptr %35, align 8, !alias.scope !718
-  store ptr %41, ptr %0, align 8, !alias.scope !718
-  store ptr %40, ptr %32, align 8, !alias.scope !718
+  store ptr %42, ptr %35, align 8
+  store ptr %41, ptr %0, align 8
+  store ptr %40, ptr %32, align 8
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.16) #39
           to label %.noexc9.i.i.i unwind label %.loopexit.split-lp.i.i.i, !noalias !718
 
@@ -57342,9 +57342,9 @@ _ZNSt6vectorISt4pairIidESaIS1_EE17_M_realloc_insertIJRiRdEEEvN9__gnu_cxx17__norm
 .loopexit.i.i.i:                                  ; preds = %69
   %lpad.loopexit.i.i.i = landingpad { ptr, i32 }
           cleanup
-  store ptr %42, ptr %35, align 8, !alias.scope !718
-  store ptr %41, ptr %0, align 8, !alias.scope !718
-  store ptr %40, ptr %32, align 8, !alias.scope !718
+  store ptr %42, ptr %35, align 8
+  store ptr %41, ptr %0, align 8
+  store ptr %40, ptr %32, align 8
   br label %86
 
 .loopexit.split-lp.i.i.i:                         ; preds = %63, %_ZNSt12_Vector_baseISt4pairIidESaIS1_EE11_M_allocateEm.exit.i.i.i.i, %30
@@ -57391,9 +57391,9 @@ _ZNSt6vectorISt4pairIidESaIS1_EE12emplace_backIJRiRdEEEvDpOT_.exit.i.i.i: ; pred
   br i1 %103, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i.loopexit, !llvm.loop !730
 
 ._crit_edge.i.i.i.loopexit:                       ; preds = %_ZNSt6vectorISt4pairIidESaIS1_EE12emplace_backIJRiRdEEEvDpOT_.exit.i.i.i
-  store ptr %93, ptr %35, align 8, !alias.scope !718
-  store ptr %92, ptr %0, align 8, !alias.scope !718
-  store ptr %91, ptr %32, align 8, !alias.scope !718
+  store ptr %93, ptr %35, align 8
+  store ptr %92, ptr %0, align 8
+  store ptr %91, ptr %32, align 8
   br label %._crit_edge.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %._crit_edge.i.i.i.loopexit, %_ZNSt6vectorISt4pairIidESaIS1_EE7reserveEm.exit.i.i.i, %31

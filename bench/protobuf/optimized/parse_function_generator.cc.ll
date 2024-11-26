@@ -622,7 +622,7 @@ invoke.cont7.lr.ph.i:                             ; preds = %invoke.cont
   br label %invoke.cont7.i
 
 invoke.cont7.i:                                   ; preds = %for.inc.i, %invoke.cont7.lr.ph.i
-  %cond.i10.i.i.i32 = phi ptr [ null, %invoke.cont7.lr.ph.i ], [ %.pre.i, %for.inc.i ]
+  %cond.i10.i.i.i32 = phi ptr [ null, %invoke.cont7.lr.ph.i ], [ %cond.i10.i.i.i31, %for.inc.i ]
   %indvars.iv.i = phi i64 [ 0, %invoke.cont7.lr.ph.i ], [ %indvars.iv.next.i, %for.inc.i ]
   %add.ptr19.i.i14.i = phi ptr [ null, %invoke.cont7.lr.ph.i ], [ %add.ptr19.i.i13.i, %for.inc.i ]
   %incdec.ptr.i.i11.i = phi ptr [ null, %invoke.cont7.lr.ph.i ], [ %incdec.ptr.i.i12.i, %for.inc.i ]
@@ -695,7 +695,7 @@ _ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EE17_M_realloc_insertIJR
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %_ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i, %if.then.i.i
-  %.pre.i = phi ptr [ %cond.i10.i.i.i, %_ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i ], [ %cond.i10.i.i.i32, %if.then.i.i ]
+  %cond.i10.i.i.i31 = phi ptr [ %cond.i10.i.i.i, %_ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i ], [ %cond.i10.i.i.i32, %if.then.i.i ]
   %add.ptr19.i.i13.i = phi ptr [ %add.ptr19.i.i.i, %_ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i ], [ %add.ptr19.i.i14.i, %if.then.i.i ]
   %incdec.ptr.i.i12.i = phi ptr [ %incdec.ptr.i.i.i, %_ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i ], [ %incdec.ptr.i.i, %if.then.i.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -718,6 +718,7 @@ lpad.i:                                           ; preds = %lpad.loopexit.split
   br i1 %tobool.not.i.i.i5.i, label %ehcleanup38, label %ehcleanup38.sink.split
 
 for.end.i:                                        ; preds = %for.inc.i
+  %.pre.i = load ptr, ptr %ordered_fields_, align 8, !alias.scope !4
   %cmp.i.not.i.i.i = icmp eq ptr %.pre.i, %incdec.ptr.i.i12.i
   br i1 %cmp.i.not.i.i.i, label %invoke.cont5, label %if.then.i.i.i
 

@@ -971,7 +971,7 @@ common.resume.i:                                  ; preds = %109, %.body.i, %30
 92:                                               ; preds = %94
   %93 = landingpad { ptr, i32 }
           cleanup
-  store ptr %51, ptr %43, align 8, !alias.scope !210, !noalias !211
+  store ptr %51, ptr %43, align 8, !noalias !117
   invoke void @"_ZN4core3ptr38drop_in_place$LT$syn..error..Error$GT$17he38eaf4a9763d684E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6) #13
           to label %.body.i.i.i unwind label %95, !noalias !194
 
@@ -986,7 +986,7 @@ common.resume.i:                                  ; preds = %109, %.body.i, %30
   unreachable
 
 .loopexit.i.i.i.sink.split:                       ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hd69fc089f6531743E.exit.i.i.i", %.noexc5.i.i.i
-  store ptr %51, ptr %43, align 8, !alias.scope !210, !noalias !211
+  store ptr %51, ptr %43, align 8, !noalias !117
   br label %.loopexit.i.i.i
 
 .loopexit.i.i.i:                                  ; preds = %.loopexit.i.i.i.sink.split, %39

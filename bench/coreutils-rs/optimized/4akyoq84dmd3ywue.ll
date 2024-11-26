@@ -1997,7 +1997,7 @@ define void @_ZN9uu_mktemp6Params4from17h1b7886859fa0f651E(ptr noalias nocapture
   %68 = getelementptr inbounds i8, ptr %28, i64 80
   %69 = load i64, ptr %68, align 8, !alias.scope !363, !noalias !366, !noundef !5
   %.promoted.i.i.i = load i8, ptr %64, align 1, !alias.scope !363, !noalias !366
-  %.promoted35.i.i.i = load i64, ptr %65, align 8, !alias.scope !363, !noalias !366
+  %.promoted35.i.i.i = load i64, ptr %65, align 8, !noalias !353
   %70 = trunc nuw i8 %.promoted.i.i.i to i1
   %71 = icmp eq i64 %.promoted35.i.i.i, 0
   br i1 %71, label %"_ZN4core3str21_$LT$impl$u20$str$GT$5rfind17h6dfb6aa82238df0fE.exit.i", label %.lr.ph.i.i
@@ -2136,7 +2136,7 @@ _ZN4core3str11validations23next_code_point_reverse17h0c36ac845fa069d6E.exit.thre
   tail call void @llvm.experimental.noalias.scope.decl(metadata !382)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !384)
   %144 = getelementptr inbounds i8, ptr %28, i64 48
-  %.promoted.i = load i64, ptr %144, align 8, !alias.scope !379, !noalias !386
+  %.promoted.i = load i64, ptr %144, align 8
   %145 = sub i64 %.promoted.i, %143
   %.not3764.i = icmp ult i64 %145, %139
   br i1 %.not3764.i, label %.lr.ph.i, label %"_ZN4core3str21_$LT$impl$u20$str$GT$5rfind17h6dfb6aa82238df0fE.exit.i.thread"
@@ -2149,7 +2149,7 @@ _ZN4core3str11validations23next_code_point_reverse17h0c36ac845fa069d6E.exit.thre
   %150 = getelementptr inbounds i8, ptr %28, i64 64
   %151 = getelementptr inbounds i8, ptr %28, i64 24
   %152 = load i64, ptr %151, align 8, !alias.scope !379, !noalias !386
-  %.promoted65.i = load i64, ptr %150, align 8, !alias.scope !379, !noalias !386
+  %.promoted65.i = load i64, ptr %150, align 8
   br label %153
 
 153:                                              ; preds = %177, %.lr.ph.i

@@ -21830,7 +21830,7 @@ define hidden void @"_ZN98_$LT$core..iter..adapters..rev..Rev$LT$I$GT$$u20$as$u2
 10:                                               ; preds = %12
   %11 = landingpad { ptr, i32 }
           cleanup
-  store ptr %13, ptr %5, align 8, !alias.scope !4553, !noalias !4556
+  store ptr %13, ptr %5, align 8
   invoke void @"_ZN4core3ptr64drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$char$GT$$GT$17h40fa60f8ff8f65f3E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %4) #48
           to label %common.resume.i unwind label %21
 
@@ -21841,7 +21841,7 @@ define hidden void @"_ZN98_$LT$core..iter..adapters..rev..Rev$LT$I$GT$$u20$as$u2
           to label %"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hc2bfa061b3a97869E.exit.i" unwind label %10, !noalias !4550
 
 15:                                               ; preds = %"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hc2bfa061b3a97869E.exit.i"
-  store ptr %8, ptr %5, align 8, !alias.scope !4553, !noalias !4556
+  store ptr %8, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !4559
   store ptr %4, ptr %3, align 8, !noalias !4559
   %16 = invoke noundef i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17hf1dbf3c3c5653ee9E.llvm.17197147422070727095(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %4)

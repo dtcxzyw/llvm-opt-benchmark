@@ -162,11 +162,17 @@ invoke.cont21.i:                                  ; preds = %for.body20.i
 lpad.loopexit.i:                                  ; preds = %for.body20.i, %for.cond16.i
   %lpad.loopexit101.i = landingpad { ptr, i32 }
           cleanup
+  store ptr %add.ptr19.i.i.i153, ptr %3, align 8
+  store ptr %incdec.ptr.i.i.i156, ptr %_M_finish.i18.i, align 8
+  store ptr %cond.i12.i.i.i160, ptr %entries, align 8
   br label %lpad.i
 
 lpad.loopexit.split-lp.loopexit.i:                ; preds = %cond.true.i.i.i77.i, %cond.true.i.i.i38.i, %invoke.cont33.i, %land.lhs.true.i, %cond.true.i.i.i.i, %if.then.i
   %lpad.loopexit103.i = landingpad { ptr, i32 }
           cleanup
+  store ptr %add.ptr19.i.i.i153, ptr %3, align 8
+  store ptr %incdec.ptr.i.i.i156, ptr %_M_finish.i18.i, align 8
+  store ptr %cond.i12.i.i.i160, ptr %entries, align 8
   br label %lpad.i
 
 lpad.loopexit.split-lp.loopexit.split-lp.i:       ; preds = %if.then.i.i.i91.invoke.i, %land.rhs.i, %invoke.cont.i, %_ZNSt12_Vector_baseIN3net12_GLOBAL__N_19CertEntryESaIS2_EE11_M_allocateEm.exit.i.i
@@ -207,7 +213,7 @@ if.else.i.i:                                      ; preds = %if.end.i
   %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %cond.i12.i.i.i160 to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
   %cmp.i.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i.i, 9223372036854775776
-  br i1 %cmp.i.i.i.i, label %if.then.i.i.i91.invoke.i, label %_ZNKSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
+  br i1 %cmp.i.i.i.i, label %if.then.i.i.i91.invoke.i.loopexit, label %_ZNKSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
 
 _ZNKSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %if.else.i.i
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i, 5
@@ -284,7 +290,7 @@ if.else.i24.i:                                    ; preds = %if.then37.i
   %sub.ptr.rhs.cast.i.i.i.i27.i = ptrtoint ptr %cond.i12.i.i.i160 to i64
   %sub.ptr.sub.i.i.i.i28.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i26.i, %sub.ptr.rhs.cast.i.i.i.i27.i
   %cmp.i.i.i29.i = icmp eq i64 %sub.ptr.sub.i.i.i.i28.i, 9223372036854775776
-  br i1 %cmp.i.i.i29.i, label %if.then.i.i.i91.invoke.i, label %_ZNKSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i30.i
+  br i1 %cmp.i.i.i29.i, label %if.then.i.i.i91.invoke.i.loopexit, label %_ZNKSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i30.i
 
 _ZNKSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i30.i: ; preds = %if.else.i24.i
   %sub.ptr.div.i.i.i.i31.i = ashr exact i64 %sub.ptr.sub.i.i.i.i28.i, 5
@@ -342,11 +348,17 @@ if.else.i63.i:                                    ; preds = %if.end40.i
   %sub.ptr.rhs.cast.i.i.i.i66.i = ptrtoint ptr %cond.i12.i.i.i160 to i64
   %sub.ptr.sub.i.i.i.i67.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i65.i, %sub.ptr.rhs.cast.i.i.i.i66.i
   %cmp.i.i.i68.i = icmp eq i64 %sub.ptr.sub.i.i.i.i67.i, 9223372036854775776
-  br i1 %cmp.i.i.i68.i, label %if.then.i.i.i91.invoke.i, label %_ZNKSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i69.i
+  br i1 %cmp.i.i.i68.i, label %if.then.i.i.i91.invoke.i.loopexit, label %_ZNKSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i69.i
 
-if.then.i.i.i91.invoke.i:                         ; preds = %if.else.i63.i, %if.else.i24.i, %if.else.i.i, %entry
-  %agg.result.val.i191 = phi ptr [ null, %entry ], [ %cond.i12.i.i.i160, %if.else.i.i ], [ %cond.i12.i.i.i160, %if.else.i24.i ], [ %cond.i12.i.i.i160, %if.else.i63.i ]
-  %14 = phi ptr [ @.str.3, %entry ], [ @.str.4, %if.else.i.i ], [ @.str.4, %if.else.i24.i ], [ @.str.4, %if.else.i63.i ]
+if.then.i.i.i91.invoke.i.loopexit:                ; preds = %if.else.i.i, %if.else.i24.i, %if.else.i63.i
+  store ptr %add.ptr19.i.i.i153, ptr %3, align 8
+  store ptr %incdec.ptr.i.i.i156, ptr %_M_finish.i18.i, align 8
+  store ptr %cond.i12.i.i.i160, ptr %entries, align 8
+  br label %if.then.i.i.i91.invoke.i
+
+if.then.i.i.i91.invoke.i:                         ; preds = %if.then.i.i.i91.invoke.i.loopexit, %entry
+  %agg.result.val.i191 = phi ptr [ null, %entry ], [ %cond.i12.i.i.i160, %if.then.i.i.i91.invoke.i.loopexit ]
+  %14 = phi ptr [ @.str.3, %entry ], [ @.str.4, %if.then.i.i.i91.invoke.i.loopexit ]
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull %14) #17
           to label %if.then.i.i.i91.cont.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.i, !noalias !5
 
@@ -404,9 +416,9 @@ for.inc43.i:                                      ; preds = %_ZNSt6vectorIN3net1
   br i1 %cmp.i10.not.i, label %if.end, label %for.body.i, !llvm.loop !10
 
 if.end:                                           ; preds = %for.inc43.i
-  store ptr %add.ptr19.i.i.i152, ptr %3, align 8, !alias.scope !5
-  store ptr %16, ptr %_M_finish.i18.i, align 8, !alias.scope !5
-  store ptr %cond.i12.i.i.i159, ptr %entries, align 8, !alias.scope !5
+  store ptr %add.ptr19.i.i.i152, ptr %3, align 8
+  store ptr %16, ptr %_M_finish.i18.i, align 8
+  store ptr %cond.i12.i.i.i159, ptr %entries, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %client_cached_cert_hashes.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %entry9.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i)

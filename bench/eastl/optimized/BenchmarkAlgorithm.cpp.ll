@@ -10430,8 +10430,8 @@ for.body.lr.ph.i:                                 ; preds = %invoke.cont200
   %_ZN10TestObject12sTODtorCountE.promoted.i = load i64, ptr @_ZN10TestObject12sTODtorCountE, align 8
   %_ZN10TestObject16sMagicErrorCountE.promoted.i = load i32, ptr @_ZN10TestObject16sMagicErrorCountE, align 4
   %_ZN10TestObject18sTOMoveAssignCountE.promoted.i = load i64, ptr @_ZN10TestObject18sTOMoveAssignCountE, align 8
-  %_ZN10TestObject19sTODefaultCtorCountE.promoted.i429 = load i64, ptr @_ZN10TestObject19sTODefaultCtorCountE, align 8, !noalias !112
-  %_ZN10TestObject12sTOCtorCountE.promoted.i430 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8, !noalias !112
+  %_ZN10TestObject19sTODefaultCtorCountE.promoted.i429 = load i64, ptr @_ZN10TestObject19sTODefaultCtorCountE, align 8
+  %_ZN10TestObject12sTOCtorCountE.promoted.i430 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8
   %_ZN10TestObject8sTOCountE.promoted.i431 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
   br label %for.body.i432
 
@@ -10751,8 +10751,8 @@ for.body.lr.ph.i550:                              ; preds = %invoke.cont254
   %_ZN10TestObject12sTODtorCountE.promoted.i551 = load i64, ptr @_ZN10TestObject12sTODtorCountE, align 8
   %_ZN10TestObject16sMagicErrorCountE.promoted.i552 = load i32, ptr @_ZN10TestObject16sMagicErrorCountE, align 4
   %_ZN10TestObject18sTOMoveAssignCountE.promoted.i553 = load i64, ptr @_ZN10TestObject18sTOMoveAssignCountE, align 8
-  %_ZN10TestObject19sTODefaultCtorCountE.promoted.i554 = load i64, ptr @_ZN10TestObject19sTODefaultCtorCountE, align 8, !noalias !131
-  %_ZN10TestObject12sTOCtorCountE.promoted.i555 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8, !noalias !131
+  %_ZN10TestObject19sTODefaultCtorCountE.promoted.i554 = load i64, ptr @_ZN10TestObject19sTODefaultCtorCountE, align 8
+  %_ZN10TestObject12sTOCtorCountE.promoted.i555 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8
   %_ZN10TestObject8sTOCountE.promoted.i556 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
   br label %for.body.i557
 

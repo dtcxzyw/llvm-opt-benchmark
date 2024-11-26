@@ -6724,7 +6724,7 @@ define internal fastcc { ptr, ptr } @"_ZN99_$LT$core..iter..adapters..zip..Zip$L
   br i1 %trunc.i.i.i.i.i.i.i, label %.split.us.preheader.i.i.i.i.i.i, label %.split.i.i.i.i.i.i
 
 .split.us.preheader.i.i.i.i.i.i:                  ; preds = %28
-  %.promoted17.i.i.i.i.i.i = load ptr, ptr %10, align 8, !alias.scope !1750
+  %.promoted17.i.i.i.i.i.i = load ptr, ptr %10, align 8, !alias.scope !1743
   br label %.split.us.i.i.i.i.i.i
 
 .split.us.i.i.i.i.i.i:                            ; preds = %36, %.split.us.preheader.i.i.i.i.i.i
@@ -6738,11 +6738,11 @@ define internal fastcc { ptr, ptr } @"_ZN99_$LT$core..iter..adapters..zip..Zip$L
   %33 = icmp eq ptr %.sink.i15.us.i.i.i.i.i.i, %31
   %34 = getelementptr inbounds i8, ptr %.sink.i15.us.i.i.i.i.i.i, i64 8
   %.sink.i.us.i.i.i.i.i.i = select i1 %33, ptr null, ptr %34
-  store ptr %.sink.i.us.i.i.i.i.i.i, ptr %8, align 8, !alias.scope !1755
+  store ptr %.sink.i.us.i.i.i.i.i.i, ptr %8, align 8, !alias.scope !1750
   br i1 %33, label %select.unfold.us.i.i.i.i.i.i, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0ce2d1f82f834767E.exit.i"
 
 select.unfold.us.i.i.i.i.i.i:                     ; preds = %.sink.split.i.us.i.i.i.i.i.i, %.split.us.i.i.i.i.i.i
-  store ptr null, ptr %10, align 8, !alias.scope !1750
+  store ptr null, ptr %10, align 8, !alias.scope !1753
   %35 = icmp eq ptr %30, null
   br i1 %35, label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h14094fc013af3e0dE.exit.thread.i.i.i.i.i.i", label %36
 
@@ -6760,7 +6760,7 @@ select.unfold.us.i.i.i.i.i.i:                     ; preds = %.sink.split.i.us.i.
   %39 = icmp eq ptr %.promoted.i.i.i.i.i.i, %.promoted16.i.i.i.i.i.i
   %40 = getelementptr inbounds i8, ptr %.promoted.i.i.i.i.i.i, i64 8
   %.sink.i.i.i.i.i.i.i = select i1 %39, ptr null, ptr %40
-  store ptr %.sink.i.i.i.i.i.i.i, ptr %8, align 8, !alias.scope !1755
+  store ptr %.sink.i.i.i.i.i.i.i, ptr %8, align 8, !alias.scope !1750
   br i1 %39, label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h14094fc013af3e0dE.exit.thread.i.i.i.i.i.i", label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0ce2d1f82f834767E.exit.i"
 
 "_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h14094fc013af3e0dE.exit.thread.i.i.i.i.i.i": ; preds = %select.unfold.us.i.i.i.i.i.i, %.sink.split.i.i.i.i.i.i.i, %.split.i.i.i.i.i.i
@@ -70247,14 +70247,14 @@ attributes #33 = { cold }
 !1747 = distinct !{!1747, !"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf8f0d6c528f53599E"}
 !1748 = distinct !{!1748, !1749, !"_ZN4core3ops8function6FnOnce9call_once17h26557315fdbc7467E: argument 0"}
 !1749 = distinct !{!1749, !"_ZN4core3ops8function6FnOnce9call_once17h26557315fdbc7467E"}
-!1750 = !{!1751, !1753, !1744, !1746, !1748, !1735, !1737, !1732}
-!1751 = distinct !{!1751, !1752, !"_ZN90_$LT$core..option..IntoIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2013e5e57c4e21ebE: argument 0"}
-!1752 = distinct !{!1752, !"_ZN90_$LT$core..option..IntoIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2013e5e57c4e21ebE"}
-!1753 = distinct !{!1753, !1754, !"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h14094fc013af3e0dE: argument 0"}
-!1754 = distinct !{!1754, !"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h14094fc013af3e0dE"}
-!1755 = !{!1756, !1744, !1746, !1748, !1735, !1737, !1732}
-!1756 = distinct !{!1756, !1757, !"_ZN4core4iter8adapters7flatten17and_then_or_clear17h8cd286c7286eaf98E: argument 0"}
-!1757 = distinct !{!1757, !"_ZN4core4iter8adapters7flatten17and_then_or_clear17h8cd286c7286eaf98E"}
+!1750 = !{!1751, !1744, !1746, !1748, !1735, !1737, !1732}
+!1751 = distinct !{!1751, !1752, !"_ZN4core4iter8adapters7flatten17and_then_or_clear17h8cd286c7286eaf98E: argument 0"}
+!1752 = distinct !{!1752, !"_ZN4core4iter8adapters7flatten17and_then_or_clear17h8cd286c7286eaf98E"}
+!1753 = !{!1754, !1756, !1744, !1746, !1748, !1735, !1737, !1732}
+!1754 = distinct !{!1754, !1755, !"_ZN90_$LT$core..option..IntoIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2013e5e57c4e21ebE: argument 0"}
+!1755 = distinct !{!1755, !"_ZN90_$LT$core..option..IntoIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2013e5e57c4e21ebE"}
+!1756 = distinct !{!1756, !1757, !"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h14094fc013af3e0dE: argument 0"}
+!1757 = distinct !{!1757, !"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h14094fc013af3e0dE"}
 !1758 = !{!1759, !1744, !1746, !1748, !1735, !1737, !1732}
 !1759 = distinct !{!1759, !1760, !"_ZN4core4iter8adapters7flatten17and_then_or_clear17h8cd286c7286eaf98E: argument 0"}
 !1760 = distinct !{!1760, !"_ZN4core4iter8adapters7flatten17and_then_or_clear17h8cd286c7286eaf98E"}

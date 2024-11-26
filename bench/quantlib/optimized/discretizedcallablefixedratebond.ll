@@ -2358,13 +2358,13 @@ _ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIP
 lpad.loopexit:                                    ; preds = %cond.true.i.i.i69
   %lpad.loopexit93 = landingpad { ptr, i32 }
           cleanup
-  store ptr %cond.i10.i.i72111119, ptr %agg.result, align 8, !tbaa !32
+  store ptr %cond.i10.i.i72111119, ptr %agg.result, align 8
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit:                  ; preds = %cond.true.i.i.i27
   %lpad.loopexit95 = landingpad { ptr, i32 }
           cleanup
-  store ptr %cond.i10.i.i3099107, ptr %agg.result, align 8, !tbaa !32
+  store ptr %cond.i10.i.i3099107, ptr %agg.result, align 8
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit.split-lp:         ; preds = %if.then.i.i.i83, %if.then.i.i.i41, %cond.true.i.i.i
@@ -2410,7 +2410,7 @@ for.cond9.preheader:                              ; preds = %for.inc, %if.end
   %8 = phi ptr [ %5, %if.end ], [ %20, %for.inc ]
   %9 = phi ptr [ %5, %if.end ], [ %21, %for.inc ]
   %cond.i10.i.i3099.lcssa = phi ptr [ %agg.result.promoted, %if.end ], [ %cond.i10.i.i3098, %for.inc ]
-  store ptr %cond.i10.i.i3099.lcssa, ptr %agg.result, align 8, !tbaa !32
+  store ptr %cond.i10.i.i3099.lcssa, ptr %agg.result, align 8
   %callabilityTimes_ = getelementptr inbounds nuw i8, ptr %this, i64 352
   %_M_finish.i46 = getelementptr inbounds nuw i8, ptr %this, i64 360
   %10 = load ptr, ptr %_M_finish.i46, align 8, !tbaa !30
@@ -2455,7 +2455,7 @@ if.else.i15:                                      ; preds = %if.then6
   br i1 %cmp.i.i.i19, label %if.then.i.i.i41, label %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i.i20
 
 if.then.i.i.i41:                                  ; preds = %if.else.i15
-  store ptr %cond.i10.i.i3099107, ptr %agg.result, align 8, !tbaa !32
+  store ptr %cond.i10.i.i3099107, ptr %agg.result, align 8
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.21) #22
           to label %.noexc42 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
@@ -2556,7 +2556,7 @@ if.else.i57:                                      ; preds = %if.then16
   br i1 %cmp.i.i.i61, label %if.then.i.i.i83, label %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i.i62
 
 if.then.i.i.i83:                                  ; preds = %if.else.i57
-  store ptr %cond.i10.i.i72111119, ptr %agg.result, align 8, !tbaa !32
+  store ptr %cond.i10.i.i72111119, ptr %agg.result, align 8
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.21) #22
           to label %.noexc84 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
@@ -2627,7 +2627,7 @@ for.inc19:                                        ; preds = %_ZNSt6vectorIdSaIdE
 
 for.end21:                                        ; preds = %for.inc19, %for.cond9.preheader
   %cond.i10.i.i72111.lcssa = phi ptr [ %cond.i10.i.i3099.lcssa, %for.cond9.preheader ], [ %cond.i10.i.i72110, %for.inc19 ]
-  store ptr %cond.i10.i.i72111.lcssa, ptr %agg.result, align 8, !tbaa !32
+  store ptr %cond.i10.i.i72111.lcssa, ptr %agg.result, align 8
   ret void
 }
 

@@ -19960,12 +19960,12 @@ define hidden void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$14search_forward17h
 
 .lr.ph:                                           ; preds = %3, %13
   %.promoted100 = phi i32 [ 1, %13 ], [ %6, %3 ]
-  %.promoted66 = load i64, ptr %0, align 8, !noalias !7
+  %.promoted66 = load i64, ptr %0, align 8
   %18 = getelementptr inbounds i8, ptr %0, i64 40
   %19 = getelementptr inbounds i8, ptr %0, i64 8
   %20 = getelementptr inbounds i8, ptr %0, i64 16
-  %.promoted74 = load i64, ptr %19, align 8, !noalias !7
-  %.promoted75 = load i64, ptr %20, align 8, !noalias !7
+  %.promoted74 = load i64, ptr %19, align 8
+  %.promoted75 = load i64, ptr %20, align 8
   br label %22
 
 ._crit_edge:                                      ; preds = %77, %.thread102

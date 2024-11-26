@@ -706,7 +706,7 @@ define hidden void @"_ZN137_$LT$alloc..collections..btree..dedup_sorted_iter..De
   %11 = getelementptr inbounds i8, ptr %1, i64 16
   %12 = getelementptr inbounds i8, ptr %3, i64 8
   %13 = getelementptr inbounds i8, ptr %3, i64 16
-  %.promoted22 = load ptr, ptr %9, align 8, !noalias !9
+  %.promoted22 = load ptr, ptr %9, align 8
   br label %14
 
 14:                                               ; preds = %"_ZN4core3ptr95drop_in_place$LT$$LP$std..path..PathBuf$C$alloc..collections..btree..set_val..SetValZST$RP$$GT$17h275865f296128477E.llvm.17803978538969967659.exit", %2

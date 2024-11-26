@@ -39876,7 +39876,7 @@ define hidden { i64, ptr } @"_ZN81_$LT$slab..IterMut$LT$T$GT$$u20$as$u20$core..i
   %3 = load ptr, ptr %2, align 8, !alias.scope !11815, !nonnull !4, !noundef !4
   %.promoted = load ptr, ptr %0, align 8, !alias.scope !11815
   %4 = getelementptr inbounds i8, ptr %0, i64 16
-  %.promoted7 = load i64, ptr %4, align 8, !alias.scope !11820
+  %.promoted7 = load i64, ptr %4, align 8
   br label %5
 
 5:                                                ; preds = %9, %1
@@ -72702,9 +72702,9 @@ define hidden void @"_ZN9hashbrown3raw16RawIter$LT$T$GT$13drop_elements17h47e09f
 .preheader:                                       ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   %.promoted = load i16, ptr %5, align 8, !alias.scope !20276
-  %.promoted8 = load ptr, ptr %0, align 8, !alias.scope !20276
+  %.promoted8 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
-  %.promoted12 = load ptr, ptr %6, align 8, !alias.scope !20276
+  %.promoted12 = load ptr, ptr %6, align 8
   br label %7
 
 .loopexit:                                        ; preds = %"_ZN4core3ptr71drop_in_place$LT$$LP$task..VariableName$C$alloc..string..String$RP$$GT$17h9a350f0141ce39a2E.llvm.7317464949808959923.exit", %1
@@ -73113,9 +73113,9 @@ define hidden void @"_ZN9hashbrown3raw16RawIter$LT$T$GT$13drop_elements17h6ffa76
 .preheader:                                       ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   %.promoted = load i16, ptr %5, align 8, !alias.scope !20380
-  %.promoted8 = load ptr, ptr %0, align 8, !alias.scope !20380
+  %.promoted8 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
-  %.promoted12 = load ptr, ptr %6, align 8, !alias.scope !20380
+  %.promoted12 = load ptr, ptr %6, align 8
   br label %7
 
 .loopexit:                                        ; preds = %"_ZN4core3ptr74drop_in_place$LT$$LP$alloc..string..String$C$alloc..string..String$RP$$GT$17h8c0af83c8883445bE.llvm.7317464949808959923.exit", %1
@@ -73366,9 +73366,9 @@ define hidden void @"_ZN9hashbrown3raw16RawIter$LT$T$GT$13drop_elements17h8eb0dd
 .preheader:                                       ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   %.promoted = load i16, ptr %5, align 8, !alias.scope !20463
-  %.promoted8 = load ptr, ptr %0, align 8, !alias.scope !20463
+  %.promoted8 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
-  %.promoted12 = load ptr, ptr %6, align 8, !alias.scope !20463
+  %.promoted12 = load ptr, ptr %6, align 8
   br label %7
 
 .loopexit:                                        ; preds = %"_ZN4core3ptr61drop_in_place$LT$$LP$alloc..string..String$C$$LP$$RP$$RP$$GT$17heff84ec84a051a09E.llvm.7317464949808959923.exit", %1
@@ -73444,9 +73444,9 @@ define hidden void @"_ZN9hashbrown3raw16RawIter$LT$T$GT$13drop_elements17h8f1770
 .preheader:                                       ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   %.promoted = load i16, ptr %5, align 8, !alias.scope !20490
-  %.promoted8 = load ptr, ptr %0, align 8, !alias.scope !20490
+  %.promoted8 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
-  %.promoted12 = load ptr, ptr %6, align 8, !alias.scope !20490
+  %.promoted12 = load ptr, ptr %6, align 8
   br label %7
 
 .loopexit:                                        ; preds = %"_ZN4core3ptr61drop_in_place$LT$$LP$git..Oid$C$alloc..string..String$RP$$GT$17h1953d14f3aab2393E.llvm.7317464949808959923.exit", %1
@@ -73687,9 +73687,9 @@ define hidden void @"_ZN9hashbrown3raw16RawIter$LT$T$GT$13drop_elements17ha8de1c
 .preheader:                                       ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   %.promoted = load i16, ptr %5, align 8, !alias.scope !20543
-  %.promoted8 = load ptr, ptr %0, align 8, !alias.scope !20543
+  %.promoted8 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
-  %.promoted12 = load ptr, ptr %6, align 8, !alias.scope !20543
+  %.promoted12 = load ptr, ptr %6, align 8
   br label %7
 
 .loopexit:                                        ; preds = %"_ZN4core3ptr82drop_in_place$LT$$LP$url..Url$C$alloc..vec..Vec$LT$lsp_types..TextEdit$GT$$RP$$GT$17h8f65f5b1729aeb21E.llvm.7317464949808959923.exit", %1
@@ -73881,9 +73881,9 @@ define hidden void @"_ZN9hashbrown3raw16RawIter$LT$T$GT$13drop_elements17hc3f3ed
 .preheader:                                       ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   %.promoted = load i16, ptr %5, align 8, !alias.scope !20623
-  %.promoted8 = load ptr, ptr %0, align 8, !alias.scope !20623
+  %.promoted8 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
-  %.promoted12 = load ptr, ptr %6, align 8, !alias.scope !20623
+  %.promoted12 = load ptr, ptr %6, align 8
   br label %7
 
 .loopexit:                                        ; preds = %"_ZN4core3ptr57drop_in_place$LT$$LP$u64$C$proto..RepositoryEntry$RP$$GT$17hafcc6240aa932db2E.llvm.7317464949808959923.exit", %1
@@ -73966,11 +73966,11 @@ define hidden void @"_ZN9hashbrown3raw16RawIter$LT$T$GT$13drop_elements17hd34e5a
 .preheader:                                       ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 24
   %.promoted = load i16, ptr %6, align 8, !alias.scope !20657
-  %.promoted10 = load ptr, ptr %0, align 8, !alias.scope !20657
+  %.promoted10 = load ptr, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = getelementptr inbounds i8, ptr %2, i64 8
   %9 = getelementptr inbounds i8, ptr %2, i64 16
-  %.promoted14 = load ptr, ptr %7, align 8, !alias.scope !20657
+  %.promoted14 = load ptr, ptr %7, align 8
   br label %10
 
 .loopexit:                                        ; preds = %"_ZN4core3ptr75drop_in_place$LT$$LP$settings..WorktreeId$C$globset..GlobSetBuilder$RP$$GT$17hc02caabc1a47d7b6E.llvm.7317464949808959923.exit", %1
@@ -74159,9 +74159,9 @@ define hidden void @"_ZN9hashbrown3raw16RawIter$LT$T$GT$13drop_elements17hf915a8
 .preheader:                                       ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   %.promoted = load i16, ptr %5, align 8, !alias.scope !20707
-  %.promoted8 = load ptr, ptr %0, align 8, !alias.scope !20707
+  %.promoted8 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
-  %.promoted12 = load ptr, ptr %6, align 8, !alias.scope !20707
+  %.promoted12 = load ptr, ptr %6, align 8
   br label %7
 
 .loopexit:                                        ; preds = %"_ZN4core3ptr48drop_in_place$LT$$LP$git..Oid$C$url..Url$RP$$GT$17h5b63c027b4d6371eE.llvm.7317464949808959923.exit", %1

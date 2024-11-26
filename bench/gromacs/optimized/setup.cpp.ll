@@ -353,8 +353,8 @@ _ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i: 
   %204 = getelementptr inbounds %"class.gmx::BasicVector", ptr %110, i64 %.04879.i
   %205 = fpext float %121 to double
   %206 = fmul double %205, 5.000000e-01
-  %.promoted = load i32, ptr %98, align 8, !noalias !5
-  %.sroa.23.0..sroa_idx.i.i.promoted = load i64, ptr %.sroa.74.0..sroa_idx.i, align 8, !noalias !5
+  %.promoted = load i32, ptr %98, align 8
+  %.sroa.23.0..sroa_idx.i.i.promoted = load i64, ptr %.sroa.74.0..sroa_idx.i, align 8
   %.sroa.024.0.copyload.i5 = load i64, ptr %17, align 8
   %207 = load i64, ptr %8, align 8
   %208 = add i64 %207, %.sroa.024.0.copyload.i5

@@ -11427,7 +11427,7 @@ while.body:                                       ; preds = %while.condthread-pr
 if.end34thread-pre-split:                         ; preds = %while.body, %while.condthread-pre-split
   %add64.lcssa = phi x86_fp80 [ %z, %while.condthread-pre-split ], [ %add, %while.body ]
   %result.1.lcssa = phi x86_fp80 [ 0xK3FFF8000000000000000, %while.condthread-pre-split ], [ %div33, %while.body ]
-  store x86_fp80 %add64.lcssa, ptr %z.addr, align 16, !tbaa !155
+  store x86_fp80 %add64.lcssa, ptr %z.addr, align 16
   br label %if.end34
 
 if.end34:                                         ; preds = %if.end34thread-pre-split, %entry
@@ -19330,7 +19330,7 @@ cleanup:                                          ; preds = %lor.lhs.false, %lan
   br i1 %cmp20, label %for.body, label %if.then43, !llvm.loop !301
 
 if.then43:                                        ; preds = %cleanup
-  store x86_fp80 %add22, ptr %sum, align 16, !tbaa !155
+  store x86_fp80 %add22, ptr %sum, align 16
   call void @_ZN5boost4math8policies6detail11raise_errorINS0_16evaluation_errorEeEEvPKcS6_RKT0_(ptr noundef nonnull @.str.116, ptr noundef nonnull @.str.117, ptr noundef nonnull align 16 dereferenceable(16) %sum)
   br label %cleanup73
 

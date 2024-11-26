@@ -1757,16 +1757,15 @@ _ZNSt12_Vector_baseIN2cv6Point_IfEESaIS2_EE11_M_allocateEm.exit.i.i: ; preds = %
   br label %24
 
 24:                                               ; preds = %64, %.lr.ph.i
-  %.promoted29 = phi ptr [ %21, %.lr.ph.i ], [ %.promoted27, %64 ]
   %.promoted17.i25 = phi ptr [ %23, %.lr.ph.i ], [ %.promoted17.i23, %64 ]
   %.promoted.i = phi ptr [ %21, %.lr.ph.i ], [ %59, %64 ]
   %indvars.iv21.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next22.i, %64 ]
+  %.promoted = load ptr, ptr %9, align 8
   br label %25
 
 25:                                               ; preds = %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backERKS2_.exit.i, %24
-  %.promoted28 = phi ptr [ %.promoted29, %24 ], [ %.promoted27, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backERKS2_.exit.i ]
   %.promoted17.i24 = phi ptr [ %.promoted17.i25, %24 ], [ %.promoted17.i23, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backERKS2_.exit.i ]
-  %26 = phi ptr [ %.promoted29, %24 ], [ %57, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backERKS2_.exit.i ]
+  %26 = phi ptr [ %.promoted, %24 ], [ %57, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backERKS2_.exit.i ]
   %indvars.iv.i = phi i64 [ 0, %24 ], [ %indvars.iv.next.i, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backERKS2_.exit.i ]
   %27 = phi ptr [ %.promoted.i, %24 ], [ %59, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backERKS2_.exit.i ]
   %28 = phi ptr [ %.promoted17.i25, %24 ], [ %58, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backERKS2_.exit.i ]
@@ -1849,7 +1848,6 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17_
   br label %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backERKS2_.exit.i
 
 _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backERKS2_.exit.i: ; preds = %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, %31
-  %.promoted27 = phi ptr [ %48, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ], [ %.promoted28, %31 ]
   %.promoted17.i23 = phi ptr [ %56, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ], [ %.promoted17.i24, %31 ]
   %57 = phi ptr [ %48, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ], [ %26, %31 ]
   %58 = phi ptr [ %56, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ], [ %28, %31 ]

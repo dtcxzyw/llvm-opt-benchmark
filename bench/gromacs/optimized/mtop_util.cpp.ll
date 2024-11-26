@@ -2297,8 +2297,8 @@ _ZNSt6vectorIlSaIlEEC2EmRKlRKS0_.exit.i.i:        ; preds = %.noexc32.i.i, %_ZNS
 ._crit_edge.i18.i:                                ; preds = %706
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, %690
   %707 = add nuw nsw i32 %.02544.i.i, 1
-  %exitcond138.not.i = icmp eq i32 %707, %682
-  br i1 %exitcond138.not.i, label %.loopexit.i.i, label %.lr.ph.preheader.i.i, !llvm.loop !26
+  %exitcond103.not.i = icmp eq i32 %707, %682
+  br i1 %exitcond103.not.i, label %.loopexit.i.i, label %.lr.ph.preheader.i.i, !llvm.loop !26
 
 .loopexit.i.i:                                    ; preds = %._crit_edge.i18.i, %.preheader.lr.ph.i.i, %680, %670
   %708 = add nuw i64 %.02945.i.i, 1
@@ -2341,12 +2341,12 @@ _ZL31sortFreeEnergyInteractionsAtEndRK10gmx_mtop_tP22InteractionDefinitions.exit
   br label %724
 
 724:                                              ; preds = %._crit_edge.i19.i, %.lr.ph59.i.i
-  %.lcssa7395.i = phi ptr [ null, %.lr.ph59.i.i ], [ %.lcssa7394.i, %._crit_edge.i19.i ]
-  %.lcssa6991.i = phi ptr [ null, %.lr.ph59.i.i ], [ %.lcssa6990.i, %._crit_edge.i19.i ]
-  %.lcssa6587.i = phi ptr [ null, %.lr.ph59.i.i ], [ %.lcssa6586.i, %._crit_edge.i19.i ]
-  %.lcssa6183.i = phi ptr [ %714, %.lr.ph59.i.i ], [ %.lcssa6182.i, %._crit_edge.i19.i ]
-  %.lcssa5979.i = phi ptr [ %715, %.lr.ph59.i.i ], [ %.lcssa5978.i, %._crit_edge.i19.i ]
-  %.lcssa5776.i = phi ptr [ %715, %.lr.ph59.i.i ], [ %.lcssa5775.i, %._crit_edge.i19.i ]
+  %.promoted70.i = phi ptr [ null, %.lr.ph59.i.i ], [ %.promoted70115.i, %._crit_edge.i19.i ]
+  %.promoted66.i = phi ptr [ null, %.lr.ph59.i.i ], [ %.promoted66113.i, %._crit_edge.i19.i ]
+  %.promoted62.i = phi ptr [ null, %.lr.ph59.i.i ], [ %.promoted62111.i, %._crit_edge.i19.i ]
+  %.promoted60.i = phi ptr [ %714, %.lr.ph59.i.i ], [ %.promoted60109.i, %._crit_edge.i19.i ]
+  %.promoted58.i = phi ptr [ %715, %.lr.ph59.i.i ], [ %.promoted58107.i, %._crit_edge.i19.i ]
+  %.promoted.i = phi ptr [ %715, %.lr.ph59.i.i ], [ %.promoted105.i, %._crit_edge.i19.i ]
   %725 = phi ptr [ %715, %.lr.ph59.i.i ], [ %878, %._crit_edge.i19.i ]
   %726 = phi ptr [ %714, %.lr.ph59.i.i ], [ %879, %._crit_edge.i19.i ]
   %727 = phi ptr [ %714, %.lr.ph59.i.i ], [ %880, %._crit_edge.i19.i ]
@@ -2371,12 +2371,12 @@ _ZL31sortFreeEnergyInteractionsAtEndRK10gmx_mtop_tP22InteractionDefinitions.exit
   br label %741
 
 741:                                              ; preds = %_ZN3gmx11ListOfListsIiE17appendListOfListsERKS1_i.exit.i.i, %.lr.ph.i21.i
-  %742 = phi ptr [ %.lcssa7395.i, %.lr.ph.i21.i ], [ %849, %_ZN3gmx11ListOfListsIiE17appendListOfListsERKS1_i.exit.i.i ]
-  %743 = phi ptr [ %.lcssa6991.i, %.lr.ph.i21.i ], [ %850, %_ZN3gmx11ListOfListsIiE17appendListOfListsERKS1_i.exit.i.i ]
-  %744 = phi ptr [ %.lcssa6587.i, %.lr.ph.i21.i ], [ %851, %_ZN3gmx11ListOfListsIiE17appendListOfListsERKS1_i.exit.i.i ]
-  %745 = phi ptr [ %.lcssa6183.i, %.lr.ph.i21.i ], [ %784, %_ZN3gmx11ListOfListsIiE17appendListOfListsERKS1_i.exit.i.i ]
-  %746 = phi ptr [ %.lcssa5979.i, %.lr.ph.i21.i ], [ %785, %_ZN3gmx11ListOfListsIiE17appendListOfListsERKS1_i.exit.i.i ]
-  %747 = phi ptr [ %.lcssa5776.i, %.lr.ph.i21.i ], [ %786, %_ZN3gmx11ListOfListsIiE17appendListOfListsERKS1_i.exit.i.i ]
+  %742 = phi ptr [ %.promoted70.i, %.lr.ph.i21.i ], [ %849, %_ZN3gmx11ListOfListsIiE17appendListOfListsERKS1_i.exit.i.i ]
+  %743 = phi ptr [ %.promoted66.i, %.lr.ph.i21.i ], [ %850, %_ZN3gmx11ListOfListsIiE17appendListOfListsERKS1_i.exit.i.i ]
+  %744 = phi ptr [ %.promoted62.i, %.lr.ph.i21.i ], [ %851, %_ZN3gmx11ListOfListsIiE17appendListOfListsERKS1_i.exit.i.i ]
+  %745 = phi ptr [ %.promoted60.i, %.lr.ph.i21.i ], [ %784, %_ZN3gmx11ListOfListsIiE17appendListOfListsERKS1_i.exit.i.i ]
+  %746 = phi ptr [ %.promoted58.i, %.lr.ph.i21.i ], [ %785, %_ZN3gmx11ListOfListsIiE17appendListOfListsERKS1_i.exit.i.i ]
+  %747 = phi ptr [ %.promoted.i, %.lr.ph.i21.i ], [ %786, %_ZN3gmx11ListOfListsIiE17appendListOfListsERKS1_i.exit.i.i ]
   %748 = phi ptr [ %725, %.lr.ph.i21.i ], [ %816, %_ZN3gmx11ListOfListsIiE17appendListOfListsERKS1_i.exit.i.i ]
   %749 = phi ptr [ %726, %.lr.ph.i21.i ], [ %817, %_ZN3gmx11ListOfListsIiE17appendListOfListsERKS1_i.exit.i.i ]
   %750 = phi ptr [ %727, %.lr.ph.i21.i ], [ %817, %_ZN3gmx11ListOfListsIiE17appendListOfListsERKS1_i.exit.i.i ]
@@ -2528,12 +2528,12 @@ _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEE
   %832 = phi ptr [ %784, %828 ], [ %745, %766 ]
   %833 = phi ptr [ %785, %828 ], [ %746, %766 ]
   %834 = phi ptr [ %786, %828 ], [ %747, %766 ]
-  store ptr %834, ptr %716, align 8, !alias.scope !28
-  store ptr %833, ptr %717, align 8, !alias.scope !28
-  store ptr %832, ptr %12, align 8, !alias.scope !28
-  store ptr %744, ptr %722, align 8, !alias.scope !28
-  store ptr %743, ptr %718, align 8, !alias.scope !28
-  store ptr %742, ptr %723, align 8, !alias.scope !28
+  store ptr %834, ptr %716, align 8
+  store ptr %833, ptr %717, align 8
+  store ptr %832, ptr %12, align 8
+  store ptr %744, ptr %722, align 8
+  store ptr %743, ptr %718, align 8
+  store ptr %742, ptr %723, align 8
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.12) #18
           to label %.cont.i.i unwind label %.loopexit.split-lp.i.i, !noalias !28
 
@@ -2616,7 +2616,7 @@ _ZN3gmx11ListOfListsIiE17appendListOfListsERKS1_i.exit.i.i: ; preds = %.lr.ph30.
   %871 = add nuw nsw i32 %.01453.i.i, 1
   %872 = load i32, ptr %729, align 4, !noalias !28
   %873 = icmp slt i32 %871, %872
-  br i1 %873, label %741, label %._crit_edge.i19.i, !llvm.loop !33
+  br i1 %873, label %741, label %._crit_edge.i19.loopexit.i, !llvm.loop !33
 
 .loopexit.i27.i:                                  ; preds = %839, %774
   %874 = phi ptr [ %784, %839 ], [ %745, %774 ]
@@ -2624,12 +2624,12 @@ _ZN3gmx11ListOfListsIiE17appendListOfListsERKS1_i.exit.i.i: ; preds = %.lr.ph30.
   %876 = phi ptr [ %786, %839 ], [ %747, %774 ]
   %lpad.loopexit.i.i = landingpad { ptr, i32 }
           cleanup
-  store ptr %876, ptr %716, align 8, !alias.scope !28
-  store ptr %875, ptr %717, align 8, !alias.scope !28
-  store ptr %874, ptr %12, align 8, !alias.scope !28
-  store ptr %744, ptr %722, align 8, !alias.scope !28
-  store ptr %743, ptr %718, align 8, !alias.scope !28
-  store ptr %742, ptr %723, align 8, !alias.scope !28
+  store ptr %876, ptr %716, align 8
+  store ptr %875, ptr %717, align 8
+  store ptr %874, ptr %12, align 8
+  store ptr %744, ptr %722, align 8
+  store ptr %743, ptr %718, align 8
+  store ptr %742, ptr %723, align 8
   br label %877
 
 .loopexit.split-lp.i.i:                           ; preds = %.invoke.i.i
@@ -2642,29 +2642,38 @@ _ZN3gmx11ListOfListsIiE17appendListOfListsERKS1_i.exit.i.i: ; preds = %.lr.ph30.
   call void @_ZN3gmx11ListOfListsIiED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %12) #21
   br label %common.resume.i
 
-._crit_edge.i19.i:                                ; preds = %_ZN3gmx11ListOfListsIiE17appendListOfListsERKS1_i.exit.i.i, %724
-  %.lcssa7394.i = phi ptr [ %.lcssa7395.i, %724 ], [ %849, %_ZN3gmx11ListOfListsIiE17appendListOfListsERKS1_i.exit.i.i ]
-  %.lcssa6990.i = phi ptr [ %.lcssa6991.i, %724 ], [ %850, %_ZN3gmx11ListOfListsIiE17appendListOfListsERKS1_i.exit.i.i ]
-  %.lcssa6586.i = phi ptr [ %.lcssa6587.i, %724 ], [ %851, %_ZN3gmx11ListOfListsIiE17appendListOfListsERKS1_i.exit.i.i ]
-  %.lcssa6182.i = phi ptr [ %.lcssa6183.i, %724 ], [ %784, %_ZN3gmx11ListOfListsIiE17appendListOfListsERKS1_i.exit.i.i ]
-  %.lcssa5978.i = phi ptr [ %.lcssa5979.i, %724 ], [ %785, %_ZN3gmx11ListOfListsIiE17appendListOfListsERKS1_i.exit.i.i ]
-  %.lcssa5775.i = phi ptr [ %.lcssa5776.i, %724 ], [ %786, %_ZN3gmx11ListOfListsIiE17appendListOfListsERKS1_i.exit.i.i ]
-  %878 = phi ptr [ %725, %724 ], [ %816, %_ZN3gmx11ListOfListsIiE17appendListOfListsERKS1_i.exit.i.i ]
-  %879 = phi ptr [ %726, %724 ], [ %817, %_ZN3gmx11ListOfListsIiE17appendListOfListsERKS1_i.exit.i.i ]
-  %880 = phi ptr [ %727, %724 ], [ %817, %_ZN3gmx11ListOfListsIiE17appendListOfListsERKS1_i.exit.i.i ]
-  %881 = phi ptr [ %728, %724 ], [ %816, %_ZN3gmx11ListOfListsIiE17appendListOfListsERKS1_i.exit.i.i ]
-  %.1.lcssa.i.i = phi i32 [ %.057.i.i, %724 ], [ %870, %_ZN3gmx11ListOfListsIiE17appendListOfListsERKS1_i.exit.i.i ]
+._crit_edge.i19.loopexit.i:                       ; preds = %_ZN3gmx11ListOfListsIiE17appendListOfListsERKS1_i.exit.i.i
+  store ptr %786, ptr %716, align 8
+  store ptr %785, ptr %717, align 8
+  store ptr %784, ptr %12, align 8
+  store ptr %851, ptr %722, align 8
+  store ptr %850, ptr %718, align 8
+  store ptr %849, ptr %723, align 8
+  br label %._crit_edge.i19.i
+
+._crit_edge.i19.i:                                ; preds = %._crit_edge.i19.loopexit.i, %724
+  %.promoted70115.i = phi ptr [ %.promoted70.i, %724 ], [ %849, %._crit_edge.i19.loopexit.i ]
+  %.promoted66113.i = phi ptr [ %.promoted66.i, %724 ], [ %850, %._crit_edge.i19.loopexit.i ]
+  %.promoted62111.i = phi ptr [ %.promoted62.i, %724 ], [ %851, %._crit_edge.i19.loopexit.i ]
+  %.promoted60109.i = phi ptr [ %.promoted60.i, %724 ], [ %784, %._crit_edge.i19.loopexit.i ]
+  %.promoted58107.i = phi ptr [ %.promoted58.i, %724 ], [ %785, %._crit_edge.i19.loopexit.i ]
+  %.promoted105.i = phi ptr [ %.promoted.i, %724 ], [ %786, %._crit_edge.i19.loopexit.i ]
+  %878 = phi ptr [ %725, %724 ], [ %816, %._crit_edge.i19.loopexit.i ]
+  %879 = phi ptr [ %726, %724 ], [ %817, %._crit_edge.i19.loopexit.i ]
+  %880 = phi ptr [ %727, %724 ], [ %817, %._crit_edge.i19.loopexit.i ]
+  %881 = phi ptr [ %728, %724 ], [ %816, %._crit_edge.i19.loopexit.i ]
+  %.1.lcssa.i.i = phi i32 [ %.057.i.i, %724 ], [ %870, %._crit_edge.i19.loopexit.i ]
   %882 = getelementptr inbounds i8, ptr %.sroa.047.056.i.i, i64 56
   %.not.i20.i = icmp eq ptr %882, %720
   br i1 %.not.i20.i, label %_ZL20globalExclusionListsRK10gmx_mtop_t.exit.i, label %724
 
 _ZL20globalExclusionListsRK10gmx_mtop_t.exit.i:   ; preds = %._crit_edge.i19.i, %_ZL31sortFreeEnergyInteractionsAtEndRK10gmx_mtop_tP22InteractionDefinitions.exit.i
-  %883 = phi ptr [ null, %_ZL31sortFreeEnergyInteractionsAtEndRK10gmx_mtop_tP22InteractionDefinitions.exit.i ], [ %.lcssa7394.i, %._crit_edge.i19.i ]
-  %884 = phi ptr [ null, %_ZL31sortFreeEnergyInteractionsAtEndRK10gmx_mtop_tP22InteractionDefinitions.exit.i ], [ %.lcssa6586.i, %._crit_edge.i19.i ]
-  %885 = phi ptr [ null, %_ZL31sortFreeEnergyInteractionsAtEndRK10gmx_mtop_tP22InteractionDefinitions.exit.i ], [ %.lcssa6990.i, %._crit_edge.i19.i ]
-  %886 = phi ptr [ %715, %_ZL31sortFreeEnergyInteractionsAtEndRK10gmx_mtop_tP22InteractionDefinitions.exit.i ], [ %.lcssa5775.i, %._crit_edge.i19.i ]
-  %887 = phi ptr [ %715, %_ZL31sortFreeEnergyInteractionsAtEndRK10gmx_mtop_tP22InteractionDefinitions.exit.i ], [ %.lcssa5978.i, %._crit_edge.i19.i ]
-  %888 = phi ptr [ %714, %_ZL31sortFreeEnergyInteractionsAtEndRK10gmx_mtop_tP22InteractionDefinitions.exit.i ], [ %.lcssa6182.i, %._crit_edge.i19.i ]
+  %883 = phi ptr [ null, %_ZL31sortFreeEnergyInteractionsAtEndRK10gmx_mtop_tP22InteractionDefinitions.exit.i ], [ %.promoted70115.i, %._crit_edge.i19.i ]
+  %884 = phi ptr [ null, %_ZL31sortFreeEnergyInteractionsAtEndRK10gmx_mtop_tP22InteractionDefinitions.exit.i ], [ %.promoted62111.i, %._crit_edge.i19.i ]
+  %885 = phi ptr [ null, %_ZL31sortFreeEnergyInteractionsAtEndRK10gmx_mtop_tP22InteractionDefinitions.exit.i ], [ %.promoted66113.i, %._crit_edge.i19.i ]
+  %886 = phi ptr [ %715, %_ZL31sortFreeEnergyInteractionsAtEndRK10gmx_mtop_tP22InteractionDefinitions.exit.i ], [ %.promoted105.i, %._crit_edge.i19.i ]
+  %887 = phi ptr [ %715, %_ZL31sortFreeEnergyInteractionsAtEndRK10gmx_mtop_tP22InteractionDefinitions.exit.i ], [ %.promoted58107.i, %._crit_edge.i19.i ]
+  %888 = phi ptr [ %714, %_ZL31sortFreeEnergyInteractionsAtEndRK10gmx_mtop_tP22InteractionDefinitions.exit.i ], [ %.promoted60109.i, %._crit_edge.i19.i ]
   %889 = getelementptr inbounds i8, ptr %1, i64 2736
   %890 = load ptr, ptr %889, align 8
   %891 = getelementptr inbounds i8, ptr %1, i64 2744
@@ -2699,13 +2708,13 @@ _ZNSt6vectorIiSaIiEEaSEOS1_.exit.i.i:             ; preds = %893, %_ZL20globalEx
 _ZN3gmx11ListOfListsIiED2Ev.exit.i:               ; preds = %898, %_ZNSt6vectorIiSaIiEEaSEOS1_.exit.i.i
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %0, i64 712
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
-  %.phi.trans.insert139.i = getelementptr inbounds i8, ptr %0, i64 720
-  %.pre140.i = load ptr, ptr %.phi.trans.insert139.i, align 8
-  %899 = icmp eq ptr %.pre.i, %.pre140.i
+  %.phi.trans.insert116.i = getelementptr inbounds i8, ptr %0, i64 720
+  %.pre117.i = load ptr, ptr %.phi.trans.insert116.i, align 8
+  %899 = icmp eq ptr %.pre.i, %.pre117.i
   br i1 %899, label %_ZL13gen_local_topRK10gmx_mtop_tbbP14gmx_localtop_t.exit, label %900
 
 900:                                              ; preds = %_ZN3gmx11ListOfListsIiED2Ev.exit.i
-  %901 = ptrtoint ptr %.pre140.i to i64
+  %901 = ptrtoint ptr %.pre117.i to i64
   %902 = ptrtoint ptr %.pre.i to i64
   %903 = sub i64 %901, %902
   %904 = getelementptr i8, ptr %.pre.i, i64 %903

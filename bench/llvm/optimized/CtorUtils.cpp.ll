@@ -181,9 +181,9 @@ _ZN4llvm4User8operandsEv.exit.i23:                ; preds = %68, %65
 
 .lr.ph.i24:                                       ; preds = %_ZN4llvm4User8operandsEv.exit.i23
   %73 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %.promoted119 = load ptr, ptr %73, align 8, !alias.scope !4
-  %.promoted122 = load ptr, ptr %6, align 8, !alias.scope !4
-  %.promoted125 = load ptr, ptr %60, align 8, !alias.scope !4
+  %.promoted119 = load ptr, ptr %73, align 8
+  %.promoted122 = load ptr, ptr %6, align 8
+  %.promoted125 = load ptr, ptr %60, align 8
   br label %74
 
 74:                                               ; preds = %_ZNSt6vectorISt4pairIjPN4llvm8FunctionEESaIS4_EE12emplace_backIJmS3_EEERS4_DpOT_.exit.i, %.lr.ph.i24
@@ -232,9 +232,9 @@ _ZN4llvm4User8operandsEv.exit.i23:                ; preds = %68, %65
   br i1 %105, label %106, label %_ZNKSt6vectorISt4pairIjPN4llvm8FunctionEESaIS4_EE12_M_check_lenEmPKc.exit.i.i
 
 106:                                              ; preds = %101
-  store ptr %77, ptr %73, align 8, !alias.scope !4
-  store ptr %76, ptr %6, align 8, !alias.scope !4
-  store ptr %75, ptr %60, align 8, !alias.scope !4
+  store ptr %77, ptr %73, align 8
+  store ptr %76, ptr %6, align 8
+  store ptr %75, ptr %60, align 8
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.2) #15, !noalias !4
   unreachable
 
@@ -297,9 +297,9 @@ _ZNSt6vectorISt4pairIjPN4llvm8FunctionEESaIS4_EE12emplace_backIJmS3_EEERS4_DpOT_
   br i1 %.not.i26, label %_ZL16parseGlobalCtorsPN4llvm14GlobalVariableE.exit, label %74
 
 _ZL16parseGlobalCtorsPN4llvm14GlobalVariableE.exit: ; preds = %_ZNSt6vectorISt4pairIjPN4llvm8FunctionEESaIS4_EE12emplace_backIJmS3_EEERS4_DpOT_.exit.i
-  store ptr %127, ptr %73, align 8, !alias.scope !4
-  store ptr %124, ptr %6, align 8, !alias.scope !4
-  store ptr %123, ptr %60, align 8, !alias.scope !4
+  store ptr %127, ptr %73, align 8
+  store ptr %124, ptr %6, align 8
+  store ptr %123, ptr %60, align 8
   %129 = icmp eq ptr %124, %127
   br i1 %129, label %_ZN4llvm9BitVectorD2Ev.exit, label %130
 

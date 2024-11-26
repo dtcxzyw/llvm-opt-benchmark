@@ -16843,9 +16843,9 @@ define hidden void @"_ZN9hashbrown3raw16RawIter$LT$T$GT$13drop_elements17h127818
 .preheader:                                       ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   %.promoted = load i16, ptr %5, align 8, !alias.scope !4085
-  %.promoted8 = load ptr, ptr %0, align 8, !alias.scope !4085
+  %.promoted8 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
-  %.promoted12 = load ptr, ptr %6, align 8, !alias.scope !4085
+  %.promoted12 = load ptr, ptr %6, align 8
   br label %7
 
 .loopexit:                                        ; preds = %"_ZN4core3ptr61drop_in_place$LT$$LP$alloc..string..String$C$$LP$$RP$$RP$$GT$17h3d118c24cabc43e4E.llvm.12460255737169583717.exit", %1
@@ -16921,9 +16921,9 @@ define hidden void @"_ZN9hashbrown3raw16RawIter$LT$T$GT$13drop_elements17h54f129
 .preheader:                                       ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   %.promoted = load i16, ptr %5, align 8, !alias.scope !4112
-  %.promoted8 = load ptr, ptr %0, align 8, !alias.scope !4112
+  %.promoted8 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
-  %.promoted12 = load ptr, ptr %6, align 8, !alias.scope !4112
+  %.promoted12 = load ptr, ptr %6, align 8
   br label %7
 
 .loopexit:                                        ; preds = %"_ZN4core3ptr172drop_in_place$LT$$LP$u64$C$alloc..vec..Vec$LT$gpui..window..WindowHandle$LT$collab_ui..notifications..project_shared_notification..ProjectSharedNotification$GT$$GT$$RP$$GT$17h09231371e15b5d7bE.llvm.12460255737169583717.exit", %1

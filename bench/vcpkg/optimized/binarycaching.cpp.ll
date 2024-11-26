@@ -3424,9 +3424,9 @@ _ZNSt12_Vector_baseIN5vcpkg17CacheAvailabilityESaIS1_EE11_M_allocateEm.exit.i.i:
   br label %"_ZZN5vcpkg19ReadOnlyBinaryCache8precheckENS_4SpanIKNS_17InstallPlanActionEEEENK3$_1clEPNS_11CacheStatusE.exit.i"
 
 306:                                              ; preds = %295
-  store ptr %297, ptr %291, align 8, !alias.scope !28
-  store ptr %298, ptr %293, align 8, !alias.scope !28
-  store ptr %296, ptr %0, align 8, !alias.scope !28
+  store ptr %297, ptr %291, align 8
+  store ptr %298, ptr %293, align 8
+  store ptr %296, ptr %0, align 8
   store i32 2273, ptr %5, align 8, !noalias !28
   %307 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr @.str.1, ptr %307, align 8, !noalias !28
@@ -3461,9 +3461,9 @@ _ZNSt12_Vector_baseIN5vcpkg17CacheAvailabilityESaIS1_EE11_M_allocateEm.exit.i.i:
   br i1 %317, label %318, label %_ZNKSt6vectorIN5vcpkg17CacheAvailabilityESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i68
 
 318:                                              ; preds = %313
-  store ptr %297, ptr %291, align 8, !alias.scope !28
-  store ptr %298, ptr %293, align 8, !alias.scope !28
-  store ptr %296, ptr %0, align 8, !alias.scope !28
+  store ptr %297, ptr %291, align 8
+  store ptr %298, ptr %293, align 8
+  store ptr %296, ptr %0, align 8
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.112) #27
           to label %.noexc9.i unwind label %.loopexit.split-lp.i62, !noalias !28
 
@@ -3518,9 +3518,9 @@ _ZNSt6vectorIN5vcpkg17CacheAvailabilityESaIS1_EE12emplace_backIJS1_EEERS1_DpOT_.
 .loopexit.i71:                                    ; preds = %323
   %lpad.loopexit.i72 = landingpad { ptr, i32 }
           cleanup
-  store ptr %297, ptr %291, align 8, !alias.scope !28
-  store ptr %298, ptr %293, align 8, !alias.scope !28
-  store ptr %296, ptr %0, align 8, !alias.scope !28
+  store ptr %297, ptr %291, align 8
+  store ptr %298, ptr %293, align 8
+  store ptr %296, ptr %0, align 8
   br label %336
 
 .loopexit.split-lp.i62:                           ; preds = %318, %_ZNSt12_Vector_baseIN5vcpkg17CacheAvailabilityESaIS1_EE11_M_allocateEm.exit.i.i, %289
@@ -3540,9 +3540,9 @@ _ZNSt6vectorIN5vcpkg17CacheAvailabilityESaIS1_EE12emplace_backIJS1_EEERS1_DpOT_.
   br label %.body
 
 "_ZN5vcpkg4Util4fmapIRSt6vectorIPNS_11CacheStatusESaIS4_EEZNS_19ReadOnlyBinaryCache8precheckENS_4SpanIKNS_17InstallPlanActionEEEE3$_1EES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISK_EEOSH_OSF_.exit.loopexit": ; preds = %_ZNSt6vectorIN5vcpkg17CacheAvailabilityESaIS1_EE12emplace_backIJS1_EEERS1_DpOT_.exit.i
-  store ptr %332, ptr %291, align 8, !alias.scope !28
-  store ptr %333, ptr %293, align 8, !alias.scope !28
-  store ptr %331, ptr %0, align 8, !alias.scope !28
+  store ptr %332, ptr %291, align 8
+  store ptr %333, ptr %293, align 8
+  store ptr %331, ptr %0, align 8
   br label %"_ZN5vcpkg4Util4fmapIRSt6vectorIPNS_11CacheStatusESaIS4_EEZNS_19ReadOnlyBinaryCache8precheckENS_4SpanIKNS_17InstallPlanActionEEEE3$_1EES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISK_EEOSH_OSF_.exit"
 
 "_ZN5vcpkg4Util4fmapIRSt6vectorIPNS_11CacheStatusESaIS4_EEZNS_19ReadOnlyBinaryCache8precheckENS_4SpanIKNS_17InstallPlanActionEEEE3$_1EES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISK_EEOSH_OSF_.exit": ; preds = %"_ZN5vcpkg4Util4fmapIRSt6vectorIPNS_11CacheStatusESaIS4_EEZNS_19ReadOnlyBinaryCache8precheckENS_4SpanIKNS_17InstallPlanActionEEEE3$_1EES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISK_EEOSH_OSF_.exit.loopexit", %290

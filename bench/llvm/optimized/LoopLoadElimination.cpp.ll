@@ -995,7 +995,7 @@ _ZN4llvm15SmallPtrSetImplIPNS_11InstructionEE6insertES2_.exit46.i.i.i: ; preds =
   br i1 %.not20.i.i.i, label %._crit_edge.i.i.i, label %277
 
 ._crit_edge.i.i.i:                                ; preds = %_ZN4llvm15SmallPtrSetImplIPNS_11InstructionEE6insertES2_.exit46.i.i.i
-  store ptr %346, ptr %.sroa.077.i.i, align 8, !alias.scope !19
+  store ptr %346, ptr %.sroa.077.i.i, align 8
   %349 = load i32, ptr %224, align 4, !noalias !19
   %350 = load i32, ptr %225, align 8, !noalias !19
   %351 = icmp eq i32 %349, %350

@@ -70,7 +70,7 @@ define void @_ZN5boost4urls6detail16params_iter_impl5setupEv(ptr noundef nonnull
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %8 = load i64, ptr %7, align 8, !tbaa !12
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 %8
-  %.promoted = load i64, ptr %2, align 8, !tbaa !3
+  %.promoted = load i64, ptr %2, align 8
   %10 = icmp eq ptr %9, %5
   br i1 %10, label %._crit_edge, label %.lr.ph
 
@@ -121,7 +121,7 @@ define void @_ZN5boost4urls6detail16params_iter_impl5setupEv(ptr noundef nonnull
   store i64 %32, ptr %33, align 8, !tbaa !14
   %34 = sub i64 %32, %11
   store i64 %34, ptr %2, align 8, !tbaa !3
-  %.promoted30 = load i64, ptr %3, align 8, !tbaa !11
+  %.promoted30 = load i64, ptr %3, align 8
   %35 = icmp eq ptr %29, %5
   br i1 %35, label %._crit_edge34, label %.lr.ph33
 
@@ -251,7 +251,7 @@ define void @_ZN5boost4urls6detail16params_iter_impl9decrementEv(ptr noundef non
   %10 = load i64, ptr %9, align 8, !tbaa !12
   %11 = getelementptr i8, ptr %8, i64 %10
   %12 = getelementptr i8, ptr %11, i64 -1
-  %.promoted = load i64, ptr %6, align 8, !tbaa !11
+  %.promoted = load i64, ptr %6, align 8
   %13 = icmp eq ptr %12, %8
   br i1 %13, label %._crit_edge, label %.lr.ph
 
@@ -297,7 +297,7 @@ define void @_ZN5boost4urls6detail16params_iter_impl9decrementEv(ptr noundef non
   %32 = sub i64 %30, %31
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i64 %32, ptr %33, align 8, !tbaa !15
-  %.promoted43 = load i64, ptr %5, align 8, !tbaa !3
+  %.promoted43 = load i64, ptr %5, align 8
   %34 = icmp eq ptr %19, %8
   br i1 %34, label %._crit_edge48, label %.lr.ph47
 

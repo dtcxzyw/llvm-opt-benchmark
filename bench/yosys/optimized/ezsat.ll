@@ -15547,9 +15547,9 @@ _ZNSt6vectorIiSaIiEEaSERKS1_.exit:                ; preds = %127, %_ZSt4copyIN9_
   br i1 %176, label %.lr.ph.i, label %274
 
 .preheader.i:                                     ; preds = %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.i
-  store ptr %.promoted226, ptr %146, align 8, !alias.scope !68
-  store ptr %.promoted234, ptr %153, align 8, !alias.scope !68
-  store ptr %.promoted242, ptr %21, align 8, !alias.scope !68
+  store ptr %.promoted226, ptr %146, align 8
+  store ptr %.promoted234, ptr %153, align 8
+  store ptr %.promoted242, ptr %21, align 8
   %177 = trunc i64 %223 to i32
   %178 = icmp sgt i32 %177, 1
   br i1 %178, label %.lr.ph86.i, label %274
@@ -15579,6 +15579,9 @@ _ZNSt6vectorIiSaIiEEaSERKS1_.exit:                ; preds = %127, %_ZSt4copyIN9_
   br i1 %.not.i.i.i58, label %193, label %192
 
 192:                                              ; preds = %191
+  store ptr %182, ptr %146, align 8
+  store ptr %181, ptr %153, align 8
+  store ptr %180, ptr %21, align 8
   invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.50, i64 noundef %indvars.iv.i, i64 noundef %184) #31
           to label %.noexc.i unwind label %.loopexit.split-lp.loopexit.split-lp.i, !noalias !68
 
@@ -15614,11 +15617,17 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i: ; preds = %_ZNKSt6v
 .loopexit.i:                                      ; preds = %248
   %lpad.loopexit.i = landingpad { ptr, i32 }
           cleanup
+  store ptr %228, ptr %146, align 8
+  store ptr %227, ptr %153, align 8
+  store ptr %226, ptr %21, align 8
   br label %.loopexit.split-lp.i
 
 .loopexit.split-lp.loopexit.i:                    ; preds = %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i
   %lpad.loopexit50.i = landingpad { ptr, i32 }
           cleanup
+  store ptr %182, ptr %146, align 8
+  store ptr %181, ptr %153, align 8
+  store ptr %180, ptr %21, align 8
   br label %.loopexit.split-lp.i
 
 .loopexit.split-lp.loopexit.split-lp.i:           ; preds = %242, %232, %192
@@ -15639,6 +15648,9 @@ _ZNSt6vectorIiSaIiEE2atEm.exit.i:                 ; preds = %189
   br i1 %.not.i.i29.i, label %209, label %208
 
 208:                                              ; preds = %_ZNSt6vectorIiSaIiEE2atEm.exit.i
+  store ptr %182, ptr %146, align 8
+  store ptr %181, ptr %153, align 8
+  store ptr %180, ptr %21, align 8
   invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.50, i64 noundef %indvars.iv.i, i64 noundef %207) #31
           to label %.noexc30.i unwind label %213, !noalias !68
 
@@ -15679,6 +15691,9 @@ _ZNSt6vectorIiSaIiEE2atEm.exit34.i:               ; preds = %209
 215:                                              ; preds = %209
   %216 = landingpad { ptr, i32 }
           cleanup
+  store ptr %182, ptr %146, align 8
+  store ptr %181, ptr %153, align 8
+  store ptr %180, ptr %21, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %152) #28, !noalias !68
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %151) #28, !noalias !68
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %150) #28, !noalias !68
@@ -15720,6 +15735,9 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit.i:        ; preds = %_ZNSt6vectorIiSaIiE
   br i1 %.not.i.i35.i, label %233, label %232
 
 232:                                              ; preds = %.lr.ph86.i
+  store ptr %228, ptr %146, align 8
+  store ptr %227, ptr %153, align 8
+  store ptr %226, ptr %21, align 8
   invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.50, i64 noundef %indvars.iv110.i, i64 noundef %230) #31
           to label %.noexc36.i unwind label %.loopexit.split-lp.loopexit.split-lp.i, !noalias !68
 
@@ -15744,6 +15762,9 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit.i:        ; preds = %_ZNSt6vectorIiSaIiE
   br i1 %241, label %242, label %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i39.i
 
 242:                                              ; preds = %237
+  store ptr %228, ptr %146, align 8
+  store ptr %227, ptr %153, align 8
+  store ptr %226, ptr %21, align 8
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.51) #31
           to label %.noexc46.i unwind label %.loopexit.split-lp.loopexit.split-lp.i, !noalias !68
 
@@ -15822,9 +15843,9 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit48.i:      ; preds = %_ZNSt6vectorIiSaIiE
   br label %.body
 
 .loopexit:                                        ; preds = %_ZNSt6vectorIiSaIiEE9push_backERKi.exit48.i
-  store ptr %262, ptr %146, align 8, !alias.scope !68
-  store ptr %260, ptr %153, align 8, !alias.scope !68
-  store ptr %259, ptr %21, align 8, !alias.scope !68
+  store ptr %262, ptr %146, align 8
+  store ptr %260, ptr %153, align 8
+  store ptr %259, ptr %21, align 8
   br label %274
 
 274:                                              ; preds = %.loopexit, %.preheader.i, %165

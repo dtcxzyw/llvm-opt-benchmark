@@ -11509,7 +11509,7 @@ while.body:                                       ; preds = %while.condthread-pr
 if.end31thread-pre-split:                         ; preds = %while.body, %while.condthread-pre-split
   %add60.lcssa = phi double [ %z, %while.condthread-pre-split ], [ %add, %while.body ]
   %result.1.lcssa = phi double [ 1.000000e+00, %while.condthread-pre-split ], [ %div30, %while.body ]
-  store double %add60.lcssa, ptr %z.addr, align 8, !tbaa !87
+  store double %add60.lcssa, ptr %z.addr, align 8
   br label %if.end31
 
 if.end31:                                         ; preds = %if.end31thread-pre-split, %entry
@@ -14309,7 +14309,7 @@ while.body:                                       ; preds = %while.condthread-pr
 if.end34thread-pre-split:                         ; preds = %while.body, %while.condthread-pre-split
   %add64.lcssa = phi x86_fp80 [ %z, %while.condthread-pre-split ], [ %add, %while.body ]
   %result.1.lcssa = phi x86_fp80 [ 0xK3FFF8000000000000000, %while.condthread-pre-split ], [ %div33, %while.body ]
-  store x86_fp80 %add64.lcssa, ptr %z.addr, align 16, !tbaa !181
+  store x86_fp80 %add64.lcssa, ptr %z.addr, align 16
   br label %if.end34
 
 if.end34:                                         ; preds = %if.end34thread-pre-split, %entry

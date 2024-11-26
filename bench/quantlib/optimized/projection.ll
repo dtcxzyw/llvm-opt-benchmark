@@ -251,7 +251,7 @@ do.body:                                          ; preds = %invoke.cont, %_ZNSt
   br i1 %cmp, label %invoke.cont57.preheader, label %if.then19
 
 invoke.cont57.preheader:                          ; preds = %do.body
-  %numberOfFreeParameters_.promoted = load i64, ptr %numberOfFreeParameters_, align 8, !tbaa !6
+  %numberOfFreeParameters_.promoted = load i64, ptr %numberOfFreeParameters_, align 8
   %cmp.i.i70170 = icmp ne ptr %23, %25
   %cmp3.i.i71171 = icmp ne i32 %24, 0
   %.not.i172 = or i1 %cmp.i.i70170, %cmp3.i.i71171

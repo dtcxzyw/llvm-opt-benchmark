@@ -938,7 +938,7 @@ define hidden void @"_ZN137_$LT$alloc..collections..btree..dedup_sorted_iter..De
   %.sroa.49.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
   %8 = getelementptr inbounds i8, ptr %3, i64 8
   %9 = getelementptr inbounds i8, ptr %3, i64 16
-  %.promoted20 = load ptr, ptr %7, align 8, !noalias !9
+  %.promoted20 = load ptr, ptr %7, align 8
   br label %10
 
 10:                                               ; preds = %"_ZN4core3ptr95drop_in_place$LT$$LP$std..path..PathBuf$C$alloc..collections..btree..set_val..SetValZST$RP$$GT$17hf02f574f795526c8E.llvm.13537110341245814796.exit", %2

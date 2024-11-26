@@ -157113,10 +157113,10 @@ _ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5mode
   br i1 %.not.i, label %_ZN5boost8geometry9partitionINS0_5model3boxINS2_2d28point_xyIdNS0_2cs9cartesianEEEEENS0_6detail9partition18include_all_policyESC_E15expand_to_rangeISC_NS0_8sectionsIS9_Lm2EEESt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionIS9_Lm2EEESH_ISL_SaISL_EEEESaISQ_EENSA_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEEvRKT0_RS9_RT1_RKT2_.exit.loopexit, label %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_2d28point_xyIdNS0_2cs9cartesianEEEEESD_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i, !llvm.loop !2510
 
 _ZN5boost8geometry9partitionINS0_5model3boxINS2_2d28point_xyIdNS0_2cs9cartesianEEEEENS0_6detail9partition18include_all_policyESC_E15expand_to_rangeISC_NS0_8sectionsIS9_Lm2EEESt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionIS9_Lm2EEESH_ISL_SaISL_EEEESaISQ_EENSA_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEEvRKT0_RS9_RT1_RKT2_.exit.loopexit: ; preds = %_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5model3boxINS5_2d28point_xyIdNS3_2cs9cartesianEEEEELm2EEES_ISD_SaISD_EEEESaISI_EE9push_backERKSI_.exit.i
-  store double %49, ptr %8, align 8, !tbaa !2405
-  store double %51, ptr %24, align 8, !tbaa !2405
-  store double %55, ptr %25, align 8, !tbaa !2405
-  store double %57, ptr %26, align 8, !tbaa !2405
+  store double %49, ptr %8, align 8
+  store double %51, ptr %24, align 8
+  store double %55, ptr %25, align 8
+  store double %57, ptr %26, align 8
   br label %_ZN5boost8geometry9partitionINS0_5model3boxINS2_2d28point_xyIdNS0_2cs9cartesianEEEEENS0_6detail9partition18include_all_policyESC_E15expand_to_rangeISC_NS0_8sectionsIS9_Lm2EEESt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionIS9_Lm2EEESH_ISL_SaISL_EEEESaISQ_EENSA_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEEvRKT0_RS9_RT1_RKT2_.exit
 
 _ZN5boost8geometry9partitionINS0_5model3boxINS2_2d28point_xyIdNS0_2cs9cartesianEEEEENS0_6detail9partition18include_all_policyESC_E15expand_to_rangeISC_NS0_8sectionsIS9_Lm2EEESt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionIS9_Lm2EEESH_ISL_SaISL_EEEESaISQ_EENSA_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEEvRKT0_RS9_RT1_RKT2_.exit: ; preds = %_ZN5boost8geometry9partitionINS0_5model3boxINS2_2d28point_xyIdNS0_2cs9cartesianEEEEENS0_6detail9partition18include_all_policyESC_E15expand_to_rangeISC_NS0_8sectionsIS9_Lm2EEESt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionIS9_Lm2EEESH_ISL_SaISL_EEEESaISQ_EENSA_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEEvRKT0_RS9_RT1_RKT2_.exit.loopexit, %23
@@ -157355,10 +157355,10 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost8geometry6detail9partiti
   br i1 %.not.i.i, label %.noexc, label %.lr.ph.i.i
 
 .noexc:                                           ; preds = %.lr.ph.i.i
-  store double %58, ptr %14, align 8, !tbaa !2405, !alias.scope !2518
-  store double %61, ptr %27, align 8, !tbaa !2405, !alias.scope !2518
-  store double %66, ptr %28, align 8, !tbaa !2405, !alias.scope !2518
-  store double %69, ptr %29, align 8, !tbaa !2405, !alias.scope !2518
+  store double %58, ptr %14, align 8, !alias.scope !2518
+  store double %61, ptr %27, align 8, !alias.scope !2518
+  store double %66, ptr %28, align 8, !alias.scope !2518
+  store double %69, ptr %29, align 8, !alias.scope !2518
   %72 = ptrtoint ptr %24 to i64
   %73 = ptrtoint ptr %22 to i64
   %74 = sub i64 %72, %73
@@ -158333,10 +158333,10 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost8geometry6detail9partiti
   br i1 %.not.i.i, label %.noexc, label %.lr.ph.i.i
 
 .noexc:                                           ; preds = %.lr.ph.i.i
-  store double %60, ptr %14, align 8, !tbaa !2405, !alias.scope !2537
-  store double %63, ptr %29, align 8, !tbaa !2405, !alias.scope !2537
-  store double %68, ptr %30, align 8, !tbaa !2405, !alias.scope !2537
-  store double %71, ptr %31, align 8, !tbaa !2405, !alias.scope !2537
+  store double %60, ptr %14, align 8, !alias.scope !2537
+  store double %63, ptr %29, align 8, !alias.scope !2537
+  store double %68, ptr %30, align 8, !alias.scope !2537
+  store double %71, ptr %31, align 8, !alias.scope !2537
   %74 = ptrtoint ptr %26 to i64
   %75 = ptrtoint ptr %24 to i64
   %76 = sub i64 %74, %75
@@ -159103,10 +159103,10 @@ _ZN5boost8geometry6detail9partition10recurse_okISt6vectorIN9__gnu_cxx17__normal_
   br i1 %.not.i.i.i, label %_ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_2d28point_xyIdNS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISB_Lm2EEESE_ISI_SaISI_EEEESaISN_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEESB_RKT_RKT0_.exit.i, label %.lr.ph.i.i.i
 
 _ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_2d28point_xyIdNS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISB_Lm2EEESE_ISI_SaISI_EEEESaISN_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEESB_RKT_RKT0_.exit.i: ; preds = %.lr.ph.i.i.i
-  store double %79, ptr %20, align 8, !tbaa !2405, !alias.scope !2546
-  store double %82, ptr %48, align 8, !tbaa !2405, !alias.scope !2546
-  store double %87, ptr %49, align 8, !tbaa !2405, !alias.scope !2546
-  store double %90, ptr %50, align 8, !tbaa !2405, !alias.scope !2546
+  store double %79, ptr %20, align 8, !alias.scope !2546
+  store double %82, ptr %48, align 8, !alias.scope !2546
+  store double %87, ptr %49, align 8, !alias.scope !2546
+  store double %90, ptr %50, align 8, !alias.scope !2546
   %.not9.i.i = icmp eq ptr %.pre, %.pre310
   br i1 %.not9.i.i, label %_ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_2d28point_xyIdNS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISB_Lm2EEESE_ISI_SaISI_EEEESaISN_EESP_NS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEESW_EESB_RKT_RKT0_RKT1_RKT2_.exit, label %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_2d28point_xyIdNS0_2cs9cartesianEEEEESD_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i
 
@@ -159158,10 +159158,10 @@ _ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3bo
   br i1 %.not.i.i, label %_ZN5boost8geometry6detail9partition20expand_with_elementsINS0_5model3boxINS4_2d28point_xyIdNS0_2cs9cartesianEEEEESt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISB_Lm2EEESC_ISG_SaISG_EEEESaISL_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEEvRT_RKT0_RKT1_.exit.loopexit.i, label %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_2d28point_xyIdNS0_2cs9cartesianEEEEESD_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i
 
 _ZN5boost8geometry6detail9partition20expand_with_elementsINS0_5model3boxINS4_2d28point_xyIdNS0_2cs9cartesianEEEEESt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISB_Lm2EEESC_ISG_SaISG_EEEESaISL_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEEvRT_RKT0_RKT1_.exit.loopexit.i: ; preds = %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_2d28point_xyIdNS0_2cs9cartesianEEEEESD_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i
-  store double %121, ptr %20, align 8, !tbaa !2405, !alias.scope !2540
-  store double %124, ptr %48, align 8, !tbaa !2405, !alias.scope !2540
-  store double %129, ptr %49, align 8, !tbaa !2405, !alias.scope !2540
-  store double %132, ptr %50, align 8, !tbaa !2405, !alias.scope !2540
+  store double %121, ptr %20, align 8, !alias.scope !2540
+  store double %124, ptr %48, align 8, !alias.scope !2540
+  store double %129, ptr %49, align 8, !alias.scope !2540
+  store double %132, ptr %50, align 8, !alias.scope !2540
   br label %_ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_2d28point_xyIdNS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISB_Lm2EEESE_ISI_SaISI_EEEESaISN_EESP_NS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEESW_EESB_RKT_RKT0_RKT1_RKT2_.exit
 
 _ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_2d28point_xyIdNS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISB_Lm2EEESE_ISI_SaISI_EEEESaISN_EESP_NS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEESW_EESB_RKT_RKT0_RKT1_RKT2_.exit: ; preds = %_ZN5boost8geometry6detail9partition20expand_with_elementsINS0_5model3boxINS4_2d28point_xyIdNS0_2cs9cartesianEEEEESt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISB_Lm2EEESC_ISG_SaISG_EEEESaISL_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEEvRT_RKT0_RKT1_.exit.loopexit.i, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_2d28point_xyIdNS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISB_Lm2EEESE_ISI_SaISI_EEEESaISN_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEESB_RKT_RKT0_.exit.i
@@ -159412,10 +159412,10 @@ _ZN5boost8geometry6detail9partition10recurse_okISt6vectorIN9__gnu_cxx17__normal_
   br i1 %.not.i.i104, label %_ZN5boost8geometry6detail9partition20expand_with_elementsINS0_5model3boxINS4_2d28point_xyIdNS0_2cs9cartesianEEEEESt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISB_Lm2EEESC_ISG_SaISG_EEEESaISL_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEEvRT_RKT0_RKT1_.exit.loopexit.i105, label %.lr.ph.i.i
 
 _ZN5boost8geometry6detail9partition20expand_with_elementsINS0_5model3boxINS4_2d28point_xyIdNS0_2cs9cartesianEEEEESt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISB_Lm2EEESC_ISG_SaISG_EEEESaISL_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEEvRT_RKT0_RKT1_.exit.loopexit.i105: ; preds = %.lr.ph.i.i
-  store double %246, ptr %21, align 8, !tbaa !2405, !alias.scope !2547
-  store double %249, ptr %215, align 8, !tbaa !2405, !alias.scope !2547
-  store double %254, ptr %216, align 8, !tbaa !2405, !alias.scope !2547
-  store double %257, ptr %217, align 8, !tbaa !2405, !alias.scope !2547
+  store double %246, ptr %21, align 8, !alias.scope !2547
+  store double %249, ptr %215, align 8, !alias.scope !2547
+  store double %254, ptr %216, align 8, !alias.scope !2547
+  store double %257, ptr %217, align 8, !alias.scope !2547
   br label %_ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_2d28point_xyIdNS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISB_Lm2EEESE_ISI_SaISI_EEEESaISN_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEESB_RKT_RKT0_.exit
 
 _ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_2d28point_xyIdNS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISB_Lm2EEESE_ISI_SaISI_EEEESaISN_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEESB_RKT_RKT0_.exit: ; preds = %_ZN5boost8geometry6detail9partition20expand_with_elementsINS0_5model3boxINS4_2d28point_xyIdNS0_2cs9cartesianEEEEESt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISB_Lm2EEESC_ISG_SaISG_EEEESaISL_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEEvRT_RKT0_RKT1_.exit.loopexit.i105, %214
@@ -159744,10 +159744,10 @@ _ZN5boost8geometry6detail9partition10recurse_okISt6vectorIN9__gnu_cxx17__normal_
   br i1 %.not.i.i146, label %454, label %.lr.ph.i.i144
 
 454:                                              ; preds = %.lr.ph.i.i144
-  store double %440, ptr %22, align 8, !tbaa !2405, !alias.scope !2553
-  store double %443, ptr %409, align 8, !tbaa !2405, !alias.scope !2553
-  store double %448, ptr %410, align 8, !tbaa !2405, !alias.scope !2553
-  store double %451, ptr %411, align 8, !tbaa !2405, !alias.scope !2553
+  store double %440, ptr %22, align 8, !alias.scope !2553
+  store double %443, ptr %409, align 8, !alias.scope !2553
+  store double %448, ptr %410, align 8, !alias.scope !2553
+  store double %451, ptr %411, align 8, !alias.scope !2553
   %455 = add nuw nsw i64 %3, 1
   %456 = invoke noundef zeroext i1 @_ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_2d28point_xyIdNS0_2cs9cartesianEEEEEE5applyISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISB_Lm2EEESE_ISI_SaISI_EEEESaISN_EESP_NS1_20self_get_turn_points20self_section_visitorILb0ENS4_7polygonISA_Lb1ELb1ESE_SE_SaSaEESE_INS1_7overlay9turn_infoISA_NS0_13segment_ratioIdEENSU_14turn_operationISA_SX_EESt5arrayISZ_Lm2EEEESaIS12_EENSU_13get_turn_infoINSU_18assign_null_policyEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyENSQ_19no_interrupt_policyEEENS1_7section15get_section_boxIS1B_EENS1F_20overlaps_section_boxIS1B_EES1H_S1J_NS2_15visit_no_policyEEEbRKSB_RKT_RKT0_mmRT1_RKT2_RKT3_RKT4_RKT5_RT6_(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %19, i64 noundef %455, i64 noundef %4, ptr noundef nonnull align 8 dereferenceable(45) %5, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 1 dereferenceable(1) %10)
           to label %_ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_2d28point_xyIdNS0_2cs9cartesianEEEEEE10next_levelISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISB_Lm2EEESE_ISI_SaISI_EEEESaISN_EESP_NS1_20self_get_turn_points20self_section_visitorILb0ENS4_7polygonISA_Lb1ELb1ESE_SE_SaSaEESE_INS1_7overlay9turn_infoISA_NS0_13segment_ratioIdEENSU_14turn_operationISA_SX_EESt5arrayISZ_Lm2EEEESaIS12_EENSU_13get_turn_infoINSU_18assign_null_policyEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyENSQ_19no_interrupt_policyEEENS1_7section15get_section_boxIS1B_EENS1F_20overlaps_section_boxIS1B_EES1H_S1J_NS2_15visit_no_policyEEEbRKSB_RKT_RKT0_mmRT1_RKT2_RKT3_RKT4_RKT5_RT6_.exit150 unwind label %459
@@ -160558,10 +160558,10 @@ _ZN5boost8geometry6detail9partition10recurse_okISt6vectorIN9__gnu_cxx17__normal_
   br i1 %.not.i.i.i, label %_ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_2d28point_xyIdNS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISB_Lm2EEESE_ISI_SaISI_EEEESaISN_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEESB_RKT_RKT0_.exit.i, label %.lr.ph.i.i.i
 
 _ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_2d28point_xyIdNS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISB_Lm2EEESE_ISI_SaISI_EEEESaISN_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEESB_RKT_RKT0_.exit.i: ; preds = %.lr.ph.i.i.i
-  store double %81, ptr %20, align 8, !tbaa !2405, !alias.scope !2562
-  store double %84, ptr %50, align 8, !tbaa !2405, !alias.scope !2562
-  store double %89, ptr %51, align 8, !tbaa !2405, !alias.scope !2562
-  store double %92, ptr %52, align 8, !tbaa !2405, !alias.scope !2562
+  store double %81, ptr %20, align 8, !alias.scope !2562
+  store double %84, ptr %50, align 8, !alias.scope !2562
+  store double %89, ptr %51, align 8, !alias.scope !2562
+  store double %92, ptr %52, align 8, !alias.scope !2562
   %.not9.i.i = icmp eq ptr %.pre, %.pre310
   br i1 %.not9.i.i, label %_ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_2d28point_xyIdNS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISB_Lm2EEESE_ISI_SaISI_EEEESaISN_EESP_NS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEESW_EESB_RKT_RKT0_RKT1_RKT2_.exit, label %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_2d28point_xyIdNS0_2cs9cartesianEEEEESD_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i
 
@@ -160613,10 +160613,10 @@ _ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3bo
   br i1 %.not.i.i, label %_ZN5boost8geometry6detail9partition20expand_with_elementsINS0_5model3boxINS4_2d28point_xyIdNS0_2cs9cartesianEEEEESt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISB_Lm2EEESC_ISG_SaISG_EEEESaISL_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEEvRT_RKT0_RKT1_.exit.loopexit.i, label %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_2d28point_xyIdNS0_2cs9cartesianEEEEESD_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i
 
 _ZN5boost8geometry6detail9partition20expand_with_elementsINS0_5model3boxINS4_2d28point_xyIdNS0_2cs9cartesianEEEEESt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISB_Lm2EEESC_ISG_SaISG_EEEESaISL_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEEvRT_RKT0_RKT1_.exit.loopexit.i: ; preds = %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_2d28point_xyIdNS0_2cs9cartesianEEEEESD_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i
-  store double %123, ptr %20, align 8, !tbaa !2405, !alias.scope !2556
-  store double %126, ptr %50, align 8, !tbaa !2405, !alias.scope !2556
-  store double %131, ptr %51, align 8, !tbaa !2405, !alias.scope !2556
-  store double %134, ptr %52, align 8, !tbaa !2405, !alias.scope !2556
+  store double %123, ptr %20, align 8, !alias.scope !2556
+  store double %126, ptr %50, align 8, !alias.scope !2556
+  store double %131, ptr %51, align 8, !alias.scope !2556
+  store double %134, ptr %52, align 8, !alias.scope !2556
   br label %_ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_2d28point_xyIdNS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISB_Lm2EEESE_ISI_SaISI_EEEESaISN_EESP_NS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEESW_EESB_RKT_RKT0_RKT1_RKT2_.exit
 
 _ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_2d28point_xyIdNS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISB_Lm2EEESE_ISI_SaISI_EEEESaISN_EESP_NS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEESW_EESB_RKT_RKT0_RKT1_RKT2_.exit: ; preds = %_ZN5boost8geometry6detail9partition20expand_with_elementsINS0_5model3boxINS4_2d28point_xyIdNS0_2cs9cartesianEEEEESt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISB_Lm2EEESC_ISG_SaISG_EEEESaISL_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEEvRT_RKT0_RKT1_.exit.loopexit.i, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_2d28point_xyIdNS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISB_Lm2EEESE_ISI_SaISI_EEEESaISN_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEESB_RKT_RKT0_.exit.i
@@ -160867,10 +160867,10 @@ _ZN5boost8geometry6detail9partition10recurse_okISt6vectorIN9__gnu_cxx17__normal_
   br i1 %.not.i.i104, label %_ZN5boost8geometry6detail9partition20expand_with_elementsINS0_5model3boxINS4_2d28point_xyIdNS0_2cs9cartesianEEEEESt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISB_Lm2EEESC_ISG_SaISG_EEEESaISL_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEEvRT_RKT0_RKT1_.exit.loopexit.i105, label %.lr.ph.i.i
 
 _ZN5boost8geometry6detail9partition20expand_with_elementsINS0_5model3boxINS4_2d28point_xyIdNS0_2cs9cartesianEEEEESt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISB_Lm2EEESC_ISG_SaISG_EEEESaISL_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEEvRT_RKT0_RKT1_.exit.loopexit.i105: ; preds = %.lr.ph.i.i
-  store double %248, ptr %21, align 8, !tbaa !2405, !alias.scope !2563
-  store double %251, ptr %217, align 8, !tbaa !2405, !alias.scope !2563
-  store double %256, ptr %218, align 8, !tbaa !2405, !alias.scope !2563
-  store double %259, ptr %219, align 8, !tbaa !2405, !alias.scope !2563
+  store double %248, ptr %21, align 8, !alias.scope !2563
+  store double %251, ptr %217, align 8, !alias.scope !2563
+  store double %256, ptr %218, align 8, !alias.scope !2563
+  store double %259, ptr %219, align 8, !alias.scope !2563
   br label %_ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_2d28point_xyIdNS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISB_Lm2EEESE_ISI_SaISI_EEEESaISN_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEESB_RKT_RKT0_.exit
 
 _ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_2d28point_xyIdNS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISB_Lm2EEESE_ISI_SaISI_EEEESaISN_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEESB_RKT_RKT0_.exit: ; preds = %_ZN5boost8geometry6detail9partition20expand_with_elementsINS0_5model3boxINS4_2d28point_xyIdNS0_2cs9cartesianEEEEESt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISB_Lm2EEESC_ISG_SaISG_EEEESaISL_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEEvRT_RKT0_RKT1_.exit.loopexit.i105, %216
@@ -161199,10 +161199,10 @@ _ZN5boost8geometry6detail9partition10recurse_okISt6vectorIN9__gnu_cxx17__normal_
   br i1 %.not.i.i146, label %456, label %.lr.ph.i.i144
 
 456:                                              ; preds = %.lr.ph.i.i144
-  store double %442, ptr %22, align 8, !tbaa !2405, !alias.scope !2569
-  store double %445, ptr %411, align 8, !tbaa !2405, !alias.scope !2569
-  store double %450, ptr %412, align 8, !tbaa !2405, !alias.scope !2569
-  store double %453, ptr %413, align 8, !tbaa !2405, !alias.scope !2569
+  store double %442, ptr %22, align 8, !alias.scope !2569
+  store double %445, ptr %411, align 8, !alias.scope !2569
+  store double %450, ptr %412, align 8, !alias.scope !2569
+  store double %453, ptr %413, align 8, !alias.scope !2569
   %457 = add nuw nsw i64 %3, 1
   %458 = invoke noundef zeroext i1 @_ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_2d28point_xyIdNS0_2cs9cartesianEEEEEE5applyISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISB_Lm2EEESE_ISI_SaISI_EEEESaISN_EESP_NS1_20self_get_turn_points20self_section_visitorILb0ENS4_7polygonISA_Lb1ELb1ESE_SE_SaSaEESE_INS1_7overlay9turn_infoISA_NS0_13segment_ratioIdEENSU_14turn_operationISA_SX_EESt5arrayISZ_Lm2EEEESaIS12_EENSU_13get_turn_infoINSU_18assign_null_policyEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyENSQ_19no_interrupt_policyEEENS1_7section15get_section_boxIS1B_EENS1F_20overlaps_section_boxIS1B_EES1H_S1J_NS2_15visit_no_policyEEEbRKSB_RKT_RKT0_mmRT1_RKT2_RKT3_RKT4_RKT5_RT6_(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %19, i64 noundef %457, i64 noundef %4, ptr noundef nonnull align 8 dereferenceable(45) %5, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 1 dereferenceable(1) %10)
           to label %_ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_2d28point_xyIdNS0_2cs9cartesianEEEEEE10next_levelISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISB_Lm2EEESE_ISI_SaISI_EEEESaISN_EESP_NS1_20self_get_turn_points20self_section_visitorILb0ENS4_7polygonISA_Lb1ELb1ESE_SE_SaSaEESE_INS1_7overlay9turn_infoISA_NS0_13segment_ratioIdEENSU_14turn_operationISA_SX_EESt5arrayISZ_Lm2EEEESaIS12_EENSU_13get_turn_infoINSU_18assign_null_policyEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyENSQ_19no_interrupt_policyEEENS1_7section15get_section_boxIS1B_EENS1F_20overlaps_section_boxIS1B_EES1H_S1J_NS2_15visit_no_policyEEEbRKSB_RKT_RKT0_mmRT1_RKT2_RKT3_RKT4_RKT5_RT6_.exit150 unwind label %461
@@ -171019,10 +171019,10 @@ _ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5mode
   br i1 %.not.i, label %_ZN5boost8geometry9partitionINS0_5model3boxINS2_2d28point_xyIdNS0_2cs9cartesianEEEEENS0_6detail9partition18include_all_policyESC_E15expand_to_rangeISC_NS0_8sectionsIS9_Lm2EEESt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionIS9_Lm2EEESH_ISL_SaISL_EEEESaISQ_EENSA_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEEvRKT0_RS9_RT1_RKT2_.exit.loopexit, label %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_2d28point_xyIdNS0_2cs9cartesianEEEEESD_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i, !llvm.loop !2510
 
 _ZN5boost8geometry9partitionINS0_5model3boxINS2_2d28point_xyIdNS0_2cs9cartesianEEEEENS0_6detail9partition18include_all_policyESC_E15expand_to_rangeISC_NS0_8sectionsIS9_Lm2EEESt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionIS9_Lm2EEESH_ISL_SaISL_EEEESaISQ_EENSA_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEEvRKT0_RS9_RT1_RKT2_.exit.loopexit: ; preds = %_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5model3boxINS5_2d28point_xyIdNS3_2cs9cartesianEEEEELm2EEES_ISD_SaISD_EEEESaISI_EE9push_backERKSI_.exit.i
-  store double %49, ptr %8, align 8, !tbaa !2405
-  store double %51, ptr %24, align 8, !tbaa !2405
-  store double %55, ptr %25, align 8, !tbaa !2405
-  store double %57, ptr %26, align 8, !tbaa !2405
+  store double %49, ptr %8, align 8
+  store double %51, ptr %24, align 8
+  store double %55, ptr %25, align 8
+  store double %57, ptr %26, align 8
   br label %_ZN5boost8geometry9partitionINS0_5model3boxINS2_2d28point_xyIdNS0_2cs9cartesianEEEEENS0_6detail9partition18include_all_policyESC_E15expand_to_rangeISC_NS0_8sectionsIS9_Lm2EEESt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionIS9_Lm2EEESH_ISL_SaISL_EEEESaISQ_EENSA_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEEvRKT0_RS9_RT1_RKT2_.exit
 
 _ZN5boost8geometry9partitionINS0_5model3boxINS2_2d28point_xyIdNS0_2cs9cartesianEEEEENS0_6detail9partition18include_all_policyESC_E15expand_to_rangeISC_NS0_8sectionsIS9_Lm2EEESt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionIS9_Lm2EEESH_ISL_SaISL_EEEESaISQ_EENSA_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEEvRKT0_RS9_RT1_RKT2_.exit: ; preds = %_ZN5boost8geometry9partitionINS0_5model3boxINS2_2d28point_xyIdNS0_2cs9cartesianEEEEENS0_6detail9partition18include_all_policyESC_E15expand_to_rangeISC_NS0_8sectionsIS9_Lm2EEESt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionIS9_Lm2EEESH_ISL_SaISL_EEEESaISQ_EENSA_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEEvRKT0_RS9_RT1_RKT2_.exit.loopexit, %23
@@ -171261,10 +171261,10 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost8geometry6detail9partiti
   br i1 %.not.i.i, label %.noexc, label %.lr.ph.i.i
 
 .noexc:                                           ; preds = %.lr.ph.i.i
-  store double %58, ptr %14, align 8, !tbaa !2405, !alias.scope !2829
-  store double %61, ptr %27, align 8, !tbaa !2405, !alias.scope !2829
-  store double %66, ptr %28, align 8, !tbaa !2405, !alias.scope !2829
-  store double %69, ptr %29, align 8, !tbaa !2405, !alias.scope !2829
+  store double %58, ptr %14, align 8, !alias.scope !2829
+  store double %61, ptr %27, align 8, !alias.scope !2829
+  store double %66, ptr %28, align 8, !alias.scope !2829
+  store double %69, ptr %29, align 8, !alias.scope !2829
   %72 = ptrtoint ptr %24 to i64
   %73 = ptrtoint ptr %22 to i64
   %74 = sub i64 %72, %73
@@ -171996,10 +171996,10 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost8geometry6detail9partiti
   br i1 %.not.i.i, label %.noexc, label %.lr.ph.i.i
 
 .noexc:                                           ; preds = %.lr.ph.i.i
-  store double %60, ptr %14, align 8, !tbaa !2405, !alias.scope !2835
-  store double %63, ptr %29, align 8, !tbaa !2405, !alias.scope !2835
-  store double %68, ptr %30, align 8, !tbaa !2405, !alias.scope !2835
-  store double %71, ptr %31, align 8, !tbaa !2405, !alias.scope !2835
+  store double %60, ptr %14, align 8, !alias.scope !2835
+  store double %63, ptr %29, align 8, !alias.scope !2835
+  store double %68, ptr %30, align 8, !alias.scope !2835
+  store double %71, ptr %31, align 8, !alias.scope !2835
   %74 = ptrtoint ptr %26 to i64
   %75 = ptrtoint ptr %24 to i64
   %76 = sub i64 %74, %75
@@ -172766,10 +172766,10 @@ _ZN5boost8geometry6detail9partition10recurse_okISt6vectorIN9__gnu_cxx17__normal_
   br i1 %.not.i.i.i, label %_ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_2d28point_xyIdNS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISB_Lm2EEESE_ISI_SaISI_EEEESaISN_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEESB_RKT_RKT0_.exit.i, label %.lr.ph.i.i.i
 
 _ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_2d28point_xyIdNS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISB_Lm2EEESE_ISI_SaISI_EEEESaISN_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEESB_RKT_RKT0_.exit.i: ; preds = %.lr.ph.i.i.i
-  store double %79, ptr %20, align 8, !tbaa !2405, !alias.scope !2844
-  store double %82, ptr %48, align 8, !tbaa !2405, !alias.scope !2844
-  store double %87, ptr %49, align 8, !tbaa !2405, !alias.scope !2844
-  store double %90, ptr %50, align 8, !tbaa !2405, !alias.scope !2844
+  store double %79, ptr %20, align 8, !alias.scope !2844
+  store double %82, ptr %48, align 8, !alias.scope !2844
+  store double %87, ptr %49, align 8, !alias.scope !2844
+  store double %90, ptr %50, align 8, !alias.scope !2844
   %.not9.i.i = icmp eq ptr %.pre, %.pre310
   br i1 %.not9.i.i, label %_ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_2d28point_xyIdNS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISB_Lm2EEESE_ISI_SaISI_EEEESaISN_EESP_NS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEESW_EESB_RKT_RKT0_RKT1_RKT2_.exit, label %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_2d28point_xyIdNS0_2cs9cartesianEEEEESD_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i
 
@@ -172821,10 +172821,10 @@ _ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3bo
   br i1 %.not.i.i, label %_ZN5boost8geometry6detail9partition20expand_with_elementsINS0_5model3boxINS4_2d28point_xyIdNS0_2cs9cartesianEEEEESt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISB_Lm2EEESC_ISG_SaISG_EEEESaISL_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEEvRT_RKT0_RKT1_.exit.loopexit.i, label %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_2d28point_xyIdNS0_2cs9cartesianEEEEESD_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i
 
 _ZN5boost8geometry6detail9partition20expand_with_elementsINS0_5model3boxINS4_2d28point_xyIdNS0_2cs9cartesianEEEEESt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISB_Lm2EEESC_ISG_SaISG_EEEESaISL_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEEvRT_RKT0_RKT1_.exit.loopexit.i: ; preds = %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_2d28point_xyIdNS0_2cs9cartesianEEEEESD_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i
-  store double %121, ptr %20, align 8, !tbaa !2405, !alias.scope !2838
-  store double %124, ptr %48, align 8, !tbaa !2405, !alias.scope !2838
-  store double %129, ptr %49, align 8, !tbaa !2405, !alias.scope !2838
-  store double %132, ptr %50, align 8, !tbaa !2405, !alias.scope !2838
+  store double %121, ptr %20, align 8, !alias.scope !2838
+  store double %124, ptr %48, align 8, !alias.scope !2838
+  store double %129, ptr %49, align 8, !alias.scope !2838
+  store double %132, ptr %50, align 8, !alias.scope !2838
   br label %_ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_2d28point_xyIdNS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISB_Lm2EEESE_ISI_SaISI_EEEESaISN_EESP_NS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEESW_EESB_RKT_RKT0_RKT1_RKT2_.exit
 
 _ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_2d28point_xyIdNS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISB_Lm2EEESE_ISI_SaISI_EEEESaISN_EESP_NS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEESW_EESB_RKT_RKT0_RKT1_RKT2_.exit: ; preds = %_ZN5boost8geometry6detail9partition20expand_with_elementsINS0_5model3boxINS4_2d28point_xyIdNS0_2cs9cartesianEEEEESt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISB_Lm2EEESC_ISG_SaISG_EEEESaISL_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEEvRT_RKT0_RKT1_.exit.loopexit.i, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_2d28point_xyIdNS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISB_Lm2EEESE_ISI_SaISI_EEEESaISN_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEESB_RKT_RKT0_.exit.i
@@ -173075,10 +173075,10 @@ _ZN5boost8geometry6detail9partition10recurse_okISt6vectorIN9__gnu_cxx17__normal_
   br i1 %.not.i.i104, label %_ZN5boost8geometry6detail9partition20expand_with_elementsINS0_5model3boxINS4_2d28point_xyIdNS0_2cs9cartesianEEEEESt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISB_Lm2EEESC_ISG_SaISG_EEEESaISL_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEEvRT_RKT0_RKT1_.exit.loopexit.i105, label %.lr.ph.i.i
 
 _ZN5boost8geometry6detail9partition20expand_with_elementsINS0_5model3boxINS4_2d28point_xyIdNS0_2cs9cartesianEEEEESt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISB_Lm2EEESC_ISG_SaISG_EEEESaISL_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEEvRT_RKT0_RKT1_.exit.loopexit.i105: ; preds = %.lr.ph.i.i
-  store double %246, ptr %21, align 8, !tbaa !2405, !alias.scope !2845
-  store double %249, ptr %215, align 8, !tbaa !2405, !alias.scope !2845
-  store double %254, ptr %216, align 8, !tbaa !2405, !alias.scope !2845
-  store double %257, ptr %217, align 8, !tbaa !2405, !alias.scope !2845
+  store double %246, ptr %21, align 8, !alias.scope !2845
+  store double %249, ptr %215, align 8, !alias.scope !2845
+  store double %254, ptr %216, align 8, !alias.scope !2845
+  store double %257, ptr %217, align 8, !alias.scope !2845
   br label %_ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_2d28point_xyIdNS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISB_Lm2EEESE_ISI_SaISI_EEEESaISN_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEESB_RKT_RKT0_.exit
 
 _ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_2d28point_xyIdNS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISB_Lm2EEESE_ISI_SaISI_EEEESaISN_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEESB_RKT_RKT0_.exit: ; preds = %_ZN5boost8geometry6detail9partition20expand_with_elementsINS0_5model3boxINS4_2d28point_xyIdNS0_2cs9cartesianEEEEESt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISB_Lm2EEESC_ISG_SaISG_EEEESaISL_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEEvRT_RKT0_RKT1_.exit.loopexit.i105, %214
@@ -173407,10 +173407,10 @@ _ZN5boost8geometry6detail9partition10recurse_okISt6vectorIN9__gnu_cxx17__normal_
   br i1 %.not.i.i146, label %454, label %.lr.ph.i.i144
 
 454:                                              ; preds = %.lr.ph.i.i144
-  store double %440, ptr %22, align 8, !tbaa !2405, !alias.scope !2851
-  store double %443, ptr %409, align 8, !tbaa !2405, !alias.scope !2851
-  store double %448, ptr %410, align 8, !tbaa !2405, !alias.scope !2851
-  store double %451, ptr %411, align 8, !tbaa !2405, !alias.scope !2851
+  store double %440, ptr %22, align 8, !alias.scope !2851
+  store double %443, ptr %409, align 8, !alias.scope !2851
+  store double %448, ptr %410, align 8, !alias.scope !2851
+  store double %451, ptr %411, align 8, !alias.scope !2851
   %455 = add nuw nsw i64 %3, 1
   %456 = invoke noundef zeroext i1 @_ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_2d28point_xyIdNS0_2cs9cartesianEEEEEE5applyISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISB_Lm2EEESE_ISI_SaISI_EEEESaISN_EESP_NS1_20self_get_turn_points20self_section_visitorILb0ENS4_7polygonISA_Lb1ELb1ESE_SE_SaSaEESt5dequeINS1_7overlay9turn_infoISA_NS0_13segment_ratioIdEENSV_14turn_operationISA_SY_EESt5arrayIS10_Lm2EEEESaIS13_EENSV_13get_turn_infoINSV_18assign_null_policyEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyENS1_8disjoint25disjoint_interrupt_policyEEENS1_7section15get_section_boxIS1C_EENS1H_20overlaps_section_boxIS1C_EES1J_S1L_NS2_15visit_no_policyEEEbRKSB_RKT_RKT0_mmRT1_RKT2_RKT3_RKT4_RKT5_RT6_(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %19, i64 noundef %455, i64 noundef %4, ptr noundef nonnull align 8 dereferenceable(45) %5, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 1 dereferenceable(1) %10)
           to label %_ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_2d28point_xyIdNS0_2cs9cartesianEEEEEE10next_levelISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISB_Lm2EEESE_ISI_SaISI_EEEESaISN_EESP_NS1_20self_get_turn_points20self_section_visitorILb0ENS4_7polygonISA_Lb1ELb1ESE_SE_SaSaEESt5dequeINS1_7overlay9turn_infoISA_NS0_13segment_ratioIdEENSV_14turn_operationISA_SY_EESt5arrayIS10_Lm2EEEESaIS13_EENSV_13get_turn_infoINSV_18assign_null_policyEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyENS1_8disjoint25disjoint_interrupt_policyEEENS1_7section15get_section_boxIS1C_EENS1H_20overlaps_section_boxIS1C_EES1J_S1L_NS2_15visit_no_policyEEEbRKSB_RKT_RKT0_mmRT1_RKT2_RKT3_RKT4_RKT5_RT6_.exit150 unwind label %459
@@ -174221,10 +174221,10 @@ _ZN5boost8geometry6detail9partition10recurse_okISt6vectorIN9__gnu_cxx17__normal_
   br i1 %.not.i.i.i, label %_ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_2d28point_xyIdNS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISB_Lm2EEESE_ISI_SaISI_EEEESaISN_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEESB_RKT_RKT0_.exit.i, label %.lr.ph.i.i.i
 
 _ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_2d28point_xyIdNS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISB_Lm2EEESE_ISI_SaISI_EEEESaISN_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEESB_RKT_RKT0_.exit.i: ; preds = %.lr.ph.i.i.i
-  store double %81, ptr %20, align 8, !tbaa !2405, !alias.scope !2860
-  store double %84, ptr %50, align 8, !tbaa !2405, !alias.scope !2860
-  store double %89, ptr %51, align 8, !tbaa !2405, !alias.scope !2860
-  store double %92, ptr %52, align 8, !tbaa !2405, !alias.scope !2860
+  store double %81, ptr %20, align 8, !alias.scope !2860
+  store double %84, ptr %50, align 8, !alias.scope !2860
+  store double %89, ptr %51, align 8, !alias.scope !2860
+  store double %92, ptr %52, align 8, !alias.scope !2860
   %.not9.i.i = icmp eq ptr %.pre, %.pre310
   br i1 %.not9.i.i, label %_ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_2d28point_xyIdNS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISB_Lm2EEESE_ISI_SaISI_EEEESaISN_EESP_NS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEESW_EESB_RKT_RKT0_RKT1_RKT2_.exit, label %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_2d28point_xyIdNS0_2cs9cartesianEEEEESD_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i
 
@@ -174276,10 +174276,10 @@ _ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3bo
   br i1 %.not.i.i, label %_ZN5boost8geometry6detail9partition20expand_with_elementsINS0_5model3boxINS4_2d28point_xyIdNS0_2cs9cartesianEEEEESt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISB_Lm2EEESC_ISG_SaISG_EEEESaISL_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEEvRT_RKT0_RKT1_.exit.loopexit.i, label %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_2d28point_xyIdNS0_2cs9cartesianEEEEESD_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i
 
 _ZN5boost8geometry6detail9partition20expand_with_elementsINS0_5model3boxINS4_2d28point_xyIdNS0_2cs9cartesianEEEEESt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISB_Lm2EEESC_ISG_SaISG_EEEESaISL_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEEvRT_RKT0_RKT1_.exit.loopexit.i: ; preds = %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_2d28point_xyIdNS0_2cs9cartesianEEEEESD_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i
-  store double %123, ptr %20, align 8, !tbaa !2405, !alias.scope !2854
-  store double %126, ptr %50, align 8, !tbaa !2405, !alias.scope !2854
-  store double %131, ptr %51, align 8, !tbaa !2405, !alias.scope !2854
-  store double %134, ptr %52, align 8, !tbaa !2405, !alias.scope !2854
+  store double %123, ptr %20, align 8, !alias.scope !2854
+  store double %126, ptr %50, align 8, !alias.scope !2854
+  store double %131, ptr %51, align 8, !alias.scope !2854
+  store double %134, ptr %52, align 8, !alias.scope !2854
   br label %_ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_2d28point_xyIdNS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISB_Lm2EEESE_ISI_SaISI_EEEESaISN_EESP_NS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEESW_EESB_RKT_RKT0_RKT1_RKT2_.exit
 
 _ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_2d28point_xyIdNS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISB_Lm2EEESE_ISI_SaISI_EEEESaISN_EESP_NS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEESW_EESB_RKT_RKT0_RKT1_RKT2_.exit: ; preds = %_ZN5boost8geometry6detail9partition20expand_with_elementsINS0_5model3boxINS4_2d28point_xyIdNS0_2cs9cartesianEEEEESt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISB_Lm2EEESC_ISG_SaISG_EEEESaISL_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEEvRT_RKT0_RKT1_.exit.loopexit.i, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_2d28point_xyIdNS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISB_Lm2EEESE_ISI_SaISI_EEEESaISN_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEESB_RKT_RKT0_.exit.i
@@ -174530,10 +174530,10 @@ _ZN5boost8geometry6detail9partition10recurse_okISt6vectorIN9__gnu_cxx17__normal_
   br i1 %.not.i.i104, label %_ZN5boost8geometry6detail9partition20expand_with_elementsINS0_5model3boxINS4_2d28point_xyIdNS0_2cs9cartesianEEEEESt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISB_Lm2EEESC_ISG_SaISG_EEEESaISL_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEEvRT_RKT0_RKT1_.exit.loopexit.i105, label %.lr.ph.i.i
 
 _ZN5boost8geometry6detail9partition20expand_with_elementsINS0_5model3boxINS4_2d28point_xyIdNS0_2cs9cartesianEEEEESt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISB_Lm2EEESC_ISG_SaISG_EEEESaISL_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEEvRT_RKT0_RKT1_.exit.loopexit.i105: ; preds = %.lr.ph.i.i
-  store double %248, ptr %21, align 8, !tbaa !2405, !alias.scope !2861
-  store double %251, ptr %217, align 8, !tbaa !2405, !alias.scope !2861
-  store double %256, ptr %218, align 8, !tbaa !2405, !alias.scope !2861
-  store double %259, ptr %219, align 8, !tbaa !2405, !alias.scope !2861
+  store double %248, ptr %21, align 8, !alias.scope !2861
+  store double %251, ptr %217, align 8, !alias.scope !2861
+  store double %256, ptr %218, align 8, !alias.scope !2861
+  store double %259, ptr %219, align 8, !alias.scope !2861
   br label %_ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_2d28point_xyIdNS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISB_Lm2EEESE_ISI_SaISI_EEEESaISN_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEESB_RKT_RKT0_.exit
 
 _ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_2d28point_xyIdNS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISB_Lm2EEESE_ISI_SaISI_EEEESaISN_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEESB_RKT_RKT0_.exit: ; preds = %_ZN5boost8geometry6detail9partition20expand_with_elementsINS0_5model3boxINS4_2d28point_xyIdNS0_2cs9cartesianEEEEESt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISB_Lm2EEESC_ISG_SaISG_EEEESaISL_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEEvRT_RKT0_RKT1_.exit.loopexit.i105, %216
@@ -174862,10 +174862,10 @@ _ZN5boost8geometry6detail9partition10recurse_okISt6vectorIN9__gnu_cxx17__normal_
   br i1 %.not.i.i146, label %456, label %.lr.ph.i.i144
 
 456:                                              ; preds = %.lr.ph.i.i144
-  store double %442, ptr %22, align 8, !tbaa !2405, !alias.scope !2867
-  store double %445, ptr %411, align 8, !tbaa !2405, !alias.scope !2867
-  store double %450, ptr %412, align 8, !tbaa !2405, !alias.scope !2867
-  store double %453, ptr %413, align 8, !tbaa !2405, !alias.scope !2867
+  store double %442, ptr %22, align 8, !alias.scope !2867
+  store double %445, ptr %411, align 8, !alias.scope !2867
+  store double %450, ptr %412, align 8, !alias.scope !2867
+  store double %453, ptr %413, align 8, !alias.scope !2867
   %457 = add nuw nsw i64 %3, 1
   %458 = invoke noundef zeroext i1 @_ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_2d28point_xyIdNS0_2cs9cartesianEEEEEE5applyISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISB_Lm2EEESE_ISI_SaISI_EEEESaISN_EESP_NS1_20self_get_turn_points20self_section_visitorILb0ENS4_7polygonISA_Lb1ELb1ESE_SE_SaSaEESt5dequeINS1_7overlay9turn_infoISA_NS0_13segment_ratioIdEENSV_14turn_operationISA_SY_EESt5arrayIS10_Lm2EEEESaIS13_EENSV_13get_turn_infoINSV_18assign_null_policyEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyENS1_8disjoint25disjoint_interrupt_policyEEENS1_7section15get_section_boxIS1C_EENS1H_20overlaps_section_boxIS1C_EES1J_S1L_NS2_15visit_no_policyEEEbRKSB_RKT_RKT0_mmRT1_RKT2_RKT3_RKT4_RKT5_RT6_(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %19, i64 noundef %457, i64 noundef %4, ptr noundef nonnull align 8 dereferenceable(45) %5, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 1 dereferenceable(1) %10)
           to label %_ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_2d28point_xyIdNS0_2cs9cartesianEEEEEE10next_levelISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISB_Lm2EEESE_ISI_SaISI_EEEESaISN_EESP_NS1_20self_get_turn_points20self_section_visitorILb0ENS4_7polygonISA_Lb1ELb1ESE_SE_SaSaEESt5dequeINS1_7overlay9turn_infoISA_NS0_13segment_ratioIdEENSV_14turn_operationISA_SY_EESt5arrayIS10_Lm2EEEESaIS13_EENSV_13get_turn_infoINSV_18assign_null_policyEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyENS1_8disjoint25disjoint_interrupt_policyEEENS1_7section15get_section_boxIS1C_EENS1H_20overlaps_section_boxIS1C_EES1J_S1L_NS2_15visit_no_policyEEEbRKSB_RKT_RKT0_mmRT1_RKT2_RKT3_RKT4_RKT5_RT6_.exit150 unwind label %461

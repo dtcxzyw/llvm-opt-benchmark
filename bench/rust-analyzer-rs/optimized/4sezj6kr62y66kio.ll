@@ -108,7 +108,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17h26a2c315c1
   br i1 %8, label %.loopexit31, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
-  %.promoted43 = load i64, ptr %1, align 8, !alias.scope !11
+  %.promoted43 = load i64, ptr %1, align 8
   %9 = getelementptr inbounds i8, ptr %1, i64 16
   %.val.i.i = load ptr, ptr %9, align 8, !alias.scope !11, !nonnull !4, !align !5, !noundef !4
   %10 = getelementptr inbounds i8, ptr %1, i64 24

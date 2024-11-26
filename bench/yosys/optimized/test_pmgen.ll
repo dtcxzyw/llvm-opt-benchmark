@@ -2245,7 +2245,7 @@ _ZNSt12_Vector_baseIPN5Yosys5RTLIL4CellESaIS3_EE11_M_allocateEm.exit.i.i.i.i: ; 
   br i1 %514, label %515, label %_ZNKSt6vectorIPN5Yosys5RTLIL4CellESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i.i.i
 
 515:                                              ; preds = %510
-  store ptr %503, ptr %363, align 8, !alias.scope !9
+  store ptr %503, ptr %363, align 8
   store ptr %504, ptr %362, align 8, !alias.scope !9
   store ptr %505, ptr %12, align 8, !alias.scope !9
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.32) #31
@@ -2305,7 +2305,7 @@ _ZNSt6vectorIPN5Yosys5RTLIL4CellESaIS3_EE9push_backERKS3_.exit.i.i.i: ; preds = 
 .loopexit.i.i.i:                                  ; preds = %521
   %lpad.loopexit.i.i.i = landingpad { ptr, i32 }
           cleanup
-  store ptr %503, ptr %363, align 8, !alias.scope !9
+  store ptr %503, ptr %363, align 8
   store ptr %504, ptr %362, align 8, !alias.scope !9
   store ptr %505, ptr %12, align 8, !alias.scope !9
   br label %.loopexit.split-lp.i.i.i
@@ -2332,7 +2332,7 @@ _ZNSt6vectorIPN5Yosys5RTLIL4CellESaIS3_EE9push_backERKS3_.exit.i.i.i: ; preds = 
   br label %.body.i.i
 
 .loopexit36.i.i:                                  ; preds = %_ZNSt6vectorIPN5Yosys5RTLIL4CellESaIS3_EE9push_backERKS3_.exit.i.i.i
-  store ptr %534, ptr %363, align 8, !alias.scope !9
+  store ptr %534, ptr %363, align 8
   br label %537
 
 537:                                              ; preds = %.loopexit36.i.i, %498, %495
@@ -45311,7 +45311,7 @@ _ZNSt12_Vector_baseIPN5Yosys5RTLIL4CellESaIS3_EE11_M_allocateEm.exit.i.i: ; pred
   br i1 %113, label %114, label %_ZNKSt6vectorIPN5Yosys5RTLIL4CellESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i
 
 114:                                              ; preds = %109
-  store ptr %102, ptr %30, align 8, !alias.scope !381
+  store ptr %102, ptr %30, align 8
   store ptr %103, ptr %29, align 8, !alias.scope !381
   store ptr %104, ptr %12, align 8, !alias.scope !381
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.32) #31
@@ -45371,7 +45371,7 @@ _ZNSt6vectorIPN5Yosys5RTLIL4CellESaIS3_EE9push_backERKS3_.exit.i: ; preds = %_ZN
 .loopexit.i:                                      ; preds = %120
   %lpad.loopexit.i = landingpad { ptr, i32 }
           cleanup
-  store ptr %102, ptr %30, align 8, !alias.scope !381
+  store ptr %102, ptr %30, align 8
   store ptr %103, ptr %29, align 8, !alias.scope !381
   store ptr %104, ptr %12, align 8, !alias.scope !381
   br label %.loopexit.split-lp.i
@@ -45398,7 +45398,7 @@ _ZNSt6vectorIPN5Yosys5RTLIL4CellESaIS3_EE9push_backERKS3_.exit.i: ; preds = %_ZN
   br label %.body
 
 .loopexit31:                                      ; preds = %_ZNSt6vectorIPN5Yosys5RTLIL4CellESaIS3_EE9push_backERKS3_.exit.i
-  store ptr %133, ptr %30, align 8, !alias.scope !381
+  store ptr %133, ptr %30, align 8
   br label %136
 
 136:                                              ; preds = %.loopexit31, %97, %94
@@ -46874,7 +46874,7 @@ _ZNSt12_Vector_baseIPN5Yosys5RTLIL4CellESaIS3_EE11_M_allocateEm.exit.i.i: ; pred
   br i1 %167, label %168, label %_ZNKSt6vectorIPN5Yosys5RTLIL4CellESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i
 
 168:                                              ; preds = %163
-  store ptr %156, ptr %30, align 8, !alias.scope !386
+  store ptr %156, ptr %30, align 8
   store ptr %157, ptr %29, align 8, !alias.scope !386
   store ptr %158, ptr %12, align 8, !alias.scope !386
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.32) #31
@@ -46934,7 +46934,7 @@ _ZNSt6vectorIPN5Yosys5RTLIL4CellESaIS3_EE9push_backERKS3_.exit.i: ; preds = %_ZN
 .loopexit.i:                                      ; preds = %174
   %lpad.loopexit.i = landingpad { ptr, i32 }
           cleanup
-  store ptr %156, ptr %30, align 8, !alias.scope !386
+  store ptr %156, ptr %30, align 8
   store ptr %157, ptr %29, align 8, !alias.scope !386
   store ptr %158, ptr %12, align 8, !alias.scope !386
   br label %.loopexit.split-lp.i
@@ -46961,7 +46961,7 @@ _ZNSt6vectorIPN5Yosys5RTLIL4CellESaIS3_EE9push_backERKS3_.exit.i: ; preds = %_ZN
   br label %.body
 
 .loopexit36:                                      ; preds = %_ZNSt6vectorIPN5Yosys5RTLIL4CellESaIS3_EE9push_backERKS3_.exit.i
-  store ptr %187, ptr %30, align 8, !alias.scope !386
+  store ptr %187, ptr %30, align 8
   br label %190
 
 190:                                              ; preds = %.loopexit36, %148, %151

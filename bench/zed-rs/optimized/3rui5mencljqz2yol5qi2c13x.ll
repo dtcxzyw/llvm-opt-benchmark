@@ -317,7 +317,7 @@ common.resume:                                    ; preds = %90, %.body, %33
 70:                                               ; preds = %72
   %71 = landingpad { ptr, i32 }
           cleanup
-  store ptr %55, ptr %50, align 8, !alias.scope !99, !noalias !100
+  store ptr %55, ptr %50, align 8
   invoke void @"_ZN4core3ptr54drop_in_place$LT$task..task_template..TaskTemplate$GT$17h47ef5d46f89e29c6E"(ptr noalias noundef nonnull align 8 dereferenceable(208) %7) #25
           to label %59 unwind label %73, !noalias !72
 
@@ -332,7 +332,7 @@ common.resume:                                    ; preds = %90, %.body, %33
   unreachable
 
 .loopexit.i.i.sink.split:                         ; preds = %66, %58
-  store ptr %55, ptr %50, align 8, !alias.scope !99, !noalias !100
+  store ptr %55, ptr %50, align 8
   br label %.loopexit.i.i
 
 .loopexit.i.i:                                    ; preds = %.loopexit.i.i.sink.split, %47

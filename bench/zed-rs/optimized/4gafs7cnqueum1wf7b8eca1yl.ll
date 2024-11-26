@@ -14143,9 +14143,9 @@ define hidden void @"_ZN9hashbrown3raw16RawIter$LT$T$GT$13drop_elements17hf58f45
 .preheader:                                       ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   %.promoted = load i16, ptr %5, align 8, !alias.scope !2917
-  %.promoted8 = load ptr, ptr %0, align 8, !alias.scope !2917
+  %.promoted8 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
-  %.promoted12 = load ptr, ptr %6, align 8, !alias.scope !2917
+  %.promoted12 = load ptr, ptr %6, align 8
   br label %7
 
 .loopexit:                                        ; preds = %"_ZN4core3ptr92drop_in_place$LT$$LP$text..BufferId$C$alloc..vec..Vec$LT$multi_buffer..ExcerptId$GT$$RP$$GT$17hddb4edb793c13601E.llvm.8194774397631367423.exit", %1

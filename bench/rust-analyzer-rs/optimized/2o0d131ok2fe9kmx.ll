@@ -12187,7 +12187,7 @@ select.unfold:                                    ; preds = %246, %"_ZN9hashbrow
   br i1 %trunc.i.i.i.i.i.i.i, label %.split.us.preheader.i.i.i.i.i.i, label %.split.i.i.i.i.i.i
 
 .split.us.preheader.i.i.i.i.i.i:                  ; preds = %338
-  %.promoted17.i.i.i.i.i.i = load i64, ptr %.sroa.033.sroa.0.sroa.2.0..sroa_idx, align 8, !alias.scope !2240
+  %.promoted17.i.i.i.i.i.i = load i64, ptr %.sroa.033.sroa.0.sroa.2.0..sroa_idx, align 8, !alias.scope !2227
   br label %.split.us.i.i.i.i.i.i
 
 .split.us.i.i.i.i.i.i:                            ; preds = %342, %.split.us.preheader.i.i.i.i.i.i
@@ -12199,7 +12199,7 @@ select.unfold:                                    ; preds = %246, %"_ZN9hashbrow
 _ZN4core4iter8adapters7flatten17and_then_or_clear17hf12508a550a2231dE.exit.us.i.i.i.i.i.i: ; preds = %.split.us.i.i.i.i.i.i
   %.not.i.us.i.i.i.i.i.i = icmp eq i8 %spec.store.select.i16.us.i.i.i.i.i.i, 3
   %spec.store.select.i.us.i.i.i.i.i.i = select i1 %.not.i.us.i.i.i.i.i.i, i8 4, i8 3
-  store i8 %spec.store.select.i.us.i.i.i.i.i.i, ptr %225, align 8, !alias.scope !2245
+  store i8 %spec.store.select.i.us.i.i.i.i.i.i, ptr %225, align 8, !alias.scope !2240
   br i1 %.not.i.us.i.i.i.i.i.i, label %_ZN4core4iter8adapters7flatten17and_then_or_clear17hf12508a550a2231dE.exit.thread.us.i.i.i.i.i.i, label %_ZN4core4iter8adapters7flatten17and_then_or_clear17h0d868978715a5160E.exit.i
 
 _ZN4core4iter8adapters7flatten17and_then_or_clear17hf12508a550a2231dE.exit.thread.us.i.i.i.i.i.i: ; preds = %_ZN4core4iter8adapters7flatten17and_then_or_clear17hf12508a550a2231dE.exit.us.i.i.i.i.i.i, %.split.us.i.i.i.i.i.i
@@ -12208,11 +12208,11 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17hf12508a550a2231dE.exit.threa
 
 342:                                              ; preds = %_ZN4core4iter8adapters7flatten17and_then_or_clear17hf12508a550a2231dE.exit.thread.us.i.i.i.i.i.i
   %343 = add nuw nsw i64 %340, 1
-  store i64 %343, ptr %.sroa.033.sroa.0.sroa.2.0..sroa_idx, align 8, !alias.scope !2240
+  store i64 %343, ptr %.sroa.033.sroa.0.sroa.2.0..sroa_idx, align 8, !alias.scope !2243
   %344 = icmp ult i64 %340, 3
   call void @llvm.assume(i1 %344)
   %345 = getelementptr inbounds i8, ptr %227, i64 %340
-  %346 = load i8, ptr %345, align 1, !range !507, !alias.scope !2240, !noundef !14
+  %346 = load i8, ptr %345, align 1, !range !507, !alias.scope !2243, !noundef !14
   store i8 %346, ptr %225, align 8, !alias.scope !2227
   br label %.split.us.i.i.i.i.i.i
 
@@ -12223,7 +12223,7 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17hf12508a550a2231dE.exit.threa
 _ZN4core4iter8adapters7flatten17and_then_or_clear17hf12508a550a2231dE.exit.i.i.i.i.i.i: ; preds = %.split.i.i.i.i.i.i
   %.not.i.i.i.i.i.i.i = icmp eq i8 %.promoted.i.i.i.i.i.i, 3
   %spec.store.select.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i, i8 4, i8 3
-  store i8 %spec.store.select.i.i.i.i.i.i.i, ptr %225, align 8, !alias.scope !2245
+  store i8 %spec.store.select.i.i.i.i.i.i.i, ptr %225, align 8, !alias.scope !2240
   br i1 %.not.i.i.i.i.i.i.i, label %.split19.us.i.i.i.i.i.i, label %_ZN4core4iter8adapters7flatten17and_then_or_clear17h0d868978715a5160E.exit.i
 
 .split19.us.i.i.i.i.i.i:                          ; preds = %_ZN4core4iter8adapters7flatten17and_then_or_clear17hf12508a550a2231dE.exit.thread.us.i.i.i.i.i.i, %_ZN4core4iter8adapters7flatten17and_then_or_clear17hf12508a550a2231dE.exit.i.i.i.i.i.i, %.split.i.i.i.i.i.i
@@ -12337,7 +12337,7 @@ default.unreachable:                              ; preds = %371
   br i1 %trunc.i.i.i.i.i.i6.i, label %.split.us.preheader.i.i.i.i.i22.i, label %.split.i.i.i.i.i7.i
 
 .split.us.preheader.i.i.i.i.i22.i:                ; preds = %378
-  %.promoted17.i.i.i.i.i23.i = load i64, ptr %.sroa.033.sroa.0.sroa.4.0..sroa_idx, align 8, !alias.scope !2298
+  %.promoted17.i.i.i.i.i23.i = load i64, ptr %.sroa.033.sroa.0.sroa.4.0..sroa_idx, align 8, !alias.scope !2287
   br label %.split.us.i.i.i.i.i24.i
 
 .split.us.i.i.i.i.i24.i:                          ; preds = %382, %.split.us.preheader.i.i.i.i.i22.i
@@ -12349,7 +12349,7 @@ default.unreachable:                              ; preds = %371
 _ZN4core4iter8adapters7flatten17and_then_or_clear17hf12508a550a2231dE.exit.us.i.i.i.i.i26.i: ; preds = %.split.us.i.i.i.i.i24.i
   %.not.i.us.i.i.i.i.i27.i = icmp eq i8 %spec.store.select.i16.us.i.i.i.i.i25.i, 3
   %spec.store.select.i.us.i.i.i.i.i28.i = select i1 %.not.i.us.i.i.i.i.i27.i, i8 4, i8 3
-  store i8 %spec.store.select.i.us.i.i.i.i.i28.i, ptr %228, align 8, !alias.scope !2303
+  store i8 %spec.store.select.i.us.i.i.i.i.i28.i, ptr %228, align 8, !alias.scope !2298
   br i1 %.not.i.us.i.i.i.i.i27.i, label %_ZN4core4iter8adapters7flatten17and_then_or_clear17hf12508a550a2231dE.exit.thread.us.i.i.i.i.i29.i, label %_ZN4core3ops8function6FnOnce9call_once17h70b2e0e2df993411E.exit.i11.i
 
 _ZN4core4iter8adapters7flatten17and_then_or_clear17hf12508a550a2231dE.exit.thread.us.i.i.i.i.i29.i: ; preds = %_ZN4core4iter8adapters7flatten17and_then_or_clear17hf12508a550a2231dE.exit.us.i.i.i.i.i26.i, %.split.us.i.i.i.i.i24.i
@@ -12358,11 +12358,11 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17hf12508a550a2231dE.exit.threa
 
 382:                                              ; preds = %_ZN4core4iter8adapters7flatten17and_then_or_clear17hf12508a550a2231dE.exit.thread.us.i.i.i.i.i29.i
   %383 = add nuw nsw i64 %380, 1
-  store i64 %383, ptr %.sroa.033.sroa.0.sroa.4.0..sroa_idx, align 8, !alias.scope !2298
+  store i64 %383, ptr %.sroa.033.sroa.0.sroa.4.0..sroa_idx, align 8, !alias.scope !2301
   %384 = icmp ult i64 %380, 3
   call void @llvm.assume(i1 %384)
   %385 = getelementptr inbounds i8, ptr %230, i64 %380
-  %386 = load i8, ptr %385, align 1, !range !507, !alias.scope !2298, !noundef !14
+  %386 = load i8, ptr %385, align 1, !range !507, !alias.scope !2301, !noundef !14
   store i8 %386, ptr %228, align 8, !alias.scope !2287
   br label %.split.us.i.i.i.i.i24.i
 
@@ -12373,7 +12373,7 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17hf12508a550a2231dE.exit.threa
 _ZN4core4iter8adapters7flatten17and_then_or_clear17hf12508a550a2231dE.exit.i.i.i.i.i8.i: ; preds = %.split.i.i.i.i.i7.i
   %.not.i.i.i.i.i.i9.i = icmp eq i8 %.promoted.i.i.i.i.i5.i, 3
   %spec.store.select.i.i.i.i.i.i10.i = select i1 %.not.i.i.i.i.i.i9.i, i8 4, i8 3
-  store i8 %spec.store.select.i.i.i.i.i.i10.i, ptr %228, align 8, !alias.scope !2303
+  store i8 %spec.store.select.i.i.i.i.i.i10.i, ptr %228, align 8, !alias.scope !2298
   br i1 %.not.i.i.i.i.i.i9.i, label %.split19.us.i.i.i.i.i15.i, label %_ZN4core3ops8function6FnOnce9call_once17h70b2e0e2df993411E.exit.i11.i
 
 .split19.us.i.i.i.i.i15.i:                        ; preds = %_ZN4core4iter8adapters7flatten17and_then_or_clear17hf12508a550a2231dE.exit.thread.us.i.i.i.i.i29.i, %_ZN4core4iter8adapters7flatten17and_then_or_clear17hf12508a550a2231dE.exit.i.i.i.i.i8.i, %.split.i.i.i.i.i7.i
@@ -18291,14 +18291,14 @@ attributes #42 = { "function-inline-cost-multiplier"="2" }
 !2237 = distinct !{!2237, !"_ZN4core4iter8adapters7flatten17and_then_or_clear17h0d868978715a5160E"}
 !2238 = distinct !{!2238, !2239, !"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1f715029d94e416eE: argument 0"}
 !2239 = distinct !{!2239, !"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1f715029d94e416eE"}
-!2240 = !{!2241, !2243, !2228, !2230, !2232, !2234, !2236, !2238}
-!2241 = distinct !{!2241, !2242, !"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5570a2a9cbf4ef6dE: argument 0"}
-!2242 = distinct !{!2242, !"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5570a2a9cbf4ef6dE"}
-!2243 = distinct !{!2243, !2244, !"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17he11fabb5a7047985E: argument 0"}
-!2244 = distinct !{!2244, !"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17he11fabb5a7047985E"}
-!2245 = !{!2246, !2228, !2230, !2232, !2234, !2236, !2238}
-!2246 = distinct !{!2246, !2247, !"_ZN4core4iter8adapters7flatten17and_then_or_clear17hf12508a550a2231dE: argument 0"}
-!2247 = distinct !{!2247, !"_ZN4core4iter8adapters7flatten17and_then_or_clear17hf12508a550a2231dE"}
+!2240 = !{!2241, !2228, !2230, !2232, !2234, !2236, !2238}
+!2241 = distinct !{!2241, !2242, !"_ZN4core4iter8adapters7flatten17and_then_or_clear17hf12508a550a2231dE: argument 0"}
+!2242 = distinct !{!2242, !"_ZN4core4iter8adapters7flatten17and_then_or_clear17hf12508a550a2231dE"}
+!2243 = !{!2244, !2246, !2228, !2230, !2232, !2234, !2236, !2238}
+!2244 = distinct !{!2244, !2245, !"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5570a2a9cbf4ef6dE: argument 0"}
+!2245 = distinct !{!2245, !"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5570a2a9cbf4ef6dE"}
+!2246 = distinct !{!2246, !2247, !"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17he11fabb5a7047985E: argument 0"}
+!2247 = distinct !{!2247, !"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17he11fabb5a7047985E"}
 !2248 = !{i8 0, i8 5}
 !2249 = !{!2250, !2228, !2230, !2232, !2234, !2236, !2238}
 !2250 = distinct !{!2250, !2251, !"_ZN4core4iter8adapters7flatten17and_then_or_clear17hf12508a550a2231dE: argument 0"}
@@ -18349,14 +18349,14 @@ attributes #42 = { "function-inline-cost-multiplier"="2" }
 !2295 = distinct !{!2295, !"_ZN4core3ops8function6FnOnce9call_once17h70b2e0e2df993411E"}
 !2296 = distinct !{!2296, !2297, !"_ZN4core4iter8adapters7flatten17and_then_or_clear17h0d868978715a5160E: argument 0"}
 !2297 = distinct !{!2297, !"_ZN4core4iter8adapters7flatten17and_then_or_clear17h0d868978715a5160E"}
-!2298 = !{!2299, !2301, !2288, !2290, !2292, !2294, !2296, !2238}
-!2299 = distinct !{!2299, !2300, !"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5570a2a9cbf4ef6dE: argument 0"}
-!2300 = distinct !{!2300, !"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5570a2a9cbf4ef6dE"}
-!2301 = distinct !{!2301, !2302, !"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17he11fabb5a7047985E: argument 0"}
-!2302 = distinct !{!2302, !"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17he11fabb5a7047985E"}
-!2303 = !{!2304, !2288, !2290, !2292, !2294, !2296, !2238}
-!2304 = distinct !{!2304, !2305, !"_ZN4core4iter8adapters7flatten17and_then_or_clear17hf12508a550a2231dE: argument 0"}
-!2305 = distinct !{!2305, !"_ZN4core4iter8adapters7flatten17and_then_or_clear17hf12508a550a2231dE"}
+!2298 = !{!2299, !2288, !2290, !2292, !2294, !2296, !2238}
+!2299 = distinct !{!2299, !2300, !"_ZN4core4iter8adapters7flatten17and_then_or_clear17hf12508a550a2231dE: argument 0"}
+!2300 = distinct !{!2300, !"_ZN4core4iter8adapters7flatten17and_then_or_clear17hf12508a550a2231dE"}
+!2301 = !{!2302, !2304, !2288, !2290, !2292, !2294, !2296, !2238}
+!2302 = distinct !{!2302, !2303, !"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5570a2a9cbf4ef6dE: argument 0"}
+!2303 = distinct !{!2303, !"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5570a2a9cbf4ef6dE"}
+!2304 = distinct !{!2304, !2305, !"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17he11fabb5a7047985E: argument 0"}
+!2305 = distinct !{!2305, !"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17he11fabb5a7047985E"}
 !2306 = !{!2307, !2288, !2290, !2292, !2294, !2296, !2238}
 !2307 = distinct !{!2307, !2308, !"_ZN4core4iter8adapters7flatten17and_then_or_clear17hf12508a550a2231dE: argument 0"}
 !2308 = distinct !{!2308, !"_ZN4core4iter8adapters7flatten17and_then_or_clear17hf12508a550a2231dE"}

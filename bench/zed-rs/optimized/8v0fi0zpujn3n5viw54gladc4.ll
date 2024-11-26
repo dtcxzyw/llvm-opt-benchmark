@@ -6362,9 +6362,9 @@ define hidden void @"_ZN9hashbrown3raw16RawIter$LT$T$GT$13drop_elements17h39d5e3
 .preheader:                                       ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   %.promoted = load i16, ptr %5, align 8, !alias.scope !1172
-  %.promoted8 = load ptr, ptr %0, align 8, !alias.scope !1172
+  %.promoted8 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
-  %.promoted12 = load ptr, ptr %6, align 8, !alias.scope !1172
+  %.promoted12 = load ptr, ptr %6, align 8
   br label %7
 
 .loopexit:                                        ; preds = %"_ZN4core3ptr74drop_in_place$LT$$LP$alloc..string..String$C$alloc..string..String$RP$$GT$17h34d30c9e3b4bdb5eE.llvm.16185551851059302720.exit", %1

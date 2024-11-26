@@ -146942,7 +146942,7 @@ _ZNSt6vectorIPcSaIS0_EE9push_backEOS0_.exit:      ; preds = %_ZNSt6vectorIPcSaIS
   br i1 %35, label %36, label %_ZNKSt6vectorIPcSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i11
 
 36:                                               ; preds = %31
-  store ptr %20, ptr %0, align 8, !tbaa !2376
+  store ptr %20, ptr %0, align 8
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.487) #56
           to label %.noexc18 unwind label %.loopexit.split-lp
 
@@ -147001,7 +147001,7 @@ _ZNSt6vectorIPcSaIS0_EE9push_backEOS0_.exit20:    ; preds = %_ZNSt6vectorIPcSaIS
 .loopexit40:                                      ; preds = %42
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  store ptr %20, ptr %0, align 8, !tbaa !2376
+  store ptr %20, ptr %0, align 8
   br label %88
 
 .loopexit.split-lp:                               ; preds = %36
@@ -147010,7 +147010,7 @@ _ZNSt6vectorIPcSaIS0_EE9push_backEOS0_.exit20:    ; preds = %_ZNSt6vectorIPcSaIS
   br label %88
 
 56:                                               ; preds = %_ZNSt6vectorIPcSaIS0_EE9push_backEOS0_.exit20
-  store ptr %54, ptr %0, align 8, !tbaa !2376
+  store ptr %54, ptr %0, align 8
   %.pre = load ptr, ptr %18, align 8, !tbaa !2379
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 16

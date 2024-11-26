@@ -185480,7 +185480,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost6detail18lcast_ret_unsig
   br i1 %.not4.i, label %_ZN5boost6detail18lcast_ret_unsignedISt11char_traitsIcEjcE17main_convert_loopEv.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %21
-  %.promoted3.i = load i8, ptr %0, align 8, !tbaa !4288
+  %.promoted3.i = load i8, ptr %0, align 8
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %24 = load ptr, ptr %7, align 8
   %25 = trunc nuw i8 %.promoted3.i to i1
@@ -185571,7 +185571,7 @@ _ZNKSt7__cxx118numpunctIcE8groupingEv.exit:       ; preds = %53
   br i1 %.not4.i38, label %_ZN5boost6detail18lcast_ret_unsignedISt11char_traitsIcEjcE17main_convert_loopEv.exit50, label %.lr.ph.i39
 
 .lr.ph.i39:                                       ; preds = %63
-  %.promoted3.i40 = load i8, ptr %0, align 8, !tbaa !4288
+  %.promoted3.i40 = load i8, ptr %0, align 8
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %66 = load ptr, ptr %7, align 8
   %67 = trunc nuw i8 %.promoted3.i40 to i1
@@ -185651,7 +185651,7 @@ _ZNKSt7__cxx118numpunctIcE13thousands_sepEv.exit: ; preds = %95
   br i1 %.not3559, label %_ZN5boost6detail18lcast_ret_unsignedISt11char_traitsIcEjcE17main_convert_loopEv.exit50, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNKSt7__cxx118numpunctIcE13thousands_sepEv.exit
-  %.promoted58 = load i8, ptr %0, align 8, !tbaa !4288
+  %.promoted58 = load i8, ptr %0, align 8
   %102 = load i8, ptr %100, align 1, !tbaa !24
   %103 = add i8 %102, -1
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -185824,7 +185824,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost6detail18lcast_ret_unsig
   br i1 %.not4, label %_ZN5boost6detail18lcast_ret_unsignedISt11char_traitsIcEjcE22main_convert_iterationEv.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
-  %.promoted3 = load i8, ptr %0, align 8, !tbaa !4288
+  %.promoted3 = load i8, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8

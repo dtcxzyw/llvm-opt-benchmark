@@ -198,7 +198,7 @@ define internal noundef i64 @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A
   %5 = getelementptr inbounds i8, ptr %0, i64 1
   %6 = getelementptr inbounds i8, ptr %0, i64 2
   %7 = load i8, ptr %6, align 1, !alias.scope !22
-  %.promoted13.i = load i8, ptr %5, align 1, !alias.scope !25
+  %.promoted13.i = load i8, ptr %5, align 1, !alias.scope !22
   br label %8
 
 8:                                                ; preds = %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$4next17hd92b90c048bd8d66E.exit.i", %.lr.ph.i
@@ -258,7 +258,7 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17h2e77d2a23c2c49a3E.exit22: ;
   %27 = getelementptr inbounds i8, ptr %0, i64 4
   %28 = getelementptr inbounds i8, ptr %0, i64 5
   %29 = load i8, ptr %28, align 1, !alias.scope !30
-  %.promoted13.i15 = load i8, ptr %27, align 1, !alias.scope !33
+  %.promoted13.i15 = load i8, ptr %27, align 1, !alias.scope !30
   br label %30
 
 30:                                               ; preds = %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$4next17hd92b90c048bd8d66E.exit.i19", %.lr.ph.i13
@@ -309,7 +309,7 @@ define internal noundef i64 @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A
   %5 = getelementptr inbounds i8, ptr %0, i64 1
   %6 = getelementptr inbounds i8, ptr %0, i64 2
   %7 = load i8, ptr %6, align 1, !alias.scope !38
-  %.promoted13.i = load i8, ptr %5, align 1, !alias.scope !41
+  %.promoted13.i = load i8, ptr %5, align 1, !alias.scope !38
   br label %8
 
 8:                                                ; preds = %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$4next17hd92b90c048bd8d66E.exit.i", %.lr.ph.i
@@ -398,7 +398,7 @@ define internal noundef i64 @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A
   %6 = getelementptr inbounds i8, ptr %0, i64 4
   %7 = getelementptr inbounds i8, ptr %0, i64 5
   %8 = load i8, ptr %7, align 1, !alias.scope !52
-  %.promoted13.i.i = load i8, ptr %6, align 1, !alias.scope !57
+  %.promoted13.i.i = load i8, ptr %6, align 1, !alias.scope !52
   br label %9
 
 9:                                                ; preds = %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$4next17hd92b90c048bd8d66E.exit.i.i", %.lr.ph.i.i
@@ -454,7 +454,7 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17h2e77d2a23c2c49a3E.exit.i: ;
   %28 = getelementptr inbounds i8, ptr %0, i64 7
   %29 = getelementptr inbounds i8, ptr %0, i64 8
   %30 = load i8, ptr %29, align 1, !alias.scope !63
-  %.promoted13.i15.i = load i8, ptr %28, align 1, !alias.scope !66
+  %.promoted13.i15.i = load i8, ptr %28, align 1, !alias.scope !63
   br label %31
 
 31:                                               ; preds = %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$4next17hd92b90c048bd8d66E.exit.i19.i", %.lr.ph.i13.i
@@ -517,7 +517,7 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17h2e77d2a23c2c49a3E.exit: ; p
   %50 = getelementptr inbounds i8, ptr %0, i64 1
   %51 = getelementptr inbounds i8, ptr %0, i64 2
   %52 = load i8, ptr %51, align 1, !alias.scope !71
-  %.promoted13.i = load i8, ptr %50, align 1, !alias.scope !74
+  %.promoted13.i = load i8, ptr %50, align 1, !alias.scope !71
   br label %53
 
 53:                                               ; preds = %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$4next17hd92b90c048bd8d66E.exit.i", %.lr.ph.i
@@ -577,7 +577,7 @@ define internal noundef i64 @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A
   %9 = getelementptr inbounds i8, ptr %0, i64 7
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   %11 = load i8, ptr %10, align 1, !alias.scope !82
-  %.promoted13.i.i.i = load i8, ptr %9, align 1, !alias.scope !87
+  %.promoted13.i.i.i = load i8, ptr %9, align 1, !alias.scope !82
   br label %12
 
 12:                                               ; preds = %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$4next17hd92b90c048bd8d66E.exit.i.i.i", %.lr.ph.i.i.i
@@ -633,7 +633,7 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17h2e77d2a23c2c49a3E.exit.i.i:
   %31 = getelementptr inbounds i8, ptr %0, i64 10
   %32 = getelementptr inbounds i8, ptr %0, i64 11
   %33 = load i8, ptr %32, align 1, !alias.scope !93
-  %.promoted13.i15.i.i = load i8, ptr %31, align 1, !alias.scope !96
+  %.promoted13.i15.i.i = load i8, ptr %31, align 1, !alias.scope !93
   br label %34
 
 34:                                               ; preds = %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$4next17hd92b90c048bd8d66E.exit.i19.i.i", %.lr.ph.i13.i.i
@@ -691,7 +691,7 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17h2e77d2a23c2c49a3E.exit.i.i:
   %52 = getelementptr inbounds i8, ptr %0, i64 4
   %53 = getelementptr inbounds i8, ptr %0, i64 5
   %54 = load i8, ptr %53, align 1, !alias.scope !101
-  %.promoted13.i.i = load i8, ptr %52, align 1, !alias.scope !104
+  %.promoted13.i.i = load i8, ptr %52, align 1, !alias.scope !101
   br label %55
 
 55:                                               ; preds = %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$4next17hd92b90c048bd8d66E.exit.i.i", %.lr.ph.i.i
@@ -754,7 +754,7 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17h2e77d2a23c2c49a3E.exit: ; p
   %74 = getelementptr inbounds i8, ptr %0, i64 1
   %75 = getelementptr inbounds i8, ptr %0, i64 2
   %76 = load i8, ptr %75, align 1, !alias.scope !109
-  %.promoted13.i = load i8, ptr %74, align 1, !alias.scope !112
+  %.promoted13.i = load i8, ptr %74, align 1, !alias.scope !109
   br label %77
 
 77:                                               ; preds = %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$4next17hd92b90c048bd8d66E.exit.i", %.lr.ph.i
@@ -834,7 +834,7 @@ define internal noundef i64 @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A
   %18 = getelementptr inbounds i8, ptr %0, i64 7
   %19 = getelementptr inbounds i8, ptr %0, i64 8
   %20 = load i8, ptr %19, align 1, !alias.scope !123
-  %.promoted13.i.i.i = load i8, ptr %18, align 1, !alias.scope !126
+  %.promoted13.i.i.i = load i8, ptr %18, align 1, !alias.scope !123
   br label %21
 
 21:                                               ; preds = %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$4next17hd92b90c048bd8d66E.exit.i.i.i", %.lr.ph.i.i.i
@@ -894,7 +894,7 @@ define internal noundef i64 @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A
   %40 = getelementptr inbounds i8, ptr %0, i64 4
   %41 = getelementptr inbounds i8, ptr %0, i64 5
   %42 = load i8, ptr %41, align 1, !alias.scope !131
-  %.promoted13.i.i = load i8, ptr %40, align 1, !alias.scope !134
+  %.promoted13.i.i = load i8, ptr %40, align 1, !alias.scope !131
   br label %43
 
 43:                                               ; preds = %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$4next17hd92b90c048bd8d66E.exit.i.i", %.lr.ph.i.i
@@ -957,7 +957,7 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17h2e77d2a23c2c49a3E.exit: ; p
   %62 = getelementptr inbounds i8, ptr %0, i64 1
   %63 = getelementptr inbounds i8, ptr %0, i64 2
   %64 = load i8, ptr %63, align 1, !alias.scope !139
-  %.promoted13.i = load i8, ptr %62, align 1, !alias.scope !142
+  %.promoted13.i = load i8, ptr %62, align 1, !alias.scope !139
   br label %65
 
 65:                                               ; preds = %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$4next17hd92b90c048bd8d66E.exit.i", %.lr.ph.i
@@ -1057,7 +1057,7 @@ define internal { i1, i8 } @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$
   %6 = getelementptr inbounds i8, ptr %0, i64 4
   %7 = getelementptr inbounds i8, ptr %0, i64 5
   %8 = load i8, ptr %7, align 1, !alias.scope !152
-  %.promoted13.i.i = load i8, ptr %6, align 1, !alias.scope !157
+  %.promoted13.i.i = load i8, ptr %6, align 1, !alias.scope !152
   br label %9
 
 9:                                                ; preds = %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$4next17hd92b90c048bd8d66E.exit.i.i", %.lr.ph.i.i
@@ -1113,7 +1113,7 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17h2e77d2a23c2c49a3E.exit.i: ;
   %28 = getelementptr inbounds i8, ptr %0, i64 7
   %29 = getelementptr inbounds i8, ptr %0, i64 8
   %30 = load i8, ptr %29, align 1, !alias.scope !163
-  %.promoted13.i15.i = load i8, ptr %28, align 1, !alias.scope !166
+  %.promoted13.i15.i = load i8, ptr %28, align 1, !alias.scope !163
   br label %31
 
 31:                                               ; preds = %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$4next17hd92b90c048bd8d66E.exit.i19.i", %.lr.ph.i13.i
@@ -1400,7 +1400,7 @@ define internal { i1, i8 } @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$
   %5 = getelementptr inbounds i8, ptr %0, i64 1
   %6 = getelementptr inbounds i8, ptr %0, i64 2
   %7 = load i8, ptr %6, align 1, !alias.scope !225
-  %.promoted13.i = load i8, ptr %5, align 1, !alias.scope !228
+  %.promoted13.i = load i8, ptr %5, align 1, !alias.scope !225
   br label %8
 
 8:                                                ; preds = %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$4next17hd92b90c048bd8d66E.exit.i", %.lr.ph.i
@@ -1552,7 +1552,7 @@ define internal { i1, i8 } @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$
   %9 = getelementptr inbounds i8, ptr %0, i64 7
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   %11 = load i8, ptr %10, align 1, !alias.scope !241
-  %.promoted13.i.i.i = load i8, ptr %9, align 1, !alias.scope !248
+  %.promoted13.i.i.i = load i8, ptr %9, align 1, !alias.scope !241
   br label %12
 
 12:                                               ; preds = %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$4next17hd92b90c048bd8d66E.exit.i.i.i", %.lr.ph.i.i.i
@@ -1608,7 +1608,7 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17h2e77d2a23c2c49a3E.exit.i.i:
   %31 = getelementptr inbounds i8, ptr %0, i64 10
   %32 = getelementptr inbounds i8, ptr %0, i64 11
   %33 = load i8, ptr %32, align 1, !alias.scope !254
-  %.promoted13.i15.i.i = load i8, ptr %31, align 1, !alias.scope !257
+  %.promoted13.i15.i.i = load i8, ptr %31, align 1, !alias.scope !254
   br label %34
 
 34:                                               ; preds = %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$4next17hd92b90c048bd8d66E.exit.i19.i.i", %.lr.ph.i13.i.i
@@ -1666,7 +1666,7 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17h2e77d2a23c2c49a3E.exit.i.i:
   %52 = getelementptr inbounds i8, ptr %0, i64 4
   %53 = getelementptr inbounds i8, ptr %0, i64 5
   %54 = load i8, ptr %53, align 1, !alias.scope !263
-  %.promoted13.i.i = load i8, ptr %52, align 1, !alias.scope !266
+  %.promoted13.i.i = load i8, ptr %52, align 1, !alias.scope !263
   br label %55
 
 55:                                               ; preds = %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$4next17hd92b90c048bd8d66E.exit.i.i", %.lr.ph.i.i
@@ -1889,7 +1889,7 @@ define internal { i1, i8 } @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$
   %5 = getelementptr inbounds i8, ptr %0, i64 1
   %6 = getelementptr inbounds i8, ptr %0, i64 2
   %7 = load i8, ptr %6, align 1, !alias.scope !312
-  %.promoted13.i = load i8, ptr %5, align 1, !alias.scope !315
+  %.promoted13.i = load i8, ptr %5, align 1, !alias.scope !312
   br label %8
 
 8:                                                ; preds = %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$4next17hd92b90c048bd8d66E.exit.i", %.lr.ph.i
@@ -2037,7 +2037,7 @@ define internal { i1, i8 } @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$
   %18 = getelementptr inbounds i8, ptr %0, i64 7
   %19 = getelementptr inbounds i8, ptr %0, i64 8
   %20 = load i8, ptr %19, align 1, !alias.scope !341
-  %.promoted13.i.i.i = load i8, ptr %18, align 1, !alias.scope !344
+  %.promoted13.i.i.i = load i8, ptr %18, align 1, !alias.scope !341
   br label %21
 
 21:                                               ; preds = %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$4next17hd92b90c048bd8d66E.exit.i.i.i", %.lr.ph.i.i.i
@@ -2097,7 +2097,7 @@ define internal { i1, i8 } @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$
   %40 = getelementptr inbounds i8, ptr %0, i64 4
   %41 = getelementptr inbounds i8, ptr %0, i64 5
   %42 = load i8, ptr %41, align 1, !alias.scope !349
-  %.promoted13.i.i = load i8, ptr %40, align 1, !alias.scope !352
+  %.promoted13.i.i = load i8, ptr %40, align 1, !alias.scope !349
   br label %43
 
 43:                                               ; preds = %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$4next17hd92b90c048bd8d66E.exit.i.i", %.lr.ph.i.i
@@ -5189,11 +5189,11 @@ define internal noundef i64 @_ZN4core4iter6traits8iterator8Iterator10advance_by1
   br i1 %.not, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %.promoted = load i8, ptr %0, align 1, !alias.scope !1115
+  %.promoted = load i8, ptr %0, align 1
   %3 = getelementptr inbounds i8, ptr %0, i64 1
   %4 = getelementptr inbounds i8, ptr %0, i64 2
   %5 = load i8, ptr %4, align 1
-  %.promoted13 = load i8, ptr %3, align 1, !alias.scope !1115
+  %.promoted13 = load i8, ptr %3, align 1
   br label %6
 
 6:                                                ; preds = %.lr.ph, %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$4next17hd92b90c048bd8d66E.exit"
@@ -5240,7 +5240,7 @@ define internal noundef i64 @_ZN4core4iter6traits8iterator8Iterator10advance_by1
   br i1 %.not12, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %.promoted = load ptr, ptr %0, align 8, !alias.scope !1120
+  %.promoted = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !alias.scope !1120, !nonnull !4, !noundef !4
   br label %5
@@ -5269,7 +5269,7 @@ define internal noundef i64 @_ZN4core4iter6traits8iterator8Iterator10advance_by1
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite) uwtable
 define internal noundef i64 @_ZN4core4iter6traits8iterator8Iterator10advance_by17h7a2a7ea2edb26538E(ptr noalias nocapture noundef align 1 dereferenceable(2) %0, i64 noundef %1) unnamed_addr #4 {
-  %.promoted = load i8, ptr %0, align 1, !alias.scope !1125
+  %.promoted = load i8, ptr %0, align 1
   %3 = trunc nuw i8 %.promoted to i1
   br label %4
 

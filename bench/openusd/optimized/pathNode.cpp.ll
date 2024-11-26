@@ -11876,9 +11876,9 @@ _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i.i: ; pred
 
 .lr.ph.preheader.i.i:                             ; preds = %.loopexit.i.i
   %111 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::pxr_tsl::detail_robin_hash::bucket_entry.135", ptr %.val.i.i, i64 %.0.lcssa.i.i.i.i.i.i.i.i.i
-  %.promoted = load ptr, ptr %83, align 8, !alias.scope !106
-  %.promoted90 = load ptr, ptr %84, align 8, !alias.scope !106
-  %.promoted95 = load ptr, ptr %7, align 8, !alias.scope !106
+  %.promoted = load ptr, ptr %83, align 8
+  %.promoted90 = load ptr, ptr %84, align 8
+  %.promoted95 = load ptr, ptr %7, align 8
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKNS_7pxr_tsl9robin_mapINS_12_GLOBAL__N_110_ParentAndINS_7TfTokenEEENS_8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE6HandleENS_6TfHashESt8equal_toIS6_ESaISt4pairIS6_SA_EELb0ENS1_2rh26power_of_two_growth_policyILm2EEEEELb0EEppEv.exit.i.i, %.lr.ph.preheader.i.i
@@ -11927,9 +11927,9 @@ _ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__19TfDelegatedCount
   br i1 %138, label %139, label %_ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__19TfDelegatedCountPtrIKNS0_12Sdf_PathNodeEEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i
 
 139:                                              ; preds = %134
-  store ptr %114, ptr %83, align 8, !alias.scope !106
-  store ptr %113, ptr %84, align 8, !alias.scope !106
-  store ptr %112, ptr %7, align 8, !alias.scope !106
+  store ptr %114, ptr %83, align 8
+  store ptr %113, ptr %84, align 8
+  store ptr %112, ptr %7, align 8
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.31) #32
           to label %.noexc30.i.i unwind label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.loopexit.split-lp.i.i, !noalias !106
 
@@ -11997,9 +11997,9 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__19TfDelegatedCountPtrIKNS0_12Sdf
 _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.loopexit.loopexit.i.i: ; preds = %145
   %lpad.loopexit54.i.i = landingpad { ptr, i32 }
           cleanup
-  store ptr %114, ptr %83, align 8, !alias.scope !106
-  store ptr %113, ptr %84, align 8, !alias.scope !106
-  store ptr %112, ptr %7, align 8, !alias.scope !106
+  store ptr %114, ptr %83, align 8
+  store ptr %113, ptr %84, align 8
+  store ptr %112, ptr %7, align 8
   br label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i.i
 
 _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.loopexit.loopexit.split-lp.i.i: ; preds = %163
@@ -12026,9 +12026,9 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__19TfDelegatedCountPtrIKNS0_12Sdf
   br i1 %162, label %163, label %.preheader.i.i.i
 
 163:                                              ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__19TfDelegatedCountPtrIKNS0_12Sdf_PathNodeEEESaIS4_EE12emplace_backIJRKNS0_32TfDelegatedCountIncrementTagTypeEPS3_EEERS4_DpOT_.exit.i.i
-  store ptr %161, ptr %83, align 8, !alias.scope !106
-  store ptr %160, ptr %84, align 8, !alias.scope !106
-  store ptr %159, ptr %7, align 8, !alias.scope !106
+  store ptr %161, ptr %83, align 8
+  store ptr %160, ptr %84, align 8
+  store ptr %159, ptr %7, align 8
   store ptr @.str.32, ptr %6, align 8, !noalias !106
   store ptr @__func__._ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKNS_7pxr_tsl9robin_mapINS_12_GLOBAL__N_110_ParentAndINS_7SdfPathEEENS_8Sdf_PoolINS_15Sdf_PathPropTagELj24ELj8ELj16384EE6HandleENS_6TfHashESt8equal_toIS6_ESaISt4pairIS6_SA_EELb0ENS1_2rh26power_of_two_growth_policyILm2EEEEELb0EEppEv, ptr %85, align 8, !noalias !106
   store i64 233, ptr %86, align 8, !noalias !106
@@ -12061,9 +12061,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKNS_7pxr_tsl9robin_mapINS_12_G
   br i1 %.not35.i.i, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit27.i.i.loopexit, label %.lr.ph.i.i
 
 _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit27.i.i.loopexit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKNS_7pxr_tsl9robin_mapINS_12_GLOBAL__N_110_ParentAndINS_7TfTokenEEENS_8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE6HandleENS_6TfHashESt8equal_toIS6_ESaISt4pairIS6_SA_EELb0ENS1_2rh26power_of_two_growth_policyILm2EEEEELb0EEppEv.exit.i.i
-  store ptr %161, ptr %83, align 8, !alias.scope !106
-  store ptr %160, ptr %84, align 8, !alias.scope !106
-  store ptr %159, ptr %7, align 8, !alias.scope !106
+  store ptr %161, ptr %83, align 8
+  store ptr %160, ptr %84, align 8
+  store ptr %159, ptr %7, align 8
   br label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit27.i.i
 
 _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit27.i.i: ; preds = %108, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit27.i.i.loopexit, %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKNS_7pxr_tsl9robin_mapINS_12_GLOBAL__N_110_ParentAndINS_7TfTokenEEENS_8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE6HandleENS_6TfHashESt8equal_toIS6_ESaISt4pairIS6_SA_EELb0ENS1_2rh26power_of_two_growth_policyILm2EEEEELb0EEppEv.exit.thread.i.i, %.loopexit.i.i
@@ -12165,9 +12165,9 @@ _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i11.i: ; pr
 
 .lr.ph.preheader.i21.i:                           ; preds = %.loopexit.i18.i
   %206 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::pxr_tsl::detail_robin_hash::bucket_entry.141", ptr %.val.i12.i, i64 %.0.lcssa.i.i.i.i.i.i.i.i19.i
-  %.promoted100 = load ptr, ptr %83, align 8, !alias.scope !106
-  %.promoted105 = load ptr, ptr %84, align 8, !alias.scope !106
-  %.promoted110 = load ptr, ptr %7, align 8, !alias.scope !106
+  %.promoted100 = load ptr, ptr %83, align 8
+  %.promoted105 = load ptr, ptr %84, align 8
+  %.promoted110 = load ptr, ptr %7, align 8
   br label %.lr.ph.i22.i
 
 .lr.ph.i22.i:                                     ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKNS_7pxr_tsl9robin_mapINS_12_GLOBAL__N_110_ParentAndISt4pairINS_7TfTokenES6_EEENS_8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE6HandleENS_6TfHashESt8equal_toIS8_ESaIS5_IS8_SC_EELb0ENS1_2rh26power_of_two_growth_policyILm2EEEEELb0EEppEv.exit.i.i, %.lr.ph.preheader.i21.i
@@ -12216,9 +12216,9 @@ _ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__19TfDelegatedCount
   br i1 %233, label %234, label %_ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__19TfDelegatedCountPtrIKNS0_12Sdf_PathNodeEEESaIS4_EE12_M_check_lenEmPKc.exit.i.i39.i
 
 234:                                              ; preds = %229
-  store ptr %209, ptr %83, align 8, !alias.scope !106
-  store ptr %208, ptr %84, align 8, !alias.scope !106
-  store ptr %207, ptr %7, align 8, !alias.scope !106
+  store ptr %209, ptr %83, align 8
+  store ptr %208, ptr %84, align 8
+  store ptr %207, ptr %7, align 8
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.31) #32
           to label %.noexc30.i58.i unwind label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.loopexit.split-lp.i56.i, !noalias !106
 
@@ -12286,9 +12286,9 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__19TfDelegatedCountPtrIKNS0_12Sdf
 _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.loopexit.loopexit.i42.i: ; preds = %240
   %lpad.loopexit54.i43.i = landingpad { ptr, i32 }
           cleanup
-  store ptr %209, ptr %83, align 8, !alias.scope !106
-  store ptr %208, ptr %84, align 8, !alias.scope !106
-  store ptr %207, ptr %7, align 8, !alias.scope !106
+  store ptr %209, ptr %83, align 8
+  store ptr %208, ptr %84, align 8
+  store ptr %207, ptr %7, align 8
   br label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i34.i
 
 _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.loopexit.loopexit.split-lp.i32.i: ; preds = %258
@@ -12315,9 +12315,9 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__19TfDelegatedCountPtrIKNS0_12Sdf
   br i1 %257, label %258, label %.preheader.i.i25.i
 
 258:                                              ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__19TfDelegatedCountPtrIKNS0_12Sdf_PathNodeEEESaIS4_EE12emplace_backIJRKNS0_32TfDelegatedCountIncrementTagTypeEPS3_EEERS4_DpOT_.exit.i24.i
-  store ptr %256, ptr %83, align 8, !alias.scope !106
-  store ptr %255, ptr %84, align 8, !alias.scope !106
-  store ptr %254, ptr %7, align 8, !alias.scope !106
+  store ptr %256, ptr %83, align 8
+  store ptr %255, ptr %84, align 8
+  store ptr %254, ptr %7, align 8
   store ptr @.str.32, ptr %5, align 8, !noalias !106
   store ptr @__func__._ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKNS_7pxr_tsl9robin_mapINS_12_GLOBAL__N_110_ParentAndINS_7SdfPathEEENS_8Sdf_PoolINS_15Sdf_PathPropTagELj24ELj8ELj16384EE6HandleENS_6TfHashESt8equal_toIS6_ESaISt4pairIS6_SA_EELb0ENS1_2rh26power_of_two_growth_policyILm2EEEEELb0EEppEv, ptr %180, align 8, !noalias !106
   store i64 233, ptr %181, align 8, !noalias !106
@@ -12350,9 +12350,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKNS_7pxr_tsl9robin_mapINS_12_G
   br i1 %.not35.i29.i, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit27.i30.i.loopexit, label %.lr.ph.i22.i
 
 _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit27.i30.i.loopexit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKNS_7pxr_tsl9robin_mapINS_12_GLOBAL__N_110_ParentAndISt4pairINS_7TfTokenES6_EEENS_8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE6HandleENS_6TfHashESt8equal_toIS8_ESaIS5_IS8_SC_EELb0ENS1_2rh26power_of_two_growth_policyILm2EEEEELb0EEppEv.exit.i.i
-  store ptr %256, ptr %83, align 8, !alias.scope !106
-  store ptr %255, ptr %84, align 8, !alias.scope !106
-  store ptr %254, ptr %7, align 8, !alias.scope !106
+  store ptr %256, ptr %83, align 8
+  store ptr %255, ptr %84, align 8
+  store ptr %254, ptr %7, align 8
   br label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit27.i30.i
 
 _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit27.i30.i: ; preds = %203, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit27.i30.i.loopexit, %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKNS_7pxr_tsl9robin_mapINS_12_GLOBAL__N_110_ParentAndISt4pairINS_7TfTokenES6_EEENS_8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE6HandleENS_6TfHashESt8equal_toIS8_ESaIS5_IS8_SC_EELb0ENS1_2rh26power_of_two_growth_policyILm2EEEEELb0EEppEv.exit.thread.i.i, %.loopexit.i18.i
@@ -12438,9 +12438,9 @@ _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i70.i: ; pr
 
 .lr.ph.preheader.i80.i:                           ; preds = %.loopexit.i77.i
   %295 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::pxr_tsl::detail_robin_hash::bucket_entry.148", ptr %.val.i71.i, i64 %.0.lcssa.i.i.i.i.i.i.i.i78.i
-  %.promoted115 = load ptr, ptr %83, align 8, !alias.scope !106
-  %.promoted120 = load ptr, ptr %84, align 8, !alias.scope !106
-  %.promoted125 = load ptr, ptr %7, align 8, !alias.scope !106
+  %.promoted115 = load ptr, ptr %83, align 8
+  %.promoted120 = load ptr, ptr %84, align 8
+  %.promoted125 = load ptr, ptr %7, align 8
   br label %.lr.ph.i81.i
 
 .lr.ph.i81.i:                                     ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKNS_7pxr_tsl9robin_mapINS_12_GLOBAL__N_110_ParentAndIvEENS_8Sdf_PoolINS_15Sdf_PathPropTagELj24ELj8ELj16384EE6HandleENS_6TfHashESt8equal_toIS5_ESaISt4pairIS5_S9_EELb0ENS1_2rh26power_of_two_growth_policyILm2EEEEELb0EEppEv.exit.i.i, %.lr.ph.preheader.i80.i
@@ -12489,9 +12489,9 @@ _ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__19TfDelegatedCount
   br i1 %322, label %323, label %_ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__19TfDelegatedCountPtrIKNS0_12Sdf_PathNodeEEESaIS4_EE12_M_check_lenEmPKc.exit.i.i98.i
 
 323:                                              ; preds = %318
-  store ptr %298, ptr %83, align 8, !alias.scope !106
-  store ptr %297, ptr %84, align 8, !alias.scope !106
-  store ptr %296, ptr %7, align 8, !alias.scope !106
+  store ptr %298, ptr %83, align 8
+  store ptr %297, ptr %84, align 8
+  store ptr %296, ptr %7, align 8
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.31) #32
           to label %.noexc30.i117.i unwind label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.loopexit.split-lp.i115.i, !noalias !106
 
@@ -12559,9 +12559,9 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__19TfDelegatedCountPtrIKNS0_12Sdf
 _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.loopexit.loopexit.i101.i: ; preds = %329
   %lpad.loopexit54.i102.i = landingpad { ptr, i32 }
           cleanup
-  store ptr %298, ptr %83, align 8, !alias.scope !106
-  store ptr %297, ptr %84, align 8, !alias.scope !106
-  store ptr %296, ptr %7, align 8, !alias.scope !106
+  store ptr %298, ptr %83, align 8
+  store ptr %297, ptr %84, align 8
+  store ptr %296, ptr %7, align 8
   br label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i93.i
 
 _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.loopexit.loopexit.split-lp.i91.i: ; preds = %347
@@ -12588,9 +12588,9 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__19TfDelegatedCountPtrIKNS0_12Sdf
   br i1 %346, label %347, label %.preheader.i.i84.i
 
 347:                                              ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__19TfDelegatedCountPtrIKNS0_12Sdf_PathNodeEEESaIS4_EE12emplace_backIJRKNS0_32TfDelegatedCountIncrementTagTypeEPS3_EEERS4_DpOT_.exit.i83.i
-  store ptr %345, ptr %83, align 8, !alias.scope !106
-  store ptr %344, ptr %84, align 8, !alias.scope !106
-  store ptr %343, ptr %7, align 8, !alias.scope !106
+  store ptr %345, ptr %83, align 8
+  store ptr %344, ptr %84, align 8
+  store ptr %343, ptr %7, align 8
   store ptr @.str.32, ptr %4, align 8, !noalias !106
   store ptr @__func__._ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKNS_7pxr_tsl9robin_mapINS_12_GLOBAL__N_110_ParentAndINS_7SdfPathEEENS_8Sdf_PoolINS_15Sdf_PathPropTagELj24ELj8ELj16384EE6HandleENS_6TfHashESt8equal_toIS6_ESaISt4pairIS6_SA_EELb0ENS1_2rh26power_of_two_growth_policyILm2EEEEELb0EEppEv, ptr %269, align 8, !noalias !106
   store i64 233, ptr %270, align 8, !noalias !106
@@ -12623,9 +12623,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKNS_7pxr_tsl9robin_mapINS_12_G
   br i1 %.not35.i88.i, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit27.i89.i.loopexit, label %.lr.ph.i81.i
 
 _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit27.i89.i.loopexit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKNS_7pxr_tsl9robin_mapINS_12_GLOBAL__N_110_ParentAndIvEENS_8Sdf_PoolINS_15Sdf_PathPropTagELj24ELj8ELj16384EE6HandleENS_6TfHashESt8equal_toIS5_ESaISt4pairIS5_S9_EELb0ENS1_2rh26power_of_two_growth_policyILm2EEEEELb0EEppEv.exit.i.i
-  store ptr %345, ptr %83, align 8, !alias.scope !106
-  store ptr %344, ptr %84, align 8, !alias.scope !106
-  store ptr %343, ptr %7, align 8, !alias.scope !106
+  store ptr %345, ptr %83, align 8
+  store ptr %344, ptr %84, align 8
+  store ptr %343, ptr %7, align 8
   br label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit27.i89.i
 
 _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit27.i89.i: ; preds = %292, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit27.i89.i.loopexit, %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKNS_7pxr_tsl9robin_mapINS_12_GLOBAL__N_110_ParentAndIvEENS_8Sdf_PoolINS_15Sdf_PathPropTagELj24ELj8ELj16384EE6HandleENS_6TfHashESt8equal_toIS5_ESaISt4pairIS5_S9_EELb0ENS1_2rh26power_of_two_growth_policyILm2EEEEELb0EEppEv.exit.thread.i.i, %.loopexit.i77.i

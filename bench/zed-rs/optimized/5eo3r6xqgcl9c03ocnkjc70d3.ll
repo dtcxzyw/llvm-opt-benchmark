@@ -1122,30 +1122,30 @@ _ZN3std4sync6poison4Flag5guard17he6a8ad3ae7c4397eE.llvm.302656264734468722.exit.
   call void @llvm.experimental.noalias.scope.decl(metadata !140)
   %.promoted.i = load ptr, ptr %.sroa.537.0..sroa_idx, align 8, !alias.scope !143, !noalias !146
   %229 = load ptr, ptr %.sroa.537.sroa.0.sroa.2.0..sroa.537.0..sroa_idx.sroa_idx, align 8, !alias.scope !140, !nonnull !5
-  %.promoted36.i = load i64, ptr %.sroa.537.sroa.2.0..sroa.537.0..sroa_idx.sroa_idx, align 8, !alias.scope !148, !noalias !151
+  %.promoted36.i = load i64, ptr %.sroa.537.sroa.2.0..sroa.537.0..sroa_idx.sroa_idx, align 8, !alias.scope !140
   br label %"_ZN4core3ptr74drop_in_place$LT$core..option..IntoIter$LT$core..task..wake..Waker$GT$$GT$17h24d9e03fb85efdb8E.exit4.i"
 
 "_ZN4core3ptr74drop_in_place$LT$core..option..IntoIter$LT$core..task..wake..Waker$GT$$GT$17h24d9e03fb85efdb8E.exit4.i": ; preds = %244, %228
   %230 = phi i64 [ %245, %244 ], [ %.promoted36.i, %228 ]
   %231 = phi ptr [ %236, %244 ], [ %.promoted.i, %228 ]
-  call void @llvm.experimental.noalias.scope.decl(metadata !153)
+  call void @llvm.experimental.noalias.scope.decl(metadata !148)
   %232 = icmp eq ptr %231, null
   br i1 %232, label %.loopexit159, label %233
 
 233:                                              ; preds = %"_ZN4core3ptr74drop_in_place$LT$core..option..IntoIter$LT$core..task..wake..Waker$GT$$GT$17h24d9e03fb85efdb8E.exit4.i"
-  call void @llvm.experimental.noalias.scope.decl(metadata !154)
+  call void @llvm.experimental.noalias.scope.decl(metadata !149)
   %234 = icmp eq ptr %231, %229
   br i1 %234, label %.loopexit159, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %233, %"_ZN4core3ptr91drop_in_place$LT$slab..Entry$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$$GT$17hbd649836d5b0d131E.llvm.5086258882527994251.exit.i.i.i"
   %235 = phi ptr [ %236, %"_ZN4core3ptr91drop_in_place$LT$slab..Entry$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$$GT$17hbd649836d5b0d131E.llvm.5086258882527994251.exit.i.i.i" ], [ %231, %233 ]
   %236 = getelementptr inbounds i8, ptr %235, i64 24
-  store ptr %236, ptr %.sroa.537.0..sroa_idx, align 8, !alias.scope !155, !noalias !151
-  %.sroa.07.0.copyload.i.i.i = load i64, ptr %235, align 8, !noalias !158
+  store ptr %236, ptr %.sroa.537.0..sroa_idx, align 8, !alias.scope !152, !noalias !155
+  %.sroa.07.0.copyload.i.i.i = load i64, ptr %235, align 8, !noalias !157
   %.sroa.4.0..sroa.0.0.i.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %235, i64 8
-  %.sroa.4.0.copyload.i.i.i = load ptr, ptr %.sroa.4.0..sroa.0.0.i.sroa_idx.i.i.i, align 8, !noalias !158
+  %.sroa.4.0.copyload.i.i.i = load ptr, ptr %.sroa.4.0..sroa.0.0.i.sroa_idx.i.i.i, align 8, !noalias !157
   %.sroa.5.0..sroa.0.0.i.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %235, i64 16
-  %.sroa.5.0.copyload.i.i.i = load ptr, ptr %.sroa.5.0..sroa.0.0.i.sroa_idx.i.i.i, align 8, !noalias !158
+  %.sroa.5.0.copyload.i.i.i = load ptr, ptr %.sroa.5.0..sroa.0.0.i.sroa_idx.i.i.i, align 8, !noalias !157
   %trunc.i.i.i = trunc nuw i64 %.sroa.07.0.copyload.i.i.i to i1
   br i1 %trunc.i.i.i, label %244, label %237
 
@@ -1157,7 +1157,7 @@ _ZN3std4sync6poison4Flag5guard17he6a8ad3ae7c4397eE.llvm.302656264734468722.exit.
 
 240:                                              ; preds = %237
   %241 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload.i.i.i, i64 24
-  %242 = load ptr, ptr %241, align 8, !noalias !159, !nonnull !5, !noundef !5
+  %242 = load ptr, ptr %241, align 8, !noalias !158, !nonnull !5, !noundef !5
   invoke void %242(ptr noundef %.sroa.5.0.copyload.i.i.i)
           to label %"_ZN4core3ptr91drop_in_place$LT$slab..Entry$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$$GT$17hbd649836d5b0d131E.llvm.5086258882527994251.exit.i.i.i" unwind label %.loopexit
 
@@ -1167,7 +1167,7 @@ _ZN3std4sync6poison4Flag5guard17he6a8ad3ae7c4397eE.llvm.302656264734468722.exit.
 
 244:                                              ; preds = %.lr.ph.i.i.i
   %245 = add i64 %230, -1
-  store i64 %245, ptr %.sroa.537.sroa.2.0..sroa.537.0..sroa_idx.sroa_idx, align 8, !alias.scope !148, !noalias !151
+  store i64 %245, ptr %.sroa.537.sroa.2.0..sroa.537.0..sroa_idx.sroa_idx, align 8, !alias.scope !167, !noalias !155
   %246 = icmp eq ptr %.sroa.4.0.copyload.i.i.i, null
   br i1 %246, label %"_ZN4core3ptr74drop_in_place$LT$core..option..IntoIter$LT$core..task..wake..Waker$GT$$GT$17h24d9e03fb85efdb8E.exit4.i", label %248
 
@@ -2040,30 +2040,30 @@ _ZN3std4sync6poison4Flag5guard17he6a8ad3ae7c4397eE.llvm.302656264734468722.exit.
   call void @llvm.experimental.noalias.scope.decl(metadata !260)
   %.promoted.i = load ptr, ptr %.sroa.537.0..sroa_idx, align 8, !alias.scope !263, !noalias !266
   %229 = load ptr, ptr %.sroa.537.sroa.0.sroa.2.0..sroa.537.0..sroa_idx.sroa_idx, align 8, !alias.scope !260, !nonnull !5
-  %.promoted36.i = load i64, ptr %.sroa.537.sroa.2.0..sroa.537.0..sroa_idx.sroa_idx, align 8, !alias.scope !268, !noalias !271
+  %.promoted36.i = load i64, ptr %.sroa.537.sroa.2.0..sroa.537.0..sroa_idx.sroa_idx, align 8, !alias.scope !260
   br label %"_ZN4core3ptr74drop_in_place$LT$core..option..IntoIter$LT$core..task..wake..Waker$GT$$GT$17h24d9e03fb85efdb8E.exit4.i"
 
 "_ZN4core3ptr74drop_in_place$LT$core..option..IntoIter$LT$core..task..wake..Waker$GT$$GT$17h24d9e03fb85efdb8E.exit4.i": ; preds = %244, %228
   %230 = phi i64 [ %245, %244 ], [ %.promoted36.i, %228 ]
   %231 = phi ptr [ %236, %244 ], [ %.promoted.i, %228 ]
-  call void @llvm.experimental.noalias.scope.decl(metadata !273)
+  call void @llvm.experimental.noalias.scope.decl(metadata !268)
   %232 = icmp eq ptr %231, null
   br i1 %232, label %.loopexit159, label %233
 
 233:                                              ; preds = %"_ZN4core3ptr74drop_in_place$LT$core..option..IntoIter$LT$core..task..wake..Waker$GT$$GT$17h24d9e03fb85efdb8E.exit4.i"
-  call void @llvm.experimental.noalias.scope.decl(metadata !274)
+  call void @llvm.experimental.noalias.scope.decl(metadata !269)
   %234 = icmp eq ptr %231, %229
   br i1 %234, label %.loopexit159, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %233, %"_ZN4core3ptr91drop_in_place$LT$slab..Entry$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$$GT$17hbd649836d5b0d131E.llvm.5086258882527994251.exit.i.i.i"
   %235 = phi ptr [ %236, %"_ZN4core3ptr91drop_in_place$LT$slab..Entry$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$$GT$17hbd649836d5b0d131E.llvm.5086258882527994251.exit.i.i.i" ], [ %231, %233 ]
   %236 = getelementptr inbounds i8, ptr %235, i64 24
-  store ptr %236, ptr %.sroa.537.0..sroa_idx, align 8, !alias.scope !275, !noalias !271
-  %.sroa.07.0.copyload.i.i.i = load i64, ptr %235, align 8, !noalias !278
+  store ptr %236, ptr %.sroa.537.0..sroa_idx, align 8, !alias.scope !272, !noalias !275
+  %.sroa.07.0.copyload.i.i.i = load i64, ptr %235, align 8, !noalias !277
   %.sroa.4.0..sroa.0.0.i.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %235, i64 8
-  %.sroa.4.0.copyload.i.i.i = load ptr, ptr %.sroa.4.0..sroa.0.0.i.sroa_idx.i.i.i, align 8, !noalias !278
+  %.sroa.4.0.copyload.i.i.i = load ptr, ptr %.sroa.4.0..sroa.0.0.i.sroa_idx.i.i.i, align 8, !noalias !277
   %.sroa.5.0..sroa.0.0.i.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %235, i64 16
-  %.sroa.5.0.copyload.i.i.i = load ptr, ptr %.sroa.5.0..sroa.0.0.i.sroa_idx.i.i.i, align 8, !noalias !278
+  %.sroa.5.0.copyload.i.i.i = load ptr, ptr %.sroa.5.0..sroa.0.0.i.sroa_idx.i.i.i, align 8, !noalias !277
   %trunc.i.i.i = trunc nuw i64 %.sroa.07.0.copyload.i.i.i to i1
   br i1 %trunc.i.i.i, label %244, label %237
 
@@ -2075,7 +2075,7 @@ _ZN3std4sync6poison4Flag5guard17he6a8ad3ae7c4397eE.llvm.302656264734468722.exit.
 
 240:                                              ; preds = %237
   %241 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload.i.i.i, i64 24
-  %242 = load ptr, ptr %241, align 8, !noalias !279, !nonnull !5, !noundef !5
+  %242 = load ptr, ptr %241, align 8, !noalias !278, !nonnull !5, !noundef !5
   invoke void %242(ptr noundef %.sroa.5.0.copyload.i.i.i)
           to label %"_ZN4core3ptr91drop_in_place$LT$slab..Entry$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$$GT$17hbd649836d5b0d131E.llvm.5086258882527994251.exit.i.i.i" unwind label %.loopexit
 
@@ -2085,7 +2085,7 @@ _ZN3std4sync6poison4Flag5guard17he6a8ad3ae7c4397eE.llvm.302656264734468722.exit.
 
 244:                                              ; preds = %.lr.ph.i.i.i
   %245 = add i64 %230, -1
-  store i64 %245, ptr %.sroa.537.sroa.2.0..sroa.537.0..sroa_idx.sroa_idx, align 8, !alias.scope !268, !noalias !271
+  store i64 %245, ptr %.sroa.537.sroa.2.0..sroa.537.0..sroa_idx.sroa_idx, align 8, !alias.scope !287, !noalias !275
   %246 = icmp eq ptr %.sroa.4.0.copyload.i.i.i, null
   br i1 %246, label %"_ZN4core3ptr74drop_in_place$LT$core..option..IntoIter$LT$core..task..wake..Waker$GT$$GT$17h24d9e03fb85efdb8E.exit4.i", label %248
 
@@ -8133,7 +8133,7 @@ define hidden { i64, ptr } @"_ZN81_$LT$slab..IterMut$LT$T$GT$$u20$as$u20$core..i
   %3 = load ptr, ptr %2, align 8, !alias.scope !1597, !nonnull !5, !noundef !5
   %.promoted = load ptr, ptr %0, align 8, !alias.scope !1597
   %4 = getelementptr inbounds i8, ptr %0, i64 16
-  %.promoted7 = load i64, ptr %4, align 8, !alias.scope !1602
+  %.promoted7 = load i64, ptr %4, align 8
   br label %5
 
 5:                                                ; preds = %9, %1
@@ -18655,26 +18655,26 @@ attributes #49 = { nounwind }
 !145 = distinct !{!145, !"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h7f0d09ead8f997eeE"}
 !146 = !{!147}
 !147 = distinct !{!147, !145, !"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h7f0d09ead8f997eeE: argument 0"}
-!148 = !{!149, !144, !141}
-!149 = distinct !{!149, !150, !"_ZN79_$LT$slab..Drain$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6136d0eccc6eef26E: argument 1"}
-!150 = distinct !{!150, !"_ZN79_$LT$slab..Drain$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6136d0eccc6eef26E"}
-!151 = !{!152, !147}
-!152 = distinct !{!152, !150, !"_ZN79_$LT$slab..Drain$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6136d0eccc6eef26E: argument 0"}
-!153 = !{!144}
-!154 = !{!149}
-!155 = !{!156, !149, !144, !141}
-!156 = distinct !{!156, !157, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6d00d2a5cbf8760eE: argument 0"}
-!157 = distinct !{!157, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6d00d2a5cbf8760eE"}
-!158 = !{!152, !149, !147, !144, !141}
-!159 = !{!160, !162, !164, !166, !152, !149, !147, !144, !141}
-!160 = distinct !{!160, !161, !"_ZN65_$LT$core..task..wake..Waker$u20$as$u20$core..ops..drop..Drop$GT$4drop17hcf9a0118e92c3996E.llvm.5086258882527994251: argument 0"}
-!161 = distinct !{!161, !"_ZN65_$LT$core..task..wake..Waker$u20$as$u20$core..ops..drop..Drop$GT$4drop17hcf9a0118e92c3996E.llvm.5086258882527994251"}
-!162 = distinct !{!162, !163, !"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17hbd6edf32794cd5d3E.llvm.5086258882527994251: argument 0"}
-!163 = distinct !{!163, !"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17hbd6edf32794cd5d3E.llvm.5086258882527994251"}
-!164 = distinct !{!164, !165, !"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17hfc0e927fe5d23d3cE.llvm.5086258882527994251: argument 0"}
-!165 = distinct !{!165, !"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17hfc0e927fe5d23d3cE.llvm.5086258882527994251"}
-!166 = distinct !{!166, !167, !"_ZN4core3ptr91drop_in_place$LT$slab..Entry$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$$GT$17hbd649836d5b0d131E.llvm.5086258882527994251: argument 0"}
-!167 = distinct !{!167, !"_ZN4core3ptr91drop_in_place$LT$slab..Entry$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$$GT$17hbd649836d5b0d131E.llvm.5086258882527994251"}
+!148 = !{!144}
+!149 = !{!150}
+!150 = distinct !{!150, !151, !"_ZN79_$LT$slab..Drain$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6136d0eccc6eef26E: argument 1"}
+!151 = distinct !{!151, !"_ZN79_$LT$slab..Drain$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6136d0eccc6eef26E"}
+!152 = !{!153, !150, !144, !141}
+!153 = distinct !{!153, !154, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6d00d2a5cbf8760eE: argument 0"}
+!154 = distinct !{!154, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6d00d2a5cbf8760eE"}
+!155 = !{!156, !147}
+!156 = distinct !{!156, !151, !"_ZN79_$LT$slab..Drain$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6136d0eccc6eef26E: argument 0"}
+!157 = !{!156, !150, !147, !144, !141}
+!158 = !{!159, !161, !163, !165, !156, !150, !147, !144, !141}
+!159 = distinct !{!159, !160, !"_ZN65_$LT$core..task..wake..Waker$u20$as$u20$core..ops..drop..Drop$GT$4drop17hcf9a0118e92c3996E.llvm.5086258882527994251: argument 0"}
+!160 = distinct !{!160, !"_ZN65_$LT$core..task..wake..Waker$u20$as$u20$core..ops..drop..Drop$GT$4drop17hcf9a0118e92c3996E.llvm.5086258882527994251"}
+!161 = distinct !{!161, !162, !"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17hbd6edf32794cd5d3E.llvm.5086258882527994251: argument 0"}
+!162 = distinct !{!162, !"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17hbd6edf32794cd5d3E.llvm.5086258882527994251"}
+!163 = distinct !{!163, !164, !"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17hfc0e927fe5d23d3cE.llvm.5086258882527994251: argument 0"}
+!164 = distinct !{!164, !"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17hfc0e927fe5d23d3cE.llvm.5086258882527994251"}
+!165 = distinct !{!165, !166, !"_ZN4core3ptr91drop_in_place$LT$slab..Entry$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$$GT$17hbd649836d5b0d131E.llvm.5086258882527994251: argument 0"}
+!166 = distinct !{!166, !"_ZN4core3ptr91drop_in_place$LT$slab..Entry$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$$GT$17hbd649836d5b0d131E.llvm.5086258882527994251"}
+!167 = !{!150, !144, !141}
 !168 = !{!169}
 !169 = distinct !{!169, !170, !"_ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.5086258882527994251: argument 0"}
 !170 = distinct !{!170, !"_ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.5086258882527994251"}
@@ -18775,26 +18775,26 @@ attributes #49 = { nounwind }
 !265 = distinct !{!265, !"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h7f0d09ead8f997eeE"}
 !266 = !{!267}
 !267 = distinct !{!267, !265, !"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h7f0d09ead8f997eeE: argument 0"}
-!268 = !{!269, !264, !261}
-!269 = distinct !{!269, !270, !"_ZN79_$LT$slab..Drain$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6136d0eccc6eef26E: argument 1"}
-!270 = distinct !{!270, !"_ZN79_$LT$slab..Drain$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6136d0eccc6eef26E"}
-!271 = !{!272, !267}
-!272 = distinct !{!272, !270, !"_ZN79_$LT$slab..Drain$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6136d0eccc6eef26E: argument 0"}
-!273 = !{!264}
-!274 = !{!269}
-!275 = !{!276, !269, !264, !261}
-!276 = distinct !{!276, !277, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6d00d2a5cbf8760eE: argument 0"}
-!277 = distinct !{!277, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6d00d2a5cbf8760eE"}
-!278 = !{!272, !269, !267, !264, !261}
-!279 = !{!280, !282, !284, !286, !272, !269, !267, !264, !261}
-!280 = distinct !{!280, !281, !"_ZN65_$LT$core..task..wake..Waker$u20$as$u20$core..ops..drop..Drop$GT$4drop17hcf9a0118e92c3996E.llvm.5086258882527994251: argument 0"}
-!281 = distinct !{!281, !"_ZN65_$LT$core..task..wake..Waker$u20$as$u20$core..ops..drop..Drop$GT$4drop17hcf9a0118e92c3996E.llvm.5086258882527994251"}
-!282 = distinct !{!282, !283, !"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17hbd6edf32794cd5d3E.llvm.5086258882527994251: argument 0"}
-!283 = distinct !{!283, !"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17hbd6edf32794cd5d3E.llvm.5086258882527994251"}
-!284 = distinct !{!284, !285, !"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17hfc0e927fe5d23d3cE.llvm.5086258882527994251: argument 0"}
-!285 = distinct !{!285, !"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17hfc0e927fe5d23d3cE.llvm.5086258882527994251"}
-!286 = distinct !{!286, !287, !"_ZN4core3ptr91drop_in_place$LT$slab..Entry$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$$GT$17hbd649836d5b0d131E.llvm.5086258882527994251: argument 0"}
-!287 = distinct !{!287, !"_ZN4core3ptr91drop_in_place$LT$slab..Entry$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$$GT$17hbd649836d5b0d131E.llvm.5086258882527994251"}
+!268 = !{!264}
+!269 = !{!270}
+!270 = distinct !{!270, !271, !"_ZN79_$LT$slab..Drain$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6136d0eccc6eef26E: argument 1"}
+!271 = distinct !{!271, !"_ZN79_$LT$slab..Drain$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6136d0eccc6eef26E"}
+!272 = !{!273, !270, !264, !261}
+!273 = distinct !{!273, !274, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6d00d2a5cbf8760eE: argument 0"}
+!274 = distinct !{!274, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6d00d2a5cbf8760eE"}
+!275 = !{!276, !267}
+!276 = distinct !{!276, !271, !"_ZN79_$LT$slab..Drain$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6136d0eccc6eef26E: argument 0"}
+!277 = !{!276, !270, !267, !264, !261}
+!278 = !{!279, !281, !283, !285, !276, !270, !267, !264, !261}
+!279 = distinct !{!279, !280, !"_ZN65_$LT$core..task..wake..Waker$u20$as$u20$core..ops..drop..Drop$GT$4drop17hcf9a0118e92c3996E.llvm.5086258882527994251: argument 0"}
+!280 = distinct !{!280, !"_ZN65_$LT$core..task..wake..Waker$u20$as$u20$core..ops..drop..Drop$GT$4drop17hcf9a0118e92c3996E.llvm.5086258882527994251"}
+!281 = distinct !{!281, !282, !"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17hbd6edf32794cd5d3E.llvm.5086258882527994251: argument 0"}
+!282 = distinct !{!282, !"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17hbd6edf32794cd5d3E.llvm.5086258882527994251"}
+!283 = distinct !{!283, !284, !"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17hfc0e927fe5d23d3cE.llvm.5086258882527994251: argument 0"}
+!284 = distinct !{!284, !"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17hfc0e927fe5d23d3cE.llvm.5086258882527994251"}
+!285 = distinct !{!285, !286, !"_ZN4core3ptr91drop_in_place$LT$slab..Entry$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$$GT$17hbd649836d5b0d131E.llvm.5086258882527994251: argument 0"}
+!286 = distinct !{!286, !"_ZN4core3ptr91drop_in_place$LT$slab..Entry$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$$GT$17hbd649836d5b0d131E.llvm.5086258882527994251"}
+!287 = !{!270, !264, !261}
 !288 = !{!289}
 !289 = distinct !{!289, !290, !"_ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.5086258882527994251: argument 0"}
 !290 = distinct !{!290, !"_ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.5086258882527994251"}

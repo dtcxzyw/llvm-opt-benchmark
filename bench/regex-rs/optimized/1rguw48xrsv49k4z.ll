@@ -12861,7 +12861,7 @@ _ZN12regex_syntax3ast5parse6is_hex17h48d0d495e0ca3453E.exit.thread.i37.i: ; pred
   br i1 %288, label %.thread25.i.i.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.preheader.i.i.i
-  %.promoted.i.i.i = load i64, ptr %285, align 8, !alias.scope !1315, !noalias !1318
+  %.promoted.i.i.i = load i64, ptr %285, align 8, !noalias !1306
   %289 = getelementptr inbounds i8, ptr %8, i64 24
   %290 = getelementptr inbounds i8, ptr %8, i64 72
   %291 = load ptr, ptr %290, align 8, !alias.scope !1315, !noalias !1318, !nonnull !5, !align !114, !noundef !5
@@ -13001,7 +13001,7 @@ _ZN4core3str11validations15next_code_point17h557bd300d34cbe39E.exit.thread.i.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1330)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1333)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1335)
-  %.promoted.i5.i.i = load i64, ptr %368, align 8, !alias.scope !1330, !noalias !1337
+  %.promoted.i5.i.i = load i64, ptr %368, align 8, !noalias !1306
   %371 = add i64 %.promoted.i5.i.i, %369
   %.not3855.i6.i.i = icmp ult i64 %371, %363
   br i1 %.not3855.i6.i.i, label %.lr.ph.i9.i.i, label %.thread25.i.i.i.i
@@ -13114,7 +13114,7 @@ _ZN4core3str11validations15next_code_point17h557bd300d34cbe39E.exit.thread.i.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1341)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1344)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1346)
-  %.promoted.i2.i.i = load i64, ptr %368, align 8, !alias.scope !1341, !noalias !1348
+  %.promoted.i2.i.i = load i64, ptr %368, align 8, !noalias !1306
   %427 = add i64 %.promoted.i2.i.i, %369
   %.not3855.i.i.i = icmp ult i64 %427, %363
   br i1 %.not3855.i.i.i, label %.lr.ph.i4.i.i, label %.thread25.i.i.i.i

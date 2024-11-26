@@ -61789,7 +61789,7 @@ define internal fastcc void @"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u
   br i1 %7, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17h61fa6180c96ad587E.exit.thread7", label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %.promoted = load i64, ptr %4, align 8, !alias.scope !12294, !noalias !12297
+  %.promoted = load i64, ptr %4, align 8
   %8 = getelementptr inbounds i8, ptr %1, i64 24
   %9 = getelementptr inbounds i8, ptr %1, i64 72
   %10 = load ptr, ptr %9, align 8, !alias.scope !12294, !noalias !12297, !nonnull !9, !align !121, !noundef !9
@@ -63350,7 +63350,7 @@ define hidden void @"_ZN89_$LT$alloc..string..String$u20$as$u20$core..iter..trai
 
 ._crit_edge:                                      ; preds = %62
   %.pre = load ptr, ptr %.sroa.5.0..sroa_idx11, align 8, !alias.scope !12562, !noalias !12564
-  %.promoted.i.i.i.i.pre = load ptr, ptr %3, align 8, !alias.scope !12562, !noalias !12564
+  %.promoted.i.i.i.i.pre = load ptr, ptr %3, align 8
   br label %19
 
 "_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17h74523e4ad1a5507dE.llvm.2510282452699860474.exit": ; preds = %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3bb299ebebfcc3aE.exit.thread.i.i.i.i", %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3bb299ebebfcc3aE.exit.i.i.i.i", %19, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hf63da607332de551E.exit", %62

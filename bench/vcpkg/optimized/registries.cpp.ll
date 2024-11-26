@@ -1548,9 +1548,9 @@ _ZNSt12_Vector_baseIPKN5vcpkg22RegistryImplementationESaIS3_EE11_M_allocateEm.ex
   br i1 %90, label %91, label %_ZNKSt6vectorIPKN5vcpkg22RegistryImplementationESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i
 
 91:                                               ; preds = %86
-  store ptr %84, ptr %78, align 8, !alias.scope !18
-  store ptr %82, ptr %0, align 8, !alias.scope !18
-  store ptr %81, ptr %75, align 8, !alias.scope !18
+  store ptr %84, ptr %78, align 8
+  store ptr %82, ptr %0, align 8
+  store ptr %81, ptr %75, align 8
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.32) #30
           to label %.noexc16.i unwind label %.loopexit.split-lp.i, !noalias !18
 
@@ -1609,9 +1609,9 @@ _ZNSt6vectorIPKN5vcpkg22RegistryImplementationESaIS3_EE12emplace_backIJS3_EEERS3
 .loopexit.i:                                      ; preds = %97
   %lpad.loopexit.i = landingpad { ptr, i32 }
           cleanup
-  store ptr %84, ptr %78, align 8, !alias.scope !18
-  store ptr %82, ptr %0, align 8, !alias.scope !18
-  store ptr %81, ptr %75, align 8, !alias.scope !18
+  store ptr %84, ptr %78, align 8
+  store ptr %82, ptr %0, align 8
+  store ptr %81, ptr %75, align 8
   br label %113
 
 .loopexit.split-lp.i:                             ; preds = %91, %_ZNSt12_Vector_baseIPKN5vcpkg22RegistryImplementationESaIS3_EE11_M_allocateEm.exit.i.i, %74
@@ -1631,9 +1631,9 @@ _ZNSt6vectorIPKN5vcpkg22RegistryImplementationESaIS3_EE12emplace_backIJS3_EEERS3
   br label %.body
 
 "_ZN5vcpkg4Util4fmapISt6vectorIZNKS_11RegistrySet19registries_for_portENS_10StringViewEE17RegistryCandidateSaIS5_EEZNKS3_19registries_for_portES4_E3$_1EES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISF_EEOSC_OSA_.exit.loopexit": ; preds = %_ZNSt6vectorIPKN5vcpkg22RegistryImplementationESaIS3_EE12emplace_backIJS3_EEERS3_DpOT_.exit.i
-  store ptr %110, ptr %78, align 8, !alias.scope !18
-  store ptr %108, ptr %0, align 8, !alias.scope !18
-  store ptr %107, ptr %75, align 8, !alias.scope !18
+  store ptr %110, ptr %78, align 8
+  store ptr %108, ptr %0, align 8
+  store ptr %107, ptr %75, align 8
   br label %"_ZN5vcpkg4Util4fmapISt6vectorIZNKS_11RegistrySet19registries_for_portENS_10StringViewEE17RegistryCandidateSaIS5_EEZNKS3_19registries_for_portES4_E3$_1EES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISF_EEOSC_OSA_.exit"
 
 "_ZN5vcpkg4Util4fmapISt6vectorIZNKS_11RegistrySet19registries_for_portENS_10StringViewEE17RegistryCandidateSaIS5_EEZNKS3_19registries_for_portES4_E3$_1EES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISF_EEOSC_OSA_.exit": ; preds = %"_ZN5vcpkg4Util4fmapISt6vectorIZNKS_11RegistrySet19registries_for_portENS_10StringViewEE17RegistryCandidateSaIS5_EEZNKS3_19registries_for_portES4_E3$_1EES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISF_EEOSC_OSA_.exit.loopexit", %._crit_edge80.thread

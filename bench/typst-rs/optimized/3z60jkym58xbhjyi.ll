@@ -3443,30 +3443,30 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
   %11 = getelementptr inbounds i8, ptr %2, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %2, i64 8
-  %.promoted = load i64, ptr %13, align 8, !alias.scope !574, !noalias !581
+  %.promoted = load i64, ptr %13, align 8
   br label %16
 
 14:                                               ; preds = %3
-  %.val = load ptr, ptr %2, align 8, !alias.scope !585, !nonnull !4, !align !183, !noundef !4
+  %.val = load ptr, ptr %2, align 8, !alias.scope !574, !nonnull !4, !align !183, !noundef !4
   %15 = getelementptr inbounds i8, ptr %2, i64 8
-  %.val14 = load i64, ptr %15, align 8, !alias.scope !585, !noundef !4
-  store i64 %.val14, ptr %.val, align 8, !noalias !594
+  %.val14 = load i64, ptr %15, align 8, !alias.scope !574, !noundef !4
+  store i64 %.val14, ptr %.val, align 8, !noalias !583
   br label %39
 
 16:                                               ; preds = %30, %6
   %17 = phi i64 [ %.promoted, %6 ], [ %35, %30 ]
   %.0 = phi i64 [ 0, %6 ], [ %36, %30 ]
   %18 = getelementptr inbounds { { i64, [1 x i64] }, { double, double, double, double, double, double }, double, double }, ptr %0, i64 %.0
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !603)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !604)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !605)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !608)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !592)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !595)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !597)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !600)
   %19 = getelementptr inbounds i8, ptr %18, i64 64
-  %20 = load double, ptr %19, align 8, !alias.scope !611, !noalias !612, !noundef !4
-  %.val.i.i.i = load i64, ptr %18, align 8, !range !22, !alias.scope !611, !noalias !612, !noundef !4
+  %20 = load double, ptr %19, align 8, !alias.scope !603, !noalias !604, !noundef !4
+  %.val.i.i.i = load i64, ptr %18, align 8, !range !22, !alias.scope !603, !noalias !604, !noundef !4
   %21 = getelementptr inbounds i8, ptr %18, i64 8
-  %.val1.i.i.i = load ptr, ptr %21, align 8, !alias.scope !611, !noalias !612, !nonnull !4, !noundef !4
-  %22 = atomicrmw add ptr %.val1.i.i.i, i64 1 monotonic, align 8, !noalias !615
+  %.val1.i.i.i = load ptr, ptr %21, align 8, !alias.scope !603, !noalias !604, !nonnull !4, !noundef !4
+  %22 = atomicrmw add ptr %.val1.i.i.i, i64 1 monotonic, align 8, !noalias !607
   %23 = icmp slt i64 %22, 0
   switch i64 %.val.i.i.i, label %default.unreachable [
     i64 0, label %24
@@ -3501,27 +3501,27 @@ default.unreachable:                              ; preds = %16
 30:                                               ; preds = %28, %26, %24
   %31 = getelementptr inbounds i8, ptr %18, i64 16
   %32 = getelementptr inbounds i8, ptr %18, i64 72
-  %33 = load double, ptr %32, align 8, !alias.scope !611, !noalias !612, !noundef !4
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !616)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !617)
+  %33 = load double, ptr %32, align 8, !alias.scope !603, !noalias !604, !noundef !4
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !608)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !611)
   %34 = getelementptr inbounds { { i64, [1 x i64] }, { double, double, double, double, double, double }, double, double }, ptr %12, i64 %17
-  store i64 %.val.i.i.i, ptr %34, align 8, !noalias !618
+  store i64 %.val.i.i.i, ptr %34, align 8, !noalias !614
   %.sroa.0.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %34, i64 8
-  store ptr %.val1.i.i.i, ptr %.sroa.0.sroa.4.0..sroa_idx.i, align 8, !noalias !618
+  store ptr %.val1.i.i.i, ptr %.sroa.0.sroa.4.0..sroa_idx.i, align 8, !noalias !614
   %.sroa.0.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %34, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.0.sroa.5.0..sroa_idx.i, ptr noundef nonnull readonly align 8 dereferenceable(48) %31, i64 48, i1 false), !noalias !603
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.0.sroa.5.0..sroa_idx.i, ptr noundef nonnull readonly align 8 dereferenceable(48) %31, i64 48, i1 false), !noalias !592
   %.sroa.0.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %34, i64 64
-  store double %20, ptr %.sroa.0.sroa.6.0..sroa_idx.i, align 8, !noalias !618
+  store double %20, ptr %.sroa.0.sroa.6.0..sroa_idx.i, align 8, !noalias !614
   %.sroa.0.sroa.7.0..sroa_idx.i = getelementptr inbounds i8, ptr %34, i64 72
-  store double %33, ptr %.sroa.0.sroa.7.0..sroa_idx.i, align 8, !noalias !618
+  store double %33, ptr %.sroa.0.sroa.7.0..sroa_idx.i, align 8, !noalias !614
   %35 = add i64 %17, 1
-  store i64 %35, ptr %13, align 8, !alias.scope !574, !noalias !581
+  store i64 %35, ptr %13, align 8, !alias.scope !615, !noalias !616
   %36 = add nuw i64 %.0, 1
   %37 = icmp eq i64 %36, %10
   br i1 %37, label %38, label %16
 
 38:                                               ; preds = %30
-  %.val15 = load ptr, ptr %2, align 8, !alias.scope !585, !nonnull !4, !align !183, !noundef !4
+  %.val15 = load ptr, ptr %2, align 8, !alias.scope !574, !nonnull !4, !align !183, !noundef !4
   store i64 %35, ptr %.val15, align 8, !noalias !619
   br label %39
 
@@ -9578,51 +9578,51 @@ attributes #32 = { nounwind }
 !571 = distinct !{!571, !"_ZN4core3ptr53drop_in_place$LT$alloc..raw_vec..RawVec$LT$u8$GT$$GT$17hbc83de7c2124e0dfE.llvm.17057414408856058071"}
 !572 = distinct !{!572, !573, !"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h143f67c2e511aaccE: argument 0"}
 !573 = distinct !{!573, !"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h143f67c2e511aaccE"}
-!574 = !{!575, !577, !579}
-!575 = distinct !{!575, !576, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted28_$u7b$$u7b$closure$u7d$$u7d$17h910c80313f2a6a4bE: argument 0"}
-!576 = distinct !{!576, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted28_$u7b$$u7b$closure$u7d$$u7d$17h910c80313f2a6a4bE"}
-!577 = distinct !{!577, !578, !"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h85aca1895d5f0e2bE: argument 0"}
-!578 = distinct !{!578, !"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h85aca1895d5f0e2bE"}
-!579 = distinct !{!579, !580, !"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hfa1134bc9b014e9aE: argument 0"}
-!580 = distinct !{!580, !"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hfa1134bc9b014e9aE"}
-!581 = !{!582, !583, !584}
-!582 = distinct !{!582, !576, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted28_$u7b$$u7b$closure$u7d$$u7d$17h910c80313f2a6a4bE: argument 1"}
-!583 = distinct !{!583, !578, !"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h85aca1895d5f0e2bE: argument 1"}
-!584 = distinct !{!584, !580, !"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hfa1134bc9b014e9aE: argument 1"}
-!585 = !{!586, !588, !590, !592}
-!586 = distinct !{!586, !587, !"_ZN83_$LT$alloc..vec..set_len_on_drop..SetLenOnDrop$u20$as$u20$core..ops..drop..Drop$GT$4drop17h9e5deef5da130b14E.llvm.14982894775678554951: argument 0"}
-!587 = distinct !{!587, !"_ZN83_$LT$alloc..vec..set_len_on_drop..SetLenOnDrop$u20$as$u20$core..ops..drop..Drop$GT$4drop17h9e5deef5da130b14E.llvm.14982894775678554951"}
-!588 = distinct !{!588, !589, !"_ZN4core3ptr62drop_in_place$LT$alloc..vec..set_len_on_drop..SetLenOnDrop$GT$17h767e6badbbe4627eE.llvm.14982894775678554951: argument 0"}
-!589 = distinct !{!589, !"_ZN4core3ptr62drop_in_place$LT$alloc..vec..set_len_on_drop..SetLenOnDrop$GT$17h767e6badbbe4627eE.llvm.14982894775678554951"}
-!590 = distinct !{!590, !591, !"_ZN4core3ptr236drop_in_place$LT$alloc..vec..Vec$LT$typst_pdf..gradient..PdfGradient$GT$..extend_trusted$LT$core..iter..adapters..cloned..Cloned$LT$core..slice..iter..Iter$LT$typst_pdf..gradient..PdfGradient$GT$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h02d7636f00dba151E.llvm.14982894775678554951: argument 0"}
-!591 = distinct !{!591, !"_ZN4core3ptr236drop_in_place$LT$alloc..vec..Vec$LT$typst_pdf..gradient..PdfGradient$GT$..extend_trusted$LT$core..iter..adapters..cloned..Cloned$LT$core..slice..iter..Iter$LT$typst_pdf..gradient..PdfGradient$GT$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h02d7636f00dba151E.llvm.14982894775678554951"}
-!592 = distinct !{!592, !593, !"_ZN4core3ptr362drop_in_place$LT$core..iter..traits..iterator..Iterator..for_each..call$LT$typst_pdf..gradient..PdfGradient$C$alloc..vec..Vec$LT$typst_pdf..gradient..PdfGradient$GT$..extend_trusted$LT$core..iter..adapters..cloned..Cloned$LT$core..slice..iter..Iter$LT$typst_pdf..gradient..PdfGradient$GT$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h68c2e83af1675d53E.llvm.14982894775678554951: argument 0"}
-!593 = distinct !{!593, !"_ZN4core3ptr362drop_in_place$LT$core..iter..traits..iterator..Iterator..for_each..call$LT$typst_pdf..gradient..PdfGradient$C$alloc..vec..Vec$LT$typst_pdf..gradient..PdfGradient$GT$..extend_trusted$LT$core..iter..adapters..cloned..Cloned$LT$core..slice..iter..Iter$LT$typst_pdf..gradient..PdfGradient$GT$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h68c2e83af1675d53E.llvm.14982894775678554951"}
-!594 = !{!595, !597, !599, !601}
-!595 = distinct !{!595, !596, !"_ZN83_$LT$alloc..vec..set_len_on_drop..SetLenOnDrop$u20$as$u20$core..ops..drop..Drop$GT$4drop17h9e5deef5da130b14E.llvm.14982894775678554951: argument 0"}
-!596 = distinct !{!596, !"_ZN83_$LT$alloc..vec..set_len_on_drop..SetLenOnDrop$u20$as$u20$core..ops..drop..Drop$GT$4drop17h9e5deef5da130b14E.llvm.14982894775678554951"}
-!597 = distinct !{!597, !598, !"_ZN4core3ptr62drop_in_place$LT$alloc..vec..set_len_on_drop..SetLenOnDrop$GT$17h767e6badbbe4627eE.llvm.14982894775678554951: argument 0"}
-!598 = distinct !{!598, !"_ZN4core3ptr62drop_in_place$LT$alloc..vec..set_len_on_drop..SetLenOnDrop$GT$17h767e6badbbe4627eE.llvm.14982894775678554951"}
-!599 = distinct !{!599, !600, !"_ZN4core3ptr236drop_in_place$LT$alloc..vec..Vec$LT$typst_pdf..gradient..PdfGradient$GT$..extend_trusted$LT$core..iter..adapters..cloned..Cloned$LT$core..slice..iter..Iter$LT$typst_pdf..gradient..PdfGradient$GT$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h02d7636f00dba151E.llvm.14982894775678554951: argument 0"}
-!600 = distinct !{!600, !"_ZN4core3ptr236drop_in_place$LT$alloc..vec..Vec$LT$typst_pdf..gradient..PdfGradient$GT$..extend_trusted$LT$core..iter..adapters..cloned..Cloned$LT$core..slice..iter..Iter$LT$typst_pdf..gradient..PdfGradient$GT$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h02d7636f00dba151E.llvm.14982894775678554951"}
-!601 = distinct !{!601, !602, !"_ZN4core3ptr362drop_in_place$LT$core..iter..traits..iterator..Iterator..for_each..call$LT$typst_pdf..gradient..PdfGradient$C$alloc..vec..Vec$LT$typst_pdf..gradient..PdfGradient$GT$..extend_trusted$LT$core..iter..adapters..cloned..Cloned$LT$core..slice..iter..Iter$LT$typst_pdf..gradient..PdfGradient$GT$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h68c2e83af1675d53E.llvm.14982894775678554951: argument 0"}
-!602 = distinct !{!602, !"_ZN4core3ptr362drop_in_place$LT$core..iter..traits..iterator..Iterator..for_each..call$LT$typst_pdf..gradient..PdfGradient$C$alloc..vec..Vec$LT$typst_pdf..gradient..PdfGradient$GT$..extend_trusted$LT$core..iter..adapters..cloned..Cloned$LT$core..slice..iter..Iter$LT$typst_pdf..gradient..PdfGradient$GT$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h68c2e83af1675d53E.llvm.14982894775678554951"}
-!603 = !{!579}
-!604 = !{!584}
-!605 = !{!606}
-!606 = distinct !{!606, !607, !"_ZN4core3ops8function5FnMut8call_mut17h746be2e30e4855bcE: argument 1"}
-!607 = distinct !{!607, !"_ZN4core3ops8function5FnMut8call_mut17h746be2e30e4855bcE"}
+!574 = !{!575, !577, !579, !581}
+!575 = distinct !{!575, !576, !"_ZN83_$LT$alloc..vec..set_len_on_drop..SetLenOnDrop$u20$as$u20$core..ops..drop..Drop$GT$4drop17h9e5deef5da130b14E.llvm.14982894775678554951: argument 0"}
+!576 = distinct !{!576, !"_ZN83_$LT$alloc..vec..set_len_on_drop..SetLenOnDrop$u20$as$u20$core..ops..drop..Drop$GT$4drop17h9e5deef5da130b14E.llvm.14982894775678554951"}
+!577 = distinct !{!577, !578, !"_ZN4core3ptr62drop_in_place$LT$alloc..vec..set_len_on_drop..SetLenOnDrop$GT$17h767e6badbbe4627eE.llvm.14982894775678554951: argument 0"}
+!578 = distinct !{!578, !"_ZN4core3ptr62drop_in_place$LT$alloc..vec..set_len_on_drop..SetLenOnDrop$GT$17h767e6badbbe4627eE.llvm.14982894775678554951"}
+!579 = distinct !{!579, !580, !"_ZN4core3ptr236drop_in_place$LT$alloc..vec..Vec$LT$typst_pdf..gradient..PdfGradient$GT$..extend_trusted$LT$core..iter..adapters..cloned..Cloned$LT$core..slice..iter..Iter$LT$typst_pdf..gradient..PdfGradient$GT$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h02d7636f00dba151E.llvm.14982894775678554951: argument 0"}
+!580 = distinct !{!580, !"_ZN4core3ptr236drop_in_place$LT$alloc..vec..Vec$LT$typst_pdf..gradient..PdfGradient$GT$..extend_trusted$LT$core..iter..adapters..cloned..Cloned$LT$core..slice..iter..Iter$LT$typst_pdf..gradient..PdfGradient$GT$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h02d7636f00dba151E.llvm.14982894775678554951"}
+!581 = distinct !{!581, !582, !"_ZN4core3ptr362drop_in_place$LT$core..iter..traits..iterator..Iterator..for_each..call$LT$typst_pdf..gradient..PdfGradient$C$alloc..vec..Vec$LT$typst_pdf..gradient..PdfGradient$GT$..extend_trusted$LT$core..iter..adapters..cloned..Cloned$LT$core..slice..iter..Iter$LT$typst_pdf..gradient..PdfGradient$GT$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h68c2e83af1675d53E.llvm.14982894775678554951: argument 0"}
+!582 = distinct !{!582, !"_ZN4core3ptr362drop_in_place$LT$core..iter..traits..iterator..Iterator..for_each..call$LT$typst_pdf..gradient..PdfGradient$C$alloc..vec..Vec$LT$typst_pdf..gradient..PdfGradient$GT$..extend_trusted$LT$core..iter..adapters..cloned..Cloned$LT$core..slice..iter..Iter$LT$typst_pdf..gradient..PdfGradient$GT$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h68c2e83af1675d53E.llvm.14982894775678554951"}
+!583 = !{!584, !586, !588, !590}
+!584 = distinct !{!584, !585, !"_ZN83_$LT$alloc..vec..set_len_on_drop..SetLenOnDrop$u20$as$u20$core..ops..drop..Drop$GT$4drop17h9e5deef5da130b14E.llvm.14982894775678554951: argument 0"}
+!585 = distinct !{!585, !"_ZN83_$LT$alloc..vec..set_len_on_drop..SetLenOnDrop$u20$as$u20$core..ops..drop..Drop$GT$4drop17h9e5deef5da130b14E.llvm.14982894775678554951"}
+!586 = distinct !{!586, !587, !"_ZN4core3ptr62drop_in_place$LT$alloc..vec..set_len_on_drop..SetLenOnDrop$GT$17h767e6badbbe4627eE.llvm.14982894775678554951: argument 0"}
+!587 = distinct !{!587, !"_ZN4core3ptr62drop_in_place$LT$alloc..vec..set_len_on_drop..SetLenOnDrop$GT$17h767e6badbbe4627eE.llvm.14982894775678554951"}
+!588 = distinct !{!588, !589, !"_ZN4core3ptr236drop_in_place$LT$alloc..vec..Vec$LT$typst_pdf..gradient..PdfGradient$GT$..extend_trusted$LT$core..iter..adapters..cloned..Cloned$LT$core..slice..iter..Iter$LT$typst_pdf..gradient..PdfGradient$GT$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h02d7636f00dba151E.llvm.14982894775678554951: argument 0"}
+!589 = distinct !{!589, !"_ZN4core3ptr236drop_in_place$LT$alloc..vec..Vec$LT$typst_pdf..gradient..PdfGradient$GT$..extend_trusted$LT$core..iter..adapters..cloned..Cloned$LT$core..slice..iter..Iter$LT$typst_pdf..gradient..PdfGradient$GT$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h02d7636f00dba151E.llvm.14982894775678554951"}
+!590 = distinct !{!590, !591, !"_ZN4core3ptr362drop_in_place$LT$core..iter..traits..iterator..Iterator..for_each..call$LT$typst_pdf..gradient..PdfGradient$C$alloc..vec..Vec$LT$typst_pdf..gradient..PdfGradient$GT$..extend_trusted$LT$core..iter..adapters..cloned..Cloned$LT$core..slice..iter..Iter$LT$typst_pdf..gradient..PdfGradient$GT$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h68c2e83af1675d53E.llvm.14982894775678554951: argument 0"}
+!591 = distinct !{!591, !"_ZN4core3ptr362drop_in_place$LT$core..iter..traits..iterator..Iterator..for_each..call$LT$typst_pdf..gradient..PdfGradient$C$alloc..vec..Vec$LT$typst_pdf..gradient..PdfGradient$GT$..extend_trusted$LT$core..iter..adapters..cloned..Cloned$LT$core..slice..iter..Iter$LT$typst_pdf..gradient..PdfGradient$GT$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h68c2e83af1675d53E.llvm.14982894775678554951"}
+!592 = !{!593}
+!593 = distinct !{!593, !594, !"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hfa1134bc9b014e9aE: argument 0"}
+!594 = distinct !{!594, !"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hfa1134bc9b014e9aE"}
+!595 = !{!596}
+!596 = distinct !{!596, !594, !"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hfa1134bc9b014e9aE: argument 1"}
+!597 = !{!598}
+!598 = distinct !{!598, !599, !"_ZN4core3ops8function5FnMut8call_mut17h746be2e30e4855bcE: argument 1"}
+!599 = distinct !{!599, !"_ZN4core3ops8function5FnMut8call_mut17h746be2e30e4855bcE"}
+!600 = !{!601}
+!601 = distinct !{!601, !602, !"_ZN71_$LT$typst_pdf..gradient..PdfGradient$u20$as$u20$core..clone..Clone$GT$5clone17h80ad257344d18076E: argument 1"}
+!602 = distinct !{!602, !"_ZN71_$LT$typst_pdf..gradient..PdfGradient$u20$as$u20$core..clone..Clone$GT$5clone17h80ad257344d18076E"}
+!603 = !{!601, !598, !596}
+!604 = !{!605, !606, !593}
+!605 = distinct !{!605, !602, !"_ZN71_$LT$typst_pdf..gradient..PdfGradient$u20$as$u20$core..clone..Clone$GT$5clone17h80ad257344d18076E: argument 0"}
+!606 = distinct !{!606, !599, !"_ZN4core3ops8function5FnMut8call_mut17h746be2e30e4855bcE: argument 0"}
+!607 = !{!605, !601, !606, !598, !593, !596}
 !608 = !{!609}
-!609 = distinct !{!609, !610, !"_ZN71_$LT$typst_pdf..gradient..PdfGradient$u20$as$u20$core..clone..Clone$GT$5clone17h80ad257344d18076E: argument 1"}
-!610 = distinct !{!610, !"_ZN71_$LT$typst_pdf..gradient..PdfGradient$u20$as$u20$core..clone..Clone$GT$5clone17h80ad257344d18076E"}
-!611 = !{!609, !606, !584}
-!612 = !{!613, !614, !579}
-!613 = distinct !{!613, !610, !"_ZN71_$LT$typst_pdf..gradient..PdfGradient$u20$as$u20$core..clone..Clone$GT$5clone17h80ad257344d18076E: argument 0"}
-!614 = distinct !{!614, !607, !"_ZN4core3ops8function5FnMut8call_mut17h746be2e30e4855bcE: argument 0"}
-!615 = !{!613, !609, !614, !606, !579, !584}
-!616 = !{!577}
-!617 = !{!575}
-!618 = !{!575, !577, !579, !584}
+!609 = distinct !{!609, !610, !"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h85aca1895d5f0e2bE: argument 0"}
+!610 = distinct !{!610, !"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h85aca1895d5f0e2bE"}
+!611 = !{!612}
+!612 = distinct !{!612, !613, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted28_$u7b$$u7b$closure$u7d$$u7d$17h910c80313f2a6a4bE: argument 0"}
+!613 = distinct !{!613, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted28_$u7b$$u7b$closure$u7d$$u7d$17h910c80313f2a6a4bE"}
+!614 = !{!612, !609, !593, !596}
+!615 = !{!612, !609, !593}
+!616 = !{!617, !618, !596}
+!617 = distinct !{!617, !613, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted28_$u7b$$u7b$closure$u7d$$u7d$17h910c80313f2a6a4bE: argument 1"}
+!618 = distinct !{!618, !610, !"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h85aca1895d5f0e2bE: argument 1"}
 !619 = !{!620, !622, !624, !626}
 !620 = distinct !{!620, !621, !"_ZN83_$LT$alloc..vec..set_len_on_drop..SetLenOnDrop$u20$as$u20$core..ops..drop..Drop$GT$4drop17h9e5deef5da130b14E.llvm.14982894775678554951: argument 0"}
 !621 = distinct !{!621, !"_ZN83_$LT$alloc..vec..set_len_on_drop..SetLenOnDrop$u20$as$u20$core..ops..drop..Drop$GT$4drop17h9e5deef5da130b14E.llvm.14982894775678554951"}

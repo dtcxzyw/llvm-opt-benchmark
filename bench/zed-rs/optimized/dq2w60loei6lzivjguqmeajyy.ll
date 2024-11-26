@@ -4320,7 +4320,7 @@ define internal fastcc { i64, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$4find17
   br i1 %8, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17he21cac0fa60d7f79E.exit", label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
-  %.promoted.i = load i64, ptr %5, align 8, !alias.scope !607, !noalias !610
+  %.promoted.i = load i64, ptr %5, align 8
   %9 = getelementptr inbounds i8, ptr %3, i64 24
   %10 = getelementptr inbounds i8, ptr %3, i64 72
   %11 = load ptr, ptr %10, align 8, !alias.scope !607, !noalias !610, !nonnull !13, !align !162, !noundef !13
@@ -4444,7 +4444,7 @@ define internal fastcc { i64, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$4find17
 
 78:                                               ; preds = %2
   %79 = getelementptr inbounds i8, ptr %3, i64 56
-  %80 = load i64, ptr %79, align 8, !noalias !13, !noundef !13
+  %80 = load i64, ptr %79, align 8, !noundef !13
   %81 = icmp eq i64 %80, -1
   %82 = getelementptr inbounds i8, ptr %3, i64 72
   %83 = load ptr, ptr %82, align 8, !alias.scope !601, !noalias !604, !nonnull !13, !align !162, !noundef !13
@@ -4462,7 +4462,7 @@ define internal fastcc { i64, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$4find17
   tail call void @llvm.experimental.noalias.scope.decl(metadata !620)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !623)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !625)
-  %.promoted.i5 = load i64, ptr %90, align 8, !alias.scope !620, !noalias !627
+  %.promoted.i5 = load i64, ptr %90, align 8
   %93 = add i64 %.promoted.i5, %91
   %94 = icmp ult i64 %93, %85
   br i1 %94, label %.lr.ph.i8, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17he21cac0fa60d7f79E.exit"
@@ -4574,7 +4574,7 @@ define internal fastcc { i64, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$4find17
   tail call void @llvm.experimental.noalias.scope.decl(metadata !632)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !635)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !637)
-  %.promoted.i2 = load i64, ptr %90, align 8, !alias.scope !632, !noalias !639
+  %.promoted.i2 = load i64, ptr %90, align 8
   %150 = add i64 %.promoted.i2, %91
   %151 = icmp ult i64 %150, %85
   br i1 %151, label %.lr.ph.i4, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17he21cac0fa60d7f79E.exit"

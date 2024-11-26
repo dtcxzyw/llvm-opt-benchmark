@@ -3321,7 +3321,7 @@ invoke.cont225:                                   ; preds = %_ZN8QuantLib5ArrayD
   br i1 %cmp154891.not, label %for.cond.cleanup235, label %for.body236.lr.ph
 
 for.body236.lr.ph:                                ; preds = %invoke.cont225
-  %deformationSize.promoted = load double, ptr %deformationSize, align 8, !tbaa !74
+  %deformationSize.promoted = load double, ptr %deformationSize, align 8
   %217 = load ptr, ptr %theseNewVols, align 8, !tbaa !31
   %add.ptr.i358 = getelementptr inbounds nuw double, ptr %217, i64 %i137.0904
   %add.ptr.i359 = getelementptr inbounds nuw double, ptr %call5.i.i.i.i2.i.i243, i64 %i137.0904

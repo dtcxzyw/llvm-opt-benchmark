@@ -1014,12 +1014,15 @@ if.then.i65.i:                                    ; preds = %invoke.cont13.i.i
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %month_names.i.i.i to i64
   %_M_finish.i.i.i67.i = getelementptr inbounds i8, ptr %ref.tmp125.i, i64 8
   %_M_end_of_storage.i.i.i68.i = getelementptr inbounds i8, ptr %ref.tmp125.i, i64 16
+  %_M_end_of_storage.i.i.i68.promoted.i = load ptr, ptr %_M_end_of_storage.i.i.i68.i, align 8, !noalias !7
+  %_M_finish.i.i.i67.promoted.i = load ptr, ptr %_M_finish.i.i.i67.i, align 8, !noalias !7
+  %ref.tmp125.promoted182.i = load ptr, ptr %ref.tmp125.i, align 8, !noalias !7
   br label %while.cond.i.i.outer
 
 while.cond.i.i.outer:                             ; preds = %if.end.i.i, %if.then.i65.i
-  %.ph = phi ptr [ %cond.i10.i.i.i.i183.i, %if.end.i.i ], [ null, %if.then.i65.i ]
-  %incdec.ptr.i.i.i.i79181.i.ph = phi ptr [ %incdec.ptr.i.i.i.i79179.i, %if.end.i.i ], [ null, %if.then.i65.i ]
-  %add.ptr19.i.i.i.i178.i.ph = phi ptr [ %add.ptr19.i.i.i.i176.i, %if.end.i.i ], [ null, %if.then.i65.i ]
+  %.ph = phi ptr [ %cond.i10.i.i.i.i183.i, %if.end.i.i ], [ %ref.tmp125.promoted182.i, %if.then.i65.i ]
+  %incdec.ptr.i.i.i.i79181.i.ph = phi ptr [ %incdec.ptr.i.i.i.i79179.i, %if.end.i.i ], [ %_M_finish.i.i.i67.promoted.i, %if.then.i65.i ]
+  %add.ptr19.i.i.i.i178.i.ph = phi ptr [ %add.ptr19.i.i.i.i176.i, %if.end.i.i ], [ %_M_end_of_storage.i.i.i68.promoted.i, %if.then.i65.i ]
   %.ph53 = phi ptr [ %71, %if.end.i.i ], [ null, %if.then.i65.i ]
   br label %while.cond.i.i
 
@@ -1535,12 +1538,15 @@ if.then109.i.i:                                   ; preds = %invoke.cont107.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %line111.i.i) #26, !noalias !16
   %_M_finish.i.i66.i.i = getelementptr inbounds i8, ptr %ref.tmp125.i, i64 8
   %_M_end_of_storage.i.i67.i.i = getelementptr inbounds i8, ptr %ref.tmp125.i, i64 16
+  %_M_end_of_storage.i.i67.i.promoted.i = load ptr, ptr %_M_end_of_storage.i.i67.i.i, align 8, !noalias !7
+  %_M_finish.i.i66.i.promoted.i = load ptr, ptr %_M_finish.i.i66.i.i, align 8, !noalias !7
+  %ref.tmp125.promoted.i = load ptr, ptr %ref.tmp125.i, align 8, !noalias !7
   br label %while.cond112.i.i.outer
 
 while.cond112.i.i.outer:                          ; preds = %while.cond112.backedge.sink.split.i.i, %if.then109.i.i
-  %.ph70 = phi ptr [ %cond.i10.i.i.i86.i173.i, %while.cond112.backedge.sink.split.i.i ], [ null, %if.then109.i.i ]
-  %incdec.ptr.i.i.i97.i172.i.ph = phi ptr [ %incdec.ptr.i.i.i97.i170.i, %while.cond112.backedge.sink.split.i.i ], [ null, %if.then109.i.i ]
-  %add.ptr19.i.i.i101.i169.i.ph = phi ptr [ %add.ptr19.i.i.i101.i167.i, %while.cond112.backedge.sink.split.i.i ], [ null, %if.then109.i.i ]
+  %.ph70 = phi ptr [ %cond.i10.i.i.i86.i173.i, %while.cond112.backedge.sink.split.i.i ], [ %ref.tmp125.promoted.i, %if.then109.i.i ]
+  %incdec.ptr.i.i.i97.i172.i.ph = phi ptr [ %incdec.ptr.i.i.i97.i170.i, %while.cond112.backedge.sink.split.i.i ], [ %_M_finish.i.i66.i.promoted.i, %if.then109.i.i ]
+  %add.ptr19.i.i.i101.i169.i.ph = phi ptr [ %add.ptr19.i.i.i101.i167.i, %while.cond112.backedge.sink.split.i.i ], [ %_M_end_of_storage.i.i67.i.promoted.i, %if.then109.i.i ]
   %.ph71 = phi ptr [ %.ph.i.i, %while.cond112.backedge.sink.split.i.i ], [ null, %if.then109.i.i ]
   br label %while.cond112.i.i
 

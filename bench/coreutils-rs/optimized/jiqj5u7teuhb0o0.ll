@@ -1466,7 +1466,7 @@ define internal noundef i64 @_ZN4core4iter6traits8iterator8Iterator10advance_by1
   br i1 %.not14, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %.promoted = load ptr, ptr %0, align 8, !alias.scope !292, !noalias !297
+  %.promoted = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !alias.scope !292, !noalias !297, !nonnull !4, !noundef !4
   br label %7
@@ -1529,7 +1529,7 @@ define internal void @_ZN4core4iter6traits8iterator8Iterator3nth17h4e61e3e52b2b9
   br label %_ZN4core4iter6traits8iterator8Iterator10advance_by17h297efa434cf95227E.exit.thread
 
 .lr.ph.i:                                         ; preds = %3
-  %.promoted.i = load ptr, ptr %1, align 8, !noalias !4
+  %.promoted.i = load ptr, ptr %1, align 8
   %7 = getelementptr inbounds i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8, !noalias !4, !nonnull !4, !noundef !4
   br label %9

@@ -1413,9 +1413,9 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator10advance_by17h
   br i1 %.not, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %.promoted = load ptr, ptr %0, align 8, !alias.scope !384
+  %.promoted = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
-  %.promoted12 = load i64, ptr %3, align 8, !alias.scope !384
+  %.promoted12 = load i64, ptr %3, align 8
   br label %4
 
 4:                                                ; preds = %.lr.ph, %"_ZN79_$LT$std..path..Ancestors$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5d523a2c63c9c32bE.llvm.13938642116626580997.exit"
@@ -1521,7 +1521,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17haaddcc4e13
   %12 = alloca [64 x i8], align 8
   %.promoted = load ptr, ptr %1, align 8, !alias.scope !396
   %13 = getelementptr inbounds i8, ptr %1, i64 8
-  %.promoted33 = load i64, ptr %13, align 8, !alias.scope !396
+  %.promoted33 = load i64, ptr %13, align 8
   br label %14
 
 14:                                               ; preds = %18, %4

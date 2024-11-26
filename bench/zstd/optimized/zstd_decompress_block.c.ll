@@ -2113,8 +2113,8 @@ for.body34.i.lr.ph.i:                             ; preds = %ZSTD_initFseState.e
   %arrayidx105.i.i = getelementptr inbounds i8, ptr %seqState.i.i, i64 96
   %arrayidx107.i.i = getelementptr inbounds i8, ptr %seqState.i.i, i64 104
   %sub.ptr.rhs.cast.i1280.i = ptrtoint ptr %seqStart to i64
-  %prevOffset91.i.promoted.i = load i64, ptr %prevOffset.i.i, align 8, !noalias !18
-  %arrayidx105.i.promoted.i = load i64, ptr %arrayidx105.i.i, align 8, !noalias !18
+  %prevOffset91.i.promoted.i = load i64, ptr %prevOffset.i.i, align 8
+  %arrayidx105.i.promoted.i = load i64, ptr %arrayidx105.i.i, align 8
   %46 = zext nneg i32 %sub.i.i to i64
   %wide.trip.count.i = zext nneg i32 %cond9.i.i to i64
   br label %for.body34.i.i
@@ -8334,8 +8334,8 @@ for.body34.i.lr.ph:                               ; preds = %ZSTD_initFseState.e
   %arrayidx105.i = getelementptr inbounds i8, ptr %seqState.i, i64 96
   %arrayidx107.i = getelementptr inbounds i8, ptr %seqState.i, i64 104
   %sub.ptr.rhs.cast.i1280 = ptrtoint ptr %seqStart to i64
-  %prevOffset91.i.promoted = load i64, ptr %prevOffset.i, align 8, !noalias !59
-  %arrayidx105.i.promoted = load i64, ptr %arrayidx105.i, align 8, !noalias !59
+  %prevOffset91.i.promoted = load i64, ptr %prevOffset.i, align 8
+  %arrayidx105.i.promoted = load i64, ptr %arrayidx105.i, align 8
   %45 = zext nneg i32 %sub.i to i64
   %wide.trip.count = zext nneg i32 %cond9.i to i64
   br label %for.body34.i

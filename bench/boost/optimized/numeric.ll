@@ -15125,7 +15125,7 @@ _ZNKSt7__cxx119money_getIcSt19istreambuf_iteratorIcSt11char_traitsIcEEE3getES4_S
   br i1 %.not, label %.preheader, label %36
 
 .preheader:                                       ; preds = %_ZNKSt7__cxx119money_getIcSt19istreambuf_iteratorIcSt11char_traitsIcEEE3getES4_S4_bRSt8ios_baseRSt12_Ios_IostateRe.exit
-  %.promoted = load x86_fp80, ptr %10, align 16, !tbaa !168
+  %.promoted = load x86_fp80, ptr %10, align 16
   %26 = icmp sgt i32 %17, 0
   br i1 %26, label %.lr.ph, label %._crit_edge
 
@@ -15202,7 +15202,7 @@ _ZNKSt7__cxx119money_getIcSt19istreambuf_iteratorIcSt11char_traitsIcEEE3getES4_S
   br i1 %.not, label %.preheader, label %36
 
 .preheader:                                       ; preds = %_ZNKSt7__cxx119money_getIcSt19istreambuf_iteratorIcSt11char_traitsIcEEE3getES4_S4_bRSt8ios_baseRSt12_Ios_IostateRe.exit
-  %.promoted = load x86_fp80, ptr %10, align 16, !tbaa !168
+  %.promoted = load x86_fp80, ptr %10, align 16
   %26 = icmp sgt i32 %17, 0
   br i1 %26, label %.lr.ph, label %._crit_edge
 
@@ -23065,7 +23065,7 @@ _ZNKSt7__cxx119money_getIwSt19istreambuf_iteratorIwSt11char_traitsIwEEE3getES4_S
   br i1 %.not, label %.preheader, label %36
 
 .preheader:                                       ; preds = %_ZNKSt7__cxx119money_getIwSt19istreambuf_iteratorIwSt11char_traitsIwEEE3getES4_S4_bRSt8ios_baseRSt12_Ios_IostateRe.exit
-  %.promoted = load x86_fp80, ptr %10, align 16, !tbaa !168
+  %.promoted = load x86_fp80, ptr %10, align 16
   %26 = icmp sgt i32 %17, 0
   br i1 %26, label %.lr.ph, label %._crit_edge
 
@@ -23142,7 +23142,7 @@ _ZNKSt7__cxx119money_getIwSt19istreambuf_iteratorIwSt11char_traitsIwEEE3getES4_S
   br i1 %.not, label %.preheader, label %36
 
 .preheader:                                       ; preds = %_ZNKSt7__cxx119money_getIwSt19istreambuf_iteratorIwSt11char_traitsIwEEE3getES4_S4_bRSt8ios_baseRSt12_Ios_IostateRe.exit
-  %.promoted = load x86_fp80, ptr %10, align 16, !tbaa !168
+  %.promoted = load x86_fp80, ptr %10, align 16
   %26 = icmp sgt i32 %17, 0
   br i1 %26, label %.lr.ph, label %._crit_edge
 

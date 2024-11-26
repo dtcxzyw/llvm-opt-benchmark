@@ -14854,7 +14854,7 @@ define void @"_ZN108_$LT$regex_automata..util..captures..GroupInfoAllNames$u20$a
   %13 = getelementptr inbounds i8, ptr %1, i64 32
   %.sroa.49.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 40
   %.sroa.510.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 48
-  %.promoted36 = load i64, ptr %9, align 8, !alias.scope !2896
+  %.promoted36 = load i64, ptr %9, align 8
   %.promoted37 = load i32, ptr %12, align 4
   %.promoted40 = load ptr, ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %5, i64 72

@@ -990,7 +990,7 @@ _ZN4core3str7pattern13simd_contains17hd88dd90e038df932E.exit.i: ; preds = %.preh
   br i1 %140, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h81357aafb99f3895E.exit.i", label %.lr.ph.i40.i
 
 .lr.ph.i40.i:                                     ; preds = %.preheader.i39.i
-  %.promoted.i.i = load i64, ptr %137, align 8, !alias.scope !148, !noalias !151
+  %.promoted.i.i = load i64, ptr %137, align 8, !noalias !140
   %141 = getelementptr inbounds i8, ptr %6, i64 24
   %142 = getelementptr inbounds i8, ptr %6, i64 72
   %143 = load ptr, ptr %142, align 8, !alias.scope !148, !noalias !151, !nonnull !9, !align !25, !noundef !9
@@ -1136,7 +1136,7 @@ _ZN4core3str11validations15next_code_point17h24423c71b47f8f25E.exit.thread.i.i.i
   call void @llvm.experimental.noalias.scope.decl(metadata !168)
   %220 = getelementptr inbounds i8, ptr %6, i64 40
   %221 = add i64 %218, -1
-  %.promoted.i41.i = load i64, ptr %220, align 8, !alias.scope !163, !noalias !170
+  %.promoted.i41.i = load i64, ptr %220, align 8, !noalias !140
   %222 = add i64 %.promoted.i41.i, %221
   %.not3754.i.i = icmp ult i64 %222, %214
   br i1 %.not3754.i.i, label %.lr.ph.i44.i, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h81357aafb99f3895E.exit.i"

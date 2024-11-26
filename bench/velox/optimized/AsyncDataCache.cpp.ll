@@ -8544,7 +8544,7 @@ declare void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(pt
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEl(ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox5cache8readPinsERKSt6vectorINS1_8CachePinESaIS3_EEiiSt8functionIFmiEES8_IFvS7_iimRKS2_IN5folly5RangeIPcEESaISE_EEEE(ptr noalias nocapture writeonly sret(%"struct.facebook::velox::CoalesceIoStats") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %pins, i32 noundef %maxGap, i32 noundef %rangesPerIo, ptr nocapture noundef %offsetFunc, ptr nocapture noundef %readFunc) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook5velox5cache8readPinsERKSt6vectorINS1_8CachePinESaIS3_EEiiSt8functionIFmiEES8_IFvS7_iimRKS2_IN5folly5RangeIPcEESaISE_EEEE(ptr noalias nocapture sret(%"struct.facebook::velox::CoalesceIoStats") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %pins, i32 noundef %maxGap, i32 noundef %rangesPerIo, ptr nocapture noundef %offsetFunc, ptr nocapture noundef %readFunc) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %__args.addr2.i119.i = alloca i32, align 4
   %__args.addr4.i120.i = alloca i32, align 4
@@ -9069,11 +9069,9 @@ invoke.cont34.i:                                  ; preds = %if.end.i66.i, %_ZNS
 
 for.end.i.loopexit:                               ; preds = %invoke.cont34.i
   %50 = trunc i64 %sub.ptr.div.i.i to i32
-  %51 = add nsw i32 %inc.i41, 1
   br label %for.end.i
 
 for.end.i:                                        ; preds = %for.end.i.loopexit, %call2.i28.i.noexc
-  %inc42.i = phi i32 [ 1, %call2.i28.i.noexc ], [ %51, %for.end.i.loopexit ]
   %startOffset.0.lcssa.i = phi i64 [ %call2.i28.i11, %call2.i28.i.noexc ], [ %startOffset.1.i, %for.end.i.loopexit ]
   %startItem.0.lcssa.i = phi i32 [ 0, %call2.i28.i.noexc ], [ %startItem.1.i, %for.end.i.loopexit ]
   %sub.ptr.div.i.lcssa.i = phi i32 [ 0, %call2.i28.i.noexc ], [ %50, %for.end.i.loopexit ]
@@ -9084,8 +9082,8 @@ for.end.i:                                        ; preds = %for.end.i.loopexit,
   store i32 %sub.ptr.div.i.lcssa.i, ptr %__args.addr4.i120.i, align 4, !noalias !166
   store i64 %startOffset.0.lcssa.i, ptr %__args.addr6.i121.i, align 8, !noalias !166
   %_M_manager.i.i122.i = getelementptr inbounds i8, ptr %agg.tmp5, i64 16
-  %52 = load ptr, ptr %_M_manager.i.i122.i, align 8, !noalias !166
-  %tobool.not.i.i123.i = icmp eq ptr %52, null
+  %51 = load ptr, ptr %_M_manager.i.i122.i, align 8, !noalias !166
+  %tobool.not.i.i123.i = icmp eq ptr %51, null
   br i1 %tobool.not.i.i123.i, label %if.then.i126.invoke.i, label %if.end.i124.i
 
 if.then.i126.invoke.i:                            ; preds = %if.else.i, %for.body.i, %for.end.i
@@ -9096,14 +9094,16 @@ if.then.i126.cont.i:                              ; preds = %if.then.i126.invoke
   unreachable
 
 if.end.i124.i:                                    ; preds = %for.end.i
-  %53 = load ptr, ptr %_M_invoker.i3, align 8, !noalias !166
-  invoke void %53(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp5, ptr noundef nonnull align 8 dereferenceable(24) %pins, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr2.i119.i, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i120.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr6.i121.i, ptr noundef nonnull align 8 dereferenceable(24) %ranges.i)
+  %52 = load ptr, ptr %_M_invoker.i3, align 8, !noalias !166
+  invoke void %52(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp5, ptr noundef nonnull align 8 dereferenceable(24) %pins, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr2.i119.i, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i120.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr6.i121.i, ptr noundef nonnull align 8 dereferenceable(24) %ranges.i)
           to label %invoke.cont40.i unwind label %lpad6.loopexit.split-lp.loopexit.split-lp.i, !noalias !166
 
 invoke.cont40.i:                                  ; preds = %if.end.i124.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr2.i119.i), !noalias !166
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i120.i), !noalias !166
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr6.i121.i), !noalias !166
+  %53 = load i32, ptr %agg.result, align 8, !alias.scope !166
+  %inc42.i = add nsw i32 %53, 1
   store i32 %inc42.i, ptr %agg.result, align 8, !alias.scope !166
   %54 = load ptr, ptr %ranges.i, align 8, !noalias !166
   %tobool.not.i.i.i130.i = icmp eq ptr %54, null

@@ -26680,7 +26680,7 @@ define hidden { ptr, ptr } @"_ZN96_$LT$ide_db..RootDatabase$u20$as$u20$base_db..
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden void @"_ZN99_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..SpecFold$GT$9spec_fold17h38c8e4034ecae2a1E.llvm.2919776409019166437"(ptr noalias nocapture noundef align 8 dereferenceable(48) %0, ptr noalias noundef align 8 dereferenceable(32) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %.val.i = load ptr, ptr %0, align 8, !noalias !10, !nonnull !10, !noundef !10
+  %.val.i = load ptr, ptr %0, align 8, !nonnull !10, !noundef !10
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %.val13.i = load ptr, ptr %3, align 8, !noalias !10, !nonnull !10, !noundef !10
   %.not = icmp eq ptr %.val13.i, %.val.i

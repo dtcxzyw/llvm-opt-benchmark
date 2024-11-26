@@ -161820,7 +161820,7 @@ _ZNSt6vectorIPcSaIS0_EE9push_backEOS0_.exit:      ; preds = %_ZNSt6vectorIPcSaIS
   br i1 %35, label %36, label %_ZNKSt6vectorIPcSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i11
 
 36:                                               ; preds = %31
-  store ptr %20, ptr %0, align 8, !tbaa !2821
+  store ptr %20, ptr %0, align 8
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.503) #60
           to label %.noexc18 unwind label %.loopexit.split-lp
 
@@ -161879,7 +161879,7 @@ _ZNSt6vectorIPcSaIS0_EE9push_backEOS0_.exit20:    ; preds = %_ZNSt6vectorIPcSaIS
 .loopexit40:                                      ; preds = %42
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  store ptr %20, ptr %0, align 8, !tbaa !2821
+  store ptr %20, ptr %0, align 8
   br label %88
 
 .loopexit.split-lp:                               ; preds = %36
@@ -161888,7 +161888,7 @@ _ZNSt6vectorIPcSaIS0_EE9push_backEOS0_.exit20:    ; preds = %_ZNSt6vectorIPcSaIS
   br label %88
 
 56:                                               ; preds = %_ZNSt6vectorIPcSaIS0_EE9push_backEOS0_.exit20
-  store ptr %54, ptr %0, align 8, !tbaa !2821
+  store ptr %54, ptr %0, align 8
   %.pre = load ptr, ptr %18, align 8, !tbaa !2824
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -168196,7 +168196,7 @@ define linkonce_odr hidden void @_ZSt9__find_ifIN5boost4asio16buffers_iteratorIN
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %15 = load ptr, ptr %14, align 8
   %.sroa.3.0..sroa_idx.promoted = load i64, ptr %.sroa.3.0..sroa_idx, align 8, !tbaa !93
-  %.promoted97 = load ptr, ptr %13, align 8, !tbaa !3450
+  %.promoted97 = load ptr, ptr %13, align 8
   br label %16
 
 16:                                               ; preds = %.lr.ph, %_ZN5boost4asio16buffers_iteratorINS0_12const_bufferEcEppEv.exit19
@@ -168214,28 +168214,28 @@ define linkonce_odr hidden void @_ZSt9__find_ifIN5boost4asio16buffers_iteratorIN
   %24 = add i64 %19, 1
   store i64 %24, ptr %7, align 8, !tbaa !3437
   %25 = add i64 %18, 1
-  store i64 %25, ptr %.sroa.3.0..sroa_idx, align 8, !tbaa !3451
-  %26 = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !3452
+  store i64 %25, ptr %.sroa.3.0..sroa_idx, align 8, !tbaa !3450
+  %26 = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !3451
   %.not.i.i = icmp eq i64 %25, %26
   br i1 %.not.i.i, label %27, label %_ZN5boost4asio16buffers_iteratorINS0_12const_bufferEcEppEv.exit
 
 27:                                               ; preds = %23
   %28 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  store ptr %28, ptr %13, align 8, !tbaa !3450
-  store i64 0, ptr %.sroa.3.0..sroa_idx, align 8, !tbaa !3451
+  store ptr %28, ptr %13, align 8, !tbaa !3452
+  store i64 0, ptr %.sroa.3.0..sroa_idx, align 8, !tbaa !3450
   %.not13.i.i = icmp eq ptr %28, %15
   br i1 %.not13.i.i, label %_ZN5boost4asio16buffers_iteratorINS0_12const_bufferEcEppEv.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %27, %31
   %29 = phi ptr [ %32, %31 ], [ %28, %27 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(16) %29, i64 16, i1 false), !tbaa.struct !3453
-  %30 = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !3452
+  %30 = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !3451
   %.not2.i.i = icmp eq i64 %30, 0
   br i1 %.not2.i.i, label %31, label %_ZN5boost4asio16buffers_iteratorINS0_12const_bufferEcEppEv.exit.loopexit
 
 31:                                               ; preds = %.lr.ph.i.i
   %32 = getelementptr inbounds nuw i8, ptr %29, i64 16
-  store ptr %32, ptr %13, align 8, !tbaa !3450
+  store ptr %32, ptr %13, align 8, !tbaa !3452
   %.not1.i.i = icmp eq ptr %32, %15
   br i1 %.not1.i.i, label %_ZN5boost4asio16buffers_iteratorINS0_12const_bufferEcEppEv.exit.loopexit, label %.lr.ph.i.i, !llvm.loop !3454
 
@@ -168258,27 +168258,27 @@ _ZN5boost4asio16buffers_iteratorINS0_12const_bufferEcEppEv.exit: ; preds = %_ZN5
   %40 = add i64 %19, 2
   store i64 %40, ptr %7, align 8, !tbaa !3437
   %41 = add i64 %35, 1
-  store i64 %41, ptr %.sroa.3.0..sroa_idx, align 8, !tbaa !3451
+  store i64 %41, ptr %.sroa.3.0..sroa_idx, align 8, !tbaa !3450
   %.not.i.i2 = icmp eq i64 %41, %33
   br i1 %.not.i.i2, label %42, label %_ZN5boost4asio16buffers_iteratorINS0_12const_bufferEcEppEv.exit7
 
 42:                                               ; preds = %39
   %43 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  store ptr %43, ptr %13, align 8, !tbaa !3450
-  store i64 0, ptr %.sroa.3.0..sroa_idx, align 8, !tbaa !3451
+  store ptr %43, ptr %13, align 8, !tbaa !3452
+  store i64 0, ptr %.sroa.3.0..sroa_idx, align 8, !tbaa !3450
   %.not13.i.i3 = icmp eq ptr %43, %15
   br i1 %.not13.i.i3, label %_ZN5boost4asio16buffers_iteratorINS0_12const_bufferEcEppEv.exit7, label %.lr.ph.i.i4
 
 .lr.ph.i.i4:                                      ; preds = %42, %46
   %44 = phi ptr [ %47, %46 ], [ %43, %42 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(16) %44, i64 16, i1 false), !tbaa.struct !3453
-  %45 = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !3452
+  %45 = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !3451
   %.not2.i.i5 = icmp eq i64 %45, 0
   br i1 %.not2.i.i5, label %46, label %_ZN5boost4asio16buffers_iteratorINS0_12const_bufferEcEppEv.exit7.loopexit
 
 46:                                               ; preds = %.lr.ph.i.i4
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 16
-  store ptr %47, ptr %13, align 8, !tbaa !3450
+  store ptr %47, ptr %13, align 8, !tbaa !3452
   %.not1.i.i6 = icmp eq ptr %47, %15
   br i1 %.not1.i.i6, label %_ZN5boost4asio16buffers_iteratorINS0_12const_bufferEcEppEv.exit7.loopexit, label %.lr.ph.i.i4, !llvm.loop !3454
 
@@ -168301,27 +168301,27 @@ _ZN5boost4asio16buffers_iteratorINS0_12const_bufferEcEppEv.exit7: ; preds = %_ZN
   %55 = add i64 %19, 3
   store i64 %55, ptr %7, align 8, !tbaa !3437
   %56 = add i64 %50, 1
-  store i64 %56, ptr %.sroa.3.0..sroa_idx, align 8, !tbaa !3451
+  store i64 %56, ptr %.sroa.3.0..sroa_idx, align 8, !tbaa !3450
   %.not.i.i8 = icmp eq i64 %56, %48
   br i1 %.not.i.i8, label %57, label %_ZN5boost4asio16buffers_iteratorINS0_12const_bufferEcEppEv.exit13
 
 57:                                               ; preds = %54
   %58 = getelementptr inbounds nuw i8, ptr %49, i64 16
-  store ptr %58, ptr %13, align 8, !tbaa !3450
-  store i64 0, ptr %.sroa.3.0..sroa_idx, align 8, !tbaa !3451
+  store ptr %58, ptr %13, align 8, !tbaa !3452
+  store i64 0, ptr %.sroa.3.0..sroa_idx, align 8, !tbaa !3450
   %.not13.i.i9 = icmp eq ptr %58, %15
   br i1 %.not13.i.i9, label %_ZN5boost4asio16buffers_iteratorINS0_12const_bufferEcEppEv.exit13, label %.lr.ph.i.i10
 
 .lr.ph.i.i10:                                     ; preds = %57, %61
   %59 = phi ptr [ %62, %61 ], [ %58, %57 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(16) %59, i64 16, i1 false), !tbaa.struct !3453
-  %60 = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !3452
+  %60 = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !3451
   %.not2.i.i11 = icmp eq i64 %60, 0
   br i1 %.not2.i.i11, label %61, label %_ZN5boost4asio16buffers_iteratorINS0_12const_bufferEcEppEv.exit13.loopexit
 
 61:                                               ; preds = %.lr.ph.i.i10
   %62 = getelementptr inbounds nuw i8, ptr %59, i64 16
-  store ptr %62, ptr %13, align 8, !tbaa !3450
+  store ptr %62, ptr %13, align 8, !tbaa !3452
   %.not1.i.i12 = icmp eq ptr %62, %15
   br i1 %.not1.i.i12, label %_ZN5boost4asio16buffers_iteratorINS0_12const_bufferEcEppEv.exit13.loopexit, label %.lr.ph.i.i10, !llvm.loop !3454
 
@@ -168344,27 +168344,27 @@ _ZN5boost4asio16buffers_iteratorINS0_12const_bufferEcEppEv.exit13: ; preds = %_Z
   %70 = add i64 %19, 4
   store i64 %70, ptr %7, align 8, !tbaa !3437
   %71 = add i64 %65, 1
-  store i64 %71, ptr %.sroa.3.0..sroa_idx, align 8, !tbaa !3451
+  store i64 %71, ptr %.sroa.3.0..sroa_idx, align 8, !tbaa !3450
   %.not.i.i14 = icmp eq i64 %71, %63
   br i1 %.not.i.i14, label %72, label %_ZN5boost4asio16buffers_iteratorINS0_12const_bufferEcEppEv.exit19
 
 72:                                               ; preds = %69
   %73 = getelementptr inbounds nuw i8, ptr %64, i64 16
-  store ptr %73, ptr %13, align 8, !tbaa !3450
-  store i64 0, ptr %.sroa.3.0..sroa_idx, align 8, !tbaa !3451
+  store ptr %73, ptr %13, align 8, !tbaa !3452
+  store i64 0, ptr %.sroa.3.0..sroa_idx, align 8, !tbaa !3450
   %.not13.i.i15 = icmp eq ptr %73, %15
   br i1 %.not13.i.i15, label %_ZN5boost4asio16buffers_iteratorINS0_12const_bufferEcEppEv.exit19, label %.lr.ph.i.i16
 
 .lr.ph.i.i16:                                     ; preds = %72, %76
   %74 = phi ptr [ %77, %76 ], [ %73, %72 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(16) %74, i64 16, i1 false), !tbaa.struct !3453
-  %75 = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !3452
+  %75 = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !3451
   %.not2.i.i17 = icmp eq i64 %75, 0
   br i1 %.not2.i.i17, label %76, label %_ZN5boost4asio16buffers_iteratorINS0_12const_bufferEcEppEv.exit19
 
 76:                                               ; preds = %.lr.ph.i.i16
   %77 = getelementptr inbounds nuw i8, ptr %74, i64 16
-  store ptr %77, ptr %13, align 8, !tbaa !3450
+  store ptr %77, ptr %13, align 8, !tbaa !3452
   %.not1.i.i18 = icmp eq ptr %77, %15
   br i1 %.not1.i.i18, label %_ZN5boost4asio16buffers_iteratorINS0_12const_bufferEcEppEv.exit19, label %.lr.ph.i.i16, !llvm.loop !3454
 
@@ -168411,32 +168411,32 @@ _ZN5boost4asio16buffers_iteratorINS0_12const_bufferEcEppEv.exit19: ; preds = %.l
   %90 = add i64 %82, 1
   store i64 %90, ptr %7, align 8, !tbaa !3437
   %91 = add i64 %.sroa.378.0.copyload, 1
-  store i64 %91, ptr %.sroa.378.0..sroa_idx, align 8, !tbaa !3451
-  %92 = load i64, ptr %.sroa.277.0..sroa_idx, align 8, !tbaa !3452
+  store i64 %91, ptr %.sroa.378.0..sroa_idx, align 8, !tbaa !3450
+  %92 = load i64, ptr %.sroa.277.0..sroa_idx, align 8, !tbaa !3451
   %.not.i.i20 = icmp eq i64 %91, %92
   br i1 %.not.i.i20, label %93, label %_ZN5boost4asio16buffers_iteratorINS0_12const_bufferEcEppEv.exit25
 
 93:                                               ; preds = %89
   %94 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %95 = load ptr, ptr %94, align 8, !tbaa !3450
+  %95 = load ptr, ptr %94, align 8, !tbaa !3452
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 16
-  store ptr %96, ptr %94, align 8, !tbaa !3450
-  store i64 0, ptr %.sroa.378.0..sroa_idx, align 8, !tbaa !3451
+  store ptr %96, ptr %94, align 8, !tbaa !3452
+  store i64 0, ptr %.sroa.378.0..sroa_idx, align 8, !tbaa !3450
   %97 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %98 = load ptr, ptr %97, align 8, !tbaa !3456
   %.not13.i.i21 = icmp eq ptr %96, %98
   br i1 %.not13.i.i21, label %_ZN5boost4asio16buffers_iteratorINS0_12const_bufferEcEppEv.exit25, label %.lr.ph.i.i22.preheader
 
 .lr.ph.i.i22.preheader:                           ; preds = %93
-  %.promoted = load ptr, ptr %94, align 8, !tbaa !3450
+  %.promoted = load ptr, ptr %94, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(16) %96, i64 16, i1 false), !tbaa.struct !3453
-  %99 = load i64, ptr %.sroa.277.0..sroa_idx, align 8, !tbaa !3452
+  %99 = load i64, ptr %.sroa.277.0..sroa_idx, align 8, !tbaa !3451
   %.not2.i.i23115 = icmp eq i64 %99, 0
   br i1 %.not2.i.i23115, label %.lr.ph116, label %_ZN5boost4asio16buffers_iteratorINS0_12const_bufferEcEppEv.exit25.loopexit
 
 .lr.ph.i.i22:                                     ; preds = %.lr.ph116
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(16) %102, i64 16, i1 false), !tbaa.struct !3453
-  %100 = load i64, ptr %.sroa.277.0..sroa_idx, align 8, !tbaa !3452
+  %100 = load i64, ptr %.sroa.277.0..sroa_idx, align 8, !tbaa !3451
   %.not2.i.i23 = icmp eq i64 %100, 0
   br i1 %.not2.i.i23, label %.lr.ph116, label %_ZN5boost4asio16buffers_iteratorINS0_12const_bufferEcEppEv.exit25.loopexit, !llvm.loop !3454
 
@@ -168448,7 +168448,7 @@ _ZN5boost4asio16buffers_iteratorINS0_12const_bufferEcEppEv.exit19: ; preds = %.l
 
 _ZN5boost4asio16buffers_iteratorINS0_12const_bufferEcEppEv.exit25.loopexit: ; preds = %.lr.ph116, %.lr.ph.i.i22, %.lr.ph.i.i22.preheader
   %103 = phi ptr [ %.promoted, %.lr.ph.i.i22.preheader ], [ %102, %.lr.ph.i.i22 ], [ %102, %.lr.ph116 ]
-  store ptr %103, ptr %94, align 8, !tbaa !3450
+  store ptr %103, ptr %94, align 8
   br label %_ZN5boost4asio16buffers_iteratorINS0_12const_bufferEcEppEv.exit25
 
 _ZN5boost4asio16buffers_iteratorINS0_12const_bufferEcEppEv.exit25: ; preds = %_ZN5boost4asio16buffers_iteratorINS0_12const_bufferEcEppEv.exit25.loopexit, %._crit_edge._ZN5boost4asio16buffers_iteratorINS0_12const_bufferEcEppEv.exit25_crit_edge, %93, %89
@@ -168467,32 +168467,32 @@ _ZN5boost4asio16buffers_iteratorINS0_12const_bufferEcEppEv.exit25: ; preds = %_Z
   %110 = add i64 %104, 1
   store i64 %110, ptr %7, align 8, !tbaa !3437
   %111 = add i64 %.sroa.386.0.copyload, 1
-  store i64 %111, ptr %.sroa.386.0..sroa_idx, align 8, !tbaa !3451
-  %112 = load i64, ptr %.sroa.285.0..sroa_idx, align 8, !tbaa !3452
+  store i64 %111, ptr %.sroa.386.0..sroa_idx, align 8, !tbaa !3450
+  %112 = load i64, ptr %.sroa.285.0..sroa_idx, align 8, !tbaa !3451
   %.not.i.i26 = icmp eq i64 %111, %112
   br i1 %.not.i.i26, label %113, label %_ZN5boost4asio16buffers_iteratorINS0_12const_bufferEcEppEv.exit31
 
 113:                                              ; preds = %109
   %114 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %115 = load ptr, ptr %114, align 8, !tbaa !3450
+  %115 = load ptr, ptr %114, align 8, !tbaa !3452
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 16
-  store ptr %116, ptr %114, align 8, !tbaa !3450
-  store i64 0, ptr %.sroa.386.0..sroa_idx, align 8, !tbaa !3451
+  store ptr %116, ptr %114, align 8, !tbaa !3452
+  store i64 0, ptr %.sroa.386.0..sroa_idx, align 8, !tbaa !3450
   %117 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %118 = load ptr, ptr %117, align 8, !tbaa !3456
   %.not13.i.i27 = icmp eq ptr %116, %118
   br i1 %.not13.i.i27, label %_ZN5boost4asio16buffers_iteratorINS0_12const_bufferEcEppEv.exit31, label %.lr.ph.i.i28.preheader
 
 .lr.ph.i.i28.preheader:                           ; preds = %113
-  %.promoted110 = load ptr, ptr %114, align 8, !tbaa !3450
+  %.promoted110 = load ptr, ptr %114, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(16) %116, i64 16, i1 false), !tbaa.struct !3453
-  %119 = load i64, ptr %.sroa.285.0..sroa_idx, align 8, !tbaa !3452
+  %119 = load i64, ptr %.sroa.285.0..sroa_idx, align 8, !tbaa !3451
   %.not2.i.i29118 = icmp eq i64 %119, 0
   br i1 %.not2.i.i29118, label %.lr.ph119, label %_ZN5boost4asio16buffers_iteratorINS0_12const_bufferEcEppEv.exit31.loopexit
 
 .lr.ph.i.i28:                                     ; preds = %.lr.ph119
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(16) %122, i64 16, i1 false), !tbaa.struct !3453
-  %120 = load i64, ptr %.sroa.285.0..sroa_idx, align 8, !tbaa !3452
+  %120 = load i64, ptr %.sroa.285.0..sroa_idx, align 8, !tbaa !3451
   %.not2.i.i29 = icmp eq i64 %120, 0
   br i1 %.not2.i.i29, label %.lr.ph119, label %_ZN5boost4asio16buffers_iteratorINS0_12const_bufferEcEppEv.exit31.loopexit, !llvm.loop !3454
 
@@ -168504,7 +168504,7 @@ _ZN5boost4asio16buffers_iteratorINS0_12const_bufferEcEppEv.exit25: ; preds = %_Z
 
 _ZN5boost4asio16buffers_iteratorINS0_12const_bufferEcEppEv.exit31.loopexit: ; preds = %.lr.ph119, %.lr.ph.i.i28, %.lr.ph.i.i28.preheader
   %123 = phi ptr [ %.promoted110, %.lr.ph.i.i28.preheader ], [ %122, %.lr.ph.i.i28 ], [ %122, %.lr.ph119 ]
-  store ptr %123, ptr %114, align 8, !tbaa !3450
+  store ptr %123, ptr %114, align 8
   br label %_ZN5boost4asio16buffers_iteratorINS0_12const_bufferEcEppEv.exit31
 
 _ZN5boost4asio16buffers_iteratorINS0_12const_bufferEcEppEv.exit31: ; preds = %_ZN5boost4asio16buffers_iteratorINS0_12const_bufferEcEppEv.exit31.loopexit, %._crit_edge._ZN5boost4asio16buffers_iteratorINS0_12const_bufferEcEppEv.exit31_crit_edge, %113, %109
@@ -168519,13 +168519,13 @@ _ZN5boost4asio16buffers_iteratorINS0_12const_bufferEcEppEv.exit31: ; preds = %_Z
 
 128:                                              ; preds = %_ZN5boost4asio16buffers_iteratorINS0_12const_bufferEcEppEv.exit31
   %129 = add i64 %.sroa.394.0.copyload, 1
-  %130 = load i64, ptr %.sroa.293.0..sroa_idx, align 8, !tbaa !3452
+  %130 = load i64, ptr %.sroa.293.0..sroa_idx, align 8, !tbaa !3451
   %.not.i.i32 = icmp eq i64 %129, %130
   br i1 %.not.i.i32, label %131, label %_ZN5boost4asio16buffers_iteratorINS0_12const_bufferEcEppEv.exit37
 
 131:                                              ; preds = %128
   %132 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %133 = load ptr, ptr %132, align 8, !tbaa !3450
+  %133 = load ptr, ptr %132, align 8, !tbaa !3452
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 16
   %135 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %136 = load ptr, ptr %135, align 8, !tbaa !3456
@@ -168535,7 +168535,7 @@ _ZN5boost4asio16buffers_iteratorINS0_12const_bufferEcEppEv.exit31: ; preds = %_Z
 .lr.ph.i.i34:                                     ; preds = %131, %.lr.ph.i.i34
   %137 = phi ptr [ %139, %.lr.ph.i.i34 ], [ %134, %131 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(16) %137, i64 16, i1 false), !tbaa.struct !3453
-  %138 = load i64, ptr %.sroa.293.0..sroa_idx, align 8, !tbaa !3452
+  %138 = load i64, ptr %.sroa.293.0..sroa_idx, align 8, !tbaa !3451
   %.not2.i.i35 = icmp ne i64 %138, 0
   %139 = getelementptr inbounds nuw i8, ptr %137, i64 16
   %.not1.i.i36 = icmp eq ptr %139, %136
@@ -175376,9 +175376,9 @@ attributes #70 = { nounwind allocsize(1) }
 !3447 = !{!3448}
 !3448 = distinct !{!3448, !3449, !"_ZN5boost9unit_testlsINS0_13basic_cstringIKcEEEENS0_17lazy_ostream_implINS0_12lazy_ostreamET_RKS7_EERKS6_S9_: argument 0"}
 !3449 = distinct !{!3449, !"_ZN5boost9unit_testlsINS0_13basic_cstringIKcEEEENS0_17lazy_ostream_implINS0_12lazy_ostreamET_RKS7_EERKS6_S9_"}
-!3450 = !{!3438, !7, i64 32}
-!3451 = !{!3438, !10, i64 16}
-!3452 = !{!3439, !10, i64 8}
+!3450 = !{!3438, !10, i64 16}
+!3451 = !{!3439, !10, i64 8}
+!3452 = !{!3438, !7, i64 32}
 !3453 = !{i64 0, i64 8, !173, i64 8, i64 8, !93}
 !3454 = distinct !{!3454, !146}
 !3455 = distinct !{!3455, !146}

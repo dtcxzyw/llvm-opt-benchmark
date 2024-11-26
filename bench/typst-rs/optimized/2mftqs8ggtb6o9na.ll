@@ -225,7 +225,7 @@ define hidden void @_ZN4core4hash4Hash10hash_slice17h06f94f89a0703356E(ptr noali
   br i1 %5, label %12, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
-  %.promoted = load i64, ptr %2, align 8, !alias.scope !16, !noalias !23
+  %.promoted = load i64, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 48
   %7 = getelementptr inbounds i8, ptr %2, i64 64
   %8 = getelementptr inbounds i8, ptr %2, i64 56
@@ -235,9 +235,9 @@ define hidden void @_ZN4core4hash4Hash10hash_slice17h06f94f89a0703356E(ptr noali
   %.promoted7 = load i64, ptr %6, align 8, !alias.scope !16, !noalias !23
   %.promoted8 = load i64, ptr %7, align 8, !alias.scope !16, !noalias !23
   %.promoted9 = load i64, ptr %8, align 8, !alias.scope !16, !noalias !23
-  %.promoted12 = load i64, ptr %9, align 8, !alias.scope !16, !noalias !23
-  %.promoted13 = load i64, ptr %10, align 8, !alias.scope !25, !noalias !23
-  %.promoted14 = load i64, ptr %11, align 8, !alias.scope !25, !noalias !23
+  %.promoted12 = load i64, ptr %9, align 8
+  %.promoted13 = load i64, ptr %10, align 8
+  %.promoted14 = load i64, ptr %11, align 8
   br label %13
 
 ._crit_edge:                                      ; preds = %"_ZN60_$LT$typst..layout..abs..Abs$u20$as$u20$core..hash..Hash$GT$4hash17h3ec00e37333c2a14E.llvm.2546880118954093015.exit"
@@ -259,8 +259,8 @@ define hidden void @_ZN4core4hash4Hash10hash_slice17h06f94f89a0703356E(ptr noali
   %19 = phi i64 [ %.promoted, %.lr.ph ], [ %53, %"_ZN60_$LT$typst..layout..abs..Abs$u20$as$u20$core..hash..Hash$GT$4hash17h3ec00e37333c2a14E.llvm.2546880118954093015.exit" ]
   %20 = getelementptr inbounds i8, ptr %.sroa.0.06, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !23)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !28)
-  %21 = load i64, ptr %.sroa.0.06, align 8, !alias.scope !23, !noalias !28, !noundef !29
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !25)
+  %21 = load i64, ptr %.sroa.0.06, align 8, !alias.scope !23, !noalias !25, !noundef !26
   %22 = add i64 %18, 8
   %23 = shl i64 %17, 3
   %24 = and i64 %23, 56
@@ -281,13 +281,13 @@ define hidden void @_ZN4core4hash4Hash10hash_slice17h06f94f89a0703356E(ptr noali
   %37 = add i64 %36, %33
   %38 = tail call i64 @llvm.fshl.i64(i64 %36, i64 %36, i64 21)
   %39 = xor i64 %38, %37
-  store i64 %39, ptr %9, align 8, !alias.scope !25, !noalias !23
+  store i64 %39, ptr %9, align 8, !alias.scope !27, !noalias !23
   %40 = add i64 %34, %32
   %41 = tail call i64 @llvm.fshl.i64(i64 %32, i64 %32, i64 17)
   %42 = xor i64 %40, %41
-  store i64 %42, ptr %10, align 8, !alias.scope !25, !noalias !23
+  store i64 %42, ptr %10, align 8, !alias.scope !27, !noalias !23
   %43 = tail call i64 @llvm.fshl.i64(i64 %40, i64 %40, i64 32)
-  store i64 %43, ptr %11, align 8, !alias.scope !25, !noalias !23
+  store i64 %43, ptr %11, align 8, !alias.scope !27, !noalias !23
   %44 = xor i64 %37, %26
   store i64 %44, ptr %2, align 8, !alias.scope !16, !noalias !23
   %.not.i.i.i = icmp eq i64 %17, 0
@@ -373,30 +373,30 @@ define hidden void @_ZN4core4hash4Hash10hash_slice17h49cbdb469f2735bfE(ptr noali
   %14 = getelementptr inbounds i8, ptr %.sroa.0.06, i64 24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !35)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !38)
-  %15 = load i64, ptr %14, align 8, !alias.scope !40, !noalias !41, !noundef !29
-  %16 = load i64, ptr %6, align 8, !alias.scope !42, !noalias !40, !noundef !29
+  %15 = load i64, ptr %14, align 8, !alias.scope !40, !noalias !41, !noundef !26
+  %16 = load i64, ptr %6, align 8, !alias.scope !42, !noalias !40, !noundef !26
   %17 = add i64 %16, 8
   store i64 %17, ptr %6, align 8, !alias.scope !42, !noalias !40
-  %18 = load i64, ptr %7, align 8, !alias.scope !42, !noalias !40, !noundef !29
+  %18 = load i64, ptr %7, align 8, !alias.scope !42, !noalias !40, !noundef !26
   %19 = shl i64 %18, 3
   %20 = and i64 %19, 56
   %21 = shl i64 %15, %20
-  %22 = load i64, ptr %8, align 8, !alias.scope !42, !noalias !40, !noundef !29
+  %22 = load i64, ptr %8, align 8, !alias.scope !42, !noalias !40, !noundef !26
   %23 = or i64 %21, %22
   store i64 %23, ptr %8, align 8, !alias.scope !42, !noalias !40
   %24 = icmp ugt i64 %18, 8
   br i1 %24, label %48, label %25
 
 25:                                               ; preds = %12
-  %26 = load i64, ptr %9, align 8, !alias.scope !42, !noalias !40, !noundef !29
+  %26 = load i64, ptr %9, align 8, !alias.scope !42, !noalias !40, !noundef !26
   %27 = xor i64 %26, %23
-  %28 = load i64, ptr %2, align 8, !alias.scope !47, !noalias !40, !noundef !29
-  %29 = load i64, ptr %10, align 8, !alias.scope !47, !noalias !40, !noundef !29
+  %28 = load i64, ptr %2, align 8, !alias.scope !47, !noalias !40, !noundef !26
+  %29 = load i64, ptr %10, align 8, !alias.scope !47, !noalias !40, !noundef !26
   %30 = add i64 %29, %28
   %31 = tail call i64 @llvm.fshl.i64(i64 %29, i64 %29, i64 13)
   %32 = xor i64 %31, %30
   %33 = tail call i64 @llvm.fshl.i64(i64 %30, i64 %30, i64 32)
-  %34 = load i64, ptr %11, align 8, !alias.scope !47, !noalias !40, !noundef !29
+  %34 = load i64, ptr %11, align 8, !alias.scope !47, !noalias !40, !noundef !26
   %35 = add i64 %34, %27
   %36 = tail call i64 @llvm.fshl.i64(i64 %27, i64 %27, i64 16)
   %37 = xor i64 %35, %36
@@ -438,7 +438,7 @@ define hidden void @"_ZN4core4hash5impls49_$LT$impl$u20$core..hash..Hash$u20$for
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite, inaccessiblemem: write) uwtable
 define hidden void @"_ZN4core4hash5impls50_$LT$impl$u20$core..hash..Hash$u20$for$u20$u16$GT$4hash17h0e273cd50517596aE.llvm.2546880118954093015"(ptr noalias nocapture noundef readonly align 2 dereferenceable(2) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #6 {
   %3 = alloca [2 x i8], align 2
-  %4 = load i16, ptr %0, align 2, !noundef !29
+  %4 = load i16, ptr %0, align 2, !noundef !26
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3), !noalias !50
   store i16 %4, ptr %3, align 2, !noalias !50
   call void @"_ZN73_$LT$siphasher..sip128..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17hd1dd82268b822a3fE.llvm.2546880118954093015"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef 2)
@@ -452,18 +452,18 @@ define hidden void @"_ZN4core4hash5impls60_$LT$impl$u20$core..hash..Hash$u20$for
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !53)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !56)
-  %4 = load i64, ptr %3, align 8, !alias.scope !53, !noalias !56, !noundef !29
+  %4 = load i64, ptr %3, align 8, !alias.scope !53, !noalias !56, !noundef !26
   %5 = getelementptr inbounds i8, ptr %1, i64 48
-  %6 = load i64, ptr %5, align 8, !alias.scope !58, !noalias !53, !noundef !29
+  %6 = load i64, ptr %5, align 8, !alias.scope !58, !noalias !53, !noundef !26
   %7 = add i64 %6, 8
   store i64 %7, ptr %5, align 8, !alias.scope !58, !noalias !53
   %8 = getelementptr inbounds i8, ptr %1, i64 64
-  %9 = load i64, ptr %8, align 8, !alias.scope !58, !noalias !53, !noundef !29
+  %9 = load i64, ptr %8, align 8, !alias.scope !58, !noalias !53, !noundef !26
   %10 = shl i64 %9, 3
   %11 = and i64 %10, 56
   %12 = shl i64 %4, %11
   %13 = getelementptr inbounds i8, ptr %1, i64 56
-  %14 = load i64, ptr %13, align 8, !alias.scope !58, !noalias !53, !noundef !29
+  %14 = load i64, ptr %13, align 8, !alias.scope !58, !noalias !53, !noundef !26
   %15 = or i64 %12, %14
   store i64 %15, ptr %13, align 8, !alias.scope !58, !noalias !53
   %16 = icmp ugt i64 %9, 8
@@ -471,17 +471,17 @@ define hidden void @"_ZN4core4hash5impls60_$LT$impl$u20$core..hash..Hash$u20$for
 
 17:                                               ; preds = %2
   %18 = getelementptr inbounds i8, ptr %1, i64 24
-  %19 = load i64, ptr %18, align 8, !alias.scope !58, !noalias !53, !noundef !29
+  %19 = load i64, ptr %18, align 8, !alias.scope !58, !noalias !53, !noundef !26
   %20 = xor i64 %19, %15
-  %21 = load i64, ptr %1, align 8, !alias.scope !63, !noalias !53, !noundef !29
+  %21 = load i64, ptr %1, align 8, !alias.scope !63, !noalias !53, !noundef !26
   %22 = getelementptr inbounds i8, ptr %1, i64 16
-  %23 = load i64, ptr %22, align 8, !alias.scope !63, !noalias !53, !noundef !29
+  %23 = load i64, ptr %22, align 8, !alias.scope !63, !noalias !53, !noundef !26
   %24 = add i64 %23, %21
   %25 = tail call i64 @llvm.fshl.i64(i64 %23, i64 %23, i64 13)
   %26 = xor i64 %25, %24
   %27 = tail call i64 @llvm.fshl.i64(i64 %24, i64 %24, i64 32)
   %28 = getelementptr inbounds i8, ptr %1, i64 8
-  %29 = load i64, ptr %28, align 8, !alias.scope !63, !noalias !53, !noundef !29
+  %29 = load i64, ptr %28, align 8, !alias.scope !63, !noalias !53, !noundef !26
   %30 = add i64 %29, %20
   %31 = tail call i64 @llvm.fshl.i64(i64 %20, i64 %20, i64 16)
   %32 = xor i64 %30, %31
@@ -536,16 +536,16 @@ define hidden void @_ZN4core4hash6Hasher10write_u12817h30d3dbee4c8e76a9E.llvm.25
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZN4core4hash6Hasher11write_isize17hd81698109c5c0968E.llvm.2546880118954093015(ptr noalias nocapture noundef align 8 dereferenceable(72) %0, i64 noundef %1) unnamed_addr #7 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %0, i64 48
-  %4 = load i64, ptr %3, align 8, !alias.scope !69, !noundef !29
+  %4 = load i64, ptr %3, align 8, !alias.scope !69, !noundef !26
   %5 = add i64 %4, 8
   store i64 %5, ptr %3, align 8, !alias.scope !69
   %6 = getelementptr inbounds i8, ptr %0, i64 64
-  %7 = load i64, ptr %6, align 8, !alias.scope !69, !noundef !29
+  %7 = load i64, ptr %6, align 8, !alias.scope !69, !noundef !26
   %8 = shl i64 %7, 3
   %9 = and i64 %8, 56
   %10 = shl i64 %1, %9
   %11 = getelementptr inbounds i8, ptr %0, i64 56
-  %12 = load i64, ptr %11, align 8, !alias.scope !69, !noundef !29
+  %12 = load i64, ptr %11, align 8, !alias.scope !69, !noundef !26
   %13 = or i64 %10, %12
   store i64 %13, ptr %11, align 8, !alias.scope !69
   %14 = icmp ugt i64 %7, 8
@@ -553,17 +553,17 @@ define hidden void @_ZN4core4hash6Hasher11write_isize17hd81698109c5c0968E.llvm.2
 
 15:                                               ; preds = %2
   %16 = getelementptr inbounds i8, ptr %0, i64 24
-  %17 = load i64, ptr %16, align 8, !alias.scope !69, !noundef !29
+  %17 = load i64, ptr %16, align 8, !alias.scope !69, !noundef !26
   %18 = xor i64 %17, %13
-  %19 = load i64, ptr %0, align 8, !alias.scope !74, !noundef !29
+  %19 = load i64, ptr %0, align 8, !alias.scope !74, !noundef !26
   %20 = getelementptr inbounds i8, ptr %0, i64 16
-  %21 = load i64, ptr %20, align 8, !alias.scope !74, !noundef !29
+  %21 = load i64, ptr %20, align 8, !alias.scope !74, !noundef !26
   %22 = add i64 %21, %19
   %23 = tail call i64 @llvm.fshl.i64(i64 %21, i64 %21, i64 13)
   %24 = xor i64 %23, %22
   %25 = tail call i64 @llvm.fshl.i64(i64 %22, i64 %22, i64 32)
   %26 = getelementptr inbounds i8, ptr %0, i64 8
-  %27 = load i64, ptr %26, align 8, !alias.scope !74, !noundef !29
+  %27 = load i64, ptr %26, align 8, !alias.scope !74, !noundef !26
   %28 = add i64 %27, %18
   %29 = tail call i64 @llvm.fshl.i64(i64 %18, i64 %18, i64 16)
   %30 = xor i64 %28, %29
@@ -598,16 +598,16 @@ define hidden void @_ZN4core4hash6Hasher11write_isize17hd81698109c5c0968E.llvm.2
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZN4core4hash6Hasher19write_length_prefix17ha778925aa4df1c9fE.llvm.2546880118954093015(ptr noalias nocapture noundef align 8 dereferenceable(72) %0, i64 noundef %1) unnamed_addr #7 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %0, i64 48
-  %4 = load i64, ptr %3, align 8, !alias.scope !77, !noundef !29
+  %4 = load i64, ptr %3, align 8, !alias.scope !77, !noundef !26
   %5 = add i64 %4, 8
   store i64 %5, ptr %3, align 8, !alias.scope !77
   %6 = getelementptr inbounds i8, ptr %0, i64 64
-  %7 = load i64, ptr %6, align 8, !alias.scope !77, !noundef !29
+  %7 = load i64, ptr %6, align 8, !alias.scope !77, !noundef !26
   %8 = shl i64 %7, 3
   %9 = and i64 %8, 56
   %10 = shl i64 %1, %9
   %11 = getelementptr inbounds i8, ptr %0, i64 56
-  %12 = load i64, ptr %11, align 8, !alias.scope !77, !noundef !29
+  %12 = load i64, ptr %11, align 8, !alias.scope !77, !noundef !26
   %13 = or i64 %10, %12
   store i64 %13, ptr %11, align 8, !alias.scope !77
   %14 = icmp ugt i64 %7, 8
@@ -615,17 +615,17 @@ define hidden void @_ZN4core4hash6Hasher19write_length_prefix17ha778925aa4df1c9f
 
 15:                                               ; preds = %2
   %16 = getelementptr inbounds i8, ptr %0, i64 24
-  %17 = load i64, ptr %16, align 8, !alias.scope !77, !noundef !29
+  %17 = load i64, ptr %16, align 8, !alias.scope !77, !noundef !26
   %18 = xor i64 %17, %13
-  %19 = load i64, ptr %0, align 8, !alias.scope !82, !noundef !29
+  %19 = load i64, ptr %0, align 8, !alias.scope !82, !noundef !26
   %20 = getelementptr inbounds i8, ptr %0, i64 16
-  %21 = load i64, ptr %20, align 8, !alias.scope !82, !noundef !29
+  %21 = load i64, ptr %20, align 8, !alias.scope !82, !noundef !26
   %22 = add i64 %21, %19
   %23 = tail call i64 @llvm.fshl.i64(i64 %21, i64 %21, i64 13)
   %24 = xor i64 %23, %22
   %25 = tail call i64 @llvm.fshl.i64(i64 %22, i64 %22, i64 32)
   %26 = getelementptr inbounds i8, ptr %0, i64 8
-  %27 = load i64, ptr %26, align 8, !alias.scope !82, !noundef !29
+  %27 = load i64, ptr %26, align 8, !alias.scope !82, !noundef !26
   %28 = add i64 %27, %18
   %29 = tail call i64 @llvm.fshl.i64(i64 %18, i64 %18, i64 16)
   %30 = xor i64 %28, %29
@@ -661,17 +661,17 @@ define hidden void @_ZN4core4hash6Hasher19write_length_prefix17ha778925aa4df1c9f
 define hidden void @_ZN4core4hash6Hasher8write_i817h68057e42024d7519E.llvm.2546880118954093015(ptr noalias nocapture noundef align 8 dereferenceable(72) %0, i8 noundef %1) unnamed_addr #7 personality ptr @rust_eh_personality {
   %3 = zext i8 %1 to i64
   %4 = getelementptr inbounds i8, ptr %0, i64 48
-  %5 = load i64, ptr %4, align 8, !alias.scope !85, !noundef !29
+  %5 = load i64, ptr %4, align 8, !alias.scope !85, !noundef !26
   %6 = add i64 %5, 1
   store i64 %6, ptr %4, align 8, !alias.scope !85
   %7 = getelementptr inbounds i8, ptr %0, i64 64
-  %8 = load i64, ptr %7, align 8, !alias.scope !85, !noundef !29
+  %8 = load i64, ptr %7, align 8, !alias.scope !85, !noundef !26
   %9 = sub i64 8, %8
   %10 = shl i64 %8, 3
   %11 = and i64 %10, 56
   %12 = shl nuw i64 %3, %11
   %13 = getelementptr inbounds i8, ptr %0, i64 56
-  %14 = load i64, ptr %13, align 8, !alias.scope !85, !noundef !29
+  %14 = load i64, ptr %13, align 8, !alias.scope !85, !noundef !26
   %15 = or i64 %12, %14
   store i64 %15, ptr %13, align 8, !alias.scope !85
   %16 = icmp ugt i64 %9, 1
@@ -679,17 +679,17 @@ define hidden void @_ZN4core4hash6Hasher8write_i817h68057e42024d7519E.llvm.25468
 
 17:                                               ; preds = %2
   %18 = getelementptr inbounds i8, ptr %0, i64 24
-  %19 = load i64, ptr %18, align 8, !alias.scope !85, !noundef !29
+  %19 = load i64, ptr %18, align 8, !alias.scope !85, !noundef !26
   %20 = xor i64 %19, %15
-  %21 = load i64, ptr %0, align 8, !alias.scope !90, !noundef !29
+  %21 = load i64, ptr %0, align 8, !alias.scope !90, !noundef !26
   %22 = getelementptr inbounds i8, ptr %0, i64 16
-  %23 = load i64, ptr %22, align 8, !alias.scope !90, !noundef !29
+  %23 = load i64, ptr %22, align 8, !alias.scope !90, !noundef !26
   %24 = add i64 %23, %21
   %25 = tail call i64 @llvm.fshl.i64(i64 %23, i64 %23, i64 13)
   %26 = xor i64 %25, %24
   %27 = tail call i64 @llvm.fshl.i64(i64 %24, i64 %24, i64 32)
   %28 = getelementptr inbounds i8, ptr %0, i64 8
-  %29 = load i64, ptr %28, align 8, !alias.scope !90, !noundef !29
+  %29 = load i64, ptr %28, align 8, !alias.scope !90, !noundef !26
   %30 = add i64 %29, %20
   %31 = tail call i64 @llvm.fshl.i64(i64 %20, i64 %20, i64 16)
   %32 = xor i64 %30, %31
@@ -735,17 +735,17 @@ define hidden void @_ZN4core4hash6Hasher9write_i1617h9563006739367563E.llvm.2546
 define hidden void @_ZN4core4hash6Hasher9write_i3217hb5ee70da7412b64aE.llvm.2546880118954093015(ptr noalias nocapture noundef align 8 dereferenceable(72) %0, i32 noundef %1) unnamed_addr #7 personality ptr @rust_eh_personality {
   %3 = zext i32 %1 to i64
   %4 = getelementptr inbounds i8, ptr %0, i64 48
-  %5 = load i64, ptr %4, align 8, !alias.scope !96, !noundef !29
+  %5 = load i64, ptr %4, align 8, !alias.scope !96, !noundef !26
   %6 = add i64 %5, 4
   store i64 %6, ptr %4, align 8, !alias.scope !96
   %7 = getelementptr inbounds i8, ptr %0, i64 64
-  %8 = load i64, ptr %7, align 8, !alias.scope !96, !noundef !29
+  %8 = load i64, ptr %7, align 8, !alias.scope !96, !noundef !26
   %9 = sub i64 8, %8
   %10 = shl i64 %8, 3
   %11 = and i64 %10, 56
   %12 = shl i64 %3, %11
   %13 = getelementptr inbounds i8, ptr %0, i64 56
-  %14 = load i64, ptr %13, align 8, !alias.scope !96, !noundef !29
+  %14 = load i64, ptr %13, align 8, !alias.scope !96, !noundef !26
   %15 = or i64 %12, %14
   store i64 %15, ptr %13, align 8, !alias.scope !96
   %16 = icmp ugt i64 %9, 4
@@ -753,17 +753,17 @@ define hidden void @_ZN4core4hash6Hasher9write_i3217hb5ee70da7412b64aE.llvm.2546
 
 17:                                               ; preds = %2
   %18 = getelementptr inbounds i8, ptr %0, i64 24
-  %19 = load i64, ptr %18, align 8, !alias.scope !96, !noundef !29
+  %19 = load i64, ptr %18, align 8, !alias.scope !96, !noundef !26
   %20 = xor i64 %19, %15
-  %21 = load i64, ptr %0, align 8, !alias.scope !101, !noundef !29
+  %21 = load i64, ptr %0, align 8, !alias.scope !101, !noundef !26
   %22 = getelementptr inbounds i8, ptr %0, i64 16
-  %23 = load i64, ptr %22, align 8, !alias.scope !101, !noundef !29
+  %23 = load i64, ptr %22, align 8, !alias.scope !101, !noundef !26
   %24 = add i64 %23, %21
   %25 = tail call i64 @llvm.fshl.i64(i64 %23, i64 %23, i64 13)
   %26 = xor i64 %25, %24
   %27 = tail call i64 @llvm.fshl.i64(i64 %24, i64 %24, i64 32)
   %28 = getelementptr inbounds i8, ptr %0, i64 8
-  %29 = load i64, ptr %28, align 8, !alias.scope !101, !noundef !29
+  %29 = load i64, ptr %28, align 8, !alias.scope !101, !noundef !26
   %30 = add i64 %29, %20
   %31 = tail call i64 @llvm.fshl.i64(i64 %20, i64 %20, i64 16)
   %32 = xor i64 %30, %31
@@ -798,16 +798,16 @@ define hidden void @_ZN4core4hash6Hasher9write_i3217hb5ee70da7412b64aE.llvm.2546
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZN4core4hash6Hasher9write_i6417h0685d4058eac83ceE.llvm.2546880118954093015(ptr noalias nocapture noundef align 8 dereferenceable(72) %0, i64 noundef %1) unnamed_addr #7 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %0, i64 48
-  %4 = load i64, ptr %3, align 8, !alias.scope !104, !noundef !29
+  %4 = load i64, ptr %3, align 8, !alias.scope !104, !noundef !26
   %5 = add i64 %4, 8
   store i64 %5, ptr %3, align 8, !alias.scope !104
   %6 = getelementptr inbounds i8, ptr %0, i64 64
-  %7 = load i64, ptr %6, align 8, !alias.scope !104, !noundef !29
+  %7 = load i64, ptr %6, align 8, !alias.scope !104, !noundef !26
   %8 = shl i64 %7, 3
   %9 = and i64 %8, 56
   %10 = shl i64 %1, %9
   %11 = getelementptr inbounds i8, ptr %0, i64 56
-  %12 = load i64, ptr %11, align 8, !alias.scope !104, !noundef !29
+  %12 = load i64, ptr %11, align 8, !alias.scope !104, !noundef !26
   %13 = or i64 %10, %12
   store i64 %13, ptr %11, align 8, !alias.scope !104
   %14 = icmp ugt i64 %7, 8
@@ -815,17 +815,17 @@ define hidden void @_ZN4core4hash6Hasher9write_i6417h0685d4058eac83ceE.llvm.2546
 
 15:                                               ; preds = %2
   %16 = getelementptr inbounds i8, ptr %0, i64 24
-  %17 = load i64, ptr %16, align 8, !alias.scope !104, !noundef !29
+  %17 = load i64, ptr %16, align 8, !alias.scope !104, !noundef !26
   %18 = xor i64 %17, %13
-  %19 = load i64, ptr %0, align 8, !alias.scope !109, !noundef !29
+  %19 = load i64, ptr %0, align 8, !alias.scope !109, !noundef !26
   %20 = getelementptr inbounds i8, ptr %0, i64 16
-  %21 = load i64, ptr %20, align 8, !alias.scope !109, !noundef !29
+  %21 = load i64, ptr %20, align 8, !alias.scope !109, !noundef !26
   %22 = add i64 %21, %19
   %23 = tail call i64 @llvm.fshl.i64(i64 %21, i64 %21, i64 13)
   %24 = xor i64 %23, %22
   %25 = tail call i64 @llvm.fshl.i64(i64 %22, i64 %22, i64 32)
   %26 = getelementptr inbounds i8, ptr %0, i64 8
-  %27 = load i64, ptr %26, align 8, !alias.scope !109, !noundef !29
+  %27 = load i64, ptr %26, align 8, !alias.scope !109, !noundef !26
   %28 = add i64 %27, %18
   %29 = tail call i64 @llvm.fshl.i64(i64 %18, i64 %18, i64 16)
   %30 = xor i64 %28, %29
@@ -861,17 +861,17 @@ define hidden void @_ZN4core4hash6Hasher9write_i6417h0685d4058eac83ceE.llvm.2546
 define hidden void @_ZN4core4hash6Hasher9write_str17h232e76d76195dbb1E.llvm.2546880118954093015(ptr noalias nocapture noundef align 8 dereferenceable(72) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #6 personality ptr @rust_eh_personality {
   tail call void @"_ZN73_$LT$siphasher..sip128..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17hd1dd82268b822a3fE.llvm.2546880118954093015"(ptr noalias noundef nonnull align 8 dereferenceable(72) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2)
   %4 = getelementptr inbounds i8, ptr %0, i64 48
-  %5 = load i64, ptr %4, align 8, !alias.scope !112, !noundef !29
+  %5 = load i64, ptr %4, align 8, !alias.scope !112, !noundef !26
   %6 = add i64 %5, 1
   store i64 %6, ptr %4, align 8, !alias.scope !112
   %7 = getelementptr inbounds i8, ptr %0, i64 64
-  %8 = load i64, ptr %7, align 8, !alias.scope !112, !noundef !29
+  %8 = load i64, ptr %7, align 8, !alias.scope !112, !noundef !26
   %9 = sub i64 8, %8
   %10 = shl i64 %8, 3
   %11 = and i64 %10, 56
   %12 = shl nuw i64 255, %11
   %13 = getelementptr inbounds i8, ptr %0, i64 56
-  %14 = load i64, ptr %13, align 8, !alias.scope !112, !noundef !29
+  %14 = load i64, ptr %13, align 8, !alias.scope !112, !noundef !26
   %15 = or i64 %12, %14
   store i64 %15, ptr %13, align 8, !alias.scope !112
   %16 = icmp ugt i64 %9, 1
@@ -879,17 +879,17 @@ define hidden void @_ZN4core4hash6Hasher9write_str17h232e76d76195dbb1E.llvm.2546
 
 17:                                               ; preds = %3
   %18 = getelementptr inbounds i8, ptr %0, i64 24
-  %19 = load i64, ptr %18, align 8, !alias.scope !112, !noundef !29
+  %19 = load i64, ptr %18, align 8, !alias.scope !112, !noundef !26
   %20 = xor i64 %19, %15
-  %21 = load i64, ptr %0, align 8, !alias.scope !117, !noundef !29
+  %21 = load i64, ptr %0, align 8, !alias.scope !117, !noundef !26
   %22 = getelementptr inbounds i8, ptr %0, i64 16
-  %23 = load i64, ptr %22, align 8, !alias.scope !117, !noundef !29
+  %23 = load i64, ptr %22, align 8, !alias.scope !117, !noundef !26
   %24 = add i64 %23, %21
   %25 = tail call i64 @llvm.fshl.i64(i64 %23, i64 %23, i64 13)
   %26 = xor i64 %25, %24
   %27 = tail call i64 @llvm.fshl.i64(i64 %24, i64 %24, i64 32)
   %28 = getelementptr inbounds i8, ptr %0, i64 8
-  %29 = load i64, ptr %28, align 8, !alias.scope !117, !noundef !29
+  %29 = load i64, ptr %28, align 8, !alias.scope !117, !noundef !26
   %30 = add i64 %29, %20
   %31 = tail call i64 @llvm.fshl.i64(i64 %20, i64 %20, i64 16)
   %32 = xor i64 %30, %31
@@ -985,16 +985,16 @@ define hidden noundef ptr @_ZN4core4sync6atomic11atomic_load17he3f5c25a490fe3e4E
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite, inaccessiblemem: write) uwtable
 define hidden void @"_ZN4core5array69_$LT$impl$u20$core..hash..Hash$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$4hash17h95d81b8b96215dffE"(ptr noalias nocapture noundef readonly align 1 dereferenceable(3) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #8 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %1, i64 48
-  %4 = load i64, ptr %3, align 8, !alias.scope !120, !noundef !29
+  %4 = load i64, ptr %3, align 8, !alias.scope !120, !noundef !26
   %5 = add i64 %4, 8
   store i64 %5, ptr %3, align 8, !alias.scope !120
   %6 = getelementptr inbounds i8, ptr %1, i64 64
-  %7 = load i64, ptr %6, align 8, !alias.scope !120, !noundef !29
+  %7 = load i64, ptr %6, align 8, !alias.scope !120, !noundef !26
   %8 = shl i64 %7, 3
   %9 = and i64 %8, 56
   %10 = shl nuw nsw i64 3, %9
   %11 = getelementptr inbounds i8, ptr %1, i64 56
-  %12 = load i64, ptr %11, align 8, !alias.scope !120, !noundef !29
+  %12 = load i64, ptr %11, align 8, !alias.scope !120, !noundef !26
   %13 = or i64 %10, %12
   store i64 %13, ptr %11, align 8, !alias.scope !120
   %14 = icmp ugt i64 %7, 8
@@ -1002,17 +1002,17 @@ define hidden void @"_ZN4core5array69_$LT$impl$u20$core..hash..Hash$u20$for$u20$
 
 15:                                               ; preds = %2
   %16 = getelementptr inbounds i8, ptr %1, i64 24
-  %17 = load i64, ptr %16, align 8, !alias.scope !120, !noundef !29
+  %17 = load i64, ptr %16, align 8, !alias.scope !120, !noundef !26
   %18 = xor i64 %17, %13
-  %19 = load i64, ptr %1, align 8, !alias.scope !127, !noundef !29
+  %19 = load i64, ptr %1, align 8, !alias.scope !127, !noundef !26
   %20 = getelementptr inbounds i8, ptr %1, i64 16
-  %21 = load i64, ptr %20, align 8, !alias.scope !127, !noundef !29
+  %21 = load i64, ptr %20, align 8, !alias.scope !127, !noundef !26
   %22 = add i64 %21, %19
   %23 = tail call i64 @llvm.fshl.i64(i64 %21, i64 %21, i64 13)
   %24 = xor i64 %23, %22
   %25 = tail call i64 @llvm.fshl.i64(i64 %22, i64 %22, i64 32)
   %26 = getelementptr inbounds i8, ptr %1, i64 8
-  %27 = load i64, ptr %26, align 8, !alias.scope !127, !noundef !29
+  %27 = load i64, ptr %26, align 8, !alias.scope !127, !noundef !26
   %28 = add i64 %27, %18
   %29 = tail call i64 @llvm.fshl.i64(i64 %18, i64 %18, i64 16)
   %30 = xor i64 %28, %29
@@ -1115,9 +1115,9 @@ define hidden noundef i128 @"_ZN5typst4util4hash17LazyHash$LT$T$GT$15get_or_set_
   %.sroa.9.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.715.0..sroa_idx.i, i8 0, i64 40, i1 false), !noalias !130
   %7 = getelementptr inbounds i8, ptr %0, i64 24
-  %.val.i = load ptr, ptr %7, align 8, !alias.scope !133, !nonnull !29, !noundef !29
+  %.val.i = load ptr, ptr %7, align 8, !alias.scope !133, !nonnull !26, !noundef !26
   %8 = getelementptr inbounds i8, ptr %0, i64 32
-  %.val23.i = load i64, ptr %8, align 16, !alias.scope !133, !noundef !29
+  %.val23.i = load i64, ptr %8, align 16, !alias.scope !133, !noundef !26
   store i64 16, ptr %.sroa.9.0..sroa_idx.i, align 8, !alias.scope !136, !noalias !147
   %9 = xor i64 %.val23.i, -7369945445375034528
   %10 = add i64 %9, -3872520457220883148
@@ -1166,9 +1166,9 @@ define hidden noundef i128 @_ZN5typst4util4hash9hash_item17h65860d47963d7043E.ll
   %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.715.0..sroa_idx, i8 0, i64 40, i1 false)
   %2 = getelementptr inbounds i8, ptr %0, i64 8
-  %.val = load ptr, ptr %2, align 8, !alias.scope !152, !nonnull !29, !noundef !29
+  %.val = load ptr, ptr %2, align 8, !alias.scope !152, !nonnull !26, !noundef !26
   %3 = getelementptr inbounds i8, ptr %0, i64 16
-  %.val23 = load i64, ptr %3, align 8, !alias.scope !152, !noundef !29
+  %.val23 = load i64, ptr %3, align 8, !alias.scope !152, !noundef !26
   store i64 16, ptr %.sroa.9.0..sroa_idx, align 8, !alias.scope !155, !noalias !166
   %4 = xor i64 %.val23, -7369945445375034528
   %5 = add i64 %4, -3872520457220883148
@@ -1200,18 +1200,18 @@ define hidden noundef i128 @_ZN5typst4util4hash9hash_item17h65860d47963d7043E.ll
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @"_ZN60_$LT$typst..layout..abs..Abs$u20$as$u20$core..hash..Hash$GT$4hash17h3ec00e37333c2a14E.llvm.2546880118954093015"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #7 personality ptr @rust_eh_personality {
-  %3 = load i64, ptr %0, align 8, !noundef !29
+  %3 = load i64, ptr %0, align 8, !noundef !26
   %4 = getelementptr inbounds i8, ptr %1, i64 48
-  %5 = load i64, ptr %4, align 8, !alias.scope !171, !noundef !29
+  %5 = load i64, ptr %4, align 8, !alias.scope !171, !noundef !26
   %6 = add i64 %5, 8
   store i64 %6, ptr %4, align 8, !alias.scope !171
   %7 = getelementptr inbounds i8, ptr %1, i64 64
-  %8 = load i64, ptr %7, align 8, !alias.scope !171, !noundef !29
+  %8 = load i64, ptr %7, align 8, !alias.scope !171, !noundef !26
   %9 = shl i64 %8, 3
   %10 = and i64 %9, 56
   %11 = shl i64 %3, %10
   %12 = getelementptr inbounds i8, ptr %1, i64 56
-  %13 = load i64, ptr %12, align 8, !alias.scope !171, !noundef !29
+  %13 = load i64, ptr %12, align 8, !alias.scope !171, !noundef !26
   %14 = or i64 %11, %13
   store i64 %14, ptr %12, align 8, !alias.scope !171
   %15 = icmp ugt i64 %8, 8
@@ -1219,17 +1219,17 @@ define hidden void @"_ZN60_$LT$typst..layout..abs..Abs$u20$as$u20$core..hash..Ha
 
 16:                                               ; preds = %2
   %17 = getelementptr inbounds i8, ptr %1, i64 24
-  %18 = load i64, ptr %17, align 8, !alias.scope !171, !noundef !29
+  %18 = load i64, ptr %17, align 8, !alias.scope !171, !noundef !26
   %19 = xor i64 %18, %14
-  %20 = load i64, ptr %1, align 8, !alias.scope !176, !noundef !29
+  %20 = load i64, ptr %1, align 8, !alias.scope !176, !noundef !26
   %21 = getelementptr inbounds i8, ptr %1, i64 16
-  %22 = load i64, ptr %21, align 8, !alias.scope !176, !noundef !29
+  %22 = load i64, ptr %21, align 8, !alias.scope !176, !noundef !26
   %23 = add i64 %22, %20
   %24 = tail call i64 @llvm.fshl.i64(i64 %22, i64 %22, i64 13)
   %25 = xor i64 %24, %23
   %26 = tail call i64 @llvm.fshl.i64(i64 %23, i64 %23, i64 32)
   %27 = getelementptr inbounds i8, ptr %1, i64 8
-  %28 = load i64, ptr %27, align 8, !alias.scope !176, !noundef !29
+  %28 = load i64, ptr %27, align 8, !alias.scope !176, !noundef !26
   %29 = add i64 %28, %19
   %30 = tail call i64 @llvm.fshl.i64(i64 %19, i64 %19, i64 16)
   %31 = xor i64 %29, %30
@@ -1265,9 +1265,9 @@ define hidden void @"_ZN60_$LT$typst..layout..abs..Abs$u20$as$u20$core..hash..Ha
 define hidden void @"_ZN60_$LT$typst..text..font..Font$u20$as$u20$core..hash..Hash$GT$4hash17h5ae635e63da70aeaE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = alloca [16 x i8], align 16
   %4 = alloca { { { i64, i64, i64, i64 }, i64, i64, i64, i64, i64, {} } }, align 8
-  %5 = load ptr, ptr %0, align 8, !nonnull !29, !noundef !29
+  %5 = load ptr, ptr %0, align 8, !nonnull !26, !noundef !26
   %6 = getelementptr inbounds i8, ptr %5, i64 5320
-  %7 = load ptr, ptr %6, align 8, !nonnull !29, !noundef !29
+  %7 = load ptr, ptr %6, align 8, !nonnull !26, !noundef !26
   %8 = getelementptr inbounds i8, ptr %7, i64 16
   %9 = load atomic i64, ptr @_ZN15portable_atomic3imp6x86_6411atomic_load4FUNC17hf51fb62267361f34E monotonic, align 8
   %.0.i.i.i = inttoptr i64 %9 to ptr
@@ -1285,9 +1285,9 @@ define hidden void @"_ZN60_$LT$typst..text..font..Font$u20$as$u20$core..hash..Ha
   %.sroa.9.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %4, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.715.0..sroa_idx.i.i, i8 0, i64 40, i1 false), !noalias !179
   %13 = getelementptr inbounds i8, ptr %7, i64 40
-  %.val.i.i = load ptr, ptr %13, align 8, !alias.scope !182, !nonnull !29, !noundef !29
+  %.val.i.i = load ptr, ptr %13, align 8, !alias.scope !182, !nonnull !26, !noundef !26
   %14 = getelementptr inbounds i8, ptr %7, i64 48
-  %.val23.i.i = load i64, ptr %14, align 8, !alias.scope !182, !noundef !29
+  %.val23.i.i = load i64, ptr %14, align 8, !alias.scope !182, !noundef !26
   store i64 16, ptr %.sroa.9.0..sroa_idx.i.i, align 8, !alias.scope !185, !noalias !196
   %15 = xor i64 %.val23.i.i, -7369945445375034528
   %16 = add i64 %15, -3872520457220883148
@@ -1325,20 +1325,20 @@ define hidden void @"_ZN60_$LT$typst..text..font..Font$u20$as$u20$core..hash..Ha
   call void @"_ZN73_$LT$siphasher..sip128..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17hd1dd82268b822a3fE.llvm.2546880118954093015"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef 16)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !201
   %34 = getelementptr inbounds i8, ptr %5, i64 5416
-  %35 = load i32, ptr %34, align 8, !noundef !29
+  %35 = load i32, ptr %34, align 8, !noundef !26
   %36 = zext i32 %35 to i64
   %37 = getelementptr inbounds i8, ptr %1, i64 48
-  %38 = load i64, ptr %37, align 8, !alias.scope !204, !noundef !29
+  %38 = load i64, ptr %37, align 8, !alias.scope !204, !noundef !26
   %39 = add i64 %38, 4
   store i64 %39, ptr %37, align 8, !alias.scope !204
   %40 = getelementptr inbounds i8, ptr %1, i64 64
-  %41 = load i64, ptr %40, align 8, !alias.scope !204, !noundef !29
+  %41 = load i64, ptr %40, align 8, !alias.scope !204, !noundef !26
   %42 = sub i64 8, %41
   %43 = shl i64 %41, 3
   %44 = and i64 %43, 56
   %45 = shl i64 %36, %44
   %46 = getelementptr inbounds i8, ptr %1, i64 56
-  %47 = load i64, ptr %46, align 8, !alias.scope !204, !noundef !29
+  %47 = load i64, ptr %46, align 8, !alias.scope !204, !noundef !26
   %48 = or i64 %45, %47
   store i64 %48, ptr %46, align 8, !alias.scope !204
   %49 = icmp ugt i64 %42, 4
@@ -1346,17 +1346,17 @@ define hidden void @"_ZN60_$LT$typst..text..font..Font$u20$as$u20$core..hash..Ha
 
 50:                                               ; preds = %"_ZN5typst4util4hash17LazyHash$LT$T$GT$15get_or_set_hash17h5c0d0df4710e0a57E.llvm.2546880118954093015.exit"
   %51 = getelementptr inbounds i8, ptr %1, i64 24
-  %52 = load i64, ptr %51, align 8, !alias.scope !204, !noundef !29
+  %52 = load i64, ptr %51, align 8, !alias.scope !204, !noundef !26
   %53 = xor i64 %52, %48
-  %54 = load i64, ptr %1, align 8, !alias.scope !209, !noundef !29
+  %54 = load i64, ptr %1, align 8, !alias.scope !209, !noundef !26
   %55 = getelementptr inbounds i8, ptr %1, i64 16
-  %56 = load i64, ptr %55, align 8, !alias.scope !209, !noundef !29
+  %56 = load i64, ptr %55, align 8, !alias.scope !209, !noundef !26
   %57 = add i64 %56, %54
   %58 = tail call i64 @llvm.fshl.i64(i64 %56, i64 %56, i64 13)
   %59 = xor i64 %58, %57
   %60 = tail call i64 @llvm.fshl.i64(i64 %57, i64 %57, i64 32)
   %61 = getelementptr inbounds i8, ptr %1, i64 8
-  %62 = load i64, ptr %61, align 8, !alias.scope !209, !noundef !29
+  %62 = load i64, ptr %61, align 8, !alias.scope !209, !noundef !26
   %63 = add i64 %62, %53
   %64 = tail call i64 @llvm.fshl.i64(i64 %53, i64 %53, i64 16)
   %65 = xor i64 %63, %64
@@ -1395,39 +1395,39 @@ define hidden void @"_ZN61_$LT$typst..text..item..Glyph$u20$as$u20$core..hash..H
   %5 = alloca [2 x i8], align 2
   %6 = alloca [2 x i8], align 2
   %7 = getelementptr inbounds i8, ptr %0, i64 36
-  %8 = load i16, ptr %7, align 4, !noundef !29
+  %8 = load i16, ptr %7, align 4, !noundef !26
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %6), !noalias !212
   store i16 %8, ptr %6, align 2, !noalias !212
   call void @"_ZN73_$LT$siphasher..sip128..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17hd1dd82268b822a3fE.llvm.2546880118954093015"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %6, i64 noundef 2)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6), !noalias !212
   %9 = getelementptr inbounds i8, ptr %0, i64 16
-  %10 = load i64, ptr %9, align 8, !noundef !29
+  %10 = load i64, ptr %9, align 8, !noundef !26
   %11 = getelementptr inbounds i8, ptr %1, i64 48
-  %12 = load i64, ptr %11, align 8, !alias.scope !215, !noundef !29
+  %12 = load i64, ptr %11, align 8, !alias.scope !215, !noundef !26
   %13 = getelementptr inbounds i8, ptr %1, i64 64
-  %14 = load i64, ptr %13, align 8, !noundef !29
+  %14 = load i64, ptr %13, align 8, !noundef !26
   %15 = shl i64 %14, 3
   %16 = and i64 %15, 56
   %17 = shl i64 %10, %16
   %18 = getelementptr inbounds i8, ptr %1, i64 56
-  %19 = load i64, ptr %18, align 8, !alias.scope !215, !noundef !29
+  %19 = load i64, ptr %18, align 8, !alias.scope !215, !noundef !26
   %20 = or i64 %17, %19
   %21 = icmp ugt i64 %14, 8
   br i1 %21, label %48, label %22
 
 22:                                               ; preds = %2
   %23 = getelementptr inbounds i8, ptr %1, i64 24
-  %24 = load i64, ptr %23, align 8, !alias.scope !215, !noundef !29
+  %24 = load i64, ptr %23, align 8, !alias.scope !215, !noundef !26
   %25 = xor i64 %24, %20
-  %26 = load i64, ptr %1, align 8, !alias.scope !220, !noundef !29
+  %26 = load i64, ptr %1, align 8, !alias.scope !220, !noundef !26
   %27 = getelementptr inbounds i8, ptr %1, i64 16
-  %28 = load i64, ptr %27, align 8, !alias.scope !220, !noundef !29
+  %28 = load i64, ptr %27, align 8, !alias.scope !220, !noundef !26
   %29 = add i64 %28, %26
   %30 = tail call i64 @llvm.fshl.i64(i64 %28, i64 %28, i64 13)
   %31 = xor i64 %30, %29
   %32 = tail call i64 @llvm.fshl.i64(i64 %29, i64 %29, i64 32)
   %33 = getelementptr inbounds i8, ptr %1, i64 8
-  %34 = load i64, ptr %33, align 8, !alias.scope !220, !noundef !29
+  %34 = load i64, ptr %33, align 8, !alias.scope !220, !noundef !26
   %35 = add i64 %34, %25
   %36 = tail call i64 @llvm.fshl.i64(i64 %25, i64 %25, i64 16)
   %37 = xor i64 %35, %36
@@ -1462,7 +1462,7 @@ define hidden void @"_ZN61_$LT$typst..text..item..Glyph$u20$as$u20$core..hash..H
   %50 = phi i64 [ %.0.i.i, %22 ], [ %20, %48 ]
   %51 = phi i64 [ %14, %22 ], [ %49, %48 ]
   %52 = getelementptr inbounds i8, ptr %0, i64 24
-  %53 = load i64, ptr %52, align 8, !noundef !29
+  %53 = load i64, ptr %52, align 8, !noundef !26
   %54 = add i64 %12, 16
   store i64 %54, ptr %11, align 8, !alias.scope !223
   %55 = shl i64 %53, %.pre-phi9
@@ -1473,17 +1473,17 @@ define hidden void @"_ZN61_$LT$typst..text..item..Glyph$u20$as$u20$core..hash..H
 
 58:                                               ; preds = %"_ZN69_$LT$siphasher..sip128..SipHasher13$u20$as$u20$core..hash..Hasher$GT$9write_u6417he1267e4f766102a4E.llvm.2546880118954093015.exit"
   %59 = getelementptr inbounds i8, ptr %1, i64 24
-  %60 = load i64, ptr %59, align 8, !alias.scope !223, !noundef !29
+  %60 = load i64, ptr %59, align 8, !alias.scope !223, !noundef !26
   %61 = xor i64 %60, %56
-  %62 = load i64, ptr %1, align 8, !alias.scope !228, !noundef !29
+  %62 = load i64, ptr %1, align 8, !alias.scope !228, !noundef !26
   %63 = getelementptr inbounds i8, ptr %1, i64 16
-  %64 = load i64, ptr %63, align 8, !alias.scope !228, !noundef !29
+  %64 = load i64, ptr %63, align 8, !alias.scope !228, !noundef !26
   %65 = add i64 %64, %62
   %66 = tail call i64 @llvm.fshl.i64(i64 %64, i64 %64, i64 13)
   %67 = xor i64 %66, %65
   %68 = tail call i64 @llvm.fshl.i64(i64 %65, i64 %65, i64 32)
   %69 = getelementptr inbounds i8, ptr %1, i64 8
-  %70 = load i64, ptr %69, align 8, !alias.scope !228, !noundef !29
+  %70 = load i64, ptr %69, align 8, !alias.scope !228, !noundef !26
   %71 = add i64 %70, %61
   %72 = tail call i64 @llvm.fshl.i64(i64 %61, i64 %61, i64 16)
   %73 = xor i64 %71, %72
@@ -1513,27 +1513,27 @@ define hidden void @"_ZN61_$LT$typst..text..item..Glyph$u20$as$u20$core..hash..H
 
 "_ZN69_$LT$siphasher..sip128..SipHasher13$u20$as$u20$core..hash..Hasher$GT$9write_u6417he1267e4f766102a4E.llvm.2546880118954093015.exit4": ; preds = %58, %84
   %86 = getelementptr inbounds i8, ptr %0, i64 32
-  %87 = load i16, ptr %86, align 8, !noundef !29
+  %87 = load i16, ptr %86, align 8, !noundef !26
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5), !noalias !231
   store i16 %87, ptr %5, align 2, !noalias !231
   call void @"_ZN73_$LT$siphasher..sip128..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17hd1dd82268b822a3fE.llvm.2546880118954093015"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %5, i64 noundef 2)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5), !noalias !231
   %88 = getelementptr inbounds i8, ptr %0, i64 34
   tail call void @llvm.experimental.noalias.scope.decl(metadata !234)
-  %89 = load i16, ptr %88, align 2, !alias.scope !234, !noalias !237, !noundef !29
+  %89 = load i16, ptr %88, align 2, !alias.scope !234, !noalias !237, !noundef !26
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4), !noalias !239
   store i16 %89, ptr %4, align 2, !noalias !239
   call void @"_ZN73_$LT$siphasher..sip128..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17hd1dd82268b822a3fE.llvm.2546880118954093015"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef 2), !noalias !234
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4), !noalias !239
-  %90 = load i64, ptr %0, align 8, !noundef !29
-  %91 = load i64, ptr %11, align 8, !alias.scope !242, !noundef !29
+  %90 = load i64, ptr %0, align 8, !noundef !26
+  %91 = load i64, ptr %11, align 8, !alias.scope !242, !noundef !26
   %92 = add i64 %91, 8
   store i64 %92, ptr %11, align 8, !alias.scope !242
-  %93 = load i64, ptr %13, align 8, !alias.scope !242, !noundef !29
+  %93 = load i64, ptr %13, align 8, !alias.scope !242, !noundef !26
   %94 = shl i64 %93, 3
   %95 = and i64 %94, 56
   %96 = shl i64 %90, %95
-  %97 = load i64, ptr %18, align 8, !alias.scope !242, !noundef !29
+  %97 = load i64, ptr %18, align 8, !alias.scope !242, !noundef !26
   %98 = or i64 %96, %97
   store i64 %98, ptr %18, align 8, !alias.scope !242
   %99 = icmp ugt i64 %93, 8
@@ -1541,17 +1541,17 @@ define hidden void @"_ZN61_$LT$typst..text..item..Glyph$u20$as$u20$core..hash..H
 
 100:                                              ; preds = %"_ZN69_$LT$siphasher..sip128..SipHasher13$u20$as$u20$core..hash..Hasher$GT$9write_u6417he1267e4f766102a4E.llvm.2546880118954093015.exit4"
   %101 = getelementptr inbounds i8, ptr %1, i64 24
-  %102 = load i64, ptr %101, align 8, !alias.scope !242, !noundef !29
+  %102 = load i64, ptr %101, align 8, !alias.scope !242, !noundef !26
   %103 = xor i64 %102, %98
-  %104 = load i64, ptr %1, align 8, !alias.scope !247, !noundef !29
+  %104 = load i64, ptr %1, align 8, !alias.scope !247, !noundef !26
   %105 = getelementptr inbounds i8, ptr %1, i64 16
-  %106 = load i64, ptr %105, align 8, !alias.scope !247, !noundef !29
+  %106 = load i64, ptr %105, align 8, !alias.scope !247, !noundef !26
   %107 = add i64 %106, %104
   %108 = tail call i64 @llvm.fshl.i64(i64 %106, i64 %106, i64 13)
   %109 = xor i64 %108, %107
   %110 = tail call i64 @llvm.fshl.i64(i64 %107, i64 %107, i64 32)
   %111 = getelementptr inbounds i8, ptr %1, i64 8
-  %112 = load i64, ptr %111, align 8, !alias.scope !247, !noundef !29
+  %112 = load i64, ptr %111, align 8, !alias.scope !247, !noundef !26
   %113 = add i64 %112, %103
   %114 = tail call i64 @llvm.fshl.i64(i64 %103, i64 %103, i64 16)
   %115 = xor i64 %113, %114
@@ -1582,7 +1582,7 @@ define hidden void @"_ZN61_$LT$typst..text..item..Glyph$u20$as$u20$core..hash..H
 "_ZN69_$LT$siphasher..sip128..SipHasher13$u20$as$u20$core..hash..Hasher$GT$9write_u6417he1267e4f766102a4E.llvm.2546880118954093015.exit7": ; preds = %100, %126
   %128 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !250)
-  %129 = load i16, ptr %128, align 8, !alias.scope !250, !noalias !253, !noundef !29
+  %129 = load i16, ptr %128, align 8, !alias.scope !250, !noalias !253, !noundef !26
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3), !noalias !255
   store i16 %129, ptr %3, align 2, !noalias !255
   call void @"_ZN73_$LT$siphasher..sip128..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17hd1dd82268b822a3fE.llvm.2546880118954093015"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef 2), !noalias !250
@@ -1619,18 +1619,18 @@ _ZN5alloc5alloc6Global10alloc_impl17h996700ad2487d67cE.llvm.2546880118954093015.
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @"_ZN64_$LT$typst..layout..ratio..Ratio$u20$as$u20$core..hash..Hash$GT$4hash17h820e384a96b5ec90E.llvm.2546880118954093015"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #7 personality ptr @rust_eh_personality {
-  %3 = load i64, ptr %0, align 8, !noundef !29
+  %3 = load i64, ptr %0, align 8, !noundef !26
   %4 = getelementptr inbounds i8, ptr %1, i64 48
-  %5 = load i64, ptr %4, align 8, !alias.scope !258, !noundef !29
+  %5 = load i64, ptr %4, align 8, !alias.scope !258, !noundef !26
   %6 = add i64 %5, 8
   store i64 %6, ptr %4, align 8, !alias.scope !258
   %7 = getelementptr inbounds i8, ptr %1, i64 64
-  %8 = load i64, ptr %7, align 8, !alias.scope !258, !noundef !29
+  %8 = load i64, ptr %7, align 8, !alias.scope !258, !noundef !26
   %9 = shl i64 %8, 3
   %10 = and i64 %9, 56
   %11 = shl i64 %3, %10
   %12 = getelementptr inbounds i8, ptr %1, i64 56
-  %13 = load i64, ptr %12, align 8, !alias.scope !258, !noundef !29
+  %13 = load i64, ptr %12, align 8, !alias.scope !258, !noundef !26
   %14 = or i64 %11, %13
   store i64 %14, ptr %12, align 8, !alias.scope !258
   %15 = icmp ugt i64 %8, 8
@@ -1638,17 +1638,17 @@ define hidden void @"_ZN64_$LT$typst..layout..ratio..Ratio$u20$as$u20$core..hash
 
 16:                                               ; preds = %2
   %17 = getelementptr inbounds i8, ptr %1, i64 24
-  %18 = load i64, ptr %17, align 8, !alias.scope !258, !noundef !29
+  %18 = load i64, ptr %17, align 8, !alias.scope !258, !noundef !26
   %19 = xor i64 %18, %14
-  %20 = load i64, ptr %1, align 8, !alias.scope !263, !noundef !29
+  %20 = load i64, ptr %1, align 8, !alias.scope !263, !noundef !26
   %21 = getelementptr inbounds i8, ptr %1, i64 16
-  %22 = load i64, ptr %21, align 8, !alias.scope !263, !noundef !29
+  %22 = load i64, ptr %21, align 8, !alias.scope !263, !noundef !26
   %23 = add i64 %22, %20
   %24 = tail call i64 @llvm.fshl.i64(i64 %22, i64 %22, i64 13)
   %25 = xor i64 %24, %23
   %26 = tail call i64 @llvm.fshl.i64(i64 %23, i64 %23, i64 32)
   %27 = getelementptr inbounds i8, ptr %1, i64 8
-  %28 = load i64, ptr %27, align 8, !alias.scope !263, !noundef !29
+  %28 = load i64, ptr %27, align 8, !alias.scope !263, !noundef !26
   %29 = add i64 %28, %19
   %30 = tail call i64 @llvm.fshl.i64(i64 %19, i64 %19, i64 16)
   %31 = xor i64 %29, %30
@@ -1683,7 +1683,7 @@ define hidden void @"_ZN64_$LT$typst..layout..ratio..Ratio$u20$as$u20$core..hash
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden noundef zeroext i1 @"_ZN65_$LT$core..sync..atomic..Ordering$u20$as$u20$core..fmt..Debug$GT$3fmt17h2ba2d5848206c954E.llvm.2546880118954093015"(ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #0 {
 switch.lookup:
-  %2 = load i8, ptr %0, align 1, !range !266, !noundef !29
+  %2 = load i8, ptr %0, align 1, !range !266, !noundef !26
   %3 = zext nneg i8 %2 to i64
   %switch.gep = getelementptr inbounds [5 x i64], ptr @"switch.table._ZN65_$LT$core..sync..atomic..Ordering$u20$as$u20$core..fmt..Debug$GT$3fmt17h2ba2d5848206c954E.llvm.2546880118954093015", i64 0, i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
@@ -1697,19 +1697,19 @@ switch.lookup:
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN67_$LT$typst..visualize..color..Color$u20$as$u20$core..hash..Hash$GT$4hash17hae4e6a8f3827f87dE"(ptr noalias noundef readonly align 4 dereferenceable(20) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = alloca [4 x float], align 4
-  %4 = load i32, ptr %0, align 4, !range !267, !noundef !29
+  %4 = load i32, ptr %0, align 4, !range !267, !noundef !26
   %5 = zext nneg i32 %4 to i64
   %6 = getelementptr inbounds i8, ptr %1, i64 48
-  %7 = load i64, ptr %6, align 8, !alias.scope !268, !noundef !29
+  %7 = load i64, ptr %6, align 8, !alias.scope !268, !noundef !26
   %8 = add i64 %7, 8
   store i64 %8, ptr %6, align 8, !alias.scope !268
   %9 = getelementptr inbounds i8, ptr %1, i64 64
-  %10 = load i64, ptr %9, align 8, !noundef !29
+  %10 = load i64, ptr %9, align 8, !noundef !26
   %11 = shl i64 %10, 3
   %12 = and i64 %11, 56
   %13 = shl nuw nsw i64 %5, %12
   %14 = getelementptr inbounds i8, ptr %1, i64 56
-  %15 = load i64, ptr %14, align 8, !alias.scope !268, !noundef !29
+  %15 = load i64, ptr %14, align 8, !alias.scope !268, !noundef !26
   %16 = or i64 %13, %15
   store i64 %16, ptr %14, align 8, !alias.scope !268
   %17 = icmp ugt i64 %10, 8
@@ -1717,17 +1717,17 @@ define hidden void @"_ZN67_$LT$typst..visualize..color..Color$u20$as$u20$core..h
 
 18:                                               ; preds = %2
   %19 = getelementptr inbounds i8, ptr %1, i64 24
-  %20 = load i64, ptr %19, align 8, !alias.scope !268, !noundef !29
+  %20 = load i64, ptr %19, align 8, !alias.scope !268, !noundef !26
   %21 = xor i64 %20, %16
-  %22 = load i64, ptr %1, align 8, !alias.scope !275, !noundef !29
+  %22 = load i64, ptr %1, align 8, !alias.scope !275, !noundef !26
   %23 = getelementptr inbounds i8, ptr %1, i64 16
-  %24 = load i64, ptr %23, align 8, !alias.scope !275, !noundef !29
+  %24 = load i64, ptr %23, align 8, !alias.scope !275, !noundef !26
   %25 = add i64 %24, %22
   %26 = tail call i64 @llvm.fshl.i64(i64 %24, i64 %24, i64 13)
   %27 = xor i64 %26, %25
   %28 = tail call i64 @llvm.fshl.i64(i64 %25, i64 %25, i64 32)
   %29 = getelementptr inbounds i8, ptr %1, i64 8
-  %30 = load i64, ptr %29, align 8, !alias.scope !275, !noundef !29
+  %30 = load i64, ptr %29, align 8, !alias.scope !275, !noundef !26
   %31 = add i64 %30, %21
   %32 = tail call i64 @llvm.fshl.i64(i64 %21, i64 %21, i64 16)
   %33 = xor i64 %31, %32
@@ -1763,13 +1763,13 @@ _ZN4core4hash6Hasher11write_isize17hd81698109c5c0968E.llvm.2546880118954093015.e
   %47 = phi i64 [ %10, %18 ], [ %45, %44 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   call void @_ZN5typst9visualize5color5Color7to_vec417h99168599ebc2d1f4E(ptr noalias nocapture noundef nonnull sret([4 x float]) align 4 dereferenceable(16) %3, ptr noalias noundef nonnull readonly align 4 dereferenceable(20) %0)
-  %48 = load i32, ptr %3, align 4, !noundef !29
+  %48 = load i32, ptr %3, align 4, !noundef !26
   %49 = getelementptr inbounds i8, ptr %3, i64 4
-  %50 = load i32, ptr %49, align 4, !noundef !29
+  %50 = load i32, ptr %49, align 4, !noundef !26
   %51 = getelementptr inbounds i8, ptr %3, i64 8
-  %52 = load i32, ptr %51, align 4, !noundef !29
+  %52 = load i32, ptr %51, align 4, !noundef !26
   %53 = getelementptr inbounds i8, ptr %3, i64 12
-  %54 = load i32, ptr %53, align 4, !noundef !29
+  %54 = load i32, ptr %53, align 4, !noundef !26
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   %55 = zext i32 %48 to i64
   %56 = add i64 %7, 12
@@ -1782,17 +1782,17 @@ _ZN4core4hash6Hasher11write_isize17hd81698109c5c0968E.llvm.2546880118954093015.e
 
 61:                                               ; preds = %_ZN4core4hash6Hasher11write_isize17hd81698109c5c0968E.llvm.2546880118954093015.exit
   %62 = getelementptr inbounds i8, ptr %1, i64 24
-  %63 = load i64, ptr %62, align 8, !alias.scope !278, !noundef !29
+  %63 = load i64, ptr %62, align 8, !alias.scope !278, !noundef !26
   %64 = xor i64 %63, %59
-  %65 = load i64, ptr %1, align 8, !alias.scope !283, !noundef !29
+  %65 = load i64, ptr %1, align 8, !alias.scope !283, !noundef !26
   %66 = getelementptr inbounds i8, ptr %1, i64 16
-  %67 = load i64, ptr %66, align 8, !alias.scope !283, !noundef !29
+  %67 = load i64, ptr %66, align 8, !alias.scope !283, !noundef !26
   %68 = add i64 %67, %65
   %69 = tail call i64 @llvm.fshl.i64(i64 %67, i64 %67, i64 13)
   %70 = xor i64 %69, %68
   %71 = tail call i64 @llvm.fshl.i64(i64 %68, i64 %68, i64 32)
   %72 = getelementptr inbounds i8, ptr %1, i64 8
-  %73 = load i64, ptr %72, align 8, !alias.scope !283, !noundef !29
+  %73 = load i64, ptr %72, align 8, !alias.scope !283, !noundef !26
   %74 = add i64 %73, %64
   %75 = tail call i64 @llvm.fshl.i64(i64 %64, i64 %64, i64 16)
   %76 = xor i64 %74, %75
@@ -1833,17 +1833,17 @@ _ZN4core4hash6Hasher11write_isize17hd81698109c5c0968E.llvm.2546880118954093015.e
 
 98:                                               ; preds = %"_ZN69_$LT$siphasher..sip128..SipHasher13$u20$as$u20$core..hash..Hasher$GT$9write_u3217h42407c16f76e8816E.llvm.2546880118954093015.exit"
   %99 = getelementptr inbounds i8, ptr %1, i64 24
-  %100 = load i64, ptr %99, align 8, !alias.scope !286, !noundef !29
+  %100 = load i64, ptr %99, align 8, !alias.scope !286, !noundef !26
   %101 = xor i64 %100, %96
-  %102 = load i64, ptr %1, align 8, !alias.scope !291, !noundef !29
+  %102 = load i64, ptr %1, align 8, !alias.scope !291, !noundef !26
   %103 = getelementptr inbounds i8, ptr %1, i64 16
-  %104 = load i64, ptr %103, align 8, !alias.scope !291, !noundef !29
+  %104 = load i64, ptr %103, align 8, !alias.scope !291, !noundef !26
   %105 = add i64 %104, %102
   %106 = tail call i64 @llvm.fshl.i64(i64 %104, i64 %104, i64 13)
   %107 = xor i64 %106, %105
   %108 = tail call i64 @llvm.fshl.i64(i64 %105, i64 %105, i64 32)
   %109 = getelementptr inbounds i8, ptr %1, i64 8
-  %110 = load i64, ptr %109, align 8, !alias.scope !291, !noundef !29
+  %110 = load i64, ptr %109, align 8, !alias.scope !291, !noundef !26
   %111 = add i64 %110, %101
   %112 = tail call i64 @llvm.fshl.i64(i64 %101, i64 %101, i64 16)
   %113 = xor i64 %111, %112
@@ -1882,17 +1882,17 @@ _ZN4core4hash6Hasher11write_isize17hd81698109c5c0968E.llvm.2546880118954093015.e
 
 135:                                              ; preds = %"_ZN69_$LT$siphasher..sip128..SipHasher13$u20$as$u20$core..hash..Hasher$GT$9write_u3217h42407c16f76e8816E.llvm.2546880118954093015.exit6"
   %136 = getelementptr inbounds i8, ptr %1, i64 24
-  %137 = load i64, ptr %136, align 8, !alias.scope !294, !noundef !29
+  %137 = load i64, ptr %136, align 8, !alias.scope !294, !noundef !26
   %138 = xor i64 %137, %133
-  %139 = load i64, ptr %1, align 8, !alias.scope !299, !noundef !29
+  %139 = load i64, ptr %1, align 8, !alias.scope !299, !noundef !26
   %140 = getelementptr inbounds i8, ptr %1, i64 16
-  %141 = load i64, ptr %140, align 8, !alias.scope !299, !noundef !29
+  %141 = load i64, ptr %140, align 8, !alias.scope !299, !noundef !26
   %142 = add i64 %141, %139
   %143 = tail call i64 @llvm.fshl.i64(i64 %141, i64 %141, i64 13)
   %144 = xor i64 %143, %142
   %145 = tail call i64 @llvm.fshl.i64(i64 %142, i64 %142, i64 32)
   %146 = getelementptr inbounds i8, ptr %1, i64 8
-  %147 = load i64, ptr %146, align 8, !alias.scope !299, !noundef !29
+  %147 = load i64, ptr %146, align 8, !alias.scope !299, !noundef !26
   %148 = add i64 %147, %138
   %149 = tail call i64 @llvm.fshl.i64(i64 %138, i64 %138, i64 16)
   %150 = xor i64 %148, %149
@@ -1934,17 +1934,17 @@ _ZN4core4hash6Hasher11write_isize17hd81698109c5c0968E.llvm.2546880118954093015.e
 
 173:                                              ; preds = %"_ZN69_$LT$siphasher..sip128..SipHasher13$u20$as$u20$core..hash..Hasher$GT$9write_u3217h42407c16f76e8816E.llvm.2546880118954093015.exit8"
   %174 = getelementptr inbounds i8, ptr %1, i64 24
-  %175 = load i64, ptr %174, align 8, !alias.scope !302, !noundef !29
+  %175 = load i64, ptr %174, align 8, !alias.scope !302, !noundef !26
   %176 = xor i64 %175, %171
-  %177 = load i64, ptr %1, align 8, !alias.scope !307, !noundef !29
+  %177 = load i64, ptr %1, align 8, !alias.scope !307, !noundef !26
   %178 = getelementptr inbounds i8, ptr %1, i64 16
-  %179 = load i64, ptr %178, align 8, !alias.scope !307, !noundef !29
+  %179 = load i64, ptr %178, align 8, !alias.scope !307, !noundef !26
   %180 = add i64 %179, %177
   %181 = tail call i64 @llvm.fshl.i64(i64 %179, i64 %179, i64 13)
   %182 = xor i64 %181, %180
   %183 = tail call i64 @llvm.fshl.i64(i64 %180, i64 %180, i64 32)
   %184 = getelementptr inbounds i8, ptr %1, i64 8
-  %185 = load i64, ptr %184, align 8, !alias.scope !307, !noundef !29
+  %185 = load i64, ptr %184, align 8, !alias.scope !307, !noundef !26
   %186 = add i64 %185, %176
   %187 = tail call i64 @llvm.fshl.i64(i64 %176, i64 %176, i64 16)
   %188 = xor i64 %186, %187
@@ -1979,16 +1979,16 @@ _ZN4core4hash6Hasher11write_isize17hd81698109c5c0968E.llvm.2546880118954093015.e
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @"_ZN69_$LT$siphasher..sip128..SipHasher13$u20$as$u20$core..hash..Hasher$GT$11write_usize17h042c7eb86929fa98E.llvm.2546880118954093015"(ptr noalias nocapture noundef align 8 dereferenceable(72) %0, i64 noundef %1) unnamed_addr #7 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %0, i64 48
-  %4 = load i64, ptr %3, align 8, !alias.scope !310, !noundef !29
+  %4 = load i64, ptr %3, align 8, !alias.scope !310, !noundef !26
   %5 = add i64 %4, 8
   store i64 %5, ptr %3, align 8, !alias.scope !310
   %6 = getelementptr inbounds i8, ptr %0, i64 64
-  %7 = load i64, ptr %6, align 8, !alias.scope !310, !noundef !29
+  %7 = load i64, ptr %6, align 8, !alias.scope !310, !noundef !26
   %8 = shl i64 %7, 3
   %9 = and i64 %8, 56
   %10 = shl i64 %1, %9
   %11 = getelementptr inbounds i8, ptr %0, i64 56
-  %12 = load i64, ptr %11, align 8, !alias.scope !310, !noundef !29
+  %12 = load i64, ptr %11, align 8, !alias.scope !310, !noundef !26
   %13 = or i64 %10, %12
   store i64 %13, ptr %11, align 8, !alias.scope !310
   %14 = icmp ugt i64 %7, 8
@@ -1996,17 +1996,17 @@ define hidden void @"_ZN69_$LT$siphasher..sip128..SipHasher13$u20$as$u20$core..h
 
 15:                                               ; preds = %2
   %16 = getelementptr inbounds i8, ptr %0, i64 24
-  %17 = load i64, ptr %16, align 8, !alias.scope !310, !noundef !29
+  %17 = load i64, ptr %16, align 8, !alias.scope !310, !noundef !26
   %18 = xor i64 %17, %13
-  %19 = load i64, ptr %0, align 8, !alias.scope !313, !noundef !29
+  %19 = load i64, ptr %0, align 8, !alias.scope !313, !noundef !26
   %20 = getelementptr inbounds i8, ptr %0, i64 16
-  %21 = load i64, ptr %20, align 8, !alias.scope !313, !noundef !29
+  %21 = load i64, ptr %20, align 8, !alias.scope !313, !noundef !26
   %22 = add i64 %21, %19
   %23 = tail call i64 @llvm.fshl.i64(i64 %21, i64 %21, i64 13)
   %24 = xor i64 %23, %22
   %25 = tail call i64 @llvm.fshl.i64(i64 %22, i64 %22, i64 32)
   %26 = getelementptr inbounds i8, ptr %0, i64 8
-  %27 = load i64, ptr %26, align 8, !alias.scope !313, !noundef !29
+  %27 = load i64, ptr %26, align 8, !alias.scope !313, !noundef !26
   %28 = add i64 %27, %18
   %29 = tail call i64 @llvm.fshl.i64(i64 %18, i64 %18, i64 16)
   %30 = xor i64 %28, %29
@@ -2055,17 +2055,17 @@ define hidden noundef i64 @"_ZN69_$LT$siphasher..sip128..SipHasher13$u20$as$u20$
 define hidden void @"_ZN69_$LT$siphasher..sip128..SipHasher13$u20$as$u20$core..hash..Hasher$GT$8write_u817h4f94f6fa8ceb2883E.llvm.2546880118954093015"(ptr noalias nocapture noundef align 8 dereferenceable(72) %0, i8 noundef %1) unnamed_addr #7 personality ptr @rust_eh_personality {
   %3 = zext i8 %1 to i64
   %4 = getelementptr inbounds i8, ptr %0, i64 48
-  %5 = load i64, ptr %4, align 8, !alias.scope !316, !noundef !29
+  %5 = load i64, ptr %4, align 8, !alias.scope !316, !noundef !26
   %6 = add i64 %5, 1
   store i64 %6, ptr %4, align 8, !alias.scope !316
   %7 = getelementptr inbounds i8, ptr %0, i64 64
-  %8 = load i64, ptr %7, align 8, !alias.scope !316, !noundef !29
+  %8 = load i64, ptr %7, align 8, !alias.scope !316, !noundef !26
   %9 = sub i64 8, %8
   %10 = shl i64 %8, 3
   %11 = and i64 %10, 56
   %12 = shl nuw i64 %3, %11
   %13 = getelementptr inbounds i8, ptr %0, i64 56
-  %14 = load i64, ptr %13, align 8, !alias.scope !316, !noundef !29
+  %14 = load i64, ptr %13, align 8, !alias.scope !316, !noundef !26
   %15 = or i64 %12, %14
   store i64 %15, ptr %13, align 8, !alias.scope !316
   %16 = icmp ugt i64 %9, 1
@@ -2073,17 +2073,17 @@ define hidden void @"_ZN69_$LT$siphasher..sip128..SipHasher13$u20$as$u20$core..h
 
 17:                                               ; preds = %2
   %18 = getelementptr inbounds i8, ptr %0, i64 24
-  %19 = load i64, ptr %18, align 8, !alias.scope !316, !noundef !29
+  %19 = load i64, ptr %18, align 8, !alias.scope !316, !noundef !26
   %20 = xor i64 %19, %15
-  %21 = load i64, ptr %0, align 8, !alias.scope !319, !noundef !29
+  %21 = load i64, ptr %0, align 8, !alias.scope !319, !noundef !26
   %22 = getelementptr inbounds i8, ptr %0, i64 16
-  %23 = load i64, ptr %22, align 8, !alias.scope !319, !noundef !29
+  %23 = load i64, ptr %22, align 8, !alias.scope !319, !noundef !26
   %24 = add i64 %23, %21
   %25 = tail call i64 @llvm.fshl.i64(i64 %23, i64 %23, i64 13)
   %26 = xor i64 %25, %24
   %27 = tail call i64 @llvm.fshl.i64(i64 %24, i64 %24, i64 32)
   %28 = getelementptr inbounds i8, ptr %0, i64 8
-  %29 = load i64, ptr %28, align 8, !alias.scope !319, !noundef !29
+  %29 = load i64, ptr %28, align 8, !alias.scope !319, !noundef !26
   %30 = add i64 %29, %20
   %31 = tail call i64 @llvm.fshl.i64(i64 %20, i64 %20, i64 16)
   %32 = xor i64 %30, %31
@@ -2129,17 +2129,17 @@ define hidden void @"_ZN69_$LT$siphasher..sip128..SipHasher13$u20$as$u20$core..h
 define hidden void @"_ZN69_$LT$siphasher..sip128..SipHasher13$u20$as$u20$core..hash..Hasher$GT$9write_u3217h42407c16f76e8816E.llvm.2546880118954093015"(ptr noalias nocapture noundef align 8 dereferenceable(72) %0, i32 noundef %1) unnamed_addr #7 personality ptr @rust_eh_personality {
   %3 = zext i32 %1 to i64
   %4 = getelementptr inbounds i8, ptr %0, i64 48
-  %5 = load i64, ptr %4, align 8, !alias.scope !322, !noundef !29
+  %5 = load i64, ptr %4, align 8, !alias.scope !322, !noundef !26
   %6 = add i64 %5, 4
   store i64 %6, ptr %4, align 8, !alias.scope !322
   %7 = getelementptr inbounds i8, ptr %0, i64 64
-  %8 = load i64, ptr %7, align 8, !alias.scope !322, !noundef !29
+  %8 = load i64, ptr %7, align 8, !alias.scope !322, !noundef !26
   %9 = sub i64 8, %8
   %10 = shl i64 %8, 3
   %11 = and i64 %10, 56
   %12 = shl i64 %3, %11
   %13 = getelementptr inbounds i8, ptr %0, i64 56
-  %14 = load i64, ptr %13, align 8, !alias.scope !322, !noundef !29
+  %14 = load i64, ptr %13, align 8, !alias.scope !322, !noundef !26
   %15 = or i64 %12, %14
   store i64 %15, ptr %13, align 8, !alias.scope !322
   %16 = icmp ugt i64 %9, 4
@@ -2147,17 +2147,17 @@ define hidden void @"_ZN69_$LT$siphasher..sip128..SipHasher13$u20$as$u20$core..h
 
 17:                                               ; preds = %2
   %18 = getelementptr inbounds i8, ptr %0, i64 24
-  %19 = load i64, ptr %18, align 8, !alias.scope !322, !noundef !29
+  %19 = load i64, ptr %18, align 8, !alias.scope !322, !noundef !26
   %20 = xor i64 %19, %15
-  %21 = load i64, ptr %0, align 8, !alias.scope !325, !noundef !29
+  %21 = load i64, ptr %0, align 8, !alias.scope !325, !noundef !26
   %22 = getelementptr inbounds i8, ptr %0, i64 16
-  %23 = load i64, ptr %22, align 8, !alias.scope !325, !noundef !29
+  %23 = load i64, ptr %22, align 8, !alias.scope !325, !noundef !26
   %24 = add i64 %23, %21
   %25 = tail call i64 @llvm.fshl.i64(i64 %23, i64 %23, i64 13)
   %26 = xor i64 %25, %24
   %27 = tail call i64 @llvm.fshl.i64(i64 %24, i64 %24, i64 32)
   %28 = getelementptr inbounds i8, ptr %0, i64 8
-  %29 = load i64, ptr %28, align 8, !alias.scope !325, !noundef !29
+  %29 = load i64, ptr %28, align 8, !alias.scope !325, !noundef !26
   %30 = add i64 %29, %20
   %31 = tail call i64 @llvm.fshl.i64(i64 %20, i64 %20, i64 16)
   %32 = xor i64 %30, %31
@@ -2192,16 +2192,16 @@ define hidden void @"_ZN69_$LT$siphasher..sip128..SipHasher13$u20$as$u20$core..h
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @"_ZN69_$LT$siphasher..sip128..SipHasher13$u20$as$u20$core..hash..Hasher$GT$9write_u6417he1267e4f766102a4E.llvm.2546880118954093015"(ptr noalias nocapture noundef align 8 dereferenceable(72) %0, i64 noundef %1) unnamed_addr #7 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %0, i64 48
-  %4 = load i64, ptr %3, align 8, !alias.scope !328, !noundef !29
+  %4 = load i64, ptr %3, align 8, !alias.scope !328, !noundef !26
   %5 = add i64 %4, 8
   store i64 %5, ptr %3, align 8, !alias.scope !328
   %6 = getelementptr inbounds i8, ptr %0, i64 64
-  %7 = load i64, ptr %6, align 8, !alias.scope !328, !noundef !29
+  %7 = load i64, ptr %6, align 8, !alias.scope !328, !noundef !26
   %8 = shl i64 %7, 3
   %9 = and i64 %8, 56
   %10 = shl i64 %1, %9
   %11 = getelementptr inbounds i8, ptr %0, i64 56
-  %12 = load i64, ptr %11, align 8, !alias.scope !328, !noundef !29
+  %12 = load i64, ptr %11, align 8, !alias.scope !328, !noundef !26
   %13 = or i64 %10, %12
   store i64 %13, ptr %11, align 8, !alias.scope !328
   %14 = icmp ugt i64 %7, 8
@@ -2209,17 +2209,17 @@ define hidden void @"_ZN69_$LT$siphasher..sip128..SipHasher13$u20$as$u20$core..h
 
 15:                                               ; preds = %2
   %16 = getelementptr inbounds i8, ptr %0, i64 24
-  %17 = load i64, ptr %16, align 8, !alias.scope !328, !noundef !29
+  %17 = load i64, ptr %16, align 8, !alias.scope !328, !noundef !26
   %18 = xor i64 %17, %13
-  %19 = load i64, ptr %0, align 8, !alias.scope !331, !noundef !29
+  %19 = load i64, ptr %0, align 8, !alias.scope !331, !noundef !26
   %20 = getelementptr inbounds i8, ptr %0, i64 16
-  %21 = load i64, ptr %20, align 8, !alias.scope !331, !noundef !29
+  %21 = load i64, ptr %20, align 8, !alias.scope !331, !noundef !26
   %22 = add i64 %21, %19
   %23 = tail call i64 @llvm.fshl.i64(i64 %21, i64 %21, i64 13)
   %24 = xor i64 %23, %22
   %25 = tail call i64 @llvm.fshl.i64(i64 %22, i64 %22, i64 32)
   %26 = getelementptr inbounds i8, ptr %0, i64 8
-  %27 = load i64, ptr %26, align 8, !alias.scope !331, !noundef !29
+  %27 = load i64, ptr %26, align 8, !alias.scope !331, !noundef !26
   %28 = add i64 %27, %18
   %29 = tail call i64 @llvm.fshl.i64(i64 %18, i64 %18, i64 16)
   %30 = xor i64 %28, %29
@@ -2253,18 +2253,18 @@ define hidden void @"_ZN69_$LT$siphasher..sip128..SipHasher13$u20$as$u20$core..h
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @"_ZN69_$LT$typst..visualize..path..PathItem$u20$as$u20$core..hash..Hash$GT$4hash17he9406bb918be5982E.llvm.2546880118954093015"(ptr noalias nocapture noundef readonly align 8 dereferenceable(56) %0, ptr noalias noundef align 8 dereferenceable(72) %1) unnamed_addr #7 personality ptr @rust_eh_personality {
-  %3 = load i64, ptr %0, align 8, !range !334, !noundef !29
+  %3 = load i64, ptr %0, align 8, !range !334, !noundef !26
   %4 = getelementptr inbounds i8, ptr %1, i64 48
-  %5 = load i64, ptr %4, align 8, !alias.scope !335, !noundef !29
+  %5 = load i64, ptr %4, align 8, !alias.scope !335, !noundef !26
   %6 = add i64 %5, 8
   store i64 %6, ptr %4, align 8, !alias.scope !335
   %7 = getelementptr inbounds i8, ptr %1, i64 64
-  %8 = load i64, ptr %7, align 8, !noundef !29
+  %8 = load i64, ptr %7, align 8, !noundef !26
   %9 = shl i64 %8, 3
   %10 = and i64 %9, 56
   %11 = shl nuw nsw i64 %3, %10
   %12 = getelementptr inbounds i8, ptr %1, i64 56
-  %13 = load i64, ptr %12, align 8, !alias.scope !335, !noundef !29
+  %13 = load i64, ptr %12, align 8, !alias.scope !335, !noundef !26
   %14 = or i64 %11, %13
   store i64 %14, ptr %12, align 8, !alias.scope !335
   %15 = icmp ugt i64 %8, 8
@@ -2272,17 +2272,17 @@ define hidden void @"_ZN69_$LT$typst..visualize..path..PathItem$u20$as$u20$core.
 
 16:                                               ; preds = %2
   %17 = getelementptr inbounds i8, ptr %1, i64 24
-  %18 = load i64, ptr %17, align 8, !alias.scope !335, !noundef !29
+  %18 = load i64, ptr %17, align 8, !alias.scope !335, !noundef !26
   %19 = xor i64 %18, %14
-  %20 = load i64, ptr %1, align 8, !alias.scope !342, !noundef !29
+  %20 = load i64, ptr %1, align 8, !alias.scope !342, !noundef !26
   %21 = getelementptr inbounds i8, ptr %1, i64 16
-  %22 = load i64, ptr %21, align 8, !alias.scope !342, !noundef !29
+  %22 = load i64, ptr %21, align 8, !alias.scope !342, !noundef !26
   %23 = add i64 %22, %20
   %24 = tail call i64 @llvm.fshl.i64(i64 %22, i64 %22, i64 13)
   %25 = xor i64 %24, %23
   %26 = tail call i64 @llvm.fshl.i64(i64 %23, i64 %23, i64 32)
   %27 = getelementptr inbounds i8, ptr %1, i64 8
-  %28 = load i64, ptr %27, align 8, !alias.scope !342, !noundef !29
+  %28 = load i64, ptr %27, align 8, !alias.scope !342, !noundef !26
   %29 = add i64 %28, %19
   %30 = tail call i64 @llvm.fshl.i64(i64 %19, i64 %19, i64 16)
   %31 = xor i64 %29, %30
@@ -2328,7 +2328,7 @@ default.unreachable70:                            ; preds = %_ZN4core4hash6Hashe
 
 45:                                               ; preds = %_ZN4core4hash6Hasher11write_isize17hd81698109c5c0968E.llvm.2546880118954093015.exit
   %46 = getelementptr inbounds i8, ptr %0, i64 8
-  %47 = load i64, ptr %46, align 8, !noundef !29
+  %47 = load i64, ptr %46, align 8, !noundef !26
   %48 = shl i64 %.pr, 3
   %49 = and i64 %48, 56
   %50 = shl i64 %47, %49
@@ -2338,17 +2338,17 @@ default.unreachable70:                            ; preds = %_ZN4core4hash6Hashe
 
 53:                                               ; preds = %45
   %54 = getelementptr inbounds i8, ptr %1, i64 24
-  %55 = load i64, ptr %54, align 8, !alias.scope !345, !noundef !29
+  %55 = load i64, ptr %54, align 8, !alias.scope !345, !noundef !26
   %56 = xor i64 %55, %51
-  %57 = load i64, ptr %1, align 8, !alias.scope !350, !noundef !29
+  %57 = load i64, ptr %1, align 8, !alias.scope !350, !noundef !26
   %58 = getelementptr inbounds i8, ptr %1, i64 16
-  %59 = load i64, ptr %58, align 8, !alias.scope !350, !noundef !29
+  %59 = load i64, ptr %58, align 8, !alias.scope !350, !noundef !26
   %60 = add i64 %59, %57
   %61 = tail call i64 @llvm.fshl.i64(i64 %59, i64 %59, i64 13)
   %62 = xor i64 %61, %60
   %63 = tail call i64 @llvm.fshl.i64(i64 %60, i64 %60, i64 32)
   %64 = getelementptr inbounds i8, ptr %1, i64 8
-  %65 = load i64, ptr %64, align 8, !alias.scope !350, !noundef !29
+  %65 = load i64, ptr %64, align 8, !alias.scope !350, !noundef !26
   %66 = add i64 %65, %56
   %67 = tail call i64 @llvm.fshl.i64(i64 %56, i64 %56, i64 16)
   %68 = xor i64 %66, %67
@@ -2383,7 +2383,7 @@ default.unreachable70:                            ; preds = %_ZN4core4hash6Hashe
   %81 = phi i64 [ %.0.i.i, %53 ], [ %51, %79 ]
   %82 = phi i64 [ %.pr, %53 ], [ %80, %79 ]
   %83 = getelementptr inbounds i8, ptr %0, i64 16
-  %84 = load i64, ptr %83, align 8, !noundef !29
+  %84 = load i64, ptr %83, align 8, !noundef !26
   %85 = add i64 %5, 24
   store i64 %85, ptr %4, align 8, !alias.scope !353
   %86 = shl i64 %84, %.pre-phi45
@@ -2394,17 +2394,17 @@ default.unreachable70:                            ; preds = %_ZN4core4hash6Hashe
 
 89:                                               ; preds = %"_ZN69_$LT$siphasher..sip128..SipHasher13$u20$as$u20$core..hash..Hasher$GT$9write_u6417he1267e4f766102a4E.llvm.2546880118954093015.exit"
   %90 = getelementptr inbounds i8, ptr %1, i64 24
-  %91 = load i64, ptr %90, align 8, !alias.scope !353, !noundef !29
+  %91 = load i64, ptr %90, align 8, !alias.scope !353, !noundef !26
   %92 = xor i64 %91, %87
-  %93 = load i64, ptr %1, align 8, !alias.scope !358, !noundef !29
+  %93 = load i64, ptr %1, align 8, !alias.scope !358, !noundef !26
   %94 = getelementptr inbounds i8, ptr %1, i64 16
-  %95 = load i64, ptr %94, align 8, !alias.scope !358, !noundef !29
+  %95 = load i64, ptr %94, align 8, !alias.scope !358, !noundef !26
   %96 = add i64 %95, %93
   %97 = tail call i64 @llvm.fshl.i64(i64 %95, i64 %95, i64 13)
   %98 = xor i64 %97, %96
   %99 = tail call i64 @llvm.fshl.i64(i64 %96, i64 %96, i64 32)
   %100 = getelementptr inbounds i8, ptr %1, i64 8
-  %101 = load i64, ptr %100, align 8, !alias.scope !358, !noundef !29
+  %101 = load i64, ptr %100, align 8, !alias.scope !358, !noundef !26
   %102 = add i64 %101, %92
   %103 = tail call i64 @llvm.fshl.i64(i64 %92, i64 %92, i64 16)
   %104 = xor i64 %102, %103
@@ -2434,7 +2434,7 @@ default.unreachable70:                            ; preds = %_ZN4core4hash6Hashe
 
 117:                                              ; preds = %_ZN4core4hash6Hasher11write_isize17hd81698109c5c0968E.llvm.2546880118954093015.exit
   %118 = getelementptr inbounds i8, ptr %0, i64 8
-  %119 = load i64, ptr %118, align 8, !noundef !29
+  %119 = load i64, ptr %118, align 8, !noundef !26
   %120 = shl i64 %.pr, 3
   %121 = and i64 %120, 56
   %122 = shl i64 %119, %121
@@ -2444,17 +2444,17 @@ default.unreachable70:                            ; preds = %_ZN4core4hash6Hashe
 
 125:                                              ; preds = %117
   %126 = getelementptr inbounds i8, ptr %1, i64 24
-  %127 = load i64, ptr %126, align 8, !alias.scope !361, !noundef !29
+  %127 = load i64, ptr %126, align 8, !alias.scope !361, !noundef !26
   %128 = xor i64 %127, %123
-  %129 = load i64, ptr %1, align 8, !alias.scope !366, !noundef !29
+  %129 = load i64, ptr %1, align 8, !alias.scope !366, !noundef !26
   %130 = getelementptr inbounds i8, ptr %1, i64 16
-  %131 = load i64, ptr %130, align 8, !alias.scope !366, !noundef !29
+  %131 = load i64, ptr %130, align 8, !alias.scope !366, !noundef !26
   %132 = add i64 %131, %129
   %133 = tail call i64 @llvm.fshl.i64(i64 %131, i64 %131, i64 13)
   %134 = xor i64 %133, %132
   %135 = tail call i64 @llvm.fshl.i64(i64 %132, i64 %132, i64 32)
   %136 = getelementptr inbounds i8, ptr %1, i64 8
-  %137 = load i64, ptr %136, align 8, !alias.scope !366, !noundef !29
+  %137 = load i64, ptr %136, align 8, !alias.scope !366, !noundef !26
   %138 = add i64 %137, %128
   %139 = tail call i64 @llvm.fshl.i64(i64 %128, i64 %128, i64 16)
   %140 = xor i64 %138, %139
@@ -2489,7 +2489,7 @@ default.unreachable70:                            ; preds = %_ZN4core4hash6Hashe
   %153 = phi i64 [ %.0.i.i15, %125 ], [ %123, %151 ]
   %154 = phi i64 [ %.pr, %125 ], [ %152, %151 ]
   %155 = getelementptr inbounds i8, ptr %0, i64 16
-  %156 = load i64, ptr %155, align 8, !noundef !29
+  %156 = load i64, ptr %155, align 8, !noundef !26
   %157 = add i64 %5, 24
   store i64 %157, ptr %4, align 8, !alias.scope !369
   %158 = shl i64 %156, %.pre-phi49
@@ -2500,17 +2500,17 @@ default.unreachable70:                            ; preds = %_ZN4core4hash6Hashe
 
 161:                                              ; preds = %"_ZN69_$LT$siphasher..sip128..SipHasher13$u20$as$u20$core..hash..Hasher$GT$9write_u6417he1267e4f766102a4E.llvm.2546880118954093015.exit16"
   %162 = getelementptr inbounds i8, ptr %1, i64 24
-  %163 = load i64, ptr %162, align 8, !alias.scope !369, !noundef !29
+  %163 = load i64, ptr %162, align 8, !alias.scope !369, !noundef !26
   %164 = xor i64 %163, %159
-  %165 = load i64, ptr %1, align 8, !alias.scope !374, !noundef !29
+  %165 = load i64, ptr %1, align 8, !alias.scope !374, !noundef !26
   %166 = getelementptr inbounds i8, ptr %1, i64 16
-  %167 = load i64, ptr %166, align 8, !alias.scope !374, !noundef !29
+  %167 = load i64, ptr %166, align 8, !alias.scope !374, !noundef !26
   %168 = add i64 %167, %165
   %169 = tail call i64 @llvm.fshl.i64(i64 %167, i64 %167, i64 13)
   %170 = xor i64 %169, %168
   %171 = tail call i64 @llvm.fshl.i64(i64 %168, i64 %168, i64 32)
   %172 = getelementptr inbounds i8, ptr %1, i64 8
-  %173 = load i64, ptr %172, align 8, !alias.scope !374, !noundef !29
+  %173 = load i64, ptr %172, align 8, !alias.scope !374, !noundef !26
   %174 = add i64 %173, %164
   %175 = tail call i64 @llvm.fshl.i64(i64 %164, i64 %164, i64 16)
   %176 = xor i64 %174, %175
@@ -2540,7 +2540,7 @@ default.unreachable70:                            ; preds = %_ZN4core4hash6Hashe
 
 189:                                              ; preds = %_ZN4core4hash6Hasher11write_isize17hd81698109c5c0968E.llvm.2546880118954093015.exit
   %190 = getelementptr inbounds i8, ptr %0, i64 8
-  %191 = load i64, ptr %190, align 8, !noundef !29
+  %191 = load i64, ptr %190, align 8, !noundef !26
   %192 = shl i64 %.pr, 3
   %193 = and i64 %192, 56
   %194 = shl i64 %191, %193
@@ -2550,17 +2550,17 @@ default.unreachable70:                            ; preds = %_ZN4core4hash6Hashe
 
 197:                                              ; preds = %189
   %198 = getelementptr inbounds i8, ptr %1, i64 24
-  %199 = load i64, ptr %198, align 8, !alias.scope !377, !noundef !29
+  %199 = load i64, ptr %198, align 8, !alias.scope !377, !noundef !26
   %200 = xor i64 %199, %195
-  %201 = load i64, ptr %1, align 8, !alias.scope !382, !noundef !29
+  %201 = load i64, ptr %1, align 8, !alias.scope !382, !noundef !26
   %202 = getelementptr inbounds i8, ptr %1, i64 16
-  %203 = load i64, ptr %202, align 8, !alias.scope !382, !noundef !29
+  %203 = load i64, ptr %202, align 8, !alias.scope !382, !noundef !26
   %204 = add i64 %203, %201
   %205 = tail call i64 @llvm.fshl.i64(i64 %203, i64 %203, i64 13)
   %206 = xor i64 %205, %204
   %207 = tail call i64 @llvm.fshl.i64(i64 %204, i64 %204, i64 32)
   %208 = getelementptr inbounds i8, ptr %1, i64 8
-  %209 = load i64, ptr %208, align 8, !alias.scope !382, !noundef !29
+  %209 = load i64, ptr %208, align 8, !alias.scope !382, !noundef !26
   %210 = add i64 %209, %200
   %211 = tail call i64 @llvm.fshl.i64(i64 %200, i64 %200, i64 16)
   %212 = xor i64 %210, %211
@@ -2596,7 +2596,7 @@ default.unreachable70:                            ; preds = %_ZN4core4hash6Hashe
   %225 = phi i64 [ %.0.i.i21, %197 ], [ %195, %223 ]
   %.pr40 = phi i64 [ %.pr, %197 ], [ %224, %223 ]
   %226 = getelementptr inbounds i8, ptr %0, i64 16
-  %227 = load i64, ptr %226, align 8, !noundef !29
+  %227 = load i64, ptr %226, align 8, !noundef !26
   %228 = shl i64 %227, %.pre-phi53
   %229 = or i64 %228, %225
   %230 = icmp ugt i64 %.pr40, 8
@@ -2604,17 +2604,17 @@ default.unreachable70:                            ; preds = %_ZN4core4hash6Hashe
 
 231:                                              ; preds = %"_ZN69_$LT$siphasher..sip128..SipHasher13$u20$as$u20$core..hash..Hasher$GT$9write_u6417he1267e4f766102a4E.llvm.2546880118954093015.exit22"
   %232 = getelementptr inbounds i8, ptr %1, i64 24
-  %233 = load i64, ptr %232, align 8, !alias.scope !385, !noundef !29
+  %233 = load i64, ptr %232, align 8, !alias.scope !385, !noundef !26
   %234 = xor i64 %233, %229
-  %235 = load i64, ptr %1, align 8, !alias.scope !390, !noundef !29
+  %235 = load i64, ptr %1, align 8, !alias.scope !390, !noundef !26
   %236 = getelementptr inbounds i8, ptr %1, i64 16
-  %237 = load i64, ptr %236, align 8, !alias.scope !390, !noundef !29
+  %237 = load i64, ptr %236, align 8, !alias.scope !390, !noundef !26
   %238 = add i64 %237, %235
   %239 = tail call i64 @llvm.fshl.i64(i64 %237, i64 %237, i64 13)
   %240 = xor i64 %239, %238
   %241 = tail call i64 @llvm.fshl.i64(i64 %238, i64 %238, i64 32)
   %242 = getelementptr inbounds i8, ptr %1, i64 8
-  %243 = load i64, ptr %242, align 8, !alias.scope !390, !noundef !29
+  %243 = load i64, ptr %242, align 8, !alias.scope !390, !noundef !26
   %244 = add i64 %243, %234
   %245 = tail call i64 @llvm.fshl.i64(i64 %234, i64 %234, i64 16)
   %246 = xor i64 %244, %245
@@ -2649,7 +2649,7 @@ default.unreachable70:                            ; preds = %_ZN4core4hash6Hashe
   %259 = phi i64 [ %.0.i.i24, %231 ], [ %229, %257 ]
   %.pr41 = phi i64 [ %.pr40, %231 ], [ %258, %257 ]
   %260 = getelementptr inbounds i8, ptr %0, i64 24
-  %261 = load i64, ptr %260, align 8, !noundef !29
+  %261 = load i64, ptr %260, align 8, !noundef !26
   %262 = add i64 %5, 32
   store i64 %262, ptr %4, align 8, !alias.scope !393
   %263 = shl i64 %261, %.pre-phi57
@@ -2659,17 +2659,17 @@ default.unreachable70:                            ; preds = %_ZN4core4hash6Hashe
 
 266:                                              ; preds = %"_ZN69_$LT$siphasher..sip128..SipHasher13$u20$as$u20$core..hash..Hasher$GT$9write_u6417he1267e4f766102a4E.llvm.2546880118954093015.exit25"
   %267 = getelementptr inbounds i8, ptr %1, i64 24
-  %268 = load i64, ptr %267, align 8, !alias.scope !393, !noundef !29
+  %268 = load i64, ptr %267, align 8, !alias.scope !393, !noundef !26
   %269 = xor i64 %268, %264
-  %270 = load i64, ptr %1, align 8, !alias.scope !398, !noundef !29
+  %270 = load i64, ptr %1, align 8, !alias.scope !398, !noundef !26
   %271 = getelementptr inbounds i8, ptr %1, i64 16
-  %272 = load i64, ptr %271, align 8, !alias.scope !398, !noundef !29
+  %272 = load i64, ptr %271, align 8, !alias.scope !398, !noundef !26
   %273 = add i64 %272, %270
   %274 = tail call i64 @llvm.fshl.i64(i64 %272, i64 %272, i64 13)
   %275 = xor i64 %274, %273
   %276 = tail call i64 @llvm.fshl.i64(i64 %273, i64 %273, i64 32)
   %277 = getelementptr inbounds i8, ptr %1, i64 8
-  %278 = load i64, ptr %277, align 8, !alias.scope !398, !noundef !29
+  %278 = load i64, ptr %277, align 8, !alias.scope !398, !noundef !26
   %279 = add i64 %278, %269
   %280 = tail call i64 @llvm.fshl.i64(i64 %269, i64 %269, i64 16)
   %281 = xor i64 %279, %280
@@ -2705,7 +2705,7 @@ default.unreachable70:                            ; preds = %_ZN4core4hash6Hashe
   %294 = phi i64 [ %.0.i.i27, %266 ], [ %264, %292 ]
   %.pr42 = phi i64 [ %.pr41, %266 ], [ %293, %292 ]
   %295 = getelementptr inbounds i8, ptr %0, i64 32
-  %296 = load i64, ptr %295, align 8, !noundef !29
+  %296 = load i64, ptr %295, align 8, !noundef !26
   %297 = shl i64 %296, %.pre-phi61
   %298 = or i64 %297, %294
   %299 = icmp ugt i64 %.pr42, 8
@@ -2713,17 +2713,17 @@ default.unreachable70:                            ; preds = %_ZN4core4hash6Hashe
 
 300:                                              ; preds = %"_ZN69_$LT$siphasher..sip128..SipHasher13$u20$as$u20$core..hash..Hasher$GT$9write_u6417he1267e4f766102a4E.llvm.2546880118954093015.exit28"
   %301 = getelementptr inbounds i8, ptr %1, i64 24
-  %302 = load i64, ptr %301, align 8, !alias.scope !401, !noundef !29
+  %302 = load i64, ptr %301, align 8, !alias.scope !401, !noundef !26
   %303 = xor i64 %302, %298
-  %304 = load i64, ptr %1, align 8, !alias.scope !406, !noundef !29
+  %304 = load i64, ptr %1, align 8, !alias.scope !406, !noundef !26
   %305 = getelementptr inbounds i8, ptr %1, i64 16
-  %306 = load i64, ptr %305, align 8, !alias.scope !406, !noundef !29
+  %306 = load i64, ptr %305, align 8, !alias.scope !406, !noundef !26
   %307 = add i64 %306, %304
   %308 = tail call i64 @llvm.fshl.i64(i64 %306, i64 %306, i64 13)
   %309 = xor i64 %308, %307
   %310 = tail call i64 @llvm.fshl.i64(i64 %307, i64 %307, i64 32)
   %311 = getelementptr inbounds i8, ptr %1, i64 8
-  %312 = load i64, ptr %311, align 8, !alias.scope !406, !noundef !29
+  %312 = load i64, ptr %311, align 8, !alias.scope !406, !noundef !26
   %313 = add i64 %312, %303
   %314 = tail call i64 @llvm.fshl.i64(i64 %303, i64 %303, i64 16)
   %315 = xor i64 %313, %314
@@ -2758,7 +2758,7 @@ default.unreachable70:                            ; preds = %_ZN4core4hash6Hashe
   %328 = phi i64 [ %.0.i.i30, %300 ], [ %298, %326 ]
   %.pr43 = phi i64 [ %.pr42, %300 ], [ %327, %326 ]
   %329 = getelementptr inbounds i8, ptr %0, i64 40
-  %330 = load i64, ptr %329, align 8, !noundef !29
+  %330 = load i64, ptr %329, align 8, !noundef !26
   %331 = shl i64 %330, %.pre-phi65
   %332 = or i64 %331, %328
   %333 = icmp ugt i64 %.pr43, 8
@@ -2766,17 +2766,17 @@ default.unreachable70:                            ; preds = %_ZN4core4hash6Hashe
 
 334:                                              ; preds = %"_ZN69_$LT$siphasher..sip128..SipHasher13$u20$as$u20$core..hash..Hasher$GT$9write_u6417he1267e4f766102a4E.llvm.2546880118954093015.exit31"
   %335 = getelementptr inbounds i8, ptr %1, i64 24
-  %336 = load i64, ptr %335, align 8, !alias.scope !409, !noundef !29
+  %336 = load i64, ptr %335, align 8, !alias.scope !409, !noundef !26
   %337 = xor i64 %336, %332
-  %338 = load i64, ptr %1, align 8, !alias.scope !414, !noundef !29
+  %338 = load i64, ptr %1, align 8, !alias.scope !414, !noundef !26
   %339 = getelementptr inbounds i8, ptr %1, i64 16
-  %340 = load i64, ptr %339, align 8, !alias.scope !414, !noundef !29
+  %340 = load i64, ptr %339, align 8, !alias.scope !414, !noundef !26
   %341 = add i64 %340, %338
   %342 = tail call i64 @llvm.fshl.i64(i64 %340, i64 %340, i64 13)
   %343 = xor i64 %342, %341
   %344 = tail call i64 @llvm.fshl.i64(i64 %341, i64 %341, i64 32)
   %345 = getelementptr inbounds i8, ptr %1, i64 8
-  %346 = load i64, ptr %345, align 8, !alias.scope !414, !noundef !29
+  %346 = load i64, ptr %345, align 8, !alias.scope !414, !noundef !26
   %347 = add i64 %346, %337
   %348 = tail call i64 @llvm.fshl.i64(i64 %337, i64 %337, i64 16)
   %349 = xor i64 %347, %348
@@ -2811,7 +2811,7 @@ default.unreachable70:                            ; preds = %_ZN4core4hash6Hashe
   %362 = phi i64 [ %.0.i.i33, %334 ], [ %332, %360 ]
   %363 = phi i64 [ %.pr43, %334 ], [ %361, %360 ]
   %364 = getelementptr inbounds i8, ptr %0, i64 48
-  %365 = load i64, ptr %364, align 8, !noundef !29
+  %365 = load i64, ptr %364, align 8, !noundef !26
   %366 = add i64 %5, 56
   store i64 %366, ptr %4, align 8, !alias.scope !417
   %367 = shl i64 %365, %.pre-phi69
@@ -2822,17 +2822,17 @@ default.unreachable70:                            ; preds = %_ZN4core4hash6Hashe
 
 370:                                              ; preds = %"_ZN69_$LT$siphasher..sip128..SipHasher13$u20$as$u20$core..hash..Hasher$GT$9write_u6417he1267e4f766102a4E.llvm.2546880118954093015.exit34"
   %371 = getelementptr inbounds i8, ptr %1, i64 24
-  %372 = load i64, ptr %371, align 8, !alias.scope !417, !noundef !29
+  %372 = load i64, ptr %371, align 8, !alias.scope !417, !noundef !26
   %373 = xor i64 %372, %368
-  %374 = load i64, ptr %1, align 8, !alias.scope !422, !noundef !29
+  %374 = load i64, ptr %1, align 8, !alias.scope !422, !noundef !26
   %375 = getelementptr inbounds i8, ptr %1, i64 16
-  %376 = load i64, ptr %375, align 8, !alias.scope !422, !noundef !29
+  %376 = load i64, ptr %375, align 8, !alias.scope !422, !noundef !26
   %377 = add i64 %376, %374
   %378 = tail call i64 @llvm.fshl.i64(i64 %376, i64 %376, i64 13)
   %379 = xor i64 %378, %377
   %380 = tail call i64 @llvm.fshl.i64(i64 %377, i64 %377, i64 32)
   %381 = getelementptr inbounds i8, ptr %1, i64 8
-  %382 = load i64, ptr %381, align 8, !alias.scope !422, !noundef !29
+  %382 = load i64, ptr %381, align 8, !alias.scope !422, !noundef !26
   %383 = add i64 %382, %373
   %384 = tail call i64 @llvm.fshl.i64(i64 %373, i64 %373, i64 16)
   %385 = xor i64 %383, %384
@@ -2866,7 +2866,7 @@ define hidden void @_ZN6flate23zio4read17h14ecbacfb1737cf6E(ptr noalias nocaptur
   %6 = alloca { ptr, [1 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   call void @"_ZN74_$LT$flate2..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..BufRead$GT$8fill_buf17h337a972f12c81d1aE"(ptr noalias nocapture noundef nonnull sret({ ptr, [1 x i64] }) align 8 dereferenceable(16) %6, ptr noalias noundef nonnull align 8 dereferenceable(48) %1)
-  %7 = load ptr, ptr %6, align 8, !noundef !29
+  %7 = load ptr, ptr %6, align 8, !noundef !26
   %8 = icmp eq ptr %7, null
   %9 = getelementptr inbounds i8, ptr %6, i64 8
   %10 = load ptr, ptr %9, align 8
@@ -2884,16 +2884,16 @@ define hidden void @_ZN6flate23zio4read17h14ecbacfb1737cf6E(ptr noalias nocaptur
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph
   %.cast.us.us = ptrtoint ptr %10 to i64
   %16 = icmp eq ptr %10, null
-  %.val8.us.us = load i64, ptr %11, align 8, !noundef !29
-  %.val10.us.us = load i64, ptr %12, align 8, !noundef !29
+  %.val8.us.us = load i64, ptr %11, align 8, !noundef !26
+  %.val10.us.us = load i64, ptr %12, align 8, !noundef !26
   %spec.select.us.us = select i1 %16, i8 4, i8 0
   %17 = tail call i64 @"_ZN60_$LT$flate2..mem..Decompress$u20$as$u20$flate2..zio..Ops$GT$3run17h937ca766bf8ebb9aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 1 %7, i64 noundef %.cast.us.us, ptr noalias noundef nonnull align 1 %3, i64 noundef 0, i8 noundef %spec.select.us.us)
-  %.val.us.us = load i64, ptr %11, align 8, !noundef !29
-  %.val9.us.us = load i64, ptr %12, align 8, !noundef !29
+  %.val.us.us = load i64, ptr %11, align 8, !noundef !26
+  %.val9.us.us = load i64, ptr %12, align 8, !noundef !26
   %18 = sub i64 %.val9.us.us, %.val10.us.us
-  %19 = load i64, ptr %13, align 8, !alias.scope !425, !noundef !29
+  %19 = load i64, ptr %13, align 8, !alias.scope !425, !noundef !26
   %20 = add i64 %18, %19
-  %21 = load i64, ptr %14, align 8, !alias.scope !425, !noundef !29
+  %21 = load i64, ptr %14, align 8, !alias.scope !425, !noundef !26
   %.0.sroa.speculated.i.i.us.us = tail call noundef i64 @llvm.umin.i64(i64 %20, i64 %21)
   store i64 %.0.sroa.speculated.i.i.us.us, ptr %13, align 8, !alias.scope !425
   %22 = and i64 %17, 4294967295
@@ -2908,16 +2908,16 @@ define hidden void @_ZN6flate23zio4read17h14ecbacfb1737cf6E(ptr noalias nocaptur
   %25 = phi ptr [ %40, %.backedge ], [ %7, %.lr.ph ]
   %.cast = ptrtoint ptr %24 to i64
   %26 = icmp eq ptr %24, null
-  %.val8 = load i64, ptr %11, align 8, !noundef !29
-  %.val10 = load i64, ptr %12, align 8, !noundef !29
+  %.val8 = load i64, ptr %11, align 8, !noundef !26
+  %.val10 = load i64, ptr %12, align 8, !noundef !26
   %spec.select = select i1 %26, i8 4, i8 0
   %27 = tail call i64 @"_ZN60_$LT$flate2..mem..Decompress$u20$as$u20$flate2..zio..Ops$GT$3run17h937ca766bf8ebb9aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 1 %25, i64 noundef %.cast, ptr noalias noundef nonnull align 1 %3, i64 noundef %4, i8 noundef %spec.select)
-  %.val = load i64, ptr %11, align 8, !noundef !29
-  %.val9 = load i64, ptr %12, align 8, !noundef !29
+  %.val = load i64, ptr %11, align 8, !noundef !26
+  %.val9 = load i64, ptr %12, align 8, !noundef !26
   %28 = sub i64 %.val9, %.val10
-  %29 = load i64, ptr %13, align 8, !alias.scope !425, !noundef !29
+  %29 = load i64, ptr %13, align 8, !alias.scope !425, !noundef !26
   %30 = add i64 %28, %29
-  %31 = load i64, ptr %14, align 8, !alias.scope !425, !noundef !29
+  %31 = load i64, ptr %14, align 8, !alias.scope !425, !noundef !26
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %30, i64 %31)
   store i64 %.0.sroa.speculated.i.i, ptr %13, align 8, !alias.scope !425
   %32 = and i64 %27, 4294967295
@@ -2953,7 +2953,7 @@ define hidden void @_ZN6flate23zio4read17h14ecbacfb1737cf6E(ptr noalias nocaptur
 .backedge:                                        ; preds = %38, %43
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   call void @"_ZN74_$LT$flate2..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..BufRead$GT$8fill_buf17h337a972f12c81d1aE"(ptr noalias nocapture noundef nonnull sret({ ptr, [1 x i64] }) align 8 dereferenceable(16) %6, ptr noalias noundef nonnull align 8 dereferenceable(48) %1)
-  %40 = load ptr, ptr %6, align 8, !noundef !29
+  %40 = load ptr, ptr %6, align 8, !noundef !26
   %41 = icmp eq ptr %40, null
   %42 = load ptr, ptr %9, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
@@ -2984,7 +2984,7 @@ define hidden void @"_ZN71_$LT$typst..visualize..image..svg..Repr$u20$as$u20$cor
   %4 = alloca [16 x i8], align 16
   %5 = alloca { { { i64, i64, i64, i64 }, i64, i64, i64, i64, i64, {} } }, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 280
-  %7 = load ptr, ptr %6, align 8, !nonnull !29, !noundef !29
+  %7 = load ptr, ptr %6, align 8, !nonnull !26, !noundef !26
   %8 = getelementptr inbounds i8, ptr %7, i64 16
   %9 = load atomic i64, ptr @_ZN15portable_atomic3imp6x86_6411atomic_load4FUNC17hf51fb62267361f34E monotonic, align 8
   %.0.i.i.i = inttoptr i64 %9 to ptr
@@ -3002,9 +3002,9 @@ define hidden void @"_ZN71_$LT$typst..visualize..image..svg..Repr$u20$as$u20$cor
   %.sroa.9.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %5, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.715.0..sroa_idx.i.i, i8 0, i64 40, i1 false), !noalias !428
   %13 = getelementptr inbounds i8, ptr %7, i64 40
-  %.val.i.i = load ptr, ptr %13, align 8, !alias.scope !431, !nonnull !29, !noundef !29
+  %.val.i.i = load ptr, ptr %13, align 8, !alias.scope !431, !nonnull !26, !noundef !26
   %14 = getelementptr inbounds i8, ptr %7, i64 48
-  %.val23.i.i = load i64, ptr %14, align 8, !alias.scope !431, !noundef !29
+  %.val23.i.i = load i64, ptr %14, align 8, !alias.scope !431, !noundef !26
   store i64 16, ptr %.sroa.9.0..sroa_idx.i.i, align 8, !alias.scope !434, !noalias !445
   %15 = xor i64 %.val23.i.i, -7369945445375034528
   %16 = add i64 %15, -3872520457220883148
@@ -3042,7 +3042,7 @@ define hidden void @"_ZN71_$LT$typst..visualize..image..svg..Repr$u20$as$u20$cor
   call void @"_ZN73_$LT$siphasher..sip128..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17hd1dd82268b822a3fE.llvm.2546880118954093015"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef 16)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !450
   %34 = getelementptr inbounds i8, ptr %0, i64 16
-  %35 = load i128, ptr %34, align 16, !noundef !29
+  %35 = load i128, ptr %34, align 16, !noundef !26
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !453
   store i128 %35, ptr %3, align 16, !noalias !453
   call void @"_ZN73_$LT$siphasher..sip128..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17hd1dd82268b822a3fE.llvm.2546880118954093015"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef 16)
@@ -3053,11 +3053,11 @@ define hidden void @"_ZN71_$LT$typst..visualize..image..svg..Repr$u20$as$u20$cor
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite, inaccessiblemem: write) uwtable
 define hidden void @"_ZN73_$LT$siphasher..sip128..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17hd1dd82268b822a3fE.llvm.2546880118954093015"(ptr noalias nocapture noundef align 8 dereferenceable(72) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #6 personality ptr @rust_eh_personality {
   %4 = getelementptr inbounds i8, ptr %0, i64 48
-  %5 = load i64, ptr %4, align 8, !noundef !29
+  %5 = load i64, ptr %4, align 8, !noundef !26
   %6 = add i64 %5, %2
   store i64 %6, ptr %4, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 64
-  %8 = load i64, ptr %7, align 8, !noundef !29
+  %8 = load i64, ptr %7, align 8, !noundef !26
   %9 = icmp eq i64 %8, 0
   br i1 %9, label %42, label %10
 
@@ -3097,7 +3097,7 @@ define hidden void @"_ZN73_$LT$siphasher..sip128..Hasher$LT$S$GT$$u20$as$u20$cor
 
 27:                                               ; preds = %25
   %28 = getelementptr inbounds i8, ptr %1, i64 %.118.i
-  %29 = load i8, ptr %28, align 1, !alias.scope !456, !noundef !29
+  %29 = load i8, ptr %28, align 1, !alias.scope !456, !noundef !26
   %30 = zext i8 %29 to i64
   %31 = shl nuw nsw i64 %.118.i, 3
   %32 = and i64 %31, 56
@@ -3111,7 +3111,7 @@ _ZN9siphasher6sip1289u8to64_le17h147299064db59429E.exit: ; preds = %25, %27
   %36 = and i64 %35, 56
   %37 = shl i64 %.2.i, %36
   %38 = getelementptr inbounds i8, ptr %0, i64 56
-  %39 = load i64, ptr %38, align 8, !noundef !29
+  %39 = load i64, ptr %38, align 8, !noundef !26
   %40 = or i64 %39, %37
   store i64 %40, ptr %38, align 8
   %41 = icmp ult i64 %2, %11
@@ -3137,17 +3137,17 @@ _ZN9siphasher6sip1289u8to64_le17h147299064db59429E.exit: ; preds = %25, %27
 
 50:                                               ; preds = %_ZN9siphasher6sip1289u8to64_le17h147299064db59429E.exit
   %51 = getelementptr inbounds i8, ptr %0, i64 24
-  %52 = load i64, ptr %51, align 8, !noundef !29
+  %52 = load i64, ptr %51, align 8, !noundef !26
   %53 = xor i64 %52, %40
-  %54 = load i64, ptr %0, align 8, !alias.scope !462, !noundef !29
+  %54 = load i64, ptr %0, align 8, !alias.scope !462, !noundef !26
   %55 = getelementptr inbounds i8, ptr %0, i64 16
-  %56 = load i64, ptr %55, align 8, !alias.scope !462, !noundef !29
+  %56 = load i64, ptr %55, align 8, !alias.scope !462, !noundef !26
   %57 = add i64 %56, %54
   %58 = tail call i64 @llvm.fshl.i64(i64 %56, i64 %56, i64 13)
   %59 = xor i64 %58, %57
   %60 = tail call i64 @llvm.fshl.i64(i64 %57, i64 %57, i64 32)
   %61 = getelementptr inbounds i8, ptr %0, i64 8
-  %62 = load i64, ptr %61, align 8, !alias.scope !462, !noundef !29
+  %62 = load i64, ptr %61, align 8, !alias.scope !462, !noundef !26
   %63 = add i64 %62, %53
   %64 = tail call i64 @llvm.fshl.i64(i64 %53, i64 %53, i64 16)
   %65 = xor i64 %63, %64
@@ -3216,7 +3216,7 @@ _ZN9siphasher6sip1289u8to64_le17h147299064db59429E.exit: ; preds = %25, %27
   %96 = icmp ult i64 %95, %2
   tail call void @llvm.assume(i1 %96)
   %97 = getelementptr inbounds i8, ptr %1, i64 %95
-  %98 = load i8, ptr %97, align 1, !alias.scope !465, !noundef !29
+  %98 = load i8, ptr %97, align 1, !alias.scope !465, !noundef !26
   %99 = zext i8 %98 to i64
   %100 = shl nuw nsw i64 %.118.i13, 3
   %101 = and i64 %100, 56
@@ -3269,7 +3269,7 @@ define hidden void @"_ZN74_$LT$typst..visualize..image..raster..Repr$u20$as$u20$
   %3 = alloca [16 x i8], align 16
   %4 = alloca { { { i64, i64, i64, i64 }, i64, i64, i64, i64, i64, {} } }, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 80
-  %6 = load ptr, ptr %5, align 8, !nonnull !29, !noundef !29
+  %6 = load ptr, ptr %5, align 8, !nonnull !26, !noundef !26
   %7 = getelementptr inbounds i8, ptr %6, i64 16
   %8 = load atomic i64, ptr @_ZN15portable_atomic3imp6x86_6411atomic_load4FUNC17hf51fb62267361f34E monotonic, align 8
   %.0.i.i.i = inttoptr i64 %8 to ptr
@@ -3287,9 +3287,9 @@ define hidden void @"_ZN74_$LT$typst..visualize..image..raster..Repr$u20$as$u20$
   %.sroa.9.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %4, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.715.0..sroa_idx.i.i, i8 0, i64 40, i1 false), !noalias !468
   %12 = getelementptr inbounds i8, ptr %6, i64 40
-  %.val.i.i = load ptr, ptr %12, align 8, !alias.scope !471, !nonnull !29, !noundef !29
+  %.val.i.i = load ptr, ptr %12, align 8, !alias.scope !471, !nonnull !26, !noundef !26
   %13 = getelementptr inbounds i8, ptr %6, i64 48
-  %.val23.i.i = load i64, ptr %13, align 8, !alias.scope !471, !noundef !29
+  %.val23.i.i = load i64, ptr %13, align 8, !alias.scope !471, !noundef !26
   store i64 16, ptr %.sroa.9.0..sroa_idx.i.i, align 8, !alias.scope !474, !noalias !485
   %14 = xor i64 %.val23.i.i, -7369945445375034528
   %15 = add i64 %14, -3872520457220883148
@@ -3327,19 +3327,19 @@ define hidden void @"_ZN74_$LT$typst..visualize..image..raster..Repr$u20$as$u20$
   call void @"_ZN73_$LT$siphasher..sip128..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17hd1dd82268b822a3fE.llvm.2546880118954093015"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef 16)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !490
   %33 = getelementptr inbounds i8, ptr %0, i64 88
-  %34 = load i8, ptr %33, align 8, !range !493, !noundef !29
+  %34 = load i8, ptr %33, align 8, !range !493, !noundef !26
   %35 = zext nneg i8 %34 to i64
   %36 = getelementptr inbounds i8, ptr %1, i64 48
-  %37 = load i64, ptr %36, align 8, !alias.scope !494, !noundef !29
+  %37 = load i64, ptr %36, align 8, !alias.scope !494, !noundef !26
   %38 = add i64 %37, 8
   store i64 %38, ptr %36, align 8, !alias.scope !494
   %39 = getelementptr inbounds i8, ptr %1, i64 64
-  %40 = load i64, ptr %39, align 8, !alias.scope !494, !noundef !29
+  %40 = load i64, ptr %39, align 8, !alias.scope !494, !noundef !26
   %41 = shl i64 %40, 3
   %42 = and i64 %41, 56
   %43 = shl nuw nsw i64 %35, %42
   %44 = getelementptr inbounds i8, ptr %1, i64 56
-  %45 = load i64, ptr %44, align 8, !alias.scope !494, !noundef !29
+  %45 = load i64, ptr %44, align 8, !alias.scope !494, !noundef !26
   %46 = or i64 %43, %45
   store i64 %46, ptr %44, align 8, !alias.scope !494
   %47 = icmp ugt i64 %40, 8
@@ -3347,17 +3347,17 @@ define hidden void @"_ZN74_$LT$typst..visualize..image..raster..Repr$u20$as$u20$
 
 48:                                               ; preds = %"_ZN5typst4util4hash17LazyHash$LT$T$GT$15get_or_set_hash17h5c0d0df4710e0a57E.llvm.2546880118954093015.exit"
   %49 = getelementptr inbounds i8, ptr %1, i64 24
-  %50 = load i64, ptr %49, align 8, !alias.scope !494, !noundef !29
+  %50 = load i64, ptr %49, align 8, !alias.scope !494, !noundef !26
   %51 = xor i64 %50, %46
-  %52 = load i64, ptr %1, align 8, !alias.scope !501, !noundef !29
+  %52 = load i64, ptr %1, align 8, !alias.scope !501, !noundef !26
   %53 = getelementptr inbounds i8, ptr %1, i64 16
-  %54 = load i64, ptr %53, align 8, !alias.scope !501, !noundef !29
+  %54 = load i64, ptr %53, align 8, !alias.scope !501, !noundef !26
   %55 = add i64 %54, %52
   %56 = tail call i64 @llvm.fshl.i64(i64 %54, i64 %54, i64 13)
   %57 = xor i64 %56, %55
   %58 = tail call i64 @llvm.fshl.i64(i64 %55, i64 %55, i64 32)
   %59 = getelementptr inbounds i8, ptr %1, i64 8
-  %60 = load i64, ptr %59, align 8, !alias.scope !501, !noundef !29
+  %60 = load i64, ptr %59, align 8, !alias.scope !501, !noundef !26
   %61 = add i64 %60, %51
   %62 = tail call i64 @llvm.fshl.i64(i64 %51, i64 %51, i64 16)
   %63 = xor i64 %61, %62
@@ -3392,7 +3392,7 @@ _ZN4core4hash6Hasher11write_isize17hd81698109c5c0968E.llvm.2546880118954093015.e
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN80_$LT$dyn$u20$typst..foundations..content..Bounds$u20$as$u20$core..hash..Hash$GT$4hash17h5e4d9e42952a9a89E"(ptr noundef nonnull align 1 %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1, ptr noalias noundef align 8 dereferenceable(72) %2) unnamed_addr #5 {
   %4 = getelementptr inbounds i8, ptr %1, i64 136
-  %5 = load ptr, ptr %4, align 8, !invariant.load !29, !nonnull !29
+  %5 = load ptr, ptr %4, align 8, !invariant.load !26, !nonnull !26
   tail call void %5(ptr noundef nonnull align 1 %0, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.b6d981bbdd211541ce803f2c721ad95e.31.llvm.2546880118954093015)
   ret void
 }
@@ -3400,8 +3400,8 @@ define hidden void @"_ZN80_$LT$dyn$u20$typst..foundations..content..Bounds$u20$a
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden noundef align 8 dereferenceable_or_null(56) ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h12e3a23055ff7891E.llvm.2546880118954093015"(ptr noalias nocapture noundef align 8 dereferenceable(16) %0) unnamed_addr #7 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !nonnull !29, !noundef !29
-  %4 = load ptr, ptr %0, align 8, !nonnull !29, !noundef !29
+  %3 = load ptr, ptr %2, align 8, !nonnull !26, !noundef !26
+  %4 = load ptr, ptr %0, align 8, !nonnull !26, !noundef !26
   %5 = icmp eq ptr %4, %3
   br i1 %5, label %8, label %6
 
@@ -3418,8 +3418,8 @@ define hidden noundef align 8 dereferenceable_or_null(56) ptr @"_ZN91_$LT$core..
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden noundef align 8 dereferenceable_or_null(8) ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc46f79410741afb1E.llvm.2546880118954093015"(ptr noalias nocapture noundef align 8 dereferenceable(16) %0) unnamed_addr #7 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !nonnull !29, !noundef !29
-  %4 = load ptr, ptr %0, align 8, !nonnull !29, !noundef !29
+  %3 = load ptr, ptr %2, align 8, !nonnull !26, !noundef !26
+  %4 = load ptr, ptr %0, align 8, !nonnull !26, !noundef !26
   %5 = icmp eq ptr %4, %3
   br i1 %5, label %8, label %6
 
@@ -3436,8 +3436,8 @@ define hidden noundef align 8 dereferenceable_or_null(8) ptr @"_ZN91_$LT$core..s
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf173e9dabede4afcE.llvm.2546880118954093015"(ptr noalias nocapture noundef align 8 dereferenceable(16) %0) unnamed_addr #7 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !nonnull !29, !noundef !29
-  %4 = load ptr, ptr %0, align 8, !nonnull !29, !noundef !29
+  %3 = load ptr, ptr %2, align 8, !nonnull !26, !noundef !26
+  %4 = load ptr, ptr %0, align 8, !nonnull !26, !noundef !26
   %5 = icmp eq ptr %4, %3
   br i1 %5, label %8, label %6
 
@@ -3454,8 +3454,8 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN91_$LT$core..
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden noundef align 8 dereferenceable_or_null(40) ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf534267f101bde5eE.llvm.2546880118954093015"(ptr noalias nocapture noundef align 8 dereferenceable(16) %0) unnamed_addr #7 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !nonnull !29, !noundef !29
-  %4 = load ptr, ptr %0, align 8, !nonnull !29, !noundef !29
+  %3 = load ptr, ptr %2, align 8, !nonnull !26, !noundef !26
+  %4 = load ptr, ptr %0, align 8, !nonnull !26, !noundef !26
   %5 = icmp eq ptr %4, %3
   br i1 %5, label %8, label %6
 
@@ -3497,17 +3497,17 @@ define hidden noundef ptr @_ZN9hashbrown3raw5alloc5inner8do_alloc17h627f9d0740be
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @"_ZN9siphasher6sip12815Hasher$LT$S$GT$11short_write17h76b1283531d3937eE.llvm.2546880118954093015"(ptr noalias nocapture noundef align 8 dereferenceable(72) %0, i32 noundef %1, i64 noundef %2) unnamed_addr #7 personality ptr @rust_eh_personality {
   %4 = getelementptr inbounds i8, ptr %0, i64 48
-  %5 = load i64, ptr %4, align 8, !noundef !29
+  %5 = load i64, ptr %4, align 8, !noundef !26
   %6 = add i64 %5, 4
   store i64 %6, ptr %4, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 64
-  %8 = load i64, ptr %7, align 8, !noundef !29
+  %8 = load i64, ptr %7, align 8, !noundef !26
   %9 = sub i64 8, %8
   %10 = shl i64 %8, 3
   %11 = and i64 %10, 56
   %12 = shl i64 %2, %11
   %13 = getelementptr inbounds i8, ptr %0, i64 56
-  %14 = load i64, ptr %13, align 8, !noundef !29
+  %14 = load i64, ptr %13, align 8, !noundef !26
   %15 = or i64 %12, %14
   store i64 %15, ptr %13, align 8
   %16 = icmp ugt i64 %9, 4
@@ -3515,17 +3515,17 @@ define hidden void @"_ZN9siphasher6sip12815Hasher$LT$S$GT$11short_write17h76b128
 
 17:                                               ; preds = %3
   %18 = getelementptr inbounds i8, ptr %0, i64 24
-  %19 = load i64, ptr %18, align 8, !noundef !29
+  %19 = load i64, ptr %18, align 8, !noundef !26
   %20 = xor i64 %19, %15
-  %21 = load i64, ptr %0, align 8, !alias.scope !504, !noundef !29
+  %21 = load i64, ptr %0, align 8, !alias.scope !504, !noundef !26
   %22 = getelementptr inbounds i8, ptr %0, i64 16
-  %23 = load i64, ptr %22, align 8, !alias.scope !504, !noundef !29
+  %23 = load i64, ptr %22, align 8, !alias.scope !504, !noundef !26
   %24 = add i64 %23, %21
   %25 = tail call i64 @llvm.fshl.i64(i64 %23, i64 %23, i64 13)
   %26 = xor i64 %25, %24
   %27 = tail call i64 @llvm.fshl.i64(i64 %24, i64 %24, i64 32)
   %28 = getelementptr inbounds i8, ptr %0, i64 8
-  %29 = load i64, ptr %28, align 8, !alias.scope !504, !noundef !29
+  %29 = load i64, ptr %28, align 8, !alias.scope !504, !noundef !26
   %30 = add i64 %29, %20
   %31 = tail call i64 @llvm.fshl.i64(i64 %20, i64 %20, i64 16)
   %32 = xor i64 %30, %31
@@ -3560,16 +3560,16 @@ define hidden void @"_ZN9siphasher6sip12815Hasher$LT$S$GT$11short_write17h76b128
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @"_ZN9siphasher6sip12815Hasher$LT$S$GT$11short_write17h8c7479c728e882c9E.llvm.2546880118954093015"(ptr noalias nocapture noundef align 8 dereferenceable(72) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #7 personality ptr @rust_eh_personality {
   %4 = getelementptr inbounds i8, ptr %0, i64 48
-  %5 = load i64, ptr %4, align 8, !noundef !29
+  %5 = load i64, ptr %4, align 8, !noundef !26
   %6 = add i64 %5, 8
   store i64 %6, ptr %4, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 64
-  %8 = load i64, ptr %7, align 8, !noundef !29
+  %8 = load i64, ptr %7, align 8, !noundef !26
   %9 = shl i64 %8, 3
   %10 = and i64 %9, 56
   %11 = shl i64 %2, %10
   %12 = getelementptr inbounds i8, ptr %0, i64 56
-  %13 = load i64, ptr %12, align 8, !noundef !29
+  %13 = load i64, ptr %12, align 8, !noundef !26
   %14 = or i64 %11, %13
   store i64 %14, ptr %12, align 8
   %15 = icmp ugt i64 %8, 8
@@ -3577,17 +3577,17 @@ define hidden void @"_ZN9siphasher6sip12815Hasher$LT$S$GT$11short_write17h8c7479
 
 16:                                               ; preds = %3
   %17 = getelementptr inbounds i8, ptr %0, i64 24
-  %18 = load i64, ptr %17, align 8, !noundef !29
+  %18 = load i64, ptr %17, align 8, !noundef !26
   %19 = xor i64 %18, %14
-  %20 = load i64, ptr %0, align 8, !alias.scope !507, !noundef !29
+  %20 = load i64, ptr %0, align 8, !alias.scope !507, !noundef !26
   %21 = getelementptr inbounds i8, ptr %0, i64 16
-  %22 = load i64, ptr %21, align 8, !alias.scope !507, !noundef !29
+  %22 = load i64, ptr %21, align 8, !alias.scope !507, !noundef !26
   %23 = add i64 %22, %20
   %24 = tail call i64 @llvm.fshl.i64(i64 %22, i64 %22, i64 13)
   %25 = xor i64 %24, %23
   %26 = tail call i64 @llvm.fshl.i64(i64 %23, i64 %23, i64 32)
   %27 = getelementptr inbounds i8, ptr %0, i64 8
-  %28 = load i64, ptr %27, align 8, !alias.scope !507, !noundef !29
+  %28 = load i64, ptr %27, align 8, !alias.scope !507, !noundef !26
   %29 = add i64 %28, %19
   %30 = tail call i64 @llvm.fshl.i64(i64 %19, i64 %19, i64 16)
   %31 = xor i64 %29, %30
@@ -3622,16 +3622,16 @@ define hidden void @"_ZN9siphasher6sip12815Hasher$LT$S$GT$11short_write17h8c7479
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @"_ZN9siphasher6sip12815Hasher$LT$S$GT$11short_write17hcefa131a390998a9E.llvm.2546880118954093015"(ptr noalias nocapture noundef align 8 dereferenceable(72) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #7 personality ptr @rust_eh_personality {
   %4 = getelementptr inbounds i8, ptr %0, i64 48
-  %5 = load i64, ptr %4, align 8, !noundef !29
+  %5 = load i64, ptr %4, align 8, !noundef !26
   %6 = add i64 %5, 8
   store i64 %6, ptr %4, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 64
-  %8 = load i64, ptr %7, align 8, !noundef !29
+  %8 = load i64, ptr %7, align 8, !noundef !26
   %9 = shl i64 %8, 3
   %10 = and i64 %9, 56
   %11 = shl i64 %2, %10
   %12 = getelementptr inbounds i8, ptr %0, i64 56
-  %13 = load i64, ptr %12, align 8, !noundef !29
+  %13 = load i64, ptr %12, align 8, !noundef !26
   %14 = or i64 %11, %13
   store i64 %14, ptr %12, align 8
   %15 = icmp ugt i64 %8, 8
@@ -3639,17 +3639,17 @@ define hidden void @"_ZN9siphasher6sip12815Hasher$LT$S$GT$11short_write17hcefa13
 
 16:                                               ; preds = %3
   %17 = getelementptr inbounds i8, ptr %0, i64 24
-  %18 = load i64, ptr %17, align 8, !noundef !29
+  %18 = load i64, ptr %17, align 8, !noundef !26
   %19 = xor i64 %18, %14
-  %20 = load i64, ptr %0, align 8, !alias.scope !510, !noundef !29
+  %20 = load i64, ptr %0, align 8, !alias.scope !510, !noundef !26
   %21 = getelementptr inbounds i8, ptr %0, i64 16
-  %22 = load i64, ptr %21, align 8, !alias.scope !510, !noundef !29
+  %22 = load i64, ptr %21, align 8, !alias.scope !510, !noundef !26
   %23 = add i64 %22, %20
   %24 = tail call i64 @llvm.fshl.i64(i64 %22, i64 %22, i64 13)
   %25 = xor i64 %24, %23
   %26 = tail call i64 @llvm.fshl.i64(i64 %23, i64 %23, i64 32)
   %27 = getelementptr inbounds i8, ptr %0, i64 8
-  %28 = load i64, ptr %27, align 8, !alias.scope !510, !noundef !29
+  %28 = load i64, ptr %27, align 8, !alias.scope !510, !noundef !26
   %29 = add i64 %28, %19
   %30 = tail call i64 @llvm.fshl.i64(i64 %19, i64 %19, i64 16)
   %31 = xor i64 %29, %30
@@ -3691,10 +3691,10 @@ define internal fastcc { i64, i64 } @"_ZN9siphasher6sip12815Hasher$LT$S$GT$9fini
   %.sroa.32.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   %.sroa.32.0.copyload = load i64, ptr %.sroa.32.0..sroa_idx, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 48
-  %3 = load i64, ptr %2, align 8, !noundef !29
+  %3 = load i64, ptr %2, align 8, !noundef !26
   %4 = shl i64 %3, 56
   %5 = getelementptr inbounds i8, ptr %0, i64 56
-  %6 = load i64, ptr %5, align 8, !noundef !29
+  %6 = load i64, ptr %5, align 8, !noundef !26
   %7 = or i64 %4, %6
   %8 = xor i64 %7, %.sroa.32.0.copyload
   %9 = add i64 %.sroa.23.0.copyload, %.sroa.0.0.copyload
@@ -3916,11 +3916,11 @@ attributes #25 = { nounwind }
 !22 = distinct !{!22, !"_ZN60_$LT$typst..layout..abs..Abs$u20$as$u20$core..hash..Hash$GT$4hash17h3ec00e37333c2a14E.llvm.2546880118954093015"}
 !23 = !{!24}
 !24 = distinct !{!24, !22, !"_ZN60_$LT$typst..layout..abs..Abs$u20$as$u20$core..hash..Hash$GT$4hash17h3ec00e37333c2a14E.llvm.2546880118954093015: argument 0"}
-!25 = !{!26, !17, !19, !21}
-!26 = distinct !{!26, !27, !"_ZN73_$LT$siphasher..sip128..Sip13Rounds$u20$as$u20$siphasher..sip128..Sip$GT$8c_rounds17h2d7d97b615b20868E: argument 0"}
-!27 = distinct !{!27, !"_ZN73_$LT$siphasher..sip128..Sip13Rounds$u20$as$u20$siphasher..sip128..Sip$GT$8c_rounds17h2d7d97b615b20868E"}
-!28 = !{!21}
-!29 = !{}
+!25 = !{!21}
+!26 = !{}
+!27 = !{!28, !17, !19, !21}
+!28 = distinct !{!28, !29, !"_ZN73_$LT$siphasher..sip128..Sip13Rounds$u20$as$u20$siphasher..sip128..Sip$GT$8c_rounds17h2d7d97b615b20868E: argument 0"}
+!29 = distinct !{!29, !"_ZN73_$LT$siphasher..sip128..Sip13Rounds$u20$as$u20$siphasher..sip128..Sip$GT$8c_rounds17h2d7d97b615b20868E"}
 !30 = !{!31}
 !31 = distinct !{!31, !32, !"_ZN4core4hash5impls60_$LT$impl$u20$core..hash..Hash$u20$for$u20$$LP$T$C$B$RP$$GT$4hash17hbc4ded179412e8f2E.llvm.2546880118954093015: argument 0"}
 !32 = distinct !{!32, !"_ZN4core4hash5impls60_$LT$impl$u20$core..hash..Hash$u20$for$u20$$LP$T$C$B$RP$$GT$4hash17hbc4ded179412e8f2E.llvm.2546880118954093015"}

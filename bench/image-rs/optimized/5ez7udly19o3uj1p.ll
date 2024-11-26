@@ -5594,7 +5594,7 @@ define hidden void @_ZN12jpeg_decoder6parser9parse_dqt17h305f7785ab79669aE(ptr n
   %34 = getelementptr inbounds i8, ptr %4, i64 1
   %.fca.1.gep.i.i91 = getelementptr inbounds i8, ptr %3, i64 8
   %.fca.1.gep.i.i86 = getelementptr inbounds i8, ptr %5, i64 8
-  %.promoted208 = load i64, ptr %30, align 8, !noalias !19
+  %.promoted208 = load i64, ptr %30, align 8
   br label %35
 
 ._crit_edge:                                      ; preds = %81, %29
@@ -18769,7 +18769,7 @@ define internal fastcc noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterato
   %3 = load i64, ptr %2, align 8, !range !2190, !alias.scope !2600, !noundef !19
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %.promoted = load i64, ptr %4, align 8, !alias.scope !2600
-  %.promoted14 = load ptr, ptr %0, align 8, !alias.scope !2600
+  %.promoted14 = load ptr, ptr %0, align 8
   %.not = icmp ugt i64 %3, %.promoted
   br i1 %.not, label %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17hde9601877ea9e106E.exit.thread", label %.lr.ph
 
@@ -18837,7 +18837,7 @@ define internal fastcc noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterato
   %3 = load i64, ptr %2, align 8, !range !2190, !alias.scope !2611, !noundef !19
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %.promoted = load i64, ptr %4, align 8, !alias.scope !2611
-  %.promoted14 = load ptr, ptr %0, align 8, !alias.scope !2611
+  %.promoted14 = load ptr, ptr %0, align 8
   %.not = icmp ugt i64 %3, %.promoted
   br i1 %.not, label %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17hcb26f7df4f0ec412E.exit.thread", label %.lr.ph
 

@@ -408,9 +408,9 @@ _ZNSt12_Vector_baseIPKN5vcpkg17SourceControlFileESaIS3_EE11_M_allocateEm.exit.i.
   br i1 %54, label %55, label %_ZNKSt6vectorIPKN5vcpkg17SourceControlFileESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i
 
 55:                                               ; preds = %50
-  store ptr %48, ptr %41, align 8, !alias.scope !5
-  store ptr %45, ptr %11, align 8, !alias.scope !5
-  store ptr %44, ptr %39, align 8, !alias.scope !5
+  store ptr %48, ptr %41, align 8
+  store ptr %45, ptr %11, align 8
+  store ptr %44, ptr %39, align 8
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.32) #18
           to label %.noexc9.i unwind label %.loopexit.split-lp.i, !noalias !5
 
@@ -470,9 +470,9 @@ _ZNSt6vectorIPKN5vcpkg17SourceControlFileESaIS3_EE12emplace_backIJS3_EEERS3_DpOT
 .loopexit.i:                                      ; preds = %61
   %lpad.loopexit.i = landingpad { ptr, i32 }
           cleanup
-  store ptr %48, ptr %41, align 8, !alias.scope !5
-  store ptr %45, ptr %11, align 8, !alias.scope !5
-  store ptr %44, ptr %39, align 8, !alias.scope !5
+  store ptr %48, ptr %41, align 8
+  store ptr %45, ptr %11, align 8
+  store ptr %44, ptr %39, align 8
   br label %78
 
 .loopexit.split-lp.i:                             ; preds = %55, %_ZNSt12_Vector_baseIPKN5vcpkg17SourceControlFileESaIS3_EE11_M_allocateEm.exit.i.i, %37
@@ -492,9 +492,9 @@ _ZNSt6vectorIPKN5vcpkg17SourceControlFileESaIS3_EE12emplace_backIJS3_EEERS3_DpOT
   br label %.body
 
 "_ZN5vcpkg4Util4fmapISt6vectorIPKNS_28SourceControlFileAndLocationESaIS5_EEZNS_26perform_find_port_and_exitERKNS_10VcpkgPathsEbbNS_8OptionalINS_10StringViewEEENS_4SpanIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE3$_0EES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISU_EEOSR_OSP_.exit.loopexit": ; preds = %_ZNSt6vectorIPKN5vcpkg17SourceControlFileESaIS3_EE12emplace_backIJS3_EEERS3_DpOT_.exit.i
-  store ptr %75, ptr %41, align 8, !alias.scope !5
-  store ptr %72, ptr %11, align 8, !alias.scope !5
-  store ptr %71, ptr %39, align 8, !alias.scope !5
+  store ptr %75, ptr %41, align 8
+  store ptr %72, ptr %11, align 8
+  store ptr %71, ptr %39, align 8
   %.pre = load ptr, ptr %12, align 8
   br label %"_ZN5vcpkg4Util4fmapISt6vectorIPKNS_28SourceControlFileAndLocationESaIS5_EEZNS_26perform_find_port_and_exitERKNS_10VcpkgPathsEbbNS_8OptionalINS_10StringViewEEENS_4SpanIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE3$_0EES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISU_EEOSR_OSP_.exit"
 

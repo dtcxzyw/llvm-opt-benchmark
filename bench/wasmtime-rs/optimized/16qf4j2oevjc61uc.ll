@@ -10605,7 +10605,7 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
   %3 = load i64, ptr %2, align 8, !range !2142, !alias.scope !2143, !noundef !4
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %.promoted = load i64, ptr %4, align 8, !alias.scope !2143
-  %.promoted12 = load ptr, ptr %0, align 8, !alias.scope !2143
+  %.promoted12 = load ptr, ptr %0, align 8
   %cond = icmp eq i64 %3, 1
   br i1 %cond, label %.split.us, label %.split, !prof !2146
 

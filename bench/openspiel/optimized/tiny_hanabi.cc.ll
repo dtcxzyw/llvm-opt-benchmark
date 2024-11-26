@@ -1689,9 +1689,9 @@ _ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_tra
   br i1 %93, label %109, label %_ZN4absl7debian28AlphaNumC2EPKc.exit.i
 
 _ZN4absl7debian28AlphaNumC2EPKc.exit.i:           ; preds = %94
-  store ptr %88, ptr %84, align 8, !alias.scope !11
-  store ptr %87, ptr %83, align 8, !alias.scope !11
-  store ptr %86, ptr %20, align 8, !alias.scope !11
+  store ptr %88, ptr %84, align 8
+  store ptr %87, ptr %83, align 8
+  store ptr %86, ptr %20, align 8
   call void @_ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.023.033.i), !noalias !11
   call void @_ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE(ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef nonnull align 8 dereferenceable(32) %21), !noalias !11
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3), !noalias !11
@@ -1734,9 +1734,9 @@ _ZN4absl7debian28AlphaNumC2EPKc.exit.i:           ; preds = %94
 .loopexit.i:                                      ; preds = %122, %_ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit.i
   %lpad.loopexit.i = landingpad { ptr, i32 }
           cleanup
-  store ptr %88, ptr %84, align 8, !alias.scope !11
-  store ptr %87, ptr %83, align 8, !alias.scope !11
-  store ptr %86, ptr %20, align 8, !alias.scope !11
+  store ptr %88, ptr %84, align 8
+  store ptr %87, ptr %83, align 8
+  store ptr %86, ptr %20, align 8
   br label %144
 
 .loopexit.split-lp.i:                             ; preds = %116, %_ZN4absl7debian28AlphaNumC2EPKc.exit.i
@@ -1766,9 +1766,9 @@ _ZN4absl7debian28AlphaNumC2EPKc.exit.i:           ; preds = %94
   br i1 %115, label %116, label %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i
 
 116:                                              ; preds = %111
-  store ptr %88, ptr %84, align 8, !alias.scope !11
-  store ptr %87, ptr %83, align 8, !alias.scope !11
-  store ptr %86, ptr %20, align 8, !alias.scope !11
+  store ptr %88, ptr %84, align 8
+  store ptr %87, ptr %83, align 8
+  store ptr %86, ptr %20, align 8
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.34) #23
           to label %.noexc.i unwind label %.loopexit.split-lp.i, !noalias !11
 
@@ -1824,9 +1824,9 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit.i:        ; preds = %_ZNSt6vectorIiSaIiE
   br i1 %.not.i, label %._crit_edge.i, label %85
 
 ._crit_edge.i:                                    ; preds = %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.i
-  store ptr %133, ptr %84, align 8, !alias.scope !11
-  store ptr %134, ptr %83, align 8, !alias.scope !11
-  store ptr %132, ptr %20, align 8, !alias.scope !11
+  store ptr %133, ptr %84, align 8
+  store ptr %134, ptr %83, align 8
+  store ptr %132, ptr %20, align 8
   %.pre.i = load ptr, ptr %6, align 8, !noalias !11
   %.pre38.i = load ptr, ptr %81, align 8, !noalias !11
   %.not4.i.i.i.i.i = icmp eq ptr %.pre.i, %.pre38.i

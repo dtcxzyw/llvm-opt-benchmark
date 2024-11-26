@@ -9774,7 +9774,7 @@ define hidden void @"_ZN137_$LT$alloc..collections..btree..dedup_sorted_iter..De
   %9 = getelementptr inbounds i8, ptr %1, i64 16
   %10 = getelementptr inbounds i8, ptr %3, i64 8
   %11 = getelementptr inbounds i8, ptr %3, i64 16
-  %.promoted21 = load ptr, ptr %7, align 8, !noalias !9
+  %.promoted21 = load ptr, ptr %7, align 8
   br label %12
 
 12:                                               ; preds = %"_ZN4core3ptr98drop_in_place$LT$$LP$alloc..string..String$C$alloc..collections..btree..set_val..SetValZST$RP$$GT$17h4e476266fe08320eE.llvm.14059259217783387920.exit", %2
@@ -9908,7 +9908,7 @@ define hidden void @"_ZN137_$LT$alloc..collections..btree..dedup_sorted_iter..De
   %9 = getelementptr inbounds i8, ptr %1, i64 16
   %10 = getelementptr inbounds i8, ptr %3, i64 8
   %11 = getelementptr inbounds i8, ptr %3, i64 16
-  %.promoted22 = load ptr, ptr %7, align 8, !noalias !9
+  %.promoted22 = load ptr, ptr %7, align 8
   br label %12
 
 12:                                               ; preds = %"_ZN4core3ptr84drop_in_place$LT$$LP$alloc..string..String$C$meilisearch..search..FacetStats$RP$$GT$17hb6fa2c431056380cE.llvm.14059259217783387920.exit", %2
@@ -42904,7 +42904,7 @@ _ZN4core3str7pattern13simd_contains17hf720a9f11bbf911cE.exit: ; preds = %39, %18
   br i1 %126, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17hd20f2a596ae1877dE.exit", label %.lr.ph.i34
 
 .lr.ph.i34:                                       ; preds = %.preheader.i33
-  %.promoted.i = load i64, ptr %123, align 8, !alias.scope !8132, !noalias !8135
+  %.promoted.i = load i64, ptr %123, align 8
   %127 = getelementptr inbounds i8, ptr %7, i64 24
   %128 = getelementptr inbounds i8, ptr %7, i64 72
   %129 = load ptr, ptr %128, align 8, !alias.scope !8132, !noalias !8135, !nonnull !9, !align !199, !noundef !9
@@ -43031,7 +43031,7 @@ _ZN4core3str7pattern13simd_contains17hf720a9f11bbf911cE.exit: ; preds = %39, %18
 
 194:                                              ; preds = %_ZN4core3str7pattern13simd_contains17hf720a9f11bbf911cE.exit
   %195 = getelementptr inbounds i8, ptr %7, i64 56
-  %196 = load i64, ptr %195, align 8, !noalias !9, !noundef !9
+  %196 = load i64, ptr %195, align 8, !noundef !9
   %197 = icmp eq i64 %196, -1
   %198 = getelementptr inbounds i8, ptr %7, i64 72
   %199 = load ptr, ptr %198, align 8, !alias.scope !8127, !noalias !8130, !nonnull !9, !align !199, !noundef !9
@@ -43049,7 +43049,7 @@ _ZN4core3str7pattern13simd_contains17hf720a9f11bbf911cE.exit: ; preds = %39, %18
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8149)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8152)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8154)
-  %.promoted.i40 = load i64, ptr %206, align 8, !alias.scope !8149, !noalias !8156
+  %.promoted.i40 = load i64, ptr %206, align 8
   %209 = add i64 %.promoted.i40, %207
   %.not3047.i41 = icmp ult i64 %209, %201
   br i1 %.not3047.i41, label %.lr.ph.i44, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17hd20f2a596ae1877dE.exit"
@@ -43161,7 +43161,7 @@ _ZN4core3str7pattern13simd_contains17hf720a9f11bbf911cE.exit: ; preds = %39, %18
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8161)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8164)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8166)
-  %.promoted.i35 = load i64, ptr %206, align 8, !alias.scope !8161, !noalias !8168
+  %.promoted.i35 = load i64, ptr %206, align 8
   %264 = add i64 %.promoted.i35, %207
   %.not3047.i = icmp ult i64 %264, %201
   br i1 %.not3047.i, label %.lr.ph.i38, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17hd20f2a596ae1877dE.exit"

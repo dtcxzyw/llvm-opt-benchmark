@@ -181,7 +181,7 @@ _ZN4llvm31DWARFAbbreviationDeclarationSet5clearEv.exit: ; preds = %4, %_ZSt8_Des
   %19 = load i64, ptr %3, align 8
   store i64 %19, ptr %1, align 8
   call void @_ZN4llvm28DWARFAbbreviationDeclarationC1Ev(ptr noundef nonnull align 8 dereferenceable(160) %5) #18
-  %.promoted = load ptr, ptr %0, align 8, !alias.scope !6
+  %.promoted = load ptr, ptr %0, align 8
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -197,7 +197,6 @@ _ZN4llvm31DWARFAbbreviationDeclarationSet5clearEv.exit: ; preds = %4, %_ZSt8_Des
   br i1 %27, label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i, label %30
 
 _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %24
-  call void @llvm.experimental.noalias.scope.decl(metadata !6)
   %28 = load i64, ptr %6, align 8, !noalias !6
   %29 = inttoptr i64 %28 to ptr
   store ptr null, ptr %6, align 8, !noalias !6

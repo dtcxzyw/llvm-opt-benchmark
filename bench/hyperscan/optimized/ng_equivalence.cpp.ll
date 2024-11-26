@@ -525,9 +525,9 @@ if.else.i.i57.i:                                  ; preds = %invoke.cont11.i
   br i1 %cmp.i.i.i.i58.i, label %if.then.i.i.i.i.i, label %_ZNKSt6vectorISt10unique_ptrIN3ue212_GLOBAL__N_110VertexInfoESt14default_deleteIS3_EESaIS6_EE12_M_check_lenEmPKc.exit.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.else.i.i57.i
-  store ptr %add.ptr19.i.i.i.i532, ptr %2, align 8, !alias.scope !7
-  store ptr %incdec.ptr.i.i.i.i535, ptr %_M_finish.i.i.i12, align 8, !alias.scope !7
-  store ptr %call5.i.i.i.i.i.i62.i540, ptr %infos, align 8, !alias.scope !7
+  store ptr %add.ptr19.i.i.i.i532, ptr %2, align 8
+  store ptr %incdec.ptr.i.i.i.i535, ptr %_M_finish.i.i.i12, align 8
+  store ptr %call5.i.i.i.i.i.i62.i540, ptr %infos, align 8
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #24
           to label %.noexc61.i unwind label %lpad12.loopexit.split-lp.i, !noalias !7
 
@@ -611,9 +611,9 @@ lpad1.loopexit.split-lp.loopexit.i:               ; preds = %if.then6.i.i, %invo
 lpad1.loopexit.split-lp.loopexit.split-lp.loopexit.i: ; preds = %invoke.cont8.i
   %lpad.loopexit133.i = landingpad { ptr, i32 }
           cleanup
-  store ptr %add.ptr19.i.i.i.i532, ptr %2, align 8, !alias.scope !7
-  store ptr %incdec.ptr.i.i.i.i535, ptr %_M_finish.i.i.i12, align 8, !alias.scope !7
-  store ptr %call5.i.i.i.i.i.i62.i540, ptr %infos, align 8, !alias.scope !7
+  store ptr %add.ptr19.i.i.i.i532, ptr %2, align 8
+  store ptr %incdec.ptr.i.i.i.i535, ptr %_M_finish.i.i.i12, align 8
+  store ptr %call5.i.i.i.i.i.i62.i540, ptr %infos, align 8
   br label %ehcleanup.i
 
 lpad1.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i: ; preds = %if.then.i.i.i.i116.i, %_ZNKSt6vectorIPN3ue212_GLOBAL__N_110VertexInfoESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i, %if.then.i.i.i.i
@@ -625,9 +625,9 @@ lpad1.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i: ; preds = %if.the
 lpad12.loopexit.i:                                ; preds = %_ZNKSt6vectorISt10unique_ptrIN3ue212_GLOBAL__N_110VertexInfoESt14default_deleteIS3_EESaIS6_EE12_M_check_lenEmPKc.exit.i.i.i.i
   %lpad.loopexit135.i = landingpad { ptr, i32 }
           cleanup
-  store ptr %add.ptr19.i.i.i.i532, ptr %2, align 8, !alias.scope !7
-  store ptr %incdec.ptr.i.i.i.i535, ptr %_M_finish.i.i.i12, align 8, !alias.scope !7
-  store ptr %call5.i.i.i.i.i.i62.i540, ptr %infos, align 8, !alias.scope !7
+  store ptr %add.ptr19.i.i.i.i532, ptr %2, align 8
+  store ptr %incdec.ptr.i.i.i.i535, ptr %_M_finish.i.i.i12, align 8
+  store ptr %call5.i.i.i.i.i.i62.i540, ptr %infos, align 8
   br label %lpad12.i
 
 lpad12.loopexit.split-lp.i:                       ; preds = %if.then.i.i.i.i.i
@@ -641,9 +641,9 @@ lpad12.i:                                         ; preds = %lpad12.loopexit.spl
   br label %ehcleanup.i
 
 for.end.i:                                        ; preds = %invoke.cont16.i
-  store ptr %add.ptr19.i.i.i.i531, ptr %2, align 8, !alias.scope !7
-  store ptr %agg.result.val28.i, ptr %_M_finish.i.i.i12, align 8, !alias.scope !7
-  store ptr %call5.i.i.i.i.i.i62.i539, ptr %infos, align 8, !alias.scope !7
+  store ptr %add.ptr19.i.i.i.i531, ptr %2, align 8
+  store ptr %agg.result.val28.i, ptr %_M_finish.i.i.i12, align 8
+  store ptr %call5.i.i.i.i.i.i62.i539, ptr %infos, align 8
   %cmp.i66.not144.i = icmp eq ptr %call5.i.i.i.i.i.i62.i539, %agg.result.val28.i
   br i1 %cmp.i66.not144.i, label %if.then.i.i.i98.i, label %invoke.cont36.lr.ph.i
 

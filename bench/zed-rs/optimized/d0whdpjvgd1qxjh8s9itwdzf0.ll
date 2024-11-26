@@ -18264,18 +18264,18 @@ define hidden void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$14search_forward17h
 
 .lr.ph:                                           ; preds = %3, %13
   %.promoted126 = phi i32 [ 1, %13 ], [ %6, %3 ]
-  %.promoted81 = load ptr, ptr %0, align 8, !noalias !5
+  %.promoted81 = load ptr, ptr %0, align 8
   %18 = getelementptr inbounds i8, ptr %0, i64 56
   %19 = getelementptr inbounds i8, ptr %0, i64 8
   %20 = getelementptr inbounds i8, ptr %0, i64 16
   %21 = getelementptr inbounds i8, ptr %0, i64 24
   %22 = getelementptr inbounds i8, ptr %0, i64 32
   %23 = getelementptr inbounds i8, ptr %0, i64 40
-  %.promoted84 = load i64, ptr %19, align 8, !noalias !5
-  %.promoted85 = load i64, ptr %20, align 8, !noalias !5
-  %.promoted86 = load i64, ptr %21, align 8, !noalias !5
-  %.promoted87 = load i64, ptr %22, align 8, !noalias !5
-  %.promoted88 = load i64, ptr %23, align 8, !noalias !5
+  %.promoted84 = load i64, ptr %19, align 8
+  %.promoted85 = load i64, ptr %20, align 8
+  %.promoted86 = load i64, ptr %21, align 8
+  %.promoted87 = load i64, ptr %22, align 8
+  %.promoted88 = load i64, ptr %23, align 8
   br label %25
 
 ._crit_edge:                                      ; preds = %112, %.thread128

@@ -14892,7 +14892,7 @@ if.then16:                                        ; preds = %invoke.cont
   br i1 %cmp.not3.i, label %cleanup77, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.then16
-  %this.promoted.i = load i8, ptr %this, align 8, !tbaa !202
+  %this.promoted.i = load i8, ptr %this, align 8
   %m_multiplier.i.i = getelementptr inbounds nuw i8, ptr %this, i64 2
   %6 = load ptr, ptr %m_value, align 8
   %7 = trunc nuw i8 %this.promoted.i to i1
@@ -14983,7 +14983,7 @@ if.then29:                                        ; preds = %lor.lhs.false25, %i
   br i1 %cmp.not3.i17, label %cleanup71, label %for.body.lr.ph.i18
 
 for.body.lr.ph.i18:                               ; preds = %if.then29
-  %this.promoted.i19 = load i8, ptr %this, align 8, !tbaa !202
+  %this.promoted.i19 = load i8, ptr %this, align 8
   %m_multiplier.i.i20 = getelementptr inbounds nuw i8, ptr %this, i64 2
   %22 = load ptr, ptr %m_value, align 8
   %23 = trunc nuw i8 %this.promoted.i19 to i1
@@ -15063,7 +15063,7 @@ invoke.cont33:                                    ; preds = %if.end31
   br i1 %cmp42.not64, label %cleanup71, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %invoke.cont33
-  %this.promoted = load i8, ptr %this, align 8, !tbaa !202
+  %this.promoted = load i8, ptr %this, align 8
   %37 = load i8, ptr %35, align 1, !tbaa !11
   %sub38 = add i8 %37, -1
   %m_multiplier.i = getelementptr inbounds nuw i8, ptr %this, i64 2
@@ -15235,7 +15235,7 @@ entry:
   br i1 %cmp.not3, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %this.promoted = load i8, ptr %this, align 8, !tbaa !202
+  %this.promoted = load i8, ptr %this, align 8
   %m_multiplier.i = getelementptr inbounds nuw i8, ptr %this, i64 2
   %m_value.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load ptr, ptr %m_value.i, align 8

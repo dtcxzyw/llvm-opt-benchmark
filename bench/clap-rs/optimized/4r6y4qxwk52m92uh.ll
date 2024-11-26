@@ -723,7 +723,7 @@ define { i64, i64 } @_ZN8clap_lex10ShortFlags10advance_by17hd7b5dc76a7f69860E(pt
   %5 = load ptr, ptr %4, align 8, !alias.scope !99, !noalias !106, !nonnull !4, !noundef !4
   %6 = getelementptr inbounds i8, ptr %0, i64 32
   %.promoted = load ptr, ptr %3, align 8, !alias.scope !99, !noalias !106
-  %.promoted83 = load i64, ptr %6, align 8, !alias.scope !99, !noalias !106
+  %.promoted83 = load i64, ptr %6, align 8
   br label %7
 
 7:                                                ; preds = %.lr.ph, %.thread60

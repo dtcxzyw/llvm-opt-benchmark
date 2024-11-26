@@ -6908,7 +6908,7 @@ while.body:                                       ; preds = %while.condthread-pr
 if.end34thread-pre-split:                         ; preds = %while.body, %while.condthread-pre-split
   %add64.lcssa = phi x86_fp80 [ %z, %while.condthread-pre-split ], [ %add, %while.body ]
   %result.1.lcssa = phi x86_fp80 [ 0xK3FFF8000000000000000, %while.condthread-pre-split ], [ %div33, %while.body ]
-  store x86_fp80 %add64.lcssa, ptr %z.addr, align 16, !tbaa !50
+  store x86_fp80 %add64.lcssa, ptr %z.addr, align 16
   br label %if.end34
 
 if.end34:                                         ; preds = %if.end34thread-pre-split, %entry
@@ -15584,7 +15584,7 @@ if.end61:                                         ; preds = %if.end57, %if.else6
   br i1 %cmp63, label %if.then64, label %do.cond
 
 if.then64:                                        ; preds = %if.end61
-  store x86_fp80 %result.054, ptr %guess.addr, align 16, !tbaa !50
+  store x86_fp80 %result.054, ptr %guess.addr, align 16
   %20 = load ptr, ptr @_ZZN5boost4math5tools22newton_raphson_iterateINS0_6detail17temme_root_finderIeEEeEET0_T_S6_S6_S6_iRmE8function, align 8, !tbaa !3
   call void @_ZN5boost4math8policies6detail11raise_errorINS0_16evaluation_errorEeEEvPKcS6_RKT0_(ptr noundef %20, ptr noundef nonnull @.str.93, ptr noundef nonnull align 16 dereferenceable(16) %guess.addr)
   br label %return
@@ -24673,7 +24673,7 @@ while.body:                                       ; preds = %while.condthread-pr
 if.end34thread-pre-split:                         ; preds = %while.body, %while.condthread-pre-split
   %add64.lcssa = phi x86_fp80 [ %z, %while.condthread-pre-split ], [ %add, %while.body ]
   %result.1.lcssa = phi x86_fp80 [ 0xK3FFF8000000000000000, %while.condthread-pre-split ], [ %div33, %while.body ]
-  store x86_fp80 %add64.lcssa, ptr %z.addr, align 16, !tbaa !50
+  store x86_fp80 %add64.lcssa, ptr %z.addr, align 16
   br label %if.end34
 
 if.end34:                                         ; preds = %if.end34thread-pre-split, %entry

@@ -1546,7 +1546,7 @@ define hidden void @"_ZN137_$LT$alloc..collections..btree..dedup_sorted_iter..De
   %8 = getelementptr inbounds i8, ptr %1, i64 16
   %9 = getelementptr inbounds i8, ptr %3, i64 8
   %10 = getelementptr inbounds i8, ptr %3, i64 16
-  %.promoted = load ptr, ptr %5, align 8, !noalias !13
+  %.promoted = load ptr, ptr %5, align 8
   %11 = load ptr, ptr %6, align 8
   br label %12
 

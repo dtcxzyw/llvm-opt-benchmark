@@ -13706,7 +13706,7 @@ _ZN4llvm5ErrorD2Ev.exit.thread:                   ; preds = %72
   br label %_ZN4llvm5ErrorD2Ev.exit25
 
 _ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i21.i.loopexit: ; preds = %_ZN4llvm5ErrorD2Ev.exit8.i
-  store ptr %58, ptr %15, align 8, !alias.scope !1271
+  store ptr %58, ptr %15, align 8
   br label %_ZN4llvm5ErrorD2Ev.exit
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %31, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i21.i.loopexit, %80, %_ZN4llvm5ErrorD2Ev.exit.i.i.i12.i

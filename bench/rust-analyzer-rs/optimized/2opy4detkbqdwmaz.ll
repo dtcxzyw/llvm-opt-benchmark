@@ -20548,7 +20548,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h0a44167e9bb50e60E.exit.i.i.i.i
   br i1 %623, label %.thread339.i, label %.lr.ph.i219.preheader.i
 
 .lr.ph.i219.preheader.i:                          ; preds = %621
-  %.promoted.i = load i64, ptr %579, align 8, !noalias !5264
+  %.promoted.i = load i64, ptr %579, align 8, !noalias !4680
   br label %.lr.ph.i219.i
 
 .lr.ph.i219.i:                                    ; preds = %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h7ae0d06785eff10eE.exit.i.i", %.lr.ph.i219.preheader.i

@@ -2825,7 +2825,7 @@ define hidden void @_ZN4core4hash4Hash10hash_slice17ha10922abe89d1f77E(ptr noali
   br i1 %5, label %6, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %3
-  %.promoted = load i64, ptr %2, align 8, !alias.scope !152, !noalias !157
+  %.promoted = load i64, ptr %2, align 8
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph

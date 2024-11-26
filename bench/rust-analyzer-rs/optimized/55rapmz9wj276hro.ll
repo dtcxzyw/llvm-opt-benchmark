@@ -3715,11 +3715,11 @@ define hidden void @_ZN4core4hash4Hash10hash_slice17he6a0e622d8aa8ea7E(ptr noali
   br i1 %5, label %6, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %3
-  %.promoted = load i64, ptr %2, align 8, !alias.scope !874, !noalias !877
+  %.promoted = load i64, ptr %2, align 8
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  store i64 %25, ptr %2, align 8, !alias.scope !879, !noalias !877
+  store i64 %25, ptr %2, align 8, !alias.scope !874, !noalias !879
   br label %6
 
 6:                                                ; preds = %._crit_edge, %3
@@ -3729,21 +3729,21 @@ define hidden void @_ZN4core4hash4Hash10hash_slice17he6a0e622d8aa8ea7E(ptr noali
   %.sroa.0.06 = phi ptr [ %8, %.lr.ph ], [ %0, %.lr.ph.preheader ]
   %7 = phi i64 [ %25, %.lr.ph ], [ %.promoted, %.lr.ph.preheader ]
   %8 = getelementptr inbounds i8, ptr %.sroa.0.06, i64 12
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !877)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !874)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !879)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !881)
   %9 = getelementptr inbounds i8, ptr %.sroa.0.06, i64 8
-  %10 = load i32, ptr %9, align 4, !alias.scope !877, !noalias !874, !noundef !22
+  %10 = load i32, ptr %9, align 4, !alias.scope !879, !noalias !881, !noundef !22
   %11 = zext i32 %10 to i64
   %12 = tail call i64 @llvm.fshl.i64(i64 %7, i64 %7, i64 5)
   %13 = xor i64 %12, %11
   %14 = mul i64 %13, 5871781006564002453
-  %15 = load i32, ptr %.sroa.0.06, align 4, !alias.scope !877, !noalias !874, !noundef !22
+  %15 = load i32, ptr %.sroa.0.06, align 4, !alias.scope !879, !noalias !881, !noundef !22
   %16 = zext i32 %15 to i64
   %17 = tail call i64 @llvm.fshl.i64(i64 %14, i64 %14, i64 5)
   %18 = xor i64 %17, %16
   %19 = mul i64 %18, 5871781006564002453
   %20 = getelementptr inbounds i8, ptr %.sroa.0.06, i64 4
-  %21 = load i32, ptr %20, align 4, !alias.scope !877, !noalias !874, !noundef !22
+  %21 = load i32, ptr %20, align 4, !alias.scope !879, !noalias !881, !noundef !22
   %22 = zext i32 %21 to i64
   %23 = tail call i64 @llvm.fshl.i64(i64 %19, i64 %19, i64 5)
   %24 = xor i64 %23, %22
@@ -50922,14 +50922,14 @@ attributes #38 = { nounwind }
 !871 = distinct !{!871, !"_ZN4core3str7pattern14small_slice_eq17h3a53943bb1188393E"}
 !872 = !{!873}
 !873 = distinct !{!873, !871, !"_ZN4core3str7pattern14small_slice_eq17h3a53943bb1188393E: argument 1"}
-!874 = !{!875}
-!875 = distinct !{!875, !876, !"_ZN52_$LT$span..FileRange$u20$as$u20$core..hash..Hash$GT$4hash17h335a2bf053ff46cbE.llvm.2274688034147933536: argument 1"}
-!876 = distinct !{!876, !"_ZN52_$LT$span..FileRange$u20$as$u20$core..hash..Hash$GT$4hash17h335a2bf053ff46cbE.llvm.2274688034147933536"}
-!877 = !{!878}
-!878 = distinct !{!878, !876, !"_ZN52_$LT$span..FileRange$u20$as$u20$core..hash..Hash$GT$4hash17h335a2bf053ff46cbE.llvm.2274688034147933536: argument 0"}
-!879 = !{!880, !875}
-!880 = distinct !{!880, !881, !"_ZN59_$LT$rustc_hash..FxHasher$u20$as$u20$core..hash..Hasher$GT$9write_u3217h879fefc5e1be8fbfE.llvm.2274688034147933536: argument 0"}
-!881 = distinct !{!881, !"_ZN59_$LT$rustc_hash..FxHasher$u20$as$u20$core..hash..Hasher$GT$9write_u3217h879fefc5e1be8fbfE.llvm.2274688034147933536"}
+!874 = !{!875, !877}
+!875 = distinct !{!875, !876, !"_ZN59_$LT$rustc_hash..FxHasher$u20$as$u20$core..hash..Hasher$GT$9write_u3217h879fefc5e1be8fbfE.llvm.2274688034147933536: argument 0"}
+!876 = distinct !{!876, !"_ZN59_$LT$rustc_hash..FxHasher$u20$as$u20$core..hash..Hasher$GT$9write_u3217h879fefc5e1be8fbfE.llvm.2274688034147933536"}
+!877 = distinct !{!877, !878, !"_ZN52_$LT$span..FileRange$u20$as$u20$core..hash..Hash$GT$4hash17h335a2bf053ff46cbE.llvm.2274688034147933536: argument 1"}
+!878 = distinct !{!878, !"_ZN52_$LT$span..FileRange$u20$as$u20$core..hash..Hash$GT$4hash17h335a2bf053ff46cbE.llvm.2274688034147933536"}
+!879 = !{!880}
+!880 = distinct !{!880, !878, !"_ZN52_$LT$span..FileRange$u20$as$u20$core..hash..Hash$GT$4hash17h335a2bf053ff46cbE.llvm.2274688034147933536: argument 0"}
+!881 = !{!877}
 !882 = !{!883}
 !883 = distinct !{!883, !884, !"_ZN4core4iter6traits8iterator8Iterator10advance_by17hd944bb030cedb25bE: argument 0"}
 !884 = distinct !{!884, !"_ZN4core4iter6traits8iterator8Iterator10advance_by17hd944bb030cedb25bE"}

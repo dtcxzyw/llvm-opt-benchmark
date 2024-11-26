@@ -37,7 +37,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define internal fastcc void @_ZN3md58compress4soft8compress17ha26b3ad4c49fdae6E(ptr noalias nocapture noundef nonnull align 4 dereferenceable(16) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef range(i64 1, 0) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
 .lr.ph:
   %3 = getelementptr inbounds [64 x i8], ptr %1, i64 %2
-  %.promoted = load i32, ptr %0, align 4, !alias.scope !4, !noalias !7
+  %.promoted = load i32, ptr %0, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = getelementptr inbounds i8, ptr %0, i64 12

@@ -5787,7 +5787,7 @@ define noundef zeroext i1 @"_ZN130_$LT$indexed_docs..providers..rustdoc..to_mark
   br i1 %52, label %"_ZN130_$LT$indexed_docs..providers..rustdoc..to_markdown..RustdocCodeHandler$u20$as$u20$html_to_markdown..markdown_writer..HandleTag$GT$16handle_tag_start28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h986b92501e178dbfE.exit.i.i.i", label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %.preheader.i.i.i.i.i.i
-  %.promoted.i.i.i.i.i.i = load i64, ptr %35, align 8, !alias.scope !908, !noalias !911
+  %.promoted.i.i.i.i.i.i = load i64, ptr %35, align 8, !noalias !899
   %53 = load ptr, ptr %38, align 8, !alias.scope !908, !noalias !911, !nonnull !10, !align !142, !noundef !10
   %54 = load i64, ptr %39, align 8, !alias.scope !908, !noalias !911, !noundef !10
   %55 = getelementptr inbounds i8, ptr %53, i64 %54
@@ -5921,7 +5921,7 @@ define noundef zeroext i1 @"_ZN130_$LT$indexed_docs..providers..rustdoc..to_mark
   tail call void @llvm.experimental.noalias.scope.decl(metadata !921)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !924)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !926)
-  %.promoted.i26.i.i.i.i.i = load i64, ptr %43, align 8, !alias.scope !921, !noalias !928
+  %.promoted.i26.i.i.i.i.i = load i64, ptr %43, align 8, !noalias !899
   %128 = add i64 %.promoted.i26.i.i.i.i.i, %126
   %129 = icmp ult i64 %128, %123
   br i1 %129, label %.lr.ph.i29.i.i.i.i.i, label %"_ZN130_$LT$indexed_docs..providers..rustdoc..to_markdown..RustdocCodeHandler$u20$as$u20$html_to_markdown..markdown_writer..HandleTag$GT$16handle_tag_start28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h986b92501e178dbfE.exit.i.i.i"
@@ -6036,7 +6036,7 @@ define noundef zeroext i1 @"_ZN130_$LT$indexed_docs..providers..rustdoc..to_mark
   tail call void @llvm.experimental.noalias.scope.decl(metadata !932)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !935)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !937)
-  %.promoted.i23.i.i.i.i.i = load i64, ptr %43, align 8, !alias.scope !932, !noalias !939
+  %.promoted.i23.i.i.i.i.i = load i64, ptr %43, align 8, !noalias !899
   %186 = add i64 %.promoted.i23.i.i.i.i.i, %126
   %187 = icmp ult i64 %186, %123
   br i1 %187, label %.lr.ph.i25.i.i.i.i.i, label %"_ZN130_$LT$indexed_docs..providers..rustdoc..to_markdown..RustdocCodeHandler$u20$as$u20$html_to_markdown..markdown_writer..HandleTag$GT$16handle_tag_start28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h986b92501e178dbfE.exit.i.i.i"

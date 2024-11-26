@@ -2077,7 +2077,7 @@ _ZN4llvm5ErrorD2Ev.exit8.i:                       ; preds = %103, %_ZNSt10unique
   br i1 %.not.i9.i, label %_ZN4llvm5ErrorD2Ev.exit2, label %_ZN4llvm5ErrorD2Ev.exit2.sink.split
 
 _ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i13.i.loopexit: ; preds = %_ZN4llvm5ErrorD2Ev.exit8.i
-  store ptr %90, ptr %22, align 8, !alias.scope !141
+  store ptr %90, ptr %22, align 8
   br label %_ZN4llvm5ErrorD2Ev.exit2.sink.split
 
 _ZN4llvm5ErrorD2Ev.exit2.sink.split:              ; preds = %83, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i13.i.loopexit, %108

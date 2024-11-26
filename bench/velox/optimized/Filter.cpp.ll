@@ -20876,9 +20876,9 @@ if.then.i20.i.i:                                  ; preds = %_ZNSt6vectorISt10un
 lpad.loopexit.i:                                  ; preds = %if.then26.i
   %lpad.loopexit245.i = landingpad { ptr, i32 }
           cleanup
-  store ptr %add.ptr19.i174.i226, ptr %_M_end_of_storage.i.i.i, align 8, !alias.scope !372
-  store ptr %incdec.ptr.i160.i230, ptr %_M_finish.i44.i, align 8, !alias.scope !372
-  store ptr %cond.i10.i149.i234, ptr %ref.tmp177, align 8, !alias.scope !372
+  store ptr %add.ptr19.i174.i226, ptr %_M_end_of_storage.i.i.i, align 8
+  store ptr %incdec.ptr.i160.i230, ptr %_M_finish.i44.i, align 8
+  store ptr %cond.i10.i149.i234, ptr %ref.tmp177, align 8
   br label %ehcleanup.i
 
 lpad.loopexit.split-lp.i:                         ; preds = %if.then45.i, %if.then.i168, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook5velox6common11BigintRangeESt14default_deleteIS4_EESaIS7_EE11_M_allocateEm.exit.i.i, %if.then.i.i175
@@ -20972,9 +20972,9 @@ if.else.i51.i:                                    ; preds = %invoke.cont35.i
   br i1 %cmp.i.i135.i, label %if.then.i.i175.i, label %_ZNKSt6vectorISt10unique_ptrIN8facebook5velox6common11BigintRangeESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i136.i
 
 if.then.i.i175.i:                                 ; preds = %if.else.i51.i
-  store ptr %add.ptr19.i174.i226, ptr %_M_end_of_storage.i.i.i, align 8, !alias.scope !372
-  store ptr %incdec.ptr.i160.i230, ptr %_M_finish.i44.i, align 8, !alias.scope !372
-  store ptr %cond.i10.i149.i234, ptr %ref.tmp177, align 8, !alias.scope !372
+  store ptr %add.ptr19.i174.i226, ptr %_M_end_of_storage.i.i.i, align 8
+  store ptr %incdec.ptr.i160.i230, ptr %_M_finish.i44.i, align 8
+  store ptr %cond.i10.i149.i234, ptr %ref.tmp177, align 8
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.83) #38
           to label %.noexc176.i unwind label %_ZNSt10unique_ptrIN8facebook5velox6common11BigintRangeESt14default_deleteIS3_EED2Ev.exit62.loopexit.split-lp.i, !noalias !372
 
@@ -21034,9 +21034,9 @@ if.then.i20.i171.i:                               ; preds = %_ZNSt6vectorISt10un
 _ZNSt10unique_ptrIN8facebook5velox6common11BigintRangeESt14default_deleteIS3_EED2Ev.exit62.loopexit.i: ; preds = %cond.true.i.i146.i
   %lpad.loopexit247.i = landingpad { ptr, i32 }
           cleanup
-  store ptr %add.ptr19.i174.i226, ptr %_M_end_of_storage.i.i.i, align 8, !alias.scope !372
-  store ptr %incdec.ptr.i160.i230, ptr %_M_finish.i44.i, align 8, !alias.scope !372
-  store ptr %cond.i10.i149.i234, ptr %ref.tmp177, align 8, !alias.scope !372
+  store ptr %add.ptr19.i174.i226, ptr %_M_end_of_storage.i.i.i, align 8
+  store ptr %incdec.ptr.i160.i230, ptr %_M_finish.i44.i, align 8
+  store ptr %cond.i10.i149.i234, ptr %ref.tmp177, align 8
   br label %_ZNSt10unique_ptrIN8facebook5velox6common11BigintRangeESt14default_deleteIS3_EED2Ev.exit62.i
 
 _ZNSt10unique_ptrIN8facebook5velox6common11BigintRangeESt14default_deleteIS3_EED2Ev.exit62.loopexit.split-lp.i: ; preds = %if.then.i.i175.i
@@ -21061,9 +21061,9 @@ if.end39.i:                                       ; preds = %.noexc53.i, %if.the
   br i1 %cmp.i20.not.i, label %while.end.i.loopexit, label %while.body.i, !llvm.loop !388
 
 while.end.i.loopexit:                             ; preds = %if.end39.i
-  store ptr %add.ptr19.i174.i225, ptr %_M_end_of_storage.i.i.i, align 8, !alias.scope !372
-  store ptr %incdec.ptr.i160.i229, ptr %_M_finish.i44.i, align 8, !alias.scope !372
-  store ptr %cond.i10.i149.i233, ptr %ref.tmp177, align 8, !alias.scope !372
+  store ptr %add.ptr19.i174.i225, ptr %_M_end_of_storage.i.i.i, align 8
+  store ptr %incdec.ptr.i160.i229, ptr %_M_finish.i44.i, align 8
+  store ptr %cond.i10.i149.i233, ptr %ref.tmp177, align 8
   br label %while.end.i
 
 while.end.i:                                      ; preds = %while.end.i.loopexit, %if.end.i

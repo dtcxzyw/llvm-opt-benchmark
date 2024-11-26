@@ -16265,7 +16265,7 @@ _ZN5faiss12_GLOBAL__N_120BlockSearchVariableKINS_17HammingComputer64ELi4EE9add_b
 .loopexit36.i.i:                                  ; preds = %.loopexit31.i.i750, %.preheader35.i.i
   %.lcssa88.i.i = phi i32 [ %.promoted.i.i, %.preheader35.i.i ], [ %2857, %.loopexit31.i.i750 ]
   %.4180.lcssa.i.i = phi i64 [ 0, %.preheader35.i.i ], [ %3292, %.loopexit31.i.i750 ]
-  store i32 %.lcssa88.i.i, ptr %23, align 8, !noalias !764
+  store i32 %.lcssa88.i.i, ptr %23, align 8, !noalias !692
   br label %.loopexit38.i.i
 
 .loopexit38.i.i:                                  ; preds = %.loopexit34.i.i, %.loopexit33.i.i727, %.loopexit32.i.i744, %.loopexit36.i.i, %.preheader37.i.i, %.preheader39.i.i, %.preheader41.i.i

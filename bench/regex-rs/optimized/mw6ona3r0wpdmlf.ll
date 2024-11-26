@@ -159,7 +159,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   tail call void @llvm.experimental.noalias.scope.decl(metadata !57)
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   %.pre.i = load ptr, ptr %4, align 8, !alias.scope !60, !noalias !65
-  %.pre9.i = load ptr, ptr %3, align 8, !alias.scope !60, !noalias !65
+  %.pre9.i = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %.pre9.i, %.pre.i
   br i1 %5, label %_ZN4core4iter6traits8iterator8Iterator4fold17h6b3f71812732dec4E.llvm.14163345723071415371.exit, label %"_ZN96_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd3fde89170ad407cE.llvm.14163345723071415371.exit.i"
 
@@ -189,7 +189,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
 _ZN4core4iter6traits8iterator8Iterator4fold17h6b3f71812732dec4E.llvm.14163345723071415371.exit: ; preds = %"_ZN96_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd3fde89170ad407cE.llvm.14163345723071415371.exit.i", %9, %2
   %13 = phi ptr [ %.pre9.i, %2 ], [ %8, %9 ], [ %8, %"_ZN96_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd3fde89170ad407cE.llvm.14163345723071415371.exit.i" ]
   %.lcssa = phi i64 [ %.sroa.4.0.copyload, %2 ], [ %6, %"_ZN96_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd3fde89170ad407cE.llvm.14163345723071415371.exit.i" ], [ %11, %9 ]
-  store ptr %13, ptr %3, align 8, !alias.scope !60, !noalias !65
+  store ptr %13, ptr %3, align 8
   %14 = icmp ne ptr %.sroa.0.0.copyload, null
   tail call void @llvm.assume(i1 %14)
   store i64 %.lcssa, ptr %.sroa.0.0.copyload, align 8, !noalias !78

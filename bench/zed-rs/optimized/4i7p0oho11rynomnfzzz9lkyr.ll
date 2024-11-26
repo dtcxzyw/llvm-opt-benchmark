@@ -90777,12 +90777,12 @@ define hidden void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$14search_forward17h
 
 .lr.ph:                                           ; preds = %3, %13
   %.promoted103 = phi i32 [ 1, %13 ], [ %6, %3 ]
-  %.promoted75 = load i64, ptr %0, align 8, !noalias !4
+  %.promoted75 = load i64, ptr %0, align 8
   %18 = getelementptr inbounds i8, ptr %0, i64 40
   %.sroa.4.0..sroa_idx.i.i19 = getelementptr inbounds i8, ptr %0, i64 8
   %.sroa.52.0..sroa_idx.i.i20 = getelementptr inbounds i8, ptr %0, i64 16
-  %.sroa.4.0..sroa_idx.i.i19.promoted = load i64, ptr %.sroa.4.0..sroa_idx.i.i19, align 8, !noalias !4
-  %.sroa.52.0..sroa_idx.i.i20.promoted = load i64, ptr %.sroa.52.0..sroa_idx.i.i20, align 8, !noalias !4
+  %.sroa.4.0..sroa_idx.i.i19.promoted = load i64, ptr %.sroa.4.0..sroa_idx.i.i19, align 8
+  %.sroa.52.0..sroa_idx.i.i20.promoted = load i64, ptr %.sroa.52.0..sroa_idx.i.i20, align 8
   br label %20
 
 ._crit_edge:                                      ; preds = %67, %.thread105
@@ -98122,12 +98122,12 @@ define hidden void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$14search_forward17h
 
 .lr.ph:                                           ; preds = %3, %13
   %.promoted102 = phi i32 [ 1, %13 ], [ %6, %3 ]
-  %.promoted78 = load i64, ptr %0, align 8, !noalias !4
+  %.promoted78 = load i64, ptr %0, align 8
   %18 = getelementptr inbounds i8, ptr %0, i64 40
   %.sroa.4.0..sroa_idx.i.i20 = getelementptr inbounds i8, ptr %0, i64 8
   %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx.i.i21 = getelementptr inbounds i8, ptr %0, i64 16
-  %.sroa.4.0..sroa_idx.i.i20.promoted = load i64, ptr %.sroa.4.0..sroa_idx.i.i20, align 8, !noalias !4
-  %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx.i.i21.promoted = load i64, ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx.i.i21, align 8, !noalias !4
+  %.sroa.4.0..sroa_idx.i.i20.promoted = load i64, ptr %.sroa.4.0..sroa_idx.i.i20, align 8
+  %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx.i.i21.promoted = load i64, ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx.i.i21, align 8
   br label %20
 
 ._crit_edge:                                      ; preds = %82, %.thread104
@@ -98385,12 +98385,12 @@ define hidden void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$14search_forward17h
 
 .lr.ph:                                           ; preds = %3, %13
   %.promoted103 = phi i32 [ 1, %13 ], [ %6, %3 ]
-  %.promoted75 = load i64, ptr %0, align 8, !noalias !4
+  %.promoted75 = load i64, ptr %0, align 8
   %18 = getelementptr inbounds i8, ptr %0, i64 40
   %.sroa.4.0..sroa_idx.i.i19 = getelementptr inbounds i8, ptr %0, i64 8
   %.sroa.52.0..sroa_idx.i.i20 = getelementptr inbounds i8, ptr %0, i64 16
-  %.sroa.4.0..sroa_idx.i.i19.promoted = load i64, ptr %.sroa.4.0..sroa_idx.i.i19, align 8, !noalias !4
-  %.sroa.52.0..sroa_idx.i.i20.promoted = load i64, ptr %.sroa.52.0..sroa_idx.i.i20, align 8, !noalias !4
+  %.sroa.4.0..sroa_idx.i.i19.promoted = load i64, ptr %.sroa.4.0..sroa_idx.i.i19, align 8
+  %.sroa.52.0..sroa_idx.i.i20.promoted = load i64, ptr %.sroa.52.0..sroa_idx.i.i20, align 8
   br label %20
 
 ._crit_edge:                                      ; preds = %67, %.thread105

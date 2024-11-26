@@ -1493,7 +1493,7 @@ select.unfold474.thread:                          ; preds = %377, %412, %408
   br i1 %415, label %.thread478, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i
-  %.promoted.i.i = load i64, ptr %49, align 8, !alias.scope !172, !noalias !175
+  %.promoted.i.i = load i64, ptr %49, align 8, !noalias !163
   %416 = load ptr, ptr %52, align 8, !alias.scope !172, !noalias !175, !nonnull !4, !align !177, !noundef !4
   %417 = load i64, ptr %53, align 8, !alias.scope !172, !noalias !175, !noundef !4
   %418 = getelementptr inbounds i8, ptr %416, i64 %417
@@ -1622,7 +1622,7 @@ select.unfold474.thread:                          ; preds = %377, %412, %408
   call void @llvm.experimental.noalias.scope.decl(metadata !186)
   call void @llvm.experimental.noalias.scope.decl(metadata !189)
   call void @llvm.experimental.noalias.scope.decl(metadata !191)
-  %.promoted.i5.i = load i64, ptr %57, align 8, !alias.scope !186, !noalias !193
+  %.promoted.i5.i = load i64, ptr %57, align 8, !noalias !163
   %491 = add i64 %.promoted.i5.i, %489
   %492 = icmp ult i64 %491, %486
   br i1 %492, label %.lr.ph.i8.i, label %.thread478
@@ -1733,7 +1733,7 @@ select.unfold474.thread:                          ; preds = %377, %412, %408
   call void @llvm.experimental.noalias.scope.decl(metadata !197)
   call void @llvm.experimental.noalias.scope.decl(metadata !200)
   call void @llvm.experimental.noalias.scope.decl(metadata !202)
-  %.promoted.i2.i = load i64, ptr %57, align 8, !alias.scope !197, !noalias !204
+  %.promoted.i2.i = load i64, ptr %57, align 8, !noalias !163
   %547 = add i64 %.promoted.i2.i, %489
   %548 = icmp ult i64 %547, %486
   br i1 %548, label %.lr.ph.i4.i, label %.thread478
@@ -8673,7 +8673,7 @@ define hidden noundef zeroext i1 @"_ZN5alloc3vec6splice55_$LT$impl$u20$alloc..ve
 
 "_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7b17332976064fa7E.llvm.9466122436212619921.exit.lr.ph": ; preds = %2
   %13 = getelementptr inbounds i8, ptr %10, i64 %6
-  %.promoted = load ptr, ptr %1, align 8, !alias.scope !1324
+  %.promoted = load ptr, ptr %1, align 8
   %14 = getelementptr inbounds i8, ptr %1, i64 8
   %15 = load ptr, ptr %14, align 8, !alias.scope !1324, !nonnull !4, !noundef !4
   br label %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7b17332976064fa7E.llvm.9466122436212619921.exit"

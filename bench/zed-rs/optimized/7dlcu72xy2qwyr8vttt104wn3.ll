@@ -3442,11 +3442,11 @@ define hidden void @"_ZN9hashbrown3raw16RawIter$LT$T$GT$13drop_elements17h64e9a0
 .preheader:                                       ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 24
   %.promoted = load i16, ptr %6, align 8, !alias.scope !619
-  %.promoted8 = load ptr, ptr %0, align 8, !alias.scope !619
+  %.promoted8 = load ptr, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = getelementptr inbounds i8, ptr %2, i64 8
   %9 = getelementptr inbounds i8, ptr %2, i64 16
-  %.promoted12 = load ptr, ptr %7, align 8, !alias.scope !619
+  %.promoted12 = load ptr, ptr %7, align 8
   br label %10
 
 .loopexit:                                        ; preds = %"_ZN4core3ptr60drop_in_place$LT$$LP$alloc..string..String$C$$RF$str$RP$$GT$17h7536c0d5c07156baE.llvm.1663841318011893877.exit", %1

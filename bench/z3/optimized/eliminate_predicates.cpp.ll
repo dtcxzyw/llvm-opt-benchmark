@@ -7837,7 +7837,7 @@ if.then2.i.i.i.i.i:                               ; preds = %if.then.i.i.i.i.i47
 terminate.lpad.i.i48:                             ; preds = %if.then2.i.i.i.i.i
   %96 = landingpad { ptr, i32 }
           catch ptr null
-  store ptr %ref.tmp.sroa.0.1.i, ptr %y1, align 8, !alias.scope !29
+  store ptr %ref.tmp.sroa.0.1.i, ptr %y1, align 8
   %97 = extractvalue { ptr, i32 } %96, 0
   call void @__clang_call_terminate(ptr %97) #21
   unreachable
@@ -7845,7 +7845,7 @@ terminate.lpad.i.i48:                             ; preds = %if.then2.i.i.i.i.i
 lpad.i44:                                         ; preds = %if.else.i.i, %if.then.i.i, %if.then.i
   %98 = landingpad { ptr, i32 }
           cleanup
-  store ptr %ref.tmp.sroa.0.1.i108, ptr %y1, align 8, !alias.scope !29
+  store ptr %ref.tmp.sroa.0.1.i108, ptr %y1, align 8
   call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %y1) #20
   br label %common.resume
 
@@ -7856,7 +7856,7 @@ for.inc.i:                                        ; preds = %if.then2.i.i.i.i.i,
   br i1 %cmp.not.i, label %"_ZZN20eliminate_predicates14try_find_macroERNS_6clauseEENK3$_7clEP4exprP3appj.exit.loopexit", label %for.body.i
 
 "_ZZN20eliminate_predicates14try_find_macroERNS_6clauseEENK3$_7clEP4exprP3appj.exit.loopexit": ; preds = %for.inc.i
-  store ptr %ref.tmp.sroa.0.1.i107, ptr %y1, align 8, !alias.scope !29
+  store ptr %ref.tmp.sroa.0.1.i107, ptr %y1, align 8
   br label %"_ZZN20eliminate_predicates14try_find_macroERNS_6clauseEENK3$_7clEP4exprP3appj.exit"
 
 "_ZZN20eliminate_predicates14try_find_macroERNS_6clauseEENK3$_7clEP4exprP3appj.exit": ; preds = %"_ZZN20eliminate_predicates14try_find_macroERNS_6clauseEENK3$_7clEP4exprP3appj.exit.loopexit", %_ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit.i

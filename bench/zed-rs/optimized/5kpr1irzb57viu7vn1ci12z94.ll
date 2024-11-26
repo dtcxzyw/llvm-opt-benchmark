@@ -737,7 +737,7 @@ define hidden void @"_ZN137_$LT$alloc..collections..btree..dedup_sorted_iter..De
   %4 = load ptr, ptr %3, align 8, !nonnull !9
   %5 = getelementptr inbounds i8, ptr %1, i64 32
   %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx.promoted = load i64, ptr %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx, align 8
-  %.promoted33 = load ptr, ptr %5, align 8, !noalias !9
+  %.promoted33 = load ptr, ptr %5, align 8
   br label %6
 
 6:                                                ; preds = %23, %2

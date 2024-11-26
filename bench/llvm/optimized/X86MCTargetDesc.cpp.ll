@@ -7519,9 +7519,9 @@ define dso_local void @_ZNK4llvm6X86_MC18X86MCInstrAnalysis14findPltEntriesEmNS_
   br i1 %36, label %37, label %_ZNKSt6vectorISt4pairImmESaIS1_EE12_M_check_lenEmPKc.exit.i.i
 
 37:                                               ; preds = %32
-  store ptr %16, ptr %12, align 8, !alias.scope !22
-  store ptr %15, ptr %11, align 8, !alias.scope !22
-  store ptr %14, ptr %0, align 8, !alias.scope !22
+  store ptr %16, ptr %12, align 8
+  store ptr %15, ptr %11, align 8
+  store ptr %14, ptr %0, align 8
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.921) #23, !noalias !22
   unreachable
 
@@ -7596,9 +7596,9 @@ _ZNSt6vectorISt4pairImmESaIS1_EE17_M_realloc_insertIJmmEEEvN9__gnu_cxx17__normal
   br i1 %64, label %65, label %_ZNKSt6vectorISt4pairImmESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i.i
 
 65:                                               ; preds = %60
-  store ptr %16, ptr %12, align 8, !alias.scope !22
-  store ptr %15, ptr %11, align 8, !alias.scope !22
-  store ptr %14, ptr %0, align 8, !alias.scope !22
+  store ptr %16, ptr %12, align 8
+  store ptr %15, ptr %11, align 8
+  store ptr %14, ptr %0, align 8
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.921) #23, !noalias !22
   unreachable
 
@@ -7719,9 +7719,9 @@ _ZNSt6vectorISt4pairImmESaIS1_EE12emplace_backIJmmEEERS1_DpOT_.exit.i: ; preds =
   br i1 %117, label %118, label %_ZNKSt6vectorISt4pairImmESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i.i13
 
 118:                                              ; preds = %113
-  store ptr %96, ptr %92, align 8, !alias.scope !35
-  store ptr %95, ptr %91, align 8, !alias.scope !35
-  store ptr %94, ptr %0, align 8, !alias.scope !35
+  store ptr %96, ptr %92, align 8
+  store ptr %95, ptr %91, align 8
+  store ptr %94, ptr %0, align 8
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.921) #23, !noalias !35
   unreachable
 
@@ -7791,15 +7791,15 @@ _ZNSt6vectorISt4pairImmESaIS1_EE9push_backEOS1_.exit.i: ; preds = %134, %_ZNSt6v
   br label %_ZN4llvm6X86_MCL17findX86PltEntriesEmNS_8ArrayRefIhEE.exit
 
 _ZN4llvm6X86_MCL17findX86PltEntriesEmNS_8ArrayRefIhEE.exit.loopexit: ; preds = %_ZNSt6vectorISt4pairImmESaIS1_EE12emplace_backIJmmEEERS1_DpOT_.exit.i
-  store ptr %85, ptr %12, align 8, !alias.scope !22
-  store ptr %84, ptr %11, align 8, !alias.scope !22
-  store ptr %83, ptr %0, align 8, !alias.scope !22
+  store ptr %85, ptr %12, align 8
+  store ptr %84, ptr %11, align 8
+  store ptr %83, ptr %0, align 8
   br label %_ZN4llvm6X86_MCL17findX86PltEntriesEmNS_8ArrayRefIhEE.exit
 
 _ZN4llvm6X86_MCL17findX86PltEntriesEmNS_8ArrayRefIhEE.exit.loopexit26: ; preds = %_ZNSt6vectorISt4pairImmESaIS1_EE9push_backEOS1_.exit.i
-  store ptr %138, ptr %92, align 8, !alias.scope !35
-  store ptr %137, ptr %91, align 8, !alias.scope !35
-  store ptr %136, ptr %0, align 8, !alias.scope !35
+  store ptr %138, ptr %92, align 8
+  store ptr %137, ptr %91, align 8
+  store ptr %136, ptr %0, align 8
   br label %_ZN4llvm6X86_MCL17findX86PltEntriesEmNS_8ArrayRefIhEE.exit
 
 _ZN4llvm6X86_MCL17findX86PltEntriesEmNS_8ArrayRefIhEE.exit: ; preds = %_ZN4llvm6X86_MCL17findX86PltEntriesEmNS_8ArrayRefIhEE.exit.loopexit26, %_ZN4llvm6X86_MCL17findX86PltEntriesEmNS_8ArrayRefIhEE.exit.loopexit, %89, %9, %142

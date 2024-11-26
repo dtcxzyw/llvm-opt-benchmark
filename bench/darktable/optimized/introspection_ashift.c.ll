@@ -14847,7 +14847,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_do_get_structure_auto(ptr n
 
 .loopexit208.i:                                   ; preds = %1718, %1682
   %.lcssa291294.i = phi i32 [ %.lcssa291293.i, %1682 ], [ %1713, %1718 ]
-  store i32 %.lcssa291294.i, ptr %6, align 4, !tbaa !37
+  store i32 %.lcssa291294.i, ptr %6, align 4
   br label %1734
 
 1734:                                             ; preds = %.loopexit208.i, %1640, %1638, %1575
@@ -14855,7 +14855,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_do_get_structure_auto(ptr n
   br label %2192
 
 .loopexit209.i:                                   ; preds = %1720
-  store i32 %1713, ptr %6, align 4, !tbaa !37
+  store i32 %1713, ptr %6, align 4
   br label %1735
 
 1735:                                             ; preds = %.loopexit209.i, %1653, %1560

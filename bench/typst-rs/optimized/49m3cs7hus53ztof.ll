@@ -2403,7 +2403,7 @@ define hidden noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$11p
   %9 = load i64, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 24
   %11 = load ptr, ptr %10, align 8, !nonnull !16, !align !353
-  %.promoted = load i64, ptr %7, align 8, !alias.scope !354, !noalias !357
+  %.promoted = load i64, ptr %7, align 8
   br label %12
 
 12:                                               ; preds = %19, %3
@@ -2431,9 +2431,9 @@ define hidden noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$11p
 19:                                               ; preds = %15
   %20 = getelementptr inbounds i8, ptr %.sroa.0.0, i64 1
   %21 = getelementptr inbounds [0 x i8], ptr %11, i64 0, i64 %13
-  %22 = load i8, ptr %21, align 1, !noalias !359, !noundef !16
+  %22 = load i8, ptr %21, align 1, !noalias !357, !noundef !16
   %23 = add nuw i64 %13, 1
-  store i64 %23, ptr %7, align 8, !alias.scope !354, !noalias !357
+  store i64 %23, ptr %7, align 8, !alias.scope !354, !noalias !359
   %24 = load i8, ptr %.sroa.0.0, align 1, !noundef !16
   %.not = icmp eq i8 %22, %24
   br i1 %.not, label %12, label %25
@@ -22593,7 +22593,7 @@ _ZN4core3str7pattern13simd_contains17he1b4c355bd816daaE.exit: ; preds = %39, %18
   br i1 %134, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h39dd9c4a3b4b9ae9E.exit", label %.lr.ph.i39
 
 .lr.ph.i39:                                       ; preds = %.preheader.i38
-  %.promoted.i = load i64, ptr %131, align 8, !alias.scope !4345, !noalias !4348
+  %.promoted.i = load i64, ptr %131, align 8
   %135 = getelementptr inbounds i8, ptr %7, i64 24
   %136 = getelementptr inbounds i8, ptr %7, i64 72
   %137 = load ptr, ptr %136, align 8, !alias.scope !4345, !noalias !4348, !nonnull !16, !align !353, !noundef !16
@@ -22721,7 +22721,7 @@ _ZN4core3str11validations15next_code_point17h34adc5e17767eaceE.exit.thread.i.i: 
 
 201:                                              ; preds = %_ZN4core3str7pattern13simd_contains17he1b4c355bd816daaE.exit
   %202 = getelementptr inbounds i8, ptr %7, i64 56
-  %203 = load i64, ptr %202, align 8, !noalias !16, !noundef !16
+  %203 = load i64, ptr %202, align 8, !noundef !16
   %204 = icmp eq i64 %203, -1
   %205 = getelementptr inbounds i8, ptr %7, i64 72
   %206 = load ptr, ptr %205, align 8, !alias.scope !4340, !noalias !4343, !nonnull !16, !align !353, !noundef !16
@@ -22739,7 +22739,7 @@ _ZN4core3str11validations15next_code_point17h34adc5e17767eaceE.exit.thread.i.i: 
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4360)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4363)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4365)
-  %.promoted.i45 = load i64, ptr %213, align 8, !alias.scope !4360, !noalias !4367
+  %.promoted.i45 = load i64, ptr %213, align 8
   %216 = add i64 %.promoted.i45, %214
   %.not3754.i46 = icmp ult i64 %216, %208
   br i1 %.not3754.i46, label %.lr.ph.i49, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h39dd9c4a3b4b9ae9E.exit"
@@ -22851,7 +22851,7 @@ _ZN4core3str11validations15next_code_point17h34adc5e17767eaceE.exit.thread.i.i: 
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4372)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4375)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4377)
-  %.promoted.i40 = load i64, ptr %213, align 8, !alias.scope !4372, !noalias !4379
+  %.promoted.i40 = load i64, ptr %213, align 8
   %271 = add i64 %.promoted.i40, %214
   %.not3754.i = icmp ult i64 %271, %208
   br i1 %.not3754.i, label %.lr.ph.i43, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h39dd9c4a3b4b9ae9E.exit"
@@ -134921,9 +134921,9 @@ attributes #77 = { noreturn }
 !354 = !{!355}
 !355 = distinct !{!355, !356, !"_ZN70_$LT$serde_json..read..SliceRead$u20$as$u20$serde_json..read..Read$GT$4next17ha97a03c6c1145070E.llvm.12777920187102919001: argument 1"}
 !356 = distinct !{!356, !"_ZN70_$LT$serde_json..read..SliceRead$u20$as$u20$serde_json..read..Read$GT$4next17ha97a03c6c1145070E.llvm.12777920187102919001"}
-!357 = !{!358}
+!357 = !{!358, !355}
 !358 = distinct !{!358, !356, !"_ZN70_$LT$serde_json..read..SliceRead$u20$as$u20$serde_json..read..Read$GT$4next17ha97a03c6c1145070E.llvm.12777920187102919001: argument 0"}
-!359 = !{!358, !355}
+!359 = !{!358}
 !360 = !{!361}
 !361 = distinct !{!361, !362, !"_ZN70_$LT$serde_json..read..SliceRead$u20$as$u20$serde_json..read..Read$GT$7discard17h789ec6b7d5f2adc6E.llvm.12777920187102919001: argument 0"}
 !362 = distinct !{!362, !"_ZN70_$LT$serde_json..read..SliceRead$u20$as$u20$serde_json..read..Read$GT$7discard17h789ec6b7d5f2adc6E.llvm.12777920187102919001"}

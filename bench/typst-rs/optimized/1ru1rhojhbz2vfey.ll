@@ -56196,7 +56196,7 @@ define hidden void @"_ZN92_$LT$kurbo..bezpath..Segments$LT$I$GT$$u20$as$u20$core
   br i1 %7, label %"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4d2470f47e56cfbdE.exit.thread", label %"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4d2470f47e56cfbdE.exit.lr.ph"
 
 "_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4d2470f47e56cfbdE.exit.lr.ph": ; preds = %2
-  %.promoted120 = load i64, ptr %1, align 8, !alias.scope !11051, !noalias !11054
+  %.promoted120 = load i64, ptr %1, align 8
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 16
   %.sroa.4.sroa.5.0..sroa.4.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 24
@@ -56206,21 +56206,21 @@ define hidden void @"_ZN92_$LT$kurbo..bezpath..Segments$LT$I$GT$$u20$as$u20$core
 "_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4d2470f47e56cfbdE.exit": ; preds = %"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4d2470f47e56cfbdE.exit.lr.ph", %53
   %8 = phi ptr [ %.promoted, %"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4d2470f47e56cfbdE.exit.lr.ph" ], [ %10, %53 ]
   %9 = phi i64 [ %.promoted120, %"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4d2470f47e56cfbdE.exit.lr.ph" ], [ %22, %53 ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !11056)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !11051)
   %10 = getelementptr inbounds i8, ptr %8, i64 56
-  %.sroa.0.0.copyload2 = load i64, ptr %8, align 8, !noalias !11056
+  %.sroa.0.0.copyload2 = load i64, ptr %8, align 8, !noalias !11051
   %.sroa.83.0..sroa_idx4 = getelementptr inbounds i8, ptr %8, i64 8
-  %.sroa.83.sroa.0.0.copyload = load i64, ptr %.sroa.83.0..sroa_idx4, align 8, !noalias !11056
+  %.sroa.83.sroa.0.0.copyload = load i64, ptr %.sroa.83.0..sroa_idx4, align 8, !noalias !11051
   %.sroa.83.sroa.6.0..sroa.83.0..sroa_idx4.sroa_idx = getelementptr inbounds i8, ptr %8, i64 16
-  %.sroa.83.sroa.6.0.copyload = load i64, ptr %.sroa.83.sroa.6.0..sroa.83.0..sroa_idx4.sroa_idx, align 8, !noalias !11056
+  %.sroa.83.sroa.6.0.copyload = load i64, ptr %.sroa.83.sroa.6.0..sroa.83.0..sroa_idx4.sroa_idx, align 8, !noalias !11051
   %.sroa.83.sroa.7.0..sroa.83.0..sroa_idx4.sroa_idx = getelementptr inbounds i8, ptr %8, i64 24
-  %.sroa.83.sroa.7.0.copyload = load i64, ptr %.sroa.83.sroa.7.0..sroa.83.0..sroa_idx4.sroa_idx, align 8, !noalias !11056
+  %.sroa.83.sroa.7.0.copyload = load i64, ptr %.sroa.83.sroa.7.0..sroa.83.0..sroa_idx4.sroa_idx, align 8, !noalias !11051
   %.sroa.83.sroa.8.0..sroa.83.0..sroa_idx4.sroa_idx = getelementptr inbounds i8, ptr %8, i64 32
-  %.sroa.83.sroa.8.0.copyload = load i64, ptr %.sroa.83.sroa.8.0..sroa.83.0..sroa_idx4.sroa_idx, align 8, !noalias !11056
+  %.sroa.83.sroa.8.0.copyload = load i64, ptr %.sroa.83.sroa.8.0..sroa.83.0..sroa_idx4.sroa_idx, align 8, !noalias !11051
   %.sroa.83.sroa.9.0..sroa.83.0..sroa_idx4.sroa_idx = getelementptr inbounds i8, ptr %8, i64 40
-  %.sroa.83.sroa.9.0.copyload = load i64, ptr %.sroa.83.sroa.9.0..sroa.83.0..sroa_idx4.sroa_idx, align 8, !noalias !11056
+  %.sroa.83.sroa.9.0.copyload = load i64, ptr %.sroa.83.sroa.9.0..sroa.83.0..sroa_idx4.sroa_idx, align 8, !noalias !11051
   %.sroa.83.sroa.10.0..sroa.83.0..sroa_idx4.sroa_idx = getelementptr inbounds i8, ptr %8, i64 48
-  %.sroa.83.sroa.10.0.copyload = load i64, ptr %.sroa.83.sroa.10.0..sroa.83.0..sroa_idx4.sroa_idx, align 8, !noalias !11056
+  %.sroa.83.sroa.10.0.copyload = load i64, ptr %.sroa.83.sroa.10.0..sroa.83.0..sroa_idx4.sroa_idx, align 8, !noalias !11051
   %11 = icmp eq i64 %.sroa.0.0.copyload2, 5
   br i1 %11, label %"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4d2470f47e56cfbdE.exit.thread.sink.split", label %12
 
@@ -56236,7 +56236,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
   br label %23
 
 12:                                               ; preds = %"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4d2470f47e56cfbdE.exit"
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !11051)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !11052)
   %13 = icmp eq i64 %9, 0
   br i1 %13, label %14, label %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h08afd91f127052efE.exit"
 
@@ -56260,27 +56260,27 @@ default.unreachable.i:                            ; preds = %14
 
 17:                                               ; preds = %14
   store ptr %10, ptr %4, align 8, !alias.scope !11044, !noalias !11049
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3), !noalias !11057
-  store ptr @anon.984efe779a4077b66be6415f964eeb42.243, ptr %3, align 8, !noalias !11057
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3), !noalias !11055
+  store ptr @anon.984efe779a4077b66be6415f964eeb42.243, ptr %3, align 8, !noalias !11055
   %18 = getelementptr inbounds i8, ptr %3, i64 8
-  store i64 1, ptr %18, align 8, !noalias !11057
+  store i64 1, ptr %18, align 8, !noalias !11055
   %19 = getelementptr inbounds i8, ptr %3, i64 32
-  store ptr null, ptr %19, align 8, !noalias !11057
+  store ptr null, ptr %19, align 8, !noalias !11055
   %20 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr @anon.984efe779a4077b66be6415f964eeb42.43.llvm.13383457361836014260, ptr %20, align 8, !noalias !11057
+  store ptr @anon.984efe779a4077b66be6415f964eeb42.43.llvm.13383457361836014260, ptr %20, align 8, !noalias !11055
   %21 = getelementptr inbounds i8, ptr %3, i64 24
-  store i64 0, ptr %21, align 8, !noalias !11057
-  call void @_ZN4core9panicking9panic_fmt17hc69c4d258fe11477E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.984efe779a4077b66be6415f964eeb42.244) #64, !noalias !11057
+  store i64 0, ptr %21, align 8, !noalias !11055
+  call void @_ZN4core9panicking9panic_fmt17hc69c4d258fe11477E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.984efe779a4077b66be6415f964eeb42.244) #64, !noalias !11055
   unreachable
 
 "_ZN92_$LT$kurbo..bezpath..Segments$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h8e75542d40cc2344E.exit.i": ; preds = %16, %15, %14, %14
   %.sink4.i.i.sroa.phi.sroa.speculated.in = phi i64 [ %.sroa.83.sroa.9.0.copyload, %16 ], [ %.sroa.83.sroa.7.0.copyload, %15 ], [ %.sroa.83.sroa.0.0.copyload, %14 ], [ %.sroa.83.sroa.0.0.copyload, %14 ]
   %.sink.i.i.sroa.phi.sroa.speculated.in = phi i64 [ %.sroa.83.sroa.10.0.copyload, %16 ], [ %.sroa.83.sroa.8.0.copyload, %15 ], [ %.sroa.83.sroa.6.0.copyload, %14 ], [ %.sroa.83.sroa.6.0.copyload, %14 ]
-  store i64 1, ptr %1, align 8, !alias.scope !11051, !noalias !11054
-  store i64 %.sink4.i.i.sroa.phi.sroa.speculated.in, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !11051, !noalias !11054
-  store i64 %.sink.i.i.sroa.phi.sroa.speculated.in, ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx.i, align 8, !alias.scope !11051, !noalias !11054
-  store i64 %.sink4.i.i.sroa.phi.sroa.speculated.in, ptr %.sroa.4.sroa.5.0..sroa.4.0..sroa_idx.sroa_idx.i, align 8, !alias.scope !11051, !noalias !11054
-  store i64 %.sink.i.i.sroa.phi.sroa.speculated.in, ptr %.sroa.4.sroa.6.0..sroa.4.0..sroa_idx.sroa_idx.i, align 8, !alias.scope !11051, !noalias !11054
+  store i64 1, ptr %1, align 8, !alias.scope !11052, !noalias !11060
+  store i64 %.sink4.i.i.sroa.phi.sroa.speculated.in, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !11052, !noalias !11060
+  store i64 %.sink.i.i.sroa.phi.sroa.speculated.in, ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx.i, align 8, !alias.scope !11052, !noalias !11060
+  store i64 %.sink4.i.i.sroa.phi.sroa.speculated.in, ptr %.sroa.4.sroa.5.0..sroa.4.0..sroa_idx.sroa_idx.i, align 8, !alias.scope !11052, !noalias !11060
+  store i64 %.sink.i.i.sroa.phi.sroa.speculated.in, ptr %.sroa.4.sroa.6.0..sroa.4.0..sroa_idx.sroa_idx.i, align 8, !alias.scope !11052, !noalias !11060
   br label %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h08afd91f127052efE.exit"
 
 "_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h08afd91f127052efE.exit": ; preds = %12, %"_ZN92_$LT$kurbo..bezpath..Segments$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h8e75542d40cc2344E.exit.i"
@@ -209229,16 +209229,16 @@ attributes #69 = { "function-inline-cost-multiplier"="2" }
 !11048 = distinct !{!11048, !"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4d2470f47e56cfbdE"}
 !11049 = !{!11050}
 !11050 = distinct !{!11050, !11048, !"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4d2470f47e56cfbdE: argument 0"}
-!11051 = !{!11052}
-!11052 = distinct !{!11052, !11053, !"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h08afd91f127052efE: argument 0"}
-!11053 = distinct !{!11053, !"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h08afd91f127052efE"}
-!11054 = !{!11055}
-!11055 = distinct !{!11055, !11053, !"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h08afd91f127052efE: argument 1"}
-!11056 = !{!11047}
-!11057 = !{!11058, !11060, !11052, !11055}
-!11058 = distinct !{!11058, !11059, !"_ZN92_$LT$kurbo..bezpath..Segments$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h8e75542d40cc2344E: argument 0"}
-!11059 = distinct !{!11059, !"_ZN92_$LT$kurbo..bezpath..Segments$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h8e75542d40cc2344E"}
-!11060 = distinct !{!11060, !11059, !"_ZN92_$LT$kurbo..bezpath..Segments$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h8e75542d40cc2344E: argument 1"}
+!11051 = !{!11047}
+!11052 = !{!11053}
+!11053 = distinct !{!11053, !11054, !"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h08afd91f127052efE: argument 0"}
+!11054 = distinct !{!11054, !"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h08afd91f127052efE"}
+!11055 = !{!11056, !11058, !11053, !11059}
+!11056 = distinct !{!11056, !11057, !"_ZN92_$LT$kurbo..bezpath..Segments$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h8e75542d40cc2344E: argument 0"}
+!11057 = distinct !{!11057, !"_ZN92_$LT$kurbo..bezpath..Segments$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h8e75542d40cc2344E"}
+!11058 = distinct !{!11058, !11057, !"_ZN92_$LT$kurbo..bezpath..Segments$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h8e75542d40cc2344E: argument 1"}
+!11059 = distinct !{!11059, !11054, !"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h08afd91f127052efE: argument 1"}
+!11060 = !{!11059}
 !11061 = !{!11062}
 !11062 = distinct !{!11062, !11063, !"_ZN152_$LT$palette..oklch..Oklch$LT$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$palette..oklab..Oklab$LT$T$GT$$GT$$GT$20from_color_unclamped17h51486d94aae35b16E: argument 0"}
 !11063 = distinct !{!11063, !"_ZN152_$LT$palette..oklch..Oklch$LT$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$palette..oklab..Oklab$LT$T$GT$$GT$$GT$20from_color_unclamped17h51486d94aae35b16E"}

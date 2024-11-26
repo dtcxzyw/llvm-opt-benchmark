@@ -22759,7 +22759,6 @@ sw.bb72.i:                                        ; preds = %entry
   br label %_ZN5arrow6StatusD2Ev.exit
 
 sw.bb74.i:                                        ; preds = %entry
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !1471)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i158)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp7.i)
   %children_.i.i159 = getelementptr inbounds i8, ptr %0, i64 48
@@ -22802,13 +22801,12 @@ _ZN5arrow6StatusD2Ev.exit.i190:                   ; preds = %_ZN5arrow6StatusD2E
 
 _ZN5arrow12_GLOBAL__N_116NullArrayFactory15GetBufferLength5VisitERKNS_10StructTypeE.exit: ; preds = %_ZN5arrow6StatusD2Ev.exit.i190, %for.cond.i161, %sw.bb74.i
   %storemerge1212 = phi ptr [ null, %sw.bb74.i ], [ %99, %_ZN5arrow6StatusD2Ev.exit.i190 ], [ null, %for.cond.i161 ]
-  store ptr %storemerge1212, ptr %ref.tmp, align 8, !alias.scope !1471
+  store ptr %storemerge1212, ptr %ref.tmp, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i158)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp7.i)
   br label %_ZN5arrow6StatusD2Ev.exit
 
 sw.bb76.i:                                        ; preds = %entry
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !1477)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp15.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp16.i)
   %length_.i97 = getelementptr inbounds i8, ptr %this, i64 8
@@ -22862,13 +22860,12 @@ _ZN5arrow6StatusD2Ev.exit78.i:                    ; preds = %_ZN5arrow6StatusD2E
 
 _ZN5arrow12_GLOBAL__N_116NullArrayFactory15GetBufferLength5VisitERKNS_15SparseUnionTypeE.exit: ; preds = %_ZN5arrow6StatusD2Ev.exit78.i, %for.cond.i122, %do.end6.i
   %storemerge1211 = phi ptr [ null, %do.end6.i ], [ %106, %_ZN5arrow6StatusD2Ev.exit78.i ], [ null, %for.cond.i122 ]
-  store ptr %storemerge1211, ptr %ref.tmp, align 8, !alias.scope !1477
+  store ptr %storemerge1211, ptr %ref.tmp, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp15.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp16.i)
   br label %_ZN5arrow6StatusD2Ev.exit
 
 sw.bb78.i:                                        ; preds = %entry
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !1486)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp36.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp37.i)
   %length_.i51 = getelementptr inbounds i8, ptr %this, i64 8
@@ -22921,7 +22918,7 @@ _ZN5arrow6StatusD2Ev.exit157.i:                   ; preds = %_ZN5arrow6StatusD2E
 
 _ZN5arrow12_GLOBAL__N_116NullArrayFactory15GetBufferLength5VisitERKNS_14DenseUnionTypeE.exit: ; preds = %_ZN5arrow6StatusD2Ev.exit157.i, %for.cond.i, %112
   %storemerge = phi ptr [ null, %112 ], [ %116, %_ZN5arrow6StatusD2Ev.exit157.i ], [ null, %for.cond.i ]
-  store ptr %storemerge, ptr %ref.tmp, align 8, !alias.scope !1486
+  store ptr %storemerge, ptr %ref.tmp, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp36.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp37.i)
   br label %_ZN5arrow6StatusD2Ev.exit

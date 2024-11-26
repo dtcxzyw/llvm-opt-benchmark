@@ -26624,7 +26624,7 @@ define hidden { i64, ptr } @"_ZN81_$LT$slab..IterMut$LT$T$GT$$u20$as$u20$core..i
   %3 = load ptr, ptr %2, align 8, !alias.scope !7795, !nonnull !4, !noundef !4
   %.promoted = load ptr, ptr %0, align 8, !alias.scope !7795
   %4 = getelementptr inbounds i8, ptr %0, i64 16
-  %.promoted7 = load i64, ptr %4, align 8, !alias.scope !7800
+  %.promoted7 = load i64, ptr %4, align 8
   br label %5
 
 5:                                                ; preds = %9, %1

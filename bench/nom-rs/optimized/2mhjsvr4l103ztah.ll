@@ -484,7 +484,7 @@ define { i64, i64 } @"_ZN69_$LT$$RF$str$u20$as$u20$nom..traits..FindSubstring$LT
   br i1 %12, label %"_ZN4core3str21_$LT$impl$u20$str$GT$4find17hc6926125bb80bb2aE.exit", label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i
-  %.promoted.i.i = load i64, ptr %9, align 8, !alias.scope !79, !noalias !82
+  %.promoted.i.i = load i64, ptr %9, align 8, !noalias !68
   %13 = getelementptr inbounds i8, ptr %4, i64 24
   %14 = getelementptr inbounds i8, ptr %4, i64 72
   %15 = load ptr, ptr %14, align 8, !alias.scope !79, !noalias !82, !nonnull !4, !align !5, !noundef !4
@@ -631,7 +631,7 @@ _ZN4core3str11validations15next_code_point17h2946b9a279b50c17E.exit.thread.i.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !94)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !97)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !99)
-  %.promoted.i5.i = load i64, ptr %92, align 8, !alias.scope !94, !noalias !101
+  %.promoted.i5.i = load i64, ptr %92, align 8, !noalias !68
   %95 = add i64 %.promoted.i5.i, %93
   %.not3754.i6.i = icmp ult i64 %95, %87
   br i1 %.not3754.i6.i, label %.lr.ph.i9.i, label %"_ZN4core3str21_$LT$impl$u20$str$GT$4find17hc6926125bb80bb2aE.exit"
@@ -743,7 +743,7 @@ _ZN4core3str11validations15next_code_point17h2946b9a279b50c17E.exit.thread.i.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !107)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !110)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !112)
-  %.promoted.i2.i = load i64, ptr %92, align 8, !alias.scope !107, !noalias !114
+  %.promoted.i2.i = load i64, ptr %92, align 8, !noalias !68
   %150 = add i64 %.promoted.i2.i, %93
   %.not3754.i.i = icmp ult i64 %150, %87
   br i1 %.not3754.i.i, label %.lr.ph.i4.i, label %"_ZN4core3str21_$LT$impl$u20$str$GT$4find17hc6926125bb80bb2aE.exit"

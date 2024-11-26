@@ -30380,12 +30380,11 @@ common.ret:                                       ; preds = %"_ZN4core3ptr112dro
 
 38:                                               ; preds = %45, %35
   %39 = phi ptr [ %46, %45 ], [ %.sroa.2.0.copyload, %35 ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !4682)
   %40 = icmp eq ptr %39, %37
   br i1 %40, label %41, label %45
 
 41:                                               ; preds = %38
-  store ptr %37, ptr %.sroa.8.0..sroa_idx, align 8, !alias.scope !4682
+  store ptr %37, ptr %.sroa.8.0..sroa_idx, align 8
   invoke void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hcf4f418bb3df4887E.llvm.9059106379889279541"(ptr noalias noundef nonnull align 8 dereferenceable(32) %7)
           to label %"_ZN4core3ptr112drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$$GT$17hf6f646f7fb5989afE.exit26" unwind label %42
 
@@ -30409,7 +30408,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr112dro
   br i1 %48, label %38, label %49
 
 49:                                               ; preds = %45
-  store ptr %46, ptr %.sroa.8.0..sroa_idx, align 8, !alias.scope !4682
+  store ptr %46, ptr %.sroa.8.0..sroa_idx, align 8
   invoke void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hcf4f418bb3df4887E.llvm.9059106379889279541"(ptr noalias noundef nonnull align 8 dereferenceable(32) %7)
           to label %"_ZN4core3ptr112drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$$GT$17hf6f646f7fb5989afE.exit26" unwind label %42
 

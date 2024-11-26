@@ -164183,7 +164183,7 @@ select.unfold:                                    ; preds = %11
   store i32 0, ptr %42, align 16, !tbaa !1492
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #58
   %43 = call double @frexp(double noundef %1, ptr noundef nonnull %5) #58
-  %.promoted = load i32, ptr %5, align 4, !tbaa !263
+  %.promoted = load i32, ptr %5, align 4
   %44 = fcmp une double %43, 0.000000e+00
   br i1 %44, label %.lr.ph, label %._crit_edge
 
@@ -165525,7 +165525,7 @@ _ZN5boost14multiprecision8backends13cpp_bin_floatILj100ELNS1_15digit_base_typeE1
 
 _ZN5boost14multiprecision8backends15cpp_int_backendILm668ELm668ELNS0_16cpp_integer_typeE0ELNS0_18cpp_int_check_typeE0EvEaSILm334ELm334ELS3_0ELS4_0EvEERS5_RKNS2_IXT_EXT0_EXT1_EXT2_ET3_EE.exit.loopexit: ; preds = %.lr.ph.i.i, %.lr.ph, %.lr.ph.i.i.preheader
   %121 = phi i64 [ %.promoted.i.i, %.lr.ph.i.i.preheader ], [ %119, %.lr.ph.i.i ], [ 1, %.lr.ph ]
-  store i64 %121, ptr %20, align 16, !tbaa !2613
+  store i64 %121, ptr %20, align 16
   br label %_ZN5boost14multiprecision8backends15cpp_int_backendILm668ELm668ELNS0_16cpp_integer_typeE0ELNS0_18cpp_int_check_typeE0EvEaSILm334ELm334ELS3_0ELS4_0EvEERS5_RKNS2_IXT_EXT0_EXT1_EXT2_ET3_EE.exit
 
 _ZN5boost14multiprecision8backends15cpp_int_backendILm668ELm668ELNS0_16cpp_integer_typeE0ELNS0_18cpp_int_check_typeE0EvEaSILm334ELm334ELS3_0ELS4_0EvEERS5_RKNS2_IXT_EXT0_EXT1_EXT2_ET3_EE.exit: ; preds = %_ZN5boost14multiprecision8backends15cpp_int_backendILm668ELm668ELNS0_16cpp_integer_typeE0ELNS0_18cpp_int_check_typeE0EvEaSILm334ELm334ELS3_0ELS4_0EvEERS5_RKNS2_IXT_EXT0_EXT1_EXT2_ET3_EE.exit.loopexit, %104
@@ -166002,7 +166002,7 @@ _ZNK5boost14multiprecision8backends15cpp_int_backendILm334ELm334ELNS0_16cpp_inte
 
 _ZN5boost14multiprecision8backends15cpp_int_backendILm668ELm668ELNS0_16cpp_integer_typeE0ELNS0_18cpp_int_check_typeE0EvEaSILm334ELm334ELS3_0ELS4_0EvEERS5_RKNS2_IXT_EXT0_EXT1_EXT2_ET3_EE.exit.loopexit: ; preds = %.lr.ph.i.i, %.lr.ph138, %.lr.ph.i.i.preheader
   %174 = phi i64 [ %.promoted.i.i, %.lr.ph.i.i.preheader ], [ %172, %.lr.ph.i.i ], [ 1, %.lr.ph138 ]
-  store i64 %174, ptr %7, align 16, !tbaa !2613
+  store i64 %174, ptr %7, align 16
   br label %_ZN5boost14multiprecision8backends15cpp_int_backendILm668ELm668ELNS0_16cpp_integer_typeE0ELNS0_18cpp_int_check_typeE0EvEaSILm334ELm334ELS3_0ELS4_0EvEERS5_RKNS2_IXT_EXT0_EXT1_EXT2_ET3_EE.exit
 
 _ZN5boost14multiprecision8backends15cpp_int_backendILm668ELm668ELNS0_16cpp_integer_typeE0ELNS0_18cpp_int_check_typeE0EvEaSILm334ELm334ELS3_0ELS4_0EvEERS5_RKNS2_IXT_EXT0_EXT1_EXT2_ET3_EE.exit: ; preds = %_ZN5boost14multiprecision8backends15cpp_int_backendILm668ELm668ELNS0_16cpp_integer_typeE0ELNS0_18cpp_int_check_typeE0EvEaSILm334ELm334ELS3_0ELS4_0EvEERS5_RKNS2_IXT_EXT0_EXT1_EXT2_ET3_EE.exit.loopexit, %_ZNK5boost14multiprecision8backends15cpp_int_backendILm334ELm334ELNS0_16cpp_integer_typeE0ELNS0_18cpp_int_check_typeE0EvE7compareILm334ELm334ELS3_0ELS4_0EvEEiRKNS2_IXT_EXT0_EXT1_EXT2_ET3_EE.exit.thread
@@ -166213,7 +166213,7 @@ _ZNK5boost14multiprecision8backends15cpp_int_backendILm334ELm334ELNS0_16cpp_inte
 
 _ZN5boost14multiprecision8backends15cpp_int_backendILm668ELm668ELNS0_16cpp_integer_typeE0ELNS0_18cpp_int_check_typeE0EvEaSILm334ELm334ELS3_0ELS4_0EvEERS5_RKNS2_IXT_EXT0_EXT1_EXT2_ET3_EE.exit118.loopexit: ; preds = %.lr.ph.i.i115, %.lr.ph, %.lr.ph.i.i115.preheader
   %260 = phi i64 [ %.promoted.i.i113, %.lr.ph.i.i115.preheader ], [ %258, %.lr.ph.i.i115 ], [ 1, %.lr.ph ]
-  store i64 %260, ptr %7, align 16, !tbaa !2613
+  store i64 %260, ptr %7, align 16
   br label %_ZN5boost14multiprecision8backends15cpp_int_backendILm668ELm668ELNS0_16cpp_integer_typeE0ELNS0_18cpp_int_check_typeE0EvEaSILm334ELm334ELS3_0ELS4_0EvEERS5_RKNS2_IXT_EXT0_EXT1_EXT2_ET3_EE.exit118
 
 _ZN5boost14multiprecision8backends15cpp_int_backendILm668ELm668ELNS0_16cpp_integer_typeE0ELNS0_18cpp_int_check_typeE0EvEaSILm334ELm334ELS3_0ELS4_0EvEERS5_RKNS2_IXT_EXT0_EXT1_EXT2_ET3_EE.exit118: ; preds = %_ZN5boost14multiprecision8backends15cpp_int_backendILm668ELm668ELNS0_16cpp_integer_typeE0ELNS0_18cpp_int_check_typeE0EvEaSILm334ELm334ELS3_0ELS4_0EvEERS5_RKNS2_IXT_EXT0_EXT1_EXT2_ET3_EE.exit118.loopexit, %_ZNK5boost14multiprecision8backends15cpp_int_backendILm334ELm334ELNS0_16cpp_integer_typeE0ELNS0_18cpp_int_check_typeE0EvE7compareILm334ELm334ELS3_0ELS4_0EvEEiRKNS2_IXT_EXT0_EXT1_EXT2_ET3_EE.exit

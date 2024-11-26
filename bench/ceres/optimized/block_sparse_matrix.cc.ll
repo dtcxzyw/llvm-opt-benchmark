@@ -10393,13 +10393,13 @@ _ZN5Eigen8internal21dense_assignment_loopINS0_31generic_dense_assignment_kernelI
   %120 = fadd double %118, %119
   store double %120, ptr %gep.us.us, align 8
   %121 = add nuw nsw i64 %.09.i.i.us.us, 1
-  %exitcond139.not = icmp eq i64 %121, %67
-  br i1 %exitcond139.not, label %._crit_edge.i.i.loopexit.us.us, label %.lr.ph.i.i.us.us, !llvm.loop !123
+  %exitcond137.not = icmp eq i64 %121, %67
+  br i1 %exitcond137.not, label %._crit_edge.i.i.loopexit.us.us, label %.lr.ph.i.i.us.us, !llvm.loop !123
 
 ._crit_edge.i.i.loopexit.us.us:                   ; preds = %.lr.ph.i.i.us.us
   %122 = add nuw nsw i64 %.0810.i.i.us.us, 1
-  %exitcond140.not = icmp eq i64 %122, %52
-  br i1 %exitcond140.not, label %_ZN5Eigen8internal21dense_assignment_loopINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELin1ELb0EEEEENS3_INS_3MapIS6_Li0ENS_6StrideILi0ELi0EEEEEEENS0_13add_assign_opIddEELi0EEELi4ELi0EE3runERSG_.exit.us, label %.preheader.i.i.us.us, !llvm.loop !124
+  %exitcond138.not = icmp eq i64 %122, %52
+  br i1 %exitcond138.not, label %_ZN5Eigen8internal21dense_assignment_loopINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELin1ELb0EEEEENS3_INS_3MapIS6_Li0ENS_6StrideILi0ELi0EEEEEEENS0_13add_assign_opIddEELi0EEELi4ELi0EE3runERSG_.exit.us, label %.preheader.i.i.us.us, !llvm.loop !124
 
 ._crit_edge.loopexit:                             ; preds = %_ZN5Eigen8internal21dense_assignment_loopINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELin1ELb0EEEEENS3_INS_3MapIS6_Li0ENS_6StrideILi0ELi0EEEEEEENS0_13add_assign_opIddEELi0EEELi4ELi0EE3runERSG_.exit.us
   %.pre = load ptr, ptr %33, align 8

@@ -25495,9 +25495,9 @@ define hidden void @"_ZN9hashbrown3raw16RawIter$LT$T$GT$13drop_elements17h3129a5
 .preheader:                                       ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   %.promoted = load i16, ptr %5, align 8, !alias.scope !5539
-  %.promoted8 = load ptr, ptr %0, align 8, !alias.scope !5539
+  %.promoted8 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
-  %.promoted12 = load ptr, ptr %6, align 8, !alias.scope !5539
+  %.promoted12 = load ptr, ptr %6, align 8
   br label %7
 
 .loopexit:                                        ; preds = %"_ZN4core3ptr65drop_in_place$LT$$LP$$RF$str$C$alloc..vec..Vec$LT$u64$GT$$RP$$GT$17he51b5753fe599cb8E.llvm.11168716501430035125.exit", %1
@@ -25573,9 +25573,9 @@ define hidden void @"_ZN9hashbrown3raw16RawIter$LT$T$GT$13drop_elements17h6b97f9
 .preheader:                                       ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   %.promoted = load i16, ptr %5, align 8, !alias.scope !5563
-  %.promoted11 = load ptr, ptr %0, align 8, !alias.scope !5563
+  %.promoted11 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
-  %.promoted15 = load ptr, ptr %6, align 8, !alias.scope !5563
+  %.promoted15 = load ptr, ptr %6, align 8
   br label %7
 
 .loopexit:                                        ; preds = %"_ZN4core3ptr135drop_in_place$LT$$LP$gpui..app..entity_map..EntityId$C$alloc..boxed..Box$LT$dyn$u20$workspace..item..SerializableItemHandle$GT$$RP$$GT$17h2443a59d90f30bb1E.llvm.11168716501430035125.exit", %1
@@ -25745,9 +25745,9 @@ define hidden void @"_ZN9hashbrown3raw16RawIter$LT$T$GT$13drop_elements17h7a5f1c
 .preheader:                                       ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   %.promoted = load i16, ptr %5, align 8, !alias.scope !5588
-  %.promoted11 = load ptr, ptr %0, align 8, !alias.scope !5588
+  %.promoted11 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
-  %.promoted15 = load ptr, ptr %6, align 8, !alias.scope !5588
+  %.promoted15 = load ptr, ptr %6, align 8
   br label %7
 
 .loopexit:                                        ; preds = %"_ZN4core3ptr72drop_in_place$LT$$LP$workspace..ViewId$C$workspace..FollowerView$RP$$GT$17h524df2edc1d463e4E.llvm.11168716501430035125.exit", %1

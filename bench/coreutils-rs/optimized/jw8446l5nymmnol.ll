@@ -194,7 +194,7 @@ define void @"_ZN6uu_seq11numberparse86_$LT$impl$u20$core..str..traits..FromStr$
   br i1 %32, label %.thread, label %.lr.ph.i.i47
 
 .lr.ph.i.i47:                                     ; preds = %.preheader.i.i
-  %.promoted.i.i = load i64, ptr %29, align 8, !alias.scope !46, !noalias !49
+  %.promoted.i.i = load i64, ptr %29, align 8, !noalias !36
   %33 = getelementptr inbounds i8, ptr %6, i64 24
   %34 = getelementptr inbounds i8, ptr %6, i64 72
   %35 = load ptr, ptr %34, align 8, !alias.scope !46, !noalias !49, !nonnull !21, !align !51, !noundef !21
@@ -341,7 +341,7 @@ _ZN4core3str11validations15next_code_point17h310ea74bb047660dE.exit.thread.i.i.i
   call void @llvm.experimental.noalias.scope.decl(metadata !62)
   call void @llvm.experimental.noalias.scope.decl(metadata !65)
   call void @llvm.experimental.noalias.scope.decl(metadata !67)
-  %.promoted.i5.i = load i64, ptr %112, align 8, !alias.scope !62, !noalias !69
+  %.promoted.i5.i = load i64, ptr %112, align 8, !noalias !36
   %115 = add i64 %.promoted.i5.i, %113
   %.not3754.i6.i = icmp ult i64 %115, %107
   br i1 %.not3754.i6.i, label %.lr.ph.i9.i, label %.thread
@@ -444,7 +444,7 @@ _ZN4core3str11validations15next_code_point17h310ea74bb047660dE.exit.thread.i.i.i
   call void @llvm.experimental.noalias.scope.decl(metadata !74)
   call void @llvm.experimental.noalias.scope.decl(metadata !77)
   call void @llvm.experimental.noalias.scope.decl(metadata !79)
-  %.promoted.i2.i = load i64, ptr %112, align 8, !alias.scope !74, !noalias !81
+  %.promoted.i2.i = load i64, ptr %112, align 8, !noalias !36
   %168 = add i64 %.promoted.i2.i, %113
   %.not3754.i.i = icmp ult i64 %168, %107
   br i1 %.not3754.i.i, label %.lr.ph.i4.i, label %.thread

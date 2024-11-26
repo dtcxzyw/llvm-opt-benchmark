@@ -1998,7 +1998,7 @@ define hidden void @"_ZN137_$LT$alloc..collections..btree..dedup_sorted_iter..De
   %10 = getelementptr inbounds i8, ptr %3, i64 8
   %11 = getelementptr inbounds i8, ptr %3, i64 16
   %12 = getelementptr inbounds i8, ptr %4, i64 24
-  %.promoted27 = load ptr, ptr %7, align 8, !noalias !4
+  %.promoted27 = load ptr, ptr %7, align 8
   br label %13
 
 13:                                               ; preds = %"_ZN4core3ptr77drop_in_place$LT$$LP$alloc..string..String$C$just..justfile..Justfile$RP$$GT$17h1f7fb1894065ae05E.exit", %2
@@ -2152,7 +2152,7 @@ define hidden void @"_ZN137_$LT$alloc..collections..btree..dedup_sorted_iter..De
   %17 = getelementptr inbounds i8, ptr %1, i64 16
   %18 = getelementptr inbounds i8, ptr %3, i64 8
   %19 = getelementptr inbounds i8, ptr %3, i64 16
-  %.promoted28 = load ptr, ptr %7, align 8, !noalias !4
+  %.promoted28 = load ptr, ptr %7, align 8
   br label %20
 
 20:                                               ; preds = %"_ZN4core3ptr103drop_in_place$LT$$LP$just..attribute..Attribute$C$alloc..collections..btree..set_val..SetValZST$RP$$GT$17h029c3e84f1c03636E.exit", %2
@@ -2345,7 +2345,7 @@ define hidden void @"_ZN137_$LT$alloc..collections..btree..dedup_sorted_iter..De
   %10 = getelementptr inbounds i8, ptr %3, i64 8
   %11 = getelementptr inbounds i8, ptr %3, i64 16
   %12 = getelementptr inbounds i8, ptr %4, i64 24
-  %.promoted27 = load ptr, ptr %7, align 8, !noalias !4
+  %.promoted27 = load ptr, ptr %7, align 8
   br label %13
 
 13:                                               ; preds = %"_ZN4core3ptr74drop_in_place$LT$$LP$alloc..string..String$C$just..summary..Recipe$RP$$GT$17h639164587648b748E.exit", %2
@@ -2492,7 +2492,7 @@ define hidden void @"_ZN137_$LT$alloc..collections..btree..dedup_sorted_iter..De
   %10 = getelementptr inbounds i8, ptr %3, i64 8
   %11 = getelementptr inbounds i8, ptr %3, i64 16
   %12 = getelementptr inbounds i8, ptr %4, i64 24
-  %.promoted27 = load ptr, ptr %7, align 8, !noalias !4
+  %.promoted27 = load ptr, ptr %7, align 8
   br label %13
 
 13:                                               ; preds = %"_ZN4core3ptr78drop_in_place$LT$$LP$alloc..string..String$C$just..summary..Assignment$RP$$GT$17h20045dc26a259341E.exit", %2

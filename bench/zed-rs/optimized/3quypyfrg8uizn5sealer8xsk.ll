@@ -12869,7 +12869,7 @@ define internal fastcc void @"_ZN14event_listener3sys14Inner$LT$T$GT$6notify17hf
   %12 = getelementptr inbounds i8, ptr %1, i64 9
   %13 = getelementptr inbounds i8, ptr %0, i64 32
   %.promoted = load ptr, ptr %11, align 8
-  %.promoted20 = load i8, ptr %12, align 1, !alias.scope !3041
+  %.promoted20 = load i8, ptr %12, align 1
   %.promoted21 = load i64, ptr %13, align 8
   %14 = trunc nuw i8 %.promoted20 to i1
   br label %17
@@ -12894,14 +12894,14 @@ define internal fastcc void @"_ZN14event_listener3sys14Inner$LT$T$GT$6notify17hf
   %23 = getelementptr inbounds i8, ptr %19, i64 32
   %24 = load ptr, ptr %23, align 8, !noundef !4
   store ptr %24, ptr %11, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !3048)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !3049)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !3050)
-  store i8 0, ptr %12, align 1, !alias.scope !3041
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !3041)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !3044)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !3047)
+  store i8 0, ptr %12, align 1, !alias.scope !3050
   br i1 %trunc.i.i.i, label %"_ZN110_$LT$event_listener..notify..GenericNotify$LT$F$GT$$u20$as$u20$event_listener..notify..NotificationPrivate$GT$8next_tag17h2da68787b20fd50dE.exit", label %25
 
 25:                                               ; preds = %22
-  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.7b98d0e137aa99e52c98ecdb2a3212e0.142.llvm.4982356907791861978, i64 noundef 17, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.7b98d0e137aa99e52c98ecdb2a3212e0.143.llvm.4982356907791861978) #37, !noalias !3041
+  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.7b98d0e137aa99e52c98ecdb2a3212e0.142.llvm.4982356907791861978, i64 noundef 17, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.7b98d0e137aa99e52c98ecdb2a3212e0.143.llvm.4982356907791861978) #37, !noalias !3050
   unreachable
 
 "_ZN110_$LT$event_listener..notify..GenericNotify$LT$F$GT$$u20$as$u20$event_listener..notify..NotificationPrivate$GT$8next_tag17h2da68787b20fd50dE.exit": ; preds = %22
@@ -49998,16 +49998,16 @@ attributes #40 = { noreturn nounwind }
 !3038 = !{!3039}
 !3039 = distinct !{!3039, !3040, !"_ZN79_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..borrow..Borrow$LT$T$GT$$GT$6borrow17hd43f52d1771fe826E.llvm.4982356907791861978: argument 0"}
 !3040 = distinct !{!3040, !"_ZN79_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..borrow..Borrow$LT$T$GT$$GT$6borrow17hd43f52d1771fe826E.llvm.4982356907791861978"}
-!3041 = !{!3042, !3044, !3046}
-!3042 = distinct !{!3042, !3043, !"_ZN14event_listener3sys14Inner$LT$T$GT$6remove28_$u7b$$u7b$closure$u7d$$u7d$17h585eff67e86f8d90E.llvm.4982356907791861978: argument 0"}
-!3043 = distinct !{!3043, !"_ZN14event_listener3sys14Inner$LT$T$GT$6remove28_$u7b$$u7b$closure$u7d$$u7d$17h585eff67e86f8d90E.llvm.4982356907791861978"}
-!3044 = distinct !{!3044, !3045, !"_ZN57_$LT$F$u20$as$u20$event_listener..notify..TagProducer$GT$8next_tag17h50ea3145508d82beE: argument 0"}
-!3045 = distinct !{!3045, !"_ZN57_$LT$F$u20$as$u20$event_listener..notify..TagProducer$GT$8next_tag17h50ea3145508d82beE"}
-!3046 = distinct !{!3046, !3047, !"_ZN110_$LT$event_listener..notify..GenericNotify$LT$F$GT$$u20$as$u20$event_listener..notify..NotificationPrivate$GT$8next_tag17h2da68787b20fd50dE: argument 0"}
-!3047 = distinct !{!3047, !"_ZN110_$LT$event_listener..notify..GenericNotify$LT$F$GT$$u20$as$u20$event_listener..notify..NotificationPrivate$GT$8next_tag17h2da68787b20fd50dE"}
-!3048 = !{!3046}
-!3049 = !{!3044}
-!3050 = !{!3042}
+!3041 = !{!3042}
+!3042 = distinct !{!3042, !3043, !"_ZN110_$LT$event_listener..notify..GenericNotify$LT$F$GT$$u20$as$u20$event_listener..notify..NotificationPrivate$GT$8next_tag17h2da68787b20fd50dE: argument 0"}
+!3043 = distinct !{!3043, !"_ZN110_$LT$event_listener..notify..GenericNotify$LT$F$GT$$u20$as$u20$event_listener..notify..NotificationPrivate$GT$8next_tag17h2da68787b20fd50dE"}
+!3044 = !{!3045}
+!3045 = distinct !{!3045, !3046, !"_ZN57_$LT$F$u20$as$u20$event_listener..notify..TagProducer$GT$8next_tag17h50ea3145508d82beE: argument 0"}
+!3046 = distinct !{!3046, !"_ZN57_$LT$F$u20$as$u20$event_listener..notify..TagProducer$GT$8next_tag17h50ea3145508d82beE"}
+!3047 = !{!3048}
+!3048 = distinct !{!3048, !3049, !"_ZN14event_listener3sys14Inner$LT$T$GT$6remove28_$u7b$$u7b$closure$u7d$$u7d$17h585eff67e86f8d90E.llvm.4982356907791861978: argument 0"}
+!3049 = distinct !{!3049, !"_ZN14event_listener3sys14Inner$LT$T$GT$6remove28_$u7b$$u7b$closure$u7d$$u7d$17h585eff67e86f8d90E.llvm.4982356907791861978"}
+!3050 = !{!3048, !3045, !3042}
 !3051 = !{!3052}
 !3052 = distinct !{!3052, !3053, !"_ZN4core3ptr58drop_in_place$LT$event_listener..State$LT$$LP$$RP$$GT$$GT$17h360263c17f5d3c25E.llvm.4982356907791861978: argument 0"}
 !3053 = distinct !{!3053, !"_ZN4core3ptr58drop_in_place$LT$event_listener..State$LT$$LP$$RP$$GT$$GT$17h360263c17f5d3c25E.llvm.4982356907791861978"}

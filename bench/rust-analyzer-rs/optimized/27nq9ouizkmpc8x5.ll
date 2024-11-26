@@ -1955,7 +1955,7 @@ _ZN6parser6parser6Parser2at17h7ee6f9696108a2acE.exit135: ; preds = %274
   br i1 %277, label %373, label %272
 
 373:                                              ; preds = %_ZN6parser6parser6Parser2at17h7ee6f9696108a2acE.exit135
-  store i64 %372, ptr %35, align 8, !alias.scope !323, !noalias !189
+  store i64 %372, ptr %35, align 8
   %374 = getelementptr inbounds i8, ptr %1, i64 16
   %375 = load i64, ptr %374, align 8, !alias.scope !380, !noalias !383, !noundef !4
   %376 = load i64, ptr %1, align 8, !alias.scope !385, !noalias !390, !noundef !4

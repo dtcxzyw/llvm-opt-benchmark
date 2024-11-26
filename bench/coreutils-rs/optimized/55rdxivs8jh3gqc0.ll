@@ -104,7 +104,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator4fold17hb00d8e975f2b4e
   br i1 %.not.i.i.i, label %.lr.ph.split.us, label %.lr.ph.split.preheader, !prof !4
 
 .lr.ph.split.preheader:                           ; preds = %.lr.ph
-  %.promoted12 = load ptr, ptr %0, align 8, !alias.scope !25
+  %.promoted12 = load ptr, ptr %0, align 8
   br label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph

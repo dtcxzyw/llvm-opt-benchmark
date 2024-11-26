@@ -1552,9 +1552,9 @@ if.else.i.i.i:                                    ; preds = %for.body.i
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.else.i.i.i
-  store ptr %incdec.ptr.i.i.i.i11, ptr %_M_finish.i.i.i, align 8, !tbaa !48
-  store ptr %2, ptr %_M_end_of_storage.i.i, align 8, !tbaa !42
-  store ptr %cond.i10.i.i.i.i17, ptr %agg.result, align 8, !tbaa !40
+  store ptr %incdec.ptr.i.i.i.i11, ptr %_M_finish.i.i.i, align 8
+  store ptr %2, ptr %_M_end_of_storage.i.i, align 8
+  store ptr %cond.i10.i.i.i.i17, ptr %agg.result, align 8
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.17) #23
           to label %.noexc2 unwind label %lpad.loopexit.split-lp
 
@@ -1613,9 +1613,9 @@ _ZNSt20back_insert_iteratorISt6vectorIdSaIdEEEaSERKd.exit.i: ; preds = %_ZNSt6ve
 lpad.loopexit:                                    ; preds = %cond.true.i.i.i.i.i
   %lpad.loopexit9 = landingpad { ptr, i32 }
           cleanup
-  store ptr %incdec.ptr.i.i.i.i11, ptr %_M_finish.i.i.i, align 8, !tbaa !48
-  store ptr %2, ptr %_M_end_of_storage.i.i, align 8, !tbaa !42
-  store ptr %cond.i10.i.i.i.i17, ptr %agg.result, align 8, !tbaa !40
+  store ptr %incdec.ptr.i.i.i.i11, ptr %_M_finish.i.i.i, align 8
+  store ptr %2, ptr %_M_end_of_storage.i.i, align 8
+  store ptr %cond.i10.i.i.i.i17, ptr %agg.result, align 8
   br label %lpad
 
 lpad.loopexit.split-lp:                           ; preds = %if.then.i, %_ZNSt12_Vector_baseIdSaIdEE11_M_allocateEm.exit.i, %if.then.i.i.i.i.i
@@ -1643,9 +1643,9 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %lpad, %if.then.i.i.
   resume { ptr, i32 } %lpad.phi
 
 nrvo.skipdtor.loopexit:                           ; preds = %_ZNSt20back_insert_iteratorISt6vectorIdSaIdEEEaSERKd.exit.i
-  store ptr %incdec.ptr.i.i.i.i12, ptr %_M_finish.i.i.i, align 8, !tbaa !48
-  store ptr %6, ptr %_M_end_of_storage.i.i, align 8, !tbaa !42
-  store ptr %cond.i10.i.i.i.i16, ptr %agg.result, align 8, !tbaa !40
+  store ptr %incdec.ptr.i.i.i.i12, ptr %_M_finish.i.i.i, align 8
+  store ptr %6, ptr %_M_end_of_storage.i.i, align 8
+  store ptr %cond.i10.i.i.i.i16, ptr %agg.result, align 8
   br label %nrvo.skipdtor
 
 nrvo.skipdtor:                                    ; preds = %nrvo.skipdtor.loopexit, %invoke.cont7

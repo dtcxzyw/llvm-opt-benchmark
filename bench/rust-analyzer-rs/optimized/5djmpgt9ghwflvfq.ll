@@ -49349,7 +49349,7 @@ define hidden void @"_ZN99_$LT$serde..__private..de..content..TaggedContentVisit
   %.sroa.443.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 48
   %21 = getelementptr inbounds i8, ptr %8, i64 8
   %22 = getelementptr inbounds i8, ptr %8, i64 1
-  %.promoted92 = load ptr, ptr %19, align 8, !noalias !12
+  %.promoted92 = load ptr, ptr %19, align 8
   %.pre = load ptr, ptr %18, align 8, !alias.scope !10961, !noalias !10966
   %.sroa.6.sroa.5.0..sroa.6.0..sroa_idx6.sroa_idx = getelementptr inbounds i8, ptr %7, i64 8
   %.sroa.6.sroa.6.0..sroa.6.0..sroa_idx6.sroa_idx = getelementptr inbounds i8, ptr %7, i64 16

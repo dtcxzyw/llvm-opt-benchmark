@@ -29102,7 +29102,7 @@ define internal fastcc noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterato
   %3 = load i64, ptr %2, align 8, !range !6010, !alias.scope !6011, !noundef !4
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %.promoted = load i64, ptr %4, align 8, !alias.scope !6011
-  %.promoted12 = load ptr, ptr %0, align 8, !alias.scope !6011
+  %.promoted12 = load ptr, ptr %0, align 8
   %5 = icmp ugt i64 %3, 1
   br i1 %5, label %.split.us, label %.split, !prof !25
 
@@ -29149,7 +29149,7 @@ define internal fastcc noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterato
   %3 = load i64, ptr %2, align 8, !range !6010, !alias.scope !6021, !noundef !4
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %.promoted = load i64, ptr %4, align 8, !alias.scope !6021
-  %.promoted12 = load ptr, ptr %0, align 8, !alias.scope !6021
+  %.promoted12 = load ptr, ptr %0, align 8
   %5 = icmp ugt i64 %3, 1
   br i1 %5, label %.split.us, label %.split, !prof !25
 

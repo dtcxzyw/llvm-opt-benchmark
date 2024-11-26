@@ -10931,6 +10931,7 @@ if.end:                                           ; preds = %if.else, %if.then
   br i1 %cmp10.not157, label %do.body, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.end
+  %this.promoted = load double, ptr %this, align 8
   %sub = fsub double %0, %xMin_19.promoted
   %fxMax_12 = getelementptr inbounds nuw i8, ptr %this, i64 32
   %xMin_19 = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -10953,7 +10954,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %21 = phi i64 [ %inc, %while.body.lr.ph ], [ %inc126, %_ZNK8QuantLib15BlackKarasinski6HelperclEd.exit105 ]
   %22 = phi double [ %xMin_19.promoted, %while.body.lr.ph ], [ %32, %_ZNK8QuantLib15BlackKarasinski6HelperclEd.exit105 ]
   %23 = phi double [ %fxMin_.promoted, %while.body.lr.ph ], [ %froot.1, %_ZNK8QuantLib15BlackKarasinski6HelperclEd.exit105 ]
-  %storemerge156158 = phi double [ %0, %while.body.lr.ph ], [ %storemerge, %_ZNK8QuantLib15BlackKarasinski6HelperclEd.exit105 ]
+  %storemerge156158 = phi double [ %this.promoted, %while.body.lr.ph ], [ %storemerge, %_ZNK8QuantLib15BlackKarasinski6HelperclEd.exit105 ]
   %cmp11 = fcmp ogt double %froot.0159, 0.000000e+00
   %24 = load double, ptr %fxMax_12, align 8
   %cmp13 = fcmp ogt double %24, 0.000000e+00

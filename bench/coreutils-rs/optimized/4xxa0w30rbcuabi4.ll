@@ -664,7 +664,7 @@ define internal fastcc void @"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u
   br i1 %7, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17h61fa6180c96ad587E.exit.thread7", label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %.promoted = load i64, ptr %4, align 8, !alias.scope !64, !noalias !67
+  %.promoted = load i64, ptr %4, align 8
   %8 = getelementptr inbounds i8, ptr %1, i64 24
   %9 = getelementptr inbounds i8, ptr %1, i64 72
   %10 = load ptr, ptr %9, align 8, !alias.scope !64, !noalias !67, !nonnull !12, !align !13, !noundef !12
@@ -6255,7 +6255,7 @@ thread-pre-split:                                 ; preds = %.thread-pre-split_c
 
 _ZN7uu_more5Pager7page_up17h506a6c9f69f93a57E.exit.loopexit: ; preds = %1145, %"_ZN115_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h09615b13c2367198E.exit.i", %1131, %.lr.ph.i
   %1148 = phi i64 [ %1121, %.lr.ph.i ], [ %1146, %1131 ], [ %1139, %"_ZN115_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h09615b13c2367198E.exit.i" ], [ %1146, %1145 ]
-  store i64 %1148, ptr %734, align 8, !alias.scope !1178
+  store i64 %1148, ptr %734, align 8
   br label %_ZN7uu_more5Pager7page_up17h506a6c9f69f93a57E.exit
 
 _ZN7uu_more5Pager7page_up17h506a6c9f69f93a57E.exit: ; preds = %_ZN7uu_more5Pager7page_up17h506a6c9f69f93a57E.exit.loopexit, %1115

@@ -6898,8 +6898,8 @@ define hidden noundef ptr @_ZN6flate22gz14GzHeaderParser5parse17h25d0561a0c77661
   %.pre = load i8, ptr %5, align 8, !range !520
   %22 = getelementptr inbounds i8, ptr %0, i64 16
   %23 = getelementptr inbounds i8, ptr %0, i64 8
-  %.promoted373 = load ptr, ptr %1, align 8, !noalias !4
-  %.promoted = load i64, ptr %9, align 8, !noalias !4
+  %.promoted373 = load ptr, ptr %1, align 8
+  %.promoted = load i64, ptr %9, align 8
   br label %.backedge.outer
 
 .backedge.outer:                                  ; preds = %.backedge.outer.backedge, %2

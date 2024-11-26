@@ -325,7 +325,7 @@ define hidden noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$11p
   %9 = load i64, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 24
   %11 = load ptr, ptr %10, align 8, !nonnull !12, !align !14
-  %.promoted = load i64, ptr %7, align 8, !alias.scope !50, !noalias !55
+  %.promoted = load i64, ptr %7, align 8
   br label %12
 
 12:                                               ; preds = %19, %3
@@ -335,8 +335,8 @@ define hidden noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$11p
   br i1 %14, label %.loopexit, label %15
 
 15:                                               ; preds = %12
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !58)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !59)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !50)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !53)
   %16 = icmp ult i64 %13, %9
   br i1 %16, label %19, label %17
 
@@ -354,9 +354,9 @@ define hidden noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$11p
 19:                                               ; preds = %15
   %20 = getelementptr inbounds i8, ptr %.sroa.0.0, i64 1
   %21 = getelementptr inbounds [0 x i8], ptr %11, i64 0, i64 %13
-  %22 = load i8, ptr %21, align 1, !noalias !60, !noundef !12
+  %22 = load i8, ptr %21, align 1, !noalias !56, !noundef !12
   %23 = add nuw i64 %13, 1
-  store i64 %23, ptr %7, align 8, !alias.scope !50, !noalias !55
+  store i64 %23, ptr %7, align 8, !alias.scope !59, !noalias !60
   %24 = load i8, ptr %.sroa.0.0, align 1, !noundef !12
   %.not = icmp eq i8 %22, %24
   br i1 %.not, label %12, label %25
@@ -7832,17 +7832,17 @@ attributes #35 = { nounwind }
 !47 = distinct !{!47, !"_ZN5serde2de7Visitor9visit_i6417h6db41e390125f990E"}
 !48 = distinct !{!48, !47, !"_ZN5serde2de7Visitor9visit_i6417h6db41e390125f990E: argument 1"}
 !49 = !{!46}
-!50 = !{!51, !53}
-!51 = distinct !{!51, !52, !"_ZN70_$LT$serde_json..read..SliceRead$u20$as$u20$serde_json..read..Read$GT$4next17h70383539cf2b08e4E.llvm.5232973679748665674: argument 1"}
-!52 = distinct !{!52, !"_ZN70_$LT$serde_json..read..SliceRead$u20$as$u20$serde_json..read..Read$GT$4next17h70383539cf2b08e4E.llvm.5232973679748665674"}
-!53 = distinct !{!53, !54, !"_ZN68_$LT$serde_json..read..StrRead$u20$as$u20$serde_json..read..Read$GT$4next17hadd9fd9cc0955662E.llvm.5232973679748665674: argument 1"}
-!54 = distinct !{!54, !"_ZN68_$LT$serde_json..read..StrRead$u20$as$u20$serde_json..read..Read$GT$4next17hadd9fd9cc0955662E.llvm.5232973679748665674"}
-!55 = !{!56, !57}
-!56 = distinct !{!56, !52, !"_ZN70_$LT$serde_json..read..SliceRead$u20$as$u20$serde_json..read..Read$GT$4next17h70383539cf2b08e4E.llvm.5232973679748665674: argument 0"}
-!57 = distinct !{!57, !54, !"_ZN68_$LT$serde_json..read..StrRead$u20$as$u20$serde_json..read..Read$GT$4next17hadd9fd9cc0955662E.llvm.5232973679748665674: argument 0"}
-!58 = !{!53}
-!59 = !{!51}
-!60 = !{!56, !51, !57, !53}
+!50 = !{!51}
+!51 = distinct !{!51, !52, !"_ZN68_$LT$serde_json..read..StrRead$u20$as$u20$serde_json..read..Read$GT$4next17hadd9fd9cc0955662E.llvm.5232973679748665674: argument 1"}
+!52 = distinct !{!52, !"_ZN68_$LT$serde_json..read..StrRead$u20$as$u20$serde_json..read..Read$GT$4next17hadd9fd9cc0955662E.llvm.5232973679748665674"}
+!53 = !{!54}
+!54 = distinct !{!54, !55, !"_ZN70_$LT$serde_json..read..SliceRead$u20$as$u20$serde_json..read..Read$GT$4next17h70383539cf2b08e4E.llvm.5232973679748665674: argument 1"}
+!55 = distinct !{!55, !"_ZN70_$LT$serde_json..read..SliceRead$u20$as$u20$serde_json..read..Read$GT$4next17h70383539cf2b08e4E.llvm.5232973679748665674"}
+!56 = !{!57, !54, !58, !51}
+!57 = distinct !{!57, !55, !"_ZN70_$LT$serde_json..read..SliceRead$u20$as$u20$serde_json..read..Read$GT$4next17h70383539cf2b08e4E.llvm.5232973679748665674: argument 0"}
+!58 = distinct !{!58, !52, !"_ZN68_$LT$serde_json..read..StrRead$u20$as$u20$serde_json..read..Read$GT$4next17hadd9fd9cc0955662E.llvm.5232973679748665674: argument 0"}
+!59 = !{!54, !51}
+!60 = !{!57, !58}
 !61 = !{!62}
 !62 = distinct !{!62, !63, !"_ZN68_$LT$serde_json..read..StrRead$u20$as$u20$serde_json..read..Read$GT$7discard17h4ff859b1e7f92213E.llvm.5232973679748665674: argument 0"}
 !63 = distinct !{!63, !"_ZN68_$LT$serde_json..read..StrRead$u20$as$u20$serde_json..read..Read$GT$7discard17h4ff859b1e7f92213E.llvm.5232973679748665674"}

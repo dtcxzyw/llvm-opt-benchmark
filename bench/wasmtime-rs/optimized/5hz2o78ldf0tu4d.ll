@@ -43436,13 +43436,13 @@ _ZN17cranelift_codegen3isa6unwind6winx646Writer8write_u817h63c4b62c0fdedf08E.exi
   br label %55
 
 ._crit_edge:                                      ; preds = %_ZN17cranelift_codegen3isa6unwind6winx6410UnwindCode4emit17h4b301b226e16be39E.exit
-  store i64 %183, ptr %24, align 8, !alias.scope !6156, !noalias !6159
+  store i64 %183, ptr %24, align 8
   %53 = and i64 %.0.i.i16, 1
   %.not = icmp eq i64 %53, 0
   br i1 %.not, label %194, label %185
 
 ._crit_edge.thread:                               ; preds = %_ZN17cranelift_codegen3isa6unwind6winx646Writer8write_u817h63c4b62c0fdedf08E.exit12
-  store i64 4, ptr %24, align 8, !alias.scope !6156, !noalias !6159
+  store i64 4, ptr %24, align 8
   %54 = and i64 %.0.i.i16, 1
   %.not197 = icmp eq i64 %54, 0
   br i1 %.not197, label %.thread198, label %.thread
@@ -43455,9 +43455,8 @@ _ZN17cranelift_codegen3isa6unwind6winx646Writer8write_u817h63c4b62c0fdedf08E.exi
   %.sroa.4.0130 = phi ptr [ %52, %.lr.ph ], [ %57, %_ZN17cranelift_codegen3isa6unwind6winx6410UnwindCode4emit17h4b301b226e16be39E.exit ]
   %56 = phi i64 [ 4, %.lr.ph ], [ %183, %_ZN17cranelift_codegen3isa6unwind6winx6410UnwindCode4emit17h4b301b226e16be39E.exit ]
   %57 = getelementptr inbounds i8, ptr %.sroa.4.0130, i64 -8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !6159)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6156)
-  %58 = load i8, ptr %57, align 4, !range !266, !alias.scope !6159, !noalias !6156, !noundef !4
+  %58 = load i8, ptr %57, align 4, !range !266, !alias.scope !6156, !noalias !6159, !noundef !4
   switch i8 %58, label %default.unreachable [
     i8 0, label %59
     i8 1, label %88
@@ -43479,7 +43478,7 @@ default.unreachable:                              ; preds = %55
 
 _ZN17cranelift_codegen3isa6unwind6winx646Writer8write_u817h63c4b62c0fdedf08E.exit.i: ; preds = %59
   %62 = getelementptr inbounds i8, ptr %.sroa.4.0130, i64 -7
-  %63 = load i8, ptr %62, align 1, !alias.scope !6159, !noalias !6156, !noundef !4
+  %63 = load i8, ptr %62, align 1, !alias.scope !6156, !noalias !6159, !noundef !4
   %64 = getelementptr inbounds [0 x i8], ptr %1, i64 0, i64 %56
   store i8 %63, ptr %64, align 1, !noalias !6161
   %65 = add nuw i64 %56, 1
@@ -43492,7 +43491,7 @@ _ZN17cranelift_codegen3isa6unwind6winx646Writer8write_u817h63c4b62c0fdedf08E.exi
 
 _ZN17cranelift_codegen3isa6unwind6winx646Writer8write_u817h63c4b62c0fdedf08E.exit14.i: ; preds = %_ZN17cranelift_codegen3isa6unwind6winx646Writer8write_u817h63c4b62c0fdedf08E.exit.i
   %68 = getelementptr inbounds i8, ptr %.sroa.4.0130, i64 -6
-  %69 = load i8, ptr %68, align 2, !alias.scope !6159, !noalias !6156, !noundef !4
+  %69 = load i8, ptr %68, align 2, !alias.scope !6156, !noalias !6159, !noundef !4
   %70 = shl i8 %69, 4
   %71 = getelementptr inbounds [0 x i8], ptr %1, i64 0, i64 %65
   store i8 %70, ptr %71, align 1, !noalias !6164
@@ -43501,7 +43500,7 @@ _ZN17cranelift_codegen3isa6unwind6winx646Writer8write_u817h63c4b62c0fdedf08E.exi
 
 73:                                               ; preds = %55
   %74 = getelementptr inbounds i8, ptr %.sroa.4.0130, i64 -4
-  %75 = load i32, ptr %74, align 4, !alias.scope !6159, !noalias !6156, !noundef !4
+  %75 = load i32, ptr %74, align 4, !alias.scope !6156, !noalias !6159, !noundef !4
   %76 = icmp ugt i32 %75, 7
   br i1 %76, label %138, label %137
 
@@ -43515,7 +43514,7 @@ _ZN17cranelift_codegen3isa6unwind6winx646Writer8write_u817h63c4b62c0fdedf08E.exi
 
 _ZN17cranelift_codegen3isa6unwind6winx646Writer8write_u817h63c4b62c0fdedf08E.exit15.i: ; preds = %77
   %80 = getelementptr inbounds i8, ptr %.sroa.4.0130, i64 -7
-  %81 = load i8, ptr %80, align 1, !alias.scope !6159, !noalias !6156, !noundef !4
+  %81 = load i8, ptr %80, align 1, !alias.scope !6156, !noalias !6159, !noundef !4
   %82 = getelementptr inbounds [0 x i8], ptr %1, i64 0, i64 %56
   store i8 %81, ptr %82, align 1, !noalias !6167
   %83 = add nuw i64 %56, 1
@@ -43545,15 +43544,15 @@ _ZN17cranelift_codegen3isa6unwind6winx646Writer8write_u817h63c4b62c0fdedf08E.exi
 
 _ZN17cranelift_codegen3isa6unwind6winx646Writer8write_u817h63c4b62c0fdedf08E.exit17.i: ; preds = %88
   %.0.i13 = getelementptr inbounds i8, ptr %.sroa.4.0130, i64 -7
-  %92 = load i8, ptr %.0.i13, align 1, !alias.scope !6159, !noalias !6156, !noundef !4
+  %92 = load i8, ptr %.0.i13, align 1, !alias.scope !6156, !noalias !6159, !noundef !4
   %.07.i = getelementptr inbounds i8, ptr %.sroa.4.0130, i64 -6
   %.08.i = getelementptr inbounds i8, ptr %.sroa.4.0130, i64 -4
   %93 = getelementptr inbounds [0 x i8], ptr %1, i64 0, i64 %56
   store i8 %92, ptr %93, align 1, !noalias !6173
   %94 = add nuw i64 %56, 1
-  %95 = load i32, ptr %.08.i, align 4, !alias.scope !6159, !noalias !6156, !noundef !4
+  %95 = load i32, ptr %.08.i, align 4, !alias.scope !6156, !noalias !6159, !noundef !4
   %96 = icmp ult i32 %95, 1048576
-  %97 = load i8, ptr %.07.i, align 1, !alias.scope !6159, !noalias !6156, !noundef !4
+  %97 = load i8, ptr %.07.i, align 1, !alias.scope !6156, !noalias !6159, !noundef !4
   %98 = icmp ult i64 %94, %2
   br i1 %96, label %122, label %99
 
@@ -43668,7 +43667,7 @@ _ZN17cranelift_codegen3isa6unwind6winx646Writer12write_u16_le17h666cb19a588be6c2
 
 _ZN17cranelift_codegen3isa6unwind6winx646Writer8write_u817h63c4b62c0fdedf08E.exit22.i: ; preds = %141
   %144 = getelementptr inbounds i8, ptr %.sroa.4.0130, i64 -7
-  %145 = load i8, ptr %144, align 1, !alias.scope !6159, !noalias !6156, !noundef !4
+  %145 = load i8, ptr %144, align 1, !alias.scope !6156, !noalias !6159, !noundef !4
   %146 = getelementptr inbounds [0 x i8], ptr %1, i64 0, i64 %56
   store i8 %145, ptr %146, align 1, !noalias !6216
   %147 = add nuw i64 %56, 1
@@ -56307,29 +56306,29 @@ attributes #39 = { nounwind }
 !6154 = distinct !{!6154, !6155, !"_ZN17cranelift_codegen3isa6unwind6winx646Writer8write_u817h63c4b62c0fdedf08E: argument 0"}
 !6155 = distinct !{!6155, !"_ZN17cranelift_codegen3isa6unwind6winx646Writer8write_u817h63c4b62c0fdedf08E"}
 !6156 = !{!6157}
-!6157 = distinct !{!6157, !6158, !"_ZN17cranelift_codegen3isa6unwind6winx6410UnwindCode4emit17h4b301b226e16be39E: argument 1"}
+!6157 = distinct !{!6157, !6158, !"_ZN17cranelift_codegen3isa6unwind6winx6410UnwindCode4emit17h4b301b226e16be39E: argument 0"}
 !6158 = distinct !{!6158, !"_ZN17cranelift_codegen3isa6unwind6winx6410UnwindCode4emit17h4b301b226e16be39E"}
 !6159 = !{!6160}
-!6160 = distinct !{!6160, !6158, !"_ZN17cranelift_codegen3isa6unwind6winx6410UnwindCode4emit17h4b301b226e16be39E: argument 0"}
-!6161 = !{!6162, !6160, !6157}
+!6160 = distinct !{!6160, !6158, !"_ZN17cranelift_codegen3isa6unwind6winx6410UnwindCode4emit17h4b301b226e16be39E: argument 1"}
+!6161 = !{!6162, !6157, !6160}
 !6162 = distinct !{!6162, !6163, !"_ZN17cranelift_codegen3isa6unwind6winx646Writer8write_u817h63c4b62c0fdedf08E: argument 0"}
 !6163 = distinct !{!6163, !"_ZN17cranelift_codegen3isa6unwind6winx646Writer8write_u817h63c4b62c0fdedf08E"}
-!6164 = !{!6165, !6160, !6157}
+!6164 = !{!6165, !6157, !6160}
 !6165 = distinct !{!6165, !6166, !"_ZN17cranelift_codegen3isa6unwind6winx646Writer8write_u817h63c4b62c0fdedf08E: argument 0"}
 !6166 = distinct !{!6166, !"_ZN17cranelift_codegen3isa6unwind6winx646Writer8write_u817h63c4b62c0fdedf08E"}
-!6167 = !{!6168, !6160, !6157}
+!6167 = !{!6168, !6157, !6160}
 !6168 = distinct !{!6168, !6169, !"_ZN17cranelift_codegen3isa6unwind6winx646Writer8write_u817h63c4b62c0fdedf08E: argument 0"}
 !6169 = distinct !{!6169, !"_ZN17cranelift_codegen3isa6unwind6winx646Writer8write_u817h63c4b62c0fdedf08E"}
-!6170 = !{!6171, !6160, !6157}
+!6170 = !{!6171, !6157, !6160}
 !6171 = distinct !{!6171, !6172, !"_ZN17cranelift_codegen3isa6unwind6winx646Writer8write_u817h63c4b62c0fdedf08E: argument 0"}
 !6172 = distinct !{!6172, !"_ZN17cranelift_codegen3isa6unwind6winx646Writer8write_u817h63c4b62c0fdedf08E"}
-!6173 = !{!6174, !6160, !6157}
+!6173 = !{!6174, !6157, !6160}
 !6174 = distinct !{!6174, !6175, !"_ZN17cranelift_codegen3isa6unwind6winx646Writer8write_u817h63c4b62c0fdedf08E: argument 0"}
 !6175 = distinct !{!6175, !"_ZN17cranelift_codegen3isa6unwind6winx646Writer8write_u817h63c4b62c0fdedf08E"}
-!6176 = !{!6177, !6160, !6157}
+!6176 = !{!6177, !6157, !6160}
 !6177 = distinct !{!6177, !6178, !"_ZN17cranelift_codegen3isa6unwind6winx646Writer8write_u817h63c4b62c0fdedf08E: argument 0"}
 !6178 = distinct !{!6178, !"_ZN17cranelift_codegen3isa6unwind6winx646Writer8write_u817h63c4b62c0fdedf08E"}
-!6179 = !{!6180, !6182, !6160, !6157}
+!6179 = !{!6180, !6182, !6157, !6160}
 !6180 = distinct !{!6180, !6181, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h2b97b2545e640ff9E: argument 0"}
 !6181 = distinct !{!6181, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h2b97b2545e640ff9E"}
 !6182 = distinct !{!6182, !6183, !"_ZN17cranelift_codegen3isa6unwind6winx646Writer12write_u16_le17h666cb19a588be6c2E: argument 0"}
@@ -56338,9 +56337,9 @@ attributes #39 = { nounwind }
 !6185 = distinct !{!6185, !6186, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17heaf43511f2cb393dE: argument 0"}
 !6186 = distinct !{!6186, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17heaf43511f2cb393dE"}
 !6187 = distinct !{!6187, !6186, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17heaf43511f2cb393dE: argument 1"}
-!6188 = !{!6189, !6182, !6160, !6157}
+!6188 = !{!6189, !6182, !6157, !6160}
 !6189 = distinct !{!6189, !6186, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17heaf43511f2cb393dE: argument 2"}
-!6190 = !{!6191, !6193, !6160, !6157}
+!6190 = !{!6191, !6193, !6157, !6160}
 !6191 = distinct !{!6191, !6192, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h2b97b2545e640ff9E: argument 0"}
 !6192 = distinct !{!6192, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h2b97b2545e640ff9E"}
 !6193 = distinct !{!6193, !6194, !"_ZN17cranelift_codegen3isa6unwind6winx646Writer12write_u16_le17h666cb19a588be6c2E: argument 0"}
@@ -56349,12 +56348,12 @@ attributes #39 = { nounwind }
 !6196 = distinct !{!6196, !6197, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17heaf43511f2cb393dE: argument 0"}
 !6197 = distinct !{!6197, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17heaf43511f2cb393dE"}
 !6198 = distinct !{!6198, !6197, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17heaf43511f2cb393dE: argument 1"}
-!6199 = !{!6200, !6193, !6160, !6157}
+!6199 = !{!6200, !6193, !6157, !6160}
 !6200 = distinct !{!6200, !6197, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17heaf43511f2cb393dE: argument 2"}
-!6201 = !{!6202, !6160, !6157}
+!6201 = !{!6202, !6157, !6160}
 !6202 = distinct !{!6202, !6203, !"_ZN17cranelift_codegen3isa6unwind6winx646Writer8write_u817h63c4b62c0fdedf08E: argument 0"}
 !6203 = distinct !{!6203, !"_ZN17cranelift_codegen3isa6unwind6winx646Writer8write_u817h63c4b62c0fdedf08E"}
-!6204 = !{!6205, !6207, !6160, !6157}
+!6204 = !{!6205, !6207, !6157, !6160}
 !6205 = distinct !{!6205, !6206, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h2b97b2545e640ff9E: argument 0"}
 !6206 = distinct !{!6206, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h2b97b2545e640ff9E"}
 !6207 = distinct !{!6207, !6208, !"_ZN17cranelift_codegen3isa6unwind6winx646Writer12write_u16_le17h666cb19a588be6c2E: argument 0"}
@@ -56363,19 +56362,19 @@ attributes #39 = { nounwind }
 !6210 = distinct !{!6210, !6211, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17heaf43511f2cb393dE: argument 0"}
 !6211 = distinct !{!6211, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17heaf43511f2cb393dE"}
 !6212 = distinct !{!6212, !6211, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17heaf43511f2cb393dE: argument 1"}
-!6213 = !{!6214, !6207, !6160, !6157}
+!6213 = !{!6214, !6207, !6157, !6160}
 !6214 = distinct !{!6214, !6211, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17heaf43511f2cb393dE: argument 2"}
-!6215 = !{!6160, !6157}
-!6216 = !{!6217, !6160, !6157}
+!6215 = !{!6157, !6160}
+!6216 = !{!6217, !6157, !6160}
 !6217 = distinct !{!6217, !6218, !"_ZN17cranelift_codegen3isa6unwind6winx646Writer8write_u817h63c4b62c0fdedf08E: argument 0"}
 !6218 = distinct !{!6218, !"_ZN17cranelift_codegen3isa6unwind6winx646Writer8write_u817h63c4b62c0fdedf08E"}
-!6219 = !{!6220, !6160, !6157}
+!6219 = !{!6220, !6157, !6160}
 !6220 = distinct !{!6220, !6221, !"_ZN17cranelift_codegen3isa6unwind6winx646Writer8write_u817h63c4b62c0fdedf08E: argument 0"}
 !6221 = distinct !{!6221, !"_ZN17cranelift_codegen3isa6unwind6winx646Writer8write_u817h63c4b62c0fdedf08E"}
-!6222 = !{!6223, !6160, !6157}
+!6222 = !{!6223, !6157, !6160}
 !6223 = distinct !{!6223, !6224, !"_ZN17cranelift_codegen3isa6unwind6winx646Writer8write_u817h63c4b62c0fdedf08E: argument 0"}
 !6224 = distinct !{!6224, !"_ZN17cranelift_codegen3isa6unwind6winx646Writer8write_u817h63c4b62c0fdedf08E"}
-!6225 = !{!6226, !6228, !6160, !6157}
+!6225 = !{!6226, !6228, !6157, !6160}
 !6226 = distinct !{!6226, !6227, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h2b97b2545e640ff9E: argument 0"}
 !6227 = distinct !{!6227, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h2b97b2545e640ff9E"}
 !6228 = distinct !{!6228, !6229, !"_ZN17cranelift_codegen3isa6unwind6winx646Writer12write_u32_le17ha27af2d77e99711eE: argument 0"}
@@ -56384,12 +56383,12 @@ attributes #39 = { nounwind }
 !6231 = distinct !{!6231, !6232, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17heaf43511f2cb393dE: argument 0"}
 !6232 = distinct !{!6232, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17heaf43511f2cb393dE"}
 !6233 = distinct !{!6233, !6232, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17heaf43511f2cb393dE: argument 1"}
-!6234 = !{!6235, !6228, !6160, !6157}
+!6234 = !{!6235, !6228, !6157, !6160}
 !6235 = distinct !{!6235, !6232, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17heaf43511f2cb393dE: argument 2"}
-!6236 = !{!6237, !6160, !6157}
+!6236 = !{!6237, !6157, !6160}
 !6237 = distinct !{!6237, !6238, !"_ZN17cranelift_codegen3isa6unwind6winx646Writer8write_u817h63c4b62c0fdedf08E: argument 0"}
 !6238 = distinct !{!6238, !"_ZN17cranelift_codegen3isa6unwind6winx646Writer8write_u817h63c4b62c0fdedf08E"}
-!6239 = !{!6240, !6242, !6160, !6157}
+!6239 = !{!6240, !6242, !6157, !6160}
 !6240 = distinct !{!6240, !6241, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h2b97b2545e640ff9E: argument 0"}
 !6241 = distinct !{!6241, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h2b97b2545e640ff9E"}
 !6242 = distinct !{!6242, !6243, !"_ZN17cranelift_codegen3isa6unwind6winx646Writer12write_u16_le17h666cb19a588be6c2E: argument 0"}
@@ -56398,7 +56397,7 @@ attributes #39 = { nounwind }
 !6245 = distinct !{!6245, !6246, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17heaf43511f2cb393dE: argument 0"}
 !6246 = distinct !{!6246, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17heaf43511f2cb393dE"}
 !6247 = distinct !{!6247, !6246, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17heaf43511f2cb393dE: argument 1"}
-!6248 = !{!6249, !6242, !6160, !6157}
+!6248 = !{!6249, !6242, !6157, !6160}
 !6249 = distinct !{!6249, !6246, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17heaf43511f2cb393dE: argument 2"}
 !6250 = !{!6251}
 !6251 = distinct !{!6251, !6252, !"_ZN17cranelift_codegen3isa6unwind6winx646Writer12write_u16_le17h666cb19a588be6c2E: argument 0"}

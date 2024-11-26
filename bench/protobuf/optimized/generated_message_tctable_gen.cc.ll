@@ -5051,17 +5051,17 @@ invoke.cont7.i:                                   ; preds = %_ZNSt6vectorISt17ba
 lpad.loopexit22.i:                                ; preds = %cond.true.i.i.i.i94.i
   %lpad.loopexit24.i = landingpad { ptr, i32 }
           cleanup
-  store ptr %add.ptr19.i.i.i104.i1238, ptr %_M_end_of_storage.i.i18.i, align 8, !alias.scope !20
-  store ptr %incdec.ptr.i.i.i100.i1241, ptr %_M_finish.i.i17.i, align 8, !alias.scope !20
-  store ptr %cond.i10.i.i.i96.i1246, ptr %ref.tmp425, align 8, !alias.scope !20
+  store ptr %add.ptr19.i.i.i104.i1238, ptr %_M_end_of_storage.i.i18.i, align 8
+  store ptr %incdec.ptr.i.i.i100.i1241, ptr %_M_finish.i.i17.i, align 8
+  store ptr %cond.i10.i.i.i96.i1246, ptr %ref.tmp425, align 8
   br label %ehcleanup109.i
 
 lpad.loopexit.split-lp23.loopexit.i:              ; preds = %cond.true.i.i.i.i60.i
   %lpad.loopexit27.i = landingpad { ptr, i32 }
           cleanup
-  store ptr %add.ptr19.i.i.i70.i1228, ptr %_M_end_of_storage.i.i18.i, align 8, !alias.scope !20
-  store ptr %incdec.ptr.i.i.i66.i1230, ptr %_M_finish.i.i17.i, align 8, !alias.scope !20
-  store ptr %cond.i10.i.i.i62.i1234, ptr %ref.tmp425, align 8, !alias.scope !20
+  store ptr %add.ptr19.i.i.i70.i1228, ptr %_M_end_of_storage.i.i18.i, align 8
+  store ptr %incdec.ptr.i.i.i66.i1230, ptr %_M_finish.i.i17.i, align 8
+  store ptr %cond.i10.i.i.i62.i1234, ptr %ref.tmp425, align 8
   br label %ehcleanup109.i
 
 lpad.loopexit.split-lp23.loopexit.split-lp.loopexit.i: ; preds = %cond.true.i.i.i.i.i, %for.body.i932
@@ -5082,9 +5082,9 @@ if.then.i.i.i.i38.invoke.i:                       ; preds = %if.else.i.i49.i, %i
   %storemerge1308 = phi ptr [ %add.ptr19.i.i.i104.i1238, %if.else.i.i83.i ], [ %add.ptr19.i.i.i70.i1228, %if.else.i.i49.i ]
   %storemerge1307 = phi ptr [ %incdec.ptr.i.i.i100.i1241, %if.else.i.i83.i ], [ %incdec.ptr.i.i.i66.i1230, %if.else.i.i49.i ]
   %storemerge = phi ptr [ %cond.i10.i.i.i96.i1246, %if.else.i.i83.i ], [ %cond.i10.i.i.i62.i1234, %if.else.i.i49.i ]
-  store ptr %storemerge1308, ptr %_M_end_of_storage.i.i18.i, align 8, !alias.scope !20
-  store ptr %storemerge1307, ptr %_M_finish.i.i17.i, align 8, !alias.scope !20
-  store ptr %storemerge, ptr %ref.tmp425, align 8, !alias.scope !20
+  store ptr %storemerge1308, ptr %_M_end_of_storage.i.i18.i, align 8
+  store ptr %storemerge1307, ptr %_M_finish.i.i17.i, align 8
+  store ptr %storemerge, ptr %ref.tmp425, align 8
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.9) #18
           to label %if.then.i.i.i.i38.cont.i unwind label %lpad.loopexit.split-lp23.loopexit.split-lp.loopexit.split-lp.i, !noalias !20
 
@@ -5118,9 +5118,9 @@ while.body.i944.preheader:                        ; preds = %while.cond.preheade
   br label %while.body.i944
 
 while.cond.preheader.i:                           ; preds = %invoke.cont36.i
-  store ptr %add.ptr19.i.i.i70.i1227, ptr %_M_end_of_storage.i.i18.i, align 8, !alias.scope !20
-  store ptr %548, ptr %_M_finish.i.i17.i, align 8, !alias.scope !20
-  store ptr %cond.i10.i.i.i62.i1233, ptr %ref.tmp425, align 8, !alias.scope !20
+  store ptr %add.ptr19.i.i.i70.i1227, ptr %_M_end_of_storage.i.i18.i, align 8
+  store ptr %548, ptr %_M_finish.i.i17.i, align 8
+  store ptr %cond.i10.i.i.i62.i1233, ptr %ref.tmp425, align 8
   %and60.i = and i32 %inc.i943, 7
   %tobool40.not61.i = icmp eq i32 %and60.i, 0
   br i1 %tobool40.not61.i, label %while.end.i945, label %while.body.i944.preheader
@@ -5259,9 +5259,9 @@ invoke.cont42.i:                                  ; preds = %_ZNSt6vectorIhSaIhE
   br i1 %exitcond, label %while.end.i945.loopexit, label %while.body.i944, !llvm.loop !28
 
 while.end.i945.loopexit:                          ; preds = %invoke.cont42.i
-  store ptr %add.ptr19.i.i.i104.i1237, ptr %_M_end_of_storage.i.i18.i, align 8, !alias.scope !20
-  store ptr %550, ptr %_M_finish.i.i17.i, align 8, !alias.scope !20
-  store ptr %cond.i10.i.i.i96.i1245, ptr %ref.tmp425, align 8, !alias.scope !20
+  store ptr %add.ptr19.i.i.i104.i1237, ptr %_M_end_of_storage.i.i18.i, align 8
+  store ptr %550, ptr %_M_finish.i.i17.i, align 8
+  store ptr %cond.i10.i.i.i96.i1245, ptr %ref.tmp425, align 8
   br label %while.end.i945
 
 while.end.i945:                                   ; preds = %while.end.i945.loopexit, %while.cond.preheader.i

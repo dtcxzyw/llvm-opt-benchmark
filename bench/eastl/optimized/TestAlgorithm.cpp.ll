@@ -7319,7 +7319,7 @@ for.body.i3355.preheader:                         ; preds = %entry.for.end_crit_
   %_ZN10TestObject12sTOCtorCountE.promoted13644 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8, !noalias !167
   %_ZN10TestObject19sTODefaultCtorCountE.promoted = load i64, ptr @_ZN10TestObject19sTODefaultCtorCountE, align 8, !noalias !167
   %_ZN10TestObject18sTOMoveAssignCountE.promoted13647 = load i64, ptr @_ZN10TestObject18sTOMoveAssignCountE, align 8, !noalias !172
-  %_ZN10TestObject16sMagicErrorCountE.promoted13649 = load i32, ptr @_ZN10TestObject16sMagicErrorCountE, align 4, !noalias !172
+  %_ZN10TestObject16sMagicErrorCountE.promoted13649 = load i32, ptr @_ZN10TestObject16sMagicErrorCountE, align 4
   br label %for.body.i3355
 
 for.body.i3355:                                   ; preds = %for.body.i3355.preheader, %_ZN10TestObjectD2Ev.exit.i3368

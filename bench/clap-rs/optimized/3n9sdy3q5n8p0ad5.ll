@@ -6323,7 +6323,7 @@ common.resume.i:                                  ; preds = %810, %499, %203
   %.pr.i.pre.i = load i64, ptr %26, align 8, !alias.scope !1768, !noalias !1799
   %.pre750.i = load ptr, ptr %.sroa.054.sroa.4.0..sroa_idx.i, align 8, !alias.scope !1768, !noalias !1799
   %.pre751.i = load ptr, ptr %.sroa.054.sroa.4.sroa.4.0..sroa.054.sroa.4.0..sroa_idx.sroa_idx.i, align 8, !alias.scope !1768, !noalias !1799
-  %.promoted.i246.pre.i = load ptr, ptr %.sroa.054.sroa.4.sroa.3.0..sroa.054.sroa.4.0..sroa_idx.sroa_idx.i, align 8, !alias.scope !1790, !noalias !1791
+  %.promoted.i246.pre.i = load ptr, ptr %.sroa.054.sroa.4.sroa.3.0..sroa.054.sroa.4.0..sroa_idx.sroa_idx.i, align 8, !alias.scope !1768, !noalias !1799
   br label %443
 
 535:                                              ; preds = %.noexc213.i
@@ -8019,7 +8019,7 @@ common.resume:                                    ; preds = %44, %390, %221
   %.pr.i.pre = load i64, ptr %23, align 8, !alias.scope !2225, !noalias !2222
   %.pre379 = load ptr, ptr %.sroa.034.sroa.4.0..sroa_idx, align 8, !alias.scope !2225, !noalias !2222
   %.pre380 = load ptr, ptr %.sroa.034.sroa.4.sroa.4.0..sroa.034.sroa.4.0..sroa_idx.sroa_idx, align 8, !alias.scope !2225, !noalias !2222
-  %.promoted.i.pre = load ptr, ptr %.sroa.034.sroa.4.sroa.3.0..sroa.034.sroa.4.0..sroa_idx.sroa_idx, align 8, !alias.scope !2247, !noalias !2248
+  %.promoted.i.pre = load ptr, ptr %.sroa.034.sroa.4.sroa.3.0..sroa.034.sroa.4.0..sroa_idx.sroa_idx, align 8, !alias.scope !2225, !noalias !2222
   br label %172
 
 239:                                              ; preds = %355, %.thread, %308, %.body164, %390, %"_ZN4core3ptr110drop_in_place$LT$clap_builder..util..flat_set..FlatSet$LT$clap_builder..builder..styled_str..StyledStr$GT$$GT$17h50b559f185ac789dE.exit192", %351, %.thread260, %305, %295, %.body, %49

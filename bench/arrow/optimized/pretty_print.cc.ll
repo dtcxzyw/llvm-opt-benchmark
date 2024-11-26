@@ -21837,8 +21837,8 @@ if.then.i.i.i64.i:                                ; preds = %lpad9.i
 for.end.i:                                        ; preds = %_ZNSt6vectorIPKN5arrow5ArrayESaIS3_EE12emplace_backIJPS1_EEERS3_DpOT_.exit.i, %_ZNSt6vectorIPKN5arrow5ArrayESaIS3_EE7reserveEm.exit.i
   %3210 = phi ptr [ %children.i.promoted, %_ZNSt6vectorIPKN5arrow5ArrayESaIS3_EE7reserveEm.exit.i ], [ %cond.i10.i.i.i8548, %_ZNSt6vectorIPKN5arrow5ArrayESaIS3_EE12emplace_backIJPS1_EEERS3_DpOT_.exit.i ]
   %.lcssa8545 = phi ptr [ %_M_end_of_storage.i.i.i.promoted, %_ZNSt6vectorIPKN5arrow5ArrayESaIS3_EE7reserveEm.exit.i ], [ %3204, %_ZNSt6vectorIPKN5arrow5ArrayESaIS3_EE12emplace_backIJPS1_EEERS3_DpOT_.exit.i ]
-  store ptr %.lcssa8545, ptr %_M_end_of_storage.i.i.i, align 8, !noalias !561
-  store ptr %3210, ptr %children.i, align 8, !noalias !561
+  store ptr %.lcssa8545, ptr %_M_end_of_storage.i.i.i, align 8
+  store ptr %3210, ptr %children.i, align 8
   invoke fastcc void @_ZN5arrow12_GLOBAL__N_112ArrayPrinter13PrintChildrenERKSt6vectorIPKNS_5ArrayESaIS5_EEll(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %children.i)
           to label %invoke.cont22.i unwind label %lpad9.i.loopexit.split-lp
 

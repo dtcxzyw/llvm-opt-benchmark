@@ -3833,9 +3833,9 @@ if.else.i.i807:                                   ; preds = %if.then.i800
   br i1 %cmp.i.i.i10.i811, label %if.then.i.i.i.i837, label %_ZNKSt6vectorIPKN19OpenColorIO_v2_4dev14NamedTransformESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i
 
 if.then.i.i.i.i837:                               ; preds = %if.else.i.i807
-  store ptr %add.ptr19.i.i.i8351311, ptr %_M_end_of_storage.i.i784, align 8, !alias.scope !41
-  store ptr %incdec.ptr.i.i.i8321315, ptr %_M_finish.i6.i783, align 8, !alias.scope !41
-  store ptr %cond.i10.i.i.i8281319, ptr %nts, align 8, !alias.scope !41
+  store ptr %add.ptr19.i.i.i8351311, ptr %_M_end_of_storage.i.i784, align 8
+  store ptr %incdec.ptr.i.i.i8321315, ptr %_M_finish.i6.i783, align 8
+  store ptr %cond.i10.i.i.i8281319, ptr %nts, align 8
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.2) #18
           to label %.noexc.i840 unwind label %lpad.loopexit.split-lp.i838, !noalias !41
 
@@ -3885,9 +3885,9 @@ _ZNSt6vectorIPKN19OpenColorIO_v2_4dev14NamedTransformESaIS3_EE17_M_realloc_inser
 lpad.loopexit.i821:                               ; preds = %cond.true.i.i.i.i818
   %lpad.loopexit5.i822 = landingpad { ptr, i32 }
           cleanup
-  store ptr %add.ptr19.i.i.i8351311, ptr %_M_end_of_storage.i.i784, align 8, !alias.scope !41
-  store ptr %incdec.ptr.i.i.i8321315, ptr %_M_finish.i6.i783, align 8, !alias.scope !41
-  store ptr %cond.i10.i.i.i8281319, ptr %nts, align 8, !alias.scope !41
+  store ptr %add.ptr19.i.i.i8351311, ptr %_M_end_of_storage.i.i784, align 8
+  store ptr %incdec.ptr.i.i.i8321315, ptr %_M_finish.i6.i783, align 8
+  store ptr %cond.i10.i.i.i8281319, ptr %nts, align 8
   br label %lpad.i823
 
 lpad.loopexit.split-lp.i838:                      ; preds = %if.then.i.i.i.i837
@@ -3910,9 +3910,9 @@ for.inc.i804:                                     ; preds = %_ZNSt6vectorIPKN19O
   br i1 %cmp.i.not.i806, label %invoke.cont122, label %for.body.i785
 
 invoke.cont122:                                   ; preds = %for.inc.i804
-  store ptr %add.ptr19.i.i.i8351310, ptr %_M_end_of_storage.i.i784, align 8, !alias.scope !41
-  store ptr %incdec.ptr.i.i.i8321314, ptr %_M_finish.i6.i783, align 8, !alias.scope !41
-  store ptr %cond.i10.i.i.i8281318, ptr %nts, align 8, !alias.scope !41
+  store ptr %add.ptr19.i.i.i8351310, ptr %_M_end_of_storage.i.i784, align 8
+  store ptr %incdec.ptr.i.i.i8321314, ptr %_M_finish.i6.i783, align 8
+  store ptr %cond.i10.i.i.i8281318, ptr %nts, align 8
   %cmp.i.i878 = icmp eq ptr %css.sroa.0.3, %css.sroa.7.3
   %cmp.i.i880 = icmp eq ptr %cond.i10.i.i.i8281318, %incdec.ptr.i.i.i8321314
   %or.cond = select i1 %cmp.i.i878, i1 %cmp.i.i880, i1 false

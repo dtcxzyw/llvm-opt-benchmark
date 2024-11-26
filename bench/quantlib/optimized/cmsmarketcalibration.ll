@@ -20389,7 +20389,7 @@ if.else.i.i:                                      ; preds = %invoke.cont3
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.else.i.i
-  store ptr %3, ptr %agg.result, align 8, !tbaa !198
+  store ptr %3, ptr %agg.result, align 8
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.60) #26
           to label %.noexc7 unwind label %lpad.loopexit.split-lp
 
@@ -20450,7 +20450,7 @@ invoke.cont5:                                     ; preds = %_ZNSt6vectorIdSaIdE
 lpad.loopexit:                                    ; preds = %cond.false.i, %invoke.cont, %cond.false.i.i, %_ZNK5boost10shared_ptrIN8QuantLib15Interpolation2D4ImplEEptEv.exit.i, %cond.true.i.i.i.i
   %lpad.loopexit11 = landingpad { ptr, i32 }
           cleanup
-  store ptr %3, ptr %agg.result, align 8, !tbaa !198
+  store ptr %3, ptr %agg.result, align 8
   br label %lpad
 
 lpad.loopexit.split-lp:                           ; preds = %if.then.i.i.i.i
@@ -20475,7 +20475,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %lpad, %if.then.i.i.
 
 nrvo.skipdtor:                                    ; preds = %invoke.cont5, %entry
   %cond.i10.i.i.i14.lcssa = phi ptr [ null, %entry ], [ %cond.i10.i.i.i13, %invoke.cont5 ]
-  store ptr %cond.i10.i.i.i14.lcssa, ptr %agg.result, align 8, !tbaa !198
+  store ptr %cond.i10.i.i.i14.lcssa, ptr %agg.result, align 8
   ret void
 }
 
@@ -33047,7 +33047,7 @@ for.cond204.preheader:                            ; preds = %for.body.i.i.i.i340
 
 for.cond247.preheader:                            ; preds = %for.cond.cleanup206
   %nStrikes_ = getelementptr inbounds nuw i8, ptr %this, i64 352
-  %agg.result.promoted = load ptr, ptr %agg.result, align 8, !tbaa !198
+  %agg.result.promoted = load ptr, ptr %agg.result, align 8
   %114 = load i64, ptr %nStrikes_, align 8, !tbaa !222
   %cmp248752.not = icmp eq i64 %114, 0
   br i1 %cmp248752.not, label %_ZN8QuantLib6MatrixD2Ev.exit392, label %for.body250.lr.ph
@@ -33224,7 +33224,7 @@ lpad210:                                          ; preds = %.noexc381, %.noexc3
 
 _ZN8QuantLib6MatrixD2Ev.exit392:                  ; preds = %_ZN8QuantLib6MatrixD2Ev.exit538, %for.cond247.preheader
   %cond.i10.i.i743.lcssa = phi ptr [ %agg.result.promoted, %for.cond247.preheader ], [ %cond.i10.i.i742790, %_ZN8QuantLib6MatrixD2Ev.exit538 ]
-  store ptr %cond.i10.i.i743.lcssa, ptr %agg.result, align 8, !tbaa !198
+  store ptr %cond.i10.i.i743.lcssa, ptr %agg.result, align 8
   call void @_ZdaPv(ptr noundef nonnull %call.i345) #27
   call void @_ZdaPv(ptr noundef nonnull %call.i335) #27
   call void @_ZdaPv(ptr noundef nonnull %call.i326) #27
@@ -33474,13 +33474,13 @@ for.cond.cleanup265:                              ; preds = %for.cond.cleanup270
 lpad258:                                          ; preds = %for.body250
   %174 = landingpad { ptr, i32 }
           cleanup
-  store ptr %cond.i10.i.i743753, ptr %agg.result, align 8, !tbaa !198
+  store ptr %cond.i10.i.i743753, ptr %agg.result, align 8
   br label %_ZN8QuantLib6MatrixD2Ev.exit555
 
 lpad260:                                          ; preds = %for.body.i.i.i.i461.preheader
   %175 = landingpad { ptr, i32 }
           cleanup
-  store ptr %cond.i10.i.i743753, ptr %agg.result, align 8, !tbaa !198
+  store ptr %cond.i10.i.i743753, ptr %agg.result, align 8
   br label %_ZN8QuantLib6MatrixD2Ev.exit552
 
 for.cond.cleanup270:                              ; preds = %invoke.cont301
@@ -33539,7 +33539,7 @@ invoke.cont301:                                   ; preds = %invoke.cont292
 lpad272:                                          ; preds = %invoke.cont292, %cond.false.i493
   %187 = landingpad { ptr, i32 }
           cleanup
-  store ptr %cond.i10.i.i743753, ptr %agg.result, align 8, !tbaa !198
+  store ptr %cond.i10.i.i743753, ptr %agg.result, align 8
   br label %ehcleanup327
 
 invoke.cont313:                                   ; preds = %for.cond.cleanup265
@@ -33577,7 +33577,7 @@ if.else.i515:                                     ; preds = %invoke.cont319
   br i1 %cmp.i.i.i516, label %if.then.i.i.i522, label %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i.i
 
 if.then.i.i.i522:                                 ; preds = %if.else.i515
-  store ptr %cond.i10.i.i743753, ptr %agg.result, align 8, !tbaa !198
+  store ptr %cond.i10.i.i743753, ptr %agg.result, align 8
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.60) #26
           to label %.noexc523 unwind label %lpad321.loopexit.split-lp
 
@@ -33666,25 +33666,25 @@ _ZN8QuantLib6MatrixD2Ev.exit538:                  ; preds = %_ZNSt6vectorIdSaIdE
 lpad312:                                          ; preds = %for.cond.cleanup265
   %198 = landingpad { ptr, i32 }
           cleanup
-  store ptr %cond.i10.i.i743753, ptr %agg.result, align 8, !tbaa !198
+  store ptr %cond.i10.i.i743753, ptr %agg.result, align 8
   br label %ehcleanup326
 
 lpad314:                                          ; preds = %invoke.cont315, %invoke.cont313
   %199 = landingpad { ptr, i32 }
           cleanup
-  store ptr %cond.i10.i.i743753, ptr %agg.result, align 8, !tbaa !198
+  store ptr %cond.i10.i.i743753, ptr %agg.result, align 8
   br label %ehcleanup325
 
 lpad318:                                          ; preds = %invoke.cont316
   %200 = landingpad { ptr, i32 }
           cleanup
-  store ptr %cond.i10.i.i743753, ptr %agg.result, align 8, !tbaa !198
+  store ptr %cond.i10.i.i743753, ptr %agg.result, align 8
   br label %ehcleanup324
 
 lpad321.loopexit:                                 ; preds = %cond.true.i.i.i
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  store ptr %cond.i10.i.i743753, ptr %agg.result, align 8, !tbaa !198
+  store ptr %cond.i10.i.i743753, ptr %agg.result, align 8
   br label %lpad321
 
 lpad321.loopexit.split-lp:                        ; preds = %if.then.i.i.i522

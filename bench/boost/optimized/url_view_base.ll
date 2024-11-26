@@ -270,7 +270,7 @@ define noundef i64 @_ZNK5boost4urls13url_view_base6digestEm(ptr nocapture nounde
   br i1 %.not8.i, label %_ZN5boost4urls6detail6fnv_1a3putENS_4core17basic_string_viewIcEE.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %2
-  %.promoted.i = load i64, ptr %3, align 8, !tbaa !18
+  %.promoted.i = load i64, ptr %3, align 8
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i

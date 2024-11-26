@@ -697,9 +697,9 @@ _ZNSt6vectorISt10unique_ptrIN5vcpkg18PlatformExpression6detail8ExprImplESt14defa
   br i1 %28, label %29, label %_ZNKSt6vectorISt10unique_ptrIN5vcpkg18PlatformExpression6detail8ExprImplESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i.i
 
 29:                                               ; preds = %24
-  store ptr %20, ptr %14, align 8, !alias.scope !13
-  store ptr %21, ptr %16, align 8, !alias.scope !13
-  store ptr %19, ptr %4, align 8, !alias.scope !13
+  store ptr %20, ptr %14, align 8
+  store ptr %21, ptr %16, align 8
+  store ptr %19, ptr %4, align 8
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.2) #23
           to label %.noexc24.i unwind label %.loopexit.split-lp.i, !noalias !13
 
@@ -779,9 +779,9 @@ _ZNSt10unique_ptrIN5vcpkg18PlatformExpression6detail8ExprImplESt14default_delete
 .loopexit.i:                                      ; preds = %35
   %lpad.loopexit.i = landingpad { ptr, i32 }
           cleanup
-  store ptr %20, ptr %14, align 8, !alias.scope !13
-  store ptr %21, ptr %16, align 8, !alias.scope !13
-  store ptr %19, ptr %4, align 8, !alias.scope !13
+  store ptr %20, ptr %14, align 8
+  store ptr %21, ptr %16, align 8
+  store ptr %19, ptr %4, align 8
   %53 = inttoptr i64 %22 to ptr
   br label %54
 
@@ -811,9 +811,9 @@ common.resume:                                    ; preds = %51, %_ZNSt10unique_
   resume { ptr, i32 } %common.resume.op
 
 "_ZN5vcpkg4Util4fmapIRSt6vectorINS_18PlatformExpression4ExprESaIS4_EEZNS4_3AndEOS6_E3$_0EES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISG_EEOSD_OSB_.exit.loopexit": ; preds = %_ZNSt10unique_ptrIN5vcpkg18PlatformExpression6detail8ExprImplESt14default_deleteIS3_EED2Ev.exit.i
-  store ptr %48, ptr %14, align 8, !alias.scope !13
-  store ptr %49, ptr %16, align 8, !alias.scope !13
-  store ptr %47, ptr %4, align 8, !alias.scope !13
+  store ptr %48, ptr %14, align 8
+  store ptr %49, ptr %16, align 8
+  store ptr %47, ptr %4, align 8
   br label %"_ZN5vcpkg4Util4fmapIRSt6vectorINS_18PlatformExpression4ExprESaIS4_EEZNS4_3AndEOS6_E3$_0EES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISG_EEOSD_OSB_.exit"
 
 "_ZN5vcpkg4Util4fmapIRSt6vectorINS_18PlatformExpression4ExprESaIS4_EEZNS4_3AndEOS6_E3$_0EES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISG_EEOSD_OSB_.exit": ; preds = %"_ZN5vcpkg4Util4fmapIRSt6vectorINS_18PlatformExpression4ExprESaIS4_EEZNS4_3AndEOS6_E3$_0EES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISG_EEOSD_OSB_.exit.loopexit", %13
@@ -984,9 +984,9 @@ _ZNSt6vectorISt10unique_ptrIN5vcpkg18PlatformExpression6detail8ExprImplESt14defa
   br i1 %28, label %29, label %_ZNKSt6vectorISt10unique_ptrIN5vcpkg18PlatformExpression6detail8ExprImplESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i.i
 
 29:                                               ; preds = %24
-  store ptr %20, ptr %14, align 8, !alias.scope !31
-  store ptr %21, ptr %16, align 8, !alias.scope !31
-  store ptr %19, ptr %4, align 8, !alias.scope !31
+  store ptr %20, ptr %14, align 8
+  store ptr %21, ptr %16, align 8
+  store ptr %19, ptr %4, align 8
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.2) #23
           to label %.noexc24.i unwind label %.loopexit.split-lp.i, !noalias !31
 
@@ -1066,9 +1066,9 @@ _ZNSt10unique_ptrIN5vcpkg18PlatformExpression6detail8ExprImplESt14default_delete
 .loopexit.i:                                      ; preds = %35
   %lpad.loopexit.i = landingpad { ptr, i32 }
           cleanup
-  store ptr %20, ptr %14, align 8, !alias.scope !31
-  store ptr %21, ptr %16, align 8, !alias.scope !31
-  store ptr %19, ptr %4, align 8, !alias.scope !31
+  store ptr %20, ptr %14, align 8
+  store ptr %21, ptr %16, align 8
+  store ptr %19, ptr %4, align 8
   %53 = inttoptr i64 %22 to ptr
   br label %54
 
@@ -1098,9 +1098,9 @@ common.resume:                                    ; preds = %51, %_ZNSt10unique_
   resume { ptr, i32 } %common.resume.op
 
 "_ZN5vcpkg4Util4fmapIRSt6vectorINS_18PlatformExpression4ExprESaIS4_EEZNS4_2OrEOS6_E3$_0EES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISG_EEOSD_OSB_.exit.loopexit": ; preds = %_ZNSt10unique_ptrIN5vcpkg18PlatformExpression6detail8ExprImplESt14default_deleteIS3_EED2Ev.exit.i
-  store ptr %48, ptr %14, align 8, !alias.scope !31
-  store ptr %49, ptr %16, align 8, !alias.scope !31
-  store ptr %47, ptr %4, align 8, !alias.scope !31
+  store ptr %48, ptr %14, align 8
+  store ptr %49, ptr %16, align 8
+  store ptr %47, ptr %4, align 8
   br label %"_ZN5vcpkg4Util4fmapIRSt6vectorINS_18PlatformExpression4ExprESaIS4_EEZNS4_2OrEOS6_E3$_0EES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISG_EEOSD_OSB_.exit"
 
 "_ZN5vcpkg4Util4fmapIRSt6vectorINS_18PlatformExpression4ExprESaIS4_EEZNS4_2OrEOS6_E3$_0EES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISG_EEOSD_OSB_.exit": ; preds = %"_ZN5vcpkg4Util4fmapIRSt6vectorINS_18PlatformExpression4ExprESaIS4_EEZNS4_2OrEOS6_E3$_0EES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISG_EEOSD_OSB_.exit.loopexit", %13

@@ -8880,7 +8880,7 @@ define hidden void @_ZN3std2io19default_read_to_end17h404967c0228c9759E(ptr noal
   %.val.i = load ptr, ptr %1, align 8, !nonnull !5, !align !74
   %24 = getelementptr inbounds i8, ptr %.val.i, i64 24
   %25 = getelementptr inbounds i8, ptr %.val.i, i64 16
-  %.promoted = load i64, ptr %23, align 8, !noalias !5
+  %.promoted = load i64, ptr %23, align 8
   br label %26
 
 26:                                               ; preds = %.backedge, %"_ZN3std2io19default_read_to_end28_$u7b$$u7b$closure$u7d$$u7d$17hf56cb68273f1bdf9E.exit.split"

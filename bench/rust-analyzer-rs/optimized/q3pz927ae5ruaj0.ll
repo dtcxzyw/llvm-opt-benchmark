@@ -373,7 +373,7 @@ define hidden void @"_ZN133_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull readonly align 8 dereferenceable(40) %1, i64 40, i1 false), !alias.scope !96
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8, !alias.scope !100, !noalias !105, !nonnull !4, !noundef !4
-  %8 = load ptr, ptr %5, align 8, !noalias !4, !nonnull !4, !noundef !4
+  %8 = load ptr, ptr %5, align 8, !nonnull !4, !noundef !4
   %9 = ptrtoint ptr %7 to i64
   %10 = ptrtoint ptr %8 to i64
   %11 = sub nuw i64 %9, %10
@@ -419,7 +419,7 @@ define hidden void @"_ZN133_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
 
 ..thread42_crit_edge:                             ; preds = %33
   %.pre = load i64, ptr %13, align 8, !alias.scope !111, !noalias !114
-  %.promoted.pre = load ptr, ptr %5, align 8, !alias.scope !116, !noalias !121
+  %.promoted.pre = load ptr, ptr %5, align 8
   %.pre69 = tail call i64 @llvm.umax.i64(i64 %.pre, i64 1)
   br label %.thread42
 
@@ -464,7 +464,7 @@ define hidden void @"_ZN133_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
 ._crit_edge:                                      ; preds = %79, %.thread42
   %.lcssa = phi ptr [ %.promoted, %.thread42 ], [ %78, %79 ]
   %.sroa.7.0.lcssa = phi i64 [ %40, %.thread42 ], [ %81, %79 ]
-  store ptr %.lcssa, ptr %5, align 8, !alias.scope !116, !noalias !121
+  store ptr %.lcssa, ptr %5, align 8
   store i64 %.sroa.7.0.lcssa, ptr %.sink2.i, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false)
@@ -578,7 +578,7 @@ define hidden void @"_ZN133_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
 
 "_ZN96_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h67ef97d28e53b6f8E.exit.thread": ; preds = %"_ZN96_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h67ef97d28e53b6f8E.exit", %43
   %storemerge = phi ptr [ %44, %43 ], [ %78, %"_ZN96_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h67ef97d28e53b6f8E.exit" ]
-  store ptr %storemerge, ptr %5, align 8, !alias.scope !116, !noalias !121
+  store ptr %storemerge, ptr %5, align 8
   store i64 %.sroa.7.052, ptr %.sink2.i, align 8
   call void @"_ZN79_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h676a326654838a6eE.llvm.3275366238967248396"(ptr noalias noundef nonnull align 8 dereferenceable(40) %5)
   br label %67

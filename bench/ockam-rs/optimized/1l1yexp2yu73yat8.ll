@@ -7303,7 +7303,7 @@ define hidden void @"_ZN137_$LT$alloc..collections..btree..dedup_sorted_iter..De
   %.sroa.415.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
   %8 = getelementptr inbounds i8, ptr %3, i64 16
   %9 = getelementptr inbounds i8, ptr %1, i64 24
-  %.promoted28 = load i64, ptr %4, align 8, !noalias !10
+  %.promoted28 = load i64, ptr %4, align 8
   %10 = icmp eq i64 %.promoted, 0
   %.sroa.4.sroa.0.0.copyload.pre = load ptr, ptr %.sroa.4.0..sroa_idx, align 8
   br label %11
@@ -7413,7 +7413,7 @@ define hidden void @"_ZN137_$LT$alloc..collections..btree..dedup_sorted_iter..De
   %.sroa.415.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
   %7 = getelementptr inbounds i8, ptr %3, i64 16
   %8 = getelementptr inbounds i8, ptr %1, i64 24
-  %.promoted28 = load ptr, ptr %4, align 8, !noalias !10
+  %.promoted28 = load ptr, ptr %4, align 8
   %9 = icmp eq i64 %.promoted, 0
   %.sroa.4.sroa.0.0.copyload.pre = load ptr, ptr %.sroa.4.0..sroa_idx, align 8
   br label %10

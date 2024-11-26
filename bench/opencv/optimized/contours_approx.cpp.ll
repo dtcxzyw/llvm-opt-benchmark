@@ -1046,9 +1046,9 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE7reserveEm.exit.i: ; preds = %_ZNSt12_Vector
 .loopexit.i131:                                   ; preds = %407
   %lpad.loopexit.i132 = landingpad { ptr, i32 }
           cleanup
-  store ptr %383, ptr %374, align 8, !alias.scope !29
-  store ptr %382, ptr %379, align 8, !alias.scope !29
-  store ptr %381, ptr %0, align 8, !alias.scope !29
+  store ptr %383, ptr %374, align 8
+  store ptr %382, ptr %379, align 8
+  store ptr %381, ptr %0, align 8
   br label %389
 
 .loopexit.split-lp.i121:                          ; preds = %401, %_ZNSt12_Vector_baseIN2cv6Point_IiEESaIS2_EE11_M_allocateEm.exit.i.i, %372
@@ -1085,9 +1085,9 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE7reserveEm.exit.i: ; preds = %_ZNSt12_Vector
   br i1 %400, label %401, label %_ZNKSt6vectorIN2cv6Point_IiEESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
 
 401:                                              ; preds = %396
-  store ptr %383, ptr %374, align 8, !alias.scope !29
-  store ptr %382, ptr %379, align 8, !alias.scope !29
-  store ptr %381, ptr %0, align 8, !alias.scope !29
+  store ptr %383, ptr %374, align 8
+  store ptr %382, ptr %379, align 8
+  store ptr %381, ptr %0, align 8
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.2) #15
           to label %.noexc16.i unwind label %.loopexit.split-lp.i121, !noalias !29
 
@@ -1153,9 +1153,9 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE9push_backERKS2_.exit.i: ; preds = %_ZNSt6ve
   br i1 %.not.i128, label %_ZN12_GLOBAL__N_112gatherPointsERKSt6vectorINS_10ApproxItemESaIS1_EE.exit.loopexit, label %380
 
 _ZN12_GLOBAL__N_112gatherPointsERKSt6vectorINS_10ApproxItemESaIS1_EE.exit.loopexit: ; preds = %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE9push_backERKS2_.exit.i
-  store ptr %421, ptr %374, align 8, !alias.scope !29
-  store ptr %420, ptr %379, align 8, !alias.scope !29
-  store ptr %419, ptr %0, align 8, !alias.scope !29
+  store ptr %421, ptr %374, align 8
+  store ptr %420, ptr %379, align 8
+  store ptr %419, ptr %0, align 8
   br label %_ZN12_GLOBAL__N_112gatherPointsERKSt6vectorINS_10ApproxItemESaIS1_EE.exit
 
 _ZN12_GLOBAL__N_112gatherPointsERKSt6vectorINS_10ApproxItemESaIS1_EE.exit: ; preds = %_ZN12_GLOBAL__N_112gatherPointsERKSt6vectorINS_10ApproxItemESaIS1_EE.exit.loopexit, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE7reserveEm.exit.i

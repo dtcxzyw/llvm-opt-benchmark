@@ -2653,11 +2653,11 @@ _ZN5boost3log11v2_mt_posix4core14implementation15get_thread_dataEv.exit: ; preds
   br i1 %.not16.i, label %_ZN5boost3log11v2_mt_posix3aux9anonymous14random_shuffleIPNS_10shared_ptrINS1_5sinks4sinkEEENS_6random18xor_combine_engineINSB_INSA_28linear_feedback_shift_engineIjLi32ELi31ELi13ELi12EEELi0ENSC_IjLi32ELi29ELi2ELi4EEELi0EEELi0ENSC_IjLi32ELi28ELi3ELi17EEELi0EEEEEvT_SI_RT0_.exit, label %.lr.ph.i83
 
 .lr.ph.i83:                                       ; preds = %_ZN5boost3log11v2_mt_posix4core14implementation15get_thread_dataEv.exit
-  %.promoted.i = load i32, ptr %114, align 1, !tbaa !105
+  %.promoted.i = load i32, ptr %114, align 1
   %115 = getelementptr inbounds nuw i8, ptr %.0.i, i64 12
   %116 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
-  %.promoted19.i = load i32, ptr %115, align 4, !tbaa !107
-  %.promoted21.i = load i32, ptr %116, align 4, !tbaa !109
+  %.promoted19.i = load i32, ptr %115, align 4, !tbaa !105
+  %.promoted21.i = load i32, ptr %116, align 4, !tbaa !107
   br label %117
 
 117:                                              ; preds = %155, %.lr.ph.i83
@@ -2712,12 +2712,12 @@ _ZN5boost3log11v2_mt_posix4core14implementation15get_thread_dataEv.exit: ; preds
 155:                                              ; preds = %148, %117
   %.0.i84 = getelementptr inbounds nuw i8, ptr %.018.i, i64 16
   %.not.i85 = icmp eq ptr %.0.i84, %.361.ptr.lcssa173178
-  br i1 %.not.i85, label %._crit_edge.i, label %117, !llvm.loop !111
+  br i1 %.not.i85, label %._crit_edge.i, label %117, !llvm.loop !109
 
 ._crit_edge.i:                                    ; preds = %155
-  store i32 %126, ptr %114, align 4, !tbaa !105
-  store i32 %132, ptr %115, align 4, !tbaa !107
-  store i32 %138, ptr %116, align 4, !tbaa !109
+  store i32 %126, ptr %114, align 4, !tbaa !110
+  store i32 %132, ptr %115, align 4, !tbaa !105
+  store i32 %138, ptr %116, align 4, !tbaa !107
   br label %_ZN5boost3log11v2_mt_posix3aux9anonymous14random_shuffleIPNS_10shared_ptrINS1_5sinks4sinkEEENS_6random18xor_combine_engineINSB_INSA_28linear_feedback_shift_engineIjLi32ELi31ELi13ELi12EEELi0ENSC_IjLi32ELi29ELi2ELi4EEELi0EEELi0ENSC_IjLi32ELi28ELi3ELi17EEELi0EEEEEvT_SI_RT0_.exit
 
 156:                                              ; preds = %.noexc81, %112, %108
@@ -3621,15 +3621,15 @@ _ZNK5boost19thread_specific_ptrINS_3log11v2_mt_posix4core14implementation11threa
   %23 = icmp ult i32 %19, 2
   %24 = or disjoint i32 %19, 2
   %spec.select.i.i.i.i.i = select i1 %23, i32 %24, i32 %19
-  store i32 %spec.select.i.i.i.i.i, ptr %20, align 4, !tbaa !105
+  store i32 %spec.select.i.i.i.i.i, ptr %20, align 4, !tbaa !110
   %25 = icmp ult i32 %19, 8
   %26 = or disjoint i32 %19, 8
   %spec.select.i3.i.i.i.i = select i1 %25, i32 %26, i32 %19
-  store i32 %spec.select.i3.i.i.i.i, ptr %21, align 4, !tbaa !107
+  store i32 %spec.select.i3.i.i.i.i, ptr %21, align 4, !tbaa !105
   %27 = icmp ult i32 %19, 16
   %28 = or disjoint i32 %19, 16
   %spec.select.i.i.i.i = select i1 %27, i32 %28, i32 %19
-  store i32 %spec.select.i.i.i.i, ptr %22, align 4, !tbaa !109
+  store i32 %spec.select.i.i.i.i, ptr %22, align 4, !tbaa !107
   store ptr %7, ptr %2, align 8, !tbaa !62
   %29 = invoke noundef ptr @_ZN5boost6detail12get_tss_dataEPKv(ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %.noexc6 unwind label %38
@@ -4559,12 +4559,12 @@ attributes #26 = { nounwind allocsize(0) }
 !103 = distinct !{!103, !20}
 !104 = distinct !{!104, !20}
 !105 = !{!106, !13, i64 0}
-!106 = !{!"_ZTSN5boost6random28linear_feedback_shift_engineIjLi32ELi31ELi13ELi12EEE", !13, i64 0}
+!106 = !{!"_ZTSN5boost6random28linear_feedback_shift_engineIjLi32ELi29ELi2ELi4EEE", !13, i64 0}
 !107 = !{!108, !13, i64 0}
-!108 = !{!"_ZTSN5boost6random28linear_feedback_shift_engineIjLi32ELi29ELi2ELi4EEE", !13, i64 0}
-!109 = !{!110, !13, i64 0}
-!110 = !{!"_ZTSN5boost6random28linear_feedback_shift_engineIjLi32ELi28ELi3ELi17EEE", !13, i64 0}
-!111 = distinct !{!111, !20}
+!108 = !{!"_ZTSN5boost6random28linear_feedback_shift_engineIjLi32ELi28ELi3ELi17EEE", !13, i64 0}
+!109 = distinct !{!109, !20}
+!110 = !{!111, !13, i64 0}
+!111 = !{!"_ZTSN5boost6random28linear_feedback_shift_engineIjLi32ELi31ELi13ELi12EEE", !13, i64 0}
 !112 = !{i64 18779403, i64 18779427}
 !113 = !{!114, !13, i64 8}
 !114 = !{!"_ZTSN5boost6detail15sp_counted_baseE", !13, i64 8, !13, i64 12}

@@ -32367,7 +32367,7 @@ define hidden noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$11p
   %8 = getelementptr inbounds i8, ptr %0, i64 8
   %9 = load i64, ptr %8, align 8
   %10 = load ptr, ptr %0, align 8, !nonnull !4, !align !474
-  %.promoted = load i64, ptr %7, align 8, !alias.scope !4306, !noalias !4309
+  %.promoted = load i64, ptr %7, align 8
   br label %11
 
 11:                                               ; preds = %18, %3
@@ -32395,9 +32395,9 @@ define hidden noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$11p
 18:                                               ; preds = %14
   %19 = getelementptr inbounds i8, ptr %.sroa.0.0, i64 1
   %20 = getelementptr inbounds [0 x i8], ptr %10, i64 0, i64 %12
-  %21 = load i8, ptr %20, align 1, !noalias !4311, !noundef !4
+  %21 = load i8, ptr %20, align 1, !noalias !4309, !noundef !4
   %22 = add nuw i64 %12, 1
-  store i64 %22, ptr %7, align 8, !alias.scope !4306, !noalias !4309
+  store i64 %22, ptr %7, align 8, !alias.scope !4306, !noalias !4311
   %23 = load i8, ptr %.sroa.0.0, align 1, !noundef !4
   %.not = icmp eq i8 %21, %23
   br i1 %.not, label %11, label %24
@@ -173493,9 +173493,9 @@ attributes #49 = { noreturn }
 !4306 = !{!4307}
 !4307 = distinct !{!4307, !4308, !"_ZN70_$LT$serde_json..read..SliceRead$u20$as$u20$serde_json..read..Read$GT$4next17h254eb2aee647a774E.llvm.4172597797139691951: argument 1"}
 !4308 = distinct !{!4308, !"_ZN70_$LT$serde_json..read..SliceRead$u20$as$u20$serde_json..read..Read$GT$4next17h254eb2aee647a774E.llvm.4172597797139691951"}
-!4309 = !{!4310}
+!4309 = !{!4310, !4307}
 !4310 = distinct !{!4310, !4308, !"_ZN70_$LT$serde_json..read..SliceRead$u20$as$u20$serde_json..read..Read$GT$4next17h254eb2aee647a774E.llvm.4172597797139691951: argument 0"}
-!4311 = !{!4310, !4307}
+!4311 = !{!4310}
 !4312 = !{!4313}
 !4313 = distinct !{!4313, !4314, !"_ZN68_$LT$serde_json..read..StrRead$u20$as$u20$serde_json..read..Read$GT$7discard17h281f3a930a5981b6E.llvm.4172597797139691951: argument 0"}
 !4314 = distinct !{!4314, !"_ZN68_$LT$serde_json..read..StrRead$u20$as$u20$serde_json..read..Read$GT$7discard17h281f3a930a5981b6E.llvm.4172597797139691951"}

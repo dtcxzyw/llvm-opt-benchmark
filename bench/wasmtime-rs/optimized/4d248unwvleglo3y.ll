@@ -557,7 +557,7 @@ define internal fastcc { ptr, i64 } @"_ZN91_$LT$core..str..iter..SplitN$LT$P$GT$
   br i1 %17, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17h61fa6180c96ad587E.exit.thread7.i.i", label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i
-  %.promoted.i.i = load i64, ptr %14, align 8, !alias.scope !68, !noalias !71
+  %.promoted.i.i = load i64, ptr %14, align 8, !alias.scope !67, !noalias !61
   %18 = getelementptr inbounds i8, ptr %0, i64 24
   %.promoted37.i.i = load i8, ptr %18, align 8, !alias.scope !68, !noalias !71
   br label %19

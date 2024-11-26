@@ -4153,10 +4153,10 @@ lor.rhs.i.i.i.i.i:                                ; preds = %_ZNKSt3mapIjN3ue29C
   br i1 %cmp.i2.i.i121.i.i.i, label %if.then.i.i.i27.i.i, label %_ZNKSt3mapIjN3ue29CharReachESt4lessIjESaISt4pairIKjS1_EEE2atERS5_.exit.i.i.i.i
 
 if.then.i.i.i27.i.i:                              ; preds = %lor.rhs.i.i.i.i.i, %_ZNKSt3mapIjN3ue29CharReachESt4lessIjESaISt4pairIKjS1_EEE11lower_boundERS5_.exit.i.i.i.i.i
-  store i64 %or.i.i.i174.i.i.i, ptr %top_cr.i.i.i, align 8, !alias.scope !184
-  store i64 %or10.i.i.i176.i.i.i, ptr %arrayidx.i.i20.i.i.i.i.i.i, align 8, !alias.scope !184
-  store i64 %or17.i.i.i178.i.i.i, ptr %arrayidx.i.i22.i.i.i.i.i.i, align 8, !alias.scope !184
-  store i64 %or24.i.i.i180.i.i.i, ptr %arrayidx.i.i24.i.i.i.i.i.i, align 8, !alias.scope !184
+  store i64 %or.i.i.i174.i.i.i, ptr %top_cr.i.i.i, align 8
+  store i64 %or10.i.i.i176.i.i.i, ptr %arrayidx.i.i20.i.i.i.i.i.i, align 8
+  store i64 %or17.i.i.i178.i.i.i, ptr %arrayidx.i.i22.i.i.i.i.i.i, align 8
+  store i64 %or24.i.i.i180.i.i.i, ptr %arrayidx.i.i24.i.i.i.i.i.i, align 8
   br label %if.then.i.i.invoke.i.i.i
 
 if.then.i.i.invoke.i.i.i:                         ; preds = %_ZNKSt4lessIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEEEclERKS8_SB_.exit.i80.i.i.i, %if.then.i.i.i84.i.i.i, %_ZNSt3mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEENS0_8flat_setIjSt4lessIjESaIjEEESA_IS8_ESaISt4pairIKS8_SD_EEE11lower_boundERSG_.exit.i71.i.i.i, %if.then.i.i.i27.i.i
@@ -4192,10 +4192,10 @@ if.else.split.i.i.i.i:                            ; preds = %_ZN3ue28containsISt
   br label %invoke.cont55.i.i.i
 
 invoke.cont55.loopexit.i.i.i:                     ; preds = %_ZNKSt3mapIjN3ue29CharReachESt4lessIjESaISt4pairIKjS1_EEE2atERS5_.exit.i.i.i.i
-  store i64 %or.i.i.i.i.i.i, ptr %top_cr.i.i.i, align 8, !alias.scope !184
-  store i64 %or10.i.i.i.i.i.i, ptr %arrayidx.i.i20.i.i.i.i.i.i, align 8, !alias.scope !184
-  store i64 %or17.i.i.i.i.i.i, ptr %arrayidx.i.i22.i.i.i.i.i.i, align 8, !alias.scope !184
-  store i64 %or24.i.i.i.i.i.i, ptr %arrayidx.i.i24.i.i.i.i.i.i, align 8, !alias.scope !184
+  store i64 %or.i.i.i.i.i.i, ptr %top_cr.i.i.i, align 8
+  store i64 %or10.i.i.i.i.i.i, ptr %arrayidx.i.i20.i.i.i.i.i.i, align 8
+  store i64 %or17.i.i.i.i.i.i, ptr %arrayidx.i.i22.i.i.i.i.i.i, align 8
+  store i64 %or24.i.i.i.i.i.i, ptr %arrayidx.i.i24.i.i.i.i.i.i, align 8
   br label %invoke.cont55.i.i.i
 
 invoke.cont55.i.i.i:                              ; preds = %invoke.cont55.loopexit.i.i.i, %if.else.split.i.i.i.i

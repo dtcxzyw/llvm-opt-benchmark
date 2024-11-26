@@ -7730,7 +7730,7 @@ define hidden void @_ZN14regex_automata3nfa8thompson8compiler8Compiler8c_concat1
 19:                                               ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1148)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1151)
-  %20 = load ptr, ptr %18, align 8, !noalias !7, !nonnull !7, !noundef !7
+  %20 = load ptr, ptr %18, align 8, !nonnull !7, !noundef !7
   %21 = load ptr, ptr %2, align 8, !alias.scope !1154, !noalias !1157, !nonnull !7, !noundef !7
   %.not.i = icmp eq ptr %21, %20
   br i1 %.not.i, label %69, label %22
@@ -7805,7 +7805,7 @@ _ZN14regex_automata3nfa8thompson8compiler8Compiler9add_range17hcec3ffbfb5e89fdfE
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1189)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1192)
   %45 = load ptr, ptr %18, align 8, !alias.scope !1195, !noalias !1198, !nonnull !7, !noundef !7
-  %46 = load ptr, ptr %2, align 8, !noalias !7, !nonnull !7, !noundef !7
+  %46 = load ptr, ptr %2, align 8, !nonnull !7, !noundef !7
   %.not.i84 = icmp eq ptr %46, %45
   br i1 %.not.i84, label %69, label %47
 
@@ -8193,7 +8193,7 @@ define hidden void @_ZN14regex_automata3nfa8thompson8compiler8Compiler8c_concat1
 
 15:                                               ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1364)
-  %16 = load ptr, ptr %14, align 8, !noalias !7, !nonnull !7, !noundef !7
+  %16 = load ptr, ptr %14, align 8, !nonnull !7, !noundef !7
   %17 = load ptr, ptr %2, align 8, !alias.scope !1367, !noalias !1370, !nonnull !7, !noundef !7
   %18 = icmp eq ptr %17, %16
   br i1 %18, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcea753bc7af25b7aE.exit.thread", label %19
@@ -8218,7 +8218,7 @@ define hidden void @_ZN14regex_automata3nfa8thompson8compiler8Compiler8c_concat1
 22:                                               ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1373)
   %23 = load ptr, ptr %14, align 8, !alias.scope !1376, !noalias !1379, !nonnull !7, !noundef !7
-  %24 = load ptr, ptr %2, align 8, !noalias !7, !nonnull !7, !noundef !7
+  %24 = load ptr, ptr %2, align 8, !nonnull !7, !noundef !7
   %25 = icmp eq ptr %24, %23
   br i1 %25, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcea753bc7af25b7aE.exit.thread", label %26
 
@@ -8481,7 +8481,7 @@ define hidden void @_ZN14regex_automata3nfa8thompson8compiler8Compiler8c_concat1
 16:                                               ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1452)
   %17 = load i32, ptr %14, align 8, !alias.scope !1455, !noalias !1460, !noundef !7
-  %18 = load i32, ptr %15, align 4, !noalias !7, !noundef !7
+  %18 = load i32, ptr %15, align 4, !noundef !7
   %19 = icmp ult i32 %17, %18
   br i1 %19, label %20, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbcefefc001bc8a38E.exit.thread"
 
@@ -8505,7 +8505,7 @@ define hidden void @_ZN14regex_automata3nfa8thompson8compiler8Compiler8c_concat1
 
 23:                                               ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1463)
-  %24 = load i32, ptr %14, align 8, !noalias !7, !noundef !7
+  %24 = load i32, ptr %14, align 8, !noundef !7
   %25 = load i32, ptr %15, align 4, !alias.scope !1466, !noalias !1471, !noundef !7
   %26 = icmp ult i32 %24, %25
   br i1 %26, label %27, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbcefefc001bc8a38E.exit.thread"

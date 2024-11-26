@@ -30087,7 +30087,7 @@ define hidden { i64, ptr } @"_ZN66_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u
   %7 = load ptr, ptr %6, align 8, !nonnull !16
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = load i64, ptr %8, align 8
-  %.promoted = load i64, ptr %5, align 8, !alias.scope !6834, !noalias !6837
+  %.promoted = load i64, ptr %5, align 8
   br label %10
 
 10:                                               ; preds = %"_ZN66_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$std..io..Read$GT$4read17h1f52f279d16b7da1E.exit", %3
@@ -31214,7 +31214,7 @@ define hidden void @"_ZN74_$LT$bytes..bytes_mut..BytesMut$u20$as$u20$bytes..buf.
   br i1 %.not9, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
-  %.promoted7 = load ptr, ptr %1, align 8, !noalias !16
+  %.promoted7 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %.pre = load i64, ptr %5, align 8, !alias.scope !7296, !noalias !7299

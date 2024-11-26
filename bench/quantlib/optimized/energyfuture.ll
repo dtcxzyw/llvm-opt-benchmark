@@ -3276,7 +3276,7 @@ invoke.cont217:                                   ; preds = %invoke.cont204
   br i1 %cmp.i242.not284, label %for.cond.cleanup, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %invoke.cont217
-  %NPV_.promoted = load double, ptr %NPV_, align 8, !tbaa !86
+  %NPV_.promoted = load double, ptr %NPV_, align 8
   br label %for.body
 
 for.cond.cleanup:                                 ; preds = %for.body, %invoke.cont217

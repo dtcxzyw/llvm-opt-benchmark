@@ -985,7 +985,7 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
   %14 = getelementptr inbounds i8, ptr %2, i64 16
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %2, i64 8
-  %.promoted21 = load i64, ptr %16, align 8, !alias.scope !269, !noalias !276
+  %.promoted21 = load i64, ptr %16, align 8
   br label %19
 
 17:                                               ; preds = %3
@@ -1000,14 +1000,14 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
   %21 = phi i64 [ %.promoted, %6 ], [ %31, %28 ]
   %.0 = phi i64 [ 0, %6 ], [ %32, %28 ]
   %22 = getelementptr inbounds { i128, ptr, [1 x i64] }, ptr %0, i64 %.0
-  %.val19 = load i128, ptr %22, align 16, !alias.scope !280, !noalias !285, !noundef !4
+  %.val19 = load i128, ptr %22, align 16, !alias.scope !269, !noalias !274, !noundef !4
   %23 = getelementptr i8, ptr %22, i64 16
-  %.val20 = load ptr, ptr %23, align 8, !alias.scope !288, !noalias !289, !nonnull !4, !noundef !4
+  %.val20 = load ptr, ptr %23, align 8, !alias.scope !277, !noalias !278, !nonnull !4, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !268)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !296)
-  %24 = load i32, ptr %13, align 8, !range !29, !noalias !297, !noundef !4
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !301)
-  %25 = atomicrmw add ptr %.val20, i64 1 monotonic, align 8, !noalias !302
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !285)
+  %24 = load i32, ptr %13, align 8, !range !29, !noalias !286, !noundef !4
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !290)
+  %25 = atomicrmw add ptr %.val20, i64 1 monotonic, align 8, !noalias !293
   %26 = icmp slt i64 %25, 0
   br i1 %26, label %27, label %28
 
@@ -1016,18 +1016,18 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
   unreachable
 
 28:                                               ; preds = %19
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !306)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !307)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !298)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !301)
   %29 = getelementptr inbounds { { i128, i64, i32, [1 x i32] }, ptr, [1 x i64] }, ptr %15, i64 %20
-  store i128 %.val19, ptr %29, align 16, !noalias !308
+  store i128 %.val19, ptr %29, align 16, !noalias !304
   %.sroa.0.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %29, i64 16
-  store i64 %21, ptr %.sroa.0.sroa.4.0..sroa_idx.i.i, align 16, !noalias !308
+  store i64 %21, ptr %.sroa.0.sroa.4.0..sroa_idx.i.i, align 16, !noalias !304
   %.sroa.0.sroa.5.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %29, i64 24
-  store i32 %24, ptr %.sroa.0.sroa.5.0..sroa_idx.i.i, align 8, !noalias !308
+  store i32 %24, ptr %.sroa.0.sroa.5.0..sroa_idx.i.i, align 8, !noalias !304
   %.sroa.0.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %29, i64 32
-  store ptr %.val20, ptr %.sroa.0.sroa.4.0..sroa_idx.i.i.i, align 16, !noalias !309
+  store ptr %.val20, ptr %.sroa.0.sroa.4.0..sroa_idx.i.i.i, align 16, !noalias !305
   %30 = add i64 %20, 1
-  store i64 %30, ptr %16, align 8, !alias.scope !269, !noalias !276
+  store i64 %30, ptr %16, align 8, !alias.scope !306, !noalias !307
   %31 = add i64 %21, 1
   store i64 %31, ptr %11, align 8, !alias.scope !268
   %32 = add nuw i64 %.0, 1
@@ -1652,47 +1652,47 @@ attributes #17 = { noreturn }
 !266 = !{!267}
 !267 = distinct !{!267, !263, !"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h47c48cbbd58bc487E: argument 1"}
 !268 = !{!264}
-!269 = !{!270, !272, !274, !262, !264}
-!270 = distinct !{!270, !271, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted28_$u7b$$u7b$closure$u7d$$u7d$17hdefae2565f646db8E: argument 0"}
-!271 = distinct !{!271, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted28_$u7b$$u7b$closure$u7d$$u7d$17hdefae2565f646db8E"}
-!272 = distinct !{!272, !273, !"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h7a4a52a1335b7daeE: argument 0"}
-!273 = distinct !{!273, !"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h7a4a52a1335b7daeE"}
-!274 = distinct !{!274, !275, !"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hcbe01f67f8ee23ebE: argument 0"}
-!275 = distinct !{!275, !"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hcbe01f67f8ee23ebE"}
-!276 = !{!277, !278, !279, !267}
-!277 = distinct !{!277, !271, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted28_$u7b$$u7b$closure$u7d$$u7d$17hdefae2565f646db8E: argument 1"}
-!278 = distinct !{!278, !273, !"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h7a4a52a1335b7daeE: argument 1"}
-!279 = distinct !{!279, !275, !"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hcbe01f67f8ee23ebE: argument 1"}
-!280 = !{!281, !283}
-!281 = distinct !{!281, !282, !"_ZN9typst_svg21Deduplicator$LT$T$GT$4iter28_$u7b$$u7b$closure$u7d$$u7d$17hc4e57b18ba7b606eE: argument 1"}
-!282 = distinct !{!282, !"_ZN9typst_svg21Deduplicator$LT$T$GT$4iter28_$u7b$$u7b$closure$u7d$$u7d$17hc4e57b18ba7b606eE"}
-!283 = distinct !{!283, !284, !"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h47c48cbbd58bc487E: argument 1"}
-!284 = distinct !{!284, !"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h47c48cbbd58bc487E"}
-!285 = !{!286, !287}
-!286 = distinct !{!286, !282, !"_ZN9typst_svg21Deduplicator$LT$T$GT$4iter28_$u7b$$u7b$closure$u7d$$u7d$17hc4e57b18ba7b606eE: argument 0"}
-!287 = distinct !{!287, !284, !"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h47c48cbbd58bc487E: argument 0"}
-!288 = !{!283}
-!289 = !{!290, !292, !293, !295, !287}
-!290 = distinct !{!290, !291, !"_ZN9typst_svg11SVGRenderer14write_patterns28_$u7b$$u7b$closure$u7d$$u7d$17hc6fb08330a351c15E: argument 0"}
-!291 = distinct !{!291, !"_ZN9typst_svg11SVGRenderer14write_patterns28_$u7b$$u7b$closure$u7d$$u7d$17hc6fb08330a351c15E"}
-!292 = distinct !{!292, !291, !"_ZN9typst_svg11SVGRenderer14write_patterns28_$u7b$$u7b$closure$u7d$$u7d$17hc6fb08330a351c15E: argument 1"}
-!293 = distinct !{!293, !294, !"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hcbe01f67f8ee23ebE: argument 0"}
-!294 = distinct !{!294, !"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hcbe01f67f8ee23ebE"}
-!295 = distinct !{!295, !294, !"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hcbe01f67f8ee23ebE: argument 1"}
-!296 = !{!262}
-!297 = !{!298, !300, !262, !267, !264}
-!298 = distinct !{!298, !299, !"_ZN9typst_svg21Deduplicator$LT$T$GT$4iter28_$u7b$$u7b$closure$u7d$$u7d$17hc4e57b18ba7b606eE: argument 0"}
-!299 = distinct !{!299, !"_ZN9typst_svg21Deduplicator$LT$T$GT$4iter28_$u7b$$u7b$closure$u7d$$u7d$17hc4e57b18ba7b606eE"}
-!300 = distinct !{!300, !299, !"_ZN9typst_svg21Deduplicator$LT$T$GT$4iter28_$u7b$$u7b$closure$u7d$$u7d$17hc4e57b18ba7b606eE: argument 1"}
-!301 = !{!274}
-!302 = !{!303, !305, !274, !279, !262, !267, !264}
-!303 = distinct !{!303, !304, !"_ZN9typst_svg11SVGRenderer14write_patterns28_$u7b$$u7b$closure$u7d$$u7d$17hc6fb08330a351c15E: argument 0"}
-!304 = distinct !{!304, !"_ZN9typst_svg11SVGRenderer14write_patterns28_$u7b$$u7b$closure$u7d$$u7d$17hc6fb08330a351c15E"}
-!305 = distinct !{!305, !304, !"_ZN9typst_svg11SVGRenderer14write_patterns28_$u7b$$u7b$closure$u7d$$u7d$17hc6fb08330a351c15E: argument 1"}
-!306 = !{!272}
-!307 = !{!270}
-!308 = !{!270, !272, !274, !262, !267, !264}
-!309 = !{!270, !272, !274, !279, !262, !267, !264}
+!269 = !{!270, !272}
+!270 = distinct !{!270, !271, !"_ZN9typst_svg21Deduplicator$LT$T$GT$4iter28_$u7b$$u7b$closure$u7d$$u7d$17hc4e57b18ba7b606eE: argument 1"}
+!271 = distinct !{!271, !"_ZN9typst_svg21Deduplicator$LT$T$GT$4iter28_$u7b$$u7b$closure$u7d$$u7d$17hc4e57b18ba7b606eE"}
+!272 = distinct !{!272, !273, !"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h47c48cbbd58bc487E: argument 1"}
+!273 = distinct !{!273, !"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h47c48cbbd58bc487E"}
+!274 = !{!275, !276}
+!275 = distinct !{!275, !271, !"_ZN9typst_svg21Deduplicator$LT$T$GT$4iter28_$u7b$$u7b$closure$u7d$$u7d$17hc4e57b18ba7b606eE: argument 0"}
+!276 = distinct !{!276, !273, !"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h47c48cbbd58bc487E: argument 0"}
+!277 = !{!272}
+!278 = !{!279, !281, !282, !284, !276}
+!279 = distinct !{!279, !280, !"_ZN9typst_svg11SVGRenderer14write_patterns28_$u7b$$u7b$closure$u7d$$u7d$17hc6fb08330a351c15E: argument 0"}
+!280 = distinct !{!280, !"_ZN9typst_svg11SVGRenderer14write_patterns28_$u7b$$u7b$closure$u7d$$u7d$17hc6fb08330a351c15E"}
+!281 = distinct !{!281, !280, !"_ZN9typst_svg11SVGRenderer14write_patterns28_$u7b$$u7b$closure$u7d$$u7d$17hc6fb08330a351c15E: argument 1"}
+!282 = distinct !{!282, !283, !"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hcbe01f67f8ee23ebE: argument 0"}
+!283 = distinct !{!283, !"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hcbe01f67f8ee23ebE"}
+!284 = distinct !{!284, !283, !"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hcbe01f67f8ee23ebE: argument 1"}
+!285 = !{!262}
+!286 = !{!287, !289, !262, !267, !264}
+!287 = distinct !{!287, !288, !"_ZN9typst_svg21Deduplicator$LT$T$GT$4iter28_$u7b$$u7b$closure$u7d$$u7d$17hc4e57b18ba7b606eE: argument 0"}
+!288 = distinct !{!288, !"_ZN9typst_svg21Deduplicator$LT$T$GT$4iter28_$u7b$$u7b$closure$u7d$$u7d$17hc4e57b18ba7b606eE"}
+!289 = distinct !{!289, !288, !"_ZN9typst_svg21Deduplicator$LT$T$GT$4iter28_$u7b$$u7b$closure$u7d$$u7d$17hc4e57b18ba7b606eE: argument 1"}
+!290 = !{!291}
+!291 = distinct !{!291, !292, !"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hcbe01f67f8ee23ebE: argument 0"}
+!292 = distinct !{!292, !"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hcbe01f67f8ee23ebE"}
+!293 = !{!294, !296, !291, !297, !262, !267, !264}
+!294 = distinct !{!294, !295, !"_ZN9typst_svg11SVGRenderer14write_patterns28_$u7b$$u7b$closure$u7d$$u7d$17hc6fb08330a351c15E: argument 0"}
+!295 = distinct !{!295, !"_ZN9typst_svg11SVGRenderer14write_patterns28_$u7b$$u7b$closure$u7d$$u7d$17hc6fb08330a351c15E"}
+!296 = distinct !{!296, !295, !"_ZN9typst_svg11SVGRenderer14write_patterns28_$u7b$$u7b$closure$u7d$$u7d$17hc6fb08330a351c15E: argument 1"}
+!297 = distinct !{!297, !292, !"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hcbe01f67f8ee23ebE: argument 1"}
+!298 = !{!299}
+!299 = distinct !{!299, !300, !"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h7a4a52a1335b7daeE: argument 0"}
+!300 = distinct !{!300, !"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h7a4a52a1335b7daeE"}
+!301 = !{!302}
+!302 = distinct !{!302, !303, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted28_$u7b$$u7b$closure$u7d$$u7d$17hdefae2565f646db8E: argument 0"}
+!303 = distinct !{!303, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted28_$u7b$$u7b$closure$u7d$$u7d$17hdefae2565f646db8E"}
+!304 = !{!302, !299, !291, !262, !267, !264}
+!305 = !{!302, !299, !291, !297, !262, !267, !264}
+!306 = !{!302, !299, !291, !262, !264}
+!307 = !{!308, !309, !297, !267}
+!308 = distinct !{!308, !303, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted28_$u7b$$u7b$closure$u7d$$u7d$17hdefae2565f646db8E: argument 1"}
+!309 = distinct !{!309, !300, !"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h7a4a52a1335b7daeE: argument 1"}
 !310 = !{!311}
 !311 = distinct !{!311, !312, !"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h76c94a77a08adcdcE: argument 0"}
 !312 = distinct !{!312, !"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h76c94a77a08adcdcE"}

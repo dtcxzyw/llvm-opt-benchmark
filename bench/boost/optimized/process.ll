@@ -133341,7 +133341,7 @@ define linkonce_odr hidden void @_ZN5boost7process2v219process_environment9build
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIPKcSaIS1_EE9push_backEOS1_.exit19
   %.pre = load ptr, ptr %8, align 8, !tbaa !198
-  store ptr %67, ptr %0, align 8, !tbaa !197
+  store ptr %67, ptr %0, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.not.i.i = icmp eq ptr %66, %.pre
@@ -133437,7 +133437,7 @@ _ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iterat
   br i1 %48, label %49, label %_ZNKSt6vectorIPKcSaIS1_EE12_M_check_lenEmS1_.exit.i.i.i10
 
 49:                                               ; preds = %44
-  store ptr %39, ptr %0, align 8, !tbaa !197
+  store ptr %39, ptr %0, align 8
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.212) #41
           to label %.noexc17 unwind label %.loopexit.split-lp
 
@@ -133496,7 +133496,7 @@ _ZNSt6vectorIPKcSaIS1_EE9push_backEOS1_.exit19:   ; preds = %_ZNSt6vectorIPKcSaI
 .loopexit:                                        ; preds = %55
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  store ptr %39, ptr %0, align 8, !tbaa !197
+  store ptr %39, ptr %0, align 8
   br label %71
 
 .loopexit.split-lp:                               ; preds = %49
@@ -135021,7 +135021,7 @@ _ZNK5boost7process2v211environment12current_view3endEv.exit: ; preds = %_ZNK5boo
   br i1 %.not, label %9, label %35
 
 9:                                                ; preds = %_ZNK5boost7process2v211environment12current_view3endEv.exit
-  store ptr %8, ptr %0, align 8, !tbaa !197
+  store ptr %8, ptr %0, align 8
   %10 = load ptr, ptr %6, align 8, !tbaa !198
   %.not.i.i = icmp eq ptr %7, %10
   br i1 %.not.i.i, label %13, label %11
@@ -135092,7 +135092,7 @@ _ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iterat
 .loopexit35:                                      ; preds = %_ZNSt6vectorIPKcSaIS1_EE9push_backEOS1_.exit26
   %lpad.loopexit37 = landingpad { ptr, i32 }
           cleanup
-  store ptr %63, ptr %0, align 8, !tbaa !197
+  store ptr %63, ptr %0, align 8
   br label %67
 
 35:                                               ; preds = %_ZNK5boost7process2v211environment12current_view3endEv.exit
@@ -135115,7 +135115,7 @@ _ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iterat
   br i1 %44, label %45, label %_ZNKSt6vectorIPKcSaIS1_EE12_M_check_lenEmS1_.exit.i.i.i17
 
 45:                                               ; preds = %40
-  store ptr %8, ptr %0, align 8, !tbaa !197
+  store ptr %8, ptr %0, align 8
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.212) #41
           to label %.noexc24 unwind label %.loopexit.split-lp
 
@@ -135173,7 +135173,7 @@ _ZNSt6vectorIPKcSaIS1_EE9push_backEOS1_.exit26:   ; preds = %_ZNSt6vectorIPKcSaI
 .loopexit:                                        ; preds = %51
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  store ptr %8, ptr %0, align 8, !tbaa !197
+  store ptr %8, ptr %0, align 8
   br label %67
 
 .loopexit.split-lp:                               ; preds = %45

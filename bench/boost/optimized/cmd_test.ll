@@ -143925,7 +143925,7 @@ define linkonce_odr hidden void @_ZN5boost7process2v16detail5posix11cmd_setter_I
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIPcSaIS0_EE9push_backEOS0_.exit19
   %.pre = load ptr, ptr %7, align 8, !tbaa !1502
-  store ptr %66, ptr %0, align 8, !tbaa !1500
+  store ptr %66, ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.not.i.i = icmp eq ptr %65, %.pre
@@ -144021,7 +144021,7 @@ _ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iterato
   br i1 %47, label %48, label %_ZNKSt6vectorIPcSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i10
 
 48:                                               ; preds = %43
-  store ptr %38, ptr %0, align 8, !tbaa !1500
+  store ptr %38, ptr %0, align 8
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.503) #57
           to label %.noexc17 unwind label %.loopexit.split-lp
 
@@ -144080,7 +144080,7 @@ _ZNSt6vectorIPcSaIS0_EE9push_backEOS0_.exit19:    ; preds = %_ZNSt6vectorIPcSaIS
 .loopexit:                                        ; preds = %54
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  store ptr %38, ptr %0, align 8, !tbaa !1500
+  store ptr %38, ptr %0, align 8
   br label %70
 
 .loopexit.split-lp:                               ; preds = %48
@@ -157340,7 +157340,7 @@ _ZNSt6vectorIPcSaIS0_EE9push_backEOS0_.exit:      ; preds = %_ZNSt6vectorIPcSaIS
   br i1 %35, label %36, label %_ZNKSt6vectorIPcSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i11
 
 36:                                               ; preds = %31
-  store ptr %20, ptr %0, align 8, !tbaa !1500
+  store ptr %20, ptr %0, align 8
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.503) #57
           to label %.noexc18 unwind label %.loopexit.split-lp
 
@@ -157399,7 +157399,7 @@ _ZNSt6vectorIPcSaIS0_EE9push_backEOS0_.exit20:    ; preds = %_ZNSt6vectorIPcSaIS
 .loopexit40:                                      ; preds = %42
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  store ptr %20, ptr %0, align 8, !tbaa !1500
+  store ptr %20, ptr %0, align 8
   br label %88
 
 .loopexit.split-lp:                               ; preds = %36
@@ -157408,7 +157408,7 @@ _ZNSt6vectorIPcSaIS0_EE9push_backEOS0_.exit20:    ; preds = %_ZNSt6vectorIPcSaIS
   br label %88
 
 56:                                               ; preds = %_ZNSt6vectorIPcSaIS0_EE9push_backEOS0_.exit20
-  store ptr %54, ptr %0, align 8, !tbaa !1500
+  store ptr %54, ptr %0, align 8
   %.pre = load ptr, ptr %18, align 8, !tbaa !1502
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 16

@@ -22939,7 +22939,7 @@ define internal fastcc { ptr, i64 } @_ZN4core4iter6traits8iterator8Iterator8try_
   br i1 %4, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
-  %.promoted17 = load ptr, ptr %0, align 8, !alias.scope !4221
+  %.promoted17 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = getelementptr inbounds i8, ptr %2, i64 8
   %7 = getelementptr inbounds i8, ptr %2, i64 24
@@ -23028,7 +23028,7 @@ define internal fastcc noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterato
   %3 = load i64, ptr %2, align 8, !range !2798, !alias.scope !4241, !noundef !4
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %.promoted = load i64, ptr %4, align 8, !alias.scope !4241
-  %.promoted11 = load ptr, ptr %0, align 8, !alias.scope !4241
+  %.promoted11 = load ptr, ptr %0, align 8
   %.not = icmp ugt i64 %3, %.promoted
   br i1 %.not, label %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17hd0c387fceefac51dE.exit.thread", label %.lr.ph
 

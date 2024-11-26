@@ -261,8 +261,8 @@ _ZNSt6vectorIN5boost6locale8boundary10break_infoESaIS3_EE9push_backEOS3_.exit: ;
 
 45:                                               ; preds = %40
   store ptr %31, ptr %21, align 1
-  store ptr %30, ptr %12, align 8, !tbaa !9
-  store ptr %29, ptr %0, align 8, !tbaa !3
+  store ptr %30, ptr %12, align 8
+  store ptr %29, ptr %0, align 8
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.6) #19
           to label %.noexc104 unwind label %.loopexit.split-lp
 
@@ -410,16 +410,16 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit._crit_edge: ; preds = %_ZNSt6vectorIiSaIiE
   %101 = landingpad { ptr, i32 }
           cleanup
   store ptr %31, ptr %21, align 1
-  store ptr %30, ptr %12, align 8, !tbaa !9
-  store ptr %29, ptr %0, align 8, !tbaa !3
+  store ptr %30, ptr %12, align 8
+  store ptr %29, ptr %0, align 8
   br label %155
 
 .loopexit:                                        ; preds = %51
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   store ptr %31, ptr %21, align 1
-  store ptr %30, ptr %12, align 8, !tbaa !9
-  store ptr %29, ptr %0, align 8, !tbaa !3
+  store ptr %30, ptr %12, align 8
+  store ptr %29, ptr %0, align 8
   br label %155
 
 .loopexit.split-lp:                               ; preds = %45
@@ -431,16 +431,16 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit._crit_edge: ; preds = %_ZNSt6vectorIiSaIiE
   %103 = landingpad { ptr, i32 }
           cleanup
   store ptr %62, ptr %21, align 1
-  store ptr %61, ptr %12, align 8, !tbaa !9
-  store ptr %60, ptr %0, align 8, !tbaa !3
+  store ptr %61, ptr %12, align 8
+  store ptr %60, ptr %0, align 8
   br label %143
 
 104:                                              ; preds = %80
   %105 = landingpad { ptr, i32 }
           cleanup
   store ptr %62, ptr %21, align 1
-  store ptr %61, ptr %12, align 8, !tbaa !9
-  store ptr %60, ptr %0, align 8, !tbaa !3
+  store ptr %61, ptr %12, align 8
+  store ptr %60, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #22
   br label %143
 
@@ -613,8 +613,8 @@ _ZNSt6vectorIiSaIiEED2Ev.exit110:                 ; preds = %143, %145
 
 154:                                              ; preds = %36
   store ptr %31, ptr %21, align 1
-  store ptr %30, ptr %12, align 8, !tbaa !9
-  store ptr %29, ptr %0, align 8, !tbaa !3
+  store ptr %30, ptr %12, align 8
+  store ptr %29, ptr %0, align 8
   ret void
 
 155:                                              ; preds = %.loopexit, %.loopexit.split-lp, %97, %_ZNSt6vectorIiSaIiEED2Ev.exit110, %100

@@ -8499,7 +8499,7 @@ _ZN4core3str7pattern13simd_contains17hc1ca49711af5475fE.exit.i: ; preds = %244
   br i1 %51, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17he21cac0fa60d7f79E.exit.i", label %.lr.ph.i29.i
 
 .lr.ph.i29.i:                                     ; preds = %.preheader.i28.i
-  %.promoted.i.i = load i64, ptr %48, align 8, !alias.scope !917, !noalias !920
+  %.promoted.i.i = load i64, ptr %48, align 8, !noalias !911
   %52 = getelementptr inbounds i8, ptr %6, i64 24
   %53 = getelementptr inbounds i8, ptr %6, i64 72
   %54 = load ptr, ptr %53, align 8, !alias.scope !917, !noalias !920, !nonnull !20, !align !754, !noundef !20
@@ -8636,7 +8636,7 @@ _ZN4core3str7pattern13simd_contains17hc1ca49711af5475fE.exit.i: ; preds = %244
   call void @llvm.experimental.noalias.scope.decl(metadata !930)
   call void @llvm.experimental.noalias.scope.decl(metadata !933)
   call void @llvm.experimental.noalias.scope.decl(metadata !935)
-  %.promoted.i38.i = load i64, ptr %132, align 8, !alias.scope !930, !noalias !937
+  %.promoted.i38.i = load i64, ptr %132, align 8, !noalias !911
   %135 = add i64 %.promoted.i38.i, %133
   %136 = icmp ult i64 %135, %127
   br i1 %136, label %.lr.ph.i41.i, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17he21cac0fa60d7f79E.exit.i"
@@ -8748,7 +8748,7 @@ _ZN4core3str7pattern13simd_contains17hc1ca49711af5475fE.exit.i: ; preds = %244
   call void @llvm.experimental.noalias.scope.decl(metadata !942)
   call void @llvm.experimental.noalias.scope.decl(metadata !945)
   call void @llvm.experimental.noalias.scope.decl(metadata !947)
-  %.promoted.i33.i = load i64, ptr %132, align 8, !alias.scope !942, !noalias !949
+  %.promoted.i33.i = load i64, ptr %132, align 8, !noalias !911
   %192 = add i64 %.promoted.i33.i, %133
   %193 = icmp ult i64 %192, %127
   br i1 %193, label %.lr.ph.i36.i, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17he21cac0fa60d7f79E.exit.i"

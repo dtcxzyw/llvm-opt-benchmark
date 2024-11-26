@@ -4757,7 +4757,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator4fold17h330e5ed0e248fd
   br label %22
 
 .lr.ph:                                           ; preds = %2
-  %.promoted12 = load ptr, ptr %0, align 8, !alias.scope !1247
+  %.promoted12 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !alias.scope !1247, !noundef !9
   %7 = getelementptr inbounds i8, ptr %1, i64 16

@@ -16274,7 +16274,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17hd731befd03d26edbE.exit: ; pred
 
 "_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haaa802089f49df72E.llvm.13893360374757121663.exit.lr.ph.i": ; preds = %14
   %26 = getelementptr inbounds i8, ptr %23, i64 %19
-  %.promoted.i17 = load ptr, ptr %15, align 8, !alias.scope !7841, !noalias !7835
+  %.promoted.i17 = load ptr, ptr %15, align 8, !alias.scope !7838, !noalias !7835
   %27 = getelementptr inbounds i8, ptr %0, i64 48
   %28 = load ptr, ptr %27, align 8, !alias.scope !7841, !noalias !7835, !nonnull !4, !noundef !4
   br label %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haaa802089f49df72E.llvm.13893360374757121663.exit.i"
@@ -16348,7 +16348,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17hd731befd03d26edbE.exit: ; pred
 
 "_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haaa802089f49df72E.llvm.13893360374757121663.exit.lr.ph.i18": ; preds = %"_ZN5alloc3vec6splice55_$LT$impl$u20$alloc..vec..drain..Drain$LT$T$C$A$GT$$GT$9move_tail17h4ff6dbf18efa342fE.exit"
   %62 = getelementptr inbounds i8, ptr %59, i64 %57
-  %.promoted.i19 = load ptr, ptr %15, align 8, !alias.scope !7863, !noalias !7857
+  %.promoted.i19 = load ptr, ptr %15, align 8, !alias.scope !7860, !noalias !7857
   %63 = load ptr, ptr %37, align 8, !alias.scope !7863, !noalias !7857, !nonnull !4, !noundef !4
   br label %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haaa802089f49df72E.llvm.13893360374757121663.exit.i20"
 

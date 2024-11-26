@@ -38229,7 +38229,7 @@ _ZN15rustfmt_nightly7rewrite14RewriteContext7snippet17h7d81c3a187049865E.exit: ;
   %183 = getelementptr inbounds i8, ptr %34, i64 80
   %184 = load i64, ptr %183, align 8, !alias.scope !5785, !noalias !5788, !noundef !10
   %.promoted.i.i = load i8, ptr %179, align 1, !alias.scope !5785, !noalias !5788
-  %.promoted35.i.i = load i64, ptr %180, align 8, !alias.scope !5785, !noalias !5788
+  %.promoted35.i.i = load i64, ptr %180, align 8, !noalias !5777
   %185 = trunc nuw i8 %.promoted.i.i to i1
   %186 = icmp eq i64 %.promoted35.i.i, 0
   br i1 %186, label %.thread.i.i.i, label %.lr.ph.i

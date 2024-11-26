@@ -1032,7 +1032,7 @@ common.resume:                                    ; preds = %common.resume.sink.
 .loopexit:                                        ; preds = %.loopexit.loopexit.split-lp, %.loopexit.loopexit
   %.fca.1.extract.i30206.lcssa = phi ptr [ %.ph, %.loopexit.loopexit ], [ null, %.loopexit.loopexit.split-lp ]
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit269, %.loopexit.loopexit ], [ %lpad.loopexit.split-lp270, %.loopexit.loopexit.split-lp ]
-  store ptr %.fca.1.extract.i30206.lcssa, ptr %16, align 8, !noalias !212
+  store ptr %.fca.1.extract.i30206.lcssa, ptr %16, align 8
   br label %238
 
 .loopexit.split-lp:                               ; preds = %.invoke, %248, %264, %271, %278, %268
@@ -1051,7 +1051,7 @@ common.resume:                                    ; preds = %common.resume.sink.
   ]
 
 240:                                              ; preds = %239
-  store ptr %.ph, ptr %16, align 8, !noalias !212
+  store ptr %.ph, ptr %16, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13), !noalias !212
   %241 = load i64, ptr %17, align 8, !range !135, !noalias !212, !noundef !4
   %242 = icmp eq i64 %241, -9223372036854775807
@@ -1066,7 +1066,7 @@ common.resume:                                    ; preds = %common.resume.sink.
   br i1 %244, label %.invoke, label %_ZN5serde2de9MapAccess10next_value17hf10aa98fd48ab6d2E.exit.i.i
 
 .invoke:                                          ; preds = %243, %250
-  store ptr %.ph, ptr %16, align 8, !noalias !212
+  store ptr %.ph, ptr %16, align 8
   invoke void @_ZN4core6option13expect_failed17hc85eb6037a3050f7E(ptr noalias noundef nonnull readonly align 1 @anon.f733b5516a4ddd6d48855c4e541218b3.64.llvm.10157987788164207885, i64 noundef 44, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f733b5516a4ddd6d48855c4e541218b3.66.llvm.10157987788164207885) #47
           to label %.cont unwind label %.loopexit.split-lp, !noalias !216
 
@@ -1097,7 +1097,7 @@ _ZN5serde2de9MapAccess10next_value17hf10aa98fd48ab6d2E.exit.i.i: ; preds = %243
   br i1 %.not83.i, label %266, label %264
 
 248:                                              ; preds = %245
-  store ptr %.ph, ptr %16, align 8, !noalias !212
+  store ptr %.ph, ptr %16, align 8
   %249 = invoke noundef nonnull align 8 ptr @_ZN5serde2de5Error15duplicate_field17hab429d3fe057c073E(ptr noalias noundef nonnull readonly align 1 @anon.63c56c029849d52f8e59e08c8a58f399.226, i64 noundef 5)
           to label %279 unwind label %.loopexit.split-lp, !noalias !216
 
@@ -1161,14 +1161,14 @@ _ZN5serde2de9MapAccess10next_value17h06ceeada394463edE.exit.i.i: ; preds = %250
 262:                                              ; preds = %259, %257
   %263 = landingpad { ptr, i32 }
           cleanup
-  store ptr %.ph, ptr %16, align 8, !noalias !212
+  store ptr %.ph, ptr %16, align 8
   store i64 %252, ptr %17, align 8, !noalias !212
   store ptr %254, ptr %.sroa.6.0..sroa_idx16.i, align 8, !noalias !212
   store i64 %.sroa.564.0.copyload.i, ptr %234, align 8, !noalias !212
   br label %238
 
 264:                                              ; preds = %247
-  store ptr %.ph, ptr %16, align 8, !noalias !212
+  store ptr %.ph, ptr %16, align 8
   %265 = invoke noundef nonnull align 8 ptr @_ZN5serde2de5Error15duplicate_field17hab429d3fe057c073E(ptr noalias noundef nonnull readonly align 1 @anon.63c56c029849d52f8e59e08c8a58f399.224, i64 noundef 7)
           to label %.thread171 unwind label %.loopexit.split-lp, !noalias !216
 
@@ -1181,7 +1181,7 @@ _ZN5serde2de9MapAccess10next_value17h06ceeada394463edE.exit.i.i: ; preds = %250
   br i1 %267, label %268, label %"_ZN87_$LT$serde..de..value..MapDeserializer$LT$I$C$E$GT$$u20$as$u20$serde..de..MapAccess$GT$15next_value_seed17h5cbed3a440e9d30fE.exit.i"
 
 268:                                              ; preds = %266
-  store ptr null, ptr %16, align 8, !noalias !212
+  store ptr null, ptr %16, align 8
   invoke void @_ZN4core6option13expect_failed17hc85eb6037a3050f7E(ptr noalias noundef nonnull readonly align 1 @anon.f733b5516a4ddd6d48855c4e541218b3.64.llvm.10157987788164207885, i64 noundef 44, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f733b5516a4ddd6d48855c4e541218b3.66.llvm.10157987788164207885) #47
           to label %.noexc48 unwind label %.loopexit.split-lp
 
@@ -1241,7 +1241,7 @@ _ZN5serde2de9MapAccess10next_value17h06ceeada394463edE.exit.i.i: ; preds = %250
 
 .loopexit200:                                     ; preds = %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$8next_key17h82c9823b8ac7f8ecE.exit.i", %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h76755be1ddd2c7aeE.exit.i"
   %.sroa.13.0.ph.ph = phi ptr [ %236, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$8next_key17h82c9823b8ac7f8ecE.exit.i" ], [ %254, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h76755be1ddd2c7aeE.exit.i" ]
-  store ptr %.ph, ptr %16, align 8, !noalias !212
+  store ptr %.ph, ptr %16, align 8
   br label %279
 
 279:                                              ; preds = %.loopexit200, %248, %"_ZN15tree_sitter_cli8generate13parse_grammar1_114_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$tree_sitter_cli..generate..parse_grammar..PrecedenceValueJSON$GT$11deserialize17hd9037dfefc0b9b67E.exit.i"
@@ -2042,7 +2042,7 @@ common.resume:                                    ; preds = %common.resume.sink.
 .loopexit:                                        ; preds = %.loopexit.loopexit.split-lp, %.loopexit.loopexit
   %.fca.1.extract.i22140.lcssa = phi ptr [ %.fca.1.extract.i22140.ph, %.loopexit.loopexit ], [ null, %.loopexit.loopexit.split-lp ]
   %lpad.phi193 = phi { ptr, i32 } [ %lpad.loopexit191, %.loopexit.loopexit ], [ %lpad.loopexit.split-lp192, %.loopexit.loopexit.split-lp ]
-  store ptr %.fca.1.extract.i22140.lcssa, ptr %11, align 8, !noalias !462
+  store ptr %.fca.1.extract.i22140.lcssa, ptr %11, align 8
   br label %197
 
 .loopexit.split-lp:                               ; preds = %212, %209, %205, %204
@@ -2064,7 +2064,7 @@ common.resume:                                    ; preds = %common.resume.sink.
   ]
 
 199:                                              ; preds = %198
-  store ptr %.fca.1.extract.i22140.ph, ptr %11, align 8, !noalias !462
+  store ptr %.fca.1.extract.i22140.ph, ptr %11, align 8
   %200 = icmp eq ptr %.fca.1.extract.i22140.ph, null
   br i1 %200, label %212, label %220
 
@@ -2081,7 +2081,7 @@ common.resume:                                    ; preds = %common.resume.sink.
   br i1 %203, label %204, label %_ZN5serde2de9MapAccess10next_value17h9e8ac468789d9d77E.exit.i.i
 
 204:                                              ; preds = %202
-  store ptr %.fca.1.extract.i22140.ph, ptr %11, align 8, !noalias !462
+  store ptr %.fca.1.extract.i22140.ph, ptr %11, align 8
   invoke void @_ZN4core6option13expect_failed17hc85eb6037a3050f7E(ptr noalias noundef nonnull readonly align 1 @anon.f733b5516a4ddd6d48855c4e541218b3.64.llvm.10157987788164207885, i64 noundef 44, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f733b5516a4ddd6d48855c4e541218b3.66.llvm.10157987788164207885) #47
           to label %.noexc.i unwind label %.loopexit.split-lp, !noalias !466
 
@@ -2100,7 +2100,7 @@ _ZN5serde2de9MapAccess10next_value17h9e8ac468789d9d77E.exit.i.i: ; preds = %202
   br label %"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$tree_sitter_cli..generate..parse_grammar..RuleJSON$GT$$GT$$GT$17h2c7c59fa19782026E.exit.i"
 
 205:                                              ; preds = %201
-  store ptr %.fca.1.extract.i22140.ph, ptr %11, align 8, !noalias !462
+  store ptr %.fca.1.extract.i22140.ph, ptr %11, align 8
   %206 = invoke noundef nonnull align 8 ptr @_ZN5serde2de5Error15duplicate_field17hab429d3fe057c073E(ptr noalias noundef nonnull readonly align 1 @anon.63c56c029849d52f8e59e08c8a58f399.224, i64 noundef 7)
           to label %.thread112 unwind label %.loopexit.split-lp, !noalias !466
 
@@ -2113,7 +2113,7 @@ _ZN5serde2de9MapAccess10next_value17h9e8ac468789d9d77E.exit.i.i: ; preds = %202
   br i1 %208, label %209, label %"_ZN87_$LT$serde..de..value..MapDeserializer$LT$I$C$E$GT$$u20$as$u20$serde..de..MapAccess$GT$15next_value_seed17h5729895926495336E.exit.i"
 
 209:                                              ; preds = %207
-  store ptr null, ptr %11, align 8, !noalias !462
+  store ptr null, ptr %11, align 8
   invoke void @_ZN4core6option13expect_failed17hc85eb6037a3050f7E(ptr noalias noundef nonnull readonly align 1 @anon.f733b5516a4ddd6d48855c4e541218b3.64.llvm.10157987788164207885, i64 noundef 44, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f733b5516a4ddd6d48855c4e541218b3.66.llvm.10157987788164207885) #47
           to label %.noexc35 unwind label %.loopexit.split-lp
 
@@ -2147,7 +2147,7 @@ _ZN5serde2de9MapAccess10next_value17h9e8ac468789d9d77E.exit.i.i: ; preds = %202
           to label %.thread unwind label %.loopexit.split-lp
 
 214:                                              ; preds = %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$8next_key17h277017f8730fe2dfE.exit.i"
-  store ptr %.fca.1.extract.i22140.ph, ptr %11, align 8, !noalias !462
+  store ptr %.fca.1.extract.i22140.ph, ptr %11, align 8
   %.not40.i = icmp eq ptr %.fca.1.extract.i22140.ph, null
   br i1 %.not40.i, label %.thread, label %.thread112
 
@@ -5577,7 +5577,7 @@ common.resume:                                    ; preds = %common.resume.sink.
 .loopexit:                                        ; preds = %.loopexit.loopexit.loopexit, %.loopexit.loopexit.loopexit.split-lp, %.loopexit.loopexit.split-lp
   %.fca.1.extract.i29220.lcssa = phi ptr [ null, %.loopexit.loopexit.split-lp ], [ %.fca.1.extract.i29220.ph, %.loopexit.loopexit.loopexit.split-lp ], [ %.fca.1.extract.i29220.ph, %.loopexit.loopexit.loopexit ]
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit.split-lp372, %.loopexit.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit.loopexit.loopexit ], [ %lpad.loopexit.split-lp375, %.loopexit.loopexit.loopexit.split-lp ]
-  store ptr %.fca.1.extract.i29220.lcssa, ptr %19, align 8, !noalias !1401
+  store ptr %.fca.1.extract.i29220.lcssa, ptr %19, align 8
   br label %.body165.i
 
 .loopexit.split-lp:                               ; preds = %294, %.invoke290, %.invoke, %274
@@ -5595,7 +5595,7 @@ common.resume:                                    ; preds = %common.resume.sink.
   ]
 
 253:                                              ; preds = %252
-  store ptr %.fca.1.extract.i29220.ph, ptr %19, align 8, !noalias !1401
+  store ptr %.fca.1.extract.i29220.ph, ptr %19, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15), !noalias !1401
   %254 = icmp eq ptr %.fca.1.extract.i29220.ph, null
   br i1 %254, label %294, label %296
@@ -5610,7 +5610,7 @@ common.resume:                                    ; preds = %common.resume.sink.
 
 .invoke:                                          ; preds = %264, %255, %280, %270
   %.sink291 = phi ptr [ %.fca.1.extract.i29220.ph, %270 ], [ %.fca.1.extract.i29220.ph, %280 ], [ %.fca.1.extract.i29220.ph, %255 ], [ null, %264 ]
-  store ptr %.sink291, ptr %19, align 8, !noalias !1401
+  store ptr %.sink291, ptr %19, align 8
   invoke void @_ZN4core6option13expect_failed17hc85eb6037a3050f7E(ptr noalias noundef nonnull readonly align 1 @anon.f733b5516a4ddd6d48855c4e541218b3.64.llvm.10157987788164207885, i64 noundef 44, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f733b5516a4ddd6d48855c4e541218b3.66.llvm.10157987788164207885) #47
           to label %.cont unwind label %.loopexit.split-lp, !noalias !1405
 
@@ -5647,7 +5647,7 @@ _ZN5serde2de9MapAccess10next_value17ha5178541bb3e5eeaE.exit.i.i: ; preds = %255
 .invoke290:                                       ; preds = %257, %259, %258
   %261 = phi ptr [ @anon.63c56c029849d52f8e59e08c8a58f399.226, %259 ], [ @anon.63c56c029849d52f8e59e08c8a58f399.225, %258 ], [ @anon.63c56c029849d52f8e59e08c8a58f399.224, %257 ]
   %262 = phi i64 [ 5, %258 ], [ 5, %259 ], [ 7, %257 ]
-  store ptr %.fca.1.extract.i29220.ph, ptr %19, align 8, !noalias !1401
+  store ptr %.fca.1.extract.i29220.ph, ptr %19, align 8
   %263 = invoke noundef nonnull align 8 ptr @_ZN5serde2de5Error15duplicate_field17hab429d3fe057c073E(ptr noalias noundef nonnull readonly align 1 %261, i64 noundef %262)
           to label %308 unwind label %.loopexit.split-lp, !noalias !1405
 
@@ -5685,7 +5685,7 @@ _ZN5serde2de9MapAccess10next_value17ha5178541bb3e5eeaE.exit.i.i: ; preds = %255
   br label %.outer
 
 268:                                              ; preds = %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h46beaffbf71175ffE.exit.i"
-  store ptr null, ptr %19, align 8, !noalias !1401
+  store ptr null, ptr %19, align 8
   %269 = icmp ne ptr %.fca.1.extract.i29, null
   call void @llvm.assume(i1 %269), !noalias !1399
   br label %308
@@ -5710,7 +5710,7 @@ _ZN5serde2de9MapAccess10next_value17ha5178541bb3e5eeaE.exit.i.i: ; preds = %255
   br i1 %273, label %276, label %274
 
 274:                                              ; preds = %272
-  store ptr %.fca.1.extract.i29220.ph, ptr %19, align 8, !noalias !1401
+  store ptr %.fca.1.extract.i29220.ph, ptr %19, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12), !noalias !1468
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %13, i64 32, i1 false), !noalias !1470
   %275 = invoke noundef nonnull align 8 ptr @"_ZN5serde9__private2de7content28ContentDeserializer$LT$E$GT$12invalid_type17hef310c35adcf28f5E.llvm.16258808753110442553"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.63c56c029849d52f8e59e08c8a58f399.1.llvm.16258808753110442553)
@@ -5792,7 +5792,7 @@ _ZN5serde2de9MapAccess10next_value17hb9cd4ba7f3785ad7E.exit.i.i: ; preds = %280
 .thread166:                                       ; preds = %288, %290
   %293 = landingpad { ptr, i32 }
           cleanup
-  store ptr %.fca.1.extract.i29220.ph, ptr %19, align 8, !noalias !1401
+  store ptr %.fca.1.extract.i29220.ph, ptr %19, align 8
   store i64 %282, ptr %18, align 8, !noalias !1401
   store ptr %284, ptr %.sroa.631.0..sroa_idx32.i, align 8, !noalias !1401
   store i64 %.sroa.585.0.copyload.i, ptr %247, align 8, !noalias !1401
@@ -5845,7 +5845,7 @@ _ZN5serde2de9MapAccess10next_value17hb9cd4ba7f3785ad7E.exit.i.i: ; preds = %280
 
 .loopexit204:                                     ; preds = %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$8next_key17h38cb3dee4e9191fbE.exit.i", %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h28058657621d0aa1E.exit.i"
   %.sroa.15.0.in.ph = phi ptr [ %284, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h28058657621d0aa1E.exit.i" ], [ %250, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$8next_key17h38cb3dee4e9191fbE.exit.i" ]
-  store ptr %.fca.1.extract.i29220.ph, ptr %19, align 8, !noalias !1401
+  store ptr %.fca.1.extract.i29220.ph, ptr %19, align 8
   br label %308
 
 308:                                              ; preds = %.invoke290, %.loopexit204, %298, %279, %268
@@ -6650,7 +6650,7 @@ common.resume:                                    ; preds = %common.resume.sink.
 .loopexit:                                        ; preds = %.loopexit.loopexit.split-lp, %.loopexit.loopexit
   %.fca.1.extract.i22140.lcssa = phi ptr [ %.fca.1.extract.i22140.ph, %.loopexit.loopexit ], [ null, %.loopexit.loopexit.split-lp ]
   %lpad.phi193 = phi { ptr, i32 } [ %lpad.loopexit191, %.loopexit.loopexit ], [ %lpad.loopexit.split-lp192, %.loopexit.loopexit.split-lp ]
-  store ptr %.fca.1.extract.i22140.lcssa, ptr %11, align 8, !noalias !1683
+  store ptr %.fca.1.extract.i22140.lcssa, ptr %11, align 8
   br label %197
 
 .loopexit.split-lp:                               ; preds = %212, %209, %205, %204
@@ -6672,7 +6672,7 @@ common.resume:                                    ; preds = %common.resume.sink.
   ]
 
 199:                                              ; preds = %198
-  store ptr %.fca.1.extract.i22140.ph, ptr %11, align 8, !noalias !1683
+  store ptr %.fca.1.extract.i22140.ph, ptr %11, align 8
   %200 = icmp eq ptr %.fca.1.extract.i22140.ph, null
   br i1 %200, label %212, label %220
 
@@ -6689,7 +6689,7 @@ common.resume:                                    ; preds = %common.resume.sink.
   br i1 %203, label %204, label %_ZN5serde2de9MapAccess10next_value17h214a16ce46412828E.exit.i.i
 
 204:                                              ; preds = %202
-  store ptr %.fca.1.extract.i22140.ph, ptr %11, align 8, !noalias !1683
+  store ptr %.fca.1.extract.i22140.ph, ptr %11, align 8
   invoke void @_ZN4core6option13expect_failed17hc85eb6037a3050f7E(ptr noalias noundef nonnull readonly align 1 @anon.f733b5516a4ddd6d48855c4e541218b3.64.llvm.10157987788164207885, i64 noundef 44, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f733b5516a4ddd6d48855c4e541218b3.66.llvm.10157987788164207885) #47
           to label %.noexc.i unwind label %.loopexit.split-lp, !noalias !1687
 
@@ -6708,7 +6708,7 @@ _ZN5serde2de9MapAccess10next_value17h214a16ce46412828E.exit.i.i: ; preds = %202
   br label %"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$tree_sitter_cli..generate..parse_grammar..RuleJSON$GT$$GT$$GT$17h2c7c59fa19782026E.exit.i"
 
 205:                                              ; preds = %201
-  store ptr %.fca.1.extract.i22140.ph, ptr %11, align 8, !noalias !1683
+  store ptr %.fca.1.extract.i22140.ph, ptr %11, align 8
   %206 = invoke noundef nonnull align 8 ptr @_ZN5serde2de5Error15duplicate_field17hab429d3fe057c073E(ptr noalias noundef nonnull readonly align 1 @anon.63c56c029849d52f8e59e08c8a58f399.224, i64 noundef 7)
           to label %.thread112 unwind label %.loopexit.split-lp, !noalias !1687
 
@@ -6721,7 +6721,7 @@ _ZN5serde2de9MapAccess10next_value17h214a16ce46412828E.exit.i.i: ; preds = %202
   br i1 %208, label %209, label %"_ZN87_$LT$serde..de..value..MapDeserializer$LT$I$C$E$GT$$u20$as$u20$serde..de..MapAccess$GT$15next_value_seed17h7e3286a5ccdf6f72E.exit.i"
 
 209:                                              ; preds = %207
-  store ptr null, ptr %11, align 8, !noalias !1683
+  store ptr null, ptr %11, align 8
   invoke void @_ZN4core6option13expect_failed17hc85eb6037a3050f7E(ptr noalias noundef nonnull readonly align 1 @anon.f733b5516a4ddd6d48855c4e541218b3.64.llvm.10157987788164207885, i64 noundef 44, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f733b5516a4ddd6d48855c4e541218b3.66.llvm.10157987788164207885) #47
           to label %.noexc35 unwind label %.loopexit.split-lp
 
@@ -6755,7 +6755,7 @@ _ZN5serde2de9MapAccess10next_value17h214a16ce46412828E.exit.i.i: ; preds = %202
           to label %.thread unwind label %.loopexit.split-lp
 
 214:                                              ; preds = %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$8next_key17h786642d8578903cfE.exit.i"
-  store ptr %.fca.1.extract.i22140.ph, ptr %11, align 8, !noalias !1683
+  store ptr %.fca.1.extract.i22140.ph, ptr %11, align 8
   %.not40.i = icmp eq ptr %.fca.1.extract.i22140.ph, null
   br i1 %.not40.i, label %.thread, label %.thread112
 
@@ -8381,7 +8381,7 @@ common.resume:                                    ; preds = %common.resume.sink.
 .loopexit:                                        ; preds = %.loopexit.loopexit.split-lp, %.loopexit.loopexit
   %.fca.1.extract.i22140.lcssa = phi ptr [ %.fca.1.extract.i22140.ph, %.loopexit.loopexit ], [ null, %.loopexit.loopexit.split-lp ]
   %lpad.phi193 = phi { ptr, i32 } [ %lpad.loopexit191, %.loopexit.loopexit ], [ %lpad.loopexit.split-lp192, %.loopexit.loopexit.split-lp ]
-  store ptr %.fca.1.extract.i22140.lcssa, ptr %11, align 8, !noalias !2110
+  store ptr %.fca.1.extract.i22140.lcssa, ptr %11, align 8
   br label %197
 
 .loopexit.split-lp:                               ; preds = %212, %209, %205, %204
@@ -8403,7 +8403,7 @@ common.resume:                                    ; preds = %common.resume.sink.
   ]
 
 199:                                              ; preds = %198
-  store ptr %.fca.1.extract.i22140.ph, ptr %11, align 8, !noalias !2110
+  store ptr %.fca.1.extract.i22140.ph, ptr %11, align 8
   %200 = icmp eq ptr %.fca.1.extract.i22140.ph, null
   br i1 %200, label %212, label %220
 
@@ -8420,7 +8420,7 @@ common.resume:                                    ; preds = %common.resume.sink.
   br i1 %203, label %204, label %_ZN5serde2de9MapAccess10next_value17h9db5a49f882d709eE.exit.i.i
 
 204:                                              ; preds = %202
-  store ptr %.fca.1.extract.i22140.ph, ptr %11, align 8, !noalias !2110
+  store ptr %.fca.1.extract.i22140.ph, ptr %11, align 8
   invoke void @_ZN4core6option13expect_failed17hc85eb6037a3050f7E(ptr noalias noundef nonnull readonly align 1 @anon.f733b5516a4ddd6d48855c4e541218b3.64.llvm.10157987788164207885, i64 noundef 44, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f733b5516a4ddd6d48855c4e541218b3.66.llvm.10157987788164207885) #47
           to label %.noexc.i unwind label %.loopexit.split-lp, !noalias !2114
 
@@ -8439,7 +8439,7 @@ _ZN5serde2de9MapAccess10next_value17h9db5a49f882d709eE.exit.i.i: ; preds = %202
   br label %"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$tree_sitter_cli..generate..parse_grammar..RuleJSON$GT$$GT$$GT$17h2c7c59fa19782026E.exit.i"
 
 205:                                              ; preds = %201
-  store ptr %.fca.1.extract.i22140.ph, ptr %11, align 8, !noalias !2110
+  store ptr %.fca.1.extract.i22140.ph, ptr %11, align 8
   %206 = invoke noundef nonnull align 8 ptr @_ZN5serde2de5Error15duplicate_field17hab429d3fe057c073E(ptr noalias noundef nonnull readonly align 1 @anon.63c56c029849d52f8e59e08c8a58f399.224, i64 noundef 7)
           to label %.thread112 unwind label %.loopexit.split-lp, !noalias !2114
 
@@ -8452,7 +8452,7 @@ _ZN5serde2de9MapAccess10next_value17h9db5a49f882d709eE.exit.i.i: ; preds = %202
   br i1 %208, label %209, label %"_ZN87_$LT$serde..de..value..MapDeserializer$LT$I$C$E$GT$$u20$as$u20$serde..de..MapAccess$GT$15next_value_seed17h0c8e8044757f9e48E.exit.i"
 
 209:                                              ; preds = %207
-  store ptr null, ptr %11, align 8, !noalias !2110
+  store ptr null, ptr %11, align 8
   invoke void @_ZN4core6option13expect_failed17hc85eb6037a3050f7E(ptr noalias noundef nonnull readonly align 1 @anon.f733b5516a4ddd6d48855c4e541218b3.64.llvm.10157987788164207885, i64 noundef 44, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f733b5516a4ddd6d48855c4e541218b3.66.llvm.10157987788164207885) #47
           to label %.noexc35 unwind label %.loopexit.split-lp
 
@@ -8486,7 +8486,7 @@ _ZN5serde2de9MapAccess10next_value17h9db5a49f882d709eE.exit.i.i: ; preds = %202
           to label %.thread unwind label %.loopexit.split-lp
 
 214:                                              ; preds = %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$8next_key17hcae78734f08f2a21E.exit.i"
-  store ptr %.fca.1.extract.i22140.ph, ptr %11, align 8, !noalias !2110
+  store ptr %.fca.1.extract.i22140.ph, ptr %11, align 8
   %.not40.i = icmp eq ptr %.fca.1.extract.i22140.ph, null
   br i1 %.not40.i, label %.thread, label %.thread112
 
@@ -10182,7 +10182,7 @@ common.resume:                                    ; preds = %common.resume.sink.
 .loopexit:                                        ; preds = %.loopexit.loopexit.loopexit, %.loopexit.loopexit.loopexit.split-lp, %.loopexit.loopexit.split-lp
   %.fca.1.extract.i27193.lcssa = phi ptr [ null, %.loopexit.loopexit.split-lp ], [ %.ph, %.loopexit.loopexit.loopexit.split-lp ], [ %.ph, %.loopexit.loopexit.loopexit ]
   %lpad.phi297 = phi { ptr, i32 } [ %lpad.loopexit.split-lp296, %.loopexit.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit.loopexit.loopexit ], [ %lpad.loopexit.split-lp301, %.loopexit.loopexit.loopexit.split-lp ]
-  store ptr %.fca.1.extract.i27193.lcssa, ptr %13, align 8, !noalias !2590
+  store ptr %.fca.1.extract.i27193.lcssa, ptr %13, align 8
   br label %220
 
 .loopexit.split-lp:                               ; preds = %.invoke294, %245, %238, %241, %234, %227
@@ -10206,7 +10206,7 @@ common.resume:                                    ; preds = %common.resume.sink.
   ]
 
 222:                                              ; preds = %221
-  store ptr %.ph, ptr %13, align 8, !noalias !2590
+  store ptr %.ph, ptr %13, align 8
   %switch67.i = icmp eq i32 %.sroa.0.0.i.ph300, 0
   br i1 %switch67.i, label %241, label %243
 
@@ -10238,7 +10238,7 @@ _ZN5serde2de9MapAccess10next_value17h27dc7fba9aa403c9E.exit.i.i: ; preds = %223
   br i1 %.not59.i, label %236, label %234
 
 227:                                              ; preds = %225
-  store ptr %.ph, ptr %13, align 8, !noalias !2590
+  store ptr %.ph, ptr %13, align 8
   %228 = invoke noundef nonnull align 8 ptr @_ZN5serde2de5Error15duplicate_field17hab429d3fe057c073E(ptr noalias noundef nonnull readonly align 1 @anon.63c56c029849d52f8e59e08c8a58f399.226, i64 noundef 5)
           to label %"_ZN114_$LT$serde..__private..de..missing_field..MissingFieldDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h46c2764c53fe8a49E.exit.i" unwind label %.loopexit.split-lp, !noalias !2594
 
@@ -10252,7 +10252,7 @@ _ZN5serde2de9MapAccess10next_value17h27dc7fba9aa403c9E.exit.i.i: ; preds = %223
   br i1 %230, label %.invoke294, label %_ZN5serde2de9MapAccess10next_value17hb4ed8dfbfe0b4b27E.exit.i.i
 
 .invoke294:                                       ; preds = %229, %223
-  store ptr %.ph, ptr %13, align 8, !noalias !2590
+  store ptr %.ph, ptr %13, align 8
   invoke void @_ZN4core6option13expect_failed17hc85eb6037a3050f7E(ptr noalias noundef nonnull readonly align 1 @anon.f733b5516a4ddd6d48855c4e541218b3.64.llvm.10157987788164207885, i64 noundef 44, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f733b5516a4ddd6d48855c4e541218b3.66.llvm.10157987788164207885) #47
           to label %.cont unwind label %.loopexit.split-lp, !noalias !2594
 
@@ -10276,7 +10276,7 @@ _ZN5serde2de9MapAccess10next_value17hb4ed8dfbfe0b4b27E.exit.i.i: ; preds = %229
   br i1 %trunc60.i, label %"_ZN114_$LT$serde..__private..de..missing_field..MissingFieldDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h46c2764c53fe8a49E.exit.i.loopexit", label %"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$tree_sitter_cli..generate..parse_grammar..RuleJSON$GT$$GT$$GT$17h2c7c59fa19782026E.exit.i.outer298"
 
 234:                                              ; preds = %226
-  store ptr %.ph, ptr %13, align 8, !noalias !2590
+  store ptr %.ph, ptr %13, align 8
   %235 = invoke noundef nonnull align 8 ptr @_ZN5serde2de5Error15duplicate_field17hab429d3fe057c073E(ptr noalias noundef nonnull readonly align 1 @anon.63c56c029849d52f8e59e08c8a58f399.224, i64 noundef 7)
           to label %"_ZN114_$LT$serde..__private..de..missing_field..MissingFieldDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h46c2764c53fe8a49E.exit.i.thread" unwind label %.loopexit.split-lp, !noalias !2594
 
@@ -10289,7 +10289,7 @@ _ZN5serde2de9MapAccess10next_value17hb4ed8dfbfe0b4b27E.exit.i.i: ; preds = %229
   br i1 %237, label %238, label %"_ZN87_$LT$serde..de..value..MapDeserializer$LT$I$C$E$GT$$u20$as$u20$serde..de..MapAccess$GT$15next_value_seed17h9030d57385b3807fE.exit.i"
 
 238:                                              ; preds = %236
-  store ptr null, ptr %13, align 8, !noalias !2590
+  store ptr null, ptr %13, align 8
   invoke void @_ZN4core6option13expect_failed17hc85eb6037a3050f7E(ptr noalias noundef nonnull readonly align 1 @anon.f733b5516a4ddd6d48855c4e541218b3.64.llvm.10157987788164207885, i64 noundef 44, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f733b5516a4ddd6d48855c4e541218b3.66.llvm.10157987788164207885) #47
           to label %.noexc41 unwind label %.loopexit.split-lp
 
@@ -10328,7 +10328,7 @@ _ZN5serde2de9MapAccess10next_value17hb4ed8dfbfe0b4b27E.exit.i.i: ; preds = %229
 
 "_ZN114_$LT$serde..__private..de..missing_field..MissingFieldDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h46c2764c53fe8a49E.exit.i.loopexit": ; preds = %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h105b611746acc78bE.exit.i", %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$8next_key17h0db25bf2ccb91454E.exit.i"
   %.sroa.13.0.ph.ph = phi ptr [ %218, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$8next_key17h0db25bf2ccb91454E.exit.i" ], [ %232, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h105b611746acc78bE.exit.i" ]
-  store ptr %.ph, ptr %13, align 8, !noalias !2590
+  store ptr %.ph, ptr %13, align 8
   br label %"_ZN114_$LT$serde..__private..de..missing_field..MissingFieldDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h46c2764c53fe8a49E.exit.i"
 
 "_ZN114_$LT$serde..__private..de..missing_field..MissingFieldDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h46c2764c53fe8a49E.exit.i": ; preds = %"_ZN114_$LT$serde..__private..de..missing_field..MissingFieldDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h46c2764c53fe8a49E.exit.i.loopexit", %241, %227
@@ -11212,7 +11212,7 @@ common.resume:                                    ; preds = %common.resume.sink.
 .loopexit:                                        ; preds = %.loopexit.loopexit.split-lp, %.loopexit.loopexit
   %.fca.1.extract.i30206.lcssa = phi ptr [ %.ph, %.loopexit.loopexit ], [ null, %.loopexit.loopexit.split-lp ]
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit269, %.loopexit.loopexit ], [ %lpad.loopexit.split-lp270, %.loopexit.loopexit.split-lp ]
-  store ptr %.fca.1.extract.i30206.lcssa, ptr %16, align 8, !noalias !2866
+  store ptr %.fca.1.extract.i30206.lcssa, ptr %16, align 8
   br label %238
 
 .loopexit.split-lp:                               ; preds = %.invoke, %248, %264, %271, %278, %268
@@ -11231,7 +11231,7 @@ common.resume:                                    ; preds = %common.resume.sink.
   ]
 
 240:                                              ; preds = %239
-  store ptr %.ph, ptr %16, align 8, !noalias !2866
+  store ptr %.ph, ptr %16, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13), !noalias !2866
   %241 = load i64, ptr %17, align 8, !range !135, !noalias !2866, !noundef !4
   %242 = icmp eq i64 %241, -9223372036854775807
@@ -11246,7 +11246,7 @@ common.resume:                                    ; preds = %common.resume.sink.
   br i1 %244, label %.invoke, label %_ZN5serde2de9MapAccess10next_value17hd50df347b0afd2cdE.exit.i.i
 
 .invoke:                                          ; preds = %243, %250
-  store ptr %.ph, ptr %16, align 8, !noalias !2866
+  store ptr %.ph, ptr %16, align 8
   invoke void @_ZN4core6option13expect_failed17hc85eb6037a3050f7E(ptr noalias noundef nonnull readonly align 1 @anon.f733b5516a4ddd6d48855c4e541218b3.64.llvm.10157987788164207885, i64 noundef 44, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f733b5516a4ddd6d48855c4e541218b3.66.llvm.10157987788164207885) #47
           to label %.cont unwind label %.loopexit.split-lp, !noalias !2870
 
@@ -11277,7 +11277,7 @@ _ZN5serde2de9MapAccess10next_value17hd50df347b0afd2cdE.exit.i.i: ; preds = %243
   br i1 %.not83.i, label %266, label %264
 
 248:                                              ; preds = %245
-  store ptr %.ph, ptr %16, align 8, !noalias !2866
+  store ptr %.ph, ptr %16, align 8
   %249 = invoke noundef nonnull align 8 ptr @_ZN5serde2de5Error15duplicate_field17hab429d3fe057c073E(ptr noalias noundef nonnull readonly align 1 @anon.63c56c029849d52f8e59e08c8a58f399.226, i64 noundef 5)
           to label %279 unwind label %.loopexit.split-lp, !noalias !2870
 
@@ -11341,14 +11341,14 @@ _ZN5serde2de9MapAccess10next_value17h58bab128b951fd39E.exit.i.i: ; preds = %250
 262:                                              ; preds = %259, %257
   %263 = landingpad { ptr, i32 }
           cleanup
-  store ptr %.ph, ptr %16, align 8, !noalias !2866
+  store ptr %.ph, ptr %16, align 8
   store i64 %252, ptr %17, align 8, !noalias !2866
   store ptr %254, ptr %.sroa.6.0..sroa_idx16.i, align 8, !noalias !2866
   store i64 %.sroa.564.0.copyload.i, ptr %234, align 8, !noalias !2866
   br label %238
 
 264:                                              ; preds = %247
-  store ptr %.ph, ptr %16, align 8, !noalias !2866
+  store ptr %.ph, ptr %16, align 8
   %265 = invoke noundef nonnull align 8 ptr @_ZN5serde2de5Error15duplicate_field17hab429d3fe057c073E(ptr noalias noundef nonnull readonly align 1 @anon.63c56c029849d52f8e59e08c8a58f399.224, i64 noundef 7)
           to label %.thread171 unwind label %.loopexit.split-lp, !noalias !2870
 
@@ -11361,7 +11361,7 @@ _ZN5serde2de9MapAccess10next_value17h58bab128b951fd39E.exit.i.i: ; preds = %250
   br i1 %267, label %268, label %"_ZN87_$LT$serde..de..value..MapDeserializer$LT$I$C$E$GT$$u20$as$u20$serde..de..MapAccess$GT$15next_value_seed17h2c8cfcf6524f4692E.exit.i"
 
 268:                                              ; preds = %266
-  store ptr null, ptr %16, align 8, !noalias !2866
+  store ptr null, ptr %16, align 8
   invoke void @_ZN4core6option13expect_failed17hc85eb6037a3050f7E(ptr noalias noundef nonnull readonly align 1 @anon.f733b5516a4ddd6d48855c4e541218b3.64.llvm.10157987788164207885, i64 noundef 44, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f733b5516a4ddd6d48855c4e541218b3.66.llvm.10157987788164207885) #47
           to label %.noexc48 unwind label %.loopexit.split-lp
 
@@ -11421,7 +11421,7 @@ _ZN5serde2de9MapAccess10next_value17h58bab128b951fd39E.exit.i.i: ; preds = %250
 
 .loopexit200:                                     ; preds = %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$8next_key17hc3996991b3f429acE.exit.i", %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17hf0f4355d9fd01b94E.exit.i"
   %.sroa.13.0.ph.ph = phi ptr [ %236, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$8next_key17hc3996991b3f429acE.exit.i" ], [ %254, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17hf0f4355d9fd01b94E.exit.i" ]
-  store ptr %.ph, ptr %16, align 8, !noalias !2866
+  store ptr %.ph, ptr %16, align 8
   br label %279
 
 279:                                              ; preds = %.loopexit200, %248, %"_ZN15tree_sitter_cli8generate13parse_grammar1_114_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$tree_sitter_cli..generate..parse_grammar..PrecedenceValueJSON$GT$11deserialize17hd9037dfefc0b9b67E.exit.i"
@@ -13247,7 +13247,7 @@ common.resume:                                    ; preds = %common.resume.sink.
 .loopexit:                                        ; preds = %.loopexit.loopexit.split-lp, %.loopexit.loopexit
   %.fca.1.extract.i30206.lcssa = phi ptr [ %.ph, %.loopexit.loopexit ], [ null, %.loopexit.loopexit.split-lp ]
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit269, %.loopexit.loopexit ], [ %lpad.loopexit.split-lp270, %.loopexit.loopexit.split-lp ]
-  store ptr %.fca.1.extract.i30206.lcssa, ptr %16, align 8, !noalias !3404
+  store ptr %.fca.1.extract.i30206.lcssa, ptr %16, align 8
   br label %238
 
 .loopexit.split-lp:                               ; preds = %.invoke, %248, %264, %271, %278, %268
@@ -13266,7 +13266,7 @@ common.resume:                                    ; preds = %common.resume.sink.
   ]
 
 240:                                              ; preds = %239
-  store ptr %.ph, ptr %16, align 8, !noalias !3404
+  store ptr %.ph, ptr %16, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13), !noalias !3404
   %241 = load i64, ptr %17, align 8, !range !135, !noalias !3404, !noundef !4
   %242 = icmp eq i64 %241, -9223372036854775807
@@ -13281,7 +13281,7 @@ common.resume:                                    ; preds = %common.resume.sink.
   br i1 %244, label %.invoke, label %_ZN5serde2de9MapAccess10next_value17he8fcba163201ea89E.exit.i.i
 
 .invoke:                                          ; preds = %243, %250
-  store ptr %.ph, ptr %16, align 8, !noalias !3404
+  store ptr %.ph, ptr %16, align 8
   invoke void @_ZN4core6option13expect_failed17hc85eb6037a3050f7E(ptr noalias noundef nonnull readonly align 1 @anon.f733b5516a4ddd6d48855c4e541218b3.64.llvm.10157987788164207885, i64 noundef 44, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f733b5516a4ddd6d48855c4e541218b3.66.llvm.10157987788164207885) #47
           to label %.cont unwind label %.loopexit.split-lp, !noalias !3408
 
@@ -13312,7 +13312,7 @@ _ZN5serde2de9MapAccess10next_value17he8fcba163201ea89E.exit.i.i: ; preds = %243
   br i1 %.not83.i, label %266, label %264
 
 248:                                              ; preds = %245
-  store ptr %.ph, ptr %16, align 8, !noalias !3404
+  store ptr %.ph, ptr %16, align 8
   %249 = invoke noundef nonnull align 8 ptr @_ZN5serde2de5Error15duplicate_field17hab429d3fe057c073E(ptr noalias noundef nonnull readonly align 1 @anon.63c56c029849d52f8e59e08c8a58f399.226, i64 noundef 5)
           to label %279 unwind label %.loopexit.split-lp, !noalias !3408
 
@@ -13376,14 +13376,14 @@ _ZN5serde2de9MapAccess10next_value17h74181b35fd596e8eE.exit.i.i: ; preds = %250
 262:                                              ; preds = %259, %257
   %263 = landingpad { ptr, i32 }
           cleanup
-  store ptr %.ph, ptr %16, align 8, !noalias !3404
+  store ptr %.ph, ptr %16, align 8
   store i64 %252, ptr %17, align 8, !noalias !3404
   store ptr %254, ptr %.sroa.6.0..sroa_idx16.i, align 8, !noalias !3404
   store i64 %.sroa.564.0.copyload.i, ptr %234, align 8, !noalias !3404
   br label %238
 
 264:                                              ; preds = %247
-  store ptr %.ph, ptr %16, align 8, !noalias !3404
+  store ptr %.ph, ptr %16, align 8
   %265 = invoke noundef nonnull align 8 ptr @_ZN5serde2de5Error15duplicate_field17hab429d3fe057c073E(ptr noalias noundef nonnull readonly align 1 @anon.63c56c029849d52f8e59e08c8a58f399.224, i64 noundef 7)
           to label %.thread171 unwind label %.loopexit.split-lp, !noalias !3408
 
@@ -13396,7 +13396,7 @@ _ZN5serde2de9MapAccess10next_value17h74181b35fd596e8eE.exit.i.i: ; preds = %250
   br i1 %267, label %268, label %"_ZN87_$LT$serde..de..value..MapDeserializer$LT$I$C$E$GT$$u20$as$u20$serde..de..MapAccess$GT$15next_value_seed17h95a44d3e759afec9E.exit.i"
 
 268:                                              ; preds = %266
-  store ptr null, ptr %16, align 8, !noalias !3404
+  store ptr null, ptr %16, align 8
   invoke void @_ZN4core6option13expect_failed17hc85eb6037a3050f7E(ptr noalias noundef nonnull readonly align 1 @anon.f733b5516a4ddd6d48855c4e541218b3.64.llvm.10157987788164207885, i64 noundef 44, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f733b5516a4ddd6d48855c4e541218b3.66.llvm.10157987788164207885) #47
           to label %.noexc48 unwind label %.loopexit.split-lp
 
@@ -13456,7 +13456,7 @@ _ZN5serde2de9MapAccess10next_value17h74181b35fd596e8eE.exit.i.i: ; preds = %250
 
 .loopexit200:                                     ; preds = %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$8next_key17h565b31cd643e8d99E.exit.i", %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h4aeef9e03ebf353dE.exit.i"
   %.sroa.13.0.ph.ph = phi ptr [ %236, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$8next_key17h565b31cd643e8d99E.exit.i" ], [ %254, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h4aeef9e03ebf353dE.exit.i" ]
-  store ptr %.ph, ptr %16, align 8, !noalias !3404
+  store ptr %.ph, ptr %16, align 8
   br label %279
 
 279:                                              ; preds = %.loopexit200, %248, %"_ZN15tree_sitter_cli8generate13parse_grammar1_114_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$tree_sitter_cli..generate..parse_grammar..PrecedenceValueJSON$GT$11deserialize17hd9037dfefc0b9b67E.exit.i"
@@ -14391,7 +14391,7 @@ common.resume:                                    ; preds = %common.resume.sink.
 .loopexit:                                        ; preds = %.loopexit.loopexit.split-lp, %.loopexit.loopexit
   %.fca.1.extract.i29201.lcssa = phi ptr [ %.ph, %.loopexit.loopexit ], [ null, %.loopexit.loopexit.split-lp ]
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit262, %.loopexit.loopexit ], [ %lpad.loopexit.split-lp263, %.loopexit.loopexit.split-lp ]
-  store ptr %.fca.1.extract.i29201.lcssa, ptr %16, align 8, !noalias !3702
+  store ptr %.fca.1.extract.i29201.lcssa, ptr %16, align 8
   br label %235
 
 .loopexit.split-lp:                               ; preds = %.invoke, %245, %262, %269, %276, %266
@@ -14410,7 +14410,7 @@ common.resume:                                    ; preds = %common.resume.sink.
   ]
 
 237:                                              ; preds = %236
-  store ptr %.ph, ptr %16, align 8, !noalias !3702
+  store ptr %.ph, ptr %16, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13), !noalias !3702
   %238 = load i64, ptr %17, align 8, !range !174, !noalias !3702, !noundef !4
   %239 = icmp eq i64 %238, -9223372036854775808
@@ -14425,7 +14425,7 @@ common.resume:                                    ; preds = %common.resume.sink.
   br i1 %241, label %.invoke, label %_ZN5serde2de9MapAccess10next_value17h9423c07aad6bb4edE.exit.i.i
 
 .invoke:                                          ; preds = %240, %247
-  store ptr %.ph, ptr %16, align 8, !noalias !3702
+  store ptr %.ph, ptr %16, align 8
   invoke void @_ZN4core6option13expect_failed17hc85eb6037a3050f7E(ptr noalias noundef nonnull readonly align 1 @anon.f733b5516a4ddd6d48855c4e541218b3.64.llvm.10157987788164207885, i64 noundef 44, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f733b5516a4ddd6d48855c4e541218b3.66.llvm.10157987788164207885) #47
           to label %.cont unwind label %.loopexit.split-lp, !noalias !3706
 
@@ -14456,7 +14456,7 @@ _ZN5serde2de9MapAccess10next_value17h9423c07aad6bb4edE.exit.i.i: ; preds = %240
   br i1 %.not85.i, label %264, label %262
 
 245:                                              ; preds = %242
-  store ptr %.ph, ptr %16, align 8, !noalias !3702
+  store ptr %.ph, ptr %16, align 8
   %246 = invoke noundef nonnull align 8 ptr @_ZN5serde2de5Error15duplicate_field17hab429d3fe057c073E(ptr noalias noundef nonnull readonly align 1 @anon.63c56c029849d52f8e59e08c8a58f399.237.llvm.16258808753110442553, i64 noundef 4)
           to label %277 unwind label %.loopexit.split-lp, !noalias !3706
 
@@ -14520,14 +14520,14 @@ _ZN5serde2de9MapAccess10next_value17h8e16e38408c87c08E.exit.i.i: ; preds = %247
 260:                                              ; preds = %257, %255
   %261 = landingpad { ptr, i32 }
           cleanup
-  store ptr %.ph, ptr %16, align 8, !noalias !3702
+  store ptr %.ph, ptr %16, align 8
   store i64 %249, ptr %17, align 8, !noalias !3702
   store ptr %251, ptr %.sroa.6.0..sroa_idx16.i, align 8, !noalias !3702
   store i64 %.sroa.566.0.copyload.i, ptr %231, align 8, !noalias !3702
   br label %235
 
 262:                                              ; preds = %244
-  store ptr %.ph, ptr %16, align 8, !noalias !3702
+  store ptr %.ph, ptr %16, align 8
   %263 = invoke noundef nonnull align 8 ptr @_ZN5serde2de5Error15duplicate_field17hab429d3fe057c073E(ptr noalias noundef nonnull readonly align 1 @anon.63c56c029849d52f8e59e08c8a58f399.224, i64 noundef 7)
           to label %.thread166 unwind label %.loopexit.split-lp, !noalias !3706
 
@@ -14540,7 +14540,7 @@ _ZN5serde2de9MapAccess10next_value17h8e16e38408c87c08E.exit.i.i: ; preds = %247
   br i1 %265, label %266, label %"_ZN87_$LT$serde..de..value..MapDeserializer$LT$I$C$E$GT$$u20$as$u20$serde..de..MapAccess$GT$15next_value_seed17hb1c468abb22b5621E.exit.i"
 
 266:                                              ; preds = %264
-  store ptr null, ptr %16, align 8, !noalias !3702
+  store ptr null, ptr %16, align 8
   invoke void @_ZN4core6option13expect_failed17hc85eb6037a3050f7E(ptr noalias noundef nonnull readonly align 1 @anon.f733b5516a4ddd6d48855c4e541218b3.64.llvm.10157987788164207885, i64 noundef 44, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f733b5516a4ddd6d48855c4e541218b3.66.llvm.10157987788164207885) #47
           to label %.noexc47 unwind label %.loopexit.split-lp
 
@@ -14600,7 +14600,7 @@ _ZN5serde2de9MapAccess10next_value17h8e16e38408c87c08E.exit.i.i: ; preds = %247
 
 .loopexit195:                                     ; preds = %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$8next_key17hc5aef7b24d0093b3E.exit.i", %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h8bdd2638d0fdacecE.exit.i"
   %.sroa.13.0.ph.ph = phi ptr [ %233, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$8next_key17hc5aef7b24d0093b3E.exit.i" ], [ %251, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h8bdd2638d0fdacecE.exit.i" ]
-  store ptr %.ph, ptr %16, align 8, !noalias !3702
+  store ptr %.ph, ptr %16, align 8
   br label %277
 
 277:                                              ; preds = %.loopexit195, %245, %"_ZN114_$LT$serde..__private..de..missing_field..MissingFieldDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h6fbf87be00882f10E.exit.i"
@@ -15403,7 +15403,7 @@ common.resume:                                    ; preds = %common.resume.sink.
 .loopexit:                                        ; preds = %.loopexit.loopexit.split-lp, %.loopexit.loopexit
   %.fca.1.extract.i22140.lcssa = phi ptr [ %.fca.1.extract.i22140.ph, %.loopexit.loopexit ], [ null, %.loopexit.loopexit.split-lp ]
   %lpad.phi193 = phi { ptr, i32 } [ %lpad.loopexit191, %.loopexit.loopexit ], [ %lpad.loopexit.split-lp192, %.loopexit.loopexit.split-lp ]
-  store ptr %.fca.1.extract.i22140.lcssa, ptr %11, align 8, !noalias !3947
+  store ptr %.fca.1.extract.i22140.lcssa, ptr %11, align 8
   br label %197
 
 .loopexit.split-lp:                               ; preds = %212, %209, %205, %204
@@ -15425,7 +15425,7 @@ common.resume:                                    ; preds = %common.resume.sink.
   ]
 
 199:                                              ; preds = %198
-  store ptr %.fca.1.extract.i22140.ph, ptr %11, align 8, !noalias !3947
+  store ptr %.fca.1.extract.i22140.ph, ptr %11, align 8
   %200 = icmp eq ptr %.fca.1.extract.i22140.ph, null
   br i1 %200, label %212, label %220
 
@@ -15442,7 +15442,7 @@ common.resume:                                    ; preds = %common.resume.sink.
   br i1 %203, label %204, label %_ZN5serde2de9MapAccess10next_value17h167e74629848ba14E.exit.i.i
 
 204:                                              ; preds = %202
-  store ptr %.fca.1.extract.i22140.ph, ptr %11, align 8, !noalias !3947
+  store ptr %.fca.1.extract.i22140.ph, ptr %11, align 8
   invoke void @_ZN4core6option13expect_failed17hc85eb6037a3050f7E(ptr noalias noundef nonnull readonly align 1 @anon.f733b5516a4ddd6d48855c4e541218b3.64.llvm.10157987788164207885, i64 noundef 44, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f733b5516a4ddd6d48855c4e541218b3.66.llvm.10157987788164207885) #47
           to label %.noexc.i unwind label %.loopexit.split-lp, !noalias !3951
 
@@ -15461,7 +15461,7 @@ _ZN5serde2de9MapAccess10next_value17h167e74629848ba14E.exit.i.i: ; preds = %202
   br label %"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$tree_sitter_cli..generate..parse_grammar..RuleJSON$GT$$GT$$GT$17h2c7c59fa19782026E.exit.i"
 
 205:                                              ; preds = %201
-  store ptr %.fca.1.extract.i22140.ph, ptr %11, align 8, !noalias !3947
+  store ptr %.fca.1.extract.i22140.ph, ptr %11, align 8
   %206 = invoke noundef nonnull align 8 ptr @_ZN5serde2de5Error15duplicate_field17hab429d3fe057c073E(ptr noalias noundef nonnull readonly align 1 @anon.63c56c029849d52f8e59e08c8a58f399.224, i64 noundef 7)
           to label %.thread112 unwind label %.loopexit.split-lp, !noalias !3951
 
@@ -15474,7 +15474,7 @@ _ZN5serde2de9MapAccess10next_value17h167e74629848ba14E.exit.i.i: ; preds = %202
   br i1 %208, label %209, label %"_ZN87_$LT$serde..de..value..MapDeserializer$LT$I$C$E$GT$$u20$as$u20$serde..de..MapAccess$GT$15next_value_seed17hb7fe6e2e4e6529d2E.exit.i"
 
 209:                                              ; preds = %207
-  store ptr null, ptr %11, align 8, !noalias !3947
+  store ptr null, ptr %11, align 8
   invoke void @_ZN4core6option13expect_failed17hc85eb6037a3050f7E(ptr noalias noundef nonnull readonly align 1 @anon.f733b5516a4ddd6d48855c4e541218b3.64.llvm.10157987788164207885, i64 noundef 44, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f733b5516a4ddd6d48855c4e541218b3.66.llvm.10157987788164207885) #47
           to label %.noexc35 unwind label %.loopexit.split-lp
 
@@ -15508,7 +15508,7 @@ _ZN5serde2de9MapAccess10next_value17h167e74629848ba14E.exit.i.i: ; preds = %202
           to label %.thread unwind label %.loopexit.split-lp
 
 214:                                              ; preds = %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$8next_key17hc381ffdd2a4a91a2E.exit.i"
-  store ptr %.fca.1.extract.i22140.ph, ptr %11, align 8, !noalias !3947
+  store ptr %.fca.1.extract.i22140.ph, ptr %11, align 8
   %.not40.i = icmp eq ptr %.fca.1.extract.i22140.ph, null
   br i1 %.not40.i, label %.thread, label %.thread112
 

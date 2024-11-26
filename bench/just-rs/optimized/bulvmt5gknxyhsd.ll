@@ -13550,7 +13550,7 @@ define internal fastcc void @_ZN4just10subcommand10Subcommand11completions7repla
   br i1 %22, label %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i
-  %.promoted.i.i = load i64, ptr %19, align 8, !alias.scope !3087, !noalias !3090
+  %.promoted.i.i = load i64, ptr %19, align 8, !noalias !3078
   %23 = getelementptr inbounds i8, ptr %8, i64 24
   %24 = getelementptr inbounds i8, ptr %8, i64 72
   %25 = load ptr, ptr %24, align 8, !alias.scope !3087, !noalias !3090, !nonnull !8, !align !49, !noundef !8
@@ -13694,7 +13694,7 @@ _ZN4core3str11validations15next_code_point17h56de14856462d818E.exit.thread.i.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3102)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3105)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3107)
-  %.promoted.i5.i = load i64, ptr %102, align 8, !alias.scope !3102, !noalias !3109
+  %.promoted.i5.i = load i64, ptr %102, align 8, !noalias !3078
   %105 = add i64 %.promoted.i5.i, %103
   %.not3754.i6.i = icmp ult i64 %105, %97
   br i1 %.not3754.i6.i, label %.lr.ph.i9.i, label %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit
@@ -13806,7 +13806,7 @@ _ZN4core3str11validations15next_code_point17h56de14856462d818E.exit.thread.i.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3114)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3117)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3119)
-  %.promoted.i2.i = load i64, ptr %102, align 8, !alias.scope !3114, !noalias !3121
+  %.promoted.i2.i = load i64, ptr %102, align 8, !noalias !3078
   %160 = add i64 %.promoted.i2.i, %103
   %.not3754.i.i = icmp ult i64 %160, %97
   br i1 %.not3754.i.i, label %.lr.ph.i4.i, label %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit

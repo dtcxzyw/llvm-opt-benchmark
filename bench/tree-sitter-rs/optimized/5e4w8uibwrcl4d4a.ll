@@ -23358,7 +23358,7 @@ _ZN4core3str7pattern13simd_contains17h767cb99dfc05c893E.exit.i.i: ; preds = %48,
   br i1 %143, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h93c72b3d81be7e75E.exit.i.i", label %.lr.ph.i45.i.i
 
 .lr.ph.i45.i.i:                                   ; preds = %.preheader.i44.i.i
-  %.promoted.i.i.i = load i64, ptr %140, align 8, !alias.scope !4915, !noalias !4918
+  %.promoted.i.i.i = load i64, ptr %140, align 8, !noalias !4909
   %144 = getelementptr inbounds i8, ptr %4, i64 24
   %145 = getelementptr inbounds i8, ptr %4, i64 72
   %146 = load ptr, ptr %145, align 8, !alias.scope !4915, !noalias !4918, !nonnull !12, !align !374, !noundef !12
@@ -23504,7 +23504,7 @@ _ZN4core3str11validations15next_code_point17ha5afdba8b28ac17aE.exit.thread.i.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4930)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4933)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4935)
-  %.promoted.i51.i.i = load i64, ptr %222, align 8, !alias.scope !4930, !noalias !4937
+  %.promoted.i51.i.i = load i64, ptr %222, align 8, !noalias !4909
   %225 = add i64 %.promoted.i51.i.i, %223
   %.not3855.i52.i.i = icmp ult i64 %225, %217
   br i1 %.not3855.i52.i.i, label %.lr.ph.i55.i.i, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h93c72b3d81be7e75E.exit.i.i"
@@ -23616,7 +23616,7 @@ _ZN4core3str11validations15next_code_point17ha5afdba8b28ac17aE.exit.thread.i.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4942)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4945)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4947)
-  %.promoted.i46.i.i = load i64, ptr %222, align 8, !alias.scope !4942, !noalias !4949
+  %.promoted.i46.i.i = load i64, ptr %222, align 8, !noalias !4909
   %280 = add i64 %.promoted.i46.i.i, %223
   %.not3855.i.i.i = icmp ult i64 %280, %217
   br i1 %.not3855.i.i.i, label %.lr.ph.i49.i.i, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h93c72b3d81be7e75E.exit.i.i"

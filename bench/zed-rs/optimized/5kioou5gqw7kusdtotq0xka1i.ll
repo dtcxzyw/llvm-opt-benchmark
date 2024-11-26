@@ -747,7 +747,7 @@ define hidden void @"_ZN99_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$a
   br i1 %44, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17hc2e7e57f848f7023E.exit.thread7.i.i.i.i.i", label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.preheader.i.i.i.i.i
-  %.promoted.i.i.i.i.i = load i64, ptr %16, align 8, !alias.scope !144, !noalias !147
+  %.promoted.i.i.i.i.i = load i64, ptr %16, align 8, !alias.scope !142, !noalias !143
   %45 = getelementptr inbounds i8, ptr %.val.i.i.i.i, i64 %.val1.i.i.i.i
   %.promoted26.i.i.i.i.i = load i8, ptr %18, align 8, !alias.scope !144, !noalias !147
   br label %46

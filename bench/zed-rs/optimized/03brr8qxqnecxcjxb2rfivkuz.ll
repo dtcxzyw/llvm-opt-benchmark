@@ -35314,7 +35314,7 @@ define hidden void @"_ZN137_$LT$alloc..collections..btree..dedup_sorted_iter..De
   %5 = getelementptr inbounds i8, ptr %1, i64 48
   %6 = load ptr, ptr %5, align 8, !nonnull !5
   %7 = getelementptr inbounds i8, ptr %1, i64 32
-  %.promoted57 = load ptr, ptr %7, align 8, !noalias !5
+  %.promoted57 = load ptr, ptr %7, align 8
   %.sroa.5.sroa.0.0.copyload.pre = load ptr, ptr %.sroa.5.0..sroa_idx, align 8
   br label %"_ZN4core3ptr95drop_in_place$LT$$LP$std..path..PathBuf$C$alloc..collections..btree..set_val..SetValZST$RP$$GT$17h5de4c0e69684f21cE.llvm.21470575066294111.exit11"
 
@@ -35461,7 +35461,7 @@ define hidden void @"_ZN137_$LT$alloc..collections..btree..dedup_sorted_iter..De
   %6 = getelementptr inbounds i8, ptr %1, i64 104
   %.sroa.4.0..sroa_idx17 = getelementptr inbounds i8, ptr %3, i64 8
   %.sroa.519.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 16
-  %.promoted34 = load ptr, ptr %6, align 8, !noalias !5
+  %.promoted34 = load ptr, ptr %6, align 8
   br label %7
 
 7:                                                ; preds = %26, %2

@@ -8875,12 +8875,12 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit.i.i67:   ; preds = %for.body.i.i62
 lpad.i.i66:                                       ; preds = %for.body.i.i62
   %48 = landingpad { ptr, i32 }
           cleanup
-  store ptr null, ptr %val, align 8, !alias.scope !41
+  store ptr null, ptr %val, align 8
   call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %val) #23
   br label %ehcleanup87
 
 invoke.cont32.loopexit:                           ; preds = %_ZN7obj_refI4expr11ast_managerED2Ev.exit.i.i67
-  store ptr %47, ptr %val, align 8, !alias.scope !41
+  store ptr %47, ptr %val, align 8
   br label %invoke.cont32
 
 invoke.cont32:                                    ; preds = %invoke.cont32.loopexit, %_ZN6vectorIPN5smtfd13theory_pluginELb0EjE3endEv.exit.i.i58, %for.end
@@ -9209,12 +9209,12 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit.i.i125:  ; preds = %for.body.i.i120
 lpad.i.i124:                                      ; preds = %for.body.i.i120
   %95 = landingpad { ptr, i32 }
           cleanup
-  store ptr null, ptr %val71, align 8, !alias.scope !48
+  store ptr null, ptr %val71, align 8
   call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %val71) #23
   br label %ehcleanup
 
 invoke.cont72.loopexit:                           ; preds = %_ZN7obj_refI4expr11ast_managerED2Ev.exit.i.i125
-  store ptr %94, ptr %val71, align 8, !alias.scope !48
+  store ptr %94, ptr %val71, align 8
   br label %invoke.cont72
 
 invoke.cont72:                                    ; preds = %invoke.cont72.loopexit, %_ZN6vectorIPN5smtfd13theory_pluginELb0EjE3endEv.exit.i.i116, %if.then70
@@ -14055,11 +14055,11 @@ common.resume:                                    ; preds = %lpad.i, %lpad.i.i
 lpad.i.i:                                         ; preds = %for.body.i.i
   %19 = landingpad { ptr, i32 }
           cleanup
-  store ptr null, ptr %ref.tmp, align 8, !alias.scope !103
+  store ptr null, ptr %ref.tmp, align 8
   br label %common.resume
 
 _ZN5smtfd13theory_plugin11model_valueEP4sort.exit.loopexit: ; preds = %_ZN7obj_refI4expr11ast_managerED2Ev.exit.i.i
-  store ptr %18, ptr %ref.tmp, align 8, !alias.scope !103
+  store ptr %18, ptr %ref.tmp, align 8
   %.pre = load i32, ptr %m_autil, align 8
   br label %_ZN5smtfd13theory_plugin11model_valueEP4sort.exit
 
@@ -19365,11 +19365,11 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit.i.i:     ; preds = %for.body.i.i
 lpad.i.i:                                         ; preds = %for.body.i.i
   %15 = landingpad { ptr, i32 }
           cleanup
-  store ptr null, ptr %v, align 8, !alias.scope !184
+  store ptr null, ptr %v, align 8
   br label %ehcleanup57
 
 invoke.cont13.loopexit:                           ; preds = %_ZN7obj_refI4expr11ast_managerED2Ev.exit.i.i
-  store ptr %14, ptr %v, align 8, !alias.scope !184
+  store ptr %14, ptr %v, align 8
   br label %invoke.cont13
 
 invoke.cont13:                                    ; preds = %invoke.cont13.loopexit, %_ZN6vectorIPN5smtfd13theory_pluginELb0EjE3endEv.exit.i.i, %invoke.cont11
@@ -19629,12 +19629,12 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit.i.i56:   ; preds = %for.body.i.i51
 lpad.i.i55:                                       ; preds = %for.body.i.i51
   %61 = landingpad { ptr, i32 }
           cleanup
-  store ptr null, ptr %ref.tmp, align 8, !alias.scope !191
+  store ptr null, ptr %ref.tmp, align 8
   call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #23
   br label %ehcleanup57
 
 invoke.cont40.loopexit:                           ; preds = %_ZN7obj_refI4expr11ast_managerED2Ev.exit.i.i56
-  store ptr %60, ptr %ref.tmp, align 8, !alias.scope !191
+  store ptr %60, ptr %ref.tmp, align 8
   br label %invoke.cont40
 
 invoke.cont40:                                    ; preds = %invoke.cont40.loopexit, %_ZN6vectorIPN5smtfd13theory_pluginELb0EjE3endEv.exit.i.i47, %for.body37

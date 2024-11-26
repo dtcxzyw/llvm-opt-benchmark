@@ -1321,11 +1321,11 @@ define void @_RNvXNtNtNtCs68wO5nsWeTG_5alloc11collections9vec_deque11spec_extend
   %.sroa.814.0..sroa_idx15.i.i = getelementptr inbounds i8, ptr %10, i64 8
   %.sroa.427.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.528.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %1, i64 24
-  %.promoted107 = load i64, ptr %1, align 8, !noalias !4
-  %.promoted = load ptr, ptr %4, align 8, !noalias !4
-  %.promoted122 = load ptr, ptr %3, align 8, !noalias !4
-  %.promoted130 = load ptr, ptr %5, align 8, !noalias !4
-  %.promoted140 = load i64, ptr %8, align 8, !noalias !4
+  %.promoted107 = load i64, ptr %1, align 8
+  %.promoted = load ptr, ptr %4, align 8
+  %.promoted122 = load ptr, ptr %3, align 8
+  %.promoted130 = load ptr, ptr %5, align 8
+  %.promoted140 = load i64, ptr %8, align 8
   %11 = getelementptr inbounds i8, ptr %1, i64 48
   %12 = load i64, ptr %11, align 8, !range !199
   %13 = icmp eq i64 %12, 2
@@ -1338,7 +1338,7 @@ define void @_RNvXNtNtNtCs68wO5nsWeTG_5alloc11collections9vec_deque11spec_extend
   %19 = getelementptr inbounds i8, ptr %0, i64 24
   %20 = getelementptr inbounds i8, ptr %0, i64 16
   %21 = getelementptr inbounds i8, ptr %0, i64 8
-  %.promoted162 = load ptr, ptr %14, align 8, !noalias !4
+  %.promoted162 = load ptr, ptr %14, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.backedge, %2
@@ -1710,11 +1710,11 @@ define void @_RNvXNtNtNtCs68wO5nsWeTG_5alloc11collections9vec_deque11spec_extend
   %.sroa.814.0..sroa_idx15.i.i = getelementptr inbounds i8, ptr %10, i64 8
   %.sroa.427.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.528.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %1, i64 24
-  %.promoted107 = load i64, ptr %1, align 8, !noalias !4
-  %.promoted = load ptr, ptr %4, align 8, !noalias !4
-  %.promoted122 = load ptr, ptr %3, align 8, !noalias !4
-  %.promoted130 = load ptr, ptr %5, align 8, !noalias !4
-  %.promoted140 = load i64, ptr %8, align 8, !noalias !4
+  %.promoted107 = load i64, ptr %1, align 8
+  %.promoted = load ptr, ptr %4, align 8
+  %.promoted122 = load ptr, ptr %3, align 8
+  %.promoted130 = load ptr, ptr %5, align 8
+  %.promoted140 = load i64, ptr %8, align 8
   %11 = getelementptr inbounds i8, ptr %1, i64 48
   %12 = load i64, ptr %11, align 8, !range !199
   %13 = icmp eq i64 %12, 2
@@ -1727,7 +1727,7 @@ define void @_RNvXNtNtNtCs68wO5nsWeTG_5alloc11collections9vec_deque11spec_extend
   %19 = getelementptr inbounds i8, ptr %0, i64 24
   %20 = getelementptr inbounds i8, ptr %0, i64 16
   %21 = getelementptr inbounds i8, ptr %0, i64 8
-  %.promoted162 = load ptr, ptr %14, align 8, !noalias !4
+  %.promoted162 = load ptr, ptr %14, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.backedge, %2

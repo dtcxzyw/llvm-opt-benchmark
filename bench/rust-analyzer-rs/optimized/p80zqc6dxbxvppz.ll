@@ -98991,7 +98991,7 @@ switch.lookup:                                    ; preds = %349, %.lr.ph.i
 .body157.thread12.loopexit.i:                     ; preds = %348, %297, %switch.lookup
   %lpad.loopexit.i = landingpad { ptr, i32 }
           cleanup
-  store i64 %277, ptr %29, align 8, !alias.scope !19911, !noalias !19763
+  store i64 %277, ptr %29, align 8, !noalias !19763
   br label %.body157.thread.i
 
 .body157.thread12.loopexit.split-lp.i:            ; preds = %303
@@ -99053,7 +99053,7 @@ switch.lookup:                                    ; preds = %349, %.lr.ph.i
   br i1 %302, label %303, label %"_ZN64_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hfbba566376e04ef6E.exit150.i"
 
 303:                                              ; preds = %299
-  store i64 %277, ptr %29, align 8, !alias.scope !19911, !noalias !19763
+  store i64 %277, ptr %29, align 8, !noalias !19763
   invoke void @_ZN3std7process5abort17h1cffb1827d7e6c16E() #48
           to label %.noexc149.i unwind label %.body157.thread12.loopexit.split-lp.i, !noalias !19761
 
@@ -99076,7 +99076,7 @@ switch.lookup:                                    ; preds = %349, %.lr.ph.i
   br i1 %306, label %307, label %311
 
 307:                                              ; preds = %.noexc.i.i155.i
-  store i64 %277, ptr %29, align 8, !alias.scope !19911, !noalias !19763
+  store i64 %277, ptr %29, align 8, !noalias !19763
   invoke void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef 8, i64 noundef 48) #48
           to label %.noexc4.i.i156.i unwind label %.loopexit.split-lp.i, !noalias !19930
 
@@ -99086,7 +99086,7 @@ switch.lookup:                                    ; preds = %349, %.lr.ph.i
 .loopexit.i:                                      ; preds = %"_ZN64_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hfbba566376e04ef6E.exit150.i"
   %lpad.loopexit53.i = landingpad { ptr, i32 }
           cleanup
-  store i64 %277, ptr %29, align 8, !alias.scope !19911, !noalias !19763
+  store i64 %277, ptr %29, align 8, !noalias !19763
   br label %308
 
 .loopexit.split-lp.i:                             ; preds = %307
@@ -99116,7 +99116,7 @@ switch.lookup:                                    ; preds = %349, %.lr.ph.i
   br i1 %314, label %315, label %"_ZN64_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h6f66474b036c6077E.exit161.i"
 
 315:                                              ; preds = %311
-  store i64 %277, ptr %29, align 8, !alias.scope !19911, !noalias !19763
+  store i64 %277, ptr %29, align 8, !noalias !19763
   invoke void @_ZN3std7process5abort17h1cffb1827d7e6c16E() #48
           to label %.noexc160.i unwind label %316, !noalias !19761
 
@@ -99139,7 +99139,7 @@ switch.lookup:                                    ; preds = %349, %.lr.ph.i
   br i1 %319, label %320, label %"_ZN64_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h6f66474b036c6077E.exit.i162.i"
 
 320:                                              ; preds = %"_ZN64_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h6f66474b036c6077E.exit161.i"
-  store i64 %277, ptr %29, align 8, !alias.scope !19911, !noalias !19763
+  store i64 %277, ptr %29, align 8, !noalias !19763
   invoke void @_ZN3std7process5abort17h1cffb1827d7e6c16E() #48
           to label %.noexc164.i unwind label %.loopexit.split-lp57.i, !noalias !19761
 
@@ -99153,7 +99153,7 @@ switch.lookup:                                    ; preds = %349, %.lr.ph.i
   br i1 %322, label %323, label %328
 
 323:                                              ; preds = %"_ZN64_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h6f66474b036c6077E.exit.i162.i"
-  store i64 %277, ptr %29, align 8, !alias.scope !19911, !noalias !19763
+  store i64 %277, ptr %29, align 8, !noalias !19763
   invoke void @_ZN3std7process5abort17h1cffb1827d7e6c16E() #48
           to label %.noexc.i163.i unwind label %324, !noalias !19761
 
@@ -99175,7 +99175,7 @@ switch.lookup:                                    ; preds = %349, %.lr.ph.i
 .loopexit56.i:                                    ; preds = %329, %328
   %lpad.loopexit58.i = landingpad { ptr, i32 }
           cleanup
-  store i64 %277, ptr %29, align 8, !alias.scope !19911, !noalias !19763
+  store i64 %277, ptr %29, align 8, !noalias !19763
   br label %.body165.i
 
 .loopexit.split-lp57.i:                           ; preds = %.sink.split.i.i.i169.i, %342, %320
@@ -99223,12 +99223,12 @@ switch.lookup:                                    ; preds = %349, %.lr.ph.i
   ]
 
 342:                                              ; preds = %340
-  store i64 %277, ptr %29, align 8, !alias.scope !19911, !noalias !19763
+  store i64 %277, ptr %29, align 8, !noalias !19763
   invoke void @"_ZN4core3ptr108drop_in_place$LT$chalk_ir..Canonical$LT$chalk_ir..ConstrainedSubst$LT$hir_ty..interner..Interner$GT$$GT$$GT$17hf3acbb430c9287baE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %25)
           to label %"_ZN4core3ptr111drop_in_place$LT$core..option..Option$LT$chalk_solve..solve..Solution$LT$hir_ty..interner..Interner$GT$$GT$$GT$17h431df48b8dd791f1E.llvm.2869318172927361419.exit172.i" unwind label %.loopexit.split-lp57.i, !noalias !19761
 
 343:                                              ; preds = %340
-  store i64 %277, ptr %29, align 8, !alias.scope !19911, !noalias !19763
+  store i64 %277, ptr %29, align 8, !noalias !19763
   %344 = getelementptr inbounds i8, ptr %25, i64 8
   %345 = load i64, ptr %344, align 8, !range !997, !alias.scope !19945, !noalias !19763, !noundef !26
   %switch.i.i.i168.i = icmp samesign ult i64 %345, 2

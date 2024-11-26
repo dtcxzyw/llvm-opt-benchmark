@@ -10637,7 +10637,7 @@ do.end1013:                                       ; preds = %for.cond.cleanup
   br i1 %cmp.i1904.not2320, label %for.cond.cleanup1023, label %for.body1024.preheader
 
 for.body1024.preheader:                           ; preds = %do.end1013
-  %NPV_.promoted = load double, ptr %NPV_, align 8, !tbaa !142
+  %NPV_.promoted = load double, ptr %NPV_, align 8
   br label %for.body1024
 
 for.cond.cleanup1023:                             ; preds = %for.body1024, %do.end1013

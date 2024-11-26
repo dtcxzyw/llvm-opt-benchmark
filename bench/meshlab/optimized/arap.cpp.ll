@@ -8000,7 +8000,7 @@ _ZNSt6vectorIN4ARAP3CotESaIS1_EE9push_backERKS1_.exit.i: ; preds = %_ZNSt6vector
   br i1 %.not.i, label %_ZL22ComputeCotangentVectorR4Mesh.exit.loopexit, label %.preheader.i
 
 _ZL22ComputeCotangentVectorR4Mesh.exit.loopexit:  ; preds = %_ZNSt6vectorIN4ARAP3CotESaIS1_EE9push_backERKS1_.exit.i
-  store ptr %154, ptr %12, align 8, !alias.scope !135
+  store ptr %154, ptr %12, align 8
   br label %_ZL22ComputeCotangentVectorR4Mesh.exit
 
 _ZL22ComputeCotangentVectorR4Mesh.exit:           ; preds = %_ZL22ComputeCotangentVectorR4Mesh.exit.loopexit, %43
@@ -8494,7 +8494,7 @@ _ZNSt6vectorIN5Eigen6MatrixIdLi2ELi2ELi0ELi2ELi2EEESaIS2_EE7reserveEm.exit.i: ; 
   br i1 %401, label %402, label %.lr.ph50.i
 
 402:                                              ; preds = %395
-  store ptr %281, ptr %17, align 8, !alias.scope !145
+  store ptr %281, ptr %17, align 8
   %403 = call ptr @__cxa_allocate_exception(i64 8) #26, !noalias !145
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %403, align 8, !noalias !145
   invoke void @__cxa_throw(ptr nonnull %403, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #34
@@ -8603,7 +8603,7 @@ _ZNSt6vectorIN5Eigen6MatrixIdLi2ELi2ELi0ELi2ELi2EEESaIS2_EE7reserveEm.exit.i: ; 
   br i1 %447, label %.noexc.i.i.i.i.i.i.i.i, label %.sink.split.i.i.i.i.i.i.i.i.i.i
 
 .noexc.i.i.i.i.i.i.i.i:                           ; preds = %444
-  store ptr %281, ptr %17, align 8, !alias.scope !145
+  store ptr %281, ptr %17, align 8
   %448 = call ptr @__cxa_allocate_exception(i64 8) #26, !noalias !145
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %448, align 8, !noalias !145
   invoke void @__cxa_throw(ptr nonnull %448, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #34
@@ -8652,13 +8652,13 @@ _ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEaSINS_7ProductINS0_IdLi2ELi2ELi0ELi2E
 461:                                              ; preds = %352
   %462 = landingpad { ptr, i32 }
           cleanup
-  store ptr %281, ptr %17, align 8, !alias.scope !145
+  store ptr %281, ptr %17, align 8
   br label %.body.i
 
 .loopexit67.i:                                    ; preds = %484, %417
   %lpad.loopexit69.i = landingpad { ptr, i32 }
           cleanup
-  store ptr %281, ptr %17, align 8, !alias.scope !145
+  store ptr %281, ptr %17, align 8
   br label %463
 
 .loopexit.split-lp68.i:                           ; preds = %478, %.noexc.i.i.i.i.i.i.i.i
@@ -8697,7 +8697,7 @@ _ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEaSINS_7ProductINS0_IdLi2ELi2ELi0ELi2E
   br i1 %477, label %478, label %_ZNKSt6vectorIN5Eigen6MatrixIdLi2ELi2ELi0ELi2ELi2EEESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i.i
 
 478:                                              ; preds = %473
-  store ptr %281, ptr %17, align 8, !alias.scope !145
+  store ptr %281, ptr %17, align 8
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #34
           to label %.noexc28.i unwind label %.loopexit.split-lp68.i, !noalias !145
 
@@ -8773,7 +8773,7 @@ _ZNSt6vectorIN5Eigen6MatrixIdLi2ELi2ELi0ELi2ELi2EEESaIS2_EE9push_backEOS2_.exit.
   br label %.body130
 
 .loopexit347:                                     ; preds = %_ZNSt6vectorIN5Eigen6MatrixIdLi2ELi2ELi0ELi2ELi2EEESaIS2_EE9push_backEOS2_.exit.i
-  store ptr %495, ptr %17, align 8, !alias.scope !145
+  store ptr %495, ptr %17, align 8
   br label %500
 
 500:                                              ; preds = %.loopexit347, %_ZNSt6vectorIN5Eigen6MatrixIdLi2ELi2ELi0ELi2ELi2EEESaIS2_EE7reserveEm.exit.i

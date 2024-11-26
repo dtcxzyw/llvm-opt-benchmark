@@ -2020,29 +2020,29 @@ do.end365.i:                                      ; preds = %do.body316.i
   %sub11.i.i.i = fsub double %add.i.i.i139, %add10.i.i.i
   %mul.i.i = fmul double %sub11.i.i, %sub11.i.i.i
   %cmp.i287.i = fcmp olt double %mul.i.i, 0.000000e+00
-  %ref.tmp118.sroa.27.0 = select i1 %cmp.i287.i, double %sub11.i.i, double %sub11.i145.i
+  %ref.tmp118.sroa.28.0 = select i1 %cmp.i287.i, double %sub11.i.i, double %sub11.i145.i
   %xMin_19.promoted.i.i = select i1 %cmp.i287.i, double %left.0.lcssa237, double %add120
   %sub.i289.i = fsub double %add119, %xMin_19.promoted.i.i
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %if.end122.i.i, %do.end365.i
-  %ref.tmp118.sroa.27.1 = phi double [ %ref.tmp118.sroa.27.0, %do.end365.i ], [ %ref.tmp118.sroa.27.3, %if.end122.i.i ]
+  %ref.tmp118.sroa.28.1 = phi double [ %ref.tmp118.sroa.28.0, %do.end365.i ], [ %ref.tmp118.sroa.28.3, %if.end122.i.i ]
   %158 = phi double [ %xMin_19.promoted.i.i, %do.end365.i ], [ %storemerge136.i.i, %if.end122.i.i ]
   %e.0142.i.i = phi double [ %sub.i289.i, %do.end365.i ], [ %e.2.i.i, %if.end122.i.i ]
   %d.0141.i.i = phi double [ %sub.i289.i, %do.end365.i ], [ %d.2.i.i, %if.end122.i.i ]
   %froot.0140.i.i = phi double [ %sub11.i.i.i, %do.end365.i ], [ %sub11.i88.i.i, %if.end122.i.i ]
   %159 = phi i64 [ 3, %do.end365.i ], [ %inc126.i.i, %if.end122.i.i ]
   %160 = phi double [ %xMin_19.promoted.i.i, %do.end365.i ], [ %167, %if.end122.i.i ]
-  %161 = phi double [ %ref.tmp118.sroa.27.0, %do.end365.i ], [ %froot.1.i.i, %if.end122.i.i ]
+  %161 = phi double [ %ref.tmp118.sroa.28.0, %do.end365.i ], [ %froot.1.i.i, %if.end122.i.i ]
   %storemerge137139.i.i = phi double [ %add119, %do.end365.i ], [ %storemerge.i.i, %if.end122.i.i ]
   %cmp11.i.i = fcmp ogt double %froot.0140.i.i, 0.000000e+00
-  %cmp13.i.i = fcmp ogt double %ref.tmp118.sroa.27.1, 0.000000e+00
+  %cmp13.i.i = fcmp ogt double %ref.tmp118.sroa.28.1, 0.000000e+00
   %or.cond.i.i = select i1 %cmp11.i.i, i1 %cmp13.i.i, i1 false
   br i1 %or.cond.i.i, label %if.then18.i.i, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %while.body.i.i
   %cmp14.i.i = fcmp olt double %froot.0140.i.i, 0.000000e+00
-  %cmp17.i.i = fcmp olt double %ref.tmp118.sroa.27.1, 0.000000e+00
+  %cmp17.i.i = fcmp olt double %ref.tmp118.sroa.28.1, 0.000000e+00
   %or.cond49.i.i = select i1 %cmp14.i.i, i1 %cmp17.i.i, i1 false
   br i1 %or.cond49.i.i, label %if.then18.i.i, label %if.end26.i.i
 
@@ -2051,11 +2051,11 @@ if.then18.i.i:                                    ; preds = %lor.lhs.false.i.i, 
   br label %if.end26.i.i
 
 if.end26.i.i:                                     ; preds = %if.then18.i.i, %lor.lhs.false.i.i
-  %ref.tmp118.sroa.27.2 = phi double [ %161, %if.then18.i.i ], [ %ref.tmp118.sroa.27.1, %lor.lhs.false.i.i ]
+  %ref.tmp118.sroa.28.2 = phi double [ %161, %if.then18.i.i ], [ %ref.tmp118.sroa.28.1, %lor.lhs.false.i.i ]
   %162 = phi double [ %158, %if.then18.i.i ], [ %160, %lor.lhs.false.i.i ]
   %d.1.i.i = phi double [ %sub25.i.i, %if.then18.i.i ], [ %d.0141.i.i, %lor.lhs.false.i.i ]
   %e.1.i.i = phi double [ %sub25.i.i, %if.then18.i.i ], [ %e.0142.i.i, %lor.lhs.false.i.i ]
-  %163 = call double @llvm.fabs.f64(double %ref.tmp118.sroa.27.2)
+  %163 = call double @llvm.fabs.f64(double %ref.tmp118.sroa.28.2)
   %164 = call double @llvm.fabs.f64(double %froot.0140.i.i)
   %cmp28.i.i = fcmp olt double %163, %164
   br i1 %cmp28.i.i, label %if.then29.i.i, label %if.end40.i.i
@@ -2064,13 +2064,13 @@ if.then29.i.i:                                    ; preds = %if.end26.i.i
   br label %if.end40.i.i
 
 if.end40.i.i:                                     ; preds = %if.then29.i.i, %if.end26.i.i
-  %ref.tmp118.sroa.27.3 = phi double [ %froot.0140.i.i, %if.then29.i.i ], [ %ref.tmp118.sroa.27.2, %if.end26.i.i ]
+  %ref.tmp118.sroa.28.3 = phi double [ %froot.0140.i.i, %if.then29.i.i ], [ %ref.tmp118.sroa.28.2, %if.end26.i.i ]
   %.pre-phi.i.i = phi double [ %163, %if.then29.i.i ], [ %164, %if.end26.i.i ]
   %165 = phi double [ %storemerge137139.i.i, %if.then29.i.i ], [ %158, %if.end26.i.i ]
   %storemerge136.i.i = phi double [ %162, %if.then29.i.i ], [ %storemerge137139.i.i, %if.end26.i.i ]
   %166 = phi double [ %froot.0140.i.i, %if.then29.i.i ], [ %161, %if.end26.i.i ]
   %167 = phi double [ %storemerge137139.i.i, %if.then29.i.i ], [ %162, %if.end26.i.i ]
-  %froot.1.i.i = phi double [ %ref.tmp118.sroa.27.2, %if.then29.i.i ], [ %froot.0140.i.i, %if.end26.i.i ]
+  %froot.1.i.i = phi double [ %ref.tmp118.sroa.28.2, %if.then29.i.i ], [ %froot.0140.i.i, %if.end26.i.i ]
   %168 = call double @llvm.fabs.f64(double %storemerge136.i.i)
   %169 = call double @llvm.fmuladd.f64(double %168, double 0x3CC0000000000000, double 5.000000e-09)
   %sub48.i.i = fsub double %167, %storemerge136.i.i
@@ -2124,8 +2124,8 @@ if.then69.i.i:                                    ; preds = %_ZN8QuantLib5closeE
   br label %if.end94.i.i
 
 if.else73.i.i:                                    ; preds = %_ZN8QuantLib5closeEdd.exit72.i.i, %if.then3.i.i.i
-  %div76.i.i = fdiv double %166, %ref.tmp118.sroa.27.3
-  %div78.i.i = fdiv double %froot.1.i.i, %ref.tmp118.sroa.27.3
+  %div76.i.i = fdiv double %166, %ref.tmp118.sroa.28.3
+  %div78.i.i = fdiv double %froot.1.i.i, %ref.tmp118.sroa.28.3
   %mul79.i.i = fmul double %div.i290.i, 2.000000e+00
   %mul80.i.i = fmul double %div76.i.i, %mul79.i.i
   %sub81.i.i = fsub double %div76.i.i, %div78.i.i

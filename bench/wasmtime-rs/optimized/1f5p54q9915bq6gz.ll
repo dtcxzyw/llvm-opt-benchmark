@@ -27458,7 +27458,7 @@ common.resume:                                    ; preds = %49, %73, %62
   br i1 %42, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %41
-  %.promoted = load ptr, ptr %5, align 8, !alias.scope !5775
+  %.promoted = load ptr, ptr %5, align 8
   %43 = load ptr, ptr %18, align 8, !alias.scope !5775, !nonnull !4, !noundef !4
   br label %77
 
@@ -27670,7 +27670,7 @@ define hidden void @_ZN8wasmtime7runtime9component6values12lift_variant17heeceeb
   br i1 %40, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %39
-  %.promoted = load ptr, ptr %4, align 8, !alias.scope !5796
+  %.promoted = load ptr, ptr %4, align 8
   %41 = load ptr, ptr %14, align 8, !alias.scope !5796, !nonnull !4, !noundef !4
   br label %76
 

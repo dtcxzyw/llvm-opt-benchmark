@@ -8283,7 +8283,7 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
   %3 = alloca { { { { { ptr, ptr, ptr, i16, [3 x i16] }, i64 }, {} } } }, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   %.promoted = load i64, ptr %4, align 8, !alias.scope !2566
-  %.promoted16 = load ptr, ptr %0, align 8, !alias.scope !2569
+  %.promoted16 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = getelementptr inbounds i8, ptr %1, i64 24
@@ -8298,8 +8298,8 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
   %.sroa.0.sroa.5.0..sroa_idx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 16
   %.sroa.0.sroa.6.0..sroa_idx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 24
   %.sroa.0.sroa.8.0..sroa_idx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 32
-  %.promoted20 = load i16, ptr %5, align 8, !alias.scope !2569
-  %.promoted21 = load ptr, ptr %6, align 8, !alias.scope !2569
+  %.promoted20 = load i16, ptr %5, align 8
+  %.promoted21 = load ptr, ptr %6, align 8
   br i1 %9, label %.critedge.us, label %.critedge.preheader
 
 .critedge.preheader:                              ; preds = %2
@@ -8312,14 +8312,14 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
   br i1 %12, label %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h5965debc84905feaE.exit.thread", label %13
 
 13:                                               ; preds = %.critedge.us
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !2572)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !2569)
   %.not9.i.i.us = icmp eq i16 %.promoted20, 0
   br i1 %.not9.i.i.us, label %.lr.ph.i.i.us, label %"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he868e2d71a7a6dc4E.exit.us"
 
 .lr.ph.i.i.us:                                    ; preds = %13, %.lr.ph.i.i.us
   %14 = phi ptr [ %19, %.lr.ph.i.i.us ], [ %.promoted21, %13 ]
   %.val810.i.i.us = phi ptr [ %18, %.lr.ph.i.i.us ], [ %.promoted16, %13 ]
-  %15 = load <16 x i8>, ptr %14, align 16, !noalias !2573
+  %15 = load <16 x i8>, ptr %14, align 16, !noalias !2572
   %16 = icmp slt <16 x i8> %15, zeroinitializer
   %17 = bitcast <16 x i1> %16 to i16
   %18 = getelementptr inbounds i8, ptr %.val810.i.i.us, i64 -640
@@ -8329,11 +8329,11 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
 
 "_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he868e2d71a7a6dc4E.exit.us.thread34": ; preds = %.lr.ph.i.i.us
   %20 = xor i16 %17, -1
-  store ptr %19, ptr %6, align 8, !alias.scope !2569
-  store ptr %18, ptr %0, align 8, !alias.scope !2569
+  store ptr %19, ptr %6, align 8, !alias.scope !2575
+  store ptr %18, ptr %0, align 8, !alias.scope !2575
   %21 = sub nuw i16 -2, %17
   %22 = and i16 %21, %20
-  store i16 %22, ptr %5, align 8, !alias.scope !2569
+  store i16 %22, ptr %5, align 8, !alias.scope !2575
   %23 = add i64 %.promoted, -1
   store i64 %23, ptr %4, align 8, !alias.scope !2566
   br label %27
@@ -8341,7 +8341,7 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
 "_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he868e2d71a7a6dc4E.exit.us": ; preds = %13
   %24 = add i16 %.promoted20, -1
   %25 = and i16 %24, %.promoted20
-  store i16 %25, ptr %5, align 8, !alias.scope !2569
+  store i16 %25, ptr %5, align 8, !alias.scope !2575
   %26 = add i64 %.promoted, -1
   store i64 %26, ptr %4, align 8, !alias.scope !2566
   %.not = icmp eq ptr %.promoted16, null
@@ -8358,20 +8358,20 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
   %29 = phi i16 [ %40, %.critedge.backedge ], [ %.promoted20, %.critedge.preheader ]
   %.lcssa2457 = phi ptr [ %.lcssa22, %.critedge.backedge ], [ %.promoted21, %.critedge.preheader ]
   call void @llvm.experimental.noalias.scope.decl(metadata !2566)
-  call void @llvm.experimental.noalias.scope.decl(metadata !2572)
+  call void @llvm.experimental.noalias.scope.decl(metadata !2569)
   %.not9.i.i = icmp eq i16 %29, 0
   br i1 %.not9.i.i, label %.lr.ph.i.i, label %"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he868e2d71a7a6dc4E.exit"
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i
   %30 = xor i16 %34, -1
-  store ptr %36, ptr %6, align 8, !alias.scope !2569
-  store ptr %35, ptr %0, align 8, !alias.scope !2569
+  store ptr %36, ptr %6, align 8, !alias.scope !2575
+  store ptr %35, ptr %0, align 8, !alias.scope !2575
   br label %"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he868e2d71a7a6dc4E.exit"
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph, %.lr.ph.i.i
   %31 = phi ptr [ %36, %.lr.ph.i.i ], [ %.lcssa2457, %.lr.ph ]
   %.val810.i.i = phi ptr [ %35, %.lr.ph.i.i ], [ %.lcssa111958, %.lr.ph ]
-  %32 = load <16 x i8>, ptr %31, align 16, !noalias !2573
+  %32 = load <16 x i8>, ptr %31, align 16, !noalias !2572
   %33 = icmp slt <16 x i8> %32, zeroinitializer
   %34 = bitcast <16 x i1> %33 to i16
   %35 = getelementptr inbounds i8, ptr %.val810.i.i, i64 -640
@@ -8387,7 +8387,7 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
   %38 = zext nneg i16 %37 to i64
   %39 = add i16 %.lcssa.i.i, -1
   %40 = and i16 %39, %.lcssa.i.i
-  store i16 %40, ptr %5, align 8, !alias.scope !2569
+  store i16 %40, ptr %5, align 8, !alias.scope !2575
   %41 = sub nsw i64 0, %38
   %42 = getelementptr inbounds { i32, [1 x i32], { ptr, [3 x i64] } }, ptr %.lcssa1117, i64 %41
   %43 = add i64 %28, -1
@@ -44441,13 +44441,13 @@ attributes #75 = { cold }
 !2566 = !{!2567}
 !2567 = distinct !{!2567, !2568, !"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he868e2d71a7a6dc4E: argument 0"}
 !2568 = distinct !{!2568, !"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he868e2d71a7a6dc4E"}
-!2569 = !{!2570, !2567}
+!2569 = !{!2570}
 !2570 = distinct !{!2570, !2571, !"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17h08ae6f5d4091f1b5E: argument 0"}
 !2571 = distinct !{!2571, !"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17h08ae6f5d4091f1b5E"}
-!2572 = !{!2570}
-!2573 = !{!2574, !2570, !2567}
-!2574 = distinct !{!2574, !2575, !"_ZN4core9core_arch3x864sse214_mm_load_si12817h8494eca0ceb20a67E.llvm.17595789031839490487: argument 0"}
-!2575 = distinct !{!2575, !"_ZN4core9core_arch3x864sse214_mm_load_si12817h8494eca0ceb20a67E.llvm.17595789031839490487"}
+!2572 = !{!2573, !2570, !2567}
+!2573 = distinct !{!2573, !2574, !"_ZN4core9core_arch3x864sse214_mm_load_si12817h8494eca0ceb20a67E.llvm.17595789031839490487: argument 0"}
+!2574 = distinct !{!2574, !"_ZN4core9core_arch3x864sse214_mm_load_si12817h8494eca0ceb20a67E.llvm.17595789031839490487"}
+!2575 = !{!2570, !2567}
 !2576 = !{!2577}
 !2577 = distinct !{!2577, !2578, !"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h5965debc84905feaE: argument 0"}
 !2578 = distinct !{!2578, !"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h5965debc84905feaE"}

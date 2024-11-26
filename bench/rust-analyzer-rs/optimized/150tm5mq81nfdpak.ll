@@ -41619,7 +41619,7 @@ define internal fastcc void @_ZN6ide_db14syntax_helpers13format_string21lex_form
   br i1 %.029, label %_ZN9text_size5range9TextRange5cover17h8fc804ebad66feffE.exit.preheader, label %26
 
 _ZN9text_size5range9TextRange5cover17h8fc804ebad66feffE.exit.preheader: ; preds = %22
-  %.promoted17 = load ptr, ptr %0, align 8, !noalias !7
+  %.promoted17 = load ptr, ptr %0, align 8
   %24 = getelementptr inbounds i8, ptr %0, i64 8
   %25 = load ptr, ptr %24, align 8, !nonnull !7
   %.sroa.43.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 20
@@ -41766,7 +41766,7 @@ define internal fastcc void @_ZN6ide_db14syntax_helpers13format_string21lex_form
   br i1 %or.cond, label %_ZN9text_size5range9TextRange5cover17h8fc804ebad66feffE.exit.preheader, label %32
 
 _ZN9text_size5range9TextRange5cover17h8fc804ebad66feffE.exit.preheader: ; preds = %22, %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$13is_alphabetic17hc8ff0ab862c56c7cE.exit"
-  %.promoted21 = load ptr, ptr %0, align 8, !noalias !7
+  %.promoted21 = load ptr, ptr %0, align 8
   %30 = getelementptr inbounds i8, ptr %0, i64 8
   %31 = load ptr, ptr %30, align 8, !nonnull !7
   %.sroa.43.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 20

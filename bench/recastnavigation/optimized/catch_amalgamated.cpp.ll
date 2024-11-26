@@ -4551,7 +4551,7 @@ _ZNSt6vectorIdSaIdEE5clearEv.exit.preheader.us.i: ; preds = %_ZNSt6vectorIdSaIdE
   %51 = ptrtoint ptr %44 to i64
   %52 = sub i64 %50, %51
   %53 = icmp eq i64 %52, 9223372036854775800
-  br i1 %53, label %.split.us.i, label %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i.i30.us.i
+  br i1 %53, label %.split.us.i.loopexit7, label %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i.i30.us.i
 
 _ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i.i30.us.i: ; preds = %49
   %54 = ashr exact i64 %52, 3
@@ -4683,13 +4683,17 @@ _ZNSt6vectorIdSaIdEE5clearEv.exit._crit_edge.us.i: ; preds = %_ZNSt6vectorIdSaId
 .loopexit.split-lp.loopexit.split.us.i:           ; preds = %_ZNSt6vectorIdSaIdEE5clearEv.exit._crit_edge.us.i, %59
   %lpad.loopexit68.us.i = landingpad { ptr, i32 }
           cleanup
-  store ptr %44, ptr %7, align 8, !alias.scope !12
+  store ptr %46, ptr %42, align 8
+  store ptr %45, ptr %32, align 8
+  store ptr %44, ptr %7, align 8
   br label %.loopexit.split-lp.i
 
 .loopexit.split.us.i:                             ; preds = %88, %73
   %lpad.loopexit.us.i = landingpad { ptr, i32 }
           cleanup
-  store ptr %44, ptr %7, align 8, !alias.scope !12
+  store ptr %46, ptr %42, align 8
+  store ptr %45, ptr %32, align 8
+  store ptr %44, ptr %7, align 8
   br label %.loopexit.split-lp.i
 
 _ZNSt6vectorIdSaIdEE5clearEv.exit.preheader.i:    ; preds = %_ZNSt6vectorIdSaIdEE9push_backERKd.exit39.i, %_ZNSt6vectorIdSaIdEE5clearEv.exit.preheader.preheader.i
@@ -4702,7 +4706,9 @@ _ZNSt6vectorIdSaIdEE5clearEv.exit.preheader.i:    ; preds = %_ZNSt6vectorIdSaIdE
           to label %110 unwind label %.loopexit.split-lp.thread.i, !noalias !12
 
 .split99.us.i:                                    ; preds = %78
-  store ptr %44, ptr %7, align 8, !alias.scope !12
+  store ptr %46, ptr %42, align 8
+  store ptr %45, ptr %32, align 8
+  store ptr %44, ptr %7, align 8
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.469) #55
           to label %.noexc26.i unwind label %.loopexit.split-lp.loopexit.split-lp.i, !noalias !12
 
@@ -4722,6 +4728,9 @@ _ZNSt6vectorIdSaIdEE5clearEv.exit.preheader.i:    ; preds = %_ZNSt6vectorIdSaIdE
 .loopexit.split-lp.thread.i:                      ; preds = %122, %_ZNSt6vectorIdSaIdEE5clearEv.exit.preheader.i
   %lpad.loopexit68.i = landingpad { ptr, i32 }
           cleanup
+  store ptr %104, ptr %32, align 8
+  store ptr %103, ptr %43, align 8
+  store ptr %102, ptr %7, align 8
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit.i
 
 .loopexit.split-lp.loopexit.split-lp.i:           ; preds = %._crit_edge.i, %.split.us.i, %.split99.us.i
@@ -4753,12 +4762,22 @@ _ZNSt6vectorIdSaIdEE5clearEv.exit.preheader.i:    ; preds = %_ZNSt6vectorIdSaIdE
   %114 = ptrtoint ptr %102 to i64
   %115 = sub i64 %113, %114
   %116 = icmp eq i64 %115, 9223372036854775800
-  br i1 %116, label %.split.us.i, label %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i.i30.i
+  br i1 %116, label %.split.us.i.loopexit, label %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i.i30.i
 
-.split.us.i:                                      ; preds = %49, %112
-  %storemerge = phi ptr [ %102, %112 ], [ %44, %49 ]
-  %.us-phi94.i = phi ptr [ null, %112 ], [ %.sroa.049.4.us.i, %49 ]
-  store ptr %storemerge, ptr %7, align 8, !alias.scope !12
+.split.us.i.loopexit:                             ; preds = %112
+  store ptr %104, ptr %32, align 8
+  store ptr %103, ptr %43, align 8
+  br label %.split.us.i
+
+.split.us.i.loopexit7:                            ; preds = %49
+  store ptr %46, ptr %42, align 8
+  store ptr %45, ptr %32, align 8
+  br label %.split.us.i
+
+.split.us.i:                                      ; preds = %.split.us.i.loopexit7, %.split.us.i.loopexit
+  %storemerge = phi ptr [ %44, %.split.us.i.loopexit7 ], [ %102, %.split.us.i.loopexit ]
+  %.us-phi94.i = phi ptr [ %.sroa.049.4.us.i, %.split.us.i.loopexit7 ], [ null, %.split.us.i.loopexit ]
+  store ptr %storemerge, ptr %7, align 8
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.469) #55
           to label %.noexc37.i unwind label %.loopexit.split-lp.loopexit.split-lp.i, !noalias !12
 
@@ -4814,25 +4833,25 @@ _ZNSt6vectorIdSaIdEE9push_backERKd.exit39.i:      ; preds = %_ZNSt6vectorIdSaIdE
   br i1 %exitcond110.not.i, label %._crit_edge.i.loopexit, label %_ZNSt6vectorIdSaIdEE5clearEv.exit.preheader.i, !llvm.loop !15
 
 ._crit_edge.i.loopexit:                           ; preds = %_ZNSt6vectorIdSaIdEE9push_backERKd.exit39.i
-  store ptr %133, ptr %32, align 8, !alias.scope !12
-  store ptr %134, ptr %43, align 8, !alias.scope !12
+  store ptr %133, ptr %32, align 8
+  store ptr %134, ptr %43, align 8
   br label %._crit_edge.i.sink.split
 
 ._crit_edge.i.loopexit8:                          ; preds = %_ZNSt6vectorIdSaIdEE9push_backERKd.exit39.us.i
-  store ptr %71, ptr %42, align 8, !alias.scope !12
-  store ptr %70, ptr %32, align 8, !alias.scope !12
+  store ptr %71, ptr %42, align 8
+  store ptr %70, ptr %32, align 8
   br label %._crit_edge.i.sink.split
 
 ._crit_edge.i.sink.split:                         ; preds = %._crit_edge.i.loopexit, %._crit_edge.i.loopexit8
-  %.lcssa94.sink = phi ptr [ %69, %._crit_edge.i.loopexit8 ], [ %132, %._crit_edge.i.loopexit ]
-  %.ph95 = phi ptr [ %71, %._crit_edge.i.loopexit8 ], [ %134, %._crit_edge.i.loopexit ]
+  %.lcssa110.sink = phi ptr [ %69, %._crit_edge.i.loopexit8 ], [ %132, %._crit_edge.i.loopexit ]
+  %.ph111 = phi ptr [ %71, %._crit_edge.i.loopexit8 ], [ %134, %._crit_edge.i.loopexit ]
   %.sroa.049.1.lcssa.i.ph = phi ptr [ %.sroa.049.4.us.i, %._crit_edge.i.loopexit8 ], [ null, %._crit_edge.i.loopexit ]
-  store ptr %.lcssa94.sink, ptr %7, align 8, !alias.scope !12
+  store ptr %.lcssa110.sink, ptr %7, align 8
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.i.sink.split, %_ZNSt6vectorIdSaIdEE7reserveEm.exit24.thread.i, %_ZNSt6vectorIdSaIdEE7reserveEm.exit24.i
-  %136 = phi ptr [ %.promoted39, %_ZNSt6vectorIdSaIdEE7reserveEm.exit24.i ], [ %.promoted39, %_ZNSt6vectorIdSaIdEE7reserveEm.exit24.thread.i ], [ %.lcssa94.sink, %._crit_edge.i.sink.split ]
-  %137 = phi ptr [ %.promoted39, %_ZNSt6vectorIdSaIdEE7reserveEm.exit24.i ], [ %.promoted39, %_ZNSt6vectorIdSaIdEE7reserveEm.exit24.thread.i ], [ %.ph95, %._crit_edge.i.sink.split ]
+  %136 = phi ptr [ %.promoted39, %_ZNSt6vectorIdSaIdEE7reserveEm.exit24.i ], [ %.promoted39, %_ZNSt6vectorIdSaIdEE7reserveEm.exit24.thread.i ], [ %.lcssa110.sink, %._crit_edge.i.sink.split ]
+  %137 = phi ptr [ %.promoted39, %_ZNSt6vectorIdSaIdEE7reserveEm.exit24.i ], [ %.promoted39, %_ZNSt6vectorIdSaIdEE7reserveEm.exit24.thread.i ], [ %.ph111, %._crit_edge.i.sink.split ]
   %.sroa.049.1.lcssa.i = phi ptr [ null, %_ZNSt6vectorIdSaIdEE7reserveEm.exit24.i ], [ %40, %_ZNSt6vectorIdSaIdEE7reserveEm.exit24.thread.i ], [ %.sroa.049.1.lcssa.i.ph, %._crit_edge.i.sink.split ]
   invoke void @_ZSt6__sortIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_less_iterEEvT_S9_T0_(ptr %136, ptr %137)
           to label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEEvT_S7_.exit.i unwind label %.loopexit.split-lp.loopexit.split-lp.i, !noalias !12
@@ -76979,7 +76998,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit71: ; 
   br label %.body74
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit76: ; preds = %.noexc73
-  call void @llvm.experimental.noalias.scope.decl(metadata !1117)
   %79 = invoke noundef nonnull align 8 dereferenceable(72) ptr @_ZN5Catch9XmlWriter12startElementERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13XmlFormattingE(ptr noundef nonnull align 8 dereferenceable(72) %24, ptr noundef nonnull align 8 dereferenceable(32) %17, i32 noundef 3)
           to label %_ZN5Catch9XmlWriter13scopedElementERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13XmlFormattingE.exit79 unwind label %.body77, !noalias !1117
 
@@ -76987,9 +77005,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit76: ; 
   %80 = landingpad { ptr, i32 }
           cleanup
   store i32 3, ptr %34, align 8
-  store i32 3, ptr %35, align 8, !alias.scope !1117
+  store i32 3, ptr %35, align 8
   store ptr %24, ptr %6, align 8
-  store ptr %24, ptr %16, align 8, !alias.scope !1117
+  store ptr %24, ptr %16, align 8
   call void @_ZN5Catch9XmlWriter13ScopedElementD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %16) #56
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #56
   br label %.body74
@@ -77013,9 +77031,9 @@ _ZN5Catch9XmlWriter13scopedElementERKNSt7__cxx1112basic_stringIcSt11char_traitsI
   %83 = landingpad { ptr, i32 }
           cleanup
   store i32 3, ptr %34, align 8
-  store i32 3, ptr %35, align 8, !alias.scope !1117
+  store i32 3, ptr %35, align 8
   store ptr %24, ptr %6, align 8
-  store ptr %24, ptr %16, align 8, !alias.scope !1117
+  store ptr %24, ptr %16, align 8
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #56
   br label %.body82
 
@@ -77053,9 +77071,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit84: ; 
   %95 = landingpad { ptr, i32 }
           cleanup
   store i32 3, ptr %34, align 8
-  store i32 3, ptr %35, align 8, !alias.scope !1117
+  store i32 3, ptr %35, align 8
   store ptr %24, ptr %6, align 8
-  store ptr %24, ptr %16, align 8, !alias.scope !1117
+  store ptr %24, ptr %16, align 8
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #56
   br label %.body82
 
@@ -77090,9 +77108,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit89: ; 
   %109 = landingpad { ptr, i32 }
           catch ptr null
   store i32 3, ptr %34, align 8
-  store i32 3, ptr %35, align 8, !alias.scope !1117
+  store i32 3, ptr %35, align 8
   store ptr %24, ptr %6, align 8
-  store ptr %24, ptr %16, align 8, !alias.scope !1117
+  store ptr %24, ptr %16, align 8
   %110 = extractvalue { ptr, i32 } %109, 0
   call void @__clang_call_terminate(ptr %110) #54
   unreachable
@@ -77105,9 +77123,9 @@ _ZN5Catch9XmlWriter13ScopedElementD2Ev.exit:      ; preds = %106
   %113 = landingpad { ptr, i32 }
           catch ptr null
   store i32 3, ptr %34, align 8
-  store i32 3, ptr %35, align 8, !alias.scope !1117
+  store i32 3, ptr %35, align 8
   store ptr %24, ptr %6, align 8
-  store ptr %24, ptr %16, align 8, !alias.scope !1117
+  store ptr %24, ptr %16, align 8
   %114 = extractvalue { ptr, i32 } %113, 0
   call void @__clang_call_terminate(ptr %114) #54
   unreachable
@@ -77225,18 +77243,18 @@ _ZN5Catch9XmlWriter13ScopedElementD2Ev.exit91:    ; preds = %_ZN5Catch9XmlWriter
   %138 = landingpad { ptr, i32 }
           cleanup
   store i32 3, ptr %34, align 8
-  store i32 3, ptr %35, align 8, !alias.scope !1117
+  store i32 3, ptr %35, align 8
   store ptr %24, ptr %6, align 8
-  store ptr %24, ptr %16, align 8, !alias.scope !1117
+  store ptr %24, ptr %16, align 8
   br label %.body82
 
 139:                                              ; preds = %90, %85, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit84
   %140 = landingpad { ptr, i32 }
           cleanup
   store i32 3, ptr %34, align 8
-  store i32 3, ptr %35, align 8, !alias.scope !1117
+  store i32 3, ptr %35, align 8
   store ptr %24, ptr %6, align 8
-  store ptr %24, ptr %16, align 8, !alias.scope !1117
+  store ptr %24, ptr %16, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #56
   br label %.body82
 
@@ -77244,27 +77262,27 @@ _ZN5Catch9XmlWriter13ScopedElementD2Ev.exit91:    ; preds = %_ZN5Catch9XmlWriter
   %142 = landingpad { ptr, i32 }
           cleanup
   store i32 3, ptr %34, align 8
-  store i32 3, ptr %35, align 8, !alias.scope !1117
+  store i32 3, ptr %35, align 8
   store ptr %24, ptr %6, align 8
-  store ptr %24, ptr %16, align 8, !alias.scope !1117
+  store ptr %24, ptr %16, align 8
   br label %.body82
 
 143:                                              ; preds = %97, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit89
   %144 = landingpad { ptr, i32 }
           cleanup
   store i32 3, ptr %34, align 8
-  store i32 3, ptr %35, align 8, !alias.scope !1117
+  store i32 3, ptr %35, align 8
   store ptr %24, ptr %6, align 8
-  store ptr %24, ptr %16, align 8, !alias.scope !1117
+  store ptr %24, ptr %16, align 8
   br label %147
 
 145:                                              ; preds = %104, %100
   %146 = landingpad { ptr, i32 }
           cleanup
   store i32 3, ptr %34, align 8
-  store i32 3, ptr %35, align 8, !alias.scope !1117
+  store i32 3, ptr %35, align 8
   store ptr %24, ptr %6, align 8
-  store ptr %24, ptr %16, align 8, !alias.scope !1117
+  store ptr %24, ptr %16, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %23) #56
   br label %147
 
@@ -77287,13 +77305,13 @@ _ZN5Catch9XmlWriter13ScopedElementD2Ev.exit91:    ; preds = %_ZN5Catch9XmlWriter
 
 ._crit_edge:                                      ; preds = %_ZN5Catch9XmlWriter13ScopedElementD2Ev.exit91
   store i32 3, ptr %34, align 8
-  store i32 3, ptr %35, align 8, !alias.scope !1117
+  store i32 3, ptr %35, align 8
   br label %149
 
 149:                                              ; preds = %_ZN5Catch9XmlWriter13scopedElementERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13XmlFormattingE.exit, %._crit_edge
   %.lcssa107 = phi ptr [ %24, %._crit_edge ], [ undef, %_ZN5Catch9XmlWriter13scopedElementERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13XmlFormattingE.exit ]
   store ptr %.lcssa107, ptr %6, align 8
-  store ptr %.lcssa107, ptr %16, align 8, !alias.scope !1117
+  store ptr %.lcssa107, ptr %16, align 8
   %150 = invoke noundef nonnull align 8 dereferenceable(72) ptr @_ZN5Catch9XmlWriter10endElementENS_13XmlFormattingE(ptr noundef nonnull align 8 dereferenceable(72) %24, i32 noundef 3)
           to label %_ZN5Catch9XmlWriter13ScopedElementD2Ev.exit93 unwind label %151
 
@@ -77636,7 +77654,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit47: ; 
   br label %.body50
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit52: ; preds = %.noexc49
-  call void @llvm.experimental.noalias.scope.decl(metadata !1128)
   %62 = invoke noundef nonnull align 8 dereferenceable(72) ptr @_ZN5Catch9XmlWriter12startElementERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13XmlFormattingE(ptr noundef nonnull align 8 dereferenceable(72) %21, ptr noundef nonnull align 8 dereferenceable(32) %17, i32 noundef 3)
           to label %_ZN5Catch9XmlWriter13scopedElementERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13XmlFormattingE.exit55 unwind label %.body53, !noalias !1128
 
@@ -77644,9 +77661,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit52: ; 
   %63 = landingpad { ptr, i32 }
           cleanup
   store i32 3, ptr %31, align 8
-  store i32 3, ptr %32, align 8, !alias.scope !1128
+  store i32 3, ptr %32, align 8
   store ptr %21, ptr %10, align 8
-  store ptr %21, ptr %16, align 8, !alias.scope !1128
+  store ptr %21, ptr %16, align 8
   call void @_ZN5Catch9XmlWriter13ScopedElementD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %16) #56
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #56
   br label %.body50
@@ -77679,9 +77696,9 @@ _ZN5Catch9XmlWriter13scopedElementERKNSt7__cxx1112basic_stringIcSt11char_traitsI
   %70 = landingpad { ptr, i32 }
           cleanup
   store i32 3, ptr %31, align 8
-  store i32 3, ptr %32, align 8, !alias.scope !1128
+  store i32 3, ptr %32, align 8
   store ptr %21, ptr %10, align 8
-  store ptr %21, ptr %16, align 8, !alias.scope !1128
+  store ptr %21, ptr %16, align 8
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #56
   br label %.body58
 
@@ -77703,9 +77720,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit60: ; 
 
 76:                                               ; preds = %72
   store i32 3, ptr %31, align 8
-  store i32 3, ptr %32, align 8, !alias.scope !1128
+  store i32 3, ptr %32, align 8
   store ptr %21, ptr %10, align 8
-  store ptr %21, ptr %16, align 8, !alias.scope !1128
+  store ptr %21, ptr %16, align 8
   invoke void @_ZN5Catch20ReusableStringStreamC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5)
           to label %.noexc61 unwind label %.loopexit.split-lp
 
@@ -77939,18 +77956,18 @@ _ZN5Catch9XmlWriter18newlineIfNecessaryEv.exit.i: ; preds = %.noexc72, %112
   %145 = landingpad { ptr, i32 }
           cleanup
   store i32 3, ptr %31, align 8
-  store i32 3, ptr %32, align 8, !alias.scope !1128
+  store i32 3, ptr %32, align 8
   store ptr %21, ptr %10, align 8
-  store ptr %21, ptr %16, align 8, !alias.scope !1128
+  store ptr %21, ptr %16, align 8
   br label %.body58
 
 .loopexit:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit60, %91, %.noexc64, %97, %.noexc66, %_ZN5Catch9XmlWriter15ensureTagClosedEv.exit.i, %103, %109, %115, %.noexc71, %_ZN5Catch9XmlWriter18newlineIfNecessaryEv.exit.i, %.noexc73, %.noexc74, %.noexc75
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   store i32 3, ptr %31, align 8
-  store i32 3, ptr %32, align 8, !alias.scope !1128
+  store i32 3, ptr %32, align 8
   store ptr %21, ptr %10, align 8
-  store ptr %21, ptr %16, align 8, !alias.scope !1128
+  store ptr %21, ptr %16, align 8
   br label %.body62
 
 .loopexit.split-lp:                               ; preds = %76
@@ -77977,9 +77994,9 @@ _ZN5Catch9XmlWriter18newlineIfNecessaryEv.exit.i: ; preds = %.noexc72, %112
   %148 = landingpad { ptr, i32 }
           catch ptr null
   store i32 3, ptr %31, align 8
-  store i32 3, ptr %32, align 8, !alias.scope !1128
+  store i32 3, ptr %32, align 8
   store ptr %21, ptr %10, align 8
-  store ptr %21, ptr %16, align 8, !alias.scope !1128
+  store ptr %21, ptr %16, align 8
   %149 = extractvalue { ptr, i32 } %148, 0
   call void @__clang_call_terminate(ptr %149) #54
   unreachable
@@ -77992,9 +78009,9 @@ _ZN5Catch9XmlWriter13ScopedElementD2Ev.exit:      ; preds = %._crit_edge
   %152 = landingpad { ptr, i32 }
           catch ptr null
   store i32 3, ptr %31, align 8
-  store i32 3, ptr %32, align 8, !alias.scope !1128
+  store i32 3, ptr %32, align 8
   store ptr %21, ptr %10, align 8
-  store ptr %21, ptr %16, align 8, !alias.scope !1128
+  store ptr %21, ptr %16, align 8
   %153 = extractvalue { ptr, i32 } %152, 0
   call void @__clang_call_terminate(ptr %153) #54
   unreachable
@@ -78011,13 +78028,13 @@ _ZN5Catch9XmlWriter13ScopedElementD2Ev.exit78:    ; preds = %_ZN5Catch9XmlWriter
 
 ._crit_edge108:                                   ; preds = %_ZN5Catch9XmlWriter13ScopedElementD2Ev.exit78
   store i32 3, ptr %31, align 8
-  store i32 3, ptr %32, align 8, !alias.scope !1128
+  store i32 3, ptr %32, align 8
   br label %156
 
 156:                                              ; preds = %_ZN5Catch9XmlWriter13scopedElementERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13XmlFormattingE.exit, %._crit_edge108
   %.lcssa95 = phi ptr [ %21, %._crit_edge108 ], [ undef, %_ZN5Catch9XmlWriter13scopedElementERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13XmlFormattingE.exit ]
   store ptr %.lcssa95, ptr %10, align 8
-  store ptr %.lcssa95, ptr %16, align 8, !alias.scope !1128
+  store ptr %.lcssa95, ptr %16, align 8
   %157 = invoke noundef nonnull align 8 dereferenceable(72) ptr @_ZN5Catch9XmlWriter10endElementENS_13XmlFormattingE(ptr noundef nonnull align 8 dereferenceable(72) %21, i32 noundef 3)
           to label %_ZN5Catch9XmlWriter13ScopedElementD2Ev.exit80 unwind label %158
 

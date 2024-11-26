@@ -38,7 +38,7 @@ define hidden void @"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as
   br label %_ZN4core4iter6traits8iterator8Iterator10advance_by17h5bcc82b39e530da9E.exit.thread.i
 
 .lr.ph.i.i:                                       ; preds = %4
-  %.promoted.i.i = load ptr, ptr %.phi.trans.insert, align 8, !alias.scope !5, !noalias !4
+  %.promoted.i.i = load ptr, ptr %.phi.trans.insert, align 8, !alias.scope !5
   %6 = getelementptr inbounds i8, ptr %0, i64 24
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8, !nonnull !4, !noundef !4

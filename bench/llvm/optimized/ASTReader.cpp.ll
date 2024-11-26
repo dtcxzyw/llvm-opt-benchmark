@@ -39315,7 +39315,6 @@ define dso_local void @_ZN5clang9ASTReader17ReadDefinedMacrosEv(ptr noundef nonn
   call void @_ZN4llvm15BitstreamCursorC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(344) %5, ptr noundef nonnull align 8 dereferenceable(344) %32)
   %33 = getelementptr inbounds nuw i8, ptr %29, i64 2144
   %34 = load i64, ptr %33, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !522)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   %35 = lshr i64 %34, 3
   %36 = and i64 %35, 2305843009213693944
@@ -39344,7 +39343,7 @@ _ZN4llvm21SimpleBitstreamCursor9JumpToBitEm.exit: ; preds = %39
 
 .critedge16:                                      ; preds = %_ZN4llvm21SimpleBitstreamCursor9JumpToBitEm.exit
   %43 = inttoptr i64 %42 to ptr
-  store ptr %43, ptr %6, align 8, !alias.scope !522
+  store ptr %43, ptr %6, align 8
   call void @_ZNK5clang9ASTReader5ErrorEON4llvm5ErrorE(ptr noundef nonnull align 8 dereferenceable(15968) %0, ptr noundef nonnull align 8 dereferenceable(8) %6)
   %44 = load ptr, ptr %6, align 8
   %45 = icmp eq ptr %44, null

@@ -16686,7 +16686,7 @@ _ZN12_GLOBAL__N_122UniquifierDenseMapInfo15getTombstoneKeyEv.exit: ; preds = %_Z
   br i1 %.not29.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.preheader
 
 .lr.ph.i.i.i.i.i.i.preheader:                     ; preds = %_ZN12_GLOBAL__N_122UniquifierDenseMapInfo15getTombstoneKeyEv.exit
-  %.promoted = load i32, ptr %51, align 8, !noalias !227
+  %.promoted = load i32, ptr %51, align 8
   %.val.i.i.i.i.i.i = load ptr, ptr %18, align 8
   %.val13.i.i.i.i.i.i = load i32, ptr %50, align 8
   br label %.lr.ph.i.i.i.i.i.i
@@ -16760,7 +16760,7 @@ _ZN4llvm11SmallVectorIPKNS_4SCEVELj4EED2Ev.exit.i.i.i.i.i.i: ; preds = %508, %_Z
   br i1 %.not.i.i.i9.i.i.i, label %._crit_edge.i.i.i.i.i.i.loopexit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !243
 
 ._crit_edge.i.i.i.i.i.i.loopexit:                 ; preds = %_ZN4llvm11SmallVectorIPKNS_4SCEVELj4EED2Ev.exit.i.i.i.i.i.i
-  store i32 %.val.i.i.i.i.i.i.i223, ptr %51, align 8, !noalias !227
+  store i32 %.val.i.i.i.i.i.i.i223, ptr %51, align 8
   br label %._crit_edge.i.i.i.i.i.i
 
 ._crit_edge.i.i.i.i.i.i:                          ; preds = %._crit_edge.i.i.i.i.i.i.loopexit, %_ZN12_GLOBAL__N_122UniquifierDenseMapInfo15getTombstoneKeyEv.exit

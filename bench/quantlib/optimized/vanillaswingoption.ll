@@ -2447,8 +2447,8 @@ invoke.cont35:                                    ; preds = %invoke.cont34
   br i1 %cmp43, label %if.then, label %do.end
 
 if.then:                                          ; preds = %invoke.cont35
-  store ptr %3, ptr %_M_end_of_storage.i.i, align 8, !tbaa !71
-  store ptr %cond.i10.i.i94108, ptr %agg.result, align 8, !tbaa !68
+  store ptr %3, ptr %_M_end_of_storage.i.i, align 8
+  store ptr %cond.i10.i.i94108, ptr %agg.result, align 8
   call void @llvm.lifetime.start.p0(i64 376, ptr nonnull %_ql_msg_stream) #28
   invoke void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %_ql_msg_stream)
           to label %invoke.cont45 unwind label %lpad44
@@ -2486,15 +2486,15 @@ invoke.cont61:                                    ; preds = %invoke.cont59
 lpad12:                                           ; preds = %for.body
   %7 = landingpad { ptr, i32 }
           cleanup
-  store ptr %3, ptr %_M_end_of_storage.i.i, align 8, !tbaa !71
-  store ptr %cond.i10.i.i94108, ptr %agg.result, align 8, !tbaa !68
+  store ptr %3, ptr %_M_end_of_storage.i.i, align 8
+  store ptr %cond.i10.i.i94108, ptr %agg.result, align 8
   br label %ehcleanup
 
 lpad15:                                           ; preds = %invoke.cont16, %invoke.cont13
   %8 = landingpad { ptr, i32 }
           cleanup
-  store ptr %3, ptr %_M_end_of_storage.i.i, align 8, !tbaa !71
-  store ptr %cond.i10.i.i94108, ptr %agg.result, align 8, !tbaa !68
+  store ptr %3, ptr %_M_end_of_storage.i.i, align 8
+  store ptr %cond.i10.i.i94108, ptr %agg.result, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp14) #28
   br label %ehcleanup
 
@@ -2506,22 +2506,22 @@ ehcleanup:                                        ; preds = %lpad15, %lpad12
 lpad25:                                           ; preds = %invoke.cont17
   %9 = landingpad { ptr, i32 }
           cleanup
-  store ptr %3, ptr %_M_end_of_storage.i.i, align 8, !tbaa !71
-  store ptr %cond.i10.i.i94108, ptr %agg.result, align 8, !tbaa !68
+  store ptr %3, ptr %_M_end_of_storage.i.i, align 8
+  store ptr %cond.i10.i.i94108, ptr %agg.result, align 8
   br label %ehcleanup39
 
 lpad30:                                           ; preds = %invoke.cont27
   %10 = landingpad { ptr, i32 }
           cleanup
-  store ptr %3, ptr %_M_end_of_storage.i.i, align 8, !tbaa !71
-  store ptr %cond.i10.i.i94108, ptr %agg.result, align 8, !tbaa !68
+  store ptr %3, ptr %_M_end_of_storage.i.i, align 8
+  store ptr %cond.i10.i.i94108, ptr %agg.result, align 8
   br label %ehcleanup38
 
 lpad33:                                           ; preds = %invoke.cont34, %invoke.cont31
   %11 = landingpad { ptr, i32 }
           cleanup
-  store ptr %3, ptr %_M_end_of_storage.i.i, align 8, !tbaa !71
-  store ptr %cond.i10.i.i94108, ptr %agg.result, align 8, !tbaa !68
+  store ptr %3, ptr %_M_end_of_storage.i.i, align 8
+  store ptr %cond.i10.i.i94108, ptr %agg.result, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp32) #28
   br label %ehcleanup38
 
@@ -2687,8 +2687,8 @@ if.else.i:                                        ; preds = %do.end
   br i1 %cmp.i.i.i54, label %if.then.i.i.i, label %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i.i
 
 if.then.i.i.i:                                    ; preds = %if.else.i
-  store ptr %3, ptr %_M_end_of_storage.i.i, align 8, !tbaa !71
-  store ptr %cond.i10.i.i94108, ptr %agg.result, align 8, !tbaa !68
+  store ptr %3, ptr %_M_end_of_storage.i.i, align 8
+  store ptr %cond.i10.i.i94108, ptr %agg.result, align 8
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.15) #30
           to label %.noexc56 unwind label %lpad75.loopexit.split-lp
 
@@ -2752,8 +2752,8 @@ invoke.cont76:                                    ; preds = %_ZNSt6vectorIdSaIdE
 lpad75.loopexit:                                  ; preds = %cond.true.i.i.i
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  store ptr %3, ptr %_M_end_of_storage.i.i, align 8, !tbaa !71
-  store ptr %cond.i10.i.i94108, ptr %agg.result, align 8, !tbaa !68
+  store ptr %3, ptr %_M_end_of_storage.i.i, align 8
+  store ptr %cond.i10.i.i94108, ptr %agg.result, align 8
   br label %ehcleanup80
 
 lpad75.loopexit.split-lp:                         ; preds = %if.then.i.i.i
@@ -2764,8 +2764,8 @@ lpad75.loopexit.split-lp:                         ; preds = %if.then.i.i.i
 nrvo.skipdtor:                                    ; preds = %invoke.cont76, %_ZNSt6vectorIdSaIdEE7reserveEm.exit
   %cond.i10.i.i94.lcssa = phi ptr [ %agg.result.promoted, %_ZNSt6vectorIdSaIdEE7reserveEm.exit ], [ %cond.i10.i.i93, %invoke.cont76 ]
   %.lcssa = phi ptr [ %_M_end_of_storage.i.i.promoted, %_ZNSt6vectorIdSaIdEE7reserveEm.exit ], [ %36, %invoke.cont76 ]
-  store ptr %.lcssa, ptr %_M_end_of_storage.i.i, align 8, !tbaa !71
-  store ptr %cond.i10.i.i94.lcssa, ptr %agg.result, align 8, !tbaa !68
+  store ptr %.lcssa, ptr %_M_end_of_storage.i.i, align 8
+  store ptr %cond.i10.i.i94.lcssa, ptr %agg.result, align 8
   ret void
 
 ehcleanup80:                                      ; preds = %lpad75.loopexit, %lpad75.loopexit.split-lp, %ehcleanup, %ehcleanup74, %ehcleanup39
