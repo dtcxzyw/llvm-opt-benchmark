@@ -2248,7 +2248,7 @@ boost/unsynchronized_pool_resource.ll 54576547
 boost/uri_reference_rule.ll 182174408
 boost/uri_rule.ll 482924210
 boost/url.ll 303573699
-boost/url_base.ll 2183164059
+boost/url_base.ll 2179583433
 boost/url_impl.ll 205481102
 boost/url_view.ll 262856160
 boost/url_view_base.ll 430360720
@@ -5983,7 +5983,7 @@ darktable/introspection_cacorrect.c.ll 3926306565
 darktable/introspection_cacorrectrgb.c.ll 972261109
 darktable/introspection_censorize.c.ll 303985041
 darktable/introspection_channelmixer.c.ll 283538963
-darktable/introspection_channelmixerrgb.c.ll 2623776442
+darktable/introspection_channelmixerrgb.c.ll 2626958147
 darktable/introspection_clahe.c.ll 528849974
 darktable/introspection_clipping.c.ll 1119314796
 darktable/introspection_colisa.c.ll 150031573
@@ -6441,7 +6441,7 @@ diesel-rs/gepqftqgym352s.ll 685031978
 diesel-rs/hcabtpzc2789gsv.ll 153443815
 diesel-rs/hznnvx0rqzdhedj.ll 488158571
 diesel-rs/hzs18qosoh3soq6.ll 614895137
-diesel-rs/ivb4nc5xs1gnmkx.ll 4517950132
+diesel-rs/ivb4nc5xs1gnmkx.ll 4509446768
 diesel-rs/j37a14ywgmm1lay.ll 277604092
 diesel-rs/jrwozg4p14xnxt2.ll 186886381
 diesel-rs/kfsmzrv9s6bcc4a.ll 332635392
@@ -10238,9 +10238,9 @@ hyperscan/limex_64.c.ll 2072902286
 hyperscan/limex_compile.cpp.ll 27601126509
 hyperscan/limex_native.c.ll 1970843053
 hyperscan/limex_simd128.c.ll 2679272152
-hyperscan/limex_simd256.c.ll 4194821445
+hyperscan/limex_simd256.c.ll 4199721005
 hyperscan/limex_simd384.c.ll 5474127494
-hyperscan/limex_simd512.c.ll 7449045659
+hyperscan/limex_simd512.c.ll 7463626557
 hyperscan/literals.cpp.ll 1559600711
 hyperscan/logical_combination.cpp.ll 4166856434
 hyperscan/match.c.ll 1383848543
@@ -11209,7 +11209,7 @@ just-rs/4sd695eow2u4pww6.ll 2504711256
 just-rs/52uhuxfcop8n85cu.ll 6616259067
 just-rs/53slus9exfz9w045.ll 5822693153
 just-rs/bulvmt5gknxyhsd.ll 5337773716
-just-rs/uwydcyn8qeoqoev.ll 8610248043
+just-rs/uwydcyn8qeoqoev.ll 8626317592
 just-rs/xt6bvrk4jdo7mpy.ll 5877050825
 kcp/ikcp.ll 544837997
 libdeflate/adler32.c.ll 171611852
@@ -17918,7 +17918,7 @@ mini-lsm-rs/300n4o8itowzm2cs.ll 511087485
 mini-lsm-rs/3dzgrf412bf8lbyt.ll 3314471597
 mini-lsm-rs/3jirohyl4so2bgw0.ll 2811817475
 mini-lsm-rs/3l74wehtlfae5jz1.ll 2386355604
-mini-lsm-rs/3m8k5ep4f562pm44.ll 2051549679
+mini-lsm-rs/3m8k5ep4f562pm44.ll 2049310385
 mini-lsm-rs/45avienzelzw747t.ll 2661925990
 mini-lsm-rs/45da4db1y19tqmo.ll 3144773914
 mini-lsm-rs/4c6shhrwpfde8fun.ll 1466613151
@@ -18751,7 +18751,7 @@ ncnn/reshape_x86_avx512.cpp.ll 711350840
 ncnn/reshape_x86_fma.cpp.ll 451433499
 ncnn/rmsnorm.cpp.ll 242881412
 ncnn/rmsnorm_x86.cpp.ll 268507313
-ncnn/rmsnorm_x86_avx.cpp.ll 266076851
+ncnn/rmsnorm_x86_avx.cpp.ll 265809508
 ncnn/rmsnorm_x86_avx512.cpp.ll 244945707
 ncnn/rmsnorm_x86_fma.cpp.ll 266874038
 ncnn/rnn.cpp.ll 1165838253
@@ -18854,7 +18854,7 @@ ninja/clean_test.cc.ll 3003503092
 ninja/clparser.cc.ll 196379404
 ninja/clparser_perftest.cc.ll 101261237
 ninja/clparser_test.cc.ll 713732130
-ninja/depfile_parser.cc.ll 264237839
+ninja/depfile_parser.cc.ll 263969099
 ninja/depfile_parser_perftest.cc.ll 168343732
 ninja/depfile_parser_test.cc.ll 2103725994
 ninja/deps_log.cc.ll 398627351
@@ -20020,7 +20020,7 @@ ockam-rs/4domb9jqp8axahh9.ll 1722444922
 ockam-rs/4edd6rk9ug30grxn.ll 2967545224
 ockam-rs/4f34xiu6efu0qenm.ll 3258120230
 ockam-rs/4gv6ak02caawu3g.ll 1229991223
-ockam-rs/4h15go5rbmdr09f8.ll 56721651603
+ockam-rs/4h15go5rbmdr09f8.ll 56811714760
 ockam-rs/4i2q0c0wyur8autb.ll 932929412
 ockam-rs/4i4les6ijtr4jgtl.ll 7002292628
 ockam-rs/4ie0aygpnuk5bzdx.ll 605096664
@@ -20087,7 +20087,7 @@ ockam-rs/bnoag1yx4g38hzj.ll 5360053530
 ockam-rs/bws0hnih6ct4ces.ll 1132365596
 ockam-rs/cahtbyi0e0azi7k.ll 41272274705
 ockam-rs/cd833f4p6cpvkv4.ll 409147503
-ockam-rs/cts9nubscl1ph7i.ll 8406576872
+ockam-rs/cts9nubscl1ph7i.ll 8415531232
 ockam-rs/dhoovpx53ppvqd6.ll 1282867633
 ockam-rs/ezelett6ckruet.ll 908509456
 ockam-rs/fvcfhm3saxk0gr8.ll 1482806086
@@ -26440,7 +26440,7 @@ openssl/libcrypto-shlib-ct_b64.ll 61977237
 openssl/libcrypto-shlib-ct_oct.ll 155362864
 openssl/libcrypto-shlib-ct_sct_ctx.ll 77926530
 openssl/libcrypto-shlib-ct_vfy.ll 60630045
-openssl/libcrypto-shlib-ctr128.ll 112633185
+openssl/libcrypto-shlib-ctr128.ll 112515958
 openssl/libcrypto-shlib-ctrl_params_translate.ll 589529715
 openssl/libcrypto-shlib-cts128.ll 99189327
 openssl/libcrypto-shlib-ctype.ll 42984286
@@ -33424,7 +33424,7 @@ rust-analyzer-rs/7zmg1hi276ncg5y.ll 1465076525
 rust-analyzer-rs/82jke0m3qi61qqg.ll 40317488
 rust-analyzer-rs/84i8mmyjgd66tsw.ll 421077582
 rust-analyzer-rs/84mgk0fwp2eksq1.ll 14137614706
-rust-analyzer-rs/8q1esjraj83sh5t.ll 31596433538
+rust-analyzer-rs/8q1esjraj83sh5t.ll 31561013597
 rust-analyzer-rs/9ipmi6my0zkv4p.ll 4543472858
 rust-analyzer-rs/9o1cq3k2zy9kphw.ll 352857999
 rust-analyzer-rs/9xkc74kd1bsgldb.ll 19723269031
@@ -39760,7 +39760,7 @@ zed-rs/0k39p9up5rytvke5pw0rpnqq3.ll 1706505136
 zed-rs/0l389uso3hcz3jykn1uvcmawm.ll 1181963454
 zed-rs/0l5q95ei94dcvnozucoiwn5qf.ll 3014218756
 zed-rs/0lat0a8n0yyu36v701jbujegy.ll 6770918171
-zed-rs/0lpqjgmxwongdkn1etmfasxzh.ll 4497628324
+zed-rs/0lpqjgmxwongdkn1etmfasxzh.ll 4506859700
 zed-rs/0napcruq0jqqph34h80dcskck.ll 317567850
 zed-rs/0ndq4firz8eetu3jvgre1the4.ll 2936811066
 zed-rs/0npw9rg0wengltga49c0tfins.ll 37840537640
@@ -40235,7 +40235,7 @@ zed-rs/6hbnfszf6gkk4nniq4f5ts2z6.ll 2972568477
 zed-rs/6hjjeqnnegz17auw35784d3h4.ll 650922054
 zed-rs/6hxn0twt3h5sh337x4zo515i3.ll 651259884
 zed-rs/6i9q21vg747q3orsxnutiwubi.ll 4849918326
-zed-rs/6jl1caswhnj5rxlsqeh1op8p6.ll 4533841202
+zed-rs/6jl1caswhnj5rxlsqeh1op8p6.ll 4540610992
 zed-rs/6k04c116ogp35htlpsavpzpvg.ll 21331010621
 zed-rs/6kzk6cgeusxy06kisdo9y9582.ll 335273668
 zed-rs/6oayr08y03h9dtrxty8fb99op.ll 750527523
@@ -40385,7 +40385,7 @@ zed-rs/8mdllj80pcyls7aec0okf6fww.ll 4084561289
 zed-rs/8mr81aw0ctvqdrbyiysor7awe.ll 2295634559
 zed-rs/8mujeqna4emte4wu1ua9d4d2j.ll 334530437
 zed-rs/8mv6d566jv1jdve4gk2kn2bhk.ll 6927603887
-zed-rs/8n2fsvz9zbnw9ojg9jkj0503g.ll 36610440252
+zed-rs/8n2fsvz9zbnw9ojg9jkj0503g.ll 36558784773
 zed-rs/8ncehfng1y5s06ypbycx8606d.ll 6529541700
 zed-rs/8ngq26v101ze49v51g32qbqp2.ll 263468844
 zed-rs/8o22ontksf0sfiilxqfrdquiv.ll 118426011
