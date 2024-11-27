@@ -3127,7 +3127,7 @@ clamav/msdoc.c.ll 320622459
 clamav/msexpand.c.ll 103106983
 clamav/msxml.c.ll 95597699
 clamav/msxml_parser.c.ll 178988539
-clamav/mszipd.c.ll 847762506
+clamav/mszipd.c.ll 848610439
 clamav/netcode.c.ll 228506686
 clamav/nulsft.c.ll 240583670
 clamav/oabd.c.ll 185171578
