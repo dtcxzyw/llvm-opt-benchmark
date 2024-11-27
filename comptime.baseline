@@ -18852,7 +18852,7 @@ ninja/canon_perftest.cc.ll 118442605
 ninja/clean.cc.ll 470923691
 ninja/clean_test.cc.ll 3003503092
 ninja/clparser.cc.ll 196379404
-ninja/clparser_perftest.cc.ll 101362694
+ninja/clparser_perftest.cc.ll 101261237
 ninja/clparser_test.cc.ll 713732130
 ninja/depfile_parser.cc.ll 264237839
 ninja/depfile_parser_perftest.cc.ll 168343732
@@ -29955,7 +29955,7 @@ proj/projsync.cpp.ll 3991109158
 proj/putp2.cpp.ll 49398761
 proj/putp3.cpp.ll 49945330
 proj/putp4p.cpp.ll 52065401
-proj/putp5.cpp.ll 51450154
+proj/putp5.cpp.ll 51398675
 proj/putp6.cpp.ll 62347735
 proj/qsc.cpp.ll 114460313
 proj/qsfn.cpp.ll 35662369
