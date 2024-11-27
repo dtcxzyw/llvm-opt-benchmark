@@ -8596,9 +8596,7 @@ getKeysPrepareResult.exit:                        ; preds = %if.end.i, %if.end32
   %cmp153.not = icmp slt i32 %last.0, %argc
   %cmp156 = icmp sge i32 %last.0, %first.2
   %or.cond86.not92 = and i1 %cmp153.not, %cmp156
-  %cmp159.not = icmp slt i32 %first.2, %argc
-  %or.cond87 = and i1 %cmp159.not, %or.cond86.not92
-  br i1 %or.cond87, label %for.body166, label %invalid_spec
+  br i1 %or.cond86.not92, label %for.body166, label %invalid_spec
 
 for.body166:                                      ; preds = %getKeysPrepareResult.exit, %for.inc193
   %i.196 = phi i32 [ %add194, %for.inc193 ], [ %first.2, %getKeysPrepareResult.exit ]

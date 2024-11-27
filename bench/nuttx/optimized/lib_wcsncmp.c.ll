@@ -17,9 +17,7 @@ define i32 @wcsncmp(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
   %6 = icmp ne i32 %4, %5
   %.not14 = icmp eq i32 %4, 0
   %or.cond = or i1 %.not14, %6
-  %.not15 = icmp eq i32 %5, 0
-  %or.cond16 = or i1 %.not15, %or.cond
-  br i1 %or.cond16, label %.critedge, label %7
+  br i1 %or.cond, label %.critedge, label %7
 
 7:                                                ; preds = %.lr.ph
   %8 = add i64 %.022, -1

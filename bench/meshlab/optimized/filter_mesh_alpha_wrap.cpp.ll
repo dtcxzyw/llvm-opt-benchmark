@@ -163589,9 +163589,7 @@ define linkonce_odr noundef zeroext i1 @_ZN4CGAL13Intersections8internal12do_int
   %.not = icmp eq i32 %10, %12
   %.not33 = icmp eq i32 %10, %14
   %or.cond = and i1 %.not, %.not33
-  %.not34 = icmp eq i32 %12, %14
-  %or.cond39 = and i1 %.not34, %or.cond
-  br i1 %or.cond39, label %15, label %_ZN4CGAL4MpzfD2Ev.exit58
+  br i1 %or.cond, label %15, label %_ZN4CGAL4MpzfD2Ev.exit58
 
 15:                                               ; preds = %3
   switch i32 %10, label %17 [

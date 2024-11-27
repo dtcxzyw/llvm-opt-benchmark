@@ -547,9 +547,7 @@ define hidden noundef zeroext i1 @_ZNK5frame26is_interpreted_frame_validEP10Java
   %13 = getelementptr inbounds i8, ptr %4, i64 -72
   %14 = icmp uge ptr %13, %9
   %or.cond15.not20 = select i1 %or.cond13.not18.not22, i1 %14, i1 false
-  %.not10 = icmp ugt ptr %4, %9
-  %or.cond16 = and i1 %.not10, %or.cond15.not20
-  br i1 %or.cond16, label %15, label %52
+  br i1 %or.cond15.not20, label %15, label %52
 
 15:                                               ; preds = %8
   %16 = tail call noundef ptr @_ZNK5frame29safe_interpreter_frame_methodEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #8

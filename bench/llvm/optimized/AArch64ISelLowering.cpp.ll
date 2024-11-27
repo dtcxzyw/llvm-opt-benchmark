@@ -167484,8 +167484,7 @@ define internal fastcc noundef zeroext i1 @_ZL20isEquivalentMasklessjjN4llvm3ISD
   %29 = icmp slt i32 %.084, 1
   %.not88 = icmp sle i32 %4, %.084
   %30 = and i1 %29, %.not88
-  %or.cond90.not = and i1 %27, %30
-  br i1 %or.cond90.not, label %66, label %65
+  br i1 %30, label %66, label %65
 
 31:                                               ; preds = %5, %5
   %32 = icmp sgt i32 %.084, -1

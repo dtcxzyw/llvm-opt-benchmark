@@ -9876,8 +9876,7 @@ _ZNK4llvm17MachineMemOperand7getSizeEv.exit118.i: ; preds = %_ZNK4llvm3LLT14getS
 314:                                              ; preds = %309, %307
   %315 = icmp eq ptr %.0.i.i.i.i124.i, %.0.i.i.i.i127.i
   %316 = and i1 %308, %315
-  %or.cond89.i = and i1 %301, %316
-  %or.cond89.not.i = xor i1 %or.cond89.i, true
+  %or.cond89.not.i = xor i1 %316, true
   %brmerge.i = select i1 %or.cond89.not.i, i1 true, i1 %.not177.i
   br i1 %brmerge.i, label %322, label %317
 

@@ -15575,8 +15575,8 @@ default.unreachable:                              ; preds = %"_ZN102_$LT$core..i
   %.sroa.0114.0.copyload.i = load ptr, ptr %81, align 8, !alias.scope !2873
   %.sroa.4116.0.copyload.i = load i64, ptr %.sroa.4.0..sroa_idx73, align 8, !alias.scope !2873
   %.sroa.6119.0.copyload.i = load i64, ptr %.sroa.5.0..sroa_idx75, align 8, !alias.scope !2873
-  %.not279.i = icmp eq i8 %spec.store.select.i, 0
-  br i1 %.not279.i, label %.thread.i, label %.lr.ph275.i
+  %.not.i = icmp eq i8 %spec.store.select.i, 0
+  br i1 %.not.i, label %.thread.i, label %.lr.ph275.i
 
 .thread.i:                                        ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h34a888f948bd3bc9E.exit.i", %"_ZN2tt6buffer18Cursor$LT$Span$GT$3eof17h69155b3a80010a1cE.exit.thread.i", %139
   %.sroa.0114.0233.i = phi ptr [ %.sroa.0114.0270.i, %"_ZN2tt6buffer18Cursor$LT$Span$GT$3eof17h69155b3a80010a1cE.exit.thread.i" ], [ %.sroa.0114.0.copyload.i, %139 ], [ %.sroa.0.0.copyload.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h34a888f948bd3bc9E.exit.i" ]
@@ -15674,8 +15674,8 @@ default.unreachable462:                           ; preds = %427, %326, %303, %"
   %185 = load ptr, ptr %180, align 8, !noalias !2891, !nonnull !7, !align !276, !noundef !7
   %186 = getelementptr inbounds { i64, [3 x i64] }, ptr %185, i64 %.sroa.7107.0136.i
   %187 = load i64, ptr %186, align 8, !range !2885, !noalias !2898, !noundef !7
-  %switch571.i = icmp eq i64 %187, 1
-  br i1 %switch571.i, label %"_ZN2tt6buffer18Cursor$LT$Span$GT$10token_tree17h550cce08e2f839a8E.exit40.i", label %"_ZN3mbe13syntax_bridge21TtTreeSink$LT$Ctx$GT$5token17hfcdb5b6fac3b692fE.exit"
+  %switch570.i = icmp eq i64 %187, 1
+  br i1 %switch570.i, label %"_ZN2tt6buffer18Cursor$LT$Span$GT$10token_tree17h550cce08e2f839a8E.exit40.i", label %"_ZN3mbe13syntax_bridge21TtTreeSink$LT$Ctx$GT$5token17hfcdb5b6fac3b692fE.exit"
 
 "_ZN2tt6buffer18Cursor$LT$Span$GT$10token_tree17h550cce08e2f839a8E.exit40.i": ; preds = %184
   %188 = getelementptr inbounds i8, ptr %186, i64 8

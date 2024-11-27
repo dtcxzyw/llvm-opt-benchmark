@@ -6976,14 +6976,8 @@ _ZL12decGetDigitsPhi.exit:                        ; preds = %for.body.i, %if.end
   %exponent345 = getelementptr inbounds i8, ptr %spec.select, i64 4
   %59 = load i32, ptr %exponent345, align 4
   %add346 = add nsw i32 %59, %58
-  %cmp348 = icmp slt i32 %58, 0
-  %cmp351 = icmp slt i32 %59, 0
-  %cmp353 = icmp sgt i32 %add346, 0
-  %60 = select i1 %cmp348, i1 %cmp351, i1 false
-  %61 = select i1 %60, i1 %cmp353, i1 false
-  %exponent.0 = select i1 %61, i32 -1999999998, i32 %add346
   %exponent356 = getelementptr inbounds i8, ptr %res, i64 4
-  store i32 %exponent.0, ptr %exponent356, align 4
+  store i32 %add346, ptr %exponent356, align 4
   call fastcc void @_ZL11decSetCoeffP9decNumberP10decContextPKhiPiPj(ptr noundef nonnull %res, ptr noundef %set, ptr noundef %acc.0, i32 noundef %digits.0.lcssa.i, ptr noundef %residue, ptr noundef %status)
   call fastcc void @_ZL11decFinalizeP9decNumberP10decContextPiPj(ptr noundef nonnull %res, ptr noundef %set, ptr noundef %residue, ptr noundef %status)
   br label %do.end

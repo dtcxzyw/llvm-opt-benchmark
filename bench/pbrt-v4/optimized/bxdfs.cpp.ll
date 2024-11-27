@@ -14178,9 +14178,7 @@ land.lhs.true191:                                 ; preds = %land.lhs.true185
   %cmp196 = icmp eq i64 %49, %50
   %cmp202 = icmp eq i64 %40, %49
   %or.cond = and i1 %cmp202, %cmp196
-  %cmp208 = icmp eq i64 %40, %50
-  %or.cond426 = and i1 %cmp208, %or.cond
-  br i1 %or.cond426, label %land.lhs.true209, label %if.then
+  br i1 %or.cond, label %land.lhs.true209, label %if.then
 
 land.lhs.true209:                                 ; preds = %land.lhs.true191
   %shape210 = getelementptr inbounds i8, ptr %call.i.i245249, i64 56

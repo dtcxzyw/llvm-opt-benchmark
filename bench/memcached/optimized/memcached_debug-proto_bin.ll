@@ -950,10 +950,7 @@ sw.bb97.i:                                        ; preds = %sw.bb97.sink.split.
   %cmp99.i = icmp ne i8 %26, 8
   %cmp103.i = icmp eq i16 %20, 0
   %or.cond5.not141.i = or i1 %cmp103.i, %cmp99.i
-  %add107.i = add nuw nsw i32 %conv62, 8
-  %cmp108.not.i = icmp ult i32 %27, %add107.i
-  %or.cond114.i = select i1 %or.cond5.not141.i, i1 true, i1 %cmp108.not.i
-  br i1 %or.cond114.i, label %if.then232.i, label %if.then110.i
+  br i1 %or.cond5.not141.i, label %if.then232.i, label %if.then110.i
 
 if.then110.i:                                     ; preds = %sw.bb97.i
   call fastcc void @process_bin_update(ptr noundef nonnull %c, ptr noundef nonnull %extbuf)

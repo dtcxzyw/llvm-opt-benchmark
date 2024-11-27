@@ -788,8 +788,7 @@ lor.lhs.false20:                                  ; preds = %entry
   %cmp23 = icmp eq ptr %valueFirst, null
   %cmp26 = icmp eq ptr %valueAfter, null
   %0 = and i1 %cmp21, %cmp26
-  %or.cond4 = and i1 %cmp23, %0
-  br i1 %or.cond4, label %return, label %if.end
+  br i1 %0, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false20
   %1 = load ptr, ptr %memory, align 8
@@ -1673,8 +1672,7 @@ lor.lhs.false21:                                  ; preds = %entry
   %cmp24 = icmp eq ptr %valueFirst, null
   %cmp27 = icmp eq ptr %valueAfter, null
   %0 = and i1 %cmp22, %cmp27
-  %or.cond4 = and i1 %cmp24, %0
-  br i1 %or.cond4, label %return, label %if.end
+  br i1 %0, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false21
   %1 = load ptr, ptr %memory, align 8
