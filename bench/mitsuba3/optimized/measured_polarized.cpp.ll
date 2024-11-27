@@ -1689,8 +1689,8 @@ define linkonce_odr hidden void @_ZN7mitsuba10Marginal2DIfLm4ELb1EEC2EPKfRKNS_6V
   %68 = fadd contract double %64, %67
   %69 = fadd contract double %.1236.us.us.us, %68
   %70 = add nuw i32 %.0121238.us.us.us, 1
-  %exitcond.not = icmp eq i32 %70, %23
-  br i1 %exitcond.not, label %._crit_edge.us.us.us, label %52, !llvm.loop !11
+  %exitcond344.not = icmp eq i32 %70, %23
+  br i1 %exitcond344.not, label %._crit_edge.us.us.us, label %52, !llvm.loop !11
 
 ._crit_edge.us.us.us:                             ; preds = %52
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1729,26 +1729,30 @@ define linkonce_odr hidden void @_ZN7mitsuba10Marginal2DIfLm4ELb1EEC2EPKfRKNS_6V
   br i1 %82, label %.preheader234.us.us267, label %.loopexit, !llvm.loop !9
 
 .lr.ph251.split:                                  ; preds = %.lr.ph251
-  br i1 %.not316, label %.loopexit, label %.lr.ph.us.preheader
+  br i1 %.not316, label %.loopexit, label %.lr.ph.us
 
-.lr.ph.us.preheader:                              ; preds = %.lr.ph251.split
-  %83 = zext i32 %21 to i64
-  %84 = shl nuw nsw i64 %83, 2
-  %85 = add i32 %21, -1
-  %86 = zext i32 %85 to i64
-  %87 = shl nuw nsw i64 %86, 2
-  %88 = add nuw nsw i64 %87, 4
-  br label %.lr.ph.us
+.lr.ph.us:                                        ; preds = %.lr.ph251.split, %._crit_edge.us
+  %.0126250.us258 = phi i32 [ %88, %._crit_edge.us ], [ 0, %.lr.ph251.split ]
+  %.0127249.us259 = phi ptr [ %86, %._crit_edge.us ], [ %34, %.lr.ph251.split ]
+  %.2248.us260 = phi ptr [ %84, %._crit_edge.us ], [ %1, %.lr.ph251.split ]
+  br label %83
 
-.lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %.lr.ph.us
-  %.0126250.us258 = phi i32 [ %89, %.lr.ph.us ], [ 0, %.lr.ph.us.preheader ]
-  %.0127249.us259 = phi ptr [ %scevgep344, %.lr.ph.us ], [ %34, %.lr.ph.us.preheader ]
-  %.2248.us260 = phi ptr [ %scevgep, %.lr.ph.us ], [ %1, %.lr.ph.us.preheader ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %.0127249.us259, ptr align 4 %.2248.us260, i64 %84, i1 false)
-  %scevgep = getelementptr i8, ptr %.2248.us260, i64 %88
-  %scevgep344 = getelementptr i8, ptr %.0127249.us259, i64 %88
-  %89 = add nuw i32 %.0126250.us258, 1
-  %90 = icmp ult i32 %89, %30
+83:                                               ; preds = %.lr.ph.us, %83
+  %.0246.us263 = phi i32 [ 0, %.lr.ph.us ], [ %87, %83 ]
+  %.1128245.us264 = phi ptr [ %.0127249.us259, %.lr.ph.us ], [ %86, %83 ]
+  %.3244.us265 = phi ptr [ %.2248.us260, %.lr.ph.us ], [ %84, %83 ]
+  %84 = getelementptr inbounds i8, ptr %.3244.us265, i64 4
+  %85 = load float, ptr %.3244.us265, align 4
+  %86 = getelementptr inbounds i8, ptr %.1128245.us264, i64 4
+  store float %85, ptr %.1128245.us264, align 4
+  %87 = add nuw i32 %.0246.us263, 1
+  %exitcond.not = icmp eq i32 %87, %21
+  br i1 %exitcond.not, label %._crit_edge.us, label %83, !llvm.loop !10
+
+._crit_edge.us:                                   ; preds = %83
+  %88 = add nuw i32 %.0126250.us258, 1
+  %89 = load i32, ptr %29, align 8
+  %90 = icmp ult i32 %88, %89
   br i1 %90, label %.lr.ph.us, label %.loopexit, !llvm.loop !9
 
 91:                                               ; preds = %35
@@ -2024,8 +2028,8 @@ _ZNSt3__110unique_ptrIA_fNS_14default_deleteIS1_EEED2B8ne190000Ev.exit180: ; pre
   tail call void @_ZdaPv(ptr noundef nonnull %95) #23
   br label %203
 
-.loopexit:                                        ; preds = %.lr.ph.us, %._crit_edge.us256.us, %._crit_edge.us256.us277, %.lr.ph251.split, %.lr.ph251.split.us.split, %.preheader235, %_ZNSt3__110unique_ptrIA_fNS_14default_deleteIS1_EEED2B8ne190000Ev.exit174
-  %190 = phi i32 [ 0, %.preheader235 ], [ %.pre368, %_ZNSt3__110unique_ptrIA_fNS_14default_deleteIS1_EEED2B8ne190000Ev.exit174 ], [ %30, %.lr.ph251.split.us.split ], [ %30, %.lr.ph251.split ], [ %81, %._crit_edge.us256.us277 ], [ %39, %._crit_edge.us256.us ], [ %30, %.lr.ph.us ]
+.loopexit:                                        ; preds = %._crit_edge.us, %._crit_edge.us256.us, %._crit_edge.us256.us277, %.lr.ph251.split, %.lr.ph251.split.us.split, %.preheader235, %_ZNSt3__110unique_ptrIA_fNS_14default_deleteIS1_EEED2B8ne190000Ev.exit174
+  %190 = phi i32 [ 0, %.preheader235 ], [ %.pre368, %_ZNSt3__110unique_ptrIA_fNS_14default_deleteIS1_EEED2B8ne190000Ev.exit174 ], [ %30, %.lr.ph251.split.us.split ], [ %30, %.lr.ph251.split ], [ %81, %._crit_edge.us256.us277 ], [ %39, %._crit_edge.us256.us ], [ %89, %._crit_edge.us ]
   %191 = mul i32 %190, %21
   %192 = zext i32 %191 to i64
   %193 = icmp eq i32 %191, 0

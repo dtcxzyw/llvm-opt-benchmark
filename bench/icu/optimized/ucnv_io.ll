@@ -561,7 +561,7 @@ if.end6.thread:                                   ; preds = %entry
   %2 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL10gMainTable, i64 16), align 8
   %3 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL10gMainTable, i64 56), align 8
   %4 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL10gMainTable, i64 84), align 4
-  %div183155 = lshr i32 %4, 1
+  %div182746 = lshr i32 %4, 1
   br label %if.end9.us
 
 if.then:                                          ; preds = %entry
@@ -576,9 +576,9 @@ if.then3:                                         ; preds = %if.then
 if.end:                                           ; preds = %if.then
   %5 = load i8, ptr %alias, align 1
   %cmp.not1621.i = icmp eq i8 %5, 0
-  br i1 %cmp.not1621.i, label %if.end6.thread58, label %while.body.lr.ph.i
+  br i1 %cmp.not1621.i, label %if.end6.thread49, label %while.body.lr.ph.i
 
-if.end6.thread58:                                 ; preds = %if.end
+if.end6.thread49:                                 ; preds = %if.end
   store i8 0, ptr %strippedName, align 16
   br label %if.end9.preheader
 
@@ -602,10 +602,10 @@ cond.end.i:                                       ; preds = %while.body.i
   %idxprom.i = zext nneg i8 %8 to i64
   %arrayidx.i = getelementptr inbounds [128 x i8], ptr @_ZL10asciiTypes, i64 0, i64 %idxprom.i
   %9 = load i8, ptr %arrayidx.i, align 1
-  switch i8 %9, label %sw.epilog.ithread-pre-split.loopexit [
+  switch i8 %9, label %sw.epilog.i.loopexit [
     i8 0, label %cond.end.while.cond.backedge_crit_edge.i
     i8 1, label %sw.bb4.i
-    i8 2, label %sw.epilog.ithread-pre-split
+    i8 2, label %sw.epilog.i
   ]
 
 cond.end.while.cond.backedge_crit_edge.i:         ; preds = %cond.end.i, %while.body.i
@@ -613,7 +613,7 @@ cond.end.while.cond.backedge_crit_edge.i:         ; preds = %cond.end.i, %while.
   br label %while.cond.backedge.i
 
 sw.bb4.i:                                         ; preds = %cond.end.i
-  br i1 %afterDigit.017.i, label %if.then.i, label %sw.epilog.ithread-pre-split
+  br i1 %afterDigit.017.i, label %if.then.i, label %sw.epilog.i
 
 if.then.i:                                        ; preds = %sw.bb4.i
   %10 = load i8, ptr %incdec.ptr18.i, align 1
@@ -626,28 +626,22 @@ cond.true7.i:                                     ; preds = %if.then.i
   %11 = load i8, ptr %arrayidx9.i, align 1
   %12 = add i8 %11, -1
   %13 = icmp ult i8 %12, 2
-  br i1 %13, label %while.cond.backedge.i, label %sw.epilog.ithread-pre-split
+  br i1 %13, label %while.cond.backedge.i, label %sw.epilog.i
 
 while.cond.backedge.i:                            ; preds = %cond.true7.i, %cond.end.while.cond.backedge_crit_edge.i
   %14 = phi i8 [ %.pre.i, %cond.end.while.cond.backedge_crit_edge.i ], [ %10, %cond.true7.i ]
   %cmp.not.i = icmp eq i8 %14, 0
   br i1 %cmp.not.i, label %if.end6, label %while.body.i, !llvm.loop !4
 
-sw.epilog.ithread-pre-split.loopexit:             ; preds = %cond.end.i
-  br label %sw.epilog.ithread-pre-split
-
-sw.epilog.ithread-pre-split:                      ; preds = %sw.bb4.i, %cond.true7.i, %cond.end.i, %sw.epilog.ithread-pre-split.loopexit
-  %c1.0.i.ph = phi i8 [ %8, %cond.end.i ], [ %8, %sw.bb4.i ], [ %8, %cond.true7.i ], [ %9, %sw.epilog.ithread-pre-split.loopexit ]
-  %afterDigit.1.i.ph = phi i8 [ 1, %cond.end.i ], [ 1, %sw.bb4.i ], [ 0, %cond.true7.i ], [ 0, %sw.epilog.ithread-pre-split.loopexit ]
-  %.pr = load i8, ptr %incdec.ptr18.i, align 1
+sw.epilog.i.loopexit:                             ; preds = %cond.end.i
   br label %sw.epilog.i
 
-sw.epilog.i:                                      ; preds = %if.then.i, %sw.epilog.ithread-pre-split
-  %15 = phi i8 [ %.pr, %sw.epilog.ithread-pre-split ], [ %10, %if.then.i ]
-  %c1.0.i = phi i8 [ %c1.0.i.ph, %sw.epilog.ithread-pre-split ], [ %8, %if.then.i ]
-  %afterDigit.1.i = phi i8 [ %afterDigit.1.i.ph, %sw.epilog.ithread-pre-split ], [ 0, %if.then.i ]
+sw.epilog.i:                                      ; preds = %cond.true7.i, %if.then.i, %sw.bb4.i, %cond.end.i, %sw.epilog.i.loopexit
+  %c1.0.i = phi i8 [ %8, %cond.end.i ], [ %8, %cond.true7.i ], [ %8, %if.then.i ], [ %8, %sw.bb4.i ], [ %9, %sw.epilog.i.loopexit ]
+  %afterDigit.1.i = phi i8 [ 1, %cond.end.i ], [ 0, %cond.true7.i ], [ 0, %if.then.i ], [ 1, %sw.bb4.i ], [ 0, %sw.epilog.i.loopexit ]
   %incdec.ptr20.i = getelementptr inbounds i8, ptr %dstItr.0.ph22.i, i64 1
   store i8 %c1.0.i, ptr %dstItr.0.ph22.i, align 1
+  %15 = load i8, ptr %incdec.ptr18.i, align 1
   %cmp.not16.i = icmp eq i8 %15, 0
   br i1 %cmp.not16.i, label %if.end6, label %while.body.lr.ph.i, !llvm.loop !4
 
@@ -656,18 +650,18 @@ if.end6:                                          ; preds = %sw.epilog.i, %while
   store i8 0, ptr %dstItr.0.ph.lcssa.i, align 1
   br label %if.end9.preheader
 
-if.end9.preheader:                                ; preds = %if.end6, %if.end6.thread58
+if.end9.preheader:                                ; preds = %if.end6, %if.end6.thread49
   %16 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL10gMainTable, i64 84), align 4
-  %div183161 = lshr i32 %16, 1
+  %div182752 = lshr i32 %16, 1
   %17 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL10gMainTable, i64 64), align 8
   %18 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL10gMainTable, i64 16), align 8
   br label %if.end9
 
 if.end9.us:                                       ; preds = %if.end6.thread, %if.end51.us
-  %div1834.us = phi i32 [ %div18.us, %if.end51.us ], [ %div183155, %if.end6.thread ]
-  %limit.033.us = phi i32 [ %limit.1.us, %if.end51.us ], [ %4, %if.end6.thread ]
-  %start.032.us = phi i32 [ %start.1.us, %if.end51.us ], [ 0, %if.end6.thread ]
-  %idxprom.us = zext nneg i32 %div1834.us to i64
+  %div1830.us = phi i32 [ %div18.us, %if.end51.us ], [ %div182746, %if.end6.thread ]
+  %limit.029.us = phi i32 [ %limit.1.us, %if.end51.us ], [ %4, %if.end6.thread ]
+  %start.028.us = phi i32 [ %start.1.us, %if.end51.us ], [ 0, %if.end6.thread ]
+  %idxprom.us = zext nneg i32 %div1830.us to i64
   %arrayidx.us = getelementptr inbounds i16, ptr %2, i64 %idxprom.us
   %19 = load i16, ptr %arrayidx.us, align 2
   %idx.ext.us = zext i16 %19 to i64
@@ -681,18 +675,18 @@ if.else23.us:                                     ; preds = %if.end9.us
   br i1 %cmp24.not.us, label %if.else26, label %if.end51.us
 
 if.end51.us:                                      ; preds = %if.else23.us, %if.end9.us
-  %start.1.us = phi i32 [ %start.032.us, %if.end9.us ], [ %div1834.us, %if.else23.us ]
-  %limit.1.us = phi i32 [ %div1834.us, %if.end9.us ], [ %limit.033.us, %if.else23.us ]
+  %start.1.us = phi i32 [ %start.028.us, %if.end9.us ], [ %div1830.us, %if.else23.us ]
+  %limit.1.us = phi i32 [ %div1830.us, %if.end9.us ], [ %limit.029.us, %if.else23.us ]
   %add.us = add i32 %limit.1.us, %start.1.us
   %div18.us = lshr i32 %add.us, 1
-  %cmp7.us = icmp eq i32 %div1834.us, %div18.us
+  %cmp7.us = icmp eq i32 %div1830.us, %div18.us
   br i1 %cmp7.us, label %return, label %if.end9.us, !llvm.loop !11
 
 if.end9:                                          ; preds = %if.end9.preheader, %if.end51
-  %div1834 = phi i32 [ %div18, %if.end51 ], [ %div183161, %if.end9.preheader ]
-  %limit.033 = phi i32 [ %limit.1, %if.end51 ], [ %16, %if.end9.preheader ]
-  %start.032 = phi i32 [ %start.1, %if.end51 ], [ 0, %if.end9.preheader ]
-  %idxprom14 = zext nneg i32 %div1834 to i64
+  %div1830 = phi i32 [ %div18, %if.end51 ], [ %div182752, %if.end9.preheader ]
+  %limit.029 = phi i32 [ %limit.1, %if.end51 ], [ %16, %if.end9.preheader ]
+  %start.028 = phi i32 [ %start.1, %if.end51 ], [ 0, %if.end9.preheader ]
+  %idxprom14 = zext nneg i32 %div1830 to i64
   %arrayidx15 = getelementptr inbounds i16, ptr %18, i64 %idxprom14
   %20 = load i16, ptr %arrayidx15, align 2
   %idx.ext17 = zext i16 %20 to i64
@@ -751,11 +745,11 @@ if.end45:                                         ; preds = %lor.end, %if.end32
   br label %return
 
 if.end51:                                         ; preds = %if.else23, %if.end9
-  %start.1 = phi i32 [ %start.032, %if.end9 ], [ %div1834, %if.else23 ]
-  %limit.1 = phi i32 [ %div1834, %if.end9 ], [ %limit.033, %if.else23 ]
+  %start.1 = phi i32 [ %start.028, %if.end9 ], [ %div1830, %if.else23 ]
+  %limit.1 = phi i32 [ %div1830, %if.end9 ], [ %limit.029, %if.else23 ]
   %add = add i32 %limit.1, %start.1
   %div18 = lshr i32 %add, 1
-  %cmp7 = icmp eq i32 %div1834, %div18
+  %cmp7 = icmp eq i32 %div1830, %div18
   br i1 %cmp7, label %return, label %if.end9, !llvm.loop !11
 
 return:                                           ; preds = %if.end51, %if.end51.us, %if.end45, %if.then3

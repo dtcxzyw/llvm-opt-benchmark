@@ -3623,9 +3623,9 @@ select.unfold489:                                 ; preds = %56, %46
   br i1 %or.cond6067.i, label %.critedge.i, label %parse_opts.exit
 
 .critedge.i:                                      ; preds = %._crit_edge.i, %151
-  %138 = phi i8 [ %152, %151 ], [ %133, %._crit_edge.i ]
+  %138 = phi i8 [ %153, %151 ], [ %133, %._crit_edge.i ]
   %.069.i = phi ptr [ %.1.i, %151 ], [ %.ph, %._crit_edge.i ]
-  %.04468.i = phi ptr [ %153, %151 ], [ %131, %._crit_edge.i ]
+  %.04468.i = phi ptr [ %152, %151 ], [ %131, %._crit_edge.i ]
   store i8 %138, ptr %.04468.i, align 8
   %139 = getelementptr inbounds i8, ptr %.069.i, i64 1
   %140 = load i8, ptr %139, align 1
@@ -3646,16 +3646,15 @@ select.unfold489:                                 ; preds = %56, %46
 149:                                              ; preds = %145
   store i32 2, ptr %143, align 4
   %150 = getelementptr inbounds i8, ptr %.069.i, i64 3
-  %.pre.i = load i8, ptr %150, align 1
   br label %151
 
 151:                                              ; preds = %149, %145, %.critedge.i
-  %152 = phi i8 [ %.pre.i, %149 ], [ %147, %145 ], [ %140, %.critedge.i ]
   %.1.i = phi ptr [ %150, %149 ], [ %146, %145 ], [ %139, %.critedge.i ]
-  %153 = getelementptr inbounds i8, ptr %.04468.i, i64 16
-  %154 = add i8 %152, -48
+  %152 = getelementptr inbounds i8, ptr %.04468.i, i64 16
+  %153 = load i8, ptr %.1.i, align 1
+  %154 = add i8 %153, -48
   %or.cond54.i = icmp ult i8 %154, 10
-  %155 = and i8 %152, -33
+  %155 = and i8 %153, -33
   %156 = add i8 %155, -65
   %157 = icmp ult i8 %156, 26
   %or.cond60.i = or i1 %or.cond54.i, %157
