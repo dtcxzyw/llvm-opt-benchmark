@@ -7032,7 +7032,7 @@ flac/window.c.ll 333502002
 flatbuffers/annotated_binary_text_gen.cpp.ll 924144342
 flatbuffers/bfbs_gen_lua.cpp.ll 3485871281
 flatbuffers/bfbs_gen_nim.cpp.ll 4159599887
-flatbuffers/binary_annotator.cpp.ll 6269910244
+flatbuffers/binary_annotator.cpp.ll 6263639372
 flatbuffers/code_generators.cpp.ll 371510866
 flatbuffers/cpp_generator.cc.ll 2546552116
 flatbuffers/flatc.cpp.ll 4444610129
@@ -23207,7 +23207,7 @@ openjdk/jdmarker.ll 638122991
 openjdk/jdmaster.ll 176829938
 openjdk/jdmerge.ll 124467915
 openjdk/jdphuff.ll 300074242
-openjdk/jdpostct.ll 63619315
+openjdk/jdpostct.ll 63555694
 openjdk/jdsample.ll 187095232
 openjdk/jdtrans.ll 59043691
 openjdk/jerror.ll 61538460
