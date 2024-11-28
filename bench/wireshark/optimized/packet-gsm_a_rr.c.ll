@@ -4051,7 +4051,7 @@ greatest_power_of_2_lesser_or_equal_to.exit29:    ; preds = %14
   %17 = shl i32 %.033, 1
   %18 = or disjoint i32 %17, 1
   %19 = shl nuw i32 %.02531, 1
-  %20 = mul i32 %16, 3
+  %20 = add i32 %16, %15
   %21 = icmp slt i32 %19, %20
   br i1 %21, label %22, label %30
 
@@ -5010,7 +5010,7 @@ greatest_power_of_2_lesser_or_equal_to.exit29.i:  ; preds = %139
   %142 = shl i32 %.033.i, 1
   %143 = or disjoint i32 %142, 1
   %144 = shl nuw i32 %.02531.i, 1
-  %145 = mul i32 %141, 3
+  %145 = add i32 %141, %140
   %146 = icmp slt i32 %144, %145
   br i1 %146, label %147, label %155
 
@@ -5247,7 +5247,7 @@ greatest_power_of_2_lesser_or_equal_to.exit29.i285: ; preds = %275
   %278 = shl i32 %.033.i280, 1
   %279 = or disjoint i32 %278, 1
   %280 = shl nuw i32 %.02531.i282, 1
-  %281 = mul i32 %277, 3
+  %281 = add i32 %277, %276
   %282 = icmp slt i32 %280, %281
   br i1 %282, label %283, label %291
 
@@ -11913,7 +11913,7 @@ greatest_power_of_2_lesser_or_equal_to.exit29.i:  ; preds = %75
   %78 = shl i32 %.033.i, 1
   %79 = or disjoint i32 %78, 1
   %80 = shl nuw i32 %.02531.i, 1
-  %81 = mul i32 %77, 3
+  %81 = add i32 %77, %76
   %82 = icmp slt i32 %80, %81
   br i1 %82, label %83, label %91
 
@@ -13336,7 +13336,7 @@ greatest_power_of_2_lesser_or_equal_to.exit29.i:  ; preds = %96
   %99 = shl i32 %.033.i, 1
   %100 = or disjoint i32 %99, 1
   %101 = shl nuw i32 %.02531.i, 1
-  %102 = mul i32 %98, 3
+  %102 = add i32 %98, %97
   %103 = icmp slt i32 %101, %102
   br i1 %103, label %104, label %112
 
@@ -13574,7 +13574,7 @@ greatest_power_of_2_lesser_or_equal_to.exit29.i:  ; preds = %97
   %100 = shl i32 %.033.i, 1
   %101 = or disjoint i32 %100, 1
   %102 = shl nuw i32 %.02531.i, 1
-  %103 = mul i32 %99, 3
+  %103 = add i32 %99, %98
   %104 = icmp slt i32 %102, %103
   br i1 %104, label %105, label %113
 

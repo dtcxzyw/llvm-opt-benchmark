@@ -6417,9 +6417,16 @@ _ZNK2cv11_InputArray6getMatEi.exit.i:             ; preds = %62, %60
   %70 = getelementptr inbounds i8, ptr %69, i64 4
   %71 = load i32, ptr %70, align 4
   %72 = load i32, ptr %69, align 4
-  %73 = and i32 %71, 1
-  %74 = icmp eq i32 %73, 0
-  %75 = and i32 %72, 1
+  %.sroa.2.0.insert.ext.i.i = zext i32 %72 to i64
+  %.sroa.2.0.insert.shift.i.i = shl nuw i64 %.sroa.2.0.insert.ext.i.i, 32
+  %.sroa.0.0.insert.ext.i.i = zext i32 %71 to i64
+  %.sroa.0.0.insert.insert.i.i = or disjoint i64 %.sroa.2.0.insert.shift.i.i, %.sroa.0.0.insert.ext.i.i
+  %.fr.i = freeze i64 %.sroa.0.0.insert.insert.i.i
+  %.sroa.3.0.extract.shift.i = lshr i64 %.fr.i, 32
+  %.sroa.3.0.extract.trunc.i = trunc nuw i64 %.sroa.3.0.extract.shift.i to i32
+  %73 = and i64 %.fr.i, 1
+  %74 = icmp eq i64 %73, 0
+  %75 = and i32 %.sroa.3.0.extract.trunc.i, 1
   %76 = icmp eq i32 %75, 0
   %or.cond.i = select i1 %74, i1 %76, i1 false
   br i1 %or.cond.i, label %85, label %77
@@ -6453,11 +6460,11 @@ _ZNK2cv11_InputArray6getMatEi.exit.i:             ; preds = %62, %60
   br label %common.resume
 
 85:                                               ; preds = %67
-  %86 = ashr exact i32 %72, 1
-  %87 = mul nsw i32 %86, 3
+  %86 = ashr exact i32 %.sroa.3.0.extract.trunc.i, 1
+  %87 = add nsw i32 %86, %.sroa.3.0.extract.trunc.i
   %.sroa.2.0.insert.ext.i = zext i32 %87 to i64
   %.sroa.2.0.insert.shift.i = shl nuw i64 %.sroa.2.0.insert.ext.i, 32
-  %.sroa.0.0.insert.ext.i = zext i32 %71 to i64
+  %.sroa.0.0.insert.ext.i = and i64 %.fr.i, 4294967294
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.2.0.insert.shift.i, %.sroa.0.0.insert.ext.i
   store i64 %.sroa.0.0.insert.insert.i, ptr %15, align 8
   %88 = load i32, ptr %37, align 8

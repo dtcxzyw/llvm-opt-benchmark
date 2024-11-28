@@ -4839,8 +4839,9 @@ _ZNSt6vectorIN5ceres8internal27SchurEliminatorForOneFBlockILi2ELi3ELi6EE5ChunkES
   %135 = ptrtoint ptr %127 to i64
   %136 = ptrtoint ptr %126 to i64
   %137 = sub i64 %135, %136
-  %138 = ashr exact i64 %137, 3
-  %139 = mul i64 %138, 9
+  %.fr = freeze i64 %137
+  %138 = ashr exact i64 %.fr, 3
+  %139 = add i64 %138, %.fr
   %140 = getelementptr inbounds i8, ptr %0, i64 48
   %141 = load ptr, ptr %140, align 8
   %142 = load ptr, ptr %134, align 8

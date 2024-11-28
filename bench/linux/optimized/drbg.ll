@@ -816,6 +816,7 @@ define internal fastcc i32 @drbg_seed(ptr noundef %0, ptr noundef %1, i1 noundef
   %switch.select = select i1 %switch.selectcmp, i32 24, i32 32
   %switch.selectcmp1 = icmp eq i32 %10, 8
   %switch.select2 = select i1 %switch.selectcmp1, i32 16, i32 %switch.select
+  %switch.select2.fr = freeze i32 %switch.select2
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #12
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #12
   store ptr %6, ptr %6, align 8
@@ -845,9 +846,9 @@ define internal fastcc i32 @drbg_seed(ptr noundef %0, ptr noundef %1, i1 noundef
   br label %45
 
 26:                                               ; preds = %17
-  %27 = lshr exact i32 %switch.select2, 1
-  %28 = mul nuw nsw i32 %27, 3
-  %29 = select i1 %2, i32 %switch.select2, i32 %28
+  %27 = lshr exact i32 %switch.select2.fr, 1
+  %28 = select i1 %2, i32 0, i32 %27
+  %29 = add nuw nsw i32 %28, %switch.select2.fr
   %30 = call zeroext i1 @rng_is_initialized() #12
   %31 = select i1 %30, i32 2, i32 1
   %32 = zext nneg i32 %29 to i64
@@ -872,7 +873,7 @@ define internal fastcc i32 @drbg_seed(ptr noundef %0, ptr noundef %1, i1 noundef
   %.sink8 = phi ptr [ %4, %36 ], [ %23, %21 ], [ %4, %26 ]
   %.sink = phi i64 [ %38, %36 ], [ %25, %21 ], [ %32, %26 ]
   %46 = phi i32 [ %31, %36 ], [ 2, %21 ], [ %31, %26 ]
-  %47 = phi i32 [ %29, %36 ], [ %switch.select2, %21 ], [ %29, %26 ]
+  %47 = phi i32 [ %29, %36 ], [ %switch.select2.fr, %21 ], [ %29, %26 ]
   store ptr %.sink8, ptr %5, align 8
   %48 = getelementptr inbounds i8, ptr %5, i64 8
   store i64 %.sink, ptr %48, align 8
