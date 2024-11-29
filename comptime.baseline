@@ -19571,7 +19571,7 @@ nuttx/lib_timingsafe_bcmp.c.ll 39704543
 nuttx/lib_ultoa_invert.c.ll 43529321
 nuttx/lib_ungetwc.c.ll 42291213
 nuttx/lib_uuid_create.c.ll 55523227
-nuttx/lib_wcschr.c.ll 37914809
+nuttx/lib_wcschr.c.ll 37876771
 nuttx/lib_wcscmp.c.ll 36865439
 nuttx/lib_wcscpy.c.ll 34822913
 nuttx/lib_wcslcat.c.ll 47166046
