@@ -2747,7 +2747,7 @@ casadi/integrator.cpp.ll 7198184448
 casadi/interpolant.cpp.ll 2189666400
 casadi/inverse.cpp.ll 240024991
 casadi/io_instruction.cpp.ll 419457424
-casadi/ipqp.cpp.ll 2043475137
+casadi/ipqp.cpp.ll 2045518709
 casadi/ipqp_meta.cpp.ll 54507258
 casadi/jit_function.cpp.ll 981836363
 casadi/kinsol.c.ll 721752241
@@ -4672,7 +4672,7 @@ coreutils-rs/5cho03o3lkk15n2b.ll 191208749
 coreutils-rs/5csmbnxbvn5bvzoy.ll 544035873
 coreutils-rs/5d0bhe82sp4etblu.ll 713130654
 coreutils-rs/5dkg43nox7s4d2qk.ll 91064775
-coreutils-rs/5dky785v0vqibnqi.ll 458653444
+coreutils-rs/5dky785v0vqibnqi.ll 459112204
 coreutils-rs/5dmrxisq30bb0giv.ll 1329783139
 coreutils-rs/5duz89e24o9g6ghe.ll 73741256
 coreutils-rs/5dvkk2akux0dfxlk.ll 143818975
@@ -34924,7 +34924,7 @@ spike/vclmul_vv.ll 1092934113
 spike/vclmul_vx.ll 1107559120
 spike/vclmulh_vv.ll 1110042965
 spike/vclmulh_vx.ll 1125681150
-spike/vclz_v.ll 1048914976
+spike/vclz_v.ll 1049963962
 spike/vcompress_vm.ll 737184683
 spike/vcpop_m.ll 718205224
 spike/vcpop_v.ll 1063481032
