@@ -33577,7 +33577,7 @@ sentencepiece/word_model_trainer.cc.ll 711412229
 sentencepiece/zero_copy_stream.cc.ll 39278441
 sentencepiece/zero_copy_stream_impl.cc.ll 163142091
 sentencepiece/zero_copy_stream_impl_lite.cc.ll 234730165
-serde-rs-json/19be4mv19oulzif3.ll 818018289
+serde-rs-json/19be4mv19oulzif3.ll 818836614
 serde-rs-json/1z3u82elh7pk3w5r.ll 1063688317
 serde-rs-json/2bynnyw1do6foacb.ll 369795443
 serde-rs-json/2g78x8xblier5b5n.ll 319167631
@@ -35612,7 +35612,7 @@ tokio-rs/40sgumesnmyyffj3.ll 62617594
 tokio-rs/46apu3hqx0w07xoc.ll 2191032558
 tokio-rs/4aboxy60mzv2bdkc.ll 53336678
 tokio-rs/4brh9kql6tjayli1.ll 2709612997
-tokio-rs/4gjrbuf5539hrqh6.ll 461463692
+tokio-rs/4gjrbuf5539hrqh6.ll 461925165
 tokio-rs/4mr1mvhll2ekuv31.ll 238038981
 tokio-rs/4ni18r7xt9z3j0r8.ll 187658713
 tokio-rs/4zaq7yghb5wawieu.ll 150078900
@@ -36551,7 +36551,7 @@ wasmtime-rs/2zbrxqpx49ysr6cn.ll 270027552
 wasmtime-rs/30bs26v8gk3pt07g.ll 693118960
 wasmtime-rs/30grvq3ik5vq8b2f.ll 286198165
 wasmtime-rs/320v7ko74ke0k4k4.ll 5211405283
-wasmtime-rs/322ukxfdvnm2wdbn.ll 43582157
+wasmtime-rs/322ukxfdvnm2wdbn.ll 43625795
 wasmtime-rs/322yw2dra6hhv794.ll 51543892
 wasmtime-rs/32ocpkosjxmve1yg.ll 235108042
 wasmtime-rs/33560kyrqz2cm6nd.ll 60911055
