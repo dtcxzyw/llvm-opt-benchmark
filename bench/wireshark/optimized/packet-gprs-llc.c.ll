@@ -393,8 +393,8 @@ define internal i32 @dissect_llcgprs(ptr noundef %0, ptr noundef %1, ptr noundef
   tail call void @col_set_str(ptr noundef %13, i32 noundef 34, ptr noundef nonnull @.str.124) #3
   %14 = tail call i32 @tvb_reported_length(ptr noundef %0) #3
   %15 = icmp ugt i32 %14, 2
-  %16 = add i32 %14, -3
-  %.0529 = select i1 %15, i32 %16, i32 0
+  %16 = tail call i32 @llvm.umax.i32(i32 %14, i32 3)
+  %.0529 = add i32 %16, -3
   %17 = tail call i32 @tvb_captured_length(ptr noundef %0) #3
   %18 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #3
   %19 = zext i8 %18 to i32
@@ -561,7 +561,7 @@ define internal i32 @dissect_llcgprs(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %130, label %131, label %.loopexit565
 
 131:                                              ; preds = %.thread
-  %132 = add i32 %.0529, -3
+  %132 = add i32 %16, -6
   %133 = load i32, ptr @ett_llcgprs_sframe, align 4
   %134 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %.0532, ptr noundef %0, i32 noundef 3, i32 noundef %132, i32 noundef %133, ptr noundef null, ptr noundef nonnull @.str.193, i32 noundef %132) #3
   %.not600 = icmp eq i32 %132, 0
@@ -615,7 +615,7 @@ define internal i32 @dissect_llcgprs(ptr noundef %0, ptr noundef %1, ptr noundef
   %164 = zext nneg i8 %162 to i32
   %165 = tail call ptr @val_to_str(i32 noundef %164, ptr noundef nonnull @cr_formats_unnumb, ptr noundef nonnull @.str.198) #3
   tail call void @col_append_str(ptr noundef %163, i32 noundef 25, ptr noundef %165) #3
-  %166 = add i32 %.0529, -1
+  %166 = add i32 %16, -4
   %167 = load i32, ptr @ett_llcgprs_ui, align 4
   %168 = tail call ptr @val_to_str(i32 noundef %164, ptr noundef nonnull @cr_formats_unnumb, ptr noundef nonnull @.str.198) #3
   %169 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %.0532, ptr noundef %0, i32 noundef 1, i32 noundef %166, i32 noundef %167, ptr noundef null, ptr noundef nonnull @.str.199, ptr noundef %168) #3
@@ -731,7 +731,7 @@ crc_calc.exit:                                    ; preds = %crc_calc.exit.loope
   br i1 %.not557, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %207
-  %.3590 = add i32 %.0513, 1
+  %.3590 = add nuw i32 %.0513, 1
   %.not605 = icmp ult i8 %208, 16
   br i1 %.not605, label %._crit_edge594, label %.lr.ph593
 
@@ -806,7 +806,7 @@ crc_calc.exit:                                    ; preds = %crc_calc.exit.loope
   br i1 %.not555, label %.loopexit, label %.preheader561
 
 .preheader561:                                    ; preds = %244
-  %.5580 = add i32 %.0513, 1
+  %.5580 = add nuw i32 %.0513, 1
   %.not603 = icmp ult i8 %245, 16
   br i1 %.not603, label %._crit_edge584, label %.lr.ph583
 
@@ -894,7 +894,7 @@ crc_calc.exit:                                    ; preds = %crc_calc.exit.loope
   br i1 %.not553, label %.loopexit, label %.preheader563
 
 .preheader563:                                    ; preds = %288
-  %.7572 = add i32 %.0513, 1
+  %.7572 = add nuw i32 %.0513, 1
   %.not601 = icmp ult i8 %289, 16
   br i1 %.not601, label %._crit_edge, label %.lr.ph575
 
@@ -961,7 +961,7 @@ crc_calc.exit:                                    ; preds = %crc_calc.exit.loope
   ]
 
 327:                                              ; preds = %324, %324, %324
-  %328 = add i32 %.0529, -2
+  %328 = add i32 %16, -5
   %329 = tail call ptr @proto_tree_add_expert(ptr noundef %.0532, ptr noundef %1, ptr noundef nonnull @ei_llcgprs_no_info_field, ptr noundef %0, i32 noundef %.0513, i32 noundef %328) #3
   br label %.loopexit
 
@@ -985,7 +985,7 @@ crc_calc.exit:                                    ; preds = %crc_calc.exit.loope
   br i1 %.not547, label %.loopexit, label %337
 
 337:                                              ; preds = %336
-  %338 = add i32 %.0529, -2
+  %338 = add i32 %16, -5
   %339 = load i32, ptr @ett_llcgprs_ui, align 4
   %340 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %.0532, ptr noundef %0, i32 noundef %.0513, i32 noundef %338, i32 noundef %339, ptr noundef null, ptr noundef nonnull @.str.205, i32 noundef %326) #3
   %341 = load i32, ptr @ett_llcgprs_ui, align 4
@@ -1282,6 +1282,9 @@ declare i32 @llvm.umin.i32(i32, i32) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.fshl.i8(i8, i8, i8) #2
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #2
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

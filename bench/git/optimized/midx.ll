@@ -2149,7 +2149,7 @@ cond.end.i:                                       ; preds = %cond.true.i, %if.en
   %cmp263.i = icmp ult i32 %cond.i, %conv223
   %71 = zext i32 %cond.i to i64
   %wide.trip.count.i = and i64 %69, 4294967295
-  br i1 %cmp263.i, label %for.body.i, label %st_mult.exit48.thread.i
+  br i1 %cmp263.i, label %for.body.i, label %st_mult.exit48.i
 
 for.body.i:                                       ; preds = %cond.end.i, %st_add.exit.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %st_add.exit.i ], [ %71, %cond.end.i ]
@@ -2158,8 +2158,7 @@ for.body.i:                                       ; preds = %cond.end.i, %st_add
   %72 = load ptr, ptr %p.i, align 8
   %num_objects.i = getelementptr inbounds i8, ptr %72, i64 72
   %73 = load i32, ptr %num_objects.i, align 8
-  %.fr.i = freeze i32 %73
-  %conv.i = zext i32 %.fr.i to i64
+  %conv.i = zext i32 %73 to i64
   %sub.i.i = xor i64 %total_objects.0264.i, -1
   %cmp.i.i = icmp ugt i64 %conv.i, %sub.i.i
   br i1 %cmp.i.i, label %if.then.i.i, label %st_add.exit.i
@@ -2174,15 +2173,11 @@ st_add.exit.i:                                    ; preds = %for.body.i
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %st_mult.exit48.i, label %for.body.i, !llvm.loop !16
 
-st_mult.exit48.i:                                 ; preds = %st_add.exit.i
-  %cmp1.i = icmp ugt i64 %add.i.i, 3200
-  %div.i = udiv i64 %add.i.i, 200
-  %spec.select352.i = select i1 %cmp1.i, i64 %div.i, i64 16
-  br label %st_mult.exit48.thread.i
-
-st_mult.exit48.thread.i:                          ; preds = %cond.end.i, %st_mult.exit48.i
-  %74 = phi i64 [ %spec.select352.i, %st_mult.exit48.i ], [ 16, %cond.end.i ]
-  %mul.i.i = shl nuw nsw i64 %74, 6
+st_mult.exit48.i:                                 ; preds = %st_add.exit.i, %cond.end.i
+  %total_objects.0.lcssa.i = phi i64 [ 0, %cond.end.i ], [ %add.i.i, %st_add.exit.i ]
+  %74 = call i64 @llvm.umax.i64(i64 %total_objects.0.lcssa.i, i64 3200)
+  %cond6.i = udiv i64 %74, 200
+  %mul.i.i = shl nuw nsw i64 %cond6.i, 6
   %call9.i = call ptr @xmalloc(i64 noundef %mul.i.i) #23
   %call11.i = call ptr @xmalloc(i64 noundef %mul.i.i) #23
   store i64 0, ptr %entries_nr, align 8
@@ -2199,12 +2194,12 @@ st_mult.exit48.thread.i:                          ; preds = %cond.end.i, %st_mul
   %p.i83.i = getelementptr inbounds %struct.pack_info, ptr %.pre421437, i64 %idxprom.i82.i, i32 2
   br label %for.body15.i
 
-for.body15.i:                                     ; preds = %for.inc76.i, %st_mult.exit48.thread.i
-  %indvars.iv316.i = phi i64 [ 0, %st_mult.exit48.thread.i ], [ %indvars.iv.next317.i, %for.inc76.i ]
-  %deduplicated_entries.0285.i = phi ptr [ %call11.i, %st_mult.exit48.thread.i ], [ %deduplicated_entries.1.lcssa.i, %for.inc76.i ]
-  %alloc_objects.0284.i = phi i64 [ %74, %st_mult.exit48.thread.i ], [ %alloc_objects.1.lcssa.i, %for.inc76.i ]
-  %fanout.sroa.32.0283.i = phi i64 [ %74, %st_mult.exit48.thread.i ], [ %fanout.sroa.32.3.i, %for.inc76.i ]
-  %fanout.sroa.0.0282.i = phi ptr [ %call9.i, %st_mult.exit48.thread.i ], [ %fanout.sroa.0.3.i, %for.inc76.i ]
+for.body15.i:                                     ; preds = %for.inc76.i, %st_mult.exit48.i
+  %indvars.iv316.i = phi i64 [ 0, %st_mult.exit48.i ], [ %indvars.iv.next317.i, %for.inc76.i ]
+  %deduplicated_entries.0285.i = phi ptr [ %call11.i, %st_mult.exit48.i ], [ %deduplicated_entries.1.lcssa.i, %for.inc76.i ]
+  %alloc_objects.0284.i = phi i64 [ %cond6.i, %st_mult.exit48.i ], [ %alloc_objects.1.lcssa.i, %for.inc76.i ]
+  %fanout.sroa.32.0283.i = phi i64 [ %cond6.i, %st_mult.exit48.i ], [ %fanout.sroa.32.3.i, %for.inc76.i ]
+  %fanout.sroa.0.0282.i = phi ptr [ %call9.i, %st_mult.exit48.i ], [ %fanout.sroa.0.3.i, %for.inc76.i ]
   br i1 %tobool.not.i147, label %if.end.i149, label %if.then.i148
 
 if.then.i148:                                     ; preds = %for.body15.i

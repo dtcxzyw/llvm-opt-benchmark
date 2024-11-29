@@ -24,7 +24,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define void @lv_style_init(ptr noundef %0) local_unnamed_addr #0 {
-  tail call void @lv_memset(ptr noundef %0, i8 noundef zeroext 0, i64 noundef 16) #7
+  tail call void @lv_memset(ptr noundef %0, i8 noundef zeroext 0, i64 noundef 16) #8
   ret void
 }
 
@@ -37,11 +37,11 @@ define void @lv_style_reset(ptr noundef %0) local_unnamed_addr #0 {
 
 4:                                                ; preds = %1
   %5 = load ptr, ptr %0, align 8, !tbaa !9
-  tail call void @lv_free(ptr noundef %5) #7
+  tail call void @lv_free(ptr noundef %5) #8
   br label %6
 
 6:                                                ; preds = %4, %1
-  tail call void @lv_memset(ptr noundef nonnull %0, i8 noundef zeroext 0, i64 noundef 16) #7
+  tail call void @lv_memset(ptr noundef nonnull %0, i8 noundef zeroext 0, i64 noundef 16) #8
   ret void
 }
 
@@ -77,7 +77,7 @@ define zeroext i8 @lv_style_register_prop(i8 noundef zeroext %0) local_unnamed_a
 
 10:                                               ; preds = %.thread22, %6
   %11 = phi i64 [ 32, %.thread22 ], [ %9, %6 ]
-  %12 = tail call ptr @lv_realloc(ptr noundef %2, i64 noundef %11) #7
+  %12 = tail call ptr @lv_realloc(ptr noundef %2, i64 noundef %11) #8
   %.not15 = icmp eq ptr %12, null
   br i1 %.not15, label %.critedge, label %.thread
 
@@ -150,7 +150,7 @@ define noundef zeroext i1 @lv_style_remove_prop(ptr nocapture noundef %0, i8 nou
   %14 = mul nuw nsw i64 %8, 9
   %narrow = add nuw nsw i64 %14, 4294967287
   %15 = and i64 %narrow, 4294967295
-  %16 = tail call ptr @lv_malloc(i64 noundef %15) #7
+  %16 = tail call ptr @lv_malloc(i64 noundef %15) #8
   %.not45 = icmp eq ptr %16, null
   br i1 %.not45, label %.loopexit, label %17
 
@@ -195,7 +195,7 @@ define noundef zeroext i1 @lv_style_remove_prop(ptr nocapture noundef %0, i8 nou
   br i1 %.not.not, label %23, label %38, !llvm.loop !26
 
 38:                                               ; preds = %35
-  tail call void @lv_free(ptr noundef nonnull %4) #7
+  tail call void @lv_free(ptr noundef nonnull %4) #8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %9, %2, %2, %13, %38
@@ -210,7 +210,7 @@ define void @lv_style_set_prop(ptr nocapture noundef %0, i8 noundef zeroext %1, 
   %4 = getelementptr i8, ptr %0, i64 12
   %.val = load i8, ptr %4, align 4, !tbaa !3
   %5 = icmp eq i8 %.val, -1
-  br i1 %5, label %50, label %6
+  br i1 %5, label %49, label %6
 
 6:                                                ; preds = %3
   %.not = icmp eq i8 %1, 0
@@ -245,14 +245,14 @@ define void @lv_style_set_prop(ptr nocapture noundef %0, i8 noundef zeroext %1, 
 18:                                               ; preds = %14
   %19 = getelementptr inbounds %union.lv_style_value_t, ptr %8, i64 %indvars.iv.next
   store ptr %2, ptr %19, align 8, !tbaa !23
-  br label %50
+  br label %49
 
 .loopexit:                                        ; preds = %12, %7
   %20 = mul nuw nsw i64 %.pre51, 9
   %21 = add nuw nsw i64 %20, 9
-  %22 = tail call ptr @lv_realloc(ptr noundef %8, i64 noundef %21) #7
+  %22 = tail call ptr @lv_realloc(ptr noundef %8, i64 noundef %21) #8
   %23 = icmp eq ptr %22, null
-  br i1 %23, label %50, label %24
+  br i1 %23, label %49, label %24
 
 24:                                               ; preds = %.loopexit
   store ptr %22, ptr %0, align 8, !tbaa !9
@@ -292,18 +292,17 @@ define void @lv_style_set_prop(ptr nocapture noundef %0, i8 noundef zeroext %1, 
   %42 = getelementptr %union.lv_style_value_t, ptr %22, i64 %41
   %43 = getelementptr i8, ptr %42, i64 -8
   store ptr %2, ptr %43, align 8, !tbaa !23
-  %44 = lshr i8 %1, 2
-  %45 = icmp ugt i8 %1, 123
-  %narrow.i = select i1 %45, i8 31, i8 %44
+  %44 = tail call i8 @llvm.umin.i8(i8 %1, i8 124)
+  %narrow.i = lshr i8 %44, 2
   %spec.store.select.i = zext nneg i8 %narrow.i to i32
-  %46 = shl nuw i32 1, %spec.store.select.i
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %48 = load i32, ptr %47, align 8, !tbaa !29
-  %49 = or i32 %48, %46
-  store i32 %49, ptr %47, align 8, !tbaa !29
-  br label %50
+  %45 = shl nuw i32 1, %spec.store.select.i
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %47 = load i32, ptr %46, align 8, !tbaa !29
+  %48 = or i32 %47, %45
+  store i32 %48, ptr %46, align 8, !tbaa !29
+  br label %49
 
-50:                                               ; preds = %18, %.loopexit, %._crit_edge, %3
+49:                                               ; preds = %18, %.loopexit, %._crit_edge, %3
   ret void
 }
 
@@ -378,7 +377,7 @@ lv_style_get_prop_inlined.exit:                   ; preds = %20, %.lr.ph, %7, %1
 
 ; Function Attrs: nounwind uwtable
 define void @lv_style_transition_dsc_init(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
-  tail call void @lv_memset(ptr noundef %0, i8 noundef zeroext 0, i64 noundef 32) #7
+  tail call void @lv_memset(ptr noundef %0, i8 noundef zeroext 0, i64 noundef 32) #8
   store ptr %1, ptr %0, align 8, !tbaa !34
   %7 = icmp eq ptr %2, null
   %8 = select i1 %7, ptr @lv_anim_path_linear, ptr %2
@@ -511,6 +510,9 @@ define zeroext i8 @lv_style_prop_lookup_flags(i8 noundef zeroext %0) local_unnam
 
 declare void @lv_memset(ptr noundef, i8 noundef zeroext, i64 noundef) local_unnamed_addr #1
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i8 @llvm.umin.i8(i8, i8) #7
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -518,7 +520,8 @@ attributes #3 = { nofree norecurse nosync nounwind memory(read, argmem: readwrit
 attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nounwind }
+attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

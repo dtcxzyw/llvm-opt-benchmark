@@ -493,7 +493,7 @@ define internal void @cubictcp_acked(ptr noundef %0, ptr nocapture noundef reado
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = icmp slt i32 %4, 0
-  br i1 %5, label %144, label %6
+  br i1 %5, label %143, label %6
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %0, i64 1292
@@ -506,7 +506,7 @@ define internal void @cubictcp_acked(ptr noundef %0, ptr nocapture noundef reado
   %12 = trunc i64 %11 to i32
   %13 = sub i32 %12, %8
   %14 = icmp slt i32 %13, 1000
-  br i1 %14, label %144, label %15
+  br i1 %14, label %143, label %15
 
 15:                                               ; preds = %10, %6
   %16 = tail call i32 @llvm.umax.i32(i32 %4, i32 1)
@@ -525,7 +525,7 @@ define internal void @cubictcp_acked(ptr noundef %0, ptr nocapture noundef reado
   %24 = getelementptr inbounds i8, ptr %0, i64 1307
   %25 = load i8, ptr %24, align 1
   %26 = icmp eq i8 %25, 0
-  br i1 %26, label %27, label %144
+  br i1 %26, label %27, label %143
 
 27:                                               ; preds = %22
   %28 = getelementptr inbounds i8, ptr %0, i64 1420
@@ -539,7 +539,7 @@ define internal void @cubictcp_acked(ptr noundef %0, ptr nocapture noundef reado
   %36 = load i32, ptr @hystart_low_window, align 4
   %37 = icmp ult i32 %29, %36
   %38 = select i1 %35, i1 true, i1 %37
-  br i1 %38, label %144, label %39
+  br i1 %38, label %143, label %39
 
 39:                                               ; preds = %27
   %40 = getelementptr inbounds i8, ptr %0, i64 1312
@@ -639,7 +639,7 @@ define internal void @cubictcp_acked(ptr noundef %0, ptr nocapture noundef reado
   %107 = phi i32 [ %.pre, %93 ], [ %57, %81 ], [ %57, %60 ], [ %57, %56 ]
   %108 = and i32 %107, 2
   %109 = icmp eq i32 %108, 0
-  br i1 %109, label %144, label %110
+  br i1 %109, label %143, label %110
 
 110:                                              ; preds = %106
   %111 = getelementptr inbounds i8, ptr %0, i64 1320
@@ -661,39 +661,38 @@ define internal void @cubictcp_acked(ptr noundef %0, ptr nocapture noundef reado
 120:                                              ; preds = %115
   %121 = add nuw nsw i8 %118, 1
   store i8 %121, ptr %117, align 2
-  br label %144
+  br label %143
 
 122:                                              ; preds = %115
   %123 = load i32, ptr %17, align 4
   %124 = icmp ugt i32 %123, 127999
-  %125 = lshr i32 %123, 3
-  %126 = icmp ult i32 %123, 32008
-  %127 = select i1 %126, i32 4000, i32 %125
-  %128 = select i1 %124, i32 16000, i32 %127
-  %129 = add i32 %128, %123
-  %130 = icmp ugt i32 %116, %129
-  br i1 %130, label %131, label %144
+  %125 = tail call i32 @llvm.umax.i32(i32 %123, i32 32007)
+  %126 = lshr i32 %125, 3
+  %127 = select i1 %124, i32 16000, i32 %126
+  %128 = add i32 %127, %123
+  %129 = icmp ugt i32 %116, %128
+  br i1 %129, label %130, label %143
 
-131:                                              ; preds = %122
+130:                                              ; preds = %122
   store i8 1, ptr %24, align 1
-  %132 = getelementptr inbounds i8, ptr %0, i64 48
-  %133 = load ptr, ptr %132, align 8
-  %134 = getelementptr inbounds i8, ptr %133, i64 432
-  %135 = load ptr, ptr %134, align 8
-  %136 = getelementptr i8, ptr %135, i64 808
-  tail call void asm sideeffect "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %136, ptr elementtype(i64) %136) #8, !srcloc !11
-  %137 = load i32, ptr %28, align 4
-  %138 = zext i32 %137 to i64
-  %139 = load ptr, ptr %132, align 8
-  %140 = getelementptr inbounds i8, ptr %139, i64 432
-  %141 = load ptr, ptr %140, align 8
-  %142 = getelementptr i8, ptr %141, i64 816
-  tail call void asm sideeffect "addq $1, %gs:$0", "=*m,re,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %142, i64 %138, ptr elementtype(i64) %142) #8, !srcloc !12
-  %143 = load i32, ptr %28, align 4
-  store i32 %143, ptr %30, align 32
-  br label %144
+  %131 = getelementptr inbounds i8, ptr %0, i64 48
+  %132 = load ptr, ptr %131, align 8
+  %133 = getelementptr inbounds i8, ptr %132, i64 432
+  %134 = load ptr, ptr %133, align 8
+  %135 = getelementptr i8, ptr %134, i64 808
+  tail call void asm sideeffect "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %135, ptr elementtype(i64) %135) #8, !srcloc !11
+  %136 = load i32, ptr %28, align 4
+  %137 = zext i32 %136 to i64
+  %138 = load ptr, ptr %131, align 8
+  %139 = getelementptr inbounds i8, ptr %138, i64 432
+  %140 = load ptr, ptr %139, align 8
+  %141 = getelementptr i8, ptr %140, i64 816
+  tail call void asm sideeffect "addq $1, %gs:$0", "=*m,re,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %141, i64 %137, ptr elementtype(i64) %141) #8, !srcloc !12
+  %142 = load i32, ptr %28, align 4
+  store i32 %142, ptr %30, align 32
+  br label %143
 
-144:                                              ; preds = %131, %122, %120, %106, %27, %22, %10, %2
+143:                                              ; preds = %130, %122, %120, %106, %27, %22, %10, %2
   ret void
 }
 

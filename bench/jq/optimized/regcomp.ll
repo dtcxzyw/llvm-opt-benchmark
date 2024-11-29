@@ -5739,7 +5739,7 @@ define dso_local i32 @onig_detect_can_be_slow_pattern(ptr noundef %0, ptr nounde
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
   %calloc = tail call dereferenceable_or_null(456) ptr @calloc(i64 1, i64 456)
   %11 = icmp eq ptr %calloc, null
-  br i1 %11, label %89, label %12
+  br i1 %11, label %88, label %12
 
 12:                                               ; preds = %5
   %13 = load i32, ptr @OnigDefaultCaseFoldFlag, align 4
@@ -5769,7 +5769,7 @@ define dso_local i32 @onig_detect_can_be_slow_pattern(ptr noundef %0, ptr nounde
 21:                                               ; preds = %.thread.i, %18, %.lr.ph.i.i
   %.0.i.ph = phi i32 [ -23, %.lr.ph.i.i ], [ -403, %18 ], [ -21, %.thread.i ]
   tail call void @free(ptr noundef nonnull %calloc) #22
-  br label %89
+  br label %88
 
 22:                                               ; preds = %18
   %23 = and i32 %2, 64
@@ -5841,68 +5841,67 @@ unset_addr_list_end.exit:                         ; preds = %47, %45, %41
   call fastcc void @detect_can_be_slow(ptr noundef %56, ptr noundef %8, i32 noundef 0, ptr noundef %9)
   %57 = load i32, ptr %8, align 4
   %58 = load i32, ptr %48, align 4
-  %59 = add nsw i32 %58, %57
-  %60 = load i32, ptr %49, align 4
-  %61 = add nsw i32 %59, %60
-  %62 = load i32, ptr %50, align 4
-  %63 = add nsw i32 %61, %62
-  %64 = load i32, ptr %51, align 4
-  %65 = add nsw i32 %63, %64
-  %66 = load i32, ptr %53, align 4
-  %67 = add nsw i32 %65, %66
-  %68 = load i32, ptr %52, align 4
-  %.not30 = icmp eq i32 %68, 0
+  %59 = load i32, ptr %49, align 4
+  %60 = load i32, ptr %50, align 4
+  %61 = load i32, ptr %51, align 4
+  %62 = load i32, ptr %53, align 4
+  %63 = load i32, ptr %52, align 4
+  %.not30 = icmp eq i32 %63, 0
   %.pre = load i32, ptr %54, align 4
-  br i1 %.not30, label %71, label %69
+  br i1 %.not30, label %66, label %64
 
-69:                                               ; preds = %unset_addr_list_end.exit
-  %70 = add nsw i32 %.pre, 1
-  store i32 %70, ptr %54, align 4
-  br label %71
+64:                                               ; preds = %unset_addr_list_end.exit
+  %65 = add nsw i32 %.pre, 1
+  store i32 %65, ptr %54, align 4
+  br label %66
 
-71:                                               ; preds = %69, %unset_addr_list_end.exit
-  %72 = phi i32 [ %70, %69 ], [ %.pre, %unset_addr_list_end.exit ]
-  %73 = icmp sgt i32 %72, 2
-  %74 = add nsw i32 %72, -2
-  %75 = select i1 %73, i32 %74, i32 0
-  %.0 = add nsw i32 %67, %75
-  %76 = load i32, ptr %55, align 4
-  %.not31 = icmp eq i32 %76, 0
-  br i1 %.not31, label %84, label %77
+66:                                               ; preds = %64, %unset_addr_list_end.exit
+  %67 = phi i32 [ %65, %64 ], [ %.pre, %unset_addr_list_end.exit ]
+  %68 = call i32 @llvm.smax.i32(i32 %67, i32 2)
+  %69 = add i32 %57, -2
+  %70 = add i32 %69, %58
+  %71 = add i32 %70, %59
+  %72 = add i32 %71, %60
+  %73 = add i32 %72, %61
+  %74 = add i32 %73, %62
+  %.0 = add i32 %74, %68
+  %75 = load i32, ptr %55, align 4
+  %.not31 = icmp eq i32 %75, 0
+  br i1 %.not31, label %83, label %76
 
-77:                                               ; preds = %71
-  %78 = icmp slt i32 %76, 65536
-  br i1 %78, label %79, label %82
+76:                                               ; preds = %66
+  %77 = icmp slt i32 %75, 65536
+  br i1 %77, label %78, label %81
 
-79:                                               ; preds = %77
-  %80 = shl i32 %76, 8
-  %81 = add nsw i32 %.0, %80
-  br label %84
+78:                                               ; preds = %76
+  %79 = shl i32 %75, 8
+  %80 = add nsw i32 %.0, %79
+  br label %83
 
-82:                                               ; preds = %77
-  %83 = add nsw i32 %.0, %76
-  br label %84
+81:                                               ; preds = %76
+  %82 = add nsw i32 %.0, %75
+  br label %83
 
-84:                                               ; preds = %71, %82, %79
-  %.1 = phi i32 [ %81, %79 ], [ %83, %82 ], [ %.0, %71 ]
-  %85 = getelementptr inbounds i8, ptr %7, i64 224
-  %86 = load ptr, ptr %85, align 8
-  %.not32 = icmp eq ptr %86, null
-  br i1 %.not32, label %onig_free.exit, label %87
+83:                                               ; preds = %66, %81, %78
+  %.1 = phi i32 [ %80, %78 ], [ %82, %81 ], [ %.0, %66 ]
+  %84 = getelementptr inbounds i8, ptr %7, i64 224
+  %85 = load ptr, ptr %84, align 8
+  %.not32 = icmp eq ptr %85, null
+  br i1 %.not32, label %onig_free.exit, label %86
 
-87:                                               ; preds = %84
-  call void @free(ptr noundef nonnull %86) #22
+86:                                               ; preds = %83
+  call void @free(ptr noundef nonnull %85) #22
   br label %onig_free.exit
 
-onig_free.exit:                                   ; preds = %.onig_free.exit_crit_edge, %84, %87
-  %88 = phi ptr [ %.pre37, %.onig_free.exit_crit_edge ], [ %56, %87 ], [ %56, %84 ]
-  %.020 = phi i32 [ %40, %.onig_free.exit_crit_edge ], [ %.1, %87 ], [ %.1, %84 ]
-  call void @onig_node_free(ptr noundef %88) #22
+onig_free.exit:                                   ; preds = %.onig_free.exit_crit_edge, %83, %86
+  %87 = phi ptr [ %.pre37, %.onig_free.exit_crit_edge ], [ %56, %86 ], [ %56, %83 ]
+  %.020 = phi i32 [ %40, %.onig_free.exit_crit_edge ], [ %.1, %86 ], [ %.1, %83 ]
+  call void @onig_node_free(ptr noundef %87) #22
   call void @onig_free_body(ptr noundef nonnull %calloc)
   call void @free(ptr noundef nonnull %calloc) #22
-  br label %89
+  br label %88
 
-89:                                               ; preds = %5, %onig_free.exit, %21
+88:                                               ; preds = %5, %onig_free.exit, %21
   %.019 = phi i32 [ %.0.i.ph, %21 ], [ %.020, %onig_free.exit ], [ -5, %5 ]
   ret i32 %.019
 }

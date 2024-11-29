@@ -2870,10 +2870,9 @@ _ZN4llvm9StringRefC2EPKc.exit:                    ; preds = %201, %203
   call void @_ZN5clang8comments5Lexer4DiagENS_14SourceLocationEj(ptr dead_on_unwind nonnull writable sret(%"class.clang::DiagnosticBuilder") align 8 %7, ptr noundef nonnull align 8 dereferenceable(104) %0, i32 %.sroa.0.0.copyload.i142, i32 noundef 2454)
   %.sroa.0.0.copyload.i143 = load i32, ptr %1, align 8
   %242 = load i32, ptr %238, align 4
-  %switch.i = icmp ult i32 %242, 2
-  %243 = add i32 %242, -1
-  %244 = select i1 %switch.i, i32 0, i32 %243
-  %.sroa.0.0.i = add i32 %244, %.sroa.0.0.copyload.i143
+  %243 = call i32 @llvm.umax.i32(i32 %242, i32 1)
+  %244 = add i32 %.sroa.0.0.copyload.i143, -1
+  %.sroa.0.0.i = add i32 %244, %243
   %.sroa.2.0.insert.ext = zext i32 %.sroa.0.0.i to i64
   %.sroa.2.0.insert.shift = shl nuw i64 %.sroa.2.0.insert.ext, 32
   %.sroa.0.0.insert.ext = zext i32 %.sroa.0.0.copyload.i143 to i64
@@ -6121,6 +6120,9 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #17
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #14
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

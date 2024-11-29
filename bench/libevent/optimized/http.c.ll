@@ -3066,10 +3066,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %5 = select i1 %cmp6, i64 %sub, i64 %mul
   %add = zext i1 %cmp6 to i64
   %6 = add nsw i64 %.pr4346, %add
-  %mul10 = shl nsw i64 %6, 1
   %cmp12 = icmp sgt i64 %6, 1800
   %7 = select i1 %cmp12, i64 0, i64 %5
-  %.pr44 = select i1 %cmp12, i64 3600, i64 %mul10
+  %8 = tail call i64 @llvm.smin.i64(i64 %6, i64 1800)
+  %.pr44 = shl i64 %8, 1
   %inc = add nuw nsw i32 %i.047, 1
   %exitcond.not = icmp eq i32 %inc, %3
   br i1 %exitcond.not, label %for.cond.for.end_crit_edge, label %for.body, !llvm.loop !16
@@ -3082,8 +3082,8 @@ for.end:                                          ; preds = %for.cond.for.end_cr
   %.pr43.lcssa = phi i64 [ %.pr44, %for.cond.for.end_crit_edge ], [ %tv_retry.promoted, %if.then ]
   store i64 %.pr43.lcssa, ptr %tv_retry, align 8
   %call18 = call i32 @event_add(ptr noundef nonnull %retry_ev, ptr noundef nonnull %tv_retry) #19
-  %8 = load i32, ptr %retry_cnt3, align 8
-  %inc20 = add nsw i32 %8, 1
+  %9 = load i32, ptr %retry_cnt3, align 8
+  %inc20 = add nsw i32 %9, 1
   store i32 %inc20, ptr %retry_cnt3, align 8
   br label %if.end92
 
@@ -3092,8 +3092,8 @@ do.body22:                                        ; preds = %lor.lhs.false
   %tqh_last = getelementptr inbounds i8, ptr %requests, i64 8
   %requests25 = getelementptr inbounds i8, ptr %evcon, i64 296
   store ptr %requests, ptr %tqh_last, align 8
-  %9 = load ptr, ptr %requests25, align 8
-  %cmp27.not41 = icmp eq ptr %9, null
+  %10 = load ptr, ptr %requests25, align 8
+  %cmp27.not41 = icmp eq ptr %10, null
   br i1 %cmp27.not41, label %land.lhs.true, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %do.body22
@@ -3106,86 +3106,86 @@ while.cond59.preheader:                           ; preds = %if.end42
   br i1 %cmp61.not42, label %land.lhs.true, label %while.body62
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end42
-  %10 = phi ptr [ %9, %while.body.lr.ph ], [ %15, %if.end42 ]
-  %11 = load ptr, ptr %10, align 8
-  %cmp31.not = icmp eq ptr %11, null
-  %tqe_prev39 = getelementptr inbounds i8, ptr %10, i64 8
-  %12 = load ptr, ptr %tqe_prev39, align 8
+  %11 = phi ptr [ %10, %while.body.lr.ph ], [ %16, %if.end42 ]
+  %12 = load ptr, ptr %11, align 8
+  %cmp31.not = icmp eq ptr %12, null
+  %tqe_prev39 = getelementptr inbounds i8, ptr %11, i64 8
+  %13 = load ptr, ptr %tqe_prev39, align 8
   br i1 %cmp31.not, label %if.else, label %if.then32
 
 if.then32:                                        ; preds = %while.body
-  %tqe_prev37 = getelementptr inbounds i8, ptr %11, i64 8
-  store ptr %12, ptr %tqe_prev37, align 8
+  %tqe_prev37 = getelementptr inbounds i8, ptr %12, i64 8
+  store ptr %13, ptr %tqe_prev37, align 8
   br label %if.end42
 
 if.else:                                          ; preds = %while.body
-  store ptr %12, ptr %tqh_last41, align 8
+  store ptr %13, ptr %tqh_last41, align 8
   br label %if.end42
 
 if.end42:                                         ; preds = %if.else, %if.then32
-  %13 = load ptr, ptr %10, align 8
-  %tqe_prev46 = getelementptr inbounds i8, ptr %10, i64 8
-  store ptr %13, ptr %12, align 8
-  store ptr null, ptr %10, align 8
-  %14 = load ptr, ptr %tqh_last, align 8
-  store ptr %14, ptr %tqe_prev46, align 8
-  store ptr %10, ptr %14, align 8
-  store ptr %10, ptr %tqh_last, align 8
-  %15 = load ptr, ptr %requests25, align 8
-  %cmp27.not = icmp eq ptr %15, null
+  %14 = load ptr, ptr %11, align 8
+  %tqe_prev46 = getelementptr inbounds i8, ptr %11, i64 8
+  store ptr %14, ptr %13, align 8
+  store ptr null, ptr %11, align 8
+  %15 = load ptr, ptr %tqh_last, align 8
+  store ptr %15, ptr %tqe_prev46, align 8
+  store ptr %11, ptr %15, align 8
+  store ptr %11, ptr %tqh_last, align 8
+  %16 = load ptr, ptr %requests25, align 8
+  %cmp27.not = icmp eq ptr %16, null
   br i1 %cmp27.not, label %while.cond59.preheader, label %while.body, !llvm.loop !17
 
 while.body62:                                     ; preds = %while.cond59.preheader, %evhttp_request_free_auto.exit
-  %16 = phi ptr [ %23, %evhttp_request_free_auto.exit ], [ %.pre, %while.cond59.preheader ]
-  %17 = load ptr, ptr %16, align 8
-  %cmp68.not = icmp eq ptr %17, null
-  %tqe_prev78 = getelementptr inbounds i8, ptr %16, i64 8
-  %18 = load ptr, ptr %tqe_prev78, align 8
+  %17 = phi ptr [ %24, %evhttp_request_free_auto.exit ], [ %.pre, %while.cond59.preheader ]
+  %18 = load ptr, ptr %17, align 8
+  %cmp68.not = icmp eq ptr %18, null
+  %tqe_prev78 = getelementptr inbounds i8, ptr %17, i64 8
+  %19 = load ptr, ptr %tqe_prev78, align 8
   br i1 %cmp68.not, label %if.else76, label %if.then69
 
 if.then69:                                        ; preds = %while.body62
-  %tqe_prev75 = getelementptr inbounds i8, ptr %17, i64 8
-  store ptr %18, ptr %tqe_prev75, align 8
+  %tqe_prev75 = getelementptr inbounds i8, ptr %18, i64 8
+  store ptr %19, ptr %tqe_prev75, align 8
   br label %if.end80
 
 if.else76:                                        ; preds = %while.body62
-  store ptr %18, ptr %tqh_last, align 8
+  store ptr %19, ptr %tqh_last, align 8
   br label %if.end80
 
 if.end80:                                         ; preds = %if.else76, %if.then69
-  %19 = load ptr, ptr %16, align 8
-  store ptr %19, ptr %18, align 8
-  %evcon86 = getelementptr inbounds i8, ptr %16, i64 16
+  %20 = load ptr, ptr %17, align 8
+  store ptr %20, ptr %19, align 8
+  %evcon86 = getelementptr inbounds i8, ptr %17, i64 16
   store ptr null, ptr %evcon86, align 8
-  %cb = getelementptr inbounds i8, ptr %16, i64 160
-  %20 = load ptr, ptr %cb, align 8
-  %cb_arg = getelementptr inbounds i8, ptr %16, i64 168
-  %21 = load ptr, ptr %cb_arg, align 8
-  call void %20(ptr noundef nonnull %16, ptr noundef %21) #19
-  %flags.i = getelementptr inbounds i8, ptr %16, i64 24
-  %22 = load i32, ptr %flags.i, align 8
-  %and.i = and i32 %22, 4
+  %cb = getelementptr inbounds i8, ptr %17, i64 160
+  %21 = load ptr, ptr %cb, align 8
+  %cb_arg = getelementptr inbounds i8, ptr %17, i64 168
+  %22 = load ptr, ptr %cb_arg, align 8
+  call void %21(ptr noundef nonnull %17, ptr noundef %22) #19
+  %flags.i = getelementptr inbounds i8, ptr %17, i64 24
+  %23 = load i32, ptr %flags.i, align 8
+  %and.i = and i32 %23, 4
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %if.then.i, label %evhttp_request_free_auto.exit
 
 if.then.i:                                        ; preds = %if.end80
-  call void @evhttp_request_free(ptr noundef nonnull %16)
+  call void @evhttp_request_free(ptr noundef nonnull %17)
   br label %evhttp_request_free_auto.exit
 
 evhttp_request_free_auto.exit:                    ; preds = %if.end80, %if.then.i
-  %23 = load ptr, ptr %requests, align 8
-  %cmp61.not = icmp eq ptr %23, null
+  %24 = load ptr, ptr %requests, align 8
+  %cmp61.not = icmp eq ptr %24, null
   br i1 %cmp61.not, label %while.end87, label %while.body62, !llvm.loop !18
 
 while.end87:                                      ; preds = %evhttp_request_free_auto.exit
   %.pre48 = load ptr, ptr %requests25, align 8
-  %24 = icmp eq ptr %.pre48, null
-  br i1 %24, label %land.lhs.true, label %if.end92
+  %25 = icmp eq ptr %.pre48, null
+  br i1 %25, label %land.lhs.true, label %if.end92
 
 land.lhs.true:                                    ; preds = %do.body22, %while.cond59.preheader, %while.end87
   %flags = getelementptr inbounds i8, ptr %evcon, i64 200
-  %25 = load i32, ptr %flags, align 8
-  %and = and i32 %25, 1048576
+  %26 = load i32, ptr %flags, align 8
+  %and = and i32 %26, 1048576
   %tobool.not = icmp eq i32 %and, 0
   br i1 %tobool.not, label %if.end92, label %if.then91
 
@@ -11472,6 +11472,9 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.smin.i64(i64, i64) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #16

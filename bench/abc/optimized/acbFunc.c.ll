@@ -12091,13 +12091,12 @@ define ptr @Acb_DeriveOnePatchFunction(ptr nocapture noundef readonly %0, i32 no
   %7 = alloca i32, align 4
   %8 = getelementptr i8, ptr %4, i64 4
   %.val81 = load i32, ptr %8, align 4
-  %9 = add nsw i32 %.val81, 1
-  %10 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #29
-  %or.cond.i = icmp ult i32 %.val81, 15
-  %spec.store.select.i = select i1 %or.cond.i, i32 16, i32 %9
-  %11 = getelementptr inbounds i8, ptr %10, i64 4
+  %9 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #29
+  %10 = tail call i32 @llvm.umax.i32(i32 %.val81, i32 15)
+  %spec.store.select.i = add i32 %10, 1
+  %11 = getelementptr inbounds i8, ptr %9, i64 4
   store i32 0, ptr %11, align 4
-  store i32 %spec.store.select.i, ptr %10, align 8
+  store i32 %spec.store.select.i, ptr %9, align 8
   %.not.i = icmp eq i32 %spec.store.select.i, 0
   br i1 %.not.i, label %Vec_IntAlloc.exit, label %12
 
@@ -12109,7 +12108,7 @@ define ptr @Acb_DeriveOnePatchFunction(ptr nocapture noundef readonly %0, i32 no
 
 Vec_IntAlloc.exit:                                ; preds = %6, %12
   %16 = phi ptr [ %15, %12 ], [ null, %6 ]
-  %17 = getelementptr inbounds i8, ptr %10, i64 8
+  %17 = getelementptr inbounds i8, ptr %9, i64 8
   store ptr %16, ptr %17, align 8
   %calloc = tail call dereferenceable_or_null(16) ptr @calloc(i64 1, i64 16)
   %18 = getelementptr inbounds i8, ptr %calloc, i64 8
@@ -12200,7 +12199,7 @@ Vec_IntAlloc.exit:                                ; preds = %6, %12
   %58 = load i32, ptr %19, align 8
   %59 = sub i32 %1, %2
   %60 = add i32 %59, %58
-  %61 = call ptr @Acb_EnumerateSatAssigns(ptr noundef %23, i32 noundef %60, i32 noundef %58, ptr noundef nonnull %4, ptr noundef nonnull %10, ptr noundef nonnull %calloc)
+  %61 = call ptr @Acb_EnumerateSatAssigns(ptr noundef %23, i32 noundef %60, i32 noundef %58, ptr noundef nonnull %4, ptr noundef nonnull %9, ptr noundef nonnull %calloc)
   %62 = load ptr, ptr %17, align 8
   %.not.i90 = icmp eq ptr %62, null
   br i1 %.not.i90, label %Vec_IntFree.exit, label %63
@@ -12210,7 +12209,7 @@ Vec_IntAlloc.exit:                                ; preds = %6, %12
   br label %Vec_IntFree.exit
 
 Vec_IntFree.exit:                                 ; preds = %.critedge, %63
-  call void @free(ptr noundef nonnull %10) #31
+  call void @free(ptr noundef nonnull %9) #31
   %64 = load ptr, ptr %18, align 8
   %.not.i91 = icmp eq ptr %64, null
   br i1 %.not.i91, label %Vec_StrFree.exit, label %65

@@ -2431,22 +2431,22 @@ select.unfold.preheader:                          ; preds = %1
   br label %select.unfold
 
 select.unfold:                                    ; preds = %select.unfold.preheader, %select.unfold
-  %.047 = phi i32 [ %32, %select.unfold ], [ 0, %select.unfold.preheader ]
+  %.047 = phi i32 [ %31, %select.unfold ], [ 0, %select.unfold.preheader ]
   %.03646 = phi i32 [ %spec.select, %select.unfold ], [ %21, %select.unfold.preheader ]
-  %22 = icmp sgt i32 %.03646, 7
-  %23 = add nsw i32 %.03646, -8
-  %24 = sub nuw nsw i32 8, %.03646
-  %25 = shl nuw nsw i32 255, %24
-  %26 = trunc i32 %25 to i8
-  %.037 = select i1 %22, i8 -1, i8 %26
-  %27 = sext i32 %.047 to i64
-  %28 = getelementptr i8, ptr %14, i64 %27
-  %29 = load i8, ptr %28, align 1
-  %30 = and i8 %29, %.037
-  %31 = getelementptr i8, ptr %20, i64 %27
-  store i8 %30, ptr %31, align 1
-  %32 = add i32 %.047, 1
-  %spec.select = select i1 %22, i32 %23, i32 0
+  %22 = icmp ugt i32 %.03646, 7
+  %23 = sub nuw nsw i32 8, %.03646
+  %24 = shl nuw nsw i32 255, %23
+  %25 = trunc i32 %24 to i8
+  %.037 = select i1 %22, i8 -1, i8 %25
+  %26 = sext i32 %.047 to i64
+  %27 = getelementptr i8, ptr %14, i64 %26
+  %28 = load i8, ptr %27, align 1
+  %29 = and i8 %28, %.037
+  %30 = getelementptr i8, ptr %20, i64 %26
+  store i8 %29, ptr %30, align 1
+  %31 = add i32 %.047, 1
+  %32 = tail call i32 @llvm.smax.i32(i32 %.03646, i32 8)
+  %spec.select = add nsw i32 %32, -8
   %.not39 = icmp eq i32 %spec.select, 0
   br i1 %.not39, label %select.unfold._crit_edge.loopexit, label %select.unfold
 
@@ -2516,19 +2516,19 @@ select.unfold.preheader:                          ; preds = %1
   br label %select.unfold
 
 select.unfold:                                    ; preds = %select.unfold.preheader, %select.unfold
-  %.042 = phi i32 [ %28, %select.unfold ], [ 0, %select.unfold.preheader ]
+  %.042 = phi i32 [ %27, %select.unfold ], [ 0, %select.unfold.preheader ]
   %.03241 = phi i32 [ %spec.select, %select.unfold ], [ %20, %select.unfold.preheader ]
-  %21 = icmp sgt i32 %.03241, 7
-  %22 = add nsw i32 %.03241, -8
-  %23 = sub nuw nsw i32 8, %.03241
-  %24 = shl nuw nsw i32 255, %23
-  %25 = trunc i32 %24 to i8
-  %.031 = select i1 %21, i8 -1, i8 %25
-  %26 = sext i32 %.042 to i64
-  %27 = getelementptr i8, ptr %19, i64 %26
-  store i8 %.031, ptr %27, align 1
-  %28 = add i32 %.042, 1
-  %spec.select = select i1 %21, i32 %22, i32 0
+  %21 = icmp ugt i32 %.03241, 7
+  %22 = sub nuw nsw i32 8, %.03241
+  %23 = shl nuw nsw i32 255, %22
+  %24 = trunc i32 %23 to i8
+  %.031 = select i1 %21, i8 -1, i8 %24
+  %25 = sext i32 %.042 to i64
+  %26 = getelementptr i8, ptr %19, i64 %25
+  store i8 %.031, ptr %26, align 1
+  %27 = add i32 %.042, 1
+  %28 = tail call i32 @llvm.smax.i32(i32 %.03241, i32 8)
+  %spec.select = add nsw i32 %28, -8
   %.not34 = icmp eq i32 %spec.select, 0
   br i1 %.not34, label %select.unfold._crit_edge.loopexit, label %select.unfold
 
@@ -2604,19 +2604,19 @@ select.unfold.preheader:                          ; preds = %1
   br label %select.unfold
 
 select.unfold:                                    ; preds = %select.unfold.preheader, %select.unfold
-  %.049 = phi i32 [ %33, %select.unfold ], [ %25, %select.unfold.preheader ]
+  %.049 = phi i32 [ %32, %select.unfold ], [ %25, %select.unfold.preheader ]
   %.03948 = phi i32 [ %spec.select, %select.unfold ], [ %18, %select.unfold.preheader ]
   %26 = icmp sgt i32 %.03948, 7
-  %27 = add nsw i32 %.03948, -8
-  %28 = sub nsw i32 8, %.03948
-  %29 = lshr i32 255, %28
-  %30 = trunc nuw i32 %29 to i8
-  %.038 = select i1 %26, i8 -1, i8 %30
-  %31 = sext i32 %.049 to i64
-  %32 = getelementptr i8, ptr %24, i64 %31
-  store i8 %.038, ptr %32, align 1
-  %33 = add i32 %.049, -1
-  %spec.select = select i1 %26, i32 %27, i32 0
+  %27 = sub nsw i32 8, %.03948
+  %28 = lshr i32 255, %27
+  %29 = trunc nuw i32 %28 to i8
+  %.038 = select i1 %26, i8 -1, i8 %29
+  %30 = sext i32 %.049 to i64
+  %31 = getelementptr i8, ptr %24, i64 %30
+  store i8 %.038, ptr %31, align 1
+  %32 = add i32 %.049, -1
+  %33 = tail call i32 @llvm.smax.i32(i32 %.03948, i32 8)
+  %spec.select = add nsw i32 %33, -8
   %.not41 = icmp eq i32 %spec.select, 0
   br i1 %.not41, label %select.unfold._crit_edge.loopexit, label %select.unfold
 
@@ -3925,6 +3925,9 @@ declare i8 @llvm.umin.i8(i8, i8) #11
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #12
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.umax.i8(i8, i8) #11

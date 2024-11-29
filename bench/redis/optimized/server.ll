@@ -2633,11 +2633,10 @@ land.lhs.true:                                    ; preds = %if.end
   br i1 %cmp2, label %if.end21.thread32, label %if.else
 
 if.end21.thread32:                                ; preds = %land.lhs.true
-  %cmp5 = icmp samesign ult i64 %2, 1023
-  %add = add nuw nsw i64 %2, 1
-  %spec.select = select i1 %cmp5, i64 1024, i64 %add
-  %3 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 3552), align 8
-  %inc = add nsw i64 %3, 1
+  %3 = tail call i64 @llvm.umax.i64(i64 %2, i64 1023)
+  %spec.select = add nuw nsw i64 %3, 1
+  %4 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 3552), align 8
+  %inc = add nsw i64 %4, 1
   store i64 %inc, ptr getelementptr inbounds (i8, ptr @server, i64 3552), align 8
   br label %lor.rhs
 
@@ -2647,14 +2646,14 @@ if.else:                                          ; preds = %land.lhs.true, %if.
 
 land.lhs.true9:                                   ; preds = %if.else
   %buf_peak10 = getelementptr inbounds i8, ptr %c, i64 736
-  %4 = load i64, ptr %buf_peak10, align 8
-  %cmp12 = icmp eq i64 %4, %0
+  %5 = load i64, ptr %buf_peak10, align 8
+  %cmp12 = icmp eq i64 %5, %0
   br i1 %cmp12, label %if.end21, label %cond.end30
 
 if.end21:                                         ; preds = %land.lhs.true9
   %cond18 = tail call i64 @llvm.umin.i64(i64 %mul, i64 16384)
-  %5 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 3560), align 8
-  %inc19 = add nsw i64 %5, 1
+  %6 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 3560), align 8
+  %inc19 = add nsw i64 %6, 1
   store i64 %inc19, ptr getelementptr inbounds (i8, ptr @server, i64 3560), align 8
   %tobool22.not = icmp eq i64 %mul, 0
   br i1 %tobool22.not, label %cond.end30, label %lor.rhs
@@ -2662,8 +2661,8 @@ if.end21:                                         ; preds = %land.lhs.true9
 lor.rhs:                                          ; preds = %if.end21.thread32, %if.end21
   %new_buffer_size.035 = phi i64 [ %spec.select, %if.end21.thread32 ], [ %cond18, %if.end21 ]
   %bufpos = getelementptr inbounds i8, ptr %c, i64 752
-  %6 = load i32, ptr %bufpos, align 8
-  %conv = sext i32 %6 to i64
+  %7 = load i32, ptr %bufpos, align 8
+  %conv = sext i32 %7 to i64
   %cmp23.not = icmp ult i64 %new_buffer_size.035, %conv
   br i1 %cmp23.not, label %cond.false29, label %cond.end30
 
@@ -2675,21 +2674,21 @@ cond.false29:                                     ; preds = %lor.rhs
 cond.end30:                                       ; preds = %if.else, %land.lhs.true9, %if.end21, %lor.rhs
   %tobool22.not31 = phi i1 [ true, %if.end21 ], [ false, %lor.rhs ], [ true, %land.lhs.true9 ], [ true, %if.else ]
   %new_buffer_size.030 = phi i64 [ 0, %if.end21 ], [ %new_buffer_size.035, %lor.rhs ], [ 0, %land.lhs.true9 ], [ 0, %if.else ]
-  %7 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 5656), align 8
-  %cmp31 = icmp sgt i64 %7, -1
+  %8 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 5656), align 8
+  %cmp31 = icmp sgt i64 %8, -1
   br i1 %cmp31, label %land.lhs.true33, label %if.end41
 
 land.lhs.true33:                                  ; preds = %cond.end30
   %buf_peak_last_reset_time = getelementptr inbounds i8, ptr %c, i64 744
-  %8 = load i64, ptr %buf_peak_last_reset_time, align 8
-  %sub = sub nsw i64 %now_ms, %8
-  %cmp34.not = icmp slt i64 %sub, %7
+  %9 = load i64, ptr %buf_peak_last_reset_time, align 8
+  %sub = sub nsw i64 %now_ms, %9
+  %cmp34.not = icmp slt i64 %sub, %8
   br i1 %cmp34.not, label %if.end41, label %if.then36
 
 if.then36:                                        ; preds = %land.lhs.true33
   %bufpos37 = getelementptr inbounds i8, ptr %c, i64 752
-  %9 = load i32, ptr %bufpos37, align 8
-  %conv38 = sext i32 %9 to i64
+  %10 = load i32, ptr %bufpos37, align 8
+  %conv38 = sext i32 %10 to i64
   %buf_peak39 = getelementptr inbounds i8, ptr %c, i64 736
   store i64 %conv38, ptr %buf_peak39, align 8
   store i64 %now_ms, ptr %buf_peak_last_reset_time, align 8
@@ -2700,14 +2699,14 @@ if.end41:                                         ; preds = %if.then36, %land.lh
 
 if.then43:                                        ; preds = %if.end41
   %buf = getelementptr inbounds i8, ptr %c, i64 768
-  %10 = load ptr, ptr %buf, align 8
+  %11 = load ptr, ptr %buf, align 8
   %call = tail call ptr @zmalloc_usable(i64 noundef %new_buffer_size.030, ptr noundef nonnull %buf_usable_size) #40
   store ptr %call, ptr %buf, align 8
   %bufpos47 = getelementptr inbounds i8, ptr %c, i64 752
-  %11 = load i32, ptr %bufpos47, align 8
-  %conv48 = sext i32 %11 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call, ptr align 1 %10, i64 %conv48, i1 false)
-  tail call void @zfree(ptr noundef %10) #40
+  %12 = load i32, ptr %bufpos47, align 8
+  %conv48 = sext i32 %12 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call, ptr align 1 %11, i64 %conv48, i1 false)
+  tail call void @zfree(ptr noundef %11) #40
   br label %return
 
 return:                                           ; preds = %if.end41, %if.then43, %entry

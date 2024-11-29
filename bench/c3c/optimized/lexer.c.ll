@@ -525,7 +525,7 @@ skip.exit17.i.i:                                  ; preds = %76
   br label %.backedge.sink.split.i
 
 93:                                               ; preds = %.backedge.i
-  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.65, ptr noundef nonnull @.str.66, ptr noundef nonnull @__func__.skip_whitespace, ptr noundef nonnull @.str.67, i32 noundef 281) #9
+  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.65, ptr noundef nonnull @.str.66, ptr noundef nonnull @__func__.skip_whitespace, ptr noundef nonnull @.str.67, i32 noundef 281) #10
   unreachable
 
 skip_whitespace.exit:                             ; preds = %.backedge.i, %8, %11, %32, %85
@@ -1348,7 +1348,7 @@ define internal void @add_error_token_at_start(ptr nocapture noundef initializes
   %.sroa.0.0.insert.ext = zext i16 %6 to i64
   %.sroa.2.0.insert.insert = or disjoint i64 %.sroa.3.0.insert.insert, %.sroa.0.0.insert.ext
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.2.0.insert.insert, 65536
-  call void @sema_verror_range(i64 %.sroa.0.0.insert.insert, ptr noundef %1, ptr noundef nonnull %3) #10
+  call void @sema_verror_range(i64 %.sroa.0.0.insert.insert, ptr noundef %1, ptr noundef nonnull %3) #11
   call void @llvm.va_end.p0(ptr nonnull %3)
   %20 = getelementptr inbounds i8, ptr %0, i64 112
   store i32 0, ptr %20, align 8
@@ -1902,7 +1902,7 @@ define internal fastcc noundef zeroext i1 @scan_ident(ptr nocapture noundef %0, 
   br label %101
 
 58:                                               ; preds = %44
-  %59 = call ptr @symtab_add(ptr noundef %46, i32 noundef %50, i32 noundef %.2, ptr noundef nonnull %6) #10
+  %59 = call ptr @symtab_add(ptr noundef %46, i32 noundef %50, i32 noundef %.2, ptr noundef nonnull %6) #11
   %60 = load i32, ptr %6, align 4
   %cond = icmp eq i32 %60, 136
   br i1 %cond, label %61, label %65
@@ -2359,11 +2359,11 @@ match.exit115.thread:                             ; preds = %165
   %.091311702 = phi i32 [ %.091311744, %122 ], [ %.091.ph325, %.thread117 ], [ %.091311744, %93 ], [ %.091311744, %65 ], [ %.091311744, %.thread124.loopexit ]
   %.193 = phi i8 [ %123, %122 ], [ 10, %.thread117 ], [ %69, %93 ], [ %11, %65 ], [ %68, %.thread124.loopexit ]
   %170 = add nsw i32 %.091311702, 1
-  %171 = tail call { i64, i64 } @i128_shl64(i64 %.sroa.023.0.ph323, i64 %.sroa.6.0.ph321, i64 noundef 8) #10
+  %171 = tail call { i64, i64 } @i128_shl64(i64 %.sroa.023.0.ph323, i64 %.sroa.6.0.ph321, i64 noundef 8) #11
   %172 = extractvalue { i64, i64 } %171, 0
   %173 = extractvalue { i64, i64 } %171, 1
   %174 = zext i8 %.193 to i64
-  %175 = tail call { i64, i64 } @i128_add64(i64 %172, i64 %173, i64 noundef %174) #10
+  %175 = tail call { i64, i64 } @i128_add64(i64 %172, i64 %173, i64 noundef %174) #11
   %176 = extractvalue { i64, i64 } %175, 0
   %177 = extractvalue { i64, i64 } %175, 1
   %.promoted = load ptr, ptr %2, align 8
@@ -2514,7 +2514,7 @@ define internal fastcc noundef zeroext i1 @scan_raw_string(ptr nocapture noundef
   %23 = ptrtoint ptr %21 to i64
   %24 = add i64 %22, 1
   %25 = sub i64 %24, %23
-  %26 = tail call ptr @calloc_string(i64 noundef %25) #10
+  %26 = tail call ptr @calloc_string(i64 noundef %25) #11
   %27 = icmp ult ptr %21, %5
   br i1 %27, label %.lr.ph, label %._crit_edge
 
@@ -2649,7 +2649,7 @@ define internal fastcc noundef zeroext i1 @scan_string(ptr nocapture noundef %0)
   %14 = ptrtoint ptr %3 to i64
   %reass.sub = sub i64 %13, %14
   %15 = add i64 %reass.sub, 1
-  %16 = tail call ptr @calloc_string(i64 noundef %15) #10
+  %16 = tail call ptr @calloc_string(i64 noundef %15) #11
   %17 = load ptr, ptr %2, align 8
   %.not = icmp ult ptr %17, %12
   br i1 %.not, label %.lr.ph, label %._crit_edge
@@ -3233,7 +3233,7 @@ define internal void @add_error_token_at_current(ptr nocapture noundef initializ
   %.sroa.0.0.insert.ext = zext i16 %8 to i64
   %.sroa.2.0.insert.insert = or disjoint i64 %.sroa.3.0.insert.insert, %.sroa.0.0.insert.ext
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.2.0.insert.insert, 65536
-  call void @sema_verror_range(i64 %.sroa.0.0.insert.insert, ptr noundef %1, ptr noundef nonnull %3) #10
+  call void @sema_verror_range(i64 %.sroa.0.0.insert.insert, ptr noundef %1, ptr noundef nonnull %3) #11
   call void @llvm.va_end.p0(ptr nonnull %3)
   %20 = getelementptr inbounds i8, ptr %0, i64 112
   store i32 0, ptr %20, align 8
@@ -3463,7 +3463,7 @@ define internal fastcc noundef zeroext i1 @scan_hex_array(ptr nocapture noundef 
   ]
 
 39:                                               ; preds = %38
-  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.65, ptr noundef nonnull @.str.66, ptr noundef nonnull @__func__.char_is_whitespace, ptr noundef nonnull @.str.97, i32 noundef 581) #9
+  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.65, ptr noundef nonnull @.str.66, ptr noundef nonnull @__func__.char_is_whitespace, ptr noundef nonnull @.str.97, i32 noundef 581) #10
   unreachable
 
 40:                                               ; preds = %38
@@ -3724,7 +3724,7 @@ char_is_whitespace.exit.backedge:                 ; preds = %57, %57, %57
   br label %.outer
 
 62:                                               ; preds = %57
-  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.65, ptr noundef nonnull @.str.66, ptr noundef nonnull @__func__.char_is_whitespace, ptr noundef nonnull @.str.97, i32 noundef 581) #9
+  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.65, ptr noundef nonnull @.str.66, ptr noundef nonnull @__func__.char_is_whitespace, ptr noundef nonnull @.str.97, i32 noundef 581) #10
   unreachable
 
 63:                                               ; preds = %57
@@ -4758,7 +4758,7 @@ set_generic_token.exit:                           ; preds = %19, %30
   call void @llvm.va_start.p0(ptr nonnull %3)
   %41 = getelementptr inbounds i8, ptr %0, i64 104
   %42 = load i64, ptr %41, align 8
-  call void @sema_verror_range(i64 %42, ptr noundef %1, ptr noundef nonnull %3) #10
+  call void @sema_verror_range(i64 %42, ptr noundef %1, ptr noundef nonnull %3) #11
   call void @llvm.va_end.p0(ptr nonnull %3)
   ret void
 }
@@ -4829,84 +4829,83 @@ define internal void @add_error_token_at(ptr nocapture noundef initializes((64, 
   call void @llvm.va_start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds i8, ptr %0, i64 32
   %7 = load i32, ptr %6, align 8
-  %8 = icmp ugt i32 %2, 255
-  %9 = getelementptr inbounds i8, ptr %0, i64 56
-  %10 = load ptr, ptr %9, align 8
-  %11 = load i16, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 40
-  %13 = load ptr, ptr %12, align 8
-  %14 = ptrtoint ptr %1 to i64
-  %15 = ptrtoint ptr %13 to i64
-  %16 = sub i64 %14, %15
-  %17 = icmp sgt i64 %16, 254
+  %8 = getelementptr inbounds i8, ptr %0, i64 56
+  %9 = load ptr, ptr %8, align 8
+  %10 = load i16, ptr %9, align 8
+  %11 = getelementptr inbounds i8, ptr %0, i64 40
+  %12 = load ptr, ptr %11, align 8
+  %13 = ptrtoint ptr %1 to i64
+  %14 = ptrtoint ptr %12 to i64
+  %15 = sub i64 %13, %14
+  %16 = icmp sgt i64 %15, 254
   %.sroa.4.0.insert.ext = zext i32 %7 to i64
   %.sroa.4.0.insert.shift = shl nuw i64 %.sroa.4.0.insert.ext, 32
-  %18 = shl i64 %16, 24
-  %19 = add i64 %18, 16777216
-  %20 = and i64 %19, 4278190080
-  %.sroa.3.0.insert.shift = select i1 %17, i64 0, i64 %20
+  %17 = shl i64 %15, 24
+  %18 = add i64 %17, 16777216
+  %19 = and i64 %18, 4278190080
+  %.sroa.3.0.insert.shift = select i1 %16, i64 0, i64 %19
   %.sroa.3.0.insert.insert = or disjoint i64 %.sroa.3.0.insert.shift, %.sroa.4.0.insert.shift
-  %21 = shl nuw nsw i32 %2, 16
-  %22 = and i32 %21, 16711680
-  %23 = select i1 %8, i32 0, i32 %22
-  %.sroa.2.0.insert.shift = zext nneg i32 %23 to i64
+  %20 = call i32 @llvm.umin.i32(i32 %2, i32 256)
+  %narrow = shl nuw nsw i32 %20, 16
+  %21 = and i32 %narrow, 16711680
+  %.sroa.2.0.insert.shift = zext nneg i32 %21 to i64
   %.sroa.2.0.insert.insert = or disjoint i64 %.sroa.3.0.insert.insert, %.sroa.2.0.insert.shift
-  %.sroa.0.0.insert.ext = zext i16 %11 to i64
+  %.sroa.0.0.insert.ext = zext i16 %10 to i64
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.2.0.insert.insert, %.sroa.0.0.insert.ext
-  call void @sema_verror_range(i64 %.sroa.0.0.insert.insert, ptr noundef %3, ptr noundef nonnull %5) #10
+  call void @sema_verror_range(i64 %.sroa.0.0.insert.insert, ptr noundef %3, ptr noundef nonnull %5) #11
   call void @llvm.va_end.p0(ptr nonnull %5)
-  %24 = getelementptr inbounds i8, ptr %0, i64 112
-  store i32 0, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 24
+  %22 = getelementptr inbounds i8, ptr %0, i64 112
+  store i32 0, ptr %22, align 8
+  %23 = getelementptr inbounds i8, ptr %0, i64 24
+  %24 = load ptr, ptr %23, align 8
+  %25 = getelementptr inbounds i8, ptr %0, i64 16
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 16
-  %28 = load ptr, ptr %27, align 8
-  %29 = ptrtoint ptr %26 to i64
-  %30 = ptrtoint ptr %28 to i64
-  %31 = sub i64 %29, %30
-  %32 = getelementptr inbounds i8, ptr %0, i64 64
-  %33 = getelementptr inbounds i8, ptr %0, i64 72
-  store i64 %31, ptr %33, align 8
-  store ptr %28, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 36
-  %35 = load i32, ptr %34, align 4
-  %36 = load i32, ptr %6, align 8
-  %37 = icmp eq i32 %35, %36
-  br i1 %37, label %38, label %48
+  %27 = ptrtoint ptr %24 to i64
+  %28 = ptrtoint ptr %26 to i64
+  %29 = sub i64 %27, %28
+  %30 = getelementptr inbounds i8, ptr %0, i64 64
+  %31 = getelementptr inbounds i8, ptr %0, i64 72
+  store i64 %29, ptr %31, align 8
+  store ptr %26, ptr %30, align 8
+  %32 = getelementptr inbounds i8, ptr %0, i64 36
+  %33 = load i32, ptr %32, align 4
+  %34 = load i32, ptr %6, align 8
+  %35 = icmp eq i32 %33, %34
+  br i1 %35, label %36, label %46
 
-38:                                               ; preds = %4
-  %39 = load ptr, ptr %12, align 8
-  %40 = ptrtoint ptr %39 to i64
-  %41 = sub i64 %30, %40
-  %42 = icmp sgt i64 %41, 254
-  %43 = trunc i64 %41 to i8
-  %44 = add i8 %43, 1
-  %.0.i.i = select i1 %42, i8 0, i8 %44
-  %45 = icmp sgt i64 %31, 255
-  %46 = trunc i64 %31 to i8
-  %47 = select i1 %45, i8 0, i8 %46
+36:                                               ; preds = %4
+  %37 = load ptr, ptr %11, align 8
+  %38 = ptrtoint ptr %37 to i64
+  %39 = sub i64 %28, %38
+  %40 = icmp sgt i64 %39, 254
+  %41 = trunc i64 %39 to i8
+  %42 = add i8 %41, 1
+  %.0.i.i = select i1 %40, i8 0, i8 %42
+  %43 = icmp sgt i64 %29, 255
+  %44 = trunc i64 %29 to i8
+  %45 = select i1 %43, i8 0, i8 %44
   br label %set_generic_token.exit
 
-48:                                               ; preds = %4
-  %49 = getelementptr inbounds i8, ptr %0, i64 48
-  %50 = load ptr, ptr %49, align 8
-  %51 = ptrtoint ptr %50 to i64
-  %52 = sub i64 %30, %51
-  %53 = icmp sgt i64 %52, 254
-  %54 = trunc i64 %52 to i8
-  %55 = add i8 %54, 1
-  %.0.i26.i = select i1 %53, i8 0, i8 %55
+46:                                               ; preds = %4
+  %47 = getelementptr inbounds i8, ptr %0, i64 48
+  %48 = load ptr, ptr %47, align 8
+  %49 = ptrtoint ptr %48 to i64
+  %50 = sub i64 %28, %49
+  %51 = icmp sgt i64 %50, 254
+  %52 = trunc i64 %50 to i8
+  %53 = add i8 %52, 1
+  %.0.i26.i = select i1 %51, i8 0, i8 %53
   br label %set_generic_token.exit
 
-set_generic_token.exit:                           ; preds = %38, %48
-  %.024.in.i = phi i8 [ %.0.i.i, %38 ], [ %.0.i26.i, %48 ]
-  %.0.i9 = phi i8 [ %47, %38 ], [ 1, %48 ]
-  %56 = getelementptr inbounds i8, ptr %0, i64 106
-  store i8 %.0.i9, ptr %56, align 2
-  %57 = getelementptr inbounds i8, ptr %0, i64 107
-  store i8 %.024.in.i, ptr %57, align 1
-  %58 = getelementptr inbounds i8, ptr %0, i64 108
-  store i32 %35, ptr %58, align 4
+set_generic_token.exit:                           ; preds = %36, %46
+  %.024.in.i = phi i8 [ %.0.i.i, %36 ], [ %.0.i26.i, %46 ]
+  %.0.i9 = phi i8 [ %45, %36 ], [ 1, %46 ]
+  %54 = getelementptr inbounds i8, ptr %0, i64 106
+  store i8 %.0.i9, ptr %54, align 2
+  %55 = getelementptr inbounds i8, ptr %0, i64 107
+  store i8 %.024.in.i, ptr %55, align 1
+  %56 = getelementptr inbounds i8, ptr %0, i64 108
+  store i32 %33, ptr %56, align 4
   ret void
 }
 
@@ -5318,14 +5317,17 @@ define internal fastcc noundef zeroext i1 @char_is_alphanum_(i8 noundef signext 
   ret i1 %.0
 }
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #7
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #7
+declare void @llvm.experimental.noalias.scope.decl(metadata) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn }
@@ -5334,10 +5336,11 @@ attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #4 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #8 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { noreturn nounwind }
-attributes #10 = { nounwind }
+attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #9 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #10 = { noreturn nounwind }
+attributes #11 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
 

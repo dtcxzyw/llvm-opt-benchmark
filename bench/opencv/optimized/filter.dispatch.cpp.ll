@@ -9085,13 +9085,13 @@ _ZN2cv3PtrINS_16BaseColumnFilterEEaSERKS2_.exit:  ; preds = %_ZN2cv3PtrINS_13Bas
 188:                                              ; preds = %185
   %189 = landingpad { ptr, i32 }
           cleanup
-  br label %309
+  br label %308
 
 190:                                              ; preds = %186
   %191 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #26
-  br label %309
+  br label %308
 
 192:                                              ; preds = %_ZN2cv3PtrINS_16BaseColumnFilterEEaSERKS2_.exit
   %193 = load ptr, ptr %32, align 8
@@ -9123,13 +9123,13 @@ _ZN2cv3PtrINS_16BaseColumnFilterEEaSERKS2_.exit:  ; preds = %_ZN2cv3PtrINS_13Bas
 201:                                              ; preds = %198
   %202 = landingpad { ptr, i32 }
           cleanup
-  br label %309
+  br label %308
 
 203:                                              ; preds = %199
   %204 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #26
-  br label %309
+  br label %308
 
 205:                                              ; preds = %196
   %206 = getelementptr inbounds i8, ptr %195, i64 8
@@ -9175,13 +9175,13 @@ _ZN2cv3PtrINS_16BaseColumnFilterEEaSERKS2_.exit:  ; preds = %_ZN2cv3PtrINS_13Bas
 223:                                              ; preds = %220
   %224 = landingpad { ptr, i32 }
           cleanup
-  br label %309
+  br label %308
 
 225:                                              ; preds = %221
   %226 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #26
-  br label %309
+  br label %308
 
 227:                                              ; preds = %216
   %228 = getelementptr inbounds i8, ptr %193, i64 8
@@ -9231,13 +9231,13 @@ _ZN2cv3PtrINS_16BaseColumnFilterEEaSERKS2_.exit:  ; preds = %_ZN2cv3PtrINS_13Bas
 253:                                              ; preds = %250
   %254 = landingpad { ptr, i32 }
           cleanup
-  br label %309
+  br label %308
 
 255:                                              ; preds = %251
   %256 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #26
-  br label %309
+  br label %308
 
 257:                                              ; preds = %247
   %258 = load i32, ptr %22, align 8
@@ -9301,7 +9301,7 @@ _ZNSt6vectorIhSaIhEE5clearEv.exit:                ; preds = %_ZNSt6vectorIiSaIiE
   %291 = load i32, ptr %184, align 4
   %292 = icmp eq i32 %291, 0
   %or.cond44 = select i1 %290, i1 true, i1 %292
-  br i1 %or.cond44, label %293, label %307
+  br i1 %or.cond44, label %293, label %306
 
 293:                                              ; preds = %_ZNSt6vectorIhSaIhEE5clearEv.exit
   %294 = getelementptr inbounds i8, ptr %0, i64 160
@@ -9312,22 +9312,21 @@ _ZNSt6vectorIhSaIhEE5clearEv.exit:                ; preds = %_ZNSt6vectorIiSaIiE
   %298 = and i32 %297, 7
   %299 = lshr i32 %297, 3
   %300 = and i32 %299, 511
-  %301 = icmp samesign ugt i32 %300, 3
-  %302 = shl nuw nsw i32 %300, 3
-  %spec.select45 = select i1 %301, i32 24, i32 %302
-  %303 = or disjoint i32 %spec.select45, %298
-  %304 = load ptr, ptr %294, align 8
-  %305 = add nuw nsw i32 %300, 1
-  %306 = mul nsw i32 %305, %.sroa.speculated
-  tail call void @_ZN2cv15scalarToRawDataERKNS_7Scalar_IdEEPvii(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull %304, i32 noundef %303, i32 noundef %306)
-  br label %307
+  %301 = tail call i32 @llvm.umin.i32(i32 %300, i32 3)
+  %spec.select45 = shl nuw nsw i32 %301, 3
+  %302 = or disjoint i32 %spec.select45, %298
+  %303 = load ptr, ptr %294, align 8
+  %304 = add nuw nsw i32 %300, 1
+  %305 = mul nsw i32 %304, %.sroa.speculated
+  tail call void @_ZN2cv15scalarToRawDataERKNS_7Scalar_IdEEPvii(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull %303, i32 noundef %302, i32 noundef %305)
+  br label %306
 
-307:                                              ; preds = %_ZNSt6vectorIhSaIhEE5clearEv.exit, %293
-  %308 = getelementptr inbounds i8, ptr %0, i64 40
-  store i64 -1, ptr %308, align 8
+306:                                              ; preds = %_ZNSt6vectorIhSaIhEE5clearEv.exit, %293
+  %307 = getelementptr inbounds i8, ptr %0, i64 40
+  store i64 -1, ptr %307, align 8
   ret void
 
-309:                                              ; preds = %253, %255, %223, %225, %201, %203, %188, %190
+308:                                              ; preds = %253, %255, %223, %225, %201, %203, %188, %190
   %.sink = phi ptr [ %12, %190 ], [ %12, %188 ], [ %14, %203 ], [ %14, %201 ], [ %16, %225 ], [ %16, %223 ], [ %18, %255 ], [ %18, %253 ]
   %.pn37.pn = phi { ptr, i32 } [ %191, %190 ], [ %189, %188 ], [ %204, %203 ], [ %202, %201 ], [ %226, %225 ], [ %224, %223 ], [ %256, %255 ], [ %254, %253 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink) #26

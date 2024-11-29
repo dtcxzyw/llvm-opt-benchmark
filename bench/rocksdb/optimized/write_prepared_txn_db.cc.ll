@@ -5388,51 +5388,50 @@ entry:
   %ref.tmp.i = alloca %"class.std::function", align 8
   %COMMIT_CACHE_SIZE = getelementptr inbounds i8, ptr %this, i64 776
   %0 = load i64, ptr %COMMIT_CACHE_SIZE, align 8
-  %div = udiv i64 %0, 100
-  %cmp.i = icmp ult i64 %0, 100
-  %.sroa.speculated = select i1 %cmp.i, i64 1, i64 %div
+  %1 = tail call i64 @llvm.umax.i64(i64 %0, i64 100)
+  %.sroa.speculated = udiv i64 %1, 100
   %INC_STEP_FOR_MAX_EVICTED = getelementptr inbounds i8, ptr %this, i64 856
   store i64 %.sroa.speculated, ptr %INC_STEP_FOR_MAX_EVICTED, align 8
   %SNAPSHOT_CACHE_SIZE = getelementptr inbounds i8, ptr %this, i64 528
-  %1 = load i64, ptr %SNAPSHOT_CACHE_SIZE, align 8
-  %2 = icmp ugt i64 %1, 2305843009213693951
-  %3 = shl i64 %1, 3
-  %4 = select i1 %2, i64 -1, i64 %3
-  %call4 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %4) #27
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %call4, i8 0, i64 %4, i1 false)
+  %2 = load i64, ptr %SNAPSHOT_CACHE_SIZE, align 8
+  %3 = icmp ugt i64 %2, 2305843009213693951
+  %4 = shl i64 %2, 3
+  %5 = select i1 %3, i64 -1, i64 %4
+  %call4 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %5) #27
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %call4, i8 0, i64 %5, i1 false)
   %snapshot_cache_ = getelementptr inbounds i8, ptr %this, i64 536
-  %5 = load ptr, ptr %snapshot_cache_, align 8
+  %6 = load ptr, ptr %snapshot_cache_, align 8
   store ptr %call4, ptr %snapshot_cache_, align 8
-  %tobool.not.i.i.i.i = icmp eq ptr %5, null
+  %tobool.not.i.i.i.i = icmp eq ptr %6, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt10unique_ptrIA_St6atomicImESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIA_St6atomicImEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i
 
 _ZNKSt14default_deleteIA_St6atomicImEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i: ; preds = %entry
-  tail call void @_ZdaPv(ptr noundef nonnull %5) #24
+  tail call void @_ZdaPv(ptr noundef nonnull %6) #24
   %.pre = load i64, ptr %COMMIT_CACHE_SIZE, align 8
   br label %_ZNSt10unique_ptrIA_St6atomicImESt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrIA_St6atomicImESt14default_deleteIS2_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIA_St6atomicImEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i, %entry
-  %6 = phi i64 [ %.pre, %_ZNKSt14default_deleteIA_St6atomicImEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i ], [ %0, %entry ]
-  %7 = icmp ugt i64 %6, 2305843009213693951
-  %8 = shl i64 %6, 3
-  %9 = select i1 %7, i64 -1, i64 %8
-  %call8 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %9) #27
-  %isempty = icmp eq i64 %6, 0
+  %7 = phi i64 [ %.pre, %_ZNKSt14default_deleteIA_St6atomicImEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i ], [ %0, %entry ]
+  %8 = icmp ugt i64 %7, 2305843009213693951
+  %9 = shl i64 %7, 3
+  %10 = select i1 %8, i64 -1, i64 %9
+  %call8 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %10) #27
+  %isempty = icmp eq i64 %7, 0
   br i1 %isempty, label %arrayctor.cont, label %new.ctorloop
 
 new.ctorloop:                                     ; preds = %_ZNSt10unique_ptrIA_St6atomicImESt14default_deleteIS2_EED2Ev.exit
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %call8, i8 0, i64 %8, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %call8, i8 0, i64 %9, i1 false)
   br label %arrayctor.cont
 
 arrayctor.cont:                                   ; preds = %new.ctorloop, %_ZNSt10unique_ptrIA_St6atomicImESt14default_deleteIS2_EED2Ev.exit
   %commit_cache_ = getelementptr inbounds i8, ptr %this, i64 832
-  %10 = load ptr, ptr %commit_cache_, align 8
+  %11 = load ptr, ptr %commit_cache_, align 8
   store ptr %call8, ptr %commit_cache_, align 8
-  %tobool.not.i.i.i.i1 = icmp eq ptr %10, null
+  %tobool.not.i.i.i.i1 = icmp eq ptr %11, null
   br i1 %tobool.not.i.i.i.i1, label %_ZNSt10unique_ptrIA_St6atomicIN7rocksdb18WritePreparedTxnDB14CommitEntry64bEESt14default_deleteIS5_EED2Ev.exit, label %_ZNKSt14default_deleteIA_St6atomicIN7rocksdb18WritePreparedTxnDB14CommitEntry64bEEEclIS4_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS5_EE5valueEvE4typeEPS9_.exit.i.i.i.i
 
 _ZNKSt14default_deleteIA_St6atomicIN7rocksdb18WritePreparedTxnDB14CommitEntry64bEEEclIS4_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS5_EE5valueEvE4typeEPS9_.exit.i.i.i.i: ; preds = %arrayctor.cont
-  tail call void @_ZdaPv(ptr noundef nonnull %10) #24
+  tail call void @_ZdaPv(ptr noundef nonnull %11) #24
   br label %_ZNSt10unique_ptrIA_St6atomicIN7rocksdb18WritePreparedTxnDB14CommitEntry64bEESt14default_deleteIS5_EED2Ev.exit
 
 _ZNSt10unique_ptrIA_St6atomicIN7rocksdb18WritePreparedTxnDB14CommitEntry64bEESt14default_deleteIS5_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIA_St6atomicIN7rocksdb18WritePreparedTxnDB14CommitEntry64bEEEclIS4_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS5_EE5valueEvE4typeEPS9_.exit.i.i.i.i, %arrayctor.cont
@@ -5444,70 +5443,70 @@ _ZNSt10unique_ptrIA_St6atomicIN7rocksdb18WritePreparedTxnDB14CommitEntry64bEESt1
   %_M_invoker.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
   %_M_manager.i.i.i.i = getelementptr inbounds i8, ptr %txn_db_opts, i64 112
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, i8 0, i64 32, i1 false)
-  %11 = load ptr, ptr %_M_manager.i.i.i.i, align 8
-  %tobool.not.i.i.not.i.i = icmp eq ptr %11, null
+  %12 = load ptr, ptr %_M_manager.i.i.i.i, align 8
+  %tobool.not.i.i.not.i.i = icmp eq ptr %12, null
   br i1 %tobool.not.i.i.not.i.i, label %_ZNSt8functionIFbPN7rocksdb13TransactionDBEPNS0_18ColumnFamilyHandleERKNS0_5SliceEEEC2ERKS9_.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZNSt10unique_ptrIA_St6atomicIN7rocksdb18WritePreparedTxnDB14CommitEntry64bEESt14default_deleteIS5_EED2Ev.exit
   %rollback_deletion_type_callback = getelementptr inbounds i8, ptr %txn_db_opts, i64 96
-  %call3.i.i = invoke noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %rollback_deletion_type_callback, i32 noundef 2)
+  %call3.i.i = invoke noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %rollback_deletion_type_callback, i32 noundef 2)
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
 invoke.cont.i.i:                                  ; preds = %if.then.i.i
   %_M_invoker4.i.i = getelementptr inbounds i8, ptr %txn_db_opts, i64 120
-  %12 = load ptr, ptr %_M_invoker4.i.i, align 8
-  %13 = load ptr, ptr %_M_manager.i.i.i.i, align 8
+  %13 = load ptr, ptr %_M_invoker4.i.i, align 8
+  %14 = load ptr, ptr %_M_manager.i.i.i.i, align 8
   br label %_ZNSt8functionIFbPN7rocksdb13TransactionDBEPNS0_18ColumnFamilyHandleERKNS0_5SliceEEEC2ERKS9_.exit.i
 
 lpad.i.i:                                         ; preds = %if.then.i.i
-  %14 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           cleanup
-  %15 = load ptr, ptr %_M_manager.i.i.i, align 8
-  %tobool.not.i.i.i = icmp eq ptr %15, null
+  %16 = load ptr, ptr %_M_manager.i.i.i, align 8
+  %tobool.not.i.i.i = icmp eq ptr %16, null
   br i1 %tobool.not.i.i.i, label %_ZNSt14_Function_baseD2Ev.exit.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %lpad.i.i
-  %call.i.i.i = invoke noundef zeroext i1 %15(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, i32 noundef 3)
+  %call.i.i.i = invoke noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, i32 noundef 3)
           to label %_ZNSt14_Function_baseD2Ev.exit.i.i unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
-  %16 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           catch ptr null
-  %17 = extractvalue { ptr, i32 } %16, 0
-  call void @__clang_call_terminate(ptr %17) #29
+  %18 = extractvalue { ptr, i32 } %17, 0
+  call void @__clang_call_terminate(ptr %18) #29
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit.i.i:               ; preds = %if.then.i.i.i, %lpad.i.i
-  resume { ptr, i32 } %14
+  resume { ptr, i32 } %15
 
 _ZNSt8functionIFbPN7rocksdb13TransactionDBEPNS0_18ColumnFamilyHandleERKNS0_5SliceEEEC2ERKS9_.exit.i: ; preds = %invoke.cont.i.i, %_ZNSt10unique_ptrIA_St6atomicIN7rocksdb18WritePreparedTxnDB14CommitEntry64bEESt14default_deleteIS5_EED2Ev.exit
-  %18 = phi ptr [ null, %_ZNSt10unique_ptrIA_St6atomicIN7rocksdb18WritePreparedTxnDB14CommitEntry64bEESt14default_deleteIS5_EED2Ev.exit ], [ %12, %invoke.cont.i.i ]
   %19 = phi ptr [ null, %_ZNSt10unique_ptrIA_St6atomicIN7rocksdb18WritePreparedTxnDB14CommitEntry64bEESt14default_deleteIS5_EED2Ev.exit ], [ %13, %invoke.cont.i.i ]
+  %20 = phi ptr [ null, %_ZNSt10unique_ptrIA_St6atomicIN7rocksdb18WritePreparedTxnDB14CommitEntry64bEESt14default_deleteIS5_EED2Ev.exit ], [ %14, %invoke.cont.i.i ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %rollback_deletion_type_callback_, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %rollback_deletion_type_callback_, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
   %_M_manager3.i.i = getelementptr inbounds i8, ptr %this, i64 496
-  %20 = load ptr, ptr %_M_manager3.i.i, align 8
-  store ptr %20, ptr %_M_manager.i.i.i, align 8
-  store ptr %19, ptr %_M_manager3.i.i, align 8
+  %21 = load ptr, ptr %_M_manager3.i.i, align 8
+  store ptr %21, ptr %_M_manager.i.i.i, align 8
+  store ptr %20, ptr %_M_manager3.i.i, align 8
   %_M_invoker4.i2.i = getelementptr inbounds i8, ptr %this, i64 504
-  %21 = load ptr, ptr %_M_invoker4.i2.i, align 8
-  store ptr %21, ptr %_M_invoker.i.i, align 8
-  store ptr %18, ptr %_M_invoker4.i2.i, align 8
-  %tobool.not.i.i4.i = icmp eq ptr %20, null
+  %22 = load ptr, ptr %_M_invoker4.i2.i, align 8
+  store ptr %22, ptr %_M_invoker.i.i, align 8
+  store ptr %19, ptr %_M_invoker4.i2.i, align 8
+  %tobool.not.i.i4.i = icmp eq ptr %21, null
   br i1 %tobool.not.i.i4.i, label %_ZNSt8functionIFbPN7rocksdb13TransactionDBEPNS0_18ColumnFamilyHandleERKNS0_5SliceEEEaSERKS9_.exit, label %if.then.i.i5.i
 
 if.then.i.i5.i:                                   ; preds = %_ZNSt8functionIFbPN7rocksdb13TransactionDBEPNS0_18ColumnFamilyHandleERKNS0_5SliceEEEC2ERKS9_.exit.i
-  %call.i.i6.i = invoke noundef zeroext i1 %20(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, i32 noundef 3)
+  %call.i.i6.i = invoke noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, i32 noundef 3)
           to label %_ZNSt8functionIFbPN7rocksdb13TransactionDBEPNS0_18ColumnFamilyHandleERKNS0_5SliceEEEaSERKS9_.exit unwind label %terminate.lpad.i.i7.i
 
 terminate.lpad.i.i7.i:                            ; preds = %if.then.i.i5.i
-  %22 = landingpad { ptr, i32 }
+  %23 = landingpad { ptr, i32 }
           catch ptr null
-  %23 = extractvalue { ptr, i32 } %22, 0
-  call void @__clang_call_terminate(ptr %23) #29
+  %24 = extractvalue { ptr, i32 } %23, 0
+  call void @__clang_call_terminate(ptr %24) #29
   unreachable
 
 _ZNSt8functionIFbPN7rocksdb13TransactionDBEPNS0_18ColumnFamilyHandleERKNS0_5SliceEEEaSERKS9_.exit: ; preds = %_ZNSt8functionIFbPN7rocksdb13TransactionDBEPNS0_18ColumnFamilyHandleERKNS0_5SliceEEEC2ERKS9_.exit.i, %if.then.i.i5.i

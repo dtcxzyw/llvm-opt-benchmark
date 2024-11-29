@@ -1320,9 +1320,8 @@ define noundef zeroext i1 @_ZNK10open_spiel9blackjack14BlackjackState17InitialCa
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef range(i32 -11, 11) i32 @_ZNK10open_spiel9blackjack14BlackjackState9CardValueEi(ptr nocapture noundef nonnull readnone align 8 dereferenceable(200) %0, i32 noundef %1) local_unnamed_addr #9 align 2 {
   %3 = srem i32 %1, 13
-  %4 = icmp slt i32 %3, 10
-  %5 = add nsw i32 %3, 1
-  %spec.select = select i1 %4, i32 %5, i32 10
+  %4 = tail call i32 @llvm.smin.i32(i32 %3, i32 9)
+  %spec.select = add nsw i32 %4, 1
   ret i32 %spec.select
 }
 
@@ -1576,17 +1575,30 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIP
 
 _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %78, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i
   %104 = srem i32 %2, 13
-  %105 = icmp slt i32 %104, 10
-  %106 = add nsw i32 %104, 1
-  %spec.select.i = select i1 %105, i32 %106, i32 10
-  %107 = icmp eq i32 %spec.select.i, 1
-  %. = select i1 %107, i64 104, i64 80
-  %108 = getelementptr inbounds nuw i8, ptr %0, i64 %.
-  %109 = load ptr, ptr %108, align 8
-  %110 = getelementptr inbounds i32, ptr %109, i64 %71
-  %111 = load i32, ptr %110, align 4
-  %112 = add nsw i32 %111, %spec.select.i
-  store i32 %112, ptr %110, align 4
+  %105 = icmp eq i32 %104, 0
+  br i1 %105, label %106, label %112
+
+106:                                              ; preds = %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %108 = load ptr, ptr %107, align 8
+  %109 = getelementptr inbounds i32, ptr %108, i64 %71
+  %110 = load i32, ptr %109, align 4
+  %111 = add nsw i32 %110, 1
+  store i32 %111, ptr %109, align 4
+  br label %119
+
+112:                                              ; preds = %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
+  %113 = tail call i32 @llvm.smin.i32(i32 %104, i32 9)
+  %spec.select.i = add nsw i32 %113, 1
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %115 = load ptr, ptr %114, align 8
+  %116 = getelementptr inbounds i32, ptr %115, i64 %71
+  %117 = load i32, ptr %116, align 4
+  %118 = add nsw i32 %spec.select.i, %117
+  store i32 %118, ptr %116, align 4
+  br label %119
+
+119:                                              ; preds = %112, %106
   ret void
 }
 
@@ -8631,6 +8643,9 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #22
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #22

@@ -2291,7 +2291,7 @@ define range(i32 -1, 1) i32 @filter_search_ext(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define range(i64 -8, -10) i64 @filter_search(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #6 {
+define range(i64 -1, -10) i64 @filter_search(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #6 {
   %4 = getelementptr inbounds i8, ptr %0, i64 65536
   %5 = icmp ult i64 %2, 2
   br i1 %5, label %.loopexit, label %.lr.ph.preheader
@@ -2300,9 +2300,9 @@ define range(i64 -8, -10) i64 @filter_search(ptr nocapture noundef readonly %0, 
   %6 = add i64 %2, -2
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %21
-  %.01722 = phi i64 [ %22, %21 ], [ 0, %.lr.ph.preheader ]
-  %.01821 = phi i8 [ %13, %21 ], [ -1, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %20
+  %.01722 = phi i64 [ %21, %20 ], [ 0, %.lr.ph.preheader ]
+  %.01821 = phi i8 [ %13, %20 ], [ -1, %.lr.ph.preheader ]
   %7 = getelementptr inbounds i8, ptr %1, i64 %.01722
   %8 = load i16, ptr %7, align 1
   %9 = shl i8 %.01821, 1
@@ -2314,21 +2314,20 @@ define range(i64 -8, -10) i64 @filter_search(ptr nocapture noundef readonly %0, 
   %15 = load i8, ptr %14, align 1
   %16 = or i8 %15, %13
   %.not = icmp eq i8 %16, -1
-  br i1 %.not, label %21, label %17
+  br i1 %.not, label %20, label %17
 
 17:                                               ; preds = %.lr.ph
-  %18 = icmp ugt i64 %.01722, 7
-  %19 = add i64 %.01722, -8
-  %20 = select i1 %18, i64 %19, i64 0
+  %18 = tail call i64 @llvm.umax.i64(i64 %.01722, i64 8)
+  %19 = add i64 %18, -8
   br label %.loopexit
 
-21:                                               ; preds = %.lr.ph
-  %22 = add nuw i64 %.01722, 1
+20:                                               ; preds = %.lr.ph
+  %21 = add nuw i64 %.01722, 1
   %exitcond.not = icmp eq i64 %.01722, %6
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph
 
-.loopexit:                                        ; preds = %21, %3, %17
-  %.0 = phi i64 [ %20, %17 ], [ -1, %3 ], [ -1, %21 ]
+.loopexit:                                        ; preds = %20, %3, %17
+  %.0 = phi i64 [ %19, %17 ], [ -1, %3 ], [ -1, %20 ]
   ret i64 %.0
 }
 
@@ -2337,6 +2336,9 @@ declare i64 @llvm.umin.i64(i64, i64) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #7
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #7

@@ -25857,31 +25857,29 @@ define hidden void @_ZN12futures_util6stream6stream9StreamExt15poll_next_unpin17
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4), !noalias !7539
   call void @"_ZN87_$LT$postage..channels..watch..Receiver$LT$T$GT$$u20$as$u20$postage..stream..Stream$GT$9poll_recv17h94ea445e73064e57E.llvm.21470575066294111"(ptr noalias nocapture noundef nonnull sret([40 x i8]) align 8 dereferenceable(40) %4, ptr noalias noundef nonnull align 8 dereferenceable(16) %1, ptr noalias noundef nonnull align 8 dereferenceable(8) %5), !noalias !7542
   %7 = load i64, ptr %4, align 8, !range !802, !noalias !7539, !noundef !5
-  %.not.i = icmp samesign ult i64 %7, 2
-  %8 = add nsw i64 %7, -1
-  %9 = select i1 %.not.i, i64 0, i64 %8
-  switch i64 %9, label %10 [
-    i64 0, label %11
-    i64 1, label %12
-    i64 2, label %13
+  %8 = call i64 @llvm.umax.i64(i64 %7, i64 1)
+  switch i64 %8, label %default.unreachable [
+    i64 1, label %9
+    i64 2, label %10
+    i64 3, label %11
   ]
 
-10:                                               ; preds = %3
+default.unreachable:                              ; preds = %3
   unreachable
 
-11:                                               ; preds = %3
+9:                                                ; preds = %3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false), !noalias !7543
   br label %"_ZN7postage7futures102_$LT$impl$u20$futures_core..stream..Stream$u20$for$u20$postage..channels..watch..Receiver$LT$T$GT$$GT$9poll_next17h7cfce5ab6db93d39E.llvm.21470575066294111.exit"
 
-12:                                               ; preds = %3
+10:                                               ; preds = %3
   store i64 3, ptr %0, align 8, !alias.scope !7534, !noalias !7543
   br label %"_ZN7postage7futures102_$LT$impl$u20$futures_core..stream..Stream$u20$for$u20$postage..channels..watch..Receiver$LT$T$GT$$GT$9poll_next17h7cfce5ab6db93d39E.llvm.21470575066294111.exit"
 
-13:                                               ; preds = %3
+11:                                               ; preds = %3
   store i64 2, ptr %0, align 8, !alias.scope !7534, !noalias !7543
   br label %"_ZN7postage7futures102_$LT$impl$u20$futures_core..stream..Stream$u20$for$u20$postage..channels..watch..Receiver$LT$T$GT$$GT$9poll_next17h7cfce5ab6db93d39E.llvm.21470575066294111.exit"
 
-"_ZN7postage7futures102_$LT$impl$u20$futures_core..stream..Stream$u20$for$u20$postage..channels..watch..Receiver$LT$T$GT$$GT$9poll_next17h7cfce5ab6db93d39E.llvm.21470575066294111.exit": ; preds = %11, %12, %13
+"_ZN7postage7futures102_$LT$impl$u20$futures_core..stream..Stream$u20$for$u20$postage..channels..watch..Receiver$LT$T$GT$$GT$9poll_next17h7cfce5ab6db93d39E.llvm.21470575066294111.exit": ; preds = %9, %10, %11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4), !noalias !7539
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !7539
   ret void
@@ -112335,31 +112333,29 @@ define hidden void @"_ZN7postage7futures102_$LT$impl$u20$futures_core..stream..S
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
   call void @"_ZN87_$LT$postage..channels..watch..Receiver$LT$T$GT$$u20$as$u20$postage..stream..Stream$GT$9poll_recv17h94ea445e73064e57E.llvm.21470575066294111"(ptr noalias nocapture noundef nonnull sret([40 x i8]) align 8 dereferenceable(40) %4, ptr noalias noundef nonnull align 8 dereferenceable(16) %1, ptr noalias noundef nonnull align 8 dereferenceable(8) %5)
   %7 = load i64, ptr %4, align 8, !range !802, !noundef !5
-  %.not = icmp samesign ult i64 %7, 2
-  %8 = add nsw i64 %7, -1
-  %9 = select i1 %.not, i64 0, i64 %8
-  switch i64 %9, label %10 [
-    i64 0, label %11
-    i64 1, label %12
-    i64 2, label %13
+  %8 = call i64 @llvm.umax.i64(i64 %7, i64 1)
+  switch i64 %8, label %default.unreachable [
+    i64 1, label %9
+    i64 2, label %10
+    i64 3, label %11
   ]
 
-10:                                               ; preds = %3
+default.unreachable:                              ; preds = %3
   unreachable
 
-11:                                               ; preds = %3
+9:                                                ; preds = %3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false)
-  br label %14
+  br label %12
 
-12:                                               ; preds = %3
+10:                                               ; preds = %3
   store i64 3, ptr %0, align 8
-  br label %14
+  br label %12
 
-13:                                               ; preds = %3
+11:                                               ; preds = %3
   store i64 2, ptr %0, align 8
-  br label %14
+  br label %12
 
-14:                                               ; preds = %13, %12, %11
+12:                                               ; preds = %11, %10, %9
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   ret void
@@ -171792,14 +171788,14 @@ declare double @llvm.fabs.f64(double) #58
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.ucmp.i8.i64(i64, i64) #58
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #58
+
 ; Function Attrs: nofree nounwind nonlazybind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #59
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #60
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #58
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

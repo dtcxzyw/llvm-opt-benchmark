@@ -3816,9 +3816,8 @@ if.then13:                                        ; preds = %mi_heap_malloc.exit
   br i1 %or.cond25, label %if.then19, label %if.else
 
 if.then19:                                        ; preds = %if.then13
-  %cmp20 = icmp ugt i64 %retval.0.i35, 7
-  %sub = add nsw i64 %retval.0.i35, -8
-  %cond = select i1 %cmp20, i64 %sub, i64 0
+  %16 = tail call i64 @llvm.umax.i64(i64 %retval.0.i35, i64 8)
+  %cond = add i64 %16, -8
   %add.ptr = getelementptr i8, ptr %retval.0.i.i.i29, i64 %cond
   %sub22 = sub i64 %newsize, %cond
   tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr, i8 0, i64 %sub22, i1 false)
@@ -5588,9 +5587,8 @@ if.then14:                                        ; preds = %if.else
   br i1 %or.cond, label %if.then18, label %if.end22
 
 if.then18:                                        ; preds = %if.then14
-  %cmp19 = icmp ugt i64 %retval.0.i.i, 7
-  %sub20 = add nsw i64 %retval.0.i.i, -8
-  %cond = select i1 %cmp19, i64 %sub20, i64 0
+  %10 = tail call i64 @llvm.umax.i64(i64 %retval.0.i.i, i64 8)
+  %cond = add i64 %10, -8
   %add.ptr = getelementptr i8, ptr %call.i, i64 %cond
   %sub21 = sub i64 %newsize, %cond
   tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr, i8 0, i64 %sub21, i1 false)
@@ -6194,13 +6192,13 @@ if.end.i.i:                                       ; preds = %entry
   %cmp.i.i.i = icmp ugt i64 %sub.i.i.i, 43980465111039
   %div4.i.i.i = lshr i64 %sub.i.i.i, 25
   %rem.i.i.i = and i64 %div4.i.i.i, 63
-  %div15.i.i.i = lshr i64 %sub.i.i.i, 31
   %rem.sink.i.i.i = select i1 %cmp.i.i.i, i64 0, i64 %rem.i.i.i
-  %retval.0.i.i.i = select i1 %cmp.i.i.i, i64 20480, i64 %div15.i.i.i
+  %2 = tail call i64 @llvm.umin.i64(i64 %sub.i.i.i, i64 43980465111040)
+  %retval.0.i.i.i = lshr i64 %2, 31
   %arrayidx.i.i = getelementptr [20481 x i64], ptr @mi_segment_map, i64 0, i64 %retval.0.i.i.i
-  %2 = load atomic i64, ptr %arrayidx.i.i monotonic, align 8
+  %3 = load atomic i64, ptr %arrayidx.i.i monotonic, align 8
   %shl.i.i = shl nuw i64 1, %rem.sink.i.i.i
-  %and.i.i = and i64 %2, %shl.i.i
+  %and.i.i = and i64 %3, %shl.i.i
   %cmp2.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %cmp2.not.i.i, label %if.end5.i.i, label %_mi_segment_of.exit.i
 
@@ -6210,54 +6208,54 @@ if.end5.i.i:                                      ; preds = %if.end.i.i
 
 if.end9.i.i:                                      ; preds = %if.end5.i.i
   %sub.i.i = add i64 %shl.i.i, -1
-  %and11.i.i = and i64 %2, %sub.i.i
+  %and11.i.i = and i64 %3, %sub.i.i
   %cmp12.not.i.i = icmp eq i64 %and11.i.i, 0
   br i1 %cmp12.not.i.i, label %if.else.i.i, label %if.end32.i.i
 
 if.else.i.i:                                      ; preds = %if.end9.i.i
-  %cmp16.i.i = icmp eq i64 %retval.0.i.i.i, 0
+  %cmp16.i.i = icmp ult ptr %p, inttoptr (i64 2147483649 to ptr)
   br i1 %cmp16.i.i, label %lor.rhs.i, label %do.body.i.i
 
 do.body.i.i:                                      ; preds = %if.else.i.i, %do.body.i.i
   %loindex.1.i.i = phi i64 [ %dec.i.i, %do.body.i.i ], [ %retval.0.i.i.i, %if.else.i.i ]
   %dec.i.i = add nsw i64 %loindex.1.i.i, -1
   %arrayidx20.i.i = getelementptr [20481 x i64], ptr @mi_segment_map, i64 0, i64 %dec.i.i
-  %3 = load atomic i64, ptr %arrayidx20.i.i monotonic, align 8
-  %cmp22.i.i = icmp ne i64 %3, 0
+  %4 = load atomic i64, ptr %arrayidx20.i.i monotonic, align 8
+  %cmp22.i.i = icmp ne i64 %4, 0
   %cmp24.i.i = icmp ne i64 %dec.i.i, 0
-  %4 = and i1 %cmp22.i.i, %cmp24.i.i
-  br i1 %4, label %do.body.i.i, label %do.end.i.i, !llvm.loop !22
+  %5 = and i1 %cmp22.i.i, %cmp24.i.i
+  br i1 %5, label %do.body.i.i, label %do.end.i.i, !llvm.loop !22
 
 do.end.i.i:                                       ; preds = %do.body.i.i
-  %cmp26.i.i = icmp eq i64 %3, 0
+  %cmp26.i.i = icmp eq i64 %4, 0
   br i1 %cmp26.i.i, label %lor.rhs.i, label %if.end32.i.i
 
 if.end32.i.i:                                     ; preds = %do.end.i.i, %if.end9.i.i
-  %.lcssa.sink.i.i = phi i64 [ %and11.i.i, %if.end9.i.i ], [ %3, %do.end.i.i ]
+  %.lcssa.sink.i.i = phi i64 [ %and11.i.i, %if.end9.i.i ], [ %4, %do.end.i.i ]
   %loindex.0.i.i = phi i64 [ %retval.0.i.i.i, %if.end9.i.i ], [ %dec.i.i, %do.end.i.i ]
-  %5 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.lcssa.sink.i.i, i1 true)
-  %lobitidx.0.i.i = xor i64 %5, 63
+  %6 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.lcssa.sink.i.i, i1 true)
+  %lobitidx.0.i.i = xor i64 %6, 63
   %sub33.neg.i.i = sub i64 %loindex.0.i.i, %retval.0.i.i.i
   %add.neg.i.i = sub nsw i64 %lobitidx.0.i.i, %rem.sink.i.i.i
-  %6 = shl i64 %sub33.neg.i.i, 31
-  %7 = shl nsw i64 %add.neg.i.i, 25
-  %8 = getelementptr i8, ptr %1, i64 %6
-  %add.ptr.i.i = getelementptr i8, ptr %8, i64 %7
+  %7 = shl i64 %sub33.neg.i.i, 31
+  %8 = shl nsw i64 %add.neg.i.i, 25
+  %9 = getelementptr i8, ptr %1, i64 %7
+  %add.ptr.i.i = getelementptr i8, ptr %9, i64 %8
   %cmp36.i.i = icmp eq ptr %add.ptr.i.i, null
   br i1 %cmp36.i.i, label %lor.rhs.i, label %if.end39.i.i
 
 if.end39.i.i:                                     ; preds = %if.end32.i.i
-  %9 = ptrtoint ptr %add.ptr.i.i to i64
-  %10 = load i64, ptr getelementptr inbounds (i8, ptr @_mi_heap_main, i64 2864), align 8
-  %xor.i.i.i = xor i64 %10, %9
+  %10 = ptrtoint ptr %add.ptr.i.i to i64
+  %11 = load i64, ptr getelementptr inbounds (i8, ptr @_mi_heap_main, i64 2864), align 8
+  %xor.i.i.i = xor i64 %11, %10
   %cookie.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 216
-  %11 = load i64, ptr %cookie.i.i, align 8
-  %cmp41.not.i.i = icmp eq i64 %xor.i.i.i, %11
+  %12 = load i64, ptr %cookie.i.i, align 8
+  %cmp41.not.i.i = icmp eq i64 %xor.i.i.i, %12
   br i1 %cmp41.not.i.i, label %if.end53.i.i, label %lor.rhs.i
 
 if.end53.i.i:                                     ; preds = %if.end39.i.i
-  %12 = getelementptr i8, ptr %add.ptr.i.i, i64 224
-  %add.ptr.val.i.i = load i64, ptr %12, align 32
+  %13 = getelementptr i8, ptr %add.ptr.i.i, i64 224
+  %add.ptr.val.i.i = load i64, ptr %13, align 32
   %mul.i.i.i = shl i64 %add.ptr.val.i.i, 16
   %add.ptr55.i.i = getelementptr i8, ptr %add.ptr.i.i, i64 %mul.i.i.i
   %cmp56.not.i.i = icmp ugt ptr %add.ptr55.i.i, %p
@@ -6268,43 +6266,43 @@ _mi_segment_of.exit.i:                            ; preds = %if.end.i.i
   br i1 %cmp.not.i, label %lor.rhs.i, label %mi_is_valid_pointer.exit
 
 lor.rhs.i:                                        ; preds = %_mi_segment_of.exit.i, %if.end53.i.i, %if.end39.i.i, %if.end32.i.i, %do.end.i.i, %if.else.i.i, %if.end5.i.i, %entry
-  %13 = load atomic i64, ptr @mi_arena_count monotonic, align 64
-  %cmp8.not.i.i = icmp eq i64 %13, 0
+  %14 = load atomic i64, ptr @mi_arena_count monotonic, align 64
+  %cmp8.not.i.i = icmp eq i64 %14, 0
   br i1 %cmp8.not.i.i, label %mi_is_valid_pointer.exit, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %lor.rhs.i, %for.inc.i.i
   %i.09.i.i = phi i64 [ %inc.i.i, %for.inc.i.i ], [ 0, %lor.rhs.i ]
   %arrayidx.i2.i = getelementptr [112 x ptr], ptr @mi_arenas, i64 0, i64 %i.09.i.i
-  %14 = load atomic i64, ptr %arrayidx.i2.i acquire, align 8
-  %15 = inttoptr i64 %14 to ptr
-  %cmp2.not.i3.i = icmp eq i64 %14, 0
+  %15 = load atomic i64, ptr %arrayidx.i2.i acquire, align 8
+  %16 = inttoptr i64 %15 to ptr
+  %cmp2.not.i3.i = icmp eq i64 %15, 0
   br i1 %cmp2.not.i3.i, label %for.inc.i.i, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %for.body.i.i
-  %start.i.i = getelementptr inbounds i8, ptr %15, i64 32
+  %start.i.i = getelementptr inbounds i8, ptr %16, i64 32
   %atomic-load.i.i = load atomic i64, ptr %start.i.i seq_cst, align 8
-  %16 = inttoptr i64 %atomic-load.i.i to ptr
-  %cmp3.not.i.i = icmp ult ptr %p, %16
+  %17 = inttoptr i64 %atomic-load.i.i to ptr
+  %cmp3.not.i.i = icmp ult ptr %p, %17
   br i1 %cmp3.not.i.i, label %for.inc.i.i, label %land.lhs.true4.i.i
 
 land.lhs.true4.i.i:                               ; preds = %land.lhs.true.i.i
   %atomic-load6.i.i = load atomic i64, ptr %start.i.i seq_cst, align 8
-  %17 = inttoptr i64 %atomic-load6.i.i to ptr
-  %block_count.i.i = getelementptr inbounds i8, ptr %15, i64 40
-  %18 = load i64, ptr %block_count.i.i, align 8
-  %mul.i.i4.i = shl i64 %18, 25
-  %add.ptr.i5.i = getelementptr i8, ptr %17, i64 %mul.i.i4.i
+  %18 = inttoptr i64 %atomic-load6.i.i to ptr
+  %block_count.i.i = getelementptr inbounds i8, ptr %16, i64 40
+  %19 = load i64, ptr %block_count.i.i, align 8
+  %mul.i.i4.i = shl i64 %19, 25
+  %add.ptr.i5.i = getelementptr i8, ptr %18, i64 %mul.i.i4.i
   %cmp7.i.i = icmp ugt ptr %add.ptr.i5.i, %p
   br i1 %cmp7.i.i, label %mi_is_valid_pointer.exit, label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %land.lhs.true4.i.i, %land.lhs.true.i.i, %for.body.i.i
   %inc.i.i = add nuw i64 %i.09.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %inc.i.i, %13
+  %exitcond.not.i.i = icmp eq i64 %inc.i.i, %14
   br i1 %exitcond.not.i.i, label %mi_is_valid_pointer.exit, label %for.body.i.i, !llvm.loop !23
 
 mi_is_valid_pointer.exit:                         ; preds = %land.lhs.true4.i.i, %for.inc.i.i, %if.end53.i.i, %_mi_segment_of.exit.i, %lor.rhs.i
-  %19 = phi i1 [ true, %_mi_segment_of.exit.i ], [ false, %lor.rhs.i ], [ true, %if.end53.i.i ], [ false, %for.inc.i.i ], [ true, %land.lhs.true4.i.i ]
-  ret i1 %19
+  %20 = phi i1 [ true, %_mi_segment_of.exit.i ], [ false, %lor.rhs.i ], [ true, %if.end53.i.i ], [ false, %for.inc.i.i ], [ true, %land.lhs.true4.i.i ]
+  ret i1 %20
 }
 
 ; Function Attrs: nounwind uwtable
@@ -7232,14 +7230,13 @@ if.end.i39:                                       ; preds = %if.then11
 
 if.end6.i:                                        ; preds = %if.end.i39
   %call.i.i = tail call i64 @mi_option_get(i32 noundef 23)
-  %cmp.i.i40 = icmp slt i64 %call.i.i, 0
-  %mul.i.i = shl i64 %call.i.i, 10
-  %cmp814.i = icmp eq i64 %mul.i.i, 0
-  %cmp8.i = or i1 %cmp.i.i40, %cmp814.i
+  %3 = tail call i64 @llvm.smax.i64(i64 %call.i.i, i64 0)
+  %cond.i.i40 = shl i64 %3, 10
+  %cmp8.i = icmp eq i64 %cond.i.i40, 0
   br i1 %cmp8.i, label %if.end23, label %if.end10.i
 
 if.end10.i:                                       ; preds = %if.end6.i
-  %add.i.i41 = add i64 %mul.i.i, 33554431
+  %add.i.i41 = add i64 %cond.i.i40, 33554431
   %and1.i.i = and i64 %add.i.i41, -33554432
   %div1810.i = lshr i64 %2, 3
   %arena_reserve.1.i = shl i64 %and1.i.i, %div1810.i
@@ -7252,8 +7249,8 @@ if.end22.i:                                       ; preds = %if.end10.i
   br i1 %cmp24.i, label %if.then25.i, label %if.else.i42
 
 if.then25.i:                                      ; preds = %if.end22.i
-  %3 = load i8, ptr @mi_os_mem_config.3, align 8
-  %tobool.i13.i = trunc i8 %3 to i1
+  %4 = load i8, ptr @mi_os_mem_config.3, align 8
+  %tobool.i13.i = trunc i8 %4 to i1
   br label %mi_arena_reserve.exit
 
 if.else.i42:                                      ; preds = %if.end22.i
@@ -7268,8 +7265,8 @@ mi_arena_reserve.exit:                            ; preds = %if.then25.i, %if.el
   br i1 %cmp35.i, label %if.then14, label %if.end23
 
 if.then14:                                        ; preds = %mi_arena_reserve.exit
-  %4 = load i32, ptr %arena_id, align 4
-  %call17 = call fastcc ptr @mi_arena_try_alloc_at_id(i32 noundef %4, i1 noundef zeroext true, i32 noundef %retval.0.i, i64 noundef %size, i1 noundef zeroext %commit, i1 noundef zeroext %allow_large, i32 noundef 0, ptr noundef %memid, ptr noundef %tld)
+  %5 = load i32, ptr %arena_id, align 4
+  %call17 = call fastcc ptr @mi_arena_try_alloc_at_id(i32 noundef %5, i1 noundef zeroext true, i32 noundef %retval.0.i, i64 noundef %size, i1 noundef zeroext %commit, i1 noundef zeroext %allow_large, i32 noundef 0, ptr noundef %memid, ptr noundef %tld)
   %cmp18.not = icmp eq ptr %call17, null
   br i1 %cmp18.not, label %if.end23, label %return
 
@@ -7290,8 +7287,8 @@ if.end29:                                         ; preds = %if.end23
 
 if.then31:                                        ; preds = %if.end29
   %stats37 = getelementptr inbounds i8, ptr %tld, i64 8
-  %5 = load ptr, ptr %stats37, align 8
-  %call34 = call ptr @_mi_os_alloc_aligned_at_offset(i64 noundef %size, i64 noundef %alignment, i64 noundef %align_offset, i1 noundef zeroext %commit, i1 noundef zeroext %allow_large, ptr noundef %memid, ptr noundef %5)
+  %6 = load ptr, ptr %stats37, align 8
+  %call34 = call ptr @_mi_os_alloc_aligned_at_offset(i64 noundef %size, i64 noundef %alignment, i64 noundef %align_offset, i1 noundef zeroext %commit, i1 noundef zeroext %allow_large, ptr noundef %memid, ptr noundef %6)
   br label %return
 
 if.else:                                          ; preds = %if.end29
@@ -15698,9 +15695,8 @@ for.end:                                          ; preds = %for.body
 define hidden range(i64 0, -1023) i64 @mi_option_get_size(i32 noundef %option) local_unnamed_addr #0 {
 entry:
   %call = tail call i64 @mi_option_get(i32 noundef %option)
-  %cmp = icmp slt i64 %call, 0
-  %mul = shl i64 %call, 10
-  %cond = select i1 %cmp, i64 0, i64 %mul
+  %0 = tail call i64 @llvm.smax.i64(i64 %call, i64 0)
+  %cond = shl i64 %0, 10
   ret i64 %cond
 }
 
@@ -32011,6 +32007,9 @@ declare void @llvm.va_start.p0(ptr) #47
 declare void @llvm.va_end.p0(ptr) #47
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #48
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #48
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -32018,9 +32017,6 @@ declare i64 @llvm.ctpop.i64(i64) #48
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #48
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #48
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #48

@@ -18513,10 +18513,8 @@ define hidden { i64, i8 } @_ZNK5clang7targets17AArch64TargetInfo14getVScaleRange
   br i1 %or.cond, label %9, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %2
-  %8 = lshr i64 %4, 32
-  %.sroa.214.0.insert.ext = shl i64 %6, 32
-  %.sroa.013.0.insert.ext = select i1 %.not, i64 1, i64 %8
-  %.sroa.013.0.insert.insert = or disjoint i64 %.sroa.214.0.insert.ext, %.sroa.013.0.insert.ext
+  %8 = tail call i64 @llvm.umax.i64(i64 %4, i64 4294967296)
+  %.sroa.013.0.insert.insert = tail call i64 @llvm.fshl.i64(i64 %6, i64 %8, i64 32)
   br label %14
 
 9:                                                ; preds = %2
@@ -24766,6 +24764,9 @@ declare i64 @llvm.umin.i64(i64, i64) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #19
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.fshl.i64(i64, i64, i64) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #19

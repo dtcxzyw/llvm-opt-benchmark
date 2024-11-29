@@ -665,8 +665,7 @@ sw.epilog.i:                                      ; preds = %sw.bb125.i, %if.end
   %sub136.i = add i32 %0, -1
   %spec.select135.i = select i1 %tobool133.not.i, i64 %conv14.i, i64 1
   %cmp138.i = icmp slt i64 %spec.select135.i, 1
-  %sub141.neg.i = sub nsw i64 1, %spec.select135.i
-  %cond144.neg168.i = select i1 %cmp138.i, i64 %sub141.neg.i, i64 0
+  %12 = call i64 @llvm.smin.i64(i64 %spec.select135.i, i64 1)
   %tobool147.i = icmp ne i32 %and12, 0
   %or.cond2.i = and i1 %tobool147.i, %tobool133.not.i
   br i1 %or.cond2.i, label %if.then148.i, label %if.else156.i
@@ -683,8 +682,8 @@ if.else156.i:                                     ; preds = %sw.epilog.i
 
 if.end163.i:                                      ; preds = %if.else156.i, %if.then148.i
   %vdigits_end.1.i = phi i64 [ %cond155.i, %if.then148.i ], [ %cond162.i, %if.else156.i ]
-  %sub164.i = select i1 %tobool133.not.i, i64 3, i64 8
-  %add165.i = add nsw i64 %cond144.neg168.i, %sub164.i
+  %reass.sub.i = select i1 %tobool133.not.i, i64 4, i64 9
+  %add165.i = sub nsw i64 %reass.sub.i, %12
   %add169.i = add i64 %add165.i, %vdigits_end.1.i
   %call170.i = call ptr @PyMem_Malloc(i64 noundef %add169.i) #13
   %cmp171.i = icmp eq ptr %call170.i, null
@@ -695,8 +694,8 @@ if.then173.i:                                     ; preds = %if.end163.i
   br label %if.then257.i
 
 if.end175.i:                                      ; preds = %if.end163.i
-  %12 = load i32, ptr %sign.i, align 4
-  %cmp176.i = icmp eq i32 %12, 1
+  %13 = load i32, ptr %sign.i, align 4
+  %cmp176.i = icmp eq i32 %13, 1
   br i1 %cmp176.i, label %if.end185.sink.split.i, label %if.else180.i
 
 if.else180.i:                                     ; preds = %if.end175.i
@@ -704,9 +703,9 @@ if.else180.i:                                     ; preds = %if.end175.i
   br i1 %tobool181.not.i, label %if.end185.i, label %if.end185.sink.split.i
 
 if.end185.sink.split.i:                           ; preds = %if.else180.i, %if.end175.i
-  %.sink169.i = phi i8 [ 45, %if.end175.i ], [ 43, %if.else180.i ]
+  %.sink168.i = phi i8 [ 45, %if.end175.i ], [ 43, %if.else180.i ]
   %incdec.ptr183.i = getelementptr i8, ptr %call170.i, i64 1
-  store i8 %.sink169.i, ptr %call170.i, align 1
+  store i8 %.sink168.i, ptr %call170.i, align 1
   br label %if.end185.i
 
 if.end185.i:                                      ; preds = %if.end185.sink.split.i, %if.else180.i
@@ -727,12 +726,15 @@ if.end200.thread.i:                               ; preds = %if.end185.i
   br i1 %cmp204.not145.i, label %if.then223.i, label %if.end235.i
 
 if.end200.i:                                      ; preds = %if.end185.i
+  %sub197.i = sub nuw nsw i64 1, %12
+  call void @llvm.memset.p0.i64(ptr align 1 %p.2.i, i8 48, i64 %sub197.i, i1 false)
+  %add.ptr199.i = getelementptr i8, ptr %p.2.i, i64 %sub197.i
   %cmp204.not.i = icmp sgt i64 %spec.select135.i, %sub.ptr.sub.i
   br i1 %cmp204.not.i, label %if.end220.i, label %if.then206.i
 
 if.then206.i:                                     ; preds = %if.end200.i
-  %call208.i = call ptr @strncpy(ptr noundef %p.2.i, ptr noundef nonnull %call5140.i, i64 noundef %spec.select135.i) #13
-  %add.ptr210.i = getelementptr i8, ptr %p.2.i, i64 %spec.select135.i
+  %call208.i = call ptr @strncpy(ptr noundef %add.ptr199.i, ptr noundef nonnull %call5140.i, i64 noundef %spec.select135.i) #13
+  %add.ptr210.i = getelementptr i8, ptr %add.ptr199.i, i64 %spec.select135.i
   %incdec.ptr211.i = getelementptr i8, ptr %add.ptr210.i, i64 1
   store i8 46, ptr %add.ptr210.i, align 1
   %add.ptr212.i = getelementptr i8, ptr %call5140.i, i64 %spec.select135.i
@@ -742,8 +744,8 @@ if.then206.i:                                     ; preds = %if.end200.i
   br label %if.end235.i
 
 if.end220.i:                                      ; preds = %if.end200.i
-  %call218.i = call ptr @strncpy(ptr noundef %p.2.i, ptr noundef nonnull %call5140.i, i64 noundef %sub.ptr.sub.i) #13
-  %add.ptr219.i = getelementptr i8, ptr %p.2.i, i64 %sub.ptr.sub.i
+  %call218.i = call ptr @strncpy(ptr noundef %add.ptr199.i, ptr noundef nonnull %call5140.i, i64 noundef %sub.ptr.sub.i) #13
+  %add.ptr219.i = getelementptr i8, ptr %add.ptr199.i, i64 %sub.ptr.sub.i
   br label %if.then223.i
 
 if.then223.i:                                     ; preds = %if.end220.i, %if.end200.thread.i
@@ -757,13 +759,13 @@ if.then223.i:                                     ; preds = %if.end220.i, %if.en
 
 if.end235.i:                                      ; preds = %if.then223.i, %if.then206.i, %if.end200.thread.i
   %sub.ptr.sub.sink.i = phi i64 [ %spec.select135.i, %if.then223.i ], [ %sub.ptr.sub.i, %if.then206.i ], [ %sub.ptr.sub.i, %if.end200.thread.i ]
-  %p.4151.sink170.i = phi ptr [ %incdec.ptr227.i, %if.then223.i ], [ %add.ptr216.i, %if.then206.i ], [ %add.ptr219153.i, %if.end200.thread.i ]
+  %p.4151.sink169.i = phi ptr [ %incdec.ptr227.i, %if.then223.i ], [ %add.ptr216.i, %if.then206.i ], [ %add.ptr219153.i, %if.end200.thread.i ]
   %sub232.i = sub i64 %vdigits_end.1.i, %sub.ptr.sub.sink.i
-  call void @llvm.memset.p0.i64(ptr align 1 %p.4151.sink170.i, i8 48, i64 %sub232.i, i1 false)
-  %add.ptr234.i = getelementptr i8, ptr %p.4151.sink170.i, i64 %sub232.i
+  call void @llvm.memset.p0.i64(ptr align 1 %p.4151.sink169.i, i8 48, i64 %sub232.i, i1 false)
+  %add.ptr234.i = getelementptr i8, ptr %p.4151.sink169.i, i64 %sub232.i
   %arrayidx236.i = getelementptr i8, ptr %add.ptr234.i, i64 -1
-  %13 = load i8, ptr %arrayidx236.i, align 1
-  %cmp238.i = icmp ne i8 %13, 46
+  %14 = load i8, ptr %arrayidx236.i, align 1
+  %cmp238.i = icmp ne i8 %14, 46
   %tobool241.i = icmp ne i32 %and13, 0
   %or.cond3.i = or i1 %tobool241.i, %cmp238.i
   %spec.select138.i = select i1 %or.cond3.i, ptr %add.ptr234.i, ptr %arrayidx236.i
@@ -771,10 +773,10 @@ if.end235.i:                                      ; preds = %if.then223.i, %if.t
 
 if.then246.i:                                     ; preds = %if.end235.i
   %arrayidx247.i = getelementptr i8, ptr %float_strings.3, i64 16
-  %14 = load ptr, ptr %arrayidx247.i, align 8
-  %15 = load i8, ptr %14, align 1
+  %15 = load ptr, ptr %arrayidx247.i, align 8
+  %16 = load i8, ptr %15, align 1
   %incdec.ptr249.i = getelementptr i8, ptr %spec.select138.i, i64 1
-  store i8 %15, ptr %spec.select138.i, align 1
+  store i8 %16, ptr %spec.select138.i, align 1
   %call250.i = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %incdec.ptr249.i, ptr noundef nonnull dereferenceable(1) @.str.11, i32 noundef %sub136.i) #13
   %idx.ext.i = sext i32 %call250.i to i64
   %add.ptr251.i = getelementptr i8, ptr %incdec.ptr249.i, i64 %idx.ext.i
@@ -833,6 +835,9 @@ declare void @llvm.assume(i1 noundef) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #10
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.smin.i64(i64, i64) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #10

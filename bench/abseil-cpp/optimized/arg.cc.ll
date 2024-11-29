@@ -427,14 +427,13 @@ land.end:                                         ; preds = %if.else22.i, %if.en
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_115ConvertCharImplEcNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(i8 noundef signext %v, i64 %conv.coerce0, ptr noundef %sink) unnamed_addr #0 {
 entry:
-  %conv.sroa.371.0.extract.shift = lshr i64 %conv.coerce0, 32
-  %cmp.inv = icmp slt i64 %conv.coerce0, 0
-  %0 = tail call i64 @llvm.usub.sat.i64(i64 %conv.sroa.371.0.extract.shift, i64 1)
-  %cond.i.i = select i1 %cmp.inv, i64 0, i64 %0
+  %0 = tail call i64 @llvm.smax.i64(i64 %conv.coerce0, i64 0)
+  %spec.select = lshr i64 %0, 32
+  %cond.i.i = tail call noundef i64 @llvm.usub.sat.i64(i64 %spec.select, i64 1)
   %1 = and i64 %conv.coerce0, 256
   %cmp.i.i = icmp ne i64 %1, 0
-  %cmp.i = icmp eq i64 %cond.i.i, 0
-  %or.cond = or i1 %cmp.i.i, %cmp.i
+  %cmp.i = icmp slt i64 %conv.coerce0, 8589934592
+  %or.cond = or i1 %cmp.i, %cmp.i.i
   br i1 %or.cond, label %entry.if.end5_crit_edge, label %if.end.i
 
 entry.if.end5_crit_edge:                          ; preds = %entry
@@ -465,7 +464,7 @@ while.body.lr.ph.i:                               ; preds = %if.end.i
 while.body.i:                                     ; preds = %if.end8.i, %while.body.lr.ph.i
   %sub.ptr.sub.i35.i = phi i64 [ %sub.ptr.sub.i32.i, %while.body.lr.ph.i ], [ 1024, %if.end8.i ]
   %4 = phi ptr [ %3, %while.body.lr.ph.i ], [ %buf_.i.i, %if.end8.i ]
-  %n.addr.034.i = phi i64 [ %0, %while.body.lr.ph.i ], [ %sub.i, %if.end8.i ]
+  %n.addr.034.i = phi i64 [ %cond.i.i, %while.body.lr.ph.i ], [ %sub.i, %if.end8.i ]
   %sub.i = sub nuw i64 %n.addr.034.i, %sub.ptr.sub.i35.i
   %cmp5.not.i = icmp eq ptr %add.ptr.i.i, %4
   br i1 %cmp5.not.i, label %if.end8.i, label %if.then6.i
@@ -489,7 +488,7 @@ if.end8.i:                                        ; preds = %if.then6.i, %while.
   br i1 %cmp2.i, label %while.body.i, label %while.end.i, !llvm.loop !8
 
 while.end.i:                                      ; preds = %if.end8.i, %if.end.i
-  %n.addr.0.lcssa.i = phi i64 [ %0, %if.end.i ], [ %sub.i, %if.end8.i ]
+  %n.addr.0.lcssa.i = phi i64 [ %cond.i.i, %if.end.i ], [ %sub.i, %if.end8.i ]
   %.lcssa.i = phi ptr [ %3, %if.end.i ], [ %buf_.i.i, %if.end8.i ]
   tail call void @llvm.memset.p0.i64(ptr align 1 %.lcssa.i, i8 32, i64 %n.addr.0.lcssa.i, i1 false)
   %8 = load ptr, ptr %pos_.i.i, align 8
@@ -524,8 +523,8 @@ _ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit33: ; preds = %if.en
   %13 = load ptr, ptr %pos_.i.i8, align 8
   %add.ptr.i27.i16 = getelementptr inbounds i8, ptr %13, i64 1
   store ptr %add.ptr.i27.i16, ptr %pos_.i.i8, align 8
-  %cmp.i37 = icmp ne i64 %cond.i.i, 0
-  %or.cond73.not = and i1 %cmp.i.i, %cmp.i37
+  %cmp.i37 = icmp sgt i64 %conv.coerce0, 8589934591
+  %or.cond73.not = and i1 %cmp.i37, %cmp.i.i
   br i1 %or.cond73.not, label %if.end.i38, label %if.end8
 
 if.end.i38:                                       ; preds = %_ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit33
@@ -546,7 +545,7 @@ while.body.lr.ph.i51:                             ; preds = %if.end.i38
 while.body.i55:                                   ; preds = %if.end8.i63, %while.body.lr.ph.i51
   %sub.ptr.sub.i35.i56 = phi i64 [ %sub.ptr.sub.i32.i45, %while.body.lr.ph.i51 ], [ 1024, %if.end8.i63 ]
   %15 = phi ptr [ %add.ptr.i27.i16, %while.body.lr.ph.i51 ], [ %buf_.i.i52, %if.end8.i63 ]
-  %n.addr.034.i57 = phi i64 [ %0, %while.body.lr.ph.i51 ], [ %sub.i58, %if.end8.i63 ]
+  %n.addr.034.i57 = phi i64 [ %cond.i.i, %while.body.lr.ph.i51 ], [ %sub.i58, %if.end8.i63 ]
   %sub.i58 = sub nuw i64 %n.addr.034.i57, %sub.ptr.sub.i35.i56
   %cmp5.not.i59 = icmp eq ptr %add.ptr.i.i7, %15
   br i1 %cmp5.not.i59, label %if.end8.i63, label %if.then6.i60
@@ -570,7 +569,7 @@ if.end8.i63:                                      ; preds = %if.then6.i60, %whil
   br i1 %cmp2.i66, label %while.body.i55, label %while.end.i47, !llvm.loop !8
 
 while.end.i47:                                    ; preds = %if.end8.i63, %if.end.i38
-  %n.addr.0.lcssa.i48 = phi i64 [ %0, %if.end.i38 ], [ %sub.i58, %if.end8.i63 ]
+  %n.addr.0.lcssa.i48 = phi i64 [ %cond.i.i, %if.end.i38 ], [ %sub.i58, %if.end8.i63 ]
   %.lcssa.i49 = phi ptr [ %add.ptr.i27.i16, %if.end.i38 ], [ %buf_.i.i52, %if.end8.i63 ]
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %.lcssa.i49, i8 32, i64 %n.addr.0.lcssa.i48, i1 false)
   %19 = load ptr, ptr %pos_.i.i8, align 8
@@ -6061,6 +6060,9 @@ declare double @ldexp(double noundef, i32 noundef) local_unnamed_addr #10
 declare i64 @llvm.usub.sat.i64(i64, i64) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.smax.i64(i64, i64) #11
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -6071,9 +6073,6 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #11
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smax.i64(i64, i64) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #11

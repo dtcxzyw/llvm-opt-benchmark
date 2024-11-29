@@ -6661,10 +6661,9 @@ if.then.i:                                        ; preds = %if.then9
 
 if.end.i:                                         ; preds = %if.then9
   %sub.i = sub nuw i64 %call2.i, %call3.i4
-  %div.i = udiv i64 %sub.i, 1000000
   %timer_.i = getelementptr inbounds i8, ptr %this, i64 2472
-  %cmp4.i = icmp ult i64 %sub.i, 1000000
-  %cond.i = select i1 %cmp4.i, i64 1, i64 %div.i
+  %21 = call i64 @llvm.umax.i64(i64 %sub.i, i64 1000000)
+  %cond.i = udiv i64 %21, 1000000
   call void @_ZN4node15TimerWrapHandle6UpdateEmm(ptr noundef nonnull align 8 dereferenceable(16) %timer_.i, i64 noundef %cond.i, i64 noundef 0) #29
   br label %"_ZN4node16OnScopeLeaveImplIZNS_4quic7Session7ReceiveEONS1_5StoreERKNS_13SocketAddressES7_E3$_0ED2Ev.exit"
 
@@ -6695,10 +6694,9 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %sub = sub nuw i64 %call2, %call3
-  %div = udiv i64 %sub, 1000000
   %timer_ = getelementptr inbounds i8, ptr %this, i64 2472
-  %cmp4 = icmp ult i64 %sub, 1000000
-  %cond = select i1 %cmp4, i64 1, i64 %div
+  %1 = tail call i64 @llvm.umax.i64(i64 %sub, i64 1000000)
+  %cond = udiv i64 %1, 1000000
   tail call void @_ZN4node15TimerWrapHandle6UpdateEmm(ptr noundef nonnull align 8 dereferenceable(16) %timer_, i64 noundef %cond, i64 noundef 0) #29
   br label %return
 
@@ -9492,10 +9490,9 @@ if.then.i.i:                                      ; preds = %if.then.i23
 
 if.end.i.i:                                       ; preds = %if.then.i23
   %sub.i.i = sub nuw i64 %call2.i.i, %call3.i.i
-  %div.i.i = udiv i64 %sub.i.i, 1000000
   %timer_.i.i = getelementptr inbounds i8, ptr %this, i64 2472
-  %cmp4.i.i = icmp ult i64 %sub.i.i, 1000000
-  %cond.i.i = select i1 %cmp4.i.i, i64 1, i64 %div.i.i
+  %26 = call i64 @llvm.umax.i64(i64 %sub.i.i, i64 1000000)
+  %cond.i.i = udiv i64 %26, 1000000
   call void @_ZN4node15TimerWrapHandle6UpdateEmm(ptr noundef nonnull align 8 dereferenceable(16) %timer_.i.i, i64 noundef %cond.i.i, i64 noundef 0) #29
   br label %cleanup.cont
 

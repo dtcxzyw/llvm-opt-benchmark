@@ -5761,8 +5761,8 @@ _ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit273: ; preds = %329, %_ZN13rc
 
 .lr.ph:                                           ; preds = %_ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit273
   %333 = getelementptr inbounds i8, ptr %316, i64 16
-  %334 = icmp ne i16 %196, 0
-  %335 = add i16 %.0138438, -4
+  %334 = tail call i16 @llvm.umax.i16(i16 range(i16 -1, -2) %196, i16 2)
+  %335 = add i16 %334, -2
   br label %336
 
 336:                                              ; preds = %.lr.ph, %_ZL11floodRegioniiittR20rcCompactHeightfieldPtS1_R12rcTempVectorIN12_GLOBAL__N_115LevelStackEntryEE.exit.thread377
@@ -5860,23 +5860,23 @@ _ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit273: ; preds = %329, %_ZN13rc
   store i16 %.2134436, ptr %353, align 2
   %372 = getelementptr inbounds i16, ptr %70, i64 %352
   store i16 0, ptr %372, align 2
-  %.val131134.i = load i64, ptr %7, align 8
-  %373 = icmp sgt i64 %.val131134.i, 0
+  %.val130133.i = load i64, ptr %7, align 8
+  %373 = icmp sgt i64 %.val130133.i, 0
   br i1 %373, label %.lr.ph.i277, label %_ZL11floodRegioniiittR20rcCompactHeightfieldPtS1_R12rcTempVectorIN12_GLOBAL__N_115LevelStackEntryEE.exit.thread377
 
 .loopexit.i282:                                   ; preds = %.noexc292
   store i64 %518, ptr %7, align 8
   store i64 %517, ptr %63, align 8
   store ptr %516, ptr %176, align 8
-  %374 = add nuw nsw i32 %.0.ph135.i, 1
+  %374 = add nuw nsw i32 %.0.ph134.i, 1
   %375 = icmp sgt i64 %518, 0
   br i1 %375, label %.lr.ph.i277, label %_ZL11floodRegioniiittR20rcCompactHeightfieldPtS1_R12rcTempVectorIN12_GLOBAL__N_115LevelStackEntryEE.exit.thread
 
 .lr.ph.i277:                                      ; preds = %.noexc285, %.loopexit.i282
   %.promoted429 = phi ptr [ %516, %.loopexit.i282 ], [ %369, %.noexc285 ]
-  %.promoted = phi i64 [ %518, %.loopexit.i282 ], [ %.val131134.i, %.noexc285 ]
+  %.promoted = phi i64 [ %518, %.loopexit.i282 ], [ %.val130133.i, %.noexc285 ]
   %.promoted427 = phi i64 [ %517, %.loopexit.i282 ], [ %371, %.noexc285 ]
-  %.0.ph135.i = phi i32 [ %374, %.loopexit.i282 ], [ 0, %.noexc285 ]
+  %.0.ph134.i = phi i32 [ %374, %.loopexit.i282 ], [ 0, %.noexc285 ]
   br label %376
 
 376:                                              ; preds = %453, %.lr.ph.i277
@@ -5989,8 +5989,8 @@ _ZN12rcVectorBaseIN12_GLOBAL__N_115LevelStackEntryEL11rcAllocHint1EE8pop_backEv.
   %451 = load i16, ptr %450, align 2
   %.not118.i = icmp eq i16 %451, 0
   %.not119.i = icmp eq i16 %451, %.2134436
-  %or.cond125.i = or i1 %.not118.i, %.not119.i
-  br i1 %or.cond125.i, label %452, label %453
+  %or.cond124.i = or i1 %.not118.i, %.not119.i
+  br i1 %or.cond124.i, label %452, label %453
 
 452:                                              ; preds = %449, %431, %422, %418, %401, %396
   %indvars.iv.next.i281 = add nuw nsw i64 %indvars.iv.i279, 1
@@ -6012,10 +6012,10 @@ _ZN12rcVectorBaseIN12_GLOBAL__N_115LevelStackEntryEL11rcAllocHint1EE8pop_backEv.
   %457 = phi ptr [ %516, %.noexc292 ], [ %.promoted429, %.critedge.i.loopexit ]
   %458 = phi i64 [ %517, %.noexc292 ], [ %.promoted427, %.critedge.i.loopexit ]
   %459 = phi i64 [ %518, %.noexc292 ], [ %388, %.critedge.i.loopexit ]
-  %indvars.iv145.i = phi i64 [ %indvars.iv.next146.i, %.noexc292 ], [ 0, %.critedge.i.loopexit ]
+  %indvars.iv144.i = phi i64 [ %indvars.iv.next145.i, %.noexc292 ], [ 0, %.critedge.i.loopexit ]
   %460 = load i32, ptr %456, align 4
   %461 = and i32 %460, 16777215
-  %462 = trunc i64 %indvars.iv145.i to i32
+  %462 = trunc i64 %indvars.iv144.i to i32
   %463 = mul i32 %462, 6
   %464 = lshr i32 %461, %463
   %465 = and i32 %464, 63
@@ -6023,10 +6023,10 @@ _ZN12rcVectorBaseIN12_GLOBAL__N_115LevelStackEntryEL11rcAllocHint1EE8pop_backEv.
   br i1 %.not121.i, label %.noexc292, label %466
 
 466:                                              ; preds = %.critedge.i
-  %467 = getelementptr inbounds [4 x i32], ptr @_ZZ15rcGetDirOffsetXiE6offset, i64 0, i64 %indvars.iv145.i
+  %467 = getelementptr inbounds [4 x i32], ptr @_ZZ15rcGetDirOffsetXiE6offset, i64 0, i64 %indvars.iv144.i
   %468 = load i32, ptr %467, align 4
   %469 = add nsw i32 %468, %381
-  %470 = getelementptr inbounds [4 x i32], ptr @_ZZ15rcGetDirOffsetYiE6offset, i64 0, i64 %indvars.iv145.i
+  %470 = getelementptr inbounds [4 x i32], ptr @_ZZ15rcGetDirOffsetYiE6offset, i64 0, i64 %indvars.iv144.i
   %471 = load i32, ptr %470, align 4
   %472 = add nsw i32 %471, %383
   %473 = load ptr, ptr %173, align 8
@@ -6048,8 +6048,7 @@ _ZN12rcVectorBaseIN12_GLOBAL__N_115LevelStackEntryEL11rcAllocHint1EE8pop_backEv.
   %486 = load ptr, ptr %175, align 8
   %487 = getelementptr inbounds i16, ptr %486, i64 %482
   %488 = load i16, ptr %487, align 2
-  %.not123124.i = icmp ugt i16 %335, %488
-  %.not123.i = select i1 %334, i1 %.not123124.i, i1 false
+  %.not123.i = icmp ult i16 %488, %335
   br i1 %.not123.i, label %.noexc292, label %489
 
 489:                                              ; preds = %485
@@ -6133,13 +6132,13 @@ _ZN12rcVectorBaseIN12_GLOBAL__N_115LevelStackEntryEL11rcAllocHint1EE17allocate_a
   %516 = phi ptr [ %457, %496 ], [ %457, %489 ], [ %457, %485 ], [ %457, %466 ], [ %457, %.critedge.i ], [ %509, %_ZN12rcVectorBaseIN12_GLOBAL__N_115LevelStackEntryEL11rcAllocHint1EE17allocate_and_copyEl.exit.i ]
   %517 = phi i64 [ %458, %496 ], [ %458, %489 ], [ %458, %485 ], [ %458, %466 ], [ %458, %.critedge.i ], [ %.0.i.i, %_ZN12rcVectorBaseIN12_GLOBAL__N_115LevelStackEntryEL11rcAllocHint1EE17allocate_and_copyEl.exit.i ]
   %518 = phi i64 [ %497, %496 ], [ %459, %489 ], [ %459, %485 ], [ %459, %466 ], [ %459, %.critedge.i ], [ %515, %_ZN12rcVectorBaseIN12_GLOBAL__N_115LevelStackEntryEL11rcAllocHint1EE17allocate_and_copyEl.exit.i ]
-  %indvars.iv.next146.i = add nuw nsw i64 %indvars.iv145.i, 1
-  %exitcond148.not.i = icmp eq i64 %indvars.iv.next146.i, 4
-  br i1 %exitcond148.not.i, label %.loopexit.i282, label %.critedge.i, !llvm.loop !73
+  %indvars.iv.next145.i = add nuw nsw i64 %indvars.iv144.i, 1
+  %exitcond147.not.i = icmp eq i64 %indvars.iv.next145.i, 4
+  br i1 %exitcond147.not.i, label %.loopexit.i282, label %.critedge.i, !llvm.loop !73
 
 _ZL11floodRegioniiittR20rcCompactHeightfieldPtS1_R12rcTempVectorIN12_GLOBAL__N_115LevelStackEntryEE.exit: ; preds = %453
   store i64 %388, ptr %7, align 8
-  %.not379 = icmp eq i32 %.0.ph135.i, 0
+  %.not379 = icmp eq i32 %.0.ph134.i, 0
   br i1 %.not379, label %_ZL11floodRegioniiittR20rcCompactHeightfieldPtS1_R12rcTempVectorIN12_GLOBAL__N_115LevelStackEntryEE.exit.thread377, label %_ZL11floodRegioniiittR20rcCompactHeightfieldPtS1_R12rcTempVectorIN12_GLOBAL__N_115LevelStackEntryEE.exit.thread
 
 _ZL11floodRegioniiittR20rcCompactHeightfieldPtS1_R12rcTempVectorIN12_GLOBAL__N_115LevelStackEntryEE.exit.thread: ; preds = %.loopexit.i282, %_ZL11floodRegioniiittR20rcCompactHeightfieldPtS1_R12rcTempVectorIN12_GLOBAL__N_115LevelStackEntryEE.exit

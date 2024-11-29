@@ -1157,13 +1157,11 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.i, label %if.then.i, label %_ZN4absl13cord_internal12CordRepBtree6CreateEPNS0_7CordRepE.exit.i
 
 if.then.i:                                        ; preds = %if.end
-  %cmp.i.i.i.i = icmp samesign ult i64 %length, 20
-  %0 = add nuw nsw i64 %length, 13
-  %len.addr.0.i.i.i.i = select i1 %cmp.i.i.i.i, i64 32, i64 %0
-  %cmp.i.i.i.i.i = icmp samesign ult i64 %len.addr.0.i.i.i.i, 513
+  %0 = tail call i64 @llvm.umax.i64(i64 range(i64 1, 4084) %length, i64 19)
+  %cmp.i.i.i.i.i = icmp samesign ult i64 %length, 500
   %conv.i.neg.i.i.i.i = select i1 %cmp.i.i.i.i.i, i64 -8, i64 -64
   %conv.i.i.i.i.i = select i1 %cmp.i.i.i.i.i, i64 8, i64 64
-  %add.i.i.i.i.i.i = add nsw i64 %len.addr.0.i.i.i.i, -1
+  %add.i.i.i.i.i.i = add nuw nsw i64 %0, 12
   %sub.i.i.i.i.i.i = add nuw nsw i64 %add.i.i.i.i.i.i, %conv.i.i.i.i.i
   %and.i.i.i.i.i.i = and i64 %sub.i.i.i.i.i.i, %conv.i.neg.i.i.i.i
   %call4.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %and.i.i.i.i.i.i) #25
@@ -8131,13 +8129,11 @@ _ZNK4absl4Cord4sizeEv.exit:                       ; preds = %cond.true.i.i, %con
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %_ZNK4absl4Cord4sizeEv.exit
-  %cmp.i.i = icmp samesign ult i64 %cond.i.i, 20
-  %4 = add nuw nsw i64 %cond.i.i, 13
-  %len.addr.0.i.i = select i1 %cmp.i.i, i64 32, i64 %4
-  %cmp.i.i.i = icmp samesign ult i64 %len.addr.0.i.i, 513
+  %4 = tail call i64 @llvm.umax.i64(i64 %cond.i.i, i64 19)
+  %cmp.i.i.i = icmp samesign ult i64 %cond.i.i, 500
   %conv.i.neg.i.i = select i1 %cmp.i.i.i, i64 -8, i64 -64
   %conv.i.i.i = select i1 %cmp.i.i.i, i64 8, i64 64
-  %add.i.i.i.i = add nsw i64 %len.addr.0.i.i, -1
+  %add.i.i.i.i = add nuw nsw i64 %4, 12
   %sub.i.i.i.i = add nuw nsw i64 %add.i.i.i.i, %conv.i.i.i
   %and.i.i.i.i = and i64 %sub.i.i.i.i, %conv.i.neg.i.i
   %call4.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %and.i.i.i.i) #25

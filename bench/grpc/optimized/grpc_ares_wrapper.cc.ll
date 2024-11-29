@@ -504,9 +504,8 @@ if.then.i22:                                      ; preds = %_ZN9grpc_core9Times
 _ZL23grpc_ares_ev_driver_refP19grpc_ares_ev_driver.exit24: ; preds = %_ZN9grpc_core9Timestamp3NowEv.exit.i, %if.then.i22
   %call.i.i.off = add i64 %call.i.i, -9223372036854775807
   %switch = icmp ult i64 %call.i.i.off, 2
-  %or.cond.i = icmp sgt i64 %call.i.i, 9223372036854774807
-  %add.i.i.i.i = add nsw i64 %call.i.i, 1000
-  %spec.select.i = select i1 %or.cond.i, i64 9223372036854775807, i64 %add.i.i.i.i
+  %16 = tail call i64 @llvm.smin.i64(i64 %call.i.i, i64 9223372036854774807)
+  %spec.select.i = add nsw i64 %16, 1000
   %retval.0.i.i.i = select i1 %switch, i64 %call.i.i, i64 %spec.select.i
   tail call void @gpr_ref(ptr noundef nonnull %refs.i)
   %on_ares_backup_poll_alarm_locked = getelementptr inbounds i8, ptr %ev_driver, i64 208
@@ -1192,17 +1191,16 @@ _ZN9grpc_core9Timestamp3NowEv.exit.i:             ; preds = %25, %do.end.i
 call.i.i.noexc:                                   ; preds = %_ZN9grpc_core9Timestamp3NowEv.exit.i
   %call.i.i28.off = add i64 %call.i.i28, -9223372036854775807
   %switch = icmp ult i64 %call.i.i28.off, 2
-  %or.cond.i = icmp sgt i64 %call.i.i28, 9223372036854774807
-  %add.i.i.i.i = add nsw i64 %call.i.i28, 1000
-  %spec.select.i = select i1 %or.cond.i, i64 9223372036854775807, i64 %add.i.i.i.i
+  %29 = call i64 @llvm.smin.i64(i64 %call.i.i28, i64 9223372036854774807)
+  %spec.select.i = add nsw i64 %29, 1000
   %retval.0.i.i.i = select i1 %switch, i64 %call.i.i28, i64 %spec.select.i
-  %29 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_trace_cares_resolver, i64 16) monotonic, align 8
-  %tobool.i.i.i.i29 = trunc i8 %29 to i1
+  %30 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_trace_cares_resolver, i64 16) monotonic, align 8
+  %tobool.i.i.i.i29 = trunc i8 %30 to i1
   br i1 %tobool.i.i.i.i29, label %if.then.i31, label %do.end.i30
 
 if.then.i31:                                      ; preds = %call.i.i.noexc
-  %30 = load ptr, ptr %request, align 8
-  invoke void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.5, i32 noundef 193, i32 noundef 0, ptr noundef nonnull @.str.36, ptr noundef %30, ptr noundef nonnull %arg)
+  %31 = load ptr, ptr %request, align 8
+  invoke void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.5, i32 noundef 193, i32 noundef 0, ptr noundef nonnull @.str.36, ptr noundef %31, ptr noundef nonnull %arg)
           to label %do.end.i30 unwind label %lpad.loopexit.split-lp
 
 do.end.i30:                                       ; preds = %if.then.i31, %call.i.i.noexc
@@ -1235,10 +1233,10 @@ invoke.cont47:                                    ; preds = %if.end46
           to label %_ZN4absl12lts_202308029MutexLockD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %invoke.cont47
-  %31 = landingpad { ptr, i32 }
+  %32 = landingpad { ptr, i32 }
           catch ptr null
-  %32 = extractvalue { ptr, i32 } %31, 0
-  call void @__clang_call_terminate(ptr %32) #26
+  %33 = extractvalue { ptr, i32 } %32, 0
+  call void @__clang_call_terminate(ptr %33) #26
   unreachable
 
 _ZN4absl12lts_202308029MutexLockD2Ev.exit:        ; preds = %invoke.cont47
@@ -1250,10 +1248,10 @@ ehcleanup:                                        ; preds = %lpad.loopexit, %lpa
           to label %_ZN4absl12lts_202308029MutexLockD2Ev.exit36 unwind label %terminate.lpad.i35
 
 terminate.lpad.i35:                               ; preds = %ehcleanup
-  %33 = landingpad { ptr, i32 }
+  %34 = landingpad { ptr, i32 }
           catch ptr null
-  %34 = extractvalue { ptr, i32 } %33, 0
-  call void @__clang_call_terminate(ptr %34) #26
+  %35 = extractvalue { ptr, i32 } %34, 0
+  call void @__clang_call_terminate(ptr %35) #26
   unreachable
 
 _ZN4absl12lts_202308029MutexLockD2Ev.exit36:      ; preds = %ehcleanup
@@ -6287,6 +6285,9 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #22
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.smin.i64(i64, i64) #21
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

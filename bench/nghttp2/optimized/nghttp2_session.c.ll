@@ -797,55 +797,54 @@ if.end143:                                        ; preds = %if.end138
   %max_send_header_block_length144 = getelementptr inbounds i8, ptr %76, i64 2728
   %77 = load i64, ptr %max_send_header_block_length144, align 8
   %sub = add i64 %77, 16393
-  %div = udiv i64 %sub, 16394
-  %cmp145 = icmp ult i64 %sub, 16394
-  %spec.store.select = select i1 %cmp145, i64 1, i64 %div
+  %78 = tail call i64 @llvm.umax.i64(i64 %sub, i64 16394)
+  %spec.store.select = udiv i64 %78, 16394
   %framebufs = getelementptr inbounds i8, ptr %76, i64 656
   %call149 = tail call i32 @nghttp2_bufs_init3(ptr noundef nonnull %framebufs, i64 noundef 16394, i64 noundef %spec.store.select, i64 noundef 1, i64 noundef 10, ptr noundef nonnull %mem6) #17
   %cmp150.not = icmp eq i32 %call149, 0
-  %78 = load ptr, ptr %session_ptr, align 8
+  %79 = load ptr, ptr %session_ptr, align 8
   br i1 %cmp150.not, label %if.end153, label %fail_aob_framebuf
 
 if.end153:                                        ; preds = %if.end143
-  tail call void @nghttp2_map_init(ptr noundef %78, ptr noundef nonnull %mem6) #17
-  %79 = load ptr, ptr %session_ptr, align 8
-  %aob154 = getelementptr inbounds i8, ptr %79, i64 648
-  %80 = load ptr, ptr %aob154, align 8
-  tail call void @nghttp2_outbound_item_free(ptr noundef %80, ptr noundef nonnull %mem6) #17
+  tail call void @nghttp2_map_init(ptr noundef %79, ptr noundef nonnull %mem6) #17
+  %80 = load ptr, ptr %session_ptr, align 8
+  %aob154 = getelementptr inbounds i8, ptr %80, i64 648
   %81 = load ptr, ptr %aob154, align 8
-  tail call void @nghttp2_mem_free(ptr noundef nonnull %mem6, ptr noundef %81) #17
+  tail call void @nghttp2_outbound_item_free(ptr noundef %81, ptr noundef nonnull %mem6) #17
+  %82 = load ptr, ptr %aob154, align 8
+  tail call void @nghttp2_mem_free(ptr noundef nonnull %mem6, ptr noundef %82) #17
   store ptr null, ptr %aob154, align 8
-  %framebufs.i = getelementptr inbounds i8, ptr %79, i64 656
+  %framebufs.i = getelementptr inbounds i8, ptr %80, i64 656
   tail call void @nghttp2_bufs_reset(ptr noundef nonnull %framebufs.i) #17
-  %state.i = getelementptr inbounds i8, ptr %79, i64 720
+  %state.i = getelementptr inbounds i8, ptr %80, i64 720
   store i32 0, ptr %state.i, align 8
-  %82 = load ptr, ptr %session_ptr, align 8
-  %callbacks155 = getelementptr inbounds i8, ptr %82, i64 2344
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %callbacks155, ptr noundef nonnull align 8 dereferenceable(184) %callbacks, i64 184, i1 false)
   %83 = load ptr, ptr %session_ptr, align 8
-  %user_data156 = getelementptr inbounds i8, ptr %83, i64 2568
-  store ptr %user_data, ptr %user_data156, align 8
+  %callbacks155 = getelementptr inbounds i8, ptr %83, i64 2344
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %callbacks155, ptr noundef nonnull align 8 dereferenceable(184) %callbacks, i64 184, i1 false)
   %84 = load ptr, ptr %session_ptr, align 8
-  tail call fastcc void @session_inbound_frame_reset(ptr noundef %84)
-  %85 = load i32, ptr @nghttp2_enable_strict_preface, align 4
-  %tobool157.not = icmp eq i32 %85, 0
+  %user_data156 = getelementptr inbounds i8, ptr %84, i64 2568
+  store ptr %user_data, ptr %user_data156, align 8
+  %85 = load ptr, ptr %session_ptr, align 8
+  tail call fastcc void @session_inbound_frame_reset(ptr noundef %85)
+  %86 = load i32, ptr @nghttp2_enable_strict_preface, align 4
+  %tobool157.not = icmp eq i32 %86, 0
   br i1 %tobool157.not, label %for.body.preheader, label %if.then158
 
 if.then158:                                       ; preds = %if.end153
-  %86 = load ptr, ptr %session_ptr, align 8
+  %87 = load ptr, ptr %session_ptr, align 8
   br i1 %tobool.not, label %if.then170, label %land.lhs.true161
 
 land.lhs.true161:                                 ; preds = %if.then158
-  %opt_flags162 = getelementptr inbounds i8, ptr %86, i64 2860
-  %87 = load i32, ptr %opt_flags162, align 4
-  %and163 = and i32 %87, 2
+  %opt_flags162 = getelementptr inbounds i8, ptr %87, i64 2860
+  %88 = load i32, ptr %opt_flags162, align 4
+  %and163 = and i32 %88, 2
   %cmp164 = icmp eq i32 %and163, 0
-  %state = getelementptr inbounds i8, ptr %86, i64 952
+  %state = getelementptr inbounds i8, ptr %87, i64 952
   br i1 %cmp164, label %if.end168.thread, label %if.end168
 
 if.end168.thread:                                 ; preds = %land.lhs.true161
   store i32 0, ptr %state, align 8
-  %payloadleft = getelementptr inbounds i8, ptr %86, i64 936
+  %payloadleft = getelementptr inbounds i8, ptr %87, i64 936
   store i64 24, ptr %payloadleft, align 8
   br label %for.body.preheader
 
@@ -854,13 +853,13 @@ if.end168:                                        ; preds = %land.lhs.true161
   br label %for.body.preheader
 
 if.then170:                                       ; preds = %if.then158
-  %state167118 = getelementptr inbounds i8, ptr %86, i64 952
+  %state167118 = getelementptr inbounds i8, ptr %87, i64 952
   store i32 1, ptr %state167118, align 8
-  %88 = load ptr, ptr %session_ptr, align 8
-  %state172 = getelementptr inbounds i8, ptr %88, i64 720
-  store i32 3, ptr %state172, align 8
   %89 = load ptr, ptr %session_ptr, align 8
-  %framebufs174 = getelementptr inbounds i8, ptr %89, i64 656
+  %state172 = getelementptr inbounds i8, ptr %89, i64 720
+  store i32 3, ptr %state172, align 8
+  %90 = load ptr, ptr %session_ptr, align 8
+  %framebufs174 = getelementptr inbounds i8, ptr %90, i64 656
   %call175 = tail call i32 @nghttp2_bufs_add(ptr noundef nonnull %framebufs174, ptr noundef nonnull @.str.54, i64 noundef 24) #17
   br label %for.body.preheader
 
@@ -869,8 +868,8 @@ for.body.preheader:                               ; preds = %if.end168, %if.end1
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %i.0119 = phi i64 [ %inc, %for.body ], [ 0, %for.body.preheader ]
-  %90 = load ptr, ptr %session_ptr, align 8
-  %sched = getelementptr inbounds i8, ptr %90, i64 328
+  %91 = load ptr, ptr %session_ptr, align 8
+  %sched = getelementptr inbounds i8, ptr %91, i64 328
   %arrayidx = getelementptr inbounds [8 x %struct.anon], ptr %sched, i64 0, i64 %i.0119
   tail call void @nghttp2_pq_init(ptr noundef nonnull %arrayidx, ptr noundef nonnull @stream_less, ptr noundef nonnull %mem6) #17
   %inc = add nuw nsw i64 %i.0119, 1
@@ -878,21 +877,21 @@ for.body:                                         ; preds = %for.body.preheader,
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !4
 
 fail_aob_framebuf:                                ; preds = %if.end143
-  %hd_inflater180 = getelementptr inbounds i8, ptr %78, i64 2104
+  %hd_inflater180 = getelementptr inbounds i8, ptr %79, i64 2104
   tail call void @nghttp2_hd_inflate_free(ptr noundef nonnull %hd_inflater180) #17
   br label %fail_hd_inflater
 
 fail_hd_inflater:                                 ; preds = %if.end138, %fail_aob_framebuf
   %rv.2 = phi i32 [ %call139, %if.end138 ], [ %call149, %fail_aob_framebuf ]
-  %91 = load ptr, ptr %session_ptr, align 8
-  %hd_deflater181 = getelementptr inbounds i8, ptr %91, i64 992
+  %92 = load ptr, ptr %session_ptr, align 8
+  %hd_deflater181 = getelementptr inbounds i8, ptr %92, i64 992
   tail call void @nghttp2_hd_deflate_free(ptr noundef nonnull %hd_deflater181) #17
   br label %fail_hd_deflater
 
 fail_hd_deflater:                                 ; preds = %if.end133, %fail_hd_inflater
   %rv.1 = phi i32 [ %call134, %if.end133 ], [ %rv.2, %fail_hd_inflater ]
-  %92 = load ptr, ptr %session_ptr, align 8
-  tail call void @nghttp2_mem_free(ptr noundef nonnull %mem6, ptr noundef %92) #17
+  %93 = load ptr, ptr %session_ptr, align 8
+  tail call void @nghttp2_mem_free(ptr noundef nonnull %mem6, ptr noundef %93) #17
   br label %return
 
 return:                                           ; preds = %for.body, %fail_hd_deflater, %if.end
@@ -15120,11 +15119,14 @@ declare void @llvm.va_start.p0(ptr) #12
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
 declare void @llvm.va_end.p0(ptr) #12
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #13
+
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #13
+declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #14
+declare i32 @llvm.smin.i32(i32, i32) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
@@ -15133,19 +15135,19 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #14
+declare i32 @llvm.umin.i32(i32, i32) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #14
+declare i32 @llvm.umax.i32(i32, i32) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smin.i64(i64, i64) #14
+declare i64 @llvm.smin.i64(i64, i64) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #14
+declare i32 @llvm.smax.i32(i32, i32) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #14
+declare i64 @llvm.umin.i64(i64, i64) #13
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -15160,8 +15162,8 @@ attributes #9 = { mustprogress nofree nounwind willreturn memory(argmem: read) "
 attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #11 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #13 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #14 = { nofree nounwind willreturn memory(argmem: read) }
 attributes #15 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #16 = { nounwind willreturn memory(read) }
 attributes #17 = { nounwind }

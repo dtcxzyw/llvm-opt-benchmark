@@ -7525,21 +7525,22 @@ while.body.i:                                     ; preds = %invoke.cont61, %whi
   br i1 %cmp2.not.i, label %while.end.i, label %while.body.i, !llvm.loop !46
 
 while.end.i:                                      ; preds = %while.body.i
-  %spec.select.i = call i32 @llvm.umin.i32(i32 %i.06.i, i32 15)
-  %17 = zext nneg i32 %spec.select.i to i64
+  %17 = call i32 @llvm.umin.i32(i32 %inc.i, i32 16)
+  %spec.select.i = add nsw i32 %17, -1
+  %18 = zext nneg i32 %spec.select.i to i64
   br label %invoke.cont68
 
 invoke.cont68:                                    ; preds = %while.end.i, %invoke.cont61
-  %retval.0.i = phi i64 [ 0, %invoke.cont61 ], [ %17, %while.end.i ]
+  %retval.0.i = phi i64 [ 0, %invoke.cont61 ], [ %18, %while.end.i ]
   %arrayidx = getelementptr inbounds [16 x %"class.icu_75::UnicodeString"], ptr %appendItemFormats, i64 0, i64 %retval.0.i
   %fUnion.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 8
-  %18 = load i16, ptr %fUnion.i.i, align 8
-  %cmp.i.i = icmp slt i16 %18, 0
-  %19 = ashr i16 %18, 5
-  %shr.i.i = sext i16 %19 to i32
+  %19 = load i16, ptr %fUnion.i.i, align 8
+  %cmp.i.i = icmp slt i16 %19, 0
+  %20 = ashr i16 %19, 5
+  %shr.i.i = sext i16 %20 to i32
   %fLength.i = getelementptr inbounds i8, ptr %arrayidx, i64 12
-  %20 = load i32, ptr %fLength.i, align 4
-  %cond.i = select i1 %cmp.i.i, i32 %20, i32 %shr.i.i
+  %21 = load i32, ptr %fLength.i, align 4
+  %cond.i = select i1 %cmp.i.i, i32 %21, i32 %shr.i.i
   %cmp70.not = icmp eq i32 %cond.i, 0
   br i1 %cmp70.not, label %if.end87, label %invoke.cont72
 
@@ -7555,13 +7556,13 @@ call2.i.i.noexc:                                  ; preds = %invoke.cont72
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %ch.addr.i.i)
   %arrayidx.i = getelementptr inbounds [16 x [3 x %"class.icu_75::UnicodeString"]], ptr %fieldDisplayNames.i, i64 0, i64 %retval.0.i
   %fUnion.i.i.i3.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
-  %21 = load i16, ptr %fUnion.i.i.i3.i, align 8
-  %cmp.i.i.i4.i = icmp slt i16 %21, 0
-  %22 = ashr i16 %21, 5
-  %shr.i.i.i5.i = sext i16 %22 to i32
+  %22 = load i16, ptr %fUnion.i.i.i3.i, align 8
+  %cmp.i.i.i4.i = icmp slt i16 %22, 0
+  %23 = ashr i16 %22, 5
+  %shr.i.i.i5.i = sext i16 %23 to i32
   %fLength.i.i6.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 12
-  %23 = load i32, ptr %fLength.i.i6.i, align 4
-  %cond.i.i7.i = select i1 %cmp.i.i.i4.i, i32 %23, i32 %shr.i.i.i5.i
+  %24 = load i32, ptr %fLength.i.i6.i, align 4
+  %cond.i.i7.i = select i1 %cmp.i.i.i4.i, i32 %24, i32 %shr.i.i.i5.i
   %call2.i8.i33 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString8doAppendERKS0_ii(ptr noundef nonnull align 8 dereferenceable(64) %appendName, ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i, i32 noundef 0, i32 noundef %cond.i.i7.i)
           to label %call2.i8.i.noexc unwind label %lpad73
 
@@ -7582,7 +7583,7 @@ invoke.cont74:                                    ; preds = %call2.i8.i.noexc
           to label %invoke.cont80 unwind label %lpad.i
 
 lpad.i:                                           ; preds = %invoke.cont74
-  %24 = landingpad { ptr, i32 }
+  %25 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %compiledPattern.i) #34
   br label %ehcleanup
@@ -7597,18 +7598,18 @@ invoke.cont82:                                    ; preds = %invoke.cont80
   br label %if.end87
 
 lpad73:                                           ; preds = %call2.i8.i.noexc, %call2.i.i.noexc, %invoke.cont72
-  %25 = landingpad { ptr, i32 }
+  %26 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad81:                                           ; preds = %invoke.cont80
-  %26 = landingpad { ptr, i32 }
+  %27 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_7515SimpleFormatterD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %ref.tmp76) #34
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad73, %lpad.i, %lpad81
-  %.pn = phi { ptr, i32 } [ %26, %lpad81 ], [ %25, %lpad73 ], [ %24, %lpad.i ]
+  %.pn = phi { ptr, i32 } [ %27, %lpad81 ], [ %26, %lpad73 ], [ %25, %lpad.i ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %appendName) #34
   br label %ehcleanup88
 
@@ -9365,7 +9366,8 @@ while.body:                                       ; preds = %entry, %while.body
   br i1 %cmp2.not, label %while.end, label %while.body, !llvm.loop !46
 
 while.end:                                        ; preds = %while.body
-  %spec.select = tail call i32 @llvm.umin.i32(i32 %i.06, i32 15)
+  %0 = tail call i32 @llvm.umin.i32(i32 %inc, i32 16)
+  %spec.select = add nsw i32 %0, -1
   br label %return
 
 return:                                           ; preds = %while.end, %entry

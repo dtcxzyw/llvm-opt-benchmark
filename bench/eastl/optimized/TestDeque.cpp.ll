@@ -65647,9 +65647,8 @@ if.then8:                                         ; preds = %if.else
 if.then.i:                                        ; preds = %if.then8
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
-  %cmp11.i = icmp ugt i64 %sub.ptr.div.i, 3
-  %div26.i = lshr i64 %sub.ptr.div.i, 1
-  %spec.select.i = select i1 %cmp11.i, i64 %div26.i, i64 1
+  %6 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 3)
+  %spec.select.i = lshr i64 %6, 1
   %sub15.i = sub i64 %sub.ptr.div.i, %spec.select.i
   %add.ptr.i = getelementptr inbounds ptr, ptr %3, i64 %sub15.i
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i, ptr align 8 %5, i64 %mul.i, i1 false)
@@ -65664,17 +65663,17 @@ if.else32.i:                                      ; preds = %if.then8
           to label %call.i.i.i.i.noexc unwind label %lpad
 
 call.i.i.i.i.noexc:                               ; preds = %if.else32.i
-  %6 = load ptr, ptr %mpCurrentArrayPtr.i, align 8
-  %7 = load ptr, ptr %this, align 8
-  %sub.ptr.lhs.cast41.i = ptrtoint ptr %6 to i64
-  %sub.ptr.rhs.cast42.i = ptrtoint ptr %7 to i64
+  %7 = load ptr, ptr %mpCurrentArrayPtr.i, align 8
+  %8 = load ptr, ptr %this, align 8
+  %sub.ptr.lhs.cast41.i = ptrtoint ptr %7 to i64
+  %sub.ptr.rhs.cast42.i = ptrtoint ptr %8 to i64
   %sub.ptr.sub43.i = sub i64 %sub.ptr.lhs.cast41.i, %sub.ptr.rhs.cast42.i
   %add.ptr45.i = getelementptr inbounds i8, ptr %call.i.i.i.i2, i64 %sub.ptr.sub43.i
-  %tobool.not.i = icmp eq ptr %7, null
+  %tobool.not.i = icmp eq ptr %8, null
   br i1 %tobool.not.i, label %_ZN5eastl9DequeBaseIZ9TestDequevE1aNS_9allocatorELj32EE14DoFreePtrArrayEPPS1_m.exit.i, label %if.end52.i
 
 if.end52.i:                                       ; preds = %call.i.i.i.i.noexc
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %add.ptr45.i, ptr align 8 %6, i64 %mul.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %add.ptr45.i, ptr align 8 %7, i64 %mul.i, i1 false)
   %.pre.i = load ptr, ptr %this, align 8
   %tobool.not.i.i = icmp eq ptr %.pre.i, null
   br i1 %tobool.not.i.i, label %_ZN5eastl9DequeBaseIZ9TestDequevE1aNS_9allocatorELj32EE14DoFreePtrArrayEPPS1_m.exit.i, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i
@@ -65691,24 +65690,24 @@ _ZN5eastl9DequeBaseIZ9TestDequevE1aNS_9allocatorELj32EE14DoFreePtrArrayEPPS1_m.e
 _ZN5eastl9DequeBaseIZ9TestDequevE1aNS_9allocatorELj32EE17DoReallocPtrArrayEmNS3_4SideE.exit: ; preds = %if.then.i, %_ZN5eastl9DequeBaseIZ9TestDequevE1aNS_9allocatorELj32EE14DoFreePtrArrayEPPS1_m.exit.i
   %pPtrArrayBegin.0.i = phi ptr [ %add.ptr.i, %if.then.i ], [ %add.ptr45.i, %_ZN5eastl9DequeBaseIZ9TestDequevE1aNS_9allocatorELj32EE14DoFreePtrArrayEPPS1_m.exit.i ]
   store ptr %pPtrArrayBegin.0.i, ptr %mpCurrentArrayPtr.i, align 8
-  %8 = load ptr, ptr %pPtrArrayBegin.0.i, align 8
+  %9 = load ptr, ptr %pPtrArrayBegin.0.i, align 8
   %mpBegin.i.i = getelementptr inbounds i8, ptr %this, i64 24
-  store ptr %8, ptr %mpBegin.i.i, align 8
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %8, i64 256
+  store ptr %9, ptr %mpBegin.i.i, align 8
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %9, i64 256
   %mpEnd.i.i = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %add.ptr.i.i, ptr %mpEnd.i.i, align 8
   %add.ptr61.i = getelementptr inbounds ptr, ptr %pPtrArrayBegin.0.i, i64 %add.i
   %add.ptr62.i = getelementptr inbounds i8, ptr %add.ptr61.i, i64 -8
   store ptr %add.ptr62.i, ptr %mpCurrentArrayPtr, align 8
-  %9 = load ptr, ptr %add.ptr62.i, align 8
+  %10 = load ptr, ptr %add.ptr62.i, align 8
   %mpBegin.i28.i = getelementptr inbounds i8, ptr %this, i64 56
-  store ptr %9, ptr %mpBegin.i28.i, align 8
-  %add.ptr.i29.i = getelementptr inbounds i8, ptr %9, i64 256
+  store ptr %10, ptr %mpBegin.i28.i, align 8
+  %add.ptr.i29.i = getelementptr inbounds i8, ptr %10, i64 256
   store ptr %add.ptr.i29.i, ptr %mpEnd, align 8
   br label %if.end
 
 lpad:                                             ; preds = %if.end, %if.else32.i
-  %10 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
   %cmp.not.i.i.i = icmp eq ptr %args.0.val, null
   br i1 %cmp.not.i.i.i, label %_ZZ9TestDequevEN1aD2Ev.exit, label %invoke.cont3.i.i.i
@@ -65718,27 +65717,27 @@ invoke.cont3.i.i.i:                               ; preds = %lpad
   br label %_ZZ9TestDequevEN1aD2Ev.exit
 
 _ZZ9TestDequevEN1aD2Ev.exit:                      ; preds = %lpad, %invoke.cont3.i.i.i
-  resume { ptr, i32 } %10
+  resume { ptr, i32 } %11
 
 if.end:                                           ; preds = %_ZN5eastl9DequeBaseIZ9TestDequevE1aNS_9allocatorELj32EE17DoReallocPtrArrayEmNS3_4SideE.exit, %if.else
   %call.i.i.i3 = invoke noundef ptr @_ZnamPKcijS0_i(i64 noundef 256, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
           to label %_ZZ9TestDequevEN1aD2Ev.exit8 unwind label %lpad
 
 _ZZ9TestDequevEN1aD2Ev.exit8:                     ; preds = %if.end
-  %11 = load ptr, ptr %mpCurrentArrayPtr, align 8
-  %arrayidx = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = load ptr, ptr %mpCurrentArrayPtr, align 8
+  %arrayidx = getelementptr inbounds i8, ptr %12, i64 8
   store ptr %call.i.i.i3, ptr %arrayidx, align 8
-  %12 = load ptr, ptr %mItEnd, align 8
-  store ptr %args.0.val, ptr %12, align 8
-  %13 = load ptr, ptr %mpCurrentArrayPtr, align 8
-  %add.ptr19 = getelementptr inbounds i8, ptr %13, i64 8
+  %13 = load ptr, ptr %mItEnd, align 8
+  store ptr %args.0.val, ptr %13, align 8
+  %14 = load ptr, ptr %mpCurrentArrayPtr, align 8
+  %add.ptr19 = getelementptr inbounds i8, ptr %14, i64 8
   store ptr %add.ptr19, ptr %mpCurrentArrayPtr, align 8
-  %14 = load ptr, ptr %add.ptr19, align 8
+  %15 = load ptr, ptr %add.ptr19, align 8
   %mpBegin.i = getelementptr inbounds i8, ptr %this, i64 56
-  store ptr %14, ptr %mpBegin.i, align 8
-  %add.ptr.i5 = getelementptr inbounds i8, ptr %14, i64 256
+  store ptr %15, ptr %mpBegin.i, align 8
+  %add.ptr.i5 = getelementptr inbounds i8, ptr %15, i64 256
   store ptr %add.ptr.i5, ptr %mpEnd, align 8
-  store ptr %14, ptr %mItEnd, align 8
+  store ptr %15, ptr %mItEnd, align 8
   br label %if.end23
 
 if.end23:                                         ; preds = %_ZZ9TestDequevEN1aD2Ev.exit8, %if.then

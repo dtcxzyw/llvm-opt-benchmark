@@ -248,8 +248,8 @@ default.unreachable117:                           ; preds = %130, %105, %59, %29
   %88 = load i32, ptr %13, align 4
   %.not96 = icmp eq i32 %88, 0
   %.088 = select i1 %.not96, i32 2, i32 3
-  %89 = add i32 %8, -1
-  %90 = select i1 %77, i32 %89, i32 6
+  %89 = call i32 @llvm.umax.i32(i32 %8, i32 7)
+  %90 = add i32 %89, -1
   %91 = zext nneg i32 %90 to i64
   %92 = lshr i64 %3, %91
   %.neg116 = add i64 %3, -2
@@ -408,6 +408,9 @@ declare i64 @HUF_compress4X_repeat(ptr noundef, i64 noundef, ptr noundef, i64 no
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #4
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #4
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

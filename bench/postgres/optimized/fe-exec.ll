@@ -6629,9 +6629,8 @@ define noalias noundef ptr @PQunescapeBytea(ptr noundef readonly %0, ptr nocaptu
 
 12:                                               ; preds = %8
   %13 = add i64 %5, -2
-  %14 = lshr i64 %13, 1
-  %.not = icmp ult i64 %13, 2
-  %15 = select i1 %.not, i64 1, i64 %14
+  %14 = tail call i64 @llvm.umax.i64(i64 %13, i64 2)
+  %15 = lshr i64 %14, 1
   %16 = tail call noalias ptr @malloc(i64 noundef %15) #25
   %17 = icmp eq ptr %16, null
   br i1 %17, label %82, label %18
@@ -6653,8 +6652,8 @@ thread-pre-split:                                 ; preds = %thread-pre-split.ba
 20:                                               ; preds = %thread-pre-split, %get_hex.exit
   %21 = phi i8 [ %.pr, %thread-pre-split ], [ %28, %get_hex.exit ]
   %.074 = phi ptr [ %.074.ph, %thread-pre-split ], [ %23, %get_hex.exit ]
-  %.not90 = icmp eq i8 %21, 0
-  br i1 %.not90, label %40, label %22
+  %.not = icmp eq i8 %21, 0
+  br i1 %.not, label %40, label %22
 
 22:                                               ; preds = %20
   %23 = getelementptr i8, ptr %.074, i64 1
@@ -6677,20 +6676,20 @@ get_hex.exit:                                     ; preds = %22, %24
 
 31:                                               ; preds = %get_hex.exit
   %32 = getelementptr i8, ptr %.074, i64 2
-  %or.cond.i96 = icmp ult i8 %28, 127
-  br i1 %or.cond.i96, label %get_hex.exit98, label %thread-pre-split.backedge
+  %or.cond.i95 = icmp ult i8 %28, 127
+  br i1 %or.cond.i95, label %get_hex.exit97, label %thread-pre-split.backedge
 
-get_hex.exit98:                                   ; preds = %31
+get_hex.exit97:                                   ; preds = %31
   %33 = zext nneg i8 %28 to i64
   %34 = getelementptr [128 x i8], ptr @hexlookup, i64 0, i64 %33
   %35 = load i8, ptr %34, align 1
-  %.not92 = icmp eq i8 %35, -1
-  br i1 %.not92, label %thread-pre-split.backedge, label %36
+  %.not91 = icmp eq i8 %35, -1
+  br i1 %.not91, label %thread-pre-split.backedge, label %36
 
-thread-pre-split.backedge:                        ; preds = %get_hex.exit98, %31
+thread-pre-split.backedge:                        ; preds = %get_hex.exit97, %31
   br label %thread-pre-split, !llvm.loop !39
 
-36:                                               ; preds = %get_hex.exit98
+36:                                               ; preds = %get_hex.exit97
   %37 = shl i8 %.0.i, 4
   %38 = or i8 %35, %37
   %39 = getelementptr i8, ptr %.073.ph.ph, i64 1
@@ -6710,16 +6709,16 @@ thread-pre-split.backedge:                        ; preds = %get_hex.exit98, %31
   br i1 %47, label %82, label %.preheader
 
 .preheader:                                       ; preds = %44
-  %.not106 = icmp eq i64 %5, 0
-  br i1 %.not106, label %.loopexit, label %.lr.ph
+  %.not105 = icmp eq i64 %5, 0
+  br i1 %.not105, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %76
-  %.075105 = phi i64 [ %.176, %76 ], [ 0, %.preheader ]
-  %.077104 = phi i64 [ %.178, %76 ], [ 0, %.preheader ]
-  %48 = getelementptr i8, ptr %0, i64 %.077104
+  %.075104 = phi i64 [ %.176, %76 ], [ 0, %.preheader ]
+  %.077103 = phi i64 [ %.178, %76 ], [ 0, %.preheader ]
+  %48 = getelementptr i8, ptr %0, i64 %.077103
   %49 = load i8, ptr %48, align 1
   %cond = icmp eq i8 %49, 92
-  %50 = add nuw i64 %.077104, 1
+  %50 = add nuw i64 %.077103, 1
   br i1 %cond, label %51, label %.sink.split
 
 51:                                               ; preds = %.lr.ph
@@ -6729,32 +6728,32 @@ thread-pre-split.backedge:                        ; preds = %get_hex.exit98, %31
   br i1 %54, label %55, label %57
 
 55:                                               ; preds = %51
-  %56 = add i64 %.077104, 2
+  %56 = add i64 %.077103, 2
   br label %.sink.split
 
 57:                                               ; preds = %51
   %58 = and i8 %53, -4
-  %or.cond93 = icmp eq i8 %58, 48
-  br i1 %or.cond93, label %59, label %76
+  %or.cond92 = icmp eq i8 %58, 48
+  br i1 %or.cond92, label %59, label %76
 
 59:                                               ; preds = %57
   %60 = getelementptr i8, ptr %48, i64 2
   %61 = load i8, ptr %60, align 1
   %62 = and i8 %61, -8
-  %or.cond94 = icmp eq i8 %62, 48
-  br i1 %or.cond94, label %63, label %76
+  %or.cond93 = icmp eq i8 %62, 48
+  br i1 %or.cond93, label %63, label %76
 
 63:                                               ; preds = %59
   %64 = getelementptr i8, ptr %48, i64 3
   %65 = load i8, ptr %64, align 1
   %66 = and i8 %65, -8
-  %or.cond95 = icmp eq i8 %66, 48
-  br i1 %or.cond95, label %67, label %76
+  %or.cond94 = icmp eq i8 %66, 48
+  br i1 %or.cond94, label %67, label %76
 
 67:                                               ; preds = %63
   %68 = shl i8 %53, 6
   %69 = shl i8 %61, 3
-  %70 = add i64 %.077104, 4
+  %70 = add i64 %.077103, 4
   %71 = add i8 %68, 80
   %72 = add i8 %71, %69
   %73 = add i8 %72, %65
@@ -6763,14 +6762,14 @@ thread-pre-split.backedge:                        ; preds = %get_hex.exit98, %31
 .sink.split:                                      ; preds = %.lr.ph, %67, %55
   %.sink = phi i8 [ 92, %55 ], [ %73, %67 ], [ %49, %.lr.ph ]
   %.178.ph = phi i64 [ %56, %55 ], [ %70, %67 ], [ %50, %.lr.ph ]
-  %74 = add i64 %.075105, 1
-  %75 = getelementptr i8, ptr %46, i64 %.075105
+  %74 = add i64 %.075104, 1
+  %75 = getelementptr i8, ptr %46, i64 %.075104
   store i8 %.sink, ptr %75, align 1
   br label %76
 
 76:                                               ; preds = %.sink.split, %63, %59, %57
   %.178 = phi i64 [ %50, %63 ], [ %50, %59 ], [ %50, %57 ], [ %.178.ph, %.sink.split ]
-  %.176 = phi i64 [ %.075105, %63 ], [ %.075105, %59 ], [ %.075105, %57 ], [ %74, %.sink.split ]
+  %.176 = phi i64 [ %.075104, %63 ], [ %.075104, %59 ], [ %.075104, %57 ], [ %74, %.sink.split ]
   %77 = icmp ult i64 %.178, %5
   br i1 %77, label %.lr.ph, label %.loopexit, !llvm.loop !40
 
@@ -6779,8 +6778,8 @@ thread-pre-split.backedge:                        ; preds = %get_hex.exit98, %31
   %.071 = phi i64 [ %43, %40 ], [ 0, %.preheader ], [ %.176, %76 ]
   %78 = add i64 %.071, 1
   %79 = tail call ptr @realloc(ptr noundef nonnull %.072, i64 noundef %78) #28
-  %.not91 = icmp eq ptr %79, null
-  br i1 %.not91, label %80, label %81
+  %.not90 = icmp eq ptr %79, null
+  br i1 %.not90, label %80, label %81
 
 80:                                               ; preds = %.loopexit
   tail call void @free(ptr noundef %.072) #26
@@ -6817,6 +6816,9 @@ declare void @llvm.va_end.p0(ptr) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #23
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #23
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #24

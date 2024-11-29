@@ -189,15 +189,9 @@ if.end7:                                          ; preds = %if.else.i, %if.then
   %cmp.i.i.i = icmp ult i8 %10, 24
   %cond.i.i.i = select i1 %cmp.i.i.i, i64 %sub.i.i.i, i64 %9
   %add13.i.i = add i64 %cond.i.i.i, %conv.i
-  %cmp.i.i.i.i.i.i7 = icmp ugt i64 %add13.i.i, 4294967295
-  %11 = shl nuw i64 %add13.i.i, 32
-  %12 = or disjoint i64 %11, 1
-  %retval.sroa.0.0.insert.insert.i.i.i.i = select i1 %cmp.i.i.i.i.i.i7, i64 2818, i64 %12
-  %ref.tmp11.sroa.21.0.extract.shift.i.i = lshr i64 %retval.sroa.0.0.insert.insert.i.i.i.i, 32
-  %ref.tmp11.sroa.21.0.extract.trunc.i.i = trunc nuw i64 %ref.tmp11.sroa.21.0.extract.shift.i.i to i32
-  %13 = and i64 %retval.sroa.0.0.insert.insert.i.i.i.i, 3
-  %cmp.i.i1.i = icmp eq i64 %13, 1
-  %retval.0.i.i.i = select i1 %cmp.i.i1.i, i32 %ref.tmp11.sroa.21.0.extract.trunc.i.i, i32 -1
+  %cmp.i.i.i.i.i.i7 = icmp ult i64 %add13.i.i, 4294967296
+  %ref.tmp11.sroa.21.0.extract.trunc.i.i = trunc i64 %add13.i.i to i32
+  %retval.0.i.i.i = select i1 %cmp.i.i.i.i.i.i7, i32 %ref.tmp11.sroa.21.0.extract.trunc.i.i, i32 -1
   ret i32 %retval.0.i.i.i
 }
 

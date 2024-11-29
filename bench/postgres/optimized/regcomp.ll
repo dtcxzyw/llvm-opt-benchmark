@@ -25975,9 +25975,8 @@ getcvec.exit:                                     ; preds = %19, %newcvec.exit.i
 
 55:                                               ; preds = %9
   %56 = sub i32 %2, %1
-  %57 = add nuw nsw i32 %56, 1
-  %or.cond.inv = icmp ult i32 %56, 100000
-  %spec.store.select = select i1 %or.cond.inv, i32 %57, i32 100000
+  %57 = tail call i32 @llvm.umin.i32(i32 %56, i32 99999)
+  %spec.store.select = add nuw nsw i32 %57, 1
   %58 = getelementptr inbounds i8, ptr %0, i64 216
   %59 = load ptr, ptr %58, align 8
   %.not.i88 = icmp eq ptr %59, null
@@ -25986,8 +25985,8 @@ getcvec.exit:                                     ; preds = %19, %newcvec.exit.i
 60:                                               ; preds = %55
   %61 = getelementptr inbounds i8, ptr %59, i64 4
   %62 = load i32, ptr %61, align 4
-  %.not20.i89 = icmp sgt i32 %spec.store.select, %62
-  br i1 %.not20.i89, label %69, label %63
+  %.not20.i89.not = icmp slt i32 %57, %62
+  br i1 %.not20.i89.not, label %63, label %69
 
 63:                                               ; preds = %60
   %64 = getelementptr inbounds i8, ptr %59, i64 20

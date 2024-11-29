@@ -1099,10 +1099,9 @@ define dso_local range(i64 0, 65532) i64 @PageGetFreeSpace(ptr nocapture noundef
   %6 = load i16, ptr %5, align 4
   %7 = zext i16 %6 to i32
   %8 = sub nsw i32 %4, %7
-  %9 = icmp slt i32 %8, 4
-  %10 = add nsw i32 %8, -4
-  %narrow = select i1 %9, i32 0, i32 %10
-  %.0 = zext i32 %narrow to i64
+  %9 = tail call i32 @llvm.smax.i32(i32 %8, i32 4)
+  %narrow = add nsw i32 %9, -4
+  %.0 = zext nneg i32 %narrow to i64
   ret i64 %.0
 }
 
@@ -1138,7 +1137,7 @@ define dso_local range(i64 0, 65536) i64 @PageGetExactFreeSpace(ptr nocapture no
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define dso_local range(i64 0, 4294967296) i64 @PageGetHeapFreeSpace(ptr nocapture noundef readonly %0) local_unnamed_addr #8 {
+define dso_local range(i64 0, 65532) i64 @PageGetHeapFreeSpace(ptr nocapture noundef readonly %0) local_unnamed_addr #8 {
   %2 = getelementptr inbounds i8, ptr %0, i64 14
   %3 = load i16, ptr %2, align 2
   %4 = zext i16 %3 to i32
@@ -1146,50 +1145,49 @@ define dso_local range(i64 0, 4294967296) i64 @PageGetHeapFreeSpace(ptr nocaptur
   %6 = load i16, ptr %5, align 4
   %7 = zext i16 %6 to i32
   %8 = sub nsw i32 %4, %7
-  %9 = icmp slt i32 %8, 4
-  %10 = add nsw i32 %8, -4
-  %narrow.i = select i1 %9, i32 0, i32 %10
+  %9 = tail call i32 @llvm.smax.i32(i32 %8, i32 4)
+  %narrow.i = add nsw i32 %9, -4
   %.not = icmp eq i32 %narrow.i, 0
-  br i1 %.not, label %.loopexit, label %11
+  br i1 %.not, label %.loopexit, label %10
 
-11:                                               ; preds = %1
-  %12 = icmp ult i16 %6, 25
-  %13 = add nuw nsw i32 %7, 262120
-  %14 = lshr i32 %13, 2
-  %15 = trunc i32 %14 to i16
-  %.0.i20 = select i1 %12, i16 0, i16 %15
-  %16 = icmp samesign ugt i16 %.0.i20, 290
-  br i1 %16, label %17, label %.loopexit
+10:                                               ; preds = %1
+  %11 = icmp ult i16 %6, 25
+  %12 = add nuw nsw i32 %7, 262120
+  %13 = lshr i32 %12, 2
+  %14 = trunc i32 %13 to i16
+  %.0.i20 = select i1 %11, i16 0, i16 %14
+  %15 = icmp samesign ugt i16 %.0.i20, 290
+  br i1 %15, label %16, label %.loopexit
 
-17:                                               ; preds = %11
-  %18 = getelementptr i8, ptr %0, i64 10
-  %.val19 = load i16, ptr %18, align 2
-  %19 = and i16 %.val19, 1
-  %.not21 = icmp eq i16 %19, 0
+16:                                               ; preds = %10
+  %17 = getelementptr i8, ptr %0, i64 10
+  %.val19 = load i16, ptr %17, align 2
+  %18 = and i16 %.val19, 1
+  %.not21 = icmp eq i16 %18, 0
   br i1 %.not21, label %.loopexit, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %0, i64 24
+.lr.ph.preheader:                                 ; preds = %16
+  %19 = getelementptr inbounds i8, ptr %0, i64 24
   br label %.lr.ph
 
-21:                                               ; preds = %.lr.ph
-  %22 = add i16 %.01323, 1
-  %.not17 = icmp ugt i16 %22, %.0.i20
+20:                                               ; preds = %.lr.ph
+  %21 = add i16 %.01323, 1
+  %.not17 = icmp ugt i16 %21, %.0.i20
   br i1 %.not17, label %.loopexit, label %.lr.ph, !llvm.loop !15
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %21
-  %.01323 = phi i16 [ %22, %21 ], [ 1, %.lr.ph.preheader ]
-  %23 = zext i16 %.01323 to i64
-  %24 = add nsw i64 %23, -1
-  %25 = getelementptr [0 x %struct.ItemIdData], ptr %20, i64 0, i64 %24
-  %26 = load i32, ptr %25, align 4
-  %27 = and i32 %26, 98304
-  %.not18 = icmp eq i32 %27, 0
-  br i1 %.not18, label %.loopexit, label %21
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %20
+  %.01323 = phi i16 [ %21, %20 ], [ 1, %.lr.ph.preheader ]
+  %22 = zext i16 %.01323 to i64
+  %23 = add nsw i64 %22, -1
+  %24 = getelementptr [0 x %struct.ItemIdData], ptr %19, i64 0, i64 %23
+  %25 = load i32, ptr %24, align 4
+  %26 = and i32 %25, 98304
+  %.not18 = icmp eq i32 %26, 0
+  br i1 %.not18, label %.loopexit, label %20
 
-.loopexit:                                        ; preds = %.lr.ph, %21, %17, %11, %1
-  %.0.shrunk = phi i32 [ %narrow.i, %11 ], [ 0, %1 ], [ 0, %17 ], [ %narrow.i, %.lr.ph ], [ 0, %21 ]
-  %.0 = zext i32 %.0.shrunk to i64
+.loopexit:                                        ; preds = %.lr.ph, %20, %16, %10, %1
+  %.0.shrunk = phi i32 [ %narrow.i, %10 ], [ 0, %1 ], [ 0, %16 ], [ %narrow.i, %.lr.ph ], [ 0, %20 ]
+  %.0 = zext nneg i32 %.0.shrunk to i64
   ret i64 %.0
 }
 

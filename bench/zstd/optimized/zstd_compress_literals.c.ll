@@ -133,7 +133,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp7.i, label %return, label %do.end17.i
 
 do.end17.i:                                       ; preds = %if.then
-  switch i32 %add3.i, label %default.unreachable123 [
+  switch i32 %add3.i, label %default.unreachable121 [
     i32 1, label %sw.bb.i
     i32 2, label %sw.bb20.i
     i32 3, label %sw.bb24.i
@@ -159,7 +159,7 @@ sw.bb24.i:                                        ; preds = %do.end17.i
   store i32 %conv27.i, ptr %dst, align 1
   br label %sw.epilog.i
 
-default.unreachable123:                           ; preds = %if.end90, %do.end17.i102, %do.end17.i73, %do.end17.i
+default.unreachable121:                           ; preds = %if.end90, %do.end17.i100, %do.end17.i73, %do.end17.i
   unreachable
 
 sw.epilog.i:                                      ; preds = %sw.bb24.i, %sw.bb20.i, %sw.bb.i
@@ -191,7 +191,7 @@ if.then12:                                        ; preds = %if.end
   br i1 %cmp7.i72, label %return, label %do.end17.i73
 
 do.end17.i73:                                     ; preds = %if.then12
-  switch i32 %add3.i69, label %default.unreachable123 [
+  switch i32 %add3.i69, label %default.unreachable121 [
     i32 1, label %sw.bb.i83
     i32 2, label %sw.bb20.i80
     i32 3, label %sw.bb24.i74
@@ -251,60 +251,60 @@ do.end29:                                         ; preds = %do.body15
   %6 = load i32, ptr %repeat, align 4
   %cmp56.not = icmp eq i32 %6, 0
   %hType.0 = select i1 %cmp56.not, i32 2, i32 3
-  %sub.i89 = add i32 %strategy, -1
-  %cond.i90 = select i1 %cmp38, i32 %sub.i89, i32 6
-  %sh_prom.i91 = zext nneg i32 %cond.i90 to i64
-  %shr.i = lshr i64 %srcSize, %sh_prom.i91
-  %add.i92.neg = add i64 %srcSize, -2
-  %sub65 = sub i64 %add.i92.neg, %shr.i
+  %7 = call i32 @llvm.umax.i32(i32 %strategy, i32 7)
+  %cond.i88 = add i32 %7, -1
+  %sh_prom.i89 = zext nneg i32 %cond.i88 to i64
+  %shr.i = lshr i64 %srcSize, %sh_prom.i89
+  %add.i90.neg = add i64 %srcSize, -2
+  %sub65 = sub i64 %add.i90.neg, %shr.i
   %cmp66.not = icmp ult i64 %call53, %sub65
-  %7 = add i64 %call53, -1
-  %8 = icmp ult i64 %7, -120
-  %or.cond122 = select i1 %8, i1 %cmp66.not, i1 false
-  br i1 %or.cond122, label %if.end73, label %if.then71
+  %8 = add i64 %call53, -1
+  %9 = icmp ult i64 %8, -120
+  %or.cond120 = select i1 %9, i1 %cmp66.not, i1 false
+  br i1 %or.cond120, label %if.end73, label %if.then71
 
 if.then71:                                        ; preds = %do.end29
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2064) %nextHuf, ptr noundef nonnull align 8 dereferenceable(2064) %prevHuf, i64 2064, i1 false)
-  %cmp.i94 = icmp ugt i64 %srcSize, 31
-  %add.i95 = select i1 %cmp.i94, i32 2, i32 1
-  %cmp1.i96 = icmp ugt i64 %srcSize, 4095
-  %conv2.i97 = zext i1 %cmp1.i96 to i32
-  %add3.i98 = add nuw nsw i32 %add.i95, %conv2.i97
-  %conv5.i99 = zext nneg i32 %add3.i98 to i64
-  %add6.i100 = add i64 %srcSize, %conv5.i99
-  %cmp7.i101 = icmp ugt i64 %add6.i100, %dstCapacity
-  br i1 %cmp7.i101, label %return, label %do.end17.i102
+  %cmp.i92 = icmp ugt i64 %srcSize, 31
+  %add.i93 = select i1 %cmp.i92, i32 2, i32 1
+  %cmp1.i94 = icmp ugt i64 %srcSize, 4095
+  %conv2.i95 = zext i1 %cmp1.i94 to i32
+  %add3.i96 = add nuw nsw i32 %add.i93, %conv2.i95
+  %conv5.i97 = zext nneg i32 %add3.i96 to i64
+  %add6.i98 = add i64 %srcSize, %conv5.i97
+  %cmp7.i99 = icmp ugt i64 %add6.i98, %dstCapacity
+  br i1 %cmp7.i99, label %return, label %do.end17.i100
 
-do.end17.i102:                                    ; preds = %if.then71
-  switch i32 %add3.i98, label %default.unreachable123 [
-    i32 1, label %sw.bb.i112
-    i32 2, label %sw.bb20.i109
-    i32 3, label %sw.bb24.i103
+do.end17.i100:                                    ; preds = %if.then71
+  switch i32 %add3.i96, label %default.unreachable121 [
+    i32 1, label %sw.bb.i110
+    i32 2, label %sw.bb20.i107
+    i32 3, label %sw.bb24.i101
   ]
 
-sw.bb.i112:                                       ; preds = %do.end17.i102
-  %srcSize.tr15.i113 = trunc i64 %srcSize to i8
-  %conv19.i114 = shl i8 %srcSize.tr15.i113, 3
-  store i8 %conv19.i114, ptr %dst, align 1
-  br label %sw.epilog.i106
+sw.bb.i110:                                       ; preds = %do.end17.i100
+  %srcSize.tr15.i111 = trunc i64 %srcSize to i8
+  %conv19.i112 = shl i8 %srcSize.tr15.i111, 3
+  store i8 %conv19.i112, ptr %dst, align 1
+  br label %sw.epilog.i104
 
-sw.bb20.i109:                                     ; preds = %do.end17.i102
-  %srcSize.tr14.i110 = trunc i64 %srcSize to i16
-  %9 = shl i16 %srcSize.tr14.i110, 4
-  %conv23.i111 = or disjoint i16 %9, 4
-  store i16 %conv23.i111, ptr %dst, align 1
-  br label %sw.epilog.i106
+sw.bb20.i107:                                     ; preds = %do.end17.i100
+  %srcSize.tr14.i108 = trunc i64 %srcSize to i16
+  %10 = shl i16 %srcSize.tr14.i108, 4
+  %conv23.i109 = or disjoint i16 %10, 4
+  store i16 %conv23.i109, ptr %dst, align 1
+  br label %sw.epilog.i104
 
-sw.bb24.i103:                                     ; preds = %do.end17.i102
-  %srcSize.tr.i104 = trunc i64 %srcSize to i32
-  %10 = shl i32 %srcSize.tr.i104, 4
-  %conv27.i105 = or disjoint i32 %10, 12
-  store i32 %conv27.i105, ptr %dst, align 1
-  br label %sw.epilog.i106
+sw.bb24.i101:                                     ; preds = %do.end17.i100
+  %srcSize.tr.i102 = trunc i64 %srcSize to i32
+  %11 = shl i32 %srcSize.tr.i102, 4
+  %conv27.i103 = or disjoint i32 %11, 12
+  store i32 %conv27.i103, ptr %dst, align 1
+  br label %sw.epilog.i104
 
-sw.epilog.i106:                                   ; preds = %sw.bb24.i103, %sw.bb20.i109, %sw.bb.i112
-  %add.ptr.i107 = getelementptr inbounds i8, ptr %dst, i64 %conv5.i99
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i107, ptr readonly align 1 %src, i64 %srcSize, i1 false)
+sw.epilog.i104:                                   ; preds = %sw.bb24.i101, %sw.bb20.i107, %sw.bb.i110
+  %add.ptr.i105 = getelementptr inbounds i8, ptr %dst, i64 %conv5.i97
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i105, ptr readonly align 1 %src, i64 %srcSize, i1 false)
   br label %return
 
 if.end73:                                         ; preds = %do.end29
@@ -316,7 +316,7 @@ if.then76:                                        ; preds = %if.end73
   br i1 %cmp77, label %if.then82, label %lor.lhs.false79
 
 lor.lhs.false79:                                  ; preds = %if.then76
-  %11 = load i8, ptr %src, align 1
+  %12 = load i8, ptr %src, align 1
   %cmp4.i = icmp samesign ugt i64 %srcSize, 1
   br i1 %cmp4.i, label %for.body.i, label %if.then82
 
@@ -328,8 +328,8 @@ for.cond.i:                                       ; preds = %for.body.i
 for.body.i:                                       ; preds = %lor.lhs.false79, %for.cond.i
   %p.05.i = phi i64 [ %inc.i, %for.cond.i ], [ 1, %lor.lhs.false79 ]
   %arrayidx1.i = getelementptr inbounds i8, ptr %src, i64 %p.05.i
-  %12 = load i8, ptr %arrayidx1.i, align 1
-  %cmp3.not.i = icmp eq i8 %12, %11
+  %13 = load i8, ptr %arrayidx1.i, align 1
+  %cmp3.not.i = icmp eq i8 %13, %12
   br i1 %cmp3.not.i, label %for.cond.i, label %if.end85
 
 if.then82:                                        ; preds = %for.cond.i, %lor.lhs.false79, %if.then76
@@ -346,7 +346,7 @@ if.then88:                                        ; preds = %if.end85
   br label %if.end90
 
 if.end90:                                         ; preds = %if.then88, %if.end85
-  switch i64 %add3, label %default.unreachable123 [
+  switch i64 %add3, label %default.unreachable121 [
     i64 3, label %sw.bb
     i64 4, label %sw.bb102
     i64 5, label %sw.bb111
@@ -356,16 +356,16 @@ sw.bb:                                            ; preds = %if.end90
   %lnot.ext = select i1 %narrow, i32 4, i32 0
   %conv96 = trunc i64 %srcSize to i32
   %shl97 = shl i32 %conv96, 4
-  %13 = or disjoint i32 %lnot.ext, %shl97
-  %14 = or disjoint i32 %hType.0, %13
-  %add98 = xor i32 %14, 4
+  %14 = or disjoint i32 %lnot.ext, %shl97
+  %15 = or disjoint i32 %hType.0, %14
+  %add98 = xor i32 %15, 4
   %conv99 = trunc i64 %call53 to i32
   %shl100 = shl i32 %conv99, 14
   %add101 = add i32 %add98, %shl100
-  %conv.i118 = trunc i32 %add101 to i16
-  store i16 %conv.i118, ptr %dst, align 1
-  %shr.i119 = lshr i32 %add101, 16
-  %conv1.i = trunc i32 %shr.i119 to i8
+  %conv.i116 = trunc i32 %add101 to i16
+  store i16 %conv.i116, ptr %dst, align 1
+  %shr.i117 = lshr i32 %add101, 16
+  %conv1.i = trunc i32 %shr.i117 to i8
   %arrayidx.i = getelementptr inbounds i8, ptr %dst, i64 2
   store i8 %conv1.i, ptr %arrayidx.i, align 1
   br label %do.end122
@@ -400,8 +400,8 @@ do.end122:                                        ; preds = %sw.bb111, %sw.bb102
   %add123 = add i64 %call53, %add3
   br label %return
 
-return:                                           ; preds = %sw.epilog.i106, %if.then71, %sw.epilog.i77, %if.then12, %sw.epilog.i, %if.then, %do.body15, %do.end122, %if.then82
-  %retval.0 = phi i64 [ %call83, %if.then82 ], [ %add123, %do.end122 ], [ -70, %do.body15 ], [ %add6.i, %sw.epilog.i ], [ -70, %if.then ], [ %add6.i71, %sw.epilog.i77 ], [ -70, %if.then12 ], [ %add6.i100, %sw.epilog.i106 ], [ -70, %if.then71 ]
+return:                                           ; preds = %sw.epilog.i104, %if.then71, %sw.epilog.i77, %if.then12, %sw.epilog.i, %if.then, %do.body15, %do.end122, %if.then82
+  %retval.0 = phi i64 [ %call83, %if.then82 ], [ %add123, %do.end122 ], [ -70, %do.body15 ], [ %add6.i, %sw.epilog.i ], [ -70, %if.then ], [ %add6.i71, %sw.epilog.i77 ], [ -70, %if.then12 ], [ %add6.i98, %sw.epilog.i104 ], [ -70, %if.then71 ]
   ret i64 %retval.0
 }
 
@@ -411,6 +411,9 @@ declare i64 @HUF_compress4X_repeat(ptr noundef, i64 noundef, ptr noundef, i64 no
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #4
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #4
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

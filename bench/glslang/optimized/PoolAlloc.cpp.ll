@@ -72,29 +72,28 @@ define void @_ZN7glslang14TPoolAllocatorC2Eii(ptr nocapture noundef nonnull alig
   %9 = phi i64 [ 4096, %7 ], [ %4, %3 ]
   %10 = getelementptr inbounds i8, ptr %0, i64 32
   store i64 %9, ptr %10, align 8
-  %11 = and i32 %2, -8
-  %12 = icmp ult i32 %2, 8
-  %narrow = select i1 %12, i32 8, i32 %11
+  %11 = tail call i32 @llvm.umax.i32(i32 %2, i32 8)
+  %narrow = and i32 %11, -8
   %spec.select = sext i32 %narrow to i64
-  br label %13
+  br label %12
 
-13:                                               ; preds = %13, %8
-  %.0 = phi i64 [ 1, %8 ], [ %15, %13 ]
-  %14 = icmp ult i64 %.0, %spec.select
-  %15 = shl i64 %.0, 1
-  br i1 %14, label %13, label %16, !llvm.loop !5
+12:                                               ; preds = %12, %8
+  %.0 = phi i64 [ 1, %8 ], [ %14, %12 ]
+  %13 = icmp ult i64 %.0, %spec.select
+  %14 = shl i64 %.0, 1
+  br i1 %13, label %12, label %15, !llvm.loop !5
 
-16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %.0, ptr %17, align 8
-  %18 = add i64 %.0, -1
-  %19 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %18, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 24
-  %21 = add i64 %.0, 15
-  %22 = sub i64 0, %.0
-  %23 = and i64 %21, %22
-  store i64 %23, ptr %20, align 8
+15:                                               ; preds = %12
+  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %.0, ptr %16, align 8
+  %17 = add i64 %.0, -1
+  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %17, ptr %18, align 8
+  %19 = getelementptr inbounds i8, ptr %0, i64 24
+  %20 = add i64 %.0, 15
+  %21 = sub i64 0, %.0
+  %22 = and i64 %20, %21
+  store i64 %22, ptr %19, align 8
   tail call void @_ZN7glslang14TPoolAllocator4pushEv(ptr noundef nonnull align 8 dereferenceable(96) %0)
   ret void
 }
@@ -506,6 +505,9 @@ declare i64 @llvm.umax.i64(i64, i64) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #10
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #10
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }

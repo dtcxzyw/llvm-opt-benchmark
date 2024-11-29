@@ -2896,42 +2896,40 @@ define internal fastcc void @power_save_rl_setup() unnamed_addr #7 {
   %spec.select = zext i16 %narrow to i32
   %4 = load i32, ptr @resume_rate, align 4
   %.not = icmp eq i32 %4, 0
-  br i1 %.not, label %10, label %5
+  br i1 %.not, label %9, label %5
 
 5:                                                ; preds = %0
   %6 = mul i32 %4, %spec.select
-  %7 = icmp ult i32 %6, 60
-  %8 = udiv i32 %6, 60
-  %.0 = select i1 %7, i32 1, i32 %8
-  %9 = sdiv i32 60000, %4
+  %7 = tail call i32 @llvm.umax.i32(i32 %6, i32 60)
+  %.0 = udiv i32 %7, 60
+  %8 = sdiv i32 60000, %4
   store i1 true, ptr @resume_rl_config.0, align 8
   store i64 0, ptr @resume_rl_config.1, align 8
   store i32 %.0, ptr @resume_rl_config.2, align 8
   store i1 true, ptr @resume_rl_config.3, align 4
-  store i32 %9, ptr @resume_rl_config.4, align 8
+  store i32 %8, ptr @resume_rl_config.4, align 8
   store i32 0, ptr @resume_rl_config.5, align 4
-  br label %10
+  br label %9
 
-10:                                               ; preds = %5, %0
-  %11 = load i32, ptr @suspend_rate, align 4
-  %.not13 = icmp eq i32 %11, 0
-  br i1 %.not13, label %17, label %12
+9:                                                ; preds = %5, %0
+  %10 = load i32, ptr @suspend_rate, align 4
+  %.not13 = icmp eq i32 %10, 0
+  br i1 %.not13, label %15, label %11
 
-12:                                               ; preds = %10
-  %13 = mul i32 %11, %spec.select
-  %14 = icmp ult i32 %13, 60
-  %15 = udiv i32 %13, 60
-  %.1 = select i1 %14, i32 1, i32 %15
-  %16 = sdiv i32 60000, %11
+11:                                               ; preds = %9
+  %12 = mul i32 %10, %spec.select
+  %13 = tail call i32 @llvm.umax.i32(i32 %12, i32 60)
+  %.1 = udiv i32 %13, 60
+  %14 = sdiv i32 60000, %10
   store i1 true, ptr @suspend_rl_config.0, align 8
   store i64 0, ptr @suspend_rl_config.1, align 8
   store i32 %.1, ptr @suspend_rl_config.2, align 8
   store i1 true, ptr @suspend_rl_config.3, align 4
-  store i32 %16, ptr @suspend_rl_config.4, align 8
+  store i32 %14, ptr @suspend_rl_config.4, align 8
   store i32 0, ptr @suspend_rl_config.5, align 4
-  br label %17
+  br label %15
 
-17:                                               ; preds = %12, %10
+15:                                               ; preds = %11, %9
   ret void
 }
 

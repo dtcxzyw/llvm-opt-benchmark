@@ -544,16 +544,15 @@ define dso_local void @llvm_debug_push_lexical_scope(ptr noundef %0, i64 %1) loc
 21:                                               ; preds = %19, %14
   %.028 = phi ptr [ %20, %19 ], [ %17, %14 ]
   %22 = trunc i64 %1 to i32
-  %23 = lshr i32 %22, 24
   %.sroa.4.0.extract.shift = lshr i64 %1, 32
   %.sroa.4.0.extract.trunc = trunc nuw i64 %.sroa.4.0.extract.shift to i32
-  %24 = getelementptr inbounds i8, ptr %0, i64 304
-  %25 = load ptr, ptr %24, align 8
+  %23 = getelementptr inbounds i8, ptr %0, i64 304
+  %24 = load ptr, ptr %23, align 8
   %.not37 = icmp ult i64 %1, 4294967296
-  %26 = select i1 %.not37, i32 1, i32 %.sroa.4.0.extract.trunc
-  %.not38 = icmp ult i32 %22, 16777216
-  %27 = select i1 %.not38, i32 1, i32 %23
-  %28 = tail call ptr @LLVMDIBuilderCreateLexicalBlock(ptr noundef %25, ptr noundef %.030, ptr noundef %.028, i32 noundef %26, i32 noundef %27) #8
+  %25 = select i1 %.not37, i32 1, i32 %.sroa.4.0.extract.trunc
+  %26 = tail call i32 @llvm.umax.i32(i32 %22, i32 16777216)
+  %27 = lshr i32 %26, 24
+  %28 = tail call ptr @LLVMDIBuilderCreateLexicalBlock(ptr noundef %24, ptr noundef %.030, ptr noundef %.028, i32 noundef %25, i32 noundef %27) #8
   %29 = load ptr, ptr %3, align 8
   %.not.i.i = icmp eq ptr %29, null
   br i1 %.not.i.i, label %30, label %33

@@ -6257,47 +6257,45 @@ define hidden noundef zeroext i1 @"_ZN103_$LT$futures_util..future..maybe_done..
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef zeroext i1 @"_ZN103_$LT$futures_util..future..maybe_done..MaybeDone$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h7e25c935f999f4a5E"(ptr noundef nonnull align 8 %0, ptr noalias noundef align 8 dereferenceable(32) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = load i64, ptr %0, align 8, !range !504, !noundef !4
-  %.not = icmp samesign ult i64 %3, 2
-  %4 = add nsw i64 %3, -1
-  %5 = select i1 %.not, i64 0, i64 %4
-  switch i64 %5, label %6 [
-    i64 0, label %7
-    i64 1, label %15
-    i64 2, label %9
+  %4 = tail call i64 @llvm.umax.i64(i64 %3, i64 1)
+  switch i64 %4, label %default.unreachable [
+    i64 1, label %5
+    i64 2, label %13
+    i64 3, label %7
   ]
 
-6:                                                ; preds = %2
+default.unreachable:                              ; preds = %2
   unreachable
 
-7:                                                ; preds = %2
-  %8 = tail call noundef zeroext i1 @"_ZN7project14prettier_store13PrettierStore24update_prettier_settings28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hf58d9d4aa5d11ff3E.llvm.877204494124398451"(ptr noundef nonnull align 8 %0, ptr noalias noundef nonnull align 8 dereferenceable(32) %1)
-  br i1 %8, label %15, label %10
+5:                                                ; preds = %2
+  %6 = tail call noundef zeroext i1 @"_ZN7project14prettier_store13PrettierStore24update_prettier_settings28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hf58d9d4aa5d11ff3E.llvm.877204494124398451"(ptr noundef nonnull align 8 %0, ptr noalias noundef nonnull align 8 dereferenceable(32) %1)
+  br i1 %6, label %13, label %8
 
-9:                                                ; preds = %2
+7:                                                ; preds = %2
   tail call void @_ZN3std9panicking11begin_panic17h3c72be50785083cbE(ptr noalias noundef nonnull readonly align 1 @anon.8b364b343e5f05507febdab83cec933a.9.llvm.877204494124398451, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.8b364b343e5f05507febdab83cec933a.11.llvm.877204494124398451) #57
   unreachable
 
-10:                                               ; preds = %7
-  %11 = load i64, ptr %0, align 8, !range !504, !noalias !1243, !noundef !4
-  %.not.i = icmp samesign ult i64 %11, 2
-  br i1 %.not.i, label %12, label %"_ZN4core3pin14Pin$LT$Ptr$GT$3set17h9ca84e746fc393e1E.llvm.877204494124398451.exit"
+8:                                                ; preds = %5
+  %9 = load i64, ptr %0, align 8, !range !504, !noalias !1243, !noundef !4
+  %cond.i = icmp samesign ult i64 %9, 2
+  br i1 %cond.i, label %10, label %"_ZN4core3pin14Pin$LT$Ptr$GT$3set17h9ca84e746fc393e1E.llvm.877204494124398451.exit"
 
-12:                                               ; preds = %10
+10:                                               ; preds = %8
   invoke void @"_ZN4core3ptr172drop_in_place$LT$project..prettier_store..PrettierStore..update_prettier_settings..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h48f4212bc867c2ccE.llvm.877204494124398451"(ptr noundef nonnull align 8 %0)
-          to label %"_ZN4core3pin14Pin$LT$Ptr$GT$3set17h9ca84e746fc393e1E.llvm.877204494124398451.exit" unwind label %13
+          to label %"_ZN4core3pin14Pin$LT$Ptr$GT$3set17h9ca84e746fc393e1E.llvm.877204494124398451.exit" unwind label %11
 
-13:                                               ; preds = %12
-  %14 = landingpad { ptr, i32 }
+11:                                               ; preds = %10
+  %12 = landingpad { ptr, i32 }
           cleanup
   store i64 2, ptr %0, align 8, !noalias !1243
-  resume { ptr, i32 } %14
+  resume { ptr, i32 } %12
 
-"_ZN4core3pin14Pin$LT$Ptr$GT$3set17h9ca84e746fc393e1E.llvm.877204494124398451.exit": ; preds = %10, %12
+"_ZN4core3pin14Pin$LT$Ptr$GT$3set17h9ca84e746fc393e1E.llvm.877204494124398451.exit": ; preds = %8, %10
   store i64 2, ptr %0, align 8, !noalias !1243
-  br label %15
+  br label %13
 
-15:                                               ; preds = %7, %2, %"_ZN4core3pin14Pin$LT$Ptr$GT$3set17h9ca84e746fc393e1E.llvm.877204494124398451.exit"
-  %.sroa.0.0 = phi i1 [ false, %"_ZN4core3pin14Pin$LT$Ptr$GT$3set17h9ca84e746fc393e1E.llvm.877204494124398451.exit" ], [ false, %2 ], [ true, %7 ]
+13:                                               ; preds = %5, %2, %"_ZN4core3pin14Pin$LT$Ptr$GT$3set17h9ca84e746fc393e1E.llvm.877204494124398451.exit"
+  %.sroa.0.0 = phi i1 [ false, %"_ZN4core3pin14Pin$LT$Ptr$GT$3set17h9ca84e746fc393e1E.llvm.877204494124398451.exit" ], [ false, %2 ], [ true, %5 ]
   ret i1 %.sroa.0.0
 }
 
@@ -34091,8 +34089,8 @@ define hidden void @"_ZN4core3pin14Pin$LT$Ptr$GT$3set17h92a629ba4100fca6E.llvm.8
 define hidden void @"_ZN4core3pin14Pin$LT$Ptr$GT$3set17h9ca84e746fc393e1E.llvm.877204494124398451"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(280) %1) unnamed_addr #4 personality ptr @rust_eh_personality {
   %3 = load ptr, ptr %0, align 8, !alias.scope !7277, !nonnull !4, !align !1032, !noundef !4
   %4 = load i64, ptr %3, align 8, !range !504, !noundef !4
-  %.not.i = icmp samesign ult i64 %4, 2
-  br i1 %.not.i, label %5, label %"_ZN4core3ptr223drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$project..prettier_store..PrettierStore..update_prettier_settings..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17he0583d6ba5b889d5E.llvm.877204494124398451.exit"
+  %cond.i = icmp samesign ult i64 %4, 2
+  br i1 %cond.i, label %5, label %"_ZN4core3ptr223drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$project..prettier_store..PrettierStore..update_prettier_settings..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17he0583d6ba5b889d5E.llvm.877204494124398451.exit"
 
 5:                                                ; preds = %2
   invoke void @"_ZN4core3ptr172drop_in_place$LT$project..prettier_store..PrettierStore..update_prettier_settings..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h48f4212bc867c2ccE.llvm.877204494124398451"(ptr noundef nonnull align 8 %3)
@@ -43413,8 +43411,8 @@ define hidden void @"_ZN4core3ptr223drop_in_place$LT$futures_util..future..maybe
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr223drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$project..prettier_store..PrettierStore..update_prettier_settings..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17he0583d6ba5b889d5E.llvm.877204494124398451"(ptr noundef nonnull align 8 %0) unnamed_addr #2 {
   %2 = load i64, ptr %0, align 8, !range !504, !noundef !4
-  %.not = icmp samesign ult i64 %2, 2
-  br i1 %.not, label %4, label %3
+  %cond = icmp samesign ult i64 %2, 2
+  br i1 %cond, label %4, label %3
 
 3:                                                ; preds = %1, %4
   ret void
@@ -169262,6 +169260,9 @@ declare hidden void @_ZN4gpui8executor18ForegroundExecutor5spawn17h707bde078b53f
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden void @_ZN4gpui8executor18ForegroundExecutor5spawn17hb791121658d351fdE(ptr dead_on_unwind noalias nocapture noundef writable sret([48 x i8]) align 8 dereferenceable(48), ptr noalias noundef readonly align 8 dereferenceable(16), ptr noalias nocapture noundef align 8 dereferenceable(192)) unnamed_addr #2
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #52
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.scmp.i8.i64(i64, i64) #52
