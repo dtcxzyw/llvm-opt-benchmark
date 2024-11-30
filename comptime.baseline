@@ -11401,7 +11401,7 @@ libquic/aead_base_decrypter.cc.ll 83201732
 libquic/aead_base_encrypter.cc.ll 75988327
 libquic/aead_test.cc.ll 467653075
 libquic/aes_128_gcm_12_decrypter.cc.ll 38504348
-libquic/aes_128_gcm_12_encrypter.cc.ll 37164942
+libquic/aes_128_gcm_12_encrypter.cc.ll 37127776
 libquic/arena.cc.ll 257649173
 libquic/args.cc.ll 261967787
 libquic/asn1_gen.c.ll 209977125
