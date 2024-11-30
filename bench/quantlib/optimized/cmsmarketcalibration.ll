@@ -5700,7 +5700,7 @@ invoke.cont164:                                   ; preds = %for.cond145.for.con
 invoke.cont169:                                   ; preds = %invoke.cont164
   %cmp166 = fcmp oeq double %meanReversionGuess, 0x47EFFFFFE0000000
   %mul.i = fmul double %meanReversionGuess, %meanReversionGuess
-  %cond = select i1 %cmp166, double %meanReversionGuess, double %mul.i
+  %cond = select i1 %cmp166, double 0x47EFFFFFE0000000, double %mul.i
   store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN12_GLOBAL__N_118ObjectiveFunction4E, i64 16), ptr %costFunction, align 8, !tbaa !14
   %fixedMeanReversion_.i = getelementptr inbounds nuw i8, ptr %costFunction, i64 80
   store double %cond, ptr %fixedMeanReversion_.i, align 8, !tbaa !143
@@ -7623,7 +7623,7 @@ invoke.cont170:                                   ; preds = %for.cond.cleanup147
 invoke.cont179:                                   ; preds = %invoke.cont170
   %cmp172 = fcmp oeq double %meanReversionGuess, 0x47EFFFFFE0000000
   %mul.i = fmul double %meanReversionGuess, %meanReversionGuess
-  %cond178 = select i1 %cmp172, double %meanReversionGuess, double %mul.i
+  %cond178 = select i1 %cmp172, double 0x47EFFFFFE0000000, double %mul.i
   store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN12_GLOBAL__N_118ObjectiveFunction5E, i64 16), ptr %costFunction, align 8, !tbaa !14
   %fixedMeanReversion_.i = getelementptr inbounds nuw i8, ptr %costFunction, i64 80
   store double %cond178, ptr %fixedMeanReversion_.i, align 8, !tbaa !164
