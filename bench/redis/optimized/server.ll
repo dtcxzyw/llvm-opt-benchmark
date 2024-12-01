@@ -2939,22 +2939,20 @@ if.end:                                           ; preds = %if.then.i, %removeC
 if.else.i:                                        ; preds = %if.end
   %15 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %call.i18, i1 false)
   %cast.i = trunc nuw nsw i64 %15 to i32
-  %sub.i21 = sub nuw nsw i32 64, %cast.i
-  %spec.store.select.i = tail call i32 @llvm.umax.i32(i32 %sub.i21, i32 15)
-  %16 = add nsw i32 %spec.store.select.i, -15
+  %16 = tail call i32 @llvm.usub.sat.i32(i32 49, i32 %cast.i)
   %17 = zext nneg i32 %16 to i64
   br label %getMemUsageBucket.exit
 
 getMemUsageBucket.exit:                           ; preds = %if.end, %if.else.i
   %bucket_idx.0.i = phi i64 [ %17, %if.else.i ], [ 18, %if.end ]
   %18 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 1496), align 8
-  %arrayidx.i22 = getelementptr inbounds %struct.clientMemUsageBucket, ptr %18, i64 %bucket_idx.0.i
-  %mem_usage_sum = getelementptr inbounds i8, ptr %arrayidx.i22, i64 8
+  %arrayidx.i21 = getelementptr inbounds %struct.clientMemUsageBucket, ptr %18, i64 %bucket_idx.0.i
+  %mem_usage_sum = getelementptr inbounds i8, ptr %arrayidx.i21, i64 8
   %19 = load i64, ptr %mem_usage_sum, align 8
   %add = add i64 %19, %call.i18
   store i64 %add, ptr %mem_usage_sum, align 8
   %20 = load ptr, ptr %mem_usage_bucket.i, align 8
-  %cmp5.not = icmp eq ptr %arrayidx.i22, %20
+  %cmp5.not = icmp eq ptr %arrayidx.i21, %20
   br i1 %cmp5.not, label %return, label %if.then7
 
 if.then7:                                         ; preds = %getMemUsageBucket.exit
@@ -2969,10 +2967,10 @@ if.then10:                                        ; preds = %if.then7
   br label %if.end12
 
 if.end12:                                         ; preds = %if.then10, %if.then7
-  store ptr %arrayidx.i22, ptr %mem_usage_bucket.i, align 8
-  %23 = load ptr, ptr %arrayidx.i22, align 8
+  store ptr %arrayidx.i21, ptr %mem_usage_bucket.i, align 8
+  %23 = load ptr, ptr %arrayidx.i21, align 8
   %call15 = tail call ptr @listAddNodeTail(ptr noundef %23, ptr noundef nonnull %c) #40
-  %24 = load ptr, ptr %arrayidx.i22, align 8
+  %24 = load ptr, ptr %arrayidx.i21, align 8
   %tail = getelementptr inbounds i8, ptr %24, i64 8
   %25 = load ptr, ptr %tail, align 8
   %mem_usage_bucket_node17 = getelementptr inbounds i8, ptr %c, i64 680
@@ -18754,6 +18752,9 @@ declare i64 @llvm.umin.i64(i64, i64) #37
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #37
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.usub.sat.i32(i32, i32) #37
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #37

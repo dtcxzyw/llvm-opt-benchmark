@@ -138,8 +138,7 @@ define dso_local signext range(i16 -1, 2) i16 @ping_clamd(ptr noundef %0) local_
 .split.us.split.us.preheader:                     ; preds = %39, %.thread88
   %.03897 = phi i64 [ 31, %.thread88 ], [ %34, %39 ]
   %.196 = phi ptr [ null, %.thread88 ], [ %16, %39 ]
-  %umax86 = call i64 @llvm.umax.i64(i64 %.03897, i64 1)
-  %43 = add i64 %umax86, -1
+  %43 = call i64 @llvm.usub.sat.i64(i64 %.03897, i64 1)
   br label %.split.us.split.us
 
 .split.us.split.us:                               ; preds = %.split.us.split.us.preheader, %62
@@ -190,8 +189,7 @@ define dso_local signext range(i16 -1, 2) i16 @ping_clamd(ptr noundef %0) local_
   %.041.fr105 = phi i64 [ 0, %.thread98 ], [ %.041.fr, %39 ]
   %.038104 = phi i64 [ 0, %.thread98 ], [ %34, %39 ]
   %.1103 = phi ptr [ null, %.thread98 ], [ %16, %39 ]
-  %umax = call i64 @llvm.umax.i64(i64 %.038104, i64 1)
-  %65 = add i64 %umax, -1
+  %65 = call i64 @llvm.usub.sat.i64(i64 %.038104, i64 1)
   br label %.split.split
 
 .split.split:                                     ; preds = %.split.split.preheader, %87
@@ -980,7 +978,7 @@ declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #11
 declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #13
+declare i64 @llvm.usub.sat.i64(i64, i64) #13
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

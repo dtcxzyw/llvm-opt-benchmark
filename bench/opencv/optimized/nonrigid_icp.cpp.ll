@@ -1161,9 +1161,8 @@ _ZNSt6vectorIfSaIfEED2Ev.exit1045.thread:         ; preds = %321, %.lr.ph1493
   %374 = ptrtoint ptr %369 to i64
   %375 = sub i64 %373, %374
   %376 = sdiv exact i64 %375, 40
-  %umax = call i64 @llvm.umax.i64(i64 %376, i64 1)
-  %377 = getelementptr %"struct.cv::Ptr.40", ptr %372, i64 %umax
-  %378 = getelementptr i8, ptr %377, i64 -16
+  %377 = call i64 @llvm.usub.sat.i64(i64 %376, i64 1)
+  %378 = getelementptr inbounds %"struct.cv::Ptr.40", ptr %372, i64 %377
   %379 = load ptr, ptr %378, align 8
   %380 = load float, ptr %379, align 4, !noalias !36
   %381 = getelementptr inbounds i8, ptr %379, i64 4
@@ -1794,9 +1793,8 @@ _ZNSt6vectorIfSaIfEED2Ev.exit651:                 ; preds = %531, %_ZNK2cv6dynaf
   %662 = ptrtoint ptr %654 to i64
   %663 = sub i64 %661, %662
   %664 = sdiv exact i64 %663, 40
-  %umax1635 = call i64 @llvm.umax.i64(i64 %664, i64 1)
-  %665 = getelementptr %"struct.cv::Ptr.40", ptr %660, i64 %umax1635
-  %666 = getelementptr i8, ptr %665, i64 -16
+  %665 = call i64 @llvm.usub.sat.i64(i64 %664, i64 1)
+  %666 = getelementptr inbounds %"struct.cv::Ptr.40", ptr %660, i64 %665
   %667 = load ptr, ptr %666, align 8
   %668 = load float, ptr %667, align 4, !noalias !67
   %669 = getelementptr inbounds i8, ptr %667, i64 4
@@ -6516,6 +6514,9 @@ declare i64 @llvm.umax.i64(i64, i64) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #21
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.usub.sat.i64(i64, i64) #21
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }

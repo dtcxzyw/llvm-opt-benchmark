@@ -63314,13 +63314,11 @@ invoke.cont23.i.i.i:                              ; preds = %for.body20.i.i.i
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i, i64 %pos_txt.0279.i.i.i
   %injected.cond.i.i.i = icmp ule i64 %sub.ptr.div.i.i.i.i.i.i, %sub.ptr.div.i.i.i132.i.i.i
   %injected.cond.fr.i.i.i = freeze i1 %injected.cond.i.i.i
-  %umax312.i.i.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i.i, i64 1)
-  %12 = add i64 %umax312.i.i.i, -1
+  %12 = call i64 @llvm.usub.sat.i64(i64 %sub.ptr.div.i.i.i.i.i.i, i64 1)
   br i1 %injected.cond.fr.i.i.i, label %for.body29.us.i.i.i, label %for.body29.preheader.i.i.i
 
 for.body29.preheader.i.i.i:                       ; preds = %invoke.cont23.i.i.i
-  %umax309.i.i.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i132.i.i.i, i64 1)
-  %13 = add i64 %umax309.i.i.i, -1
+  %13 = call i64 @llvm.usub.sat.i64(i64 %sub.ptr.div.i.i.i132.i.i.i, i64 1)
   br label %for.body29.i.i.i
 
 for.body29.us.i.i.i:                              ; preds = %invoke.cont23.i.i.i, %invoke.cont38.us.i.i.i

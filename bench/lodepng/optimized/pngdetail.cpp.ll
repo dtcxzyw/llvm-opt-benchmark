@@ -4219,8 +4219,7 @@ for.cond80.preheader:                             ; preds = %invoke.cont75
   %sub.ptr.rhs.cast.i181 = ptrtoint ptr %boundaries_uncompressed.sroa.0.0.lcssa to i64
   %sub.ptr.sub.i182 = sub i64 %boundaries_uncompressed.sroa.7.0.lcssa, %sub.ptr.rhs.cast.i181
   %sub.ptr.div.i183 = ashr exact i64 %sub.ptr.sub.i182, 3
-  %umax = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i183, i64 1)
-  %33 = add i64 %umax, -1
+  %33 = call i64 @llvm.usub.sat.i64(i64 %sub.ptr.div.i183, i64 1)
   br label %for.cond80
 
 for.cond80:                                       ; preds = %for.cond80.preheader, %invoke.cont86
@@ -4251,8 +4250,7 @@ for.cond98.preheader:                             ; preds = %invoke.cont93
   %sub.ptr.rhs.cast.i187 = ptrtoint ptr %boundaries_compressed.sroa.0.0.lcssa to i64
   %sub.ptr.sub.i188 = sub i64 %boundaries_compressed.sroa.7.0.lcssa, %sub.ptr.rhs.cast.i187
   %sub.ptr.div.i189 = ashr exact i64 %sub.ptr.sub.i188, 3
-  %umax508 = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i189, i64 1)
-  %35 = add i64 %umax508, -1
+  %35 = call i64 @llvm.usub.sat.i64(i64 %sub.ptr.div.i189, i64 1)
   br label %for.cond98
 
 for.cond98:                                       ; preds = %for.cond98.preheader, %invoke.cont104
@@ -11675,6 +11673,9 @@ declare i64 @llvm.umax.i64(i64, i64) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #21
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.usub.sat.i64(i64, i64) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #22

@@ -17067,49 +17067,48 @@ _ZNSt6vectorIPN4Luau7AstExprESaIS2_EE7reserveEm.exit: ; preds = %_ZNSt12_Vector_
 
 59:                                               ; preds = %.loopexit.i, %.lr.ph34.i
   %60 = phi ptr [ %57, %.lr.ph34.i ], [ %.pr, %.loopexit.i ]
-  %61 = phi ptr [ %56, %.lr.ph34.i ], [ %84, %.loopexit.i ]
-  %storemerge32.i = phi i64 [ 0, %.lr.ph34.i ], [ %85, %.loopexit.i ]
-  %.sroa.speculated.i = call i64 @llvm.umax.i64(i64 %storemerge32.i, i64 5)
-  %62 = add i64 %.sroa.speculated.i, -5
+  %61 = phi ptr [ %56, %.lr.ph34.i ], [ %83, %.loopexit.i ]
+  %storemerge32.i = phi i64 [ 0, %.lr.ph34.i ], [ %84, %.loopexit.i ]
+  %62 = call i64 @llvm.usub.sat.i64(i64 %storemerge32.i, i64 5)
   %63 = icmp ult i64 %62, %storemerge32.i
   br i1 %63, label %.lr.ph.i, label %.loopexit.i
 
 .lr.ph.i:                                         ; preds = %59
   %64 = getelementptr inbounds ptr, ptr %60, i64 %storemerge32.i
   %65 = load ptr, ptr %64, align 8
-  br label %69
+  br label %68
 
-66:                                               ; preds = %69
-  %67 = add nuw i64 %.031.i, 1
-  %68 = icmp ult i64 %67, %storemerge32.i
-  br i1 %68, label %69, label %.loopexit.i, !llvm.loop !109
+66:                                               ; preds = %68
+  %67 = add i64 %.031.i, 1
+  %exitcond.not.i = icmp eq i64 %67, %storemerge32.i
+  br i1 %exitcond.not.i, label %.loopexit.i, label %68, !llvm.loop !109
 
-69:                                               ; preds = %66, %.lr.ph.i
+68:                                               ; preds = %66, %.lr.ph.i
   %.031.i = phi i64 [ %62, %.lr.ph.i ], [ %67, %66 ]
-  %70 = getelementptr inbounds ptr, ptr %60, i64 %.031.i
-  %71 = load ptr, ptr %70, align 8
-  %72 = call fastcc noundef zeroext i1 @_ZN4LuauL7similarEPNS_7AstExprES1_(ptr noundef %71, ptr noundef %65)
-  br i1 %72, label %73, label %66
+  %69 = getelementptr inbounds ptr, ptr %60, i64 %.031.i
+  %70 = load ptr, ptr %69, align 8
+  %71 = call fastcc noundef zeroext i1 @_ZN4LuauL7similarEPNS_7AstExprES1_(ptr noundef %70, ptr noundef %65)
+  br i1 %71, label %72, label %66
 
-73:                                               ; preds = %69
-  %74 = getelementptr inbounds i8, ptr %65, i64 12
-  %75 = load i32, ptr %74, align 4
-  %76 = getelementptr inbounds i8, ptr %71, i64 12
-  %77 = load i32, ptr %76, align 4
-  %78 = icmp eq i32 %75, %77
-  %79 = load ptr, ptr %58, align 8
-  br i1 %78, label %80, label %.loopexit.sink.split.i
+72:                                               ; preds = %68
+  %73 = getelementptr inbounds i8, ptr %65, i64 12
+  %74 = load i32, ptr %73, align 4
+  %75 = getelementptr inbounds i8, ptr %70, i64 12
+  %76 = load i32, ptr %75, align 4
+  %77 = icmp eq i32 %74, %76
+  %78 = load ptr, ptr %58, align 8
+  br i1 %77, label %79, label %.loopexit.sink.split.i
 
-80:                                               ; preds = %73
-  %81 = getelementptr inbounds i8, ptr %71, i64 16
-  %82 = load i32, ptr %81, align 4
+79:                                               ; preds = %72
+  %80 = getelementptr inbounds i8, ptr %70, i64 16
+  %81 = load i32, ptr %80, align 4
   br label %.loopexit.sink.split.i
 
-.loopexit.sink.split.i:                           ; preds = %80, %73
-  %.sink37.i = phi i32 [ %82, %80 ], [ %77, %73 ]
-  %.str.190.sink.i = phi ptr [ @.str.189, %80 ], [ @.str.190, %73 ]
-  %83 = add i32 %.sink37.i, 1
-  invoke void (ptr, i32, ptr, ptr, ...) @_ZN4LuauL11emitWarningERNS_11LintContextENS_11LintWarning4CodeERKNS_8LocationEPKcz(ptr noundef nonnull align 8 dereferenceable(112) %79, i32 noundef 24, ptr noundef nonnull align 4 dereferenceable(16) %74, ptr noundef nonnull %.str.190.sink.i, i32 noundef %83)
+.loopexit.sink.split.i:                           ; preds = %79, %72
+  %.sink37.i = phi i32 [ %81, %79 ], [ %76, %72 ]
+  %.str.190.sink.i = phi ptr [ @.str.189, %79 ], [ @.str.190, %72 ]
+  %82 = add i32 %.sink37.i, 1
+  invoke void (ptr, i32, ptr, ptr, ...) @_ZN4LuauL11emitWarningERNS_11LintContextENS_11LintWarning4CodeERKNS_8LocationEPKcz(ptr noundef nonnull align 8 dereferenceable(112) %78, i32 noundef 24, ptr noundef nonnull align 4 dereferenceable(16) %73, ptr noundef nonnull %.str.190.sink.i, i32 noundef %82)
           to label %.loopexit.sink.split.i..loopexit.i_crit_edge unwind label %.loopexit
 
 .loopexit.sink.split.i..loopexit.i_crit_edge:     ; preds = %.loopexit.sink.split.i
@@ -17119,56 +17118,56 @@ _ZNSt6vectorIPN4Luau7AstExprESaIS2_EE7reserveEm.exit: ; preds = %_ZNSt12_Vector_
 
 .loopexit.i:                                      ; preds = %66, %.loopexit.sink.split.i..loopexit.i_crit_edge, %59
   %.pr = phi ptr [ %.pre37, %.loopexit.sink.split.i..loopexit.i_crit_edge ], [ %60, %59 ], [ %60, %66 ]
-  %84 = phi ptr [ %.pre, %.loopexit.sink.split.i..loopexit.i_crit_edge ], [ %61, %59 ], [ %61, %66 ]
-  %85 = add nuw i64 %storemerge32.i, 1
-  %86 = ptrtoint ptr %84 to i64
-  %87 = ptrtoint ptr %.pr to i64
-  %88 = sub i64 %86, %87
-  %89 = ashr exact i64 %88, 3
-  %90 = icmp ult i64 %85, %89
-  br i1 %90, label %59, label %_ZN4Luau22LintDuplicateCondition16detectDuplicatesERKSt6vectorIPNS_7AstExprESaIS3_EE.exit, !llvm.loop !110
+  %83 = phi ptr [ %.pre, %.loopexit.sink.split.i..loopexit.i_crit_edge ], [ %61, %59 ], [ %61, %66 ]
+  %84 = add nuw i64 %storemerge32.i, 1
+  %85 = ptrtoint ptr %83 to i64
+  %86 = ptrtoint ptr %.pr to i64
+  %87 = sub i64 %85, %86
+  %88 = ashr exact i64 %87, 3
+  %89 = icmp ult i64 %84, %88
+  br i1 %89, label %59, label %_ZN4Luau22LintDuplicateCondition16detectDuplicatesERKSt6vectorIPNS_7AstExprESaIS3_EE.exit, !llvm.loop !110
 
 _ZN4Luau22LintDuplicateCondition16detectDuplicatesERKSt6vectorIPNS_7AstExprESaIS3_EE.exit: ; preds = %.loopexit.i, %54
-  %91 = phi ptr [ %57, %54 ], [ %.pr, %.loopexit.i ]
-  %.not.i.i.i = icmp eq ptr %91, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIPN4Luau7AstExprESaIS2_EED2Ev.exit, label %92
+  %90 = phi ptr [ %57, %54 ], [ %.pr, %.loopexit.i ]
+  %.not.i.i.i = icmp eq ptr %90, null
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIPN4Luau7AstExprESaIS2_EED2Ev.exit, label %91
 
-92:                                               ; preds = %_ZN4Luau22LintDuplicateCondition16detectDuplicatesERKSt6vectorIPNS_7AstExprESaIS3_EE.exit
-  %93 = load ptr, ptr %50, align 8
-  %94 = ptrtoint ptr %93 to i64
-  %95 = ptrtoint ptr %91 to i64
-  %96 = sub i64 %94, %95
-  call void @_ZdlPvm(ptr noundef nonnull %91, i64 noundef %96) #22
+91:                                               ; preds = %_ZN4Luau22LintDuplicateCondition16detectDuplicatesERKSt6vectorIPNS_7AstExprESaIS3_EE.exit
+  %92 = load ptr, ptr %50, align 8
+  %93 = ptrtoint ptr %92 to i64
+  %94 = ptrtoint ptr %90 to i64
+  %95 = sub i64 %93, %94
+  call void @_ZdlPvm(ptr noundef nonnull %90, i64 noundef %95) #22
   br label %_ZNSt6vectorIPN4Luau7AstExprESaIS2_EED2Ev.exit
 
 .loopexit:                                        ; preds = %.loopexit.sink.split.i
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %97
+  br label %96
 
 .loopexit.split-lp:                               ; preds = %_ZNSt6vectorIPN4Luau7AstExprESaIS2_EE7reserveEm.exit, %_ZNSt12_Vector_baseIPN4Luau7AstExprESaIS2_EE11_M_allocateEm.exit.i
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %97
+  br label %96
 
-97:                                               ; preds = %.loopexit.split-lp, %.loopexit
+96:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %98 = load ptr, ptr %3, align 8
-  %.not.i.i.i31 = icmp eq ptr %98, null
-  br i1 %.not.i.i.i31, label %_ZNSt6vectorIPN4Luau7AstExprESaIS2_EED2Ev.exit32, label %99
+  %97 = load ptr, ptr %3, align 8
+  %.not.i.i.i31 = icmp eq ptr %97, null
+  br i1 %.not.i.i.i31, label %_ZNSt6vectorIPN4Luau7AstExprESaIS2_EED2Ev.exit32, label %98
 
-99:                                               ; preds = %97
-  %100 = load ptr, ptr %50, align 8
-  %101 = ptrtoint ptr %100 to i64
-  %102 = ptrtoint ptr %98 to i64
-  %103 = sub i64 %101, %102
-  call void @_ZdlPvm(ptr noundef nonnull %98, i64 noundef %103) #22
+98:                                               ; preds = %96
+  %99 = load ptr, ptr %50, align 8
+  %100 = ptrtoint ptr %99 to i64
+  %101 = ptrtoint ptr %97 to i64
+  %102 = sub i64 %100, %101
+  call void @_ZdlPvm(ptr noundef nonnull %97, i64 noundef %102) #22
   br label %_ZNSt6vectorIPN4Luau7AstExprESaIS2_EED2Ev.exit32
 
-_ZNSt6vectorIPN4Luau7AstExprESaIS2_EED2Ev.exit32: ; preds = %97, %99
+_ZNSt6vectorIPN4Luau7AstExprESaIS2_EED2Ev.exit32: ; preds = %96, %98
   resume { ptr, i32 } %lpad.phi
 
-_ZNSt6vectorIPN4Luau7AstExprESaIS2_EED2Ev.exit:   ; preds = %92, %_ZN4Luau22LintDuplicateCondition16detectDuplicatesERKSt6vectorIPNS_7AstExprESaIS3_EE.exit, %2, %40
+_ZNSt6vectorIPN4Luau7AstExprESaIS2_EED2Ev.exit:   ; preds = %91, %_ZN4Luau22LintDuplicateCondition16detectDuplicatesERKSt6vectorIPNS_7AstExprESaIS3_EE.exit, %2, %40
   ret i1 %switch
 }
 
@@ -17309,7 +17308,7 @@ _ZNSt6vectorIPN4Luau7AstExprESaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt6vec
 
 53:                                               ; preds = %._crit_edge, %.thread35
   %.pre-phi = phi i64 [ %.pre, %._crit_edge ], [ %64, %.thread35 ]
-  %54 = phi { ptr, i32 } [ %lpad.phi, %._crit_edge ], [ %90, %.thread35 ]
+  %54 = phi { ptr, i32 } [ %lpad.phi, %._crit_edge ], [ %89, %.thread35 ]
   %.sroa.17.040 = phi ptr [ %.sroa.17.0, %._crit_edge ], [ %.sroa.17.4, %.thread35 ]
   %.sroa.0.039 = phi ptr [ %.sroa.0.0, %._crit_edge ], [ %.sroa.0.4, %.thread35 ]
   %55 = ptrtoint ptr %.sroa.17.040 to i64
@@ -17341,72 +17340,71 @@ _ZNSt6vectorIPN4Luau7AstExprESaIS2_EED2Ev.exit:   ; preds = %52, %53
   br label %67
 
 67:                                               ; preds = %.loopexit.i, %.lr.ph34.i
-  %storemerge32.i = phi i64 [ 0, %.lr.ph34.i ], [ %91, %.loopexit.i ]
-  %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %storemerge32.i, i64 5)
-  %68 = add i64 %.sroa.speculated.i, -5
+  %storemerge32.i = phi i64 [ 0, %.lr.ph34.i ], [ %90, %.loopexit.i ]
+  %68 = tail call i64 @llvm.usub.sat.i64(i64 %storemerge32.i, i64 5)
   %69 = icmp ult i64 %68, %storemerge32.i
   br i1 %69, label %.lr.ph.i, label %.loopexit.i
 
 .lr.ph.i:                                         ; preds = %67
   %70 = getelementptr inbounds ptr, ptr %.sroa.0.4, i64 %storemerge32.i
   %71 = load ptr, ptr %70, align 8
-  br label %75
+  br label %74
 
-72:                                               ; preds = %75
-  %73 = add nuw i64 %.031.i, 1
-  %74 = icmp ult i64 %73, %storemerge32.i
-  br i1 %74, label %75, label %.loopexit.i, !llvm.loop !109
+72:                                               ; preds = %74
+  %73 = add i64 %.031.i, 1
+  %exitcond.not.i = icmp eq i64 %73, %storemerge32.i
+  br i1 %exitcond.not.i, label %.loopexit.i, label %74, !llvm.loop !109
 
-75:                                               ; preds = %72, %.lr.ph.i
+74:                                               ; preds = %72, %.lr.ph.i
   %.031.i = phi i64 [ %68, %.lr.ph.i ], [ %73, %72 ]
-  %76 = getelementptr inbounds ptr, ptr %.sroa.0.4, i64 %.031.i
-  %77 = load ptr, ptr %76, align 8
-  %78 = tail call fastcc noundef zeroext i1 @_ZN4LuauL7similarEPNS_7AstExprES1_(ptr noundef %77, ptr noundef %71)
-  br i1 %78, label %79, label %72
+  %75 = getelementptr inbounds ptr, ptr %.sroa.0.4, i64 %.031.i
+  %76 = load ptr, ptr %75, align 8
+  %77 = tail call fastcc noundef zeroext i1 @_ZN4LuauL7similarEPNS_7AstExprES1_(ptr noundef %76, ptr noundef %71)
+  br i1 %77, label %78, label %72
 
-79:                                               ; preds = %75
-  %80 = getelementptr inbounds i8, ptr %71, i64 12
-  %81 = load i32, ptr %80, align 4
-  %82 = getelementptr inbounds i8, ptr %77, i64 12
-  %83 = load i32, ptr %82, align 4
-  %84 = icmp eq i32 %81, %83
-  %85 = load ptr, ptr %62, align 8
-  br i1 %84, label %86, label %.loopexit.sink.split.i
+78:                                               ; preds = %74
+  %79 = getelementptr inbounds i8, ptr %71, i64 12
+  %80 = load i32, ptr %79, align 4
+  %81 = getelementptr inbounds i8, ptr %76, i64 12
+  %82 = load i32, ptr %81, align 4
+  %83 = icmp eq i32 %80, %82
+  %84 = load ptr, ptr %62, align 8
+  br i1 %83, label %85, label %.loopexit.sink.split.i
 
-86:                                               ; preds = %79
-  %87 = getelementptr inbounds i8, ptr %77, i64 16
-  %88 = load i32, ptr %87, align 4
+85:                                               ; preds = %78
+  %86 = getelementptr inbounds i8, ptr %76, i64 16
+  %87 = load i32, ptr %86, align 4
   br label %.loopexit.sink.split.i
 
-.loopexit.sink.split.i:                           ; preds = %86, %79
-  %.sink37.i = phi i32 [ %88, %86 ], [ %83, %79 ]
-  %.str.190.sink.i = phi ptr [ @.str.189, %86 ], [ @.str.190, %79 ]
-  %89 = add i32 %.sink37.i, 1
-  invoke void (ptr, i32, ptr, ptr, ...) @_ZN4LuauL11emitWarningERNS_11LintContextENS_11LintWarning4CodeERKNS_8LocationEPKcz(ptr noundef nonnull align 8 dereferenceable(112) %85, i32 noundef 24, ptr noundef nonnull align 4 dereferenceable(16) %80, ptr noundef nonnull %.str.190.sink.i, i32 noundef %89)
+.loopexit.sink.split.i:                           ; preds = %85, %78
+  %.sink37.i = phi i32 [ %87, %85 ], [ %82, %78 ]
+  %.str.190.sink.i = phi ptr [ @.str.189, %85 ], [ @.str.190, %78 ]
+  %88 = add i32 %.sink37.i, 1
+  invoke void (ptr, i32, ptr, ptr, ...) @_ZN4LuauL11emitWarningERNS_11LintContextENS_11LintWarning4CodeERKNS_8LocationEPKcz(ptr noundef nonnull align 8 dereferenceable(112) %84, i32 noundef 24, ptr noundef nonnull align 4 dereferenceable(16) %79, ptr noundef nonnull %.str.190.sink.i, i32 noundef %88)
           to label %.loopexit.i unwind label %.thread35
 
 .thread35:                                        ; preds = %.loopexit.sink.split.i
-  %90 = landingpad { ptr, i32 }
+  %89 = landingpad { ptr, i32 }
           cleanup
   br label %53
 
 .loopexit.i:                                      ; preds = %72, %.loopexit.sink.split.i, %67
-  %91 = add nuw i64 %storemerge32.i, 1
-  %exitcond.not = icmp eq i64 %91, %umax
+  %90 = add nuw i64 %storemerge32.i, 1
+  %exitcond.not = icmp eq i64 %90, %umax
   br i1 %exitcond.not, label %_ZN4Luau22LintDuplicateCondition16detectDuplicatesERKSt6vectorIPNS_7AstExprESaIS3_EE.exit, label %67, !llvm.loop !110
 
 _ZN4Luau22LintDuplicateCondition16detectDuplicatesERKSt6vectorIPNS_7AstExprESaIS3_EE.exit: ; preds = %.loopexit.i, %61
   %.not.i.i.i18 = icmp eq ptr %.sroa.0.4, null
-  br i1 %.not.i.i.i18, label %_ZNSt6vectorIPN4Luau7AstExprESaIS2_EED2Ev.exit19, label %92
+  br i1 %.not.i.i.i18, label %_ZNSt6vectorIPN4Luau7AstExprESaIS2_EED2Ev.exit19, label %91
 
-92:                                               ; preds = %_ZN4Luau22LintDuplicateCondition16detectDuplicatesERKSt6vectorIPNS_7AstExprESaIS3_EE.exit
-  %93 = ptrtoint ptr %.sroa.17.4 to i64
-  %94 = ptrtoint ptr %.sroa.0.4 to i64
-  %95 = sub i64 %93, %94
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.4, i64 noundef %95) #22
+91:                                               ; preds = %_ZN4Luau22LintDuplicateCondition16detectDuplicatesERKSt6vectorIPNS_7AstExprESaIS3_EE.exit
+  %92 = ptrtoint ptr %.sroa.17.4 to i64
+  %93 = ptrtoint ptr %.sroa.0.4 to i64
+  %94 = sub i64 %92, %93
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.4, i64 noundef %94) #22
   br label %_ZNSt6vectorIPN4Luau7AstExprESaIS2_EED2Ev.exit19
 
-_ZNSt6vectorIPN4Luau7AstExprESaIS2_EED2Ev.exit19: ; preds = %92, %_ZN4Luau22LintDuplicateCondition16detectDuplicatesERKSt6vectorIPNS_7AstExprESaIS3_EE.exit, %2
+_ZNSt6vectorIPN4Luau7AstExprESaIS2_EED2Ev.exit19: ; preds = %91, %_ZN4Luau22LintDuplicateCondition16detectDuplicatesERKSt6vectorIPNS_7AstExprESaIS3_EE.exit, %2
   ret i1 %8
 }
 
@@ -17555,7 +17553,7 @@ _ZNSt6vectorIPN4Luau7AstExprESaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt6vec
 
 55:                                               ; preds = %._crit_edge, %.thread44
   %.pre-phi = phi i64 [ %.pre, %._crit_edge ], [ %65, %.thread44 ]
-  %56 = phi { ptr, i32 } [ %lpad.phi, %._crit_edge ], [ %91, %.thread44 ]
+  %56 = phi { ptr, i32 } [ %lpad.phi, %._crit_edge ], [ %90, %.thread44 ]
   %.sroa.17.049 = phi ptr [ %.sroa.17.0, %._crit_edge ], [ %.sroa.17.4, %.thread44 ]
   %.sroa.0.048 = phi ptr [ %.sroa.0.0, %._crit_edge ], [ %.sroa.0.4, %.thread44 ]
   %57 = ptrtoint ptr %.sroa.17.049 to i64
@@ -17587,73 +17585,72 @@ _ZNSt6vectorIPN4Luau7AstExprESaIS2_EED2Ev.exit:   ; preds = %54, %55
   br label %68
 
 68:                                               ; preds = %.loopexit.i, %.lr.ph34.i
-  %storemerge32.i = phi i64 [ 0, %.lr.ph34.i ], [ %92, %.loopexit.i ]
-  %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %storemerge32.i, i64 5)
-  %69 = add i64 %.sroa.speculated.i, -5
+  %storemerge32.i = phi i64 [ 0, %.lr.ph34.i ], [ %91, %.loopexit.i ]
+  %69 = tail call i64 @llvm.usub.sat.i64(i64 %storemerge32.i, i64 5)
   %70 = icmp ult i64 %69, %storemerge32.i
   br i1 %70, label %.lr.ph.i, label %.loopexit.i
 
 .lr.ph.i:                                         ; preds = %68
   %71 = getelementptr inbounds ptr, ptr %.sroa.0.4, i64 %storemerge32.i
   %72 = load ptr, ptr %71, align 8
-  br label %76
+  br label %75
 
-73:                                               ; preds = %76
-  %74 = add nuw i64 %.031.i, 1
-  %75 = icmp ult i64 %74, %storemerge32.i
-  br i1 %75, label %76, label %.loopexit.i, !llvm.loop !109
+73:                                               ; preds = %75
+  %74 = add i64 %.031.i, 1
+  %exitcond.not.i = icmp eq i64 %74, %storemerge32.i
+  br i1 %exitcond.not.i, label %.loopexit.i, label %75, !llvm.loop !109
 
-76:                                               ; preds = %73, %.lr.ph.i
+75:                                               ; preds = %73, %.lr.ph.i
   %.031.i = phi i64 [ %69, %.lr.ph.i ], [ %74, %73 ]
-  %77 = getelementptr inbounds ptr, ptr %.sroa.0.4, i64 %.031.i
-  %78 = load ptr, ptr %77, align 8
-  %79 = tail call fastcc noundef zeroext i1 @_ZN4LuauL7similarEPNS_7AstExprES1_(ptr noundef %78, ptr noundef %72)
-  br i1 %79, label %80, label %73
+  %76 = getelementptr inbounds ptr, ptr %.sroa.0.4, i64 %.031.i
+  %77 = load ptr, ptr %76, align 8
+  %78 = tail call fastcc noundef zeroext i1 @_ZN4LuauL7similarEPNS_7AstExprES1_(ptr noundef %77, ptr noundef %72)
+  br i1 %78, label %79, label %73
 
-80:                                               ; preds = %76
-  %81 = getelementptr inbounds i8, ptr %72, i64 12
-  %82 = load i32, ptr %81, align 4
-  %83 = getelementptr inbounds i8, ptr %78, i64 12
-  %84 = load i32, ptr %83, align 4
-  %85 = icmp eq i32 %82, %84
-  %86 = load ptr, ptr %63, align 8
-  br i1 %85, label %87, label %.loopexit.sink.split.i
+79:                                               ; preds = %75
+  %80 = getelementptr inbounds i8, ptr %72, i64 12
+  %81 = load i32, ptr %80, align 4
+  %82 = getelementptr inbounds i8, ptr %77, i64 12
+  %83 = load i32, ptr %82, align 4
+  %84 = icmp eq i32 %81, %83
+  %85 = load ptr, ptr %63, align 8
+  br i1 %84, label %86, label %.loopexit.sink.split.i
 
-87:                                               ; preds = %80
-  %88 = getelementptr inbounds i8, ptr %78, i64 16
-  %89 = load i32, ptr %88, align 4
+86:                                               ; preds = %79
+  %87 = getelementptr inbounds i8, ptr %77, i64 16
+  %88 = load i32, ptr %87, align 4
   br label %.loopexit.sink.split.i
 
-.loopexit.sink.split.i:                           ; preds = %87, %80
-  %.sink37.i = phi i32 [ %89, %87 ], [ %84, %80 ]
-  %.str.190.sink.i = phi ptr [ @.str.189, %87 ], [ @.str.190, %80 ]
-  %90 = add i32 %.sink37.i, 1
-  invoke void (ptr, i32, ptr, ptr, ...) @_ZN4LuauL11emitWarningERNS_11LintContextENS_11LintWarning4CodeERKNS_8LocationEPKcz(ptr noundef nonnull align 8 dereferenceable(112) %86, i32 noundef 24, ptr noundef nonnull align 4 dereferenceable(16) %81, ptr noundef nonnull %.str.190.sink.i, i32 noundef %90)
+.loopexit.sink.split.i:                           ; preds = %86, %79
+  %.sink37.i = phi i32 [ %88, %86 ], [ %83, %79 ]
+  %.str.190.sink.i = phi ptr [ @.str.189, %86 ], [ @.str.190, %79 ]
+  %89 = add i32 %.sink37.i, 1
+  invoke void (ptr, i32, ptr, ptr, ...) @_ZN4LuauL11emitWarningERNS_11LintContextENS_11LintWarning4CodeERKNS_8LocationEPKcz(ptr noundef nonnull align 8 dereferenceable(112) %85, i32 noundef 24, ptr noundef nonnull align 4 dereferenceable(16) %80, ptr noundef nonnull %.str.190.sink.i, i32 noundef %89)
           to label %.loopexit.i unwind label %.thread44
 
 .thread44:                                        ; preds = %.loopexit.sink.split.i
-  %91 = landingpad { ptr, i32 }
+  %90 = landingpad { ptr, i32 }
           cleanup
   br label %55
 
 .loopexit.i:                                      ; preds = %73, %.loopexit.sink.split.i, %68
-  %92 = add nuw i64 %storemerge32.i, 1
-  %exitcond.not = icmp eq i64 %92, %umax
+  %91 = add nuw i64 %storemerge32.i, 1
+  %exitcond.not = icmp eq i64 %91, %umax
   br i1 %exitcond.not, label %_ZN4Luau22LintDuplicateCondition16detectDuplicatesERKSt6vectorIPNS_7AstExprESaIS3_EE.exit, label %68, !llvm.loop !110
 
 _ZN4Luau22LintDuplicateCondition16detectDuplicatesERKSt6vectorIPNS_7AstExprESaIS3_EE.exit: ; preds = %.loopexit.i, %.thread50
   %.not.i.i.i27 = icmp eq ptr %.sroa.0.4, null
-  br i1 %.not.i.i.i27, label %_ZNSt6vectorIPN4Luau7AstExprESaIS2_EED2Ev.exit28, label %93
+  br i1 %.not.i.i.i27, label %_ZNSt6vectorIPN4Luau7AstExprESaIS2_EED2Ev.exit28, label %92
 
-93:                                               ; preds = %_ZN4Luau22LintDuplicateCondition16detectDuplicatesERKSt6vectorIPNS_7AstExprESaIS3_EE.exit
-  %94 = ptrtoint ptr %.sroa.17.4 to i64
-  %95 = ptrtoint ptr %.sroa.0.4 to i64
-  %96 = sub i64 %94, %95
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.4, i64 noundef %96) #22
+92:                                               ; preds = %_ZN4Luau22LintDuplicateCondition16detectDuplicatesERKSt6vectorIPNS_7AstExprESaIS3_EE.exit
+  %93 = ptrtoint ptr %.sroa.17.4 to i64
+  %94 = ptrtoint ptr %.sroa.0.4 to i64
+  %95 = sub i64 %93, %94
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.4, i64 noundef %95) #22
   br label %_ZNSt6vectorIPN4Luau7AstExprESaIS2_EED2Ev.exit28
 
-_ZNSt6vectorIPN4Luau7AstExprESaIS2_EED2Ev.exit28: ; preds = %93, %_ZN4Luau22LintDuplicateCondition16detectDuplicatesERKSt6vectorIPNS_7AstExprESaIS3_EE.exit, %5, %2
-  %.015 = phi i1 [ true, %2 ], [ true, %5 ], [ false, %_ZN4Luau22LintDuplicateCondition16detectDuplicatesERKSt6vectorIPNS_7AstExprESaIS3_EE.exit ], [ false, %93 ]
+_ZNSt6vectorIPN4Luau7AstExprESaIS2_EED2Ev.exit28: ; preds = %92, %_ZN4Luau22LintDuplicateCondition16detectDuplicatesERKSt6vectorIPNS_7AstExprESaIS3_EE.exit, %5, %2
+  %.015 = phi i1 [ true, %2 ], [ true, %5 ], [ false, %_ZN4Luau22LintDuplicateCondition16detectDuplicatesERKSt6vectorIPNS_7AstExprESaIS3_EE.exit ], [ false, %92 ]
   ret i1 %.015
 }
 
@@ -19684,6 +19681,9 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #19
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.usub.sat.i64(i64, i64) #18
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

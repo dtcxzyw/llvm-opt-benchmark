@@ -5312,7 +5312,7 @@ define internal fastcc i32 @do_proc_bulk(ptr noundef %0, ptr nocapture noundef r
   %125 = load i8, ptr %124, align 1
   %126 = and i8 %125, 3
   %127 = icmp eq i8 %126, 3
-  br i1 %127, label %128, label %153
+  br i1 %127, label %128, label %152
 
 128:                                              ; preds = %123
   %129 = and i32 %91, 2147483520
@@ -5334,136 +5334,135 @@ define internal fastcc i32 @do_proc_bulk(ptr noundef %0, ptr nocapture noundef r
   %140 = icmp eq i32 %139, 3
   %141 = icmp ugt i32 %139, 4
   %142 = or i1 %140, %141
-  br i1 %142, label %143, label %149
+  br i1 %142, label %143, label %148
 
 143:                                              ; preds = %128
   %144 = icmp ugt i8 %131, 15
-  %145 = tail call i32 @llvm.umax.i32(i32 %132, i32 1)
-  %146 = add nsw i32 %145, -1
-  %147 = shl nuw nsw i32 1, %146
-  %148 = select i1 %144, i32 32768, i32 %147
-  br label %149
+  %145 = tail call i32 @llvm.usub.sat.i32(i32 %132, i32 1)
+  %146 = shl nuw nsw i32 1, %145
+  %147 = select i1 %144, i32 32768, i32 %146
+  br label %148
 
-149:                                              ; preds = %143, %128
-  %150 = phi i32 [ %148, %143 ], [ %132, %128 ]
-  %151 = getelementptr inbounds i8, ptr %121, i64 160
-  store i32 %150, ptr %151, align 8
-  %152 = getelementptr inbounds i8, ptr %121, i64 152
-  store i32 -1, ptr %152, align 8
-  br label %159
+148:                                              ; preds = %143, %128
+  %149 = phi i32 [ %147, %143 ], [ %132, %128 ]
+  %150 = getelementptr inbounds i8, ptr %121, i64 160
+  store i32 %149, ptr %150, align 8
+  %151 = getelementptr inbounds i8, ptr %121, i64 152
+  store i32 -1, ptr %151, align 8
+  br label %158
 
-153:                                              ; preds = %123
-  %154 = getelementptr inbounds i8, ptr %121, i64 64
-  store ptr %5, ptr %154, align 8
-  %155 = getelementptr inbounds i8, ptr %121, i64 80
-  store i32 %91, ptr %155, align 8
-  %156 = getelementptr inbounds i8, ptr %121, i64 96
-  store ptr %118, ptr %156, align 8
-  %157 = getelementptr inbounds i8, ptr %121, i64 128
-  store i32 %79, ptr %157, align 8
-  %158 = getelementptr inbounds i8, ptr %121, i64 168
-  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %158, i8 0, i64 16, i1 false)
-  br label %159
+152:                                              ; preds = %123
+  %153 = getelementptr inbounds i8, ptr %121, i64 64
+  store ptr %5, ptr %153, align 8
+  %154 = getelementptr inbounds i8, ptr %121, i64 80
+  store i32 %91, ptr %154, align 8
+  %155 = getelementptr inbounds i8, ptr %121, i64 96
+  store ptr %118, ptr %155, align 8
+  %156 = getelementptr inbounds i8, ptr %121, i64 128
+  store i32 %79, ptr %156, align 8
+  %157 = getelementptr inbounds i8, ptr %121, i64 168
+  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %157, i8 0, i64 16, i1 false)
+  br label %158
 
-159:                                              ; preds = %153, %149
-  %160 = phi i32 [ %129, %149 ], [ %91, %153 ]
+158:                                              ; preds = %152, %148
+  %159 = phi i32 [ %129, %148 ], [ %91, %152 ]
   store i32 0, ptr %3, align 4, !annotation !36
-  %161 = getelementptr inbounds i8, ptr %1, i64 8
-  %162 = load i32, ptr %161, align 8
-  %163 = load i32, ptr %1, align 8
-  %164 = and i32 %163, 128
-  %165 = icmp eq i32 %164, 0
-  br i1 %165, label %182, label %166
+  %160 = getelementptr inbounds i8, ptr %1, i64 8
+  %161 = load i32, ptr %160, align 8
+  %162 = load i32, ptr %1, align 8
+  %163 = and i32 %162, 128
+  %164 = icmp eq i32 %163, 0
+  br i1 %164, label %181, label %165
 
-166:                                              ; preds = %159
-  tail call fastcc void @snoop_urb(ptr noundef %5, ptr noundef null, i32 noundef %160, i32 noundef %79, i32 noundef %162, i32 noundef 0, ptr noundef null, i32 noundef 0)
-  %167 = getelementptr inbounds i8, ptr %5, i64 296
-  tail call void @mutex_unlock(ptr noundef %167) #17
-  %168 = call fastcc i32 @usbfs_start_wait_urb(ptr noundef nonnull %121, i32 noundef %162, ptr noundef nonnull %3)
-  tail call void @mutex_lock(ptr noundef %167) #17
-  %169 = load i32, ptr %3, align 4
-  tail call fastcc void @snoop_urb(ptr noundef %5, ptr noundef null, i32 noundef %160, i32 noundef %169, i32 noundef %168, i32 noundef 1, ptr noundef nonnull %118, i32 noundef %169)
-  %170 = icmp eq i32 %168, 0
-  %171 = icmp ne i32 %169, 0
-  %172 = and i1 %170, %171
-  br i1 %172, label %173, label %193
+165:                                              ; preds = %158
+  tail call fastcc void @snoop_urb(ptr noundef %5, ptr noundef null, i32 noundef %159, i32 noundef %79, i32 noundef %161, i32 noundef 0, ptr noundef null, i32 noundef 0)
+  %166 = getelementptr inbounds i8, ptr %5, i64 296
+  tail call void @mutex_unlock(ptr noundef %166) #17
+  %167 = call fastcc i32 @usbfs_start_wait_urb(ptr noundef nonnull %121, i32 noundef %161, ptr noundef nonnull %3)
+  tail call void @mutex_lock(ptr noundef %166) #17
+  %168 = load i32, ptr %3, align 4
+  tail call fastcc void @snoop_urb(ptr noundef %5, ptr noundef null, i32 noundef %159, i32 noundef %168, i32 noundef %167, i32 noundef 1, ptr noundef nonnull %118, i32 noundef %168)
+  %169 = icmp eq i32 %167, 0
+  %170 = icmp ne i32 %168, 0
+  %171 = and i1 %169, %170
+  br i1 %171, label %172, label %192
 
-173:                                              ; preds = %166
-  %174 = icmp slt i32 %169, 0
-  br i1 %174, label %175, label %176, !prof !12
+172:                                              ; preds = %165
+  %173 = icmp slt i32 %168, 0
+  br i1 %173, label %174, label %175, !prof !12
 
-175:                                              ; preds = %173
+174:                                              ; preds = %172
   tail call void asm sideeffect "42: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 42b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 42) #17, !srcloc !13
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.5, i32 249, i32 2307, i64 12) #17, !srcloc !14
   tail call void asm sideeffect "43: nop\0A\09.pushsection .discard.instr_end\0A\09.long 43b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 43) #17, !srcloc !15
   br label %.thread20
 
-176:                                              ; preds = %173
-  %177 = zext nneg i32 %169 to i64
-  %178 = getelementptr inbounds i8, ptr %1, i64 16
-  %179 = load ptr, ptr %178, align 8
-  %180 = tail call i64 @_copy_to_user(ptr noundef %179, ptr noundef nonnull %118, i64 noundef %177) #17
-  %181 = icmp eq i64 %180, 0
-  %spec.select = select i1 %181, i32 %169, i32 -14
+175:                                              ; preds = %172
+  %176 = zext nneg i32 %168 to i64
+  %177 = getelementptr inbounds i8, ptr %1, i64 16
+  %178 = load ptr, ptr %177, align 8
+  %179 = tail call i64 @_copy_to_user(ptr noundef %178, ptr noundef nonnull %118, i64 noundef %176) #17
+  %180 = icmp eq i64 %179, 0
+  %spec.select = select i1 %180, i32 %168, i32 -14
   br label %.thread20
 
-182:                                              ; preds = %159
-  %183 = icmp eq i32 %79, 0
-  br i1 %183, label %.split, label %184
+181:                                              ; preds = %158
+  %182 = icmp eq i32 %79, 0
+  br i1 %182, label %.split, label %183
 
-.split:                                           ; preds = %182
-  tail call fastcc void @snoop_urb(ptr noundef %5, ptr noundef null, i32 noundef %160, i32 noundef 0, i32 noundef %162, i32 noundef 0, ptr noundef nonnull %118, i32 noundef 0)
-  br label %189
+.split:                                           ; preds = %181
+  tail call fastcc void @snoop_urb(ptr noundef %5, ptr noundef null, i32 noundef %159, i32 noundef 0, i32 noundef %161, i32 noundef 0, ptr noundef nonnull %118, i32 noundef 0)
+  br label %188
 
-184:                                              ; preds = %182
-  %185 = getelementptr inbounds i8, ptr %1, i64 16
-  %186 = load ptr, ptr %185, align 8
-  %187 = tail call i64 @_copy_from_user(ptr noundef nonnull %118, ptr noundef %186, i64 noundef %80) #17
-  %188 = icmp eq i64 %187, 0
-  br i1 %188, label %.split1, label %.thread20
+183:                                              ; preds = %181
+  %184 = getelementptr inbounds i8, ptr %1, i64 16
+  %185 = load ptr, ptr %184, align 8
+  %186 = tail call i64 @_copy_from_user(ptr noundef nonnull %118, ptr noundef %185, i64 noundef %80) #17
+  %187 = icmp eq i64 %186, 0
+  br i1 %187, label %.split1, label %.thread20
 
-.split1:                                          ; preds = %184
-  tail call fastcc void @snoop_urb(ptr noundef %5, ptr noundef null, i32 noundef %160, i32 noundef %79, i32 noundef %162, i32 noundef 0, ptr noundef nonnull %118, i32 noundef %79)
-  br label %189
+.split1:                                          ; preds = %183
+  tail call fastcc void @snoop_urb(ptr noundef %5, ptr noundef null, i32 noundef %159, i32 noundef %79, i32 noundef %161, i32 noundef 0, ptr noundef nonnull %118, i32 noundef %79)
+  br label %188
 
-189:                                              ; preds = %.split1, %.split
-  %190 = getelementptr inbounds i8, ptr %5, i64 296
-  tail call void @mutex_unlock(ptr noundef %190) #17
-  %191 = call fastcc i32 @usbfs_start_wait_urb(ptr noundef nonnull %121, i32 noundef %162, ptr noundef nonnull %3)
-  tail call void @mutex_lock(ptr noundef %190) #17
-  %192 = load i32, ptr %3, align 4
-  tail call fastcc void @snoop_urb(ptr noundef %5, ptr noundef null, i32 noundef %160, i32 noundef %192, i32 noundef %191, i32 noundef 1, ptr noundef null, i32 noundef 0)
-  br label %193
+188:                                              ; preds = %.split1, %.split
+  %189 = getelementptr inbounds i8, ptr %5, i64 296
+  tail call void @mutex_unlock(ptr noundef %189) #17
+  %190 = call fastcc i32 @usbfs_start_wait_urb(ptr noundef nonnull %121, i32 noundef %161, ptr noundef nonnull %3)
+  tail call void @mutex_lock(ptr noundef %189) #17
+  %191 = load i32, ptr %3, align 4
+  tail call fastcc void @snoop_urb(ptr noundef %5, ptr noundef null, i32 noundef %159, i32 noundef %191, i32 noundef %190, i32 noundef 1, ptr noundef null, i32 noundef 0)
+  br label %192
 
-193:                                              ; preds = %189, %166
-  %194 = phi i32 [ %169, %166 ], [ %192, %189 ]
-  %195 = phi i32 [ %168, %166 ], [ %191, %189 ]
-  %.fr = freeze i32 %195
-  %196 = icmp slt i32 %.fr, 0
-  %spec.select22 = select i1 %196, i32 %.fr, i32 %194
+192:                                              ; preds = %188, %165
+  %193 = phi i32 [ %168, %165 ], [ %191, %188 ]
+  %194 = phi i32 [ %167, %165 ], [ %190, %188 ]
+  %.fr = freeze i32 %194
+  %195 = icmp slt i32 %.fr, 0
+  %spec.select22 = select i1 %195, i32 %.fr, i32 %193
   br label %.thread20
 
-.thread20:                                        ; preds = %193, %176, %184, %175, %120, %117
-  %197 = phi i32 [ -12, %120 ], [ -12, %117 ], [ -14, %184 ], [ -14, %175 ], [ %spec.select, %176 ], [ %spec.select22, %193 ]
-  %198 = phi ptr [ null, %120 ], [ null, %117 ], [ %121, %184 ], [ %121, %175 ], [ %121, %176 ], [ %121, %193 ]
-  tail call void @usb_free_urb(ptr noundef %198) #17
+.thread20:                                        ; preds = %192, %175, %183, %174, %120, %117
+  %196 = phi i32 [ -12, %120 ], [ -12, %117 ], [ -14, %183 ], [ -14, %174 ], [ %spec.select, %175 ], [ %spec.select22, %192 ]
+  %197 = phi ptr [ null, %120 ], [ null, %117 ], [ %121, %183 ], [ %121, %174 ], [ %121, %175 ], [ %121, %192 ]
+  tail call void @usb_free_urb(ptr noundef %197) #17
   tail call void @kfree(ptr noundef %118) #17
-  %199 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @usbfs_memory_usage_lock) #17
-  %200 = load i64, ptr @usbfs_memory_usage, align 8
-  %201 = tail call i64 @llvm.usub.sat.i64(i64 %200, i64 range(i64 184, 4294967480) %107)
-  store i64 %201, ptr @usbfs_memory_usage, align 8
+  %198 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @usbfs_memory_usage_lock) #17
+  %199 = load i64, ptr @usbfs_memory_usage, align 8
+  %200 = tail call i64 @llvm.usub.sat.i64(i64 %199, i64 range(i64 184, 4294967480) %107)
+  store i64 %200, ptr @usbfs_memory_usage, align 8
   br label %.thread.sink.split
 
 .thread.sink.split:                               ; preds = %106, %.thread20
-  %.sink = phi i64 [ %199, %.thread20 ], [ %109, %106 ]
-  %.ph = phi i32 [ %197, %.thread20 ], [ -12, %106 ]
+  %.sink = phi i64 [ %198, %.thread20 ], [ %109, %106 ]
+  %.ph = phi i32 [ %196, %.thread20 ], [ -12, %106 ]
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @usbfs_memory_usage_lock, i64 noundef %.sink) #17
   br label %.thread
 
 .thread:                                          ; preds = %.loopexit23, %.thread.sink.split, %60, %53, %13, %9, %2, %101, %82, %.thread18, %68
-  %202 = phi i32 [ %76, %68 ], [ -22, %.thread18 ], [ -22, %101 ], [ -22, %82 ], [ -2, %13 ], [ -3, %9 ], [ -22, %2 ], [ -22, %60 ], [ -113, %53 ], [ %.ph, %.thread.sink.split ], [ -2, %.loopexit23 ]
+  %201 = phi i32 [ %76, %68 ], [ -22, %.thread18 ], [ -22, %101 ], [ -22, %82 ], [ -2, %13 ], [ -3, %9 ], [ -22, %2 ], [ -22, %60 ], [ -113, %53 ], [ %.ph, %.thread.sink.split ], [ -2, %.loopexit23 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #17
-  ret i32 %202
+  ret i32 %201
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -7510,7 +7509,7 @@ declare i32 @llvm.umin.i32(i32, i32) #15
 declare i64 @llvm.usub.sat.i64(i64, i64) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #16
+declare i32 @llvm.usub.sat.i32(i32, i32) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.umin.i8(i8, i8) #16

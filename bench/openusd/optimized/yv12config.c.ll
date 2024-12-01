@@ -110,182 +110,181 @@ define hidden range(i32 0, 3) i32 @aom_realloc_frame_buffer(ptr noundef %0, i32 
   %37 = add nsw i64 %36, %28
   %38 = ashr i32 %6, %3
   %39 = ashr i32 %14, %3
-  %40 = tail call i32 @llvm.umax.i32(i32 %7, i32 1)
-  %41 = add nsw i32 %5, 1
-  %42 = sext i32 %41 to i64
-  %43 = shl i64 %37, 1
-  %44 = add i64 %43, %29
-  %45 = mul i64 %44, %42
+  %40 = add nsw i32 %5, 1
+  %41 = sext i32 %40 to i64
+  %42 = shl i64 %37, 1
+  %43 = add i64 %42, %29
+  %44 = mul i64 %43, %41
   %.not.i40 = icmp eq i32 %5, 0
-  %46 = add i64 %45, %29
-  %.0112.i = select i1 %.not.i40, i64 %44, i64 %46
-  %47 = icmp ugt i64 %.0112.i, 1073741824
-  br i1 %47, label %calc_stride_and_planesize.exit, label %48
+  %45 = add i64 %44, %29
+  %.0112.i = select i1 %.not.i40, i64 %43, i64 %45
+  %46 = icmp ugt i64 %.0112.i, 1073741824
+  br i1 %46, label %calc_stride_and_planesize.exit, label %47
 
-48:                                               ; preds = %19
+47:                                               ; preds = %19
   %.not119.i = icmp eq ptr %9, null
-  br i1 %.not119.i, label %66, label %49
+  br i1 %.not119.i, label %65, label %48
 
-49:                                               ; preds = %48
-  %50 = add i64 %45, 31
-  %51 = tail call i32 %9(ptr noundef %10, i64 noundef %50, ptr noundef %8) #4
-  %52 = icmp slt i32 %51, 0
-  br i1 %52, label %calc_stride_and_planesize.exit, label %53
+48:                                               ; preds = %47
+  %49 = add i64 %44, 31
+  %50 = tail call i32 %9(ptr noundef %10, i64 noundef %49, ptr noundef %8) #4
+  %51 = icmp slt i32 %50, 0
+  br i1 %51, label %calc_stride_and_planesize.exit, label %52
 
-53:                                               ; preds = %49
-  %54 = load ptr, ptr %8, align 8
-  %55 = icmp eq ptr %54, null
-  br i1 %55, label %calc_stride_and_planesize.exit, label %56
+52:                                               ; preds = %48
+  %53 = load ptr, ptr %8, align 8
+  %54 = icmp eq ptr %53, null
+  br i1 %54, label %calc_stride_and_planesize.exit, label %55
 
-56:                                               ; preds = %53
-  %57 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %58 = load i64, ptr %57, align 8
-  %59 = icmp ult i64 %58, %50
-  br i1 %59, label %calc_stride_and_planesize.exit, label %60
+55:                                               ; preds = %52
+  %56 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %57 = load i64, ptr %56, align 8
+  %58 = icmp ult i64 %57, %49
+  br i1 %58, label %calc_stride_and_planesize.exit, label %59
 
-60:                                               ; preds = %56
-  %61 = ptrtoint ptr %54 to i64
-  %62 = add i64 %61, 31
-  %63 = and i64 %62, -32
-  %64 = inttoptr i64 %63 to ptr
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store ptr %64, ptr %65, align 8
-  br label %75
+59:                                               ; preds = %55
+  %60 = ptrtoint ptr %53 to i64
+  %61 = add i64 %60, 31
+  %62 = and i64 %61, -32
+  %63 = inttoptr i64 %62 to ptr
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  store ptr %63, ptr %64, align 8
+  br label %74
 
-66:                                               ; preds = %48
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %68 = load i64, ptr %67, align 8
-  %69 = icmp ugt i64 %45, %68
-  br i1 %69, label %70, label %75
+65:                                               ; preds = %47
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %67 = load i64, ptr %66, align 8
+  %68 = icmp ugt i64 %44, %67
+  br i1 %68, label %69, label %74
 
-70:                                               ; preds = %66
-  %71 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %72 = load ptr, ptr %71, align 8
-  tail call void @aom_free(ptr noundef %72) #4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %71, i8 0, i64 16, i1 false)
-  %73 = tail call ptr @aom_memalign(i64 noundef 32, i64 noundef %45) #4
-  store ptr %73, ptr %71, align 8
-  %.not120.i = icmp eq ptr %73, null
-  br i1 %.not120.i, label %calc_stride_and_planesize.exit, label %74
+69:                                               ; preds = %65
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %71 = load ptr, ptr %70, align 8
+  tail call void @aom_free(ptr noundef %71) #4
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %70, i8 0, i64 16, i1 false)
+  %72 = tail call ptr @aom_memalign(i64 noundef 32, i64 noundef %44) #4
+  store ptr %72, ptr %70, align 8
+  %.not120.i = icmp eq ptr %72, null
+  br i1 %.not120.i, label %calc_stride_and_planesize.exit, label %73
 
-74:                                               ; preds = %70
-  store i64 %45, ptr %67, align 8
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %73, i8 0, i64 %45, i1 false)
-  br label %75
+73:                                               ; preds = %69
+  store i64 %44, ptr %66, align 8
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %72, i8 0, i64 %44, i1 false)
+  br label %74
 
-75:                                               ; preds = %74, %66, %60
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %1, ptr %76, align 8
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 %2, ptr %77, align 8
+74:                                               ; preds = %73, %65, %59
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 %1, ptr %75, align 8
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i32 %2, ptr %76, align 8
   store i32 %14, ptr %0, align 8
-  %78 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %16, ptr %78, align 8
-  %79 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i32 %23, ptr %79, align 8
-  %80 = add nsw i32 %3, %1
-  %81 = ashr i32 %80, %3
-  %82 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 %81, ptr %82, align 4
-  %83 = add nsw i32 %4, %2
-  %84 = ashr i32 %83, %4
-  %85 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 %84, ptr %85, align 4
-  %86 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %39, ptr %86, align 4
-  %87 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %17, ptr %87, align 4
-  %88 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  store i32 %30, ptr %88, align 4
-  %89 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  store i32 %6, ptr %89, align 8
-  %90 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store i64 %45, ptr %90, align 8
-  %91 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store i32 %3, ptr %91, align 8
-  %92 = getelementptr inbounds nuw i8, ptr %0, i64 148
-  store i32 %4, ptr %92, align 4
-  %93 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %94 = load ptr, ptr %93, align 8
-  %95 = ptrtoint ptr %94 to i64
-  %96 = lshr i64 %95, 1
-  %97 = inttoptr i64 %96 to ptr
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 %16, ptr %77, align 8
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i32 %23, ptr %78, align 8
+  %79 = add nsw i32 %3, %1
+  %80 = ashr i32 %79, %3
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i32 %80, ptr %81, align 4
+  %82 = add nsw i32 %4, %2
+  %83 = ashr i32 %82, %4
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  store i32 %83, ptr %84, align 4
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 %39, ptr %85, align 4
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i32 %17, ptr %86, align 4
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  store i32 %30, ptr %87, align 4
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  store i32 %6, ptr %88, align 8
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  store i64 %44, ptr %89, align 8
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  store i32 %3, ptr %90, align 8
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 148
+  store i32 %4, ptr %91, align 4
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %93 = load ptr, ptr %92, align 8
+  %94 = ptrtoint ptr %93 to i64
+  %95 = lshr i64 %94, 1
+  %96 = inttoptr i64 %95 to ptr
   %.sink.i = select i1 %.not.i40, i32 0, i32 8
-  %.0111.i = select i1 %.not.i40, ptr %94, ptr %97
-  %98 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  store i32 %.sink.i, ptr %98, align 8
-  %99 = mul nsw i32 %23, %6
-  %100 = sext i32 %99 to i64
-  %101 = getelementptr inbounds i8, ptr %.0111.i, i64 %100
-  %102 = sext i32 %6 to i64
-  %103 = getelementptr inbounds i8, ptr %101, i64 %102
-  %104 = ptrtoint ptr %103 to i64
-  %105 = add nsw i32 %40, -1
-  %106 = sext i32 %105 to i64
-  %107 = add i64 %104, %106
-  %108 = xor i64 %106, -1
-  %109 = and i64 %107, %108
-  %110 = inttoptr i64 %109 to ptr
-  %111 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %110, ptr %111, align 8
-  %112 = getelementptr inbounds i8, ptr %.0111.i, i64 %29
-  %113 = mul nsw i32 %30, %31
-  %114 = sext i32 %113 to i64
-  %115 = getelementptr inbounds i8, ptr %112, i64 %114
-  %116 = sext i32 %38 to i64
-  %117 = getelementptr inbounds i8, ptr %115, i64 %116
-  %118 = ptrtoint ptr %117 to i64
-  %119 = add i64 %118, %106
-  %120 = and i64 %119, %108
-  %121 = inttoptr i64 %120 to ptr
-  %122 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %121, ptr %122, align 8
-  %123 = getelementptr inbounds i8, ptr %112, i64 %37
-  %124 = getelementptr inbounds i8, ptr %123, i64 %114
-  %125 = getelementptr inbounds i8, ptr %124, i64 %116
-  %126 = ptrtoint ptr %125 to i64
-  %127 = add i64 %126, %106
-  %128 = and i64 %127, %108
-  %129 = inttoptr i64 %128 to ptr
-  %130 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store ptr %129, ptr %130, align 8
-  %131 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store i32 0, ptr %131, align 8
-  %132 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %133 = load ptr, ptr %132, align 8
-  %.not121.i = icmp eq ptr %133, null
-  br i1 %.not.i40, label %138, label %134
+  %.0111.i = select i1 %.not.i40, ptr %93, ptr %96
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  store i32 %.sink.i, ptr %97, align 8
+  %98 = mul nsw i32 %23, %6
+  %99 = sext i32 %98 to i64
+  %100 = getelementptr inbounds i8, ptr %.0111.i, i64 %99
+  %101 = sext i32 %6 to i64
+  %102 = getelementptr inbounds i8, ptr %100, i64 %101
+  %103 = ptrtoint ptr %102 to i64
+  %104 = tail call i32 @llvm.usub.sat.i32(i32 %7, i32 1)
+  %105 = sext i32 %104 to i64
+  %106 = add i64 %103, %105
+  %107 = xor i64 %105, -1
+  %108 = and i64 %106, %107
+  %109 = inttoptr i64 %108 to ptr
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store ptr %109, ptr %110, align 8
+  %111 = getelementptr inbounds i8, ptr %.0111.i, i64 %29
+  %112 = mul nsw i32 %30, %31
+  %113 = sext i32 %112 to i64
+  %114 = getelementptr inbounds i8, ptr %111, i64 %113
+  %115 = sext i32 %38 to i64
+  %116 = getelementptr inbounds i8, ptr %114, i64 %115
+  %117 = ptrtoint ptr %116 to i64
+  %118 = add i64 %117, %105
+  %119 = and i64 %118, %107
+  %120 = inttoptr i64 %119 to ptr
+  %121 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store ptr %120, ptr %121, align 8
+  %122 = getelementptr inbounds i8, ptr %111, i64 %37
+  %123 = getelementptr inbounds i8, ptr %122, i64 %113
+  %124 = getelementptr inbounds i8, ptr %123, i64 %115
+  %125 = ptrtoint ptr %124 to i64
+  %126 = add i64 %125, %105
+  %127 = and i64 %126, %107
+  %128 = inttoptr i64 %127 to ptr
+  %129 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store ptr %128, ptr %129, align 8
+  %130 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store i32 0, ptr %130, align 8
+  %131 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %132 = load ptr, ptr %131, align 8
+  %.not121.i = icmp eq ptr %132, null
+  br i1 %.not.i40, label %137, label %133
 
-134:                                              ; preds = %75
-  br i1 %.not121.i, label %136, label %135
+133:                                              ; preds = %74
+  br i1 %.not121.i, label %135, label %134
 
-135:                                              ; preds = %134
-  tail call void @aom_free(ptr noundef nonnull %133) #4
-  br label %136
+134:                                              ; preds = %133
+  tail call void @aom_free(ptr noundef nonnull %132) #4
+  br label %135
 
-136:                                              ; preds = %135, %134
-  %137 = tail call ptr @aom_memalign(i64 noundef 32, i64 noundef %29) #4
-  store ptr %137, ptr %132, align 8
-  %.not123.i = icmp eq ptr %137, null
-  br i1 %.not123.i, label %calc_stride_and_planesize.exit, label %141
+135:                                              ; preds = %134, %133
+  %136 = tail call ptr @aom_memalign(i64 noundef 32, i64 noundef %29) #4
+  store ptr %136, ptr %131, align 8
+  %.not123.i = icmp eq ptr %136, null
+  br i1 %.not123.i, label %calc_stride_and_planesize.exit, label %140
 
-138:                                              ; preds = %75
-  br i1 %.not121.i, label %141, label %139
+137:                                              ; preds = %74
+  br i1 %.not121.i, label %140, label %138
 
-139:                                              ; preds = %138
-  tail call void @aom_free(ptr noundef nonnull %133) #4
-  store ptr null, ptr %132, align 8
-  %140 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store i32 0, ptr %140, align 8
-  br label %141
+138:                                              ; preds = %137
+  tail call void @aom_free(ptr noundef nonnull %132) #4
+  store ptr null, ptr %131, align 8
+  %139 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  store i32 0, ptr %139, align 8
+  br label %140
 
-141:                                              ; preds = %139, %138, %136
-  %142 = getelementptr inbounds nuw i8, ptr %0, i64 188
-  store i32 0, ptr %142, align 4
+140:                                              ; preds = %138, %137, %135
+  %141 = getelementptr inbounds nuw i8, ptr %0, i64 188
+  store i32 0, ptr %141, align 4
   br label %calc_stride_and_planesize.exit
 
-calc_stride_and_planesize.exit:                   ; preds = %141, %136, %70, %56, %53, %49, %19, %12, %11
-  %.0 = phi i32 [ 2, %11 ], [ 2, %12 ], [ 0, %141 ], [ 2, %19 ], [ 2, %49 ], [ 2, %56 ], [ 2, %53 ], [ 2, %70 ], [ 2, %136 ]
+calc_stride_and_planesize.exit:                   ; preds = %140, %135, %69, %55, %52, %48, %19, %12, %11
+  %.0 = phi i32 [ 2, %11 ], [ 2, %12 ], [ 0, %140 ], [ 2, %19 ], [ 2, %48 ], [ 2, %55 ], [ 2, %52 ], [ 2, %69 ], [ 2, %135 ]
   ret i32 %.0
 }
 
@@ -433,7 +432,7 @@ declare ptr @aom_img_metadata_alloc(i32 noundef, ptr noundef, i64 noundef, i32 n
 declare ptr @aom_memalign(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #3
+declare i32 @llvm.usub.sat.i32(i32, i32) #3
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

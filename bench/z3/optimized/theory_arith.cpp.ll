@@ -74056,8 +74056,7 @@ while.body:                                       ; preds = %invoke.cont3
   %m_num_args.i = getelementptr inbounds i8, ptr %m.addr.020, i64 24
   %9 = load i32, ptr %m_num_args.i, align 8
   %m_args.i = getelementptr inbounds i8, ptr %m.addr.020, i64 32
-  %umax = call i32 @llvm.umax.i32(i32 %9, i32 1)
-  %10 = add i32 %umax, -1
+  %10 = call i32 @llvm.usub.sat.i32(i32 %9, i32 1)
   %wide.trip.count = zext i32 %10 to i64
   br label %for.cond
 
@@ -89718,8 +89717,7 @@ while.body:                                       ; preds = %invoke.cont5
   %m_num_args.i = getelementptr inbounds i8, ptr %m.addr.038, i64 24
   %13 = load i32, ptr %m_num_args.i, align 8
   %m_args.i = getelementptr inbounds i8, ptr %m.addr.038, i64 32
-  %umax = call i32 @llvm.umax.i32(i32 %13, i32 1)
-  %14 = add i32 %umax, -1
+  %14 = call i32 @llvm.usub.sat.i32(i32 %13, i32 1)
   %wide.trip.count = zext i32 %14 to i64
   br label %for.cond
 
@@ -176412,8 +176410,7 @@ while.body:                                       ; preds = %invoke.cont3
   %m_num_args.i = getelementptr inbounds i8, ptr %m.addr.020, i64 24
   %9 = load i32, ptr %m_num_args.i, align 8
   %m_args.i = getelementptr inbounds i8, ptr %m.addr.020, i64 32
-  %umax = call i32 @llvm.umax.i32(i32 %9, i32 1)
-  %10 = add i32 %umax, -1
+  %10 = call i32 @llvm.usub.sat.i32(i32 %9, i32 1)
   %wide.trip.count = zext i32 %10 to i64
   br label %for.cond
 
@@ -191809,8 +191806,7 @@ while.body:                                       ; preds = %invoke.cont5
   %m_num_args.i = getelementptr inbounds i8, ptr %m.addr.038, i64 24
   %13 = load i32, ptr %m_num_args.i, align 8
   %m_args.i = getelementptr inbounds i8, ptr %m.addr.038, i64 32
-  %umax = call i32 @llvm.umax.i32(i32 %13, i32 1)
-  %14 = add i32 %umax, -1
+  %14 = call i32 @llvm.usub.sat.i32(i32 %13, i32 1)
   %wide.trip.count = zext i32 %14 to i64
   br label %for.cond
 
@@ -276451,8 +276447,7 @@ while.body:                                       ; preds = %invoke.cont3
   %m_num_args.i = getelementptr inbounds i8, ptr %m.addr.020, i64 24
   %9 = load i32, ptr %m_num_args.i, align 8
   %m_args.i = getelementptr inbounds i8, ptr %m.addr.020, i64 32
-  %umax = call i32 @llvm.umax.i32(i32 %9, i32 1)
-  %10 = add i32 %umax, -1
+  %10 = call i32 @llvm.usub.sat.i32(i32 %9, i32 1)
   %wide.trip.count = zext i32 %10 to i64
   br label %for.cond
 
@@ -291682,8 +291677,7 @@ while.body:                                       ; preds = %invoke.cont5
   %m_num_args.i = getelementptr inbounds i8, ptr %m.addr.038, i64 24
   %13 = load i32, ptr %m_num_args.i, align 8
   %m_args.i = getelementptr inbounds i8, ptr %m.addr.038, i64 32
-  %umax = call i32 @llvm.umax.i32(i32 %13, i32 1)
-  %14 = add i32 %umax, -1
+  %14 = call i32 @llvm.usub.sat.i32(i32 %13, i32 1)
   %wide.trip.count = zext i32 %14 to i64
   br label %for.cond
 
@@ -332342,6 +332336,9 @@ declare i32 @llvm.umax.i32(i32, i32) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #20
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.usub.sat.i32(i32, i32) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #20

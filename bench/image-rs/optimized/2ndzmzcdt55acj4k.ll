@@ -31964,10 +31964,8 @@ switch.lookup:
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN5image6codecs4webp9transform7idct4x417h00d82ec26c4e119bE(ptr noalias nocapture noundef nonnull align 4 %0, i64 noundef %1) unnamed_addr #2 {
-  %umax = tail call i64 @llvm.umax.i64(i64 %1, i64 8)
-  %3 = add i64 %umax, -8
-  %umax89 = tail call i64 @llvm.umax.i64(i64 %1, i64 12)
-  %4 = add i64 %umax89, -12
+  %3 = tail call i64 @llvm.usub.sat.i64(i64 %1, i64 8)
+  %4 = tail call i64 @llvm.usub.sat.i64(i64 %1, i64 12)
   br label %5
 
 5:                                                ; preds = %2, %72
@@ -32131,8 +32129,7 @@ _ZN5image6codecs4webp9transform7idct4x45fetch17h9a45abbf13d9d6b7E.exit37: ; pred
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN5image6codecs4webp9transform7iwht4x417h0d981d6f6d8159feE(ptr noalias nocapture noundef nonnull align 4 %0, i64 noundef %1) unnamed_addr #2 {
-  %umax = tail call i64 @llvm.umax.i64(i64 %1, i64 12)
-  %3 = add i64 %umax, -12
+  %3 = tail call i64 @llvm.usub.sat.i64(i64 %1, i64 12)
   br label %4
 
 4:                                                ; preds = %2, %43
@@ -33136,6 +33133,9 @@ declare i32 @llvm.umin.i32(i32, i32) #28
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #28
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.usub.sat.i64(i64, i64) #28
 
 attributes #0 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
