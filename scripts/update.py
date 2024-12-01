@@ -395,9 +395,11 @@ def update_pr():
         out = "\n".join(out)
     lines.append(out)
     lines.append("")
+    output = "\n".join(lines)
     with open(OUT, "w") as f:
-        print("f={}".format(f))
-        f.write("\n".join(lines))
+        print(output)
+        f.write(output)
+    return True
 
 
 LLVM_REV = get_current_llvm_rev().strip()
