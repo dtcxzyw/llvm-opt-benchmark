@@ -334,12 +334,11 @@ factorial.exit:                                   ; preds = %factorial.exit.loop
 
 .lr.ph.i.preheader:                               ; preds = %factorial.exit
   %19 = icmp sgt i32 %0, 0
-  %umax19 = tail call i32 @llvm.umax.i32(i32 %4, i32 1)
   br i1 %19, label %.lr.ph.i.us.preheader, label %.lr.ph.i.preheader14
 
 .lr.ph.i.preheader14:                             ; preds = %.lr.ph.i.preheader
   %20 = add nsw i64 %12, -4
-  %21 = add nsw i32 %umax19, -1
+  %21 = tail call i32 @llvm.usub.sat.i32(i32 %4, i32 1)
   %22 = zext nneg i32 %21 to i64
   %23 = shl nuw nsw i64 %22, 2
   %24 = sub nsw i64 %20, %23
@@ -351,6 +350,7 @@ factorial.exit:                                   ; preds = %factorial.exit.loop
 
 .lr.ph.i.us.preheader:                            ; preds = %.lr.ph.i.preheader
   %26 = zext nneg i32 %4 to i64
+  %umax19 = tail call i32 @llvm.umax.i32(i32 %4, i32 1)
   %27 = add nuw i32 %umax19, 1
   %wide.trip.count = zext i32 %27 to i64
   br label %.lr.ph.i.us
@@ -935,6 +935,9 @@ declare i32 @llvm.umax.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #9
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.usub.sat.i32(i32, i32) #9
 
 attributes #0 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

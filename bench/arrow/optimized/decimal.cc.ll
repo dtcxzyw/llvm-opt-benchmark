@@ -2445,8 +2445,7 @@ _ZN5arrow6Status11DeleteStateEv.exit.i:           ; preds = %if.end8.sink.split.
 
 if.end:                                           ; preds = %entry
   %15 = load i8, ptr %bytes, align 1
-  %16 = tail call i32 @llvm.umax.i32(i32 %length, i32 8)
-  %.sroa.speculated27 = add nsw i32 %16, -8
+  %.sroa.speculated27 = tail call i32 @llvm.usub.sat.i32(i32 %length, i32 8)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %result.i)
   store i64 0, ptr %result.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %result.i, i64 8
@@ -2454,8 +2453,8 @@ if.end:                                           ; preds = %entry
   %idx.neg.i = sub nsw i64 0, %idx.ext.i
   %add.ptr1.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %idx.neg.i
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr1.i, ptr nonnull readonly align 1 %bytes, i64 %idx.ext.i, i1 false)
-  %17 = load i64, ptr %result.i, align 8
-  %18 = tail call noundef i64 @llvm.bswap.i64(i64 %17)
+  %16 = load i64, ptr %result.i, align 8
+  %17 = tail call noundef i64 @llvm.bswap.i64(i64 %16)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %result.i)
   %cmp7 = icmp eq i32 %.sroa.speculated27, 8
   br i1 %cmp7, label %if.end14, label %if.else
@@ -2463,16 +2462,16 @@ if.end:                                           ; preds = %entry
 if.else:                                          ; preds = %if.end
   %cmp3 = icmp slt i8 %15, 0
   %cmp9 = icmp samesign ult i32 %length, 16
-  %19 = select i1 %cmp3, i1 %cmp9, i1 false
-  %conv11 = sext i1 %19 to i64
+  %18 = select i1 %cmp3, i1 %cmp9, i1 false
+  %conv11 = sext i1 %18 to i64
   %mul12 = shl nuw nsw i32 %.sroa.speculated27, 3
   %sh_prom.i = zext nneg i32 %mul12 to i64
   %shl.i = shl nsw i64 %conv11, %sh_prom.i
-  %or = or i64 %18, %shl.i
+  %or = or i64 %17, %shl.i
   br label %if.end14
 
 if.end14:                                         ; preds = %if.end, %if.else
-  %high.0 = phi i64 [ %or, %if.else ], [ %18, %if.end ]
+  %high.0 = phi i64 [ %or, %if.else ], [ %17, %if.end ]
   %add.ptr = getelementptr inbounds i8, ptr %bytes, i64 %idx.ext.i
   %sub17 = sub nsw i32 %length, %.sroa.speculated27
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %result.i18)
@@ -2482,8 +2481,8 @@ if.end14:                                         ; preds = %if.end, %if.else
   %idx.neg.i21 = sub nsw i64 0, %idx.ext.i20
   %add.ptr1.i22 = getelementptr inbounds i8, ptr %add.ptr.i19, i64 %idx.neg.i21
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr1.i22, ptr nonnull readonly align 1 %add.ptr, i64 %idx.ext.i20, i1 false)
-  %20 = load i64, ptr %result.i18, align 8
-  %21 = tail call noundef i64 @llvm.bswap.i64(i64 %20)
+  %19 = load i64, ptr %result.i18, align 8
+  %20 = tail call noundef i64 @llvm.bswap.i64(i64 %19)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %result.i18)
   %cmp19 = icmp samesign ugt i32 %length, 7
   br i1 %cmp19, label %if.end32, label %if.else21
@@ -2494,11 +2493,11 @@ if.else21:                                        ; preds = %if.end14
   %mul29 = shl nuw nsw i32 %length, 3
   %sh_prom.i23 = zext nneg i32 %mul29 to i64
   %shl.i24 = shl nsw i64 %conv28, %sh_prom.i23
-  %or31 = or i64 %21, %shl.i24
+  %or31 = or i64 %20, %shl.i24
   br label %if.end32
 
 if.end32:                                         ; preds = %if.end14, %if.else21
-  %low.0 = phi i64 [ %or31, %if.else21 ], [ %21, %if.end14 ]
+  %low.0 = phi i64 [ %or31, %if.else21 ], [ %20, %if.end14 ]
   store ptr null, ptr %agg.result, align 8
   %storage_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 %low.0, ptr %storage_.i.i, align 8
@@ -9227,7 +9226,7 @@ declare i32 @llvm.smax.i32(i32, i32) #17
 declare i32 @llvm.smin.i32(i32, i32) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #17
+declare i32 @llvm.usub.sat.i32(i32, i32) #17
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

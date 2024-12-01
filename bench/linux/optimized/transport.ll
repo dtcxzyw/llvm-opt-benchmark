@@ -109,14 +109,14 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
 define internal void @usb_stor_blocking_completion(ptr nocapture noundef readonly %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 168
   %3 = load ptr, ptr %2, align 8
-  tail call void @complete(ptr noundef %3) #8
+  tail call void @complete(ptr noundef %3) #9
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc i32 @usb_stor_msg_common(ptr noundef %0, i32 noundef %1) unnamed_addr #0 align 16 {
   %3 = alloca %struct.completion, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #9
   %4 = getelementptr inbounds i8, ptr %0, i64 64
   %5 = load volatile i64, ptr %4, align 8
   %6 = and i64 %5, 4
@@ -127,7 +127,7 @@ define internal fastcc i32 @usb_stor_msg_common(ptr noundef %0, i32 noundef %1) 
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false), !annotation !5
   store i32 0, ptr %3, align 8
   %9 = getelementptr inbounds i8, ptr %3, i64 8
-  call void @__init_swait_queue_head(ptr noundef %9, ptr noundef nonnull @.str.1, ptr noundef nonnull @init_completion.__key) #8
+  call void @__init_swait_queue_head(ptr noundef %9, ptr noundef nonnull @.str.1, ptr noundef nonnull @init_completion.__key) #9
   %10 = getelementptr inbounds i8, ptr %0, i64 200
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 168
@@ -158,19 +158,19 @@ define internal fastcc i32 @usb_stor_msg_common(ptr noundef %0, i32 noundef %1) 
   %29 = getelementptr inbounds i8, ptr %26, i64 104
   store i64 %28, ptr %29, align 8
   %30 = load ptr, ptr %10, align 8
-  %31 = call i32 @usb_submit_urb(ptr noundef %30, i32 noundef 3072) #8
+  %31 = call i32 @usb_submit_urb(ptr noundef %30, i32 noundef 3072) #9
   %32 = icmp eq i32 %31, 0
   br i1 %32, label %33, label %56
 
 33:                                               ; preds = %25
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %4, i32 1, ptr elementtype(i8) %4) #8, !srcloc !6
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %4, i32 1, ptr elementtype(i8) %4) #9, !srcloc !6
   %34 = load volatile i64, ptr %4, align 8
   %35 = and i64 %34, 4
   %36 = icmp eq i64 %35, 0
   br i1 %36, label %44, label %37
 
 37:                                               ; preds = %33
-  %38 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %4, i64 0, ptr elementtype(i64) %4) #8, !srcloc !7
+  %38 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %4, i64 0, ptr elementtype(i64) %4) #9, !srcloc !7
   %39 = icmp ult i8 %38, 2
   call void @llvm.assume(i1 %39)
   %40 = icmp eq i8 %38, 0
@@ -178,21 +178,21 @@ define internal fastcc i32 @usb_stor_msg_common(ptr noundef %0, i32 noundef %1) 
 
 41:                                               ; preds = %37
   %42 = load ptr, ptr %10, align 8
-  %43 = call i32 @usb_unlink_urb(ptr noundef %42) #8
+  %43 = call i32 @usb_unlink_urb(ptr noundef %42) #9
   br label %44
 
 44:                                               ; preds = %41, %37, %33
   %45 = icmp eq i32 %1, 0
   %46 = sext i32 %1 to i64
   %47 = select i1 %45, i64 9223372036854775807, i64 %46
-  %48 = call i64 @wait_for_completion_interruptible_timeout(ptr noundef nonnull %3, i64 noundef %47) #8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %4, i32 -2, ptr elementtype(i8) %4) #8, !srcloc !8
+  %48 = call i64 @wait_for_completion_interruptible_timeout(ptr noundef nonnull %3, i64 noundef %47) #9
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %4, i32 -2, ptr elementtype(i8) %4) #9, !srcloc !8
   %49 = icmp slt i64 %48, 1
   br i1 %49, label %50, label %52
 
 50:                                               ; preds = %44
   %51 = load ptr, ptr %10, align 8
-  call void @usb_kill_urb(ptr noundef %51) #8
+  call void @usb_kill_urb(ptr noundef %51) #9
   br label %52
 
 52:                                               ; preds = %50, %44
@@ -203,7 +203,7 @@ define internal fastcc i32 @usb_stor_msg_common(ptr noundef %0, i32 noundef %1) 
 
 56:                                               ; preds = %52, %25, %2
   %57 = phi i32 [ %55, %52 ], [ -5, %2 ], [ %31, %25 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #9
   ret i32 %57
 }
 
@@ -270,7 +270,7 @@ define dso_local i32 @usb_stor_clear_halt(ptr noundef %0, i32 noundef %1) #0 ali
 
 41:                                               ; preds = %38
   %42 = load ptr, ptr %22, align 8
-  tail call void @usb_reset_endpoint(ptr noundef %42, i32 noundef %6) #8
+  tail call void @usb_reset_endpoint(ptr noundef %42, i32 noundef %6) #9
   br label %43
 
 43:                                               ; preds = %41, %38
@@ -402,7 +402,7 @@ define internal fastcc range(i32 0, 5) i32 @interpret_urb_result(ptr noundef %0,
 
 50:                                               ; preds = %47
   %51 = load ptr, ptr %31, align 8
-  tail call void @usb_reset_endpoint(ptr noundef %51, i32 noundef %15) #8
+  tail call void @usb_reset_endpoint(ptr noundef %51, i32 noundef %15) #9
   br label %52
 
 52:                                               ; preds = %50, %47
@@ -461,7 +461,7 @@ define dso_local range(i32 0, 5) i32 @usb_stor_bulk_transfer_buf(ptr noundef %0,
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local range(i32 0, 5) i32 @usb_stor_bulk_srb(ptr noundef %0, i32 noundef %1, ptr nocapture noundef initializes((240, 244)) %2) #0 align 16 {
   %4 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #9
   store i32 0, ptr %4, align 4, !annotation !5
   %5 = getelementptr inbounds i8, ptr %2, i64 200
   %6 = load ptr, ptr %5, align 8
@@ -475,7 +475,7 @@ define dso_local range(i32 0, 5) i32 @usb_stor_bulk_srb(ptr noundef %0, i32 noun
   %14 = sub i32 %12, %13
   %15 = getelementptr inbounds i8, ptr %2, i64 240
   store i32 %14, ptr %15, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #9
   ret i32 %11
 }
 
@@ -492,31 +492,31 @@ define internal fastcc range(i32 0, 5) i32 @usb_stor_bulk_transfer_sglist(ptr no
   %13 = getelementptr inbounds i8, ptr %0, i64 32
   %14 = load ptr, ptr %13, align 8
   %15 = zext i32 %4 to i64
-  %16 = tail call i32 @usb_sg_init(ptr noundef %12, ptr noundef %14, i32 noundef %1, i32 noundef 0, ptr noundef %2, i32 noundef %3, i64 noundef %15, i32 noundef 3072) #8
+  %16 = tail call i32 @usb_sg_init(ptr noundef %12, ptr noundef %14, i32 noundef %1, i32 noundef 0, ptr noundef %2, i32 noundef %3, i64 noundef %15, i32 noundef 3072) #9
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %18, label %39
 
 18:                                               ; preds = %11
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %7, i32 2, ptr elementtype(i8) %7) #8, !srcloc !6
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %7, i32 2, ptr elementtype(i8) %7) #9, !srcloc !6
   %19 = load volatile i64, ptr %7, align 8
   %20 = and i64 %19, 4
   %21 = icmp eq i64 %20, 0
   br i1 %21, label %27, label %22
 
 22:                                               ; preds = %18
-  %23 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %7, i64 1, ptr elementtype(i64) %7) #8, !srcloc !7
+  %23 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %7, i64 1, ptr elementtype(i64) %7) #9, !srcloc !7
   %24 = icmp ult i8 %23, 2
   tail call void @llvm.assume(i1 %24)
   %25 = icmp eq i8 %23, 0
   br i1 %25, label %27, label %26
 
 26:                                               ; preds = %22
-  tail call void @usb_sg_cancel(ptr noundef %12) #8
+  tail call void @usb_sg_cancel(ptr noundef %12) #9
   br label %27
 
 27:                                               ; preds = %26, %22, %18
-  tail call void @usb_sg_wait(ptr noundef %12) #8
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %7, i32 -3, ptr elementtype(i8) %7) #8, !srcloc !8
+  tail call void @usb_sg_wait(ptr noundef %12) #9
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %7, i32 -3, ptr elementtype(i8) %7) #9, !srcloc !8
   %28 = load i32, ptr %12, align 8
   %29 = icmp eq ptr %5, null
   br i1 %29, label %34, label %30
@@ -551,7 +551,7 @@ define internal fastcc range(i32 0, 5) i32 @usb_stor_bulk_transfer_sglist(ptr no
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local range(i32 0, 5) i32 @usb_stor_bulk_transfer_sg(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly %5) #0 align 16 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #9
   store i32 0, ptr %7, align 4, !annotation !5
   %8 = icmp eq i32 %4, 0
   br i1 %8, label %11, label %9
@@ -597,7 +597,7 @@ define dso_local range(i32 0, 5) i32 @usb_stor_bulk_transfer_sg(ptr noundef %0, 
   br label %33
 
 33:                                               ; preds = %30, %27
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #9
   ret i32 %28
 }
 
@@ -609,7 +609,7 @@ define dso_local void @usb_stor_invoke_transport(ptr noundef initializes((240, 2
   store i32 0, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 128
   %7 = load ptr, ptr %6, align 8
-  %8 = tail call i32 %7(ptr noundef %0, ptr noundef %1) #8
+  %8 = tail call i32 %7(ptr noundef %0, ptr noundef %1) #9
   %9 = getelementptr inbounds i8, ptr %1, i64 64
   %10 = load volatile i64, ptr %9, align 8
   %11 = and i64 %10, 32
@@ -765,9 +765,9 @@ thread-pre-split:                                 ; preds = %61, %19
   br i1 %104, label %205, label %105
 
 105:                                              ; preds = %101
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %3) #9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %3, i8 0, i64 112, i1 false), !annotation !5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
   store i64 0, ptr %4, align 8, !annotation !5
   %106 = and i64 %102, 32768
   %107 = icmp eq i64 %106, 0
@@ -779,7 +779,7 @@ thread-pre-split:                                 ; preds = %61, %19
 
 112:                                              ; preds = %133, %105
   %113 = phi i32 [ %108, %105 ], [ 18, %133 ]
-  call void @scsi_eh_prep_cmnd(ptr noundef %0, ptr noundef nonnull %3, ptr noundef null, i32 noundef 0, i32 noundef %113) #8
+  call void @scsi_eh_prep_cmnd(ptr noundef %0, ptr noundef nonnull %3, ptr noundef null, i32 noundef 0, i32 noundef %113) #9
   %114 = load i8, ptr %109, align 4
   switch i8 %114, label %115 [
     i8 1, label %116
@@ -796,8 +796,8 @@ thread-pre-split:                                 ; preds = %61, %19
   store i32 0, ptr %5, align 8
   %117 = load ptr, ptr %6, align 8
   %118 = load ptr, ptr %111, align 8
-  %119 = call i32 %117(ptr noundef %118, ptr noundef %1) #8
-  call void @scsi_eh_restore_cmnd(ptr noundef %0, ptr noundef nonnull %3) #8
+  %119 = call i32 %117(ptr noundef %118, ptr noundef %1) #9
+  call void @scsi_eh_restore_cmnd(ptr noundef %0, ptr noundef nonnull %3) #9
   %120 = load volatile i64, ptr %9, align 8
   %121 = and i64 %120, 32
   %122 = icmp eq i64 %121, 0
@@ -870,10 +870,10 @@ thread-pre-split:                                 ; preds = %61, %19
 
 161:                                              ; preds = %157, %153, %149, %143
   %162 = phi ptr [ %.pre21, %157 ], [ %145, %153 ], [ %145, %149 ], [ %145, %143 ]
-  %163 = call zeroext i1 @scsi_normalize_sense(ptr noundef %162, i32 noundef 96, ptr noundef nonnull %4) #8
+  %163 = call zeroext i1 @scsi_normalize_sense(ptr noundef %162, i32 noundef 96, ptr noundef nonnull %4) #9
   store i32 2, ptr %13, align 8
   %164 = load ptr, ptr %144, align 8
-  %165 = call ptr @scsi_sense_desc_find(ptr noundef %164, i32 noundef 96, i32 noundef 4) #8
+  %165 = call ptr @scsi_sense_desc_find(ptr noundef %164, i32 noundef 96, i32 noundef 4) #9
   %166 = icmp eq ptr %165, null
   br i1 %166, label %169, label %167
 
@@ -941,19 +941,19 @@ thread-pre-split:                                 ; preds = %61, %19
   br label %.thread
 
 .thread:                                          ; preds = %193, %193, %191, %200, %202, %172
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %3) #9
   %.pre22 = load i64, ptr %75, align 8
   br label %205
 
 .thread9:                                         ; preds = %125, %123, %139
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %3) #9
   br label %308
 
 204:                                              ; preds = %139
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %3) #9
   br label %402
 
 205:                                              ; preds = %.thread, %101
@@ -974,7 +974,7 @@ thread-pre-split:                                 ; preds = %61, %19
 
 215:                                              ; preds = %212
   %216 = getelementptr i8, ptr %1, i64 65
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %216, i32 1, ptr elementtype(i8) %216) #8, !srcloc !6
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %216, i32 1, ptr elementtype(i8) %216) #9, !srcloc !6
   br label %223
 
 217:                                              ; preds = %212
@@ -985,8 +985,8 @@ thread-pre-split:                                 ; preds = %61, %19
 
 221:                                              ; preds = %217
   %222 = getelementptr i8, ptr %1, i64 65
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %222, i32 -2, ptr elementtype(i8) %222) #8, !srcloc !8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %9, i32 128, ptr elementtype(i8) %9) #8, !srcloc !6
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %222, i32 -2, ptr elementtype(i8) %222) #9, !srcloc !8
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %9, i32 128, ptr elementtype(i8) %9) #9, !srcloc !6
   br label %223
 
 223:                                              ; preds = %221, %217, %215
@@ -996,7 +996,7 @@ thread-pre-split:                                 ; preds = %61, %19
   br i1 %226, label %230, label %227
 
 227:                                              ; preds = %223
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %9, i32 -129, ptr elementtype(i8) %9) #8, !srcloc !8
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %9, i32 -129, ptr elementtype(i8) %9) #9, !srcloc !8
   store i32 786432, ptr %13, align 8
   %228 = getelementptr inbounds i8, ptr %0, i64 248
   %229 = load ptr, ptr %228, align 8
@@ -1129,12 +1129,12 @@ thread-pre-split10:                               ; preds = %255, %279, %283, %2
 308:                                              ; preds = %.thread9, %306
   %309 = getelementptr i8, ptr %1, i64 -2008
   %310 = load ptr, ptr %309, align 8
-  call void @_raw_spin_lock_irq(ptr noundef %310) #8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %9, i32 16, ptr elementtype(i8) %9) #8, !srcloc !6
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %9, i32 -5, ptr elementtype(i8) %9) #8, !srcloc !8
+  call void @_raw_spin_lock_irq(ptr noundef %310) #9
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %9, i32 16, ptr elementtype(i8) %9) #9, !srcloc !6
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %9, i32 -5, ptr elementtype(i8) %9) #9, !srcloc !8
   %311 = load ptr, ptr %309, align 8
-  call void @_raw_spin_unlock_irq(ptr noundef %311) #8
-  call void @mutex_unlock(ptr noundef %1) #8
+  call void @_raw_spin_unlock_irq(ptr noundef %311) #9
+  call void @mutex_unlock(ptr noundef %1) #9
   %312 = getelementptr inbounds i8, ptr %1, i64 32
   %313 = load ptr, ptr %312, align 8
   %314 = getelementptr inbounds i8, ptr %313, i64 1268
@@ -1146,7 +1146,7 @@ thread-pre-split10:                               ; preds = %255, %279, %283, %2
 318:                                              ; preds = %308
   %319 = getelementptr inbounds i8, ptr %1, i64 40
   %320 = load ptr, ptr %319, align 8
-  %321 = call i32 @usb_lock_device_for_reset(ptr noundef %313, ptr noundef %320) #8
+  %321 = call i32 @usb_lock_device_for_reset(ptr noundef %313, ptr noundef %320) #9
   %322 = icmp slt i32 %321, 0
   br i1 %322, label %335, label %323
 
@@ -1158,36 +1158,36 @@ thread-pre-split10:                               ; preds = %255, %279, %283, %2
   br i1 %326, label %328, label %333
 
 328:                                              ; preds = %323
-  %329 = call i32 @usb_reset_device(ptr noundef %327) #8
+  %329 = call i32 @usb_reset_device(ptr noundef %327) #9
   %330 = icmp slt i32 %329, 0
   %331 = load ptr, ptr %312, align 8
   %332 = getelementptr inbounds i8, ptr %331, i64 296
-  call void @mutex_unlock(ptr noundef %332) #8
-  call void @mutex_lock(ptr noundef %1) #8
+  call void @mutex_unlock(ptr noundef %332) #9
+  call void @mutex_lock(ptr noundef %1) #9
   br i1 %330, label %336, label %342
 
 333:                                              ; preds = %323
   %334 = getelementptr inbounds i8, ptr %327, i64 296
-  call void @mutex_unlock(ptr noundef %334) #8
+  call void @mutex_unlock(ptr noundef %334) #9
   br label %335
 
 335:                                              ; preds = %333, %318, %308
-  call void @mutex_lock(ptr noundef %1) #8
+  call void @mutex_lock(ptr noundef %1) #9
   br label %336
 
 336:                                              ; preds = %335, %328
   %337 = load ptr, ptr %309, align 8
-  call void @_raw_spin_lock_irq(ptr noundef %337) #8
-  call void @usb_stor_report_device_reset(ptr noundef %1) #8
+  call void @_raw_spin_lock_irq(ptr noundef %337) #9
+  call void @usb_stor_report_device_reset(ptr noundef %1) #9
   %338 = load ptr, ptr %309, align 8
-  call void @_raw_spin_unlock_irq(ptr noundef %338) #8
+  call void @_raw_spin_unlock_irq(ptr noundef %338) #9
   %339 = getelementptr inbounds i8, ptr %1, i64 136
   %340 = load ptr, ptr %339, align 8
-  %341 = call i32 %340(ptr noundef %1) #8
+  %341 = call i32 %340(ptr noundef %1) #9
   br label %342
 
 342:                                              ; preds = %336, %328
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %9, i32 -17, ptr elementtype(i8) %9) #8, !srcloc !8
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %9, i32 -17, ptr elementtype(i8) %9) #9, !srcloc !8
   %343 = getelementptr inbounds i8, ptr %1, i64 528
   %344 = load i32, ptr %343, align 8
   %345 = icmp eq i32 %344, 0
@@ -1319,7 +1319,7 @@ define dso_local i32 @usb_stor_port_reset(ptr noundef %0) local_unnamed_addr #0 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds i8, ptr %0, i64 40
   %10 = load ptr, ptr %9, align 8
-  %11 = tail call i32 @usb_lock_device_for_reset(ptr noundef %3, ptr noundef %10) #8
+  %11 = tail call i32 @usb_lock_device_for_reset(ptr noundef %3, ptr noundef %10) #9
   %12 = icmp slt i32 %11, 0
   br i1 %12, label %25, label %13
 
@@ -1332,14 +1332,14 @@ define dso_local i32 @usb_stor_port_reset(ptr noundef %0) local_unnamed_addr #0 
 
 18:                                               ; preds = %13
   %19 = load ptr, ptr %2, align 8
-  %20 = tail call i32 @usb_reset_device(ptr noundef %19) #8
+  %20 = tail call i32 @usb_reset_device(ptr noundef %19) #9
   br label %21
 
 21:                                               ; preds = %18, %13
   %22 = phi i32 [ %20, %18 ], [ -5, %13 ]
   %23 = load ptr, ptr %2, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 296
-  tail call void @mutex_unlock(ptr noundef %24) #8
+  tail call void @mutex_unlock(ptr noundef %24) #9
   br label %25
 
 25:                                               ; preds = %21, %8, %1
@@ -1356,7 +1356,7 @@ declare dso_local void @usb_stor_report_device_reset(ptr noundef) local_unnamed_
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @usb_stor_stop_transport(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 64
-  %3 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %2, i64 0, ptr elementtype(i64) %2) #8, !srcloc !7
+  %3 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %2, i64 0, ptr elementtype(i64) %2) #9, !srcloc !7
   %4 = icmp ult i8 %3, 2
   tail call void @llvm.assume(i1 %4)
   %5 = icmp eq i8 %3, 0
@@ -1365,11 +1365,11 @@ define dso_local void @usb_stor_stop_transport(ptr noundef %0) local_unnamed_add
 6:                                                ; preds = %1
   %7 = getelementptr inbounds i8, ptr %0, i64 200
   %8 = load ptr, ptr %7, align 8
-  %9 = tail call i32 @usb_unlink_urb(ptr noundef %8) #8
+  %9 = tail call i32 @usb_unlink_urb(ptr noundef %8) #9
   br label %10
 
 10:                                               ; preds = %6, %1
-  %11 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %2, i64 1, ptr elementtype(i64) %2) #8, !srcloc !7
+  %11 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %2, i64 1, ptr elementtype(i64) %2) #9, !srcloc !7
   %12 = icmp ult i8 %11, 2
   tail call void @llvm.assume(i1 %12)
   %13 = icmp eq i8 %11, 0
@@ -1377,7 +1377,7 @@ define dso_local void @usb_stor_stop_transport(ptr noundef %0) local_unnamed_add
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds i8, ptr %0, i64 216
-  tail call void @usb_sg_cancel(ptr noundef %15) #8
+  tail call void @usb_sg_cancel(ptr noundef %15) #9
   br label %16
 
 16:                                               ; preds = %14, %10
@@ -1450,12 +1450,12 @@ define dso_local noundef range(i32 0, 4) i32 @usb_stor_CB_transport(ptr nocaptur
   %45 = load i32, ptr %44, align 4
   %46 = tail call fastcc i32 @interpret_urb_result(ptr noundef %1, i32 noundef %13, i32 noundef %34, i32 noundef %42, i32 noundef %45), !range !9
   switch i32 %46, label %47 [
-    i32 2, label %152
+    i32 2, label %151
     i32 0, label %48
   ]
 
 47:                                               ; preds = %2
-  br label %152
+  br label %151
 
 48:                                               ; preds = %2
   %49 = icmp eq i32 %5, 0
@@ -1468,7 +1468,7 @@ define dso_local noundef range(i32 0, 4) i32 @usb_stor_CB_transport(ptr nocaptur
   %54 = select i1 %53, i64 76, i64 72
   %55 = getelementptr inbounds i8, ptr %1, i64 %54
   %56 = load i32, ptr %55, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #9
   store i32 0, ptr %3, align 4, !annotation !5
   %57 = getelementptr inbounds i8, ptr %0, i64 200
   %58 = load ptr, ptr %57, align 8
@@ -1481,20 +1481,20 @@ define dso_local noundef range(i32 0, 4) i32 @usb_stor_CB_transport(ptr nocaptur
   %65 = sub i32 %63, %64
   %66 = getelementptr inbounds i8, ptr %0, i64 240
   store i32 %65, ptr %66, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #9
   %67 = icmp eq i32 %62, 2
-  br i1 %67, label %152, label %68
+  br i1 %67, label %151, label %68
 
 68:                                               ; preds = %50
   %69 = icmp samesign ugt i32 %62, 2
-  br i1 %69, label %152, label %70
+  br i1 %69, label %151, label %70
 
 70:                                               ; preds = %68, %48
   %71 = phi i32 [ %56, %68 ], [ 0, %48 ]
   %72 = getelementptr inbounds i8, ptr %1, i64 117
   %73 = load i8, ptr %72, align 1
   %74 = icmp eq i8 %73, 0
-  br i1 %74, label %75, label %152
+  br i1 %74, label %75, label %151
 
 75:                                               ; preds = %70
   %76 = load ptr, ptr %6, align 8
@@ -1544,78 +1544,77 @@ define dso_local noundef range(i32 0, 4) i32 @usb_stor_CB_transport(ptr nocaptur
   %110 = icmp eq i32 %109, 3
   %111 = icmp ugt i32 %109, 4
   %112 = or i1 %110, %111
-  br i1 %112, label %113, label %119
+  br i1 %112, label %113, label %118
 
 113:                                              ; preds = %94
   %114 = icmp ugt i8 %100, 15
-  %115 = call i32 @llvm.umax.i32(i32 %101, i32 1)
-  %116 = add nsw i32 %115, -1
-  %117 = shl nuw nsw i32 1, %116
-  %118 = select i1 %114, i32 32768, i32 %117
-  br label %119
+  %115 = call i32 @llvm.usub.sat.i32(i32 %101, i32 1)
+  %116 = shl nuw nsw i32 1, %115
+  %117 = select i1 %114, i32 32768, i32 %116
+  br label %118
 
-119:                                              ; preds = %113, %94
-  %120 = phi i32 [ %118, %113 ], [ %101, %94 ]
-  %121 = getelementptr inbounds i8, ptr %98, i64 160
-  store i32 %120, ptr %121, align 8
-  %122 = getelementptr inbounds i8, ptr %98, i64 152
-  store i32 -1, ptr %122, align 8
-  %123 = call fastcc i32 @usb_stor_msg_common(ptr noundef %1, i32 noundef 0)
-  %124 = load ptr, ptr %29, align 8
-  %125 = getelementptr inbounds i8, ptr %124, i64 132
-  %126 = load i32, ptr %125, align 4
-  %127 = call fastcc i32 @interpret_urb_result(ptr noundef %1, i32 noundef %78, i32 noundef 2, i32 noundef %123, i32 noundef %126), !range !9
-  %128 = icmp eq i32 %127, 0
-  br i1 %128, label %129, label %152
+118:                                              ; preds = %113, %94
+  %119 = phi i32 [ %117, %113 ], [ %101, %94 ]
+  %120 = getelementptr inbounds i8, ptr %98, i64 160
+  store i32 %119, ptr %120, align 8
+  %121 = getelementptr inbounds i8, ptr %98, i64 152
+  store i32 -1, ptr %121, align 8
+  %122 = call fastcc i32 @usb_stor_msg_common(ptr noundef %1, i32 noundef 0)
+  %123 = load ptr, ptr %29, align 8
+  %124 = getelementptr inbounds i8, ptr %123, i64 132
+  %125 = load i32, ptr %124, align 4
+  %126 = call fastcc i32 @interpret_urb_result(ptr noundef %1, i32 noundef %78, i32 noundef 2, i32 noundef %122, i32 noundef %125), !range !9
+  %127 = icmp eq i32 %126, 0
+  br i1 %127, label %128, label %151
 
-129:                                              ; preds = %119
-  %130 = getelementptr inbounds i8, ptr %1, i64 116
-  %131 = load i8, ptr %130, align 4
-  %132 = icmp eq i8 %131, 4
-  br i1 %132, label %133, label %139
+128:                                              ; preds = %118
+  %129 = getelementptr inbounds i8, ptr %1, i64 116
+  %130 = load i8, ptr %129, align 4
+  %131 = icmp eq i8 %130, 4
+  br i1 %131, label %132, label %138
 
-133:                                              ; preds = %129
-  %134 = load i8, ptr %8, align 4
-  switch i8 %134, label %135 [
-    i8 3, label %152
-    i8 18, label %152
+132:                                              ; preds = %128
+  %133 = load i8, ptr %8, align 4
+  switch i8 %133, label %134 [
+    i8 3, label %151
+    i8 18, label %151
   ]
 
-135:                                              ; preds = %133
-  %136 = load ptr, ptr %6, align 8
-  %137 = load i8, ptr %136, align 1
-  %138 = icmp eq i8 %137, 0
-  br i1 %138, label %152, label %148
+134:                                              ; preds = %132
+  %135 = load ptr, ptr %6, align 8
+  %136 = load i8, ptr %135, align 1
+  %137 = icmp eq i8 %136, 0
+  br i1 %137, label %151, label %147
 
-139:                                              ; preds = %129
-  %140 = load ptr, ptr %6, align 8
-  %141 = load i8, ptr %140, align 1
-  %142 = icmp eq i8 %141, 0
-  br i1 %142, label %143, label %148
+138:                                              ; preds = %128
+  %139 = load ptr, ptr %6, align 8
+  %140 = load i8, ptr %139, align 1
+  %141 = icmp eq i8 %140, 0
+  br i1 %141, label %142, label %147
 
-143:                                              ; preds = %139
-  %144 = getelementptr i8, ptr %140, i64 1
-  %145 = load i8, ptr %144, align 1
-  %146 = and i8 %145, 15
-  switch i8 %146, label %147 [
-    i8 0, label %152
-    i8 1, label %148
+142:                                              ; preds = %138
+  %143 = getelementptr i8, ptr %139, i64 1
+  %144 = load i8, ptr %143, align 1
+  %145 = and i8 %144, 15
+  switch i8 %145, label %146 [
+    i8 0, label %151
+    i8 1, label %147
   ]
 
-147:                                              ; preds = %143
-  br label %152
+146:                                              ; preds = %142
+  br label %151
 
-148:                                              ; preds = %143, %139, %135
-  %149 = icmp eq i32 %71, 0
-  br i1 %149, label %152, label %150
+147:                                              ; preds = %142, %138, %134
+  %148 = icmp eq i32 %71, 0
+  br i1 %148, label %151, label %149
 
-150:                                              ; preds = %148
-  %151 = call i32 @usb_stor_clear_halt(ptr noundef %1, i32 noundef %71)
-  br label %152
+149:                                              ; preds = %147
+  %150 = call i32 @usb_stor_clear_halt(ptr noundef %1, i32 noundef %71)
+  br label %151
 
-152:                                              ; preds = %150, %148, %147, %143, %135, %133, %133, %119, %70, %68, %50, %47, %2
-  %153 = phi i32 [ 3, %47 ], [ 3, %147 ], [ 1, %2 ], [ 1, %50 ], [ 3, %68 ], [ 0, %70 ], [ 3, %119 ], [ 0, %133 ], [ 0, %133 ], [ 0, %135 ], [ 0, %143 ], [ 1, %150 ], [ 1, %148 ]
-  ret i32 %153
+151:                                              ; preds = %149, %147, %146, %142, %134, %132, %132, %118, %70, %68, %50, %47, %2
+  %152 = phi i32 [ 3, %47 ], [ 3, %146 ], [ 1, %2 ], [ 1, %50 ], [ 3, %68 ], [ 0, %70 ], [ 3, %118 ], [ 0, %132 ], [ 0, %132 ], [ 0, %134 ], [ 0, %142 ], [ 1, %149 ], [ 1, %147 ]
+  ret i32 %152
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -1692,7 +1691,7 @@ define dso_local range(i32 0, 256) i32 @usb_stor_Bulk_max_lun(ptr noundef %0) lo
   %47 = getelementptr inbounds i8, ptr %0, i64 40
   %48 = load ptr, ptr %47, align 8
   %49 = getelementptr inbounds i8, ptr %48, i64 80
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %49, ptr noundef nonnull @.str, i32 noundef %44) #9
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %49, ptr noundef nonnull @.str, i32 noundef %44) #10
   br label %50
 
 50:                                               ; preds = %46, %41, %38
@@ -1807,7 +1806,7 @@ define dso_local noundef range(i32 0, 4) i32 @usb_stor_Bulk_transport(ptr nounde
   br i1 %74, label %76, label %75, !prof !11
 
 75:                                               ; preds = %71
-  tail call void @usleep_range_state(i64 noundef 125, i64 noundef 150, i32 noundef 2) #8
+  tail call void @usleep_range_state(i64 noundef 125, i64 noundef 150, i32 noundef 2) #9
   br label %76
 
 76:                                               ; preds = %75, %71
@@ -1820,7 +1819,7 @@ define dso_local noundef range(i32 0, 4) i32 @usb_stor_Bulk_transport(ptr nounde
   %81 = getelementptr inbounds i8, ptr %1, i64 76
   %82 = select i1 %80, ptr %81, ptr %53
   %83 = load i32, ptr %82, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #9
   store i32 0, ptr %3, align 4, !annotation !5
   %84 = getelementptr inbounds i8, ptr %0, i64 200
   %85 = load ptr, ptr %84, align 8
@@ -1833,7 +1832,7 @@ define dso_local noundef range(i32 0, 4) i32 @usb_stor_Bulk_transport(ptr nounde
   %92 = sub i32 %90, %91
   %93 = getelementptr inbounds i8, ptr %0, i64 240
   store i32 %92, ptr %93, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #9
   switch i32 %89, label %.thread6.fold.split [
     i32 4, label %.thread7
     i32 3, label %.thread6
@@ -1849,11 +1848,11 @@ define dso_local noundef range(i32 0, 4) i32 @usb_stor_Bulk_transport(ptr nounde
   br i1 %99, label %100, label %.thread6
 
 100:                                              ; preds = %94
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
   store ptr null, ptr %4, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #9
   store i32 0, ptr %5, align 4
-  %101 = call i32 @usb_stor_access_xfer_buf(ptr noundef %7, i32 noundef 13, ptr noundef %0, ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 1) #8
+  %101 = call i32 @usb_stor_access_xfer_buf(ptr noundef %7, i32 noundef 13, ptr noundef %0, ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 1) #9
   %102 = icmp eq i32 %101, 13
   br i1 %102, label %103, label %.thread4
 
@@ -1863,14 +1862,14 @@ define dso_local noundef range(i32 0, 4) i32 @usb_stor_Bulk_transport(ptr nounde
   br i1 %105, label %106, label %.thread4
 
 .thread4:                                         ; preds = %103, %100
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
   br label %.thread6
 
 106:                                              ; preds = %103
   store i32 %9, ptr %93, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
   br label %162
 
 .thread6.fold.split:                              ; preds = %78
@@ -2148,18 +2147,18 @@ define internal fastcc i32 @usb_stor_reset_common(ptr noundef %0, i8 noundef zer
   br i1 %45, label %154, label %46
 
 46:                                               ; preds = %43
-  %47 = tail call i32 @__SCT__might_resched() #8
+  %47 = tail call i32 @__SCT__might_resched() #9
   %48 = load volatile i64, ptr %7, align 8
   %49 = and i64 %48, 8
   %50 = icmp eq i64 %49, 0
   br i1 %50, label %51, label %70
 
 51:                                               ; preds = %46
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, i8 0, i64 40, i1 false), !annotation !5
-  call void @init_wait_entry(ptr noundef nonnull %6, i32 noundef 0) #8
+  call void @init_wait_entry(ptr noundef nonnull %6, i32 noundef 0) #9
   %52 = getelementptr inbounds i8, ptr %0, i64 392
-  %53 = call i64 @prepare_to_wait_event(ptr noundef %52, ptr noundef nonnull %6, i32 noundef 1) #8
+  %53 = call i64 @prepare_to_wait_event(ptr noundef %52, ptr noundef nonnull %6, i32 noundef 1) #9
   %54 = load volatile i64, ptr %7, align 8
   %55 = and i64 %54, 8
   %.not = icmp eq i64 %55, 0
@@ -2172,8 +2171,8 @@ define internal fastcc i32 @usb_stor_reset_common(ptr noundef %0, i8 noundef zer
   br i1 %58, label %59, label %.thread6
 
 59:                                               ; preds = %.lr.ph
-  %60 = call i64 @schedule_timeout(i64 noundef %56) #8
-  %61 = call i64 @prepare_to_wait_event(ptr noundef %52, ptr noundef nonnull %6, i32 noundef 1) #8
+  %60 = call i64 @schedule_timeout(i64 noundef %56) #9
+  %61 = call i64 @prepare_to_wait_event(ptr noundef %52, ptr noundef nonnull %6, i32 noundef 1) #9
   %62 = load volatile i64, ptr %7, align 8
   %63 = and i64 %62, 8
   %64 = icmp ne i64 %63, 0
@@ -2185,11 +2184,11 @@ define internal fastcc i32 @usb_stor_reset_common(ptr noundef %0, i8 noundef zer
   br i1 %69, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %59, %51
-  call void @finish_wait(ptr noundef %52, ptr noundef nonnull %6) #8
+  call void @finish_wait(ptr noundef %52, ptr noundef nonnull %6) #9
   br label %.thread6
 
 .thread6:                                         ; preds = %.lr.ph, %._crit_edge
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #9
   br label %70
 
 70:                                               ; preds = %.thread6, %46
@@ -2255,7 +2254,7 @@ define internal fastcc i32 @usb_stor_reset_common(ptr noundef %0, i8 noundef zer
 
 111:                                              ; preds = %108
   %112 = load ptr, ptr %26, align 8
-  call void @usb_reset_endpoint(ptr noundef %112, i32 noundef %80) #8
+  call void @usb_reset_endpoint(ptr noundef %112, i32 noundef %80) #9
   br label %113
 
 113:                                              ; preds = %111, %108
@@ -2315,7 +2314,7 @@ define internal fastcc i32 @usb_stor_reset_common(ptr noundef %0, i8 noundef zer
 
 150:                                              ; preds = %147
   %151 = load ptr, ptr %26, align 8
-  call void @usb_reset_endpoint(ptr noundef %151, i32 noundef %119) #8
+  call void @usb_reset_endpoint(ptr noundef %151, i32 noundef %119) #9
   br label %152
 
 152:                                              ; preds = %150, %147
@@ -2399,6 +2398,9 @@ declare i32 @llvm.umax.i32(i32, i32) #7
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.umin.i16(i16, i16) #7
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.usub.sat.i32(i32, i32) #8
+
 attributes #0 = { fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
@@ -2407,8 +2409,9 @@ attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #5 = { cold null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { nounwind }
-attributes #9 = { cold nounwind }
+attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nounwind }
+attributes #10 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

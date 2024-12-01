@@ -346,26 +346,25 @@ define void @_ZN7RarTime10SetIsoTextEPKw(ptr nocapture noundef nonnull writeonly
   %33 = phi i32 [ %.pre17, %._crit_edge.loopexit ], [ 0, %2 ]
   %34 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ 0, %2 ]
   %35 = tail call i32 @llvm.umax.i32(i32 %31, i32 1)
-  %36 = tail call i32 @llvm.umax.i32(i32 %30, i32 1)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
   store i32 %34, ptr %3, align 8
-  %37 = getelementptr inbounds i8, ptr %3, i64 4
-  store i32 %33, ptr %37, align 4
-  %38 = getelementptr inbounds i8, ptr %3, i64 8
-  store i32 %32, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %3, i64 12
-  store i32 %35, ptr %39, align 4
-  %40 = add i32 %36, -1
-  %41 = getelementptr inbounds i8, ptr %3, i64 16
-  store i32 %40, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %3, i64 20
-  store i32 %29, ptr %42, align 4
-  %43 = getelementptr inbounds i8, ptr %3, i64 32
-  store i32 -1, ptr %43, align 8
-  %44 = call i64 @mktime(ptr noundef nonnull %3) #13
-  %45 = mul i64 %44, 1000000000
-  %46 = add i64 %45, -6802270473709551616
-  store i64 %46, ptr %0, align 8
+  %36 = getelementptr inbounds i8, ptr %3, i64 4
+  store i32 %33, ptr %36, align 4
+  %37 = getelementptr inbounds i8, ptr %3, i64 8
+  store i32 %32, ptr %37, align 8
+  %38 = getelementptr inbounds i8, ptr %3, i64 12
+  store i32 %35, ptr %38, align 4
+  %39 = tail call i32 @llvm.usub.sat.i32(i32 %30, i32 1)
+  %40 = getelementptr inbounds i8, ptr %3, i64 16
+  store i32 %39, ptr %40, align 8
+  %41 = getelementptr inbounds i8, ptr %3, i64 20
+  store i32 %29, ptr %41, align 4
+  %42 = getelementptr inbounds i8, ptr %3, i64 32
+  store i32 -1, ptr %42, align 8
+  %43 = call i64 @mktime(ptr noundef nonnull %3) #13
+  %44 = mul i64 %43, 1000000000
+  %45 = add i64 %44, -6802270473709551616
+  store i64 %45, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
   ret void
 }
@@ -513,6 +512,9 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.usub.sat.i32(i32, i32) #11
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

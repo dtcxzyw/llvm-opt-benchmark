@@ -1402,44 +1402,43 @@ _ZN13ObjectMonitor16short_fixed_spinEP10JavaThreadib.exit: ; preds = %8, %10
 _ZN13ObjectMonitor18try_set_owner_fromEPvS0_.exit: ; preds = %67
   %69 = load volatile i32, ptr %21, align 8
   %70 = icmp sgt i32 %69, 0
-  %71 = tail call i32 @llvm.umax.i32(i32 %69, i32 200)
-  %spec.store.select.i = add nsw i32 %71, -200
+  %spec.store.select.i = tail call i32 @llvm.usub.sat.i32(i32 %69, i32 200)
   %.0.i32 = select i1 %70, i32 %spec.store.select.i, i32 %69
   store volatile i32 %.0.i32, ptr %21, align 8
   br label %_ZN13ObjectMonitor18try_set_owner_fromEPvS0_.exit.thread38
 
 _ZN13ObjectMonitor18try_set_owner_fromEPvS0_.exit.thread38: ; preds = %35, %60, %43, %_ZN13ObjectMonitor18try_set_owner_fromEPvS0_.exit
-  %72 = load volatile ptr, ptr %25, align 8
-  %73 = icmp eq ptr %72, %1
-  br i1 %73, label %74, label %_ZN13ObjectMonitor7TryLockEP10JavaThread.exit
+  %71 = load volatile ptr, ptr %25, align 8
+  %72 = icmp eq ptr %71, %1
+  br i1 %72, label %73, label %_ZN13ObjectMonitor7TryLockEP10JavaThread.exit
 
-74:                                               ; preds = %_ZN13ObjectMonitor18try_set_owner_fromEPvS0_.exit.thread38
+73:                                               ; preds = %_ZN13ObjectMonitor18try_set_owner_fromEPvS0_.exit.thread38
   store volatile ptr null, ptr %25, align 8
   tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !7
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !6
-  %75 = getelementptr inbounds i8, ptr %0, i64 64
-  %76 = load volatile ptr, ptr %75, align 8
-  %.not.i33 = icmp eq ptr %76, null
-  br i1 %.not.i33, label %77, label %_ZN13ObjectMonitor7TryLockEP10JavaThread.exit
+  %74 = getelementptr inbounds i8, ptr %0, i64 64
+  %75 = load volatile ptr, ptr %74, align 8
+  %.not.i33 = icmp eq ptr %75, null
+  br i1 %.not.i33, label %76, label %_ZN13ObjectMonitor7TryLockEP10JavaThread.exit
 
-77:                                               ; preds = %74
-  %78 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %1, ptr null, ptr nonnull %75) #12, !srcloc !8
-  %79 = icmp eq ptr %78, null
-  br i1 %79, label %80, label %_ZN13ObjectMonitor7TryLockEP10JavaThread.exit
+76:                                               ; preds = %73
+  %77 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %1, ptr null, ptr nonnull %74) #12, !srcloc !8
+  %78 = icmp eq ptr %77, null
+  br i1 %78, label %79, label %_ZN13ObjectMonitor7TryLockEP10JavaThread.exit
 
-80:                                               ; preds = %77
-  %81 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE90ELS1_106ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
-  %.not.i.i35 = icmp eq ptr %81, null
-  br i1 %.not.i.i35, label %_ZN13ObjectMonitor7TryLockEP10JavaThread.exit, label %82
+79:                                               ; preds = %76
+  %80 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE90ELS1_106ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %.not.i.i35 = icmp eq ptr %80, null
+  br i1 %.not.i.i35, label %_ZN13ObjectMonitor7TryLockEP10JavaThread.exit, label %81
 
-82:                                               ; preds = %80
-  %83 = ptrtoint ptr %0 to i64
-  %84 = ptrtoint ptr %1 to i64
-  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE90ELS1_106ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.54, i64 noundef %83, i64 noundef 0, i64 noundef %84)
+81:                                               ; preds = %79
+  %82 = ptrtoint ptr %0 to i64
+  %83 = ptrtoint ptr %1 to i64
+  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE90ELS1_106ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.54, i64 noundef %82, i64 noundef 0, i64 noundef %83)
   br label %_ZN13ObjectMonitor7TryLockEP10JavaThread.exit
 
-_ZN13ObjectMonitor7TryLockEP10JavaThread.exit:    ; preds = %82, %80, %_ZN13ObjectMonitor18try_set_owner_fromEPvS0_.exit.thread38, %74, %77, %_ZN13ObjectMonitor16short_fixed_spinEP10JavaThreadib.exit, %.loopexit, %55
-  %.025 = phi i1 [ true, %55 ], [ true, %_ZN13ObjectMonitor16short_fixed_spinEP10JavaThreadib.exit ], [ false, %.loopexit ], [ false, %77 ], [ false, %74 ], [ false, %_ZN13ObjectMonitor18try_set_owner_fromEPvS0_.exit.thread38 ], [ true, %80 ], [ true, %82 ]
+_ZN13ObjectMonitor7TryLockEP10JavaThread.exit:    ; preds = %81, %79, %_ZN13ObjectMonitor18try_set_owner_fromEPvS0_.exit.thread38, %73, %76, %_ZN13ObjectMonitor16short_fixed_spinEP10JavaThreadib.exit, %.loopexit, %55
+  %.025 = phi i1 [ true, %55 ], [ true, %_ZN13ObjectMonitor16short_fixed_spinEP10JavaThreadib.exit ], [ false, %.loopexit ], [ false, %76 ], [ false, %73 ], [ false, %_ZN13ObjectMonitor18try_set_owner_fromEPvS0_.exit.thread38 ], [ true, %79 ], [ true, %81 ]
   ret i1 %.025
 }
 
@@ -7739,7 +7738,7 @@ declare i32 @llvm.smin.i32(i32, i32) #9
 declare i32 @llvm.smax.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #9
+declare i32 @llvm.usub.sat.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10

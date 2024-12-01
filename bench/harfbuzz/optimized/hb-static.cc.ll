@@ -7470,8 +7470,7 @@ _ZNK16hb_lazy_loader_tIN2OT18vmtx_accelerator_tE21hb_face_lazy_loader_tIS1_Lj12E
   %tobool = trunc i8 %35 to i1
   %36 = select i1 %tobool, i32 1, i32 2
   %div8 = lshr i32 %34, %36
-  %.sroa.speculated42 = tail call i32 @llvm.umax.i32(i32 %div8, i32 1)
-  %sub = add nsw i32 %.sroa.speculated42, -1
+  %sub = tail call i32 @llvm.usub.sat.i32(i32 %div8, i32 1)
   store i32 %sub, ptr %num_glyphs, align 4
   %num_glyphs.i34 = getelementptr inbounds i8, ptr %face, i64 48
   %37 = load atomic i32, ptr %num_glyphs.i34 monotonic, align 4

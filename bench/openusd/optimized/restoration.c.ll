@@ -1276,7 +1276,7 @@ get_stripe_boundary_info.exit.lr.ph:              ; preds = %65
   br label %get_stripe_boundary_info.exit
 
 get_stripe_boundary_info.exit:                    ; preds = %get_stripe_boundary_info.exit.lr.ph, %restore_processing_stripe_boundary.exit
-  %.0112 = phi i32 [ 0, %get_stripe_boundary_info.exit.lr.ph ], [ %273, %restore_processing_stripe_boundary.exit ]
+  %.0112 = phi i32 [ 0, %get_stripe_boundary_info.exit.lr.ph ], [ %272, %restore_processing_stripe_boundary.exit ]
   %102 = load i32, ptr %20, align 4
   %103 = add nsw i32 %102, %.0112
   %104 = load i32, ptr %77, align 4
@@ -1297,7 +1297,7 @@ get_stripe_boundary_info.exit:                    ; preds = %get_stripe_boundary
   %117 = sub nsw i32 %19, %103
   %118 = tail call i32 @llvm.smin.i32(i32 %116, i32 %117)
   %119 = load i32, ptr %79, align 8
-  br i1 %.not.i77, label %120, label %185
+  br i1 %.not.i77, label %120, label %184
 
 120:                                              ; preds = %get_stripe_boundary_info.exit
   br i1 %.not, label %.loopexit122.i, label %121
@@ -1306,273 +1306,272 @@ get_stripe_boundary_info.exit:                    ; preds = %get_stripe_boundary
   %122 = mul nsw i32 %103, %11
   %123 = sext i32 %122 to i64
   %124 = getelementptr inbounds i8, ptr %84, i64 %123
-  %125 = add i32 %113, 2
   br i1 %.not119.i, label %.split.us.i, label %.split.i
 
 .split.us.i:                                      ; preds = %121, %.split.us.i
   %indvars.iv129.i = phi i64 [ %indvars.iv.next130.i, %.split.us.i ], [ -3, %121 ]
-  %126 = trunc nsw i64 %indvars.iv129.i to i32
-  %127 = tail call i32 @llvm.umax.i32(i32 %126, i32 -2)
-  %128 = add i32 %127, %125
-  %129 = mul nsw i32 %128, %119
-  %130 = add nsw i32 %129, %25
-  %131 = load ptr, ptr %2, align 8
-  %132 = sext i32 %130 to i64
-  %133 = getelementptr inbounds i8, ptr %131, i64 %132
-  %134 = mul nsw i64 %indvars.iv129.i, %93
-  %135 = getelementptr inbounds i8, ptr %124, i64 %134
-  %136 = add nsw i64 %indvars.iv129.i, 3
-  %137 = getelementptr inbounds [3 x [392 x i16]], ptr %3, i64 0, i64 %136
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %137, ptr align 1 %135, i64 %87, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %135, ptr align 1 %133, i64 %87, i1 false)
+  %125 = trunc nsw i64 %indvars.iv129.i to i32
+  %126 = tail call i32 @llvm.usub.sat.i32(i32 %125, i32 -2)
+  %127 = or disjoint i32 %126, %113
+  %128 = mul nsw i32 %127, %119
+  %129 = add nsw i32 %128, %25
+  %130 = load ptr, ptr %2, align 8
+  %131 = sext i32 %129 to i64
+  %132 = getelementptr inbounds i8, ptr %130, i64 %131
+  %133 = mul nsw i64 %indvars.iv129.i, %93
+  %134 = getelementptr inbounds i8, ptr %124, i64 %133
+  %135 = add nsw i64 %indvars.iv129.i, 3
+  %136 = getelementptr inbounds [3 x [392 x i16]], ptr %3, i64 0, i64 %135
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %136, ptr align 1 %134, i64 %87, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %134, ptr align 1 %132, i64 %87, i1 false)
   %indvars.iv.next130.i = add nsw i64 %indvars.iv129.i, 1
   %exitcond132.not.i = icmp eq i64 %indvars.iv.next130.i, 0
   br i1 %exitcond132.not.i, label %.loopexit122.i, label %.split.us.i, !llvm.loop !26
 
 .split.i:                                         ; preds = %121, %.split.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.split.i ], [ -3, %121 ]
-  %138 = trunc nsw i64 %indvars.iv.i to i32
-  %139 = tail call i32 @llvm.umax.i32(i32 %138, i32 -2)
-  %140 = add i32 %139, %125
-  %141 = mul nsw i32 %140, %119
-  %142 = add nsw i32 %141, %25
-  %143 = load ptr, ptr %2, align 8
-  %144 = shl i32 %142, %8
-  %145 = sext i32 %144 to i64
-  %146 = getelementptr inbounds i8, ptr %143, i64 %145
-  %147 = mul nsw i64 %indvars.iv.i, %93
-  %148 = getelementptr inbounds i8, ptr %124, i64 %147
-  %149 = add nsw i64 %indvars.iv.i, 3
-  %150 = getelementptr inbounds [3 x [392 x i16]], ptr %3, i64 0, i64 %149
-  %151 = ptrtoint ptr %148 to i64
-  %152 = shl i64 %151, 1
-  %153 = inttoptr i64 %152 to ptr
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %150, ptr align 2 %153, i64 %87, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %153, ptr align 1 %146, i64 %87, i1 false)
+  %137 = trunc nsw i64 %indvars.iv.i to i32
+  %138 = tail call i32 @llvm.usub.sat.i32(i32 %137, i32 -2)
+  %139 = or disjoint i32 %138, %113
+  %140 = mul nsw i32 %139, %119
+  %141 = add nsw i32 %140, %25
+  %142 = load ptr, ptr %2, align 8
+  %143 = shl i32 %141, %8
+  %144 = sext i32 %143 to i64
+  %145 = getelementptr inbounds i8, ptr %142, i64 %144
+  %146 = mul nsw i64 %indvars.iv.i, %93
+  %147 = getelementptr inbounds i8, ptr %124, i64 %146
+  %148 = add nsw i64 %indvars.iv.i, 3
+  %149 = getelementptr inbounds [3 x [392 x i16]], ptr %3, i64 0, i64 %148
+  %150 = ptrtoint ptr %147 to i64
+  %151 = shl i64 %150, 1
+  %152 = inttoptr i64 %151 to ptr
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %149, ptr align 2 %152, i64 %87, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %152, ptr align 1 %145, i64 %87, i1 false)
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 0
   br i1 %exitcond.not.i, label %.loopexit122.i, label %.split.i, !llvm.loop !26
 
 .loopexit122.i:                                   ; preds = %.split.i, %.split.us.i, %120
-  br i1 %.not.i76.not, label %154, label %setup_processing_stripe_boundary.exit
+  br i1 %.not.i76.not, label %153, label %setup_processing_stripe_boundary.exit
 
-154:                                              ; preds = %.loopexit122.i
-  %155 = add nsw i32 %118, %103
-  %156 = mul nsw i32 %155, %11
-  %157 = sext i32 %156 to i64
-  %158 = getelementptr inbounds i8, ptr %84, i64 %157
+153:                                              ; preds = %.loopexit122.i
+  %154 = add nsw i32 %118, %103
+  %155 = mul nsw i32 %154, %11
+  %156 = sext i32 %155 to i64
+  %157 = getelementptr inbounds i8, ptr %84, i64 %156
   br i1 %.not119.i, label %.split125.us.i, label %.split125.i
 
-.split125.us.i:                                   ; preds = %154, %.split125.us.i
-  %indvars.iv137.i = phi i64 [ %indvars.iv.next138.i, %.split125.us.i ], [ 0, %154 ]
-  %159 = icmp ne i64 %indvars.iv137.i, 0
-  %160 = zext i1 %159 to i32
-  %161 = or disjoint i32 %113, %160
-  %162 = mul nsw i32 %161, %119
-  %163 = add nsw i32 %162, %25
-  %164 = load ptr, ptr %94, align 8
-  %165 = sext i32 %163 to i64
-  %166 = getelementptr inbounds i8, ptr %164, i64 %165
-  %167 = mul nsw i64 %indvars.iv137.i, %93
-  %168 = getelementptr inbounds i8, ptr %158, i64 %167
-  %169 = getelementptr inbounds [3 x [392 x i16]], ptr %95, i64 0, i64 %indvars.iv137.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %169, ptr align 1 %168, i64 %87, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %168, ptr align 1 %166, i64 %87, i1 false)
+.split125.us.i:                                   ; preds = %153, %.split125.us.i
+  %indvars.iv137.i = phi i64 [ %indvars.iv.next138.i, %.split125.us.i ], [ 0, %153 ]
+  %158 = icmp ne i64 %indvars.iv137.i, 0
+  %159 = zext i1 %158 to i32
+  %160 = or disjoint i32 %113, %159
+  %161 = mul nsw i32 %160, %119
+  %162 = add nsw i32 %161, %25
+  %163 = load ptr, ptr %94, align 8
+  %164 = sext i32 %162 to i64
+  %165 = getelementptr inbounds i8, ptr %163, i64 %164
+  %166 = mul nsw i64 %indvars.iv137.i, %93
+  %167 = getelementptr inbounds i8, ptr %157, i64 %166
+  %168 = getelementptr inbounds [3 x [392 x i16]], ptr %95, i64 0, i64 %indvars.iv137.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %168, ptr align 1 %167, i64 %87, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %167, ptr align 1 %165, i64 %87, i1 false)
   %indvars.iv.next138.i = add nuw nsw i64 %indvars.iv137.i, 1
   %exitcond140.not.i = icmp eq i64 %indvars.iv.next138.i, 3
   br i1 %exitcond140.not.i, label %setup_processing_stripe_boundary.exit, label %.split125.us.i, !llvm.loop !27
 
-.split125.i:                                      ; preds = %154, %.split125.i
-  %indvars.iv133.i = phi i64 [ %indvars.iv.next134.i, %.split125.i ], [ 0, %154 ]
-  %170 = icmp ne i64 %indvars.iv133.i, 0
-  %171 = zext i1 %170 to i32
-  %172 = or disjoint i32 %113, %171
-  %173 = mul nsw i32 %172, %119
-  %174 = add nsw i32 %173, %25
-  %175 = load ptr, ptr %94, align 8
-  %176 = shl i32 %174, %8
-  %177 = sext i32 %176 to i64
-  %178 = getelementptr inbounds i8, ptr %175, i64 %177
-  %179 = mul nsw i64 %indvars.iv133.i, %93
-  %180 = getelementptr inbounds i8, ptr %158, i64 %179
-  %181 = getelementptr inbounds [3 x [392 x i16]], ptr %95, i64 0, i64 %indvars.iv133.i
-  %182 = ptrtoint ptr %180 to i64
-  %183 = shl i64 %182, 1
-  %184 = inttoptr i64 %183 to ptr
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %181, ptr align 2 %184, i64 %87, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %184, ptr align 1 %178, i64 %87, i1 false)
+.split125.i:                                      ; preds = %153, %.split125.i
+  %indvars.iv133.i = phi i64 [ %indvars.iv.next134.i, %.split125.i ], [ 0, %153 ]
+  %169 = icmp ne i64 %indvars.iv133.i, 0
+  %170 = zext i1 %169 to i32
+  %171 = or disjoint i32 %113, %170
+  %172 = mul nsw i32 %171, %119
+  %173 = add nsw i32 %172, %25
+  %174 = load ptr, ptr %94, align 8
+  %175 = shl i32 %173, %8
+  %176 = sext i32 %175 to i64
+  %177 = getelementptr inbounds i8, ptr %174, i64 %176
+  %178 = mul nsw i64 %indvars.iv133.i, %93
+  %179 = getelementptr inbounds i8, ptr %157, i64 %178
+  %180 = getelementptr inbounds [3 x [392 x i16]], ptr %95, i64 0, i64 %indvars.iv133.i
+  %181 = ptrtoint ptr %179 to i64
+  %182 = shl i64 %181, 1
+  %183 = inttoptr i64 %182 to ptr
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %180, ptr align 2 %183, i64 %87, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %183, ptr align 1 %177, i64 %87, i1 false)
   %indvars.iv.next134.i = add nuw nsw i64 %indvars.iv133.i, 1
   %exitcond136.not.i = icmp eq i64 %indvars.iv.next134.i, 3
   br i1 %exitcond136.not.i, label %setup_processing_stripe_boundary.exit, label %.split125.i, !llvm.loop !27
 
-185:                                              ; preds = %get_stripe_boundary_info.exit
-  br i1 %.not, label %200, label %186
+184:                                              ; preds = %get_stripe_boundary_info.exit
+  br i1 %.not, label %199, label %185
 
-186:                                              ; preds = %185
-  %187 = mul nsw i32 %103, %11
-  %188 = sext i32 %187 to i64
-  %189 = getelementptr inbounds i8, ptr %84, i64 %188
-  %190 = getelementptr inbounds i8, ptr %189, i64 %86
-  %191 = ptrtoint ptr %190 to i64
-  %192 = shl i64 %191, 1
-  %193 = inttoptr i64 %192 to ptr
-  %194 = select i1 %.not119.i, ptr %190, ptr %193
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %3, ptr align 1 %194, i64 %87, i1 false)
-  %195 = getelementptr inbounds i8, ptr %189, i64 %89
-  %196 = ptrtoint ptr %195 to i64
-  %197 = shl i64 %196, 1
-  %198 = inttoptr i64 %197 to ptr
-  %199 = select i1 %.not119.i, ptr %195, ptr %198
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %194, ptr align 1 %199, i64 %87, i1 false)
-  br label %200
+185:                                              ; preds = %184
+  %186 = mul nsw i32 %103, %11
+  %187 = sext i32 %186 to i64
+  %188 = getelementptr inbounds i8, ptr %84, i64 %187
+  %189 = getelementptr inbounds i8, ptr %188, i64 %86
+  %190 = ptrtoint ptr %189 to i64
+  %191 = shl i64 %190, 1
+  %192 = inttoptr i64 %191 to ptr
+  %193 = select i1 %.not119.i, ptr %189, ptr %192
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %3, ptr align 1 %193, i64 %87, i1 false)
+  %194 = getelementptr inbounds i8, ptr %188, i64 %89
+  %195 = ptrtoint ptr %194 to i64
+  %196 = shl i64 %195, 1
+  %197 = inttoptr i64 %196 to ptr
+  %198 = select i1 %.not119.i, ptr %194, ptr %197
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %193, ptr align 1 %198, i64 %87, i1 false)
+  br label %199
 
-200:                                              ; preds = %186, %185
-  br i1 %.not.i76.not, label %201, label %setup_processing_stripe_boundary.exit
+199:                                              ; preds = %185, %184
+  br i1 %.not.i76.not, label %200, label %setup_processing_stripe_boundary.exit
 
-201:                                              ; preds = %200
-  %202 = add nsw i32 %118, %103
-  %203 = mul nsw i32 %202, %11
-  %204 = sext i32 %203 to i64
-  %205 = getelementptr inbounds i8, ptr %84, i64 %204
-  %206 = getelementptr inbounds i8, ptr %205, i64 %91
-  %207 = ptrtoint ptr %206 to i64
-  %208 = shl i64 %207, 1
-  %209 = inttoptr i64 %208 to ptr
-  %210 = select i1 %.not119.i, ptr %206, ptr %209
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %92, ptr align 1 %210, i64 %87, i1 false)
-  %211 = getelementptr inbounds i8, ptr %205, i64 %93
-  %212 = ptrtoint ptr %211 to i64
-  %213 = shl i64 %212, 1
-  %214 = inttoptr i64 %213 to ptr
-  %215 = select i1 %.not119.i, ptr %211, ptr %214
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %210, ptr align 1 %215, i64 %87, i1 false)
+200:                                              ; preds = %199
+  %201 = add nsw i32 %118, %103
+  %202 = mul nsw i32 %201, %11
+  %203 = sext i32 %202 to i64
+  %204 = getelementptr inbounds i8, ptr %84, i64 %203
+  %205 = getelementptr inbounds i8, ptr %204, i64 %91
+  %206 = ptrtoint ptr %205 to i64
+  %207 = shl i64 %206, 1
+  %208 = inttoptr i64 %207 to ptr
+  %209 = select i1 %.not119.i, ptr %205, ptr %208
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %92, ptr align 1 %209, i64 %87, i1 false)
+  %210 = getelementptr inbounds i8, ptr %204, i64 %93
+  %211 = ptrtoint ptr %210 to i64
+  %212 = shl i64 %211, 1
+  %213 = inttoptr i64 %212 to ptr
+  %214 = select i1 %.not119.i, ptr %210, ptr %213
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %209, ptr align 1 %214, i64 %87, i1 false)
   br label %setup_processing_stripe_boundary.exit
 
-setup_processing_stripe_boundary.exit:            ; preds = %.split125.i, %.split125.us.i, %.loopexit122.i, %200, %201
-  %216 = mul nsw i32 %.0112, %11
-  %217 = sext i32 %216 to i64
-  %218 = getelementptr inbounds i8, ptr %31, i64 %217
-  %219 = mul nsw i32 %.0112, %13
-  %220 = sext i32 %219 to i64
-  %221 = getelementptr inbounds i8, ptr %35, i64 %220
-  tail call void %72(ptr noundef nonnull %1, i32 noundef %26, i32 noundef %118, i32 noundef %73, ptr noundef %218, i32 noundef %11, ptr noundef %221, i32 noundef %13, ptr noundef %14, i32 noundef %9) #12
-  br i1 %.not.i77, label %222, label %255
+setup_processing_stripe_boundary.exit:            ; preds = %.split125.i, %.split125.us.i, %.loopexit122.i, %199, %200
+  %215 = mul nsw i32 %.0112, %11
+  %216 = sext i32 %215 to i64
+  %217 = getelementptr inbounds i8, ptr %31, i64 %216
+  %218 = mul nsw i32 %.0112, %13
+  %219 = sext i32 %218 to i64
+  %220 = getelementptr inbounds i8, ptr %35, i64 %219
+  tail call void %72(ptr noundef nonnull %1, i32 noundef %26, i32 noundef %118, i32 noundef %73, ptr noundef %217, i32 noundef %11, ptr noundef %220, i32 noundef %13, ptr noundef %14, i32 noundef %9) #12
+  br i1 %.not.i77, label %221, label %254
 
-222:                                              ; preds = %setup_processing_stripe_boundary.exit
-  br i1 %.not, label %.loopexit81.i, label %223
+221:                                              ; preds = %setup_processing_stripe_boundary.exit
+  br i1 %.not, label %.loopexit81.i, label %222
 
-223:                                              ; preds = %222
-  %224 = mul nsw i32 %103, %11
-  %225 = sext i32 %224 to i64
-  %226 = getelementptr inbounds i8, ptr %84, i64 %225
+222:                                              ; preds = %221
+  %223 = mul nsw i32 %103, %11
+  %224 = sext i32 %223 to i64
+  %225 = getelementptr inbounds i8, ptr %84, i64 %224
   br i1 %.not119.i, label %.split.us.i83, label %.split.i79
 
-.split.us.i83:                                    ; preds = %223, %.split.us.i83
-  %indvars.iv88.i = phi i64 [ %indvars.iv.next89.i, %.split.us.i83 ], [ -3, %223 ]
-  %227 = mul nsw i64 %indvars.iv88.i, %93
-  %228 = getelementptr inbounds i8, ptr %226, i64 %227
-  %229 = add nsw i64 %indvars.iv88.i, 3
-  %230 = getelementptr inbounds [3 x [392 x i16]], ptr %3, i64 0, i64 %229
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %228, ptr readonly align 2 %230, i64 %99, i1 false)
+.split.us.i83:                                    ; preds = %222, %.split.us.i83
+  %indvars.iv88.i = phi i64 [ %indvars.iv.next89.i, %.split.us.i83 ], [ -3, %222 ]
+  %226 = mul nsw i64 %indvars.iv88.i, %93
+  %227 = getelementptr inbounds i8, ptr %225, i64 %226
+  %228 = add nsw i64 %indvars.iv88.i, 3
+  %229 = getelementptr inbounds [3 x [392 x i16]], ptr %3, i64 0, i64 %228
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %227, ptr readonly align 2 %229, i64 %99, i1 false)
   %indvars.iv.next89.i = add nsw i64 %indvars.iv88.i, 1
   %exitcond91.not.i = icmp eq i64 %indvars.iv.next89.i, 0
   br i1 %exitcond91.not.i, label %.loopexit81.i, label %.split.us.i83, !llvm.loop !28
 
-.split.i79:                                       ; preds = %223, %.split.i79
-  %indvars.iv.i80 = phi i64 [ %indvars.iv.next.i81, %.split.i79 ], [ -3, %223 ]
-  %231 = mul nsw i64 %indvars.iv.i80, %93
-  %232 = getelementptr inbounds i8, ptr %226, i64 %231
-  %233 = ptrtoint ptr %232 to i64
-  %234 = shl i64 %233, 1
-  %235 = inttoptr i64 %234 to ptr
-  %236 = add nsw i64 %indvars.iv.i80, 3
-  %237 = getelementptr inbounds [3 x [392 x i16]], ptr %3, i64 0, i64 %236
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %235, ptr readonly align 2 %237, i64 %99, i1 false)
+.split.i79:                                       ; preds = %222, %.split.i79
+  %indvars.iv.i80 = phi i64 [ %indvars.iv.next.i81, %.split.i79 ], [ -3, %222 ]
+  %230 = mul nsw i64 %indvars.iv.i80, %93
+  %231 = getelementptr inbounds i8, ptr %225, i64 %230
+  %232 = ptrtoint ptr %231 to i64
+  %233 = shl i64 %232, 1
+  %234 = inttoptr i64 %233 to ptr
+  %235 = add nsw i64 %indvars.iv.i80, 3
+  %236 = getelementptr inbounds [3 x [392 x i16]], ptr %3, i64 0, i64 %235
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %234, ptr readonly align 2 %236, i64 %99, i1 false)
   %indvars.iv.next.i81 = add nsw i64 %indvars.iv.i80, 1
   %exitcond.not.i82 = icmp eq i64 %indvars.iv.next.i81, 0
   br i1 %exitcond.not.i82, label %.loopexit81.i, label %.split.i79, !llvm.loop !28
 
-.loopexit81.i:                                    ; preds = %.split.i79, %.split.us.i83, %222
-  br i1 %.not.i76.not, label %238, label %restore_processing_stripe_boundary.exit
+.loopexit81.i:                                    ; preds = %.split.i79, %.split.us.i83, %221
+  br i1 %.not.i76.not, label %237, label %restore_processing_stripe_boundary.exit
 
-238:                                              ; preds = %.loopexit81.i
-  %239 = add nsw i32 %118, %103
-  %240 = mul nsw i32 %239, %11
-  %241 = sext i32 %240 to i64
-  %242 = getelementptr inbounds i8, ptr %84, i64 %241
-  %243 = sext i32 %239 to i64
-  %invariant.op111 = sub nsw i64 %101, %243
+237:                                              ; preds = %.loopexit81.i
+  %238 = add nsw i32 %118, %103
+  %239 = mul nsw i32 %238, %11
+  %240 = sext i32 %239 to i64
+  %241 = getelementptr inbounds i8, ptr %84, i64 %240
+  %242 = sext i32 %238 to i64
+  %invariant.op111 = sub nsw i64 %101, %242
   %smax121 = tail call i64 @llvm.smax.i64(i64 %invariant.op111, i64 0)
   br i1 %.not119.i, label %.split84.us.i, label %.split84.i
 
-.split84.us.i:                                    ; preds = %238, %244
-  %indvars.iv96.i = phi i64 [ %indvars.iv.next97.i, %244 ], [ 0, %238 ]
+.split84.us.i:                                    ; preds = %237, %243
+  %indvars.iv96.i = phi i64 [ %indvars.iv.next97.i, %243 ], [ 0, %237 ]
   %exitcond122.not = icmp eq i64 %indvars.iv96.i, %smax121
-  br i1 %exitcond122.not, label %restore_processing_stripe_boundary.exit, label %244
+  br i1 %exitcond122.not, label %restore_processing_stripe_boundary.exit, label %243
 
-244:                                              ; preds = %.split84.us.i
-  %245 = mul nsw i64 %indvars.iv96.i, %93
-  %246 = getelementptr inbounds i8, ptr %242, i64 %245
-  %247 = getelementptr inbounds [3 x [392 x i16]], ptr %95, i64 0, i64 %indvars.iv96.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %246, ptr nonnull readonly align 2 %247, i64 %99, i1 false)
+243:                                              ; preds = %.split84.us.i
+  %244 = mul nsw i64 %indvars.iv96.i, %93
+  %245 = getelementptr inbounds i8, ptr %241, i64 %244
+  %246 = getelementptr inbounds [3 x [392 x i16]], ptr %95, i64 0, i64 %indvars.iv96.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %245, ptr nonnull readonly align 2 %246, i64 %99, i1 false)
   %indvars.iv.next97.i = add nuw nsw i64 %indvars.iv96.i, 1
   %exitcond99.not.i = icmp eq i64 %indvars.iv.next97.i, 3
   br i1 %exitcond99.not.i, label %restore_processing_stripe_boundary.exit, label %.split84.us.i, !llvm.loop !29
 
-.split84.i:                                       ; preds = %238, %248
-  %indvars.iv92.i = phi i64 [ %indvars.iv.next93.i, %248 ], [ 0, %238 ]
+.split84.i:                                       ; preds = %237, %247
+  %indvars.iv92.i = phi i64 [ %indvars.iv.next93.i, %247 ], [ 0, %237 ]
   %exitcond.not = icmp eq i64 %indvars.iv92.i, %smax121
-  br i1 %exitcond.not, label %restore_processing_stripe_boundary.exit, label %248
+  br i1 %exitcond.not, label %restore_processing_stripe_boundary.exit, label %247
 
-248:                                              ; preds = %.split84.i
-  %249 = mul nsw i64 %indvars.iv92.i, %93
-  %250 = getelementptr inbounds i8, ptr %242, i64 %249
-  %251 = ptrtoint ptr %250 to i64
-  %252 = shl i64 %251, 1
-  %253 = inttoptr i64 %252 to ptr
-  %254 = getelementptr inbounds [3 x [392 x i16]], ptr %95, i64 0, i64 %indvars.iv92.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %253, ptr nonnull readonly align 2 %254, i64 %99, i1 false)
+247:                                              ; preds = %.split84.i
+  %248 = mul nsw i64 %indvars.iv92.i, %93
+  %249 = getelementptr inbounds i8, ptr %241, i64 %248
+  %250 = ptrtoint ptr %249 to i64
+  %251 = shl i64 %250, 1
+  %252 = inttoptr i64 %251 to ptr
+  %253 = getelementptr inbounds [3 x [392 x i16]], ptr %95, i64 0, i64 %indvars.iv92.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %252, ptr nonnull readonly align 2 %253, i64 %99, i1 false)
   %indvars.iv.next93.i = add nuw nsw i64 %indvars.iv92.i, 1
   %exitcond95.not.i = icmp eq i64 %indvars.iv.next93.i, 3
   br i1 %exitcond95.not.i, label %restore_processing_stripe_boundary.exit, label %.split84.i, !llvm.loop !29
 
-255:                                              ; preds = %setup_processing_stripe_boundary.exit
-  br i1 %.not, label %263, label %256
+254:                                              ; preds = %setup_processing_stripe_boundary.exit
+  br i1 %.not, label %262, label %255
 
-256:                                              ; preds = %255
-  %257 = mul nsw i32 %103, %11
-  %258 = sext i32 %257 to i64
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %258
-  %259 = ptrtoint ptr %gep to i64
-  %260 = shl i64 %259, 1
-  %261 = inttoptr i64 %260 to ptr
-  %262 = select i1 %.not119.i, ptr %gep, ptr %261
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %262, ptr readonly align 2 %3, i64 %99, i1 false)
-  br label %263
+255:                                              ; preds = %254
+  %256 = mul nsw i32 %103, %11
+  %257 = sext i32 %256 to i64
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %257
+  %258 = ptrtoint ptr %gep to i64
+  %259 = shl i64 %258, 1
+  %260 = inttoptr i64 %259 to ptr
+  %261 = select i1 %.not119.i, ptr %gep, ptr %260
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %261, ptr readonly align 2 %3, i64 %99, i1 false)
+  br label %262
 
-263:                                              ; preds = %256, %255
-  br i1 %.not.i76.not, label %264, label %restore_processing_stripe_boundary.exit
+262:                                              ; preds = %255, %254
+  br i1 %.not.i76.not, label %263, label %restore_processing_stripe_boundary.exit
 
-264:                                              ; preds = %263
-  %265 = add nsw i32 %118, %103
-  %.not79.i = icmp sgt i32 %265, %19
-  br i1 %.not79.i, label %restore_processing_stripe_boundary.exit, label %266
+263:                                              ; preds = %262
+  %264 = add nsw i32 %118, %103
+  %.not79.i = icmp sgt i32 %264, %19
+  br i1 %.not79.i, label %restore_processing_stripe_boundary.exit, label %265
 
-266:                                              ; preds = %264
-  %267 = mul nsw i32 %265, %11
-  %268 = sext i32 %267 to i64
-  %gep114 = getelementptr i8, ptr %invariant.gep113, i64 %268
-  %269 = ptrtoint ptr %gep114 to i64
-  %270 = shl i64 %269, 1
-  %271 = inttoptr i64 %270 to ptr
-  %272 = select i1 %.not119.i, ptr %gep114, ptr %271
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %272, ptr nonnull readonly align 2 %92, i64 %99, i1 false)
+265:                                              ; preds = %263
+  %266 = mul nsw i32 %264, %11
+  %267 = sext i32 %266 to i64
+  %gep114 = getelementptr i8, ptr %invariant.gep113, i64 %267
+  %268 = ptrtoint ptr %gep114 to i64
+  %269 = shl i64 %268, 1
+  %270 = inttoptr i64 %269 to ptr
+  %271 = select i1 %.not119.i, ptr %gep114, ptr %270
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %271, ptr nonnull readonly align 2 %92, i64 %99, i1 false)
   br label %restore_processing_stripe_boundary.exit
 
-restore_processing_stripe_boundary.exit:          ; preds = %.split84.i, %248, %.split84.us.i, %244, %.loopexit81.i, %263, %264, %266
-  %273 = add nsw i32 %118, %.0112
-  %274 = icmp slt i32 %273, %22
-  br i1 %274, label %get_stripe_boundary_info.exit, label %copy_tile.exit, !llvm.loop !30
+restore_processing_stripe_boundary.exit:          ; preds = %.split84.i, %247, %.split84.us.i, %243, %.loopexit81.i, %262, %263, %265
+  %272 = add nsw i32 %118, %.0112
+  %273 = icmp slt i32 %272, %22
+  br i1 %273, label %get_stripe_boundary_info.exit, label %copy_tile.exit, !llvm.loop !30
 
 copy_tile.exit:                                   ; preds = %restore_processing_stripe_boundary.exit, %50, %60, %65, %55, %38
   ret void
@@ -3755,9 +3754,6 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #10

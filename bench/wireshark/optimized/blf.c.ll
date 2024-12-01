@@ -4131,7 +4131,7 @@ define internal fastcc range(i32 0, 2) i32 @blf_pull_next_logcontainer(ptr nocap
 
 112:                                              ; preds = %69
   %113 = load ptr, ptr %25, align 8
-  %114 = add i32 %65, -16
+  %114 = call i32 @llvm.usub.sat.i32(i32 %65, i32 16)
   %115 = call i32 @wtap_read_bytes(ptr noundef %113, ptr noundef null, i32 noundef %114, ptr noundef %1, ptr noundef %2) #14
   %.not55.i = icmp eq i32 %115, 0
   br i1 %.not55.i, label %blf_find_next_logcontainer.exit.thread, label %116
@@ -5309,6 +5309,9 @@ declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ucmp.i32.i64(i64, i64) #10
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.usub.sat.i32(i32, i32) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12

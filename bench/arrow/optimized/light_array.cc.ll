@@ -5528,8 +5528,7 @@ while.body.lr.ph.split.us:                        ; preds = %while.body.lr.ph
 while.body.us.us:                                 ; preds = %while.body.lr.ph.split.us, %while.body.us.us
   %num_bytes_skipped.023.us.us = phi i32 [ %inc.us.us, %while.body.us.us ], [ 0, %while.body.lr.ph.split.us ]
   %num_rows_left.022.us.us = phi i32 [ %sub.us.us, %while.body.us.us ], [ %num_rows, %while.body.lr.ph.split.us ]
-  %.sroa.speculated.us.us = call i32 @llvm.umax.i32(i32 %num_rows_left.022.us.us, i32 8)
-  %sub.us.us = add nsw i32 %.sroa.speculated.us.us, -8
+  %sub.us.us = call i32 @llvm.usub.sat.i32(i32 %num_rows_left.022.us.us, i32 8)
   %inc.us.us = add nuw nsw i32 %num_bytes_skipped.023.us.us, 1
   %cmp.us.us = icmp ugt i32 %num_rows_left.022.us.us, 8
   %cmp2.us.us = icmp slt i32 %inc.us.us, %num_tail_bytes_to_skip
@@ -12548,7 +12547,7 @@ declare i64 @llvm.umax.i64(i64, i64) #17
 declare i64 @llvm.umin.i64(i64, i64) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #17
+declare i32 @llvm.usub.sat.i32(i32, i32) #17
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

@@ -1819,8 +1819,7 @@ _ZN6casadi8SparsityaSEOS0_.exit341:               ; preds = %419
   %427 = ptrtoint ptr %425 to i64
   %428 = sub i64 %426, %427
   %429 = ashr exact i64 %428, 3
-  %umax = call i64 @llvm.umax.i64(i64 %429, i64 1)
-  %430 = add i64 %umax, -1
+  %430 = call i64 @llvm.usub.sat.i64(i64 %429, i64 1)
   br label %431
 
 431:                                              ; preds = %.lr.ph479, %434
@@ -9343,6 +9342,9 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #20
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.usub.sat.i64(i64, i64) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.sqrt.f64(double) #20

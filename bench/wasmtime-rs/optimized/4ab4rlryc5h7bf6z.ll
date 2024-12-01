@@ -522,8 +522,7 @@ define hidden noundef range(i8 0, 4) i8 @"_ZN17cranelift_bforest4node17NodeData$
   br i1 %.not.i, label %_ZN17cranelift_bforest11slice_shift17hf5f51a96d79a45c4E.exit, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h11178c85ffd6cc76E.llvm.1710812290736639100.exit"
-  %umax = tail call i64 @llvm.umax.i64(i64 %18, i64 1)
-  %21 = add nsw i64 %umax, -1
+  %21 = tail call i64 @llvm.usub.sat.i64(i64 %18, i64 1)
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %24
@@ -1218,8 +1217,7 @@ _ZN17cranelift_bforest11slice_shift17hbb7d6c24393ab507E.exit.thread.i: ; preds =
 
 .lr.ph.i.preheader.i:                             ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h6ce7f2c369c148f5E.exit.i"
   %60 = add nsw i64 %58, -2
-  %umax13.i = tail call i64 @llvm.umax.i64(i64 %58, i64 1)
-  %61 = add nsw i64 %umax13.i, -1
+  %61 = tail call i64 @llvm.usub.sat.i64(i64 %58, i64 1)
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %64, %.lr.ph.i.preheader.i
@@ -1267,8 +1265,7 @@ _ZN17cranelift_bforest11slice_shift17hbb7d6c24393ab507E.exit.thread.i: ; preds =
 
 .lr.ph.i4.preheader.i:                            ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h11178c85ffd6cc76E.llvm.1710812290736639100.exit.i"
   %78 = add nsw i64 %76, -2
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %76, i64 1)
-  %79 = add nsw i64 %umax.i, -1
+  %79 = tail call i64 @llvm.usub.sat.i64(i64 %76, i64 1)
   br label %.lr.ph.i4.i
 
 .lr.ph.i4.i:                                      ; preds = %82, %.lr.ph.i4.preheader.i

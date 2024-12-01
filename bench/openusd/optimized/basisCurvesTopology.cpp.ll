@@ -2355,39 +2355,38 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit45: ; preds = %_ZNK32pxrIn
   %.not.i.i48 = icmp eq i64 %123, 0
   br i1 %.not.i.i48, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit25, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit25.sink.split
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %132
-  %.071 = phi ptr [ %133, %132 ], [ %106, %.lr.ph ]
-  %.01870 = phi i64 [ %.1, %132 ], [ 0, %.lr.ph ]
+.lr.ph.split:                                     ; preds = %.lr.ph, %131
+  %.071 = phi ptr [ %132, %131 ], [ %106, %.lr.ph ]
+  %.01870 = phi i64 [ %.1, %131 ], [ 0, %.lr.ph ]
   %124 = load i32, ptr %.071, align 4
   %125 = icmp slt i32 %124, 1
-  br i1 %125, label %132, label %126
+  br i1 %125, label %131, label %126
 
 126:                                              ; preds = %.lr.ph.split
-  %127 = tail call i32 @llvm.umax.i32(i32 %124, i32 4)
-  %.sroa.speculated = add nsw i32 %127, -4
-  %128 = udiv i32 %.sroa.speculated, %.
-  %129 = add nuw nsw i32 %128, 2
-  %130 = zext nneg i32 %129 to i64
-  %131 = add i64 %.01870, %130
-  br label %132
+  %.sroa.speculated = tail call i32 @llvm.usub.sat.i32(i32 %124, i32 4)
+  %127 = udiv i32 %.sroa.speculated, %.
+  %128 = add nuw nsw i32 %127, 2
+  %129 = zext nneg i32 %128 to i64
+  %130 = add i64 %.01870, %129
+  br label %131
 
-132:                                              ; preds = %126, %.lr.ph.split
-  %.1 = phi i64 [ %.01870, %.lr.ph.split ], [ %131, %126 ]
-  %133 = getelementptr inbounds i8, ptr %.071, i64 4
-  %134 = tail call noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIiE4cendEv(ptr noundef nonnull align 8 dereferenceable(40) %105)
-  %.not = icmp eq ptr %133, %134
+131:                                              ; preds = %126, %.lr.ph.split
+  %.1 = phi i64 [ %.01870, %.lr.ph.split ], [ %130, %126 ]
+  %132 = getelementptr inbounds i8, ptr %.071, i64 4
+  %133 = tail call noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIiE4cendEv(ptr noundef nonnull align 8 dereferenceable(40) %105)
+  %.not = icmp eq ptr %132, %133
   br i1 %.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !27
 
-.loopexit:                                        ; preds = %132, %115, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit45, %34
-  %.016 = phi i64 [ %36, %34 ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit45 ], [ %.1.us, %115 ], [ %.1, %132 ]
+.loopexit:                                        ; preds = %131, %115, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit45, %34
+  %.016 = phi i64 [ %36, %34 ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit45 ], [ %.1.us, %115 ], [ %.1, %131 ]
   ret i64 %.016
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit25.sink.split: ; preds = %.body41, %.body31, %.body
   %.sroa.0.0.sink = phi i64 [ %.sroa.064.0, %.body ], [ %.sroa.061.0, %.body31 ], [ %.sroa.0.0, %.body41 ]
   %.pn.ph = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %eh.lpad-body32, %.body31 ], [ %eh.lpad-body42, %.body41 ]
-  %135 = and i64 %.sroa.0.0.sink, -8
-  %136 = inttoptr i64 %135 to ptr
-  %137 = atomicrmw sub ptr %136, i32 2 release, align 4
+  %134 = and i64 %.sroa.0.0.sink, -8
+  %135 = inttoptr i64 %134 to ptr
+  %136 = atomicrmw sub ptr %135, i32 2 release, align 4
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit25
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit25: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit25.sink.split, %.body41, %.body31, %.body
@@ -2448,7 +2447,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
 declare i32 @llvm.smax.i32(i32, i32) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #10
+declare i32 @llvm.usub.sat.i32(i32, i32) #10
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

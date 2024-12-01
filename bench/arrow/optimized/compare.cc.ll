@@ -20127,8 +20127,7 @@ if.then11.i:                                      ; preds = %if.else.i74
   %shl20.i = shl i64 %and.i.i83, %sub.i
   %or21.i = or i64 %shl20.i, %left_reader.sroa.17.0
   %shr24.i = lshr i64 %and.i.i83, %sub.i72
-  %33 = tail call i64 @llvm.umax.i64(i64 %left_reader.sroa.11.0, i64 64)
-  %.sroa.speculated.i = add nsw i64 %33, -64
+  %.sroa.speculated.i = tail call i64 @llvm.usub.sat.i64(i64 %left_reader.sroa.11.0, i64 64)
   br label %_ZN5arrow8internal18BitmapUInt64Reader8NextWordEv.exit
 
 _ZN5arrow8internal18BitmapUInt64Reader8NextWordEv.exit: ; preds = %if.else.i74, %if.then.i69, %if.then11.i
@@ -20171,8 +20170,8 @@ if.then11.i103:                                   ; preds = %if.else.i99
   %shl20.i116 = shl i64 %and.i.i114, %sub.i28
   %or21.i117 = or i64 %shl20.i116, %right_reader.sroa.15.0
   %shr24.i119 = lshr i64 %and.i.i114, %sub.i95
-  %34 = tail call i64 @llvm.smax.i64(i64 %right_reader.sroa.10.0, i64 64)
-  %.sroa.speculated.i120 = add nsw i64 %34, -64
+  %33 = tail call i64 @llvm.smax.i64(i64 %right_reader.sroa.10.0, i64 64)
+  %.sroa.speculated.i120 = add nsw i64 %33, -64
   br label %_ZN5arrow8internal18BitmapUInt64Reader8NextWordEv.exit121
 
 _ZN5arrow8internal18BitmapUInt64Reader8NextWordEv.exit121: ; preds = %if.else.i99, %if.then.i89, %if.then11.i103
@@ -20184,18 +20183,18 @@ _ZN5arrow8internal18BitmapUInt64Reader8NextWordEv.exit121: ; preds = %if.else.i9
   br i1 %cmp28.not, label %while.cond, label %return, !llvm.loop !648
 
 if.else41:                                        ; preds = %if.else
-  %35 = getelementptr inbounds i8, ptr %this, i64 16
+  %34 = getelementptr inbounds i8, ptr %this, i64 16
+  %35 = load ptr, ptr %34, align 8
   %36 = load ptr, ptr %35, align 8
-  %37 = load ptr, ptr %36, align 8
   %right_start_idx_47 = getelementptr inbounds i8, ptr %1, i64 40
-  %38 = load i64, ptr %right_start_idx_47, align 8
+  %37 = load i64, ptr %right_start_idx_47, align 8
   %right_48 = getelementptr inbounds i8, ptr %1, i64 24
-  %39 = load ptr, ptr %right_48, align 8
-  %offset49 = getelementptr inbounds i8, ptr %39, i64 32
-  %40 = load i64, ptr %offset49, align 8
-  %add50 = add i64 %38, %i
-  %add51 = add i64 %add50, %40
-  %call52 = tail call noundef zeroext i1 @_ZN5arrow8internal12BitmapEqualsEPKhlS2_ll(ptr noundef %23, i64 noundef %add18, ptr noundef %37, i64 noundef %add51, i64 noundef %length)
+  %38 = load ptr, ptr %right_48, align 8
+  %offset49 = getelementptr inbounds i8, ptr %38, i64 32
+  %39 = load i64, ptr %offset49, align 8
+  %add50 = add i64 %37, %i
+  %add51 = add i64 %add50, %39
+  %call52 = tail call noundef zeroext i1 @_ZN5arrow8internal12BitmapEqualsEPKhlS2_ll(ptr noundef %23, i64 noundef %add18, ptr noundef %36, i64 noundef %add51, i64 noundef %length)
   br label %return
 
 return.loopexit:                                  ; preds = %for.body
@@ -23067,7 +23066,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #18
 declare i64 @llvm.smax.i64(i64, i64) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #16
+declare i64 @llvm.usub.sat.i64(i64, i64) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #16

@@ -5643,8 +5643,7 @@ define hidden noundef i64 @_ZN11FileMapInfo27remove_bitmap_leading_zerosEP11CHea
 11:                                               ; preds = %9
   %12 = add i64 %4, 63
   %13 = lshr i64 %12, 6
-  %umax = tail call i64 @llvm.umax.i64(i64 %13, i64 1)
-  %14 = add nsw i64 %umax, -1
+  %14 = tail call i64 @llvm.usub.sat.i64(i64 %13, i64 1)
   br label %15
 
 15:                                               ; preds = %16, %11
@@ -5703,8 +5702,7 @@ define hidden noundef ptr @_ZN11FileMapInfo19write_bitmap_regionEP11CHeapBitMapS
 14:                                               ; preds = %12
   %15 = add i64 %7, 63
   %16 = lshr i64 %15, 6
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %16, i64 1)
-  %17 = add nsw i64 %umax.i, -1
+  %17 = tail call i64 @llvm.usub.sat.i64(i64 %16, i64 1)
   br label %18
 
 18:                                               ; preds = %19, %14
@@ -5747,7 +5745,7 @@ _ZN11FileMapInfo27remove_bitmap_leading_zerosEP11CHeapBitMap.exit: ; preds = %8,
   %33 = load i64, ptr %32, align 8
   %34 = and i64 %33, 1
   %.not.i.i.i.i43 = icmp eq i64 %34, 0
-  br i1 %.not.i.i.i.i43, label %35, label %_ZN11FileMapInfo27remove_bitmap_leading_zerosEP11CHeapBitMap.exit52
+  br i1 %.not.i.i.i.i43, label %35, label %_ZN11FileMapInfo27remove_bitmap_leading_zerosEP11CHeapBitMap.exit51
 
 35:                                               ; preds = %31
   %36 = icmp eq i64 %33, 0
@@ -5756,21 +5754,20 @@ _ZN11FileMapInfo27remove_bitmap_leading_zerosEP11CHeapBitMap.exit: ; preds = %8,
 37:                                               ; preds = %35
   %38 = add i64 %30, 63
   %39 = lshr i64 %38, 6
-  %umax.i48 = tail call i64 @llvm.umax.i64(i64 %39, i64 1)
-  %40 = add nsw i64 %umax.i48, -1
+  %40 = tail call i64 @llvm.usub.sat.i64(i64 %39, i64 1)
   br label %41
 
 41:                                               ; preds = %42, %37
-  %.025.i.i.i.i49 = phi i64 [ 0, %37 ], [ %43, %42 ]
-  %exitcond.not.i50 = icmp eq i64 %.025.i.i.i.i49, %40
-  br i1 %exitcond.not.i50, label %.loopexit.i.i.i.i47, label %42
+  %.025.i.i.i.i48 = phi i64 [ 0, %37 ], [ %43, %42 ]
+  %exitcond.not.i49 = icmp eq i64 %.025.i.i.i.i48, %40
+  br i1 %exitcond.not.i49, label %.loopexit.i.i.i.i47, label %42
 
 42:                                               ; preds = %41
-  %43 = add nuw nsw i64 %.025.i.i.i.i49, 1
+  %43 = add nuw nsw i64 %.025.i.i.i.i48, 1
   %44 = getelementptr inbounds i64, ptr %32, i64 %43
   %45 = load i64, ptr %44, align 8
-  %.not36.i.i.i.i51 = icmp eq i64 %45, 0
-  br i1 %.not36.i.i.i.i51, label %41, label %46, !llvm.loop !34
+  %.not36.i.i.i.i50 = icmp eq i64 %45, 0
+  br i1 %.not36.i.i.i.i50, label %41, label %46, !llvm.loop !34
 
 46:                                               ; preds = %42
   %47 = shl i64 %43, 6
@@ -5782,12 +5779,12 @@ _ZN11FileMapInfo27remove_bitmap_leading_zerosEP11CHeapBitMap.exit: ; preds = %8,
   %49 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i.i.i45, i1 true)
   %50 = or disjoint i64 %.026.ph.i.i.i.i46, %49
   %51 = icmp ult i64 %50, %30
-  br i1 %51, label %_ZN11FileMapInfo27remove_bitmap_leading_zerosEP11CHeapBitMap.exit52, label %.loopexit.i.i.i.i47
+  br i1 %51, label %_ZN11FileMapInfo27remove_bitmap_leading_zerosEP11CHeapBitMap.exit51, label %.loopexit.i.i.i.i47
 
 .loopexit.i.i.i.i47:                              ; preds = %41, %48, %_ZN11FileMapInfo27remove_bitmap_leading_zerosEP11CHeapBitMap.exit
-  br label %_ZN11FileMapInfo27remove_bitmap_leading_zerosEP11CHeapBitMap.exit52
+  br label %_ZN11FileMapInfo27remove_bitmap_leading_zerosEP11CHeapBitMap.exit51
 
-_ZN11FileMapInfo27remove_bitmap_leading_zerosEP11CHeapBitMap.exit52: ; preds = %31, %48, %.loopexit.i.i.i.i47
+_ZN11FileMapInfo27remove_bitmap_leading_zerosEP11CHeapBitMap.exit51: ; preds = %31, %48, %.loopexit.i.i.i.i47
   %.0.i.i.i.i44 = phi i64 [ %30, %.loopexit.i.i.i.i47 ], [ 0, %31 ], [ %50, %48 ]
   tail call void @_ZN14GrowableBitMapI11CHeapBitMapE8truncateEmm(ptr noundef nonnull align 8 dereferenceable(16) %2, i64 noundef %.0.i.i.i.i44, i64 noundef %30) #25
   %52 = getelementptr inbounds i8, ptr %0, i64 32
@@ -5812,19 +5809,19 @@ _ZN11FileMapInfo27remove_bitmap_leading_zerosEP11CHeapBitMap.exit52: ; preds = %
   %.not = icmp eq i64 %67, 0
   br i1 %.not, label %132, label %68
 
-68:                                               ; preds = %_ZN11FileMapInfo27remove_bitmap_leading_zerosEP11CHeapBitMap.exit52
+68:                                               ; preds = %_ZN11FileMapInfo27remove_bitmap_leading_zerosEP11CHeapBitMap.exit51
   %69 = getelementptr inbounds i8, ptr %3, i64 16
   %70 = getelementptr inbounds i8, ptr %3, i64 24
   %71 = load i64, ptr %70, align 8
-  %.not.i53 = icmp eq i64 %71, 0
-  br i1 %.not.i53, label %.loopexit.i.i.i.i58, label %72
+  %.not.i52 = icmp eq i64 %71, 0
+  br i1 %.not.i52, label %.loopexit.i.i.i.i57, label %72
 
 72:                                               ; preds = %68
   %73 = load ptr, ptr %69, align 8
   %74 = load i64, ptr %73, align 8
   %75 = and i64 %74, 1
-  %.not.i.i.i.i54 = icmp eq i64 %75, 0
-  br i1 %.not.i.i.i.i54, label %76, label %_ZN11FileMapInfo27remove_bitmap_leading_zerosEP11CHeapBitMap.exit63
+  %.not.i.i.i.i53 = icmp eq i64 %75, 0
+  br i1 %.not.i.i.i.i53, label %76, label %_ZN11FileMapInfo27remove_bitmap_leading_zerosEP11CHeapBitMap.exit61
 
 76:                                               ; preds = %72
   %77 = icmp eq i64 %74, 0
@@ -5833,52 +5830,51 @@ _ZN11FileMapInfo27remove_bitmap_leading_zerosEP11CHeapBitMap.exit52: ; preds = %
 78:                                               ; preds = %76
   %79 = add i64 %71, 63
   %80 = lshr i64 %79, 6
-  %umax.i59 = tail call i64 @llvm.umax.i64(i64 %80, i64 1)
-  %81 = add nsw i64 %umax.i59, -1
+  %81 = tail call i64 @llvm.usub.sat.i64(i64 %80, i64 1)
   br label %82
 
 82:                                               ; preds = %83, %78
-  %.025.i.i.i.i60 = phi i64 [ 0, %78 ], [ %84, %83 ]
-  %exitcond.not.i61 = icmp eq i64 %.025.i.i.i.i60, %81
-  br i1 %exitcond.not.i61, label %.loopexit.i.i.i.i58, label %83
+  %.025.i.i.i.i58 = phi i64 [ 0, %78 ], [ %84, %83 ]
+  %exitcond.not.i59 = icmp eq i64 %.025.i.i.i.i58, %81
+  br i1 %exitcond.not.i59, label %.loopexit.i.i.i.i57, label %83
 
 83:                                               ; preds = %82
-  %84 = add nuw nsw i64 %.025.i.i.i.i60, 1
+  %84 = add nuw nsw i64 %.025.i.i.i.i58, 1
   %85 = getelementptr inbounds i64, ptr %73, i64 %84
   %86 = load i64, ptr %85, align 8
-  %.not36.i.i.i.i62 = icmp eq i64 %86, 0
-  br i1 %.not36.i.i.i.i62, label %82, label %87, !llvm.loop !34
+  %.not36.i.i.i.i60 = icmp eq i64 %86, 0
+  br i1 %.not36.i.i.i.i60, label %82, label %87, !llvm.loop !34
 
 87:                                               ; preds = %83
   %88 = shl i64 %84, 6
   br label %89
 
 89:                                               ; preds = %87, %76
-  %.027.ph.i.i.i.i56 = phi i64 [ %74, %76 ], [ %86, %87 ]
-  %.026.ph.i.i.i.i57 = phi i64 [ 0, %76 ], [ %88, %87 ]
-  %90 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i.i.i56, i1 true)
-  %91 = or disjoint i64 %.026.ph.i.i.i.i57, %90
+  %.027.ph.i.i.i.i55 = phi i64 [ %74, %76 ], [ %86, %87 ]
+  %.026.ph.i.i.i.i56 = phi i64 [ 0, %76 ], [ %88, %87 ]
+  %90 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i.i.i55, i1 true)
+  %91 = or disjoint i64 %.026.ph.i.i.i.i56, %90
   %92 = icmp ult i64 %91, %71
-  br i1 %92, label %_ZN11FileMapInfo27remove_bitmap_leading_zerosEP11CHeapBitMap.exit63, label %.loopexit.i.i.i.i58
+  br i1 %92, label %_ZN11FileMapInfo27remove_bitmap_leading_zerosEP11CHeapBitMap.exit61, label %.loopexit.i.i.i.i57
 
-.loopexit.i.i.i.i58:                              ; preds = %82, %89, %68
-  br label %_ZN11FileMapInfo27remove_bitmap_leading_zerosEP11CHeapBitMap.exit63
+.loopexit.i.i.i.i57:                              ; preds = %82, %89, %68
+  br label %_ZN11FileMapInfo27remove_bitmap_leading_zerosEP11CHeapBitMap.exit61
 
-_ZN11FileMapInfo27remove_bitmap_leading_zerosEP11CHeapBitMap.exit63: ; preds = %72, %89, %.loopexit.i.i.i.i58
-  %.0.i.i.i.i55 = phi i64 [ %71, %.loopexit.i.i.i.i58 ], [ 0, %72 ], [ %91, %89 ]
-  tail call void @_ZN14GrowableBitMapI11CHeapBitMapE8truncateEmm(ptr noundef nonnull align 8 dereferenceable(16) %69, i64 noundef %.0.i.i.i.i55, i64 noundef %71) #25
+_ZN11FileMapInfo27remove_bitmap_leading_zerosEP11CHeapBitMap.exit61: ; preds = %72, %89, %.loopexit.i.i.i.i57
+  %.0.i.i.i.i54 = phi i64 [ %71, %.loopexit.i.i.i.i57 ], [ 0, %72 ], [ %91, %89 ]
+  tail call void @_ZN14GrowableBitMapI11CHeapBitMapE8truncateEmm(ptr noundef nonnull align 8 dereferenceable(16) %69, i64 noundef %.0.i.i.i.i54, i64 noundef %71) #25
   %93 = getelementptr inbounds i8, ptr %3, i64 40
   %94 = getelementptr inbounds i8, ptr %3, i64 48
   %95 = load i64, ptr %94, align 8
-  %.not.i64 = icmp eq i64 %95, 0
-  br i1 %.not.i64, label %.loopexit.i.i.i.i69, label %96
+  %.not.i62 = icmp eq i64 %95, 0
+  br i1 %.not.i62, label %.loopexit.i.i.i.i67, label %96
 
-96:                                               ; preds = %_ZN11FileMapInfo27remove_bitmap_leading_zerosEP11CHeapBitMap.exit63
+96:                                               ; preds = %_ZN11FileMapInfo27remove_bitmap_leading_zerosEP11CHeapBitMap.exit61
   %97 = load ptr, ptr %93, align 8
   %98 = load i64, ptr %97, align 8
   %99 = and i64 %98, 1
-  %.not.i.i.i.i65 = icmp eq i64 %99, 0
-  br i1 %.not.i.i.i.i65, label %100, label %_ZN11FileMapInfo27remove_bitmap_leading_zerosEP11CHeapBitMap.exit74
+  %.not.i.i.i.i63 = icmp eq i64 %99, 0
+  br i1 %.not.i.i.i.i63, label %100, label %_ZN11FileMapInfo27remove_bitmap_leading_zerosEP11CHeapBitMap.exit71
 
 100:                                              ; preds = %96
   %101 = icmp eq i64 %98, 0
@@ -5887,46 +5883,45 @@ _ZN11FileMapInfo27remove_bitmap_leading_zerosEP11CHeapBitMap.exit63: ; preds = %
 102:                                              ; preds = %100
   %103 = add i64 %95, 63
   %104 = lshr i64 %103, 6
-  %umax.i70 = tail call i64 @llvm.umax.i64(i64 %104, i64 1)
-  %105 = add nsw i64 %umax.i70, -1
+  %105 = tail call i64 @llvm.usub.sat.i64(i64 %104, i64 1)
   br label %106
 
 106:                                              ; preds = %107, %102
-  %.025.i.i.i.i71 = phi i64 [ 0, %102 ], [ %108, %107 ]
-  %exitcond.not.i72 = icmp eq i64 %.025.i.i.i.i71, %105
-  br i1 %exitcond.not.i72, label %.loopexit.i.i.i.i69, label %107
+  %.025.i.i.i.i68 = phi i64 [ 0, %102 ], [ %108, %107 ]
+  %exitcond.not.i69 = icmp eq i64 %.025.i.i.i.i68, %105
+  br i1 %exitcond.not.i69, label %.loopexit.i.i.i.i67, label %107
 
 107:                                              ; preds = %106
-  %108 = add nuw nsw i64 %.025.i.i.i.i71, 1
+  %108 = add nuw nsw i64 %.025.i.i.i.i68, 1
   %109 = getelementptr inbounds i64, ptr %97, i64 %108
   %110 = load i64, ptr %109, align 8
-  %.not36.i.i.i.i73 = icmp eq i64 %110, 0
-  br i1 %.not36.i.i.i.i73, label %106, label %111, !llvm.loop !34
+  %.not36.i.i.i.i70 = icmp eq i64 %110, 0
+  br i1 %.not36.i.i.i.i70, label %106, label %111, !llvm.loop !34
 
 111:                                              ; preds = %107
   %112 = shl i64 %108, 6
   br label %113
 
 113:                                              ; preds = %111, %100
-  %.027.ph.i.i.i.i67 = phi i64 [ %98, %100 ], [ %110, %111 ]
-  %.026.ph.i.i.i.i68 = phi i64 [ 0, %100 ], [ %112, %111 ]
-  %114 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i.i.i67, i1 true)
-  %115 = or disjoint i64 %.026.ph.i.i.i.i68, %114
+  %.027.ph.i.i.i.i65 = phi i64 [ %98, %100 ], [ %110, %111 ]
+  %.026.ph.i.i.i.i66 = phi i64 [ 0, %100 ], [ %112, %111 ]
+  %114 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i.i.i65, i1 true)
+  %115 = or disjoint i64 %.026.ph.i.i.i.i66, %114
   %116 = icmp ult i64 %115, %95
-  br i1 %116, label %_ZN11FileMapInfo27remove_bitmap_leading_zerosEP11CHeapBitMap.exit74, label %.loopexit.i.i.i.i69
+  br i1 %116, label %_ZN11FileMapInfo27remove_bitmap_leading_zerosEP11CHeapBitMap.exit71, label %.loopexit.i.i.i.i67
 
-.loopexit.i.i.i.i69:                              ; preds = %106, %113, %_ZN11FileMapInfo27remove_bitmap_leading_zerosEP11CHeapBitMap.exit63
-  br label %_ZN11FileMapInfo27remove_bitmap_leading_zerosEP11CHeapBitMap.exit74
+.loopexit.i.i.i.i67:                              ; preds = %106, %113, %_ZN11FileMapInfo27remove_bitmap_leading_zerosEP11CHeapBitMap.exit61
+  br label %_ZN11FileMapInfo27remove_bitmap_leading_zerosEP11CHeapBitMap.exit71
 
-_ZN11FileMapInfo27remove_bitmap_leading_zerosEP11CHeapBitMap.exit74: ; preds = %96, %113, %.loopexit.i.i.i.i69
-  %.0.i.i.i.i66 = phi i64 [ %95, %.loopexit.i.i.i.i69 ], [ 0, %96 ], [ %115, %113 ]
-  tail call void @_ZN14GrowableBitMapI11CHeapBitMapE8truncateEmm(ptr noundef nonnull align 8 dereferenceable(16) %93, i64 noundef %.0.i.i.i.i66, i64 noundef %95) #25
+_ZN11FileMapInfo27remove_bitmap_leading_zerosEP11CHeapBitMap.exit71: ; preds = %96, %113, %.loopexit.i.i.i.i67
+  %.0.i.i.i.i64 = phi i64 [ %95, %.loopexit.i.i.i.i67 ], [ 0, %96 ], [ %115, %113 ]
+  tail call void @_ZN14GrowableBitMapI11CHeapBitMapE8truncateEmm(ptr noundef nonnull align 8 dereferenceable(16) %93, i64 noundef %.0.i.i.i.i64, i64 noundef %95) #25
   %117 = load ptr, ptr %52, align 8
   %118 = getelementptr inbounds i8, ptr %117, i64 760
-  store i64 %.0.i.i.i.i55, ptr %118, align 8
+  store i64 %.0.i.i.i.i54, ptr %118, align 8
   %119 = load ptr, ptr %52, align 8
   %120 = getelementptr inbounds i8, ptr %119, i64 768
-  store i64 %.0.i.i.i.i66, ptr %120, align 8
+  store i64 %.0.i.i.i.i64, ptr %120, align 8
   %121 = load i64, ptr %70, align 8
   %122 = add i64 %121, 63
   %123 = lshr i64 %122, 3
@@ -5942,8 +5937,8 @@ _ZN11FileMapInfo27remove_bitmap_leading_zerosEP11CHeapBitMap.exit74: ; preds = %
   store i64 %131, ptr %4, align 8
   br label %132
 
-132:                                              ; preds = %_ZN11FileMapInfo27remove_bitmap_leading_zerosEP11CHeapBitMap.exit74, %_ZN11FileMapInfo27remove_bitmap_leading_zerosEP11CHeapBitMap.exit52
-  %133 = phi i64 [ %131, %_ZN11FileMapInfo27remove_bitmap_leading_zerosEP11CHeapBitMap.exit74 ], [ %65, %_ZN11FileMapInfo27remove_bitmap_leading_zerosEP11CHeapBitMap.exit52 ]
+132:                                              ; preds = %_ZN11FileMapInfo27remove_bitmap_leading_zerosEP11CHeapBitMap.exit71, %_ZN11FileMapInfo27remove_bitmap_leading_zerosEP11CHeapBitMap.exit51
+  %133 = phi i64 [ %131, %_ZN11FileMapInfo27remove_bitmap_leading_zerosEP11CHeapBitMap.exit71 ], [ %65, %_ZN11FileMapInfo27remove_bitmap_leading_zerosEP11CHeapBitMap.exit51 ]
   %134 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %133, i8 noundef zeroext 13, i32 noundef 0) #25
   %135 = load ptr, ptr %52, align 8
   %136 = load i64, ptr %6, align 8
@@ -5969,8 +5964,8 @@ _ZN11FileMapInfo27remove_bitmap_leading_zerosEP11CHeapBitMap.exit74: ; preds = %
   %151 = getelementptr inbounds i8, ptr %134, i64 %142
   tail call void @_ZNK6BitMap8write_toEPmm(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef %151, i64 noundef %150) #25
   %152 = load i64, ptr %66, align 8
-  %.not76 = icmp eq i64 %152, 0
-  br i1 %.not76, label %177, label %153
+  %.not73 = icmp eq i64 %152, 0
+  br i1 %.not73, label %177, label %153
 
 153:                                              ; preds = %132
   %154 = add nuw nsw i64 %150, %142
@@ -6019,8 +6014,8 @@ _ZN11FileMapInfo27remove_bitmap_leading_zerosEP11CHeapBitMap.exit74: ; preds = %
 
 187:                                              ; preds = %177
   %188 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
-  %.not.i75 = icmp eq ptr %188, null
-  br i1 %.not.i75, label %191, label %189
+  %.not.i72 = icmp eq ptr %188, null
+  br i1 %.not.i72, label %191, label %189
 
 189:                                              ; preds = %187
   %190 = load i64, ptr %182, align 8
@@ -9467,7 +9462,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #23
 declare void @llvm.experimental.noalias.scope.decl(metadata) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #21
+declare i64 @llvm.usub.sat.i64(i64, i64) #21
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

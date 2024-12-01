@@ -75516,8 +75516,7 @@ _ZNK2OT21hb_ot_apply_context_t21match_properties_markEjjj.exit450.thread524: ; p
 
 504:                                              ; preds = %_ZNK2OT21hb_ot_apply_context_t21match_properties_markEjjj.exit450.thread524
   %505 = load i32, ptr %254, align 4
-  %.sroa.speculated = tail call i32 @llvm.umax.i32(i32 %505, i32 1)
-  %506 = add i32 %.sroa.speculated, -1
+  %506 = tail call i32 @llvm.usub.sat.i32(i32 %505, i32 1)
   br label %.loopexit
 
 507:                                              ; preds = %502, %.thread531
@@ -77263,8 +77262,7 @@ _ZNK2OT21hb_ot_apply_context_t21match_properties_markEjjj.exit456.thread532: ; p
 
 527:                                              ; preds = %_ZNK2OT21hb_ot_apply_context_t21match_properties_markEjjj.exit456.thread532
   %528 = load i32, ptr %279, align 4
-  %.sroa.speculated = tail call i32 @llvm.umax.i32(i32 %528, i32 1)
-  %529 = add i32 %.sroa.speculated, -1
+  %529 = tail call i32 @llvm.usub.sat.i32(i32 %528, i32 1)
   br label %.loopexit
 
 530:                                              ; preds = %525, %.thread539
@@ -77683,8 +77681,7 @@ _ZNK2OT21hb_ot_apply_context_t21match_properties_markEjjj.exit.thread238: ; pred
 
 179:                                              ; preds = %_ZNK2OT21hb_ot_apply_context_t21match_properties_markEjjj.exit.thread238
   %180 = load i32, ptr %63, align 4
-  %.sroa.speculated = tail call i32 @llvm.umax.i32(i32 %180, i32 1)
-  %181 = add i32 %.sroa.speculated, -1
+  %181 = tail call i32 @llvm.usub.sat.i32(i32 %180, i32 1)
   br label %.thread249
 
 182:                                              ; preds = %177, %.thread241
@@ -83164,8 +83161,7 @@ _ZL50_hb_glyph_info_is_default_ignorable_and_not_hiddenPK15hb_glyph_info_t.exit.
 
 176:                                              ; preds = %172
   %177 = load i32, ptr %88, align 4
-  %.sroa.speculated = tail call i32 @llvm.umax.i32(i32 %177, i32 1)
-  %178 = add i32 %.sroa.speculated, -1
+  %178 = tail call i32 @llvm.usub.sat.i32(i32 %177, i32 1)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %thread-pre-split, %.thread, %176
@@ -86117,8 +86113,7 @@ _ZNK2OT21hb_ot_apply_context_t21match_properties_markEjjj.exit.thread210: ; pred
 
 117:                                              ; preds = %_ZNK2OT21hb_ot_apply_context_t21match_properties_markEjjj.exit.thread210
   %118 = load i32, ptr %26, align 4
-  %.sroa.speculated = tail call i32 @llvm.umax.i32(i32 %118, i32 1)
-  %119 = add i32 %.sroa.speculated, -1
+  %119 = tail call i32 @llvm.usub.sat.i32(i32 %118, i32 1)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.backedge, %25, %117
