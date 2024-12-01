@@ -238,7 +238,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline14cartToPolar64fEPKdS3_PdS4_ib(ptr n
   %17 = trunc nsw i64 %16 to i32
   %.sroa.speculated = call i32 @llvm.smin.i32(i32 %17, i32 128)
   %18 = icmp sgt i64 %16, 0
-  br i1 %18, label %.lr.ph.preheader, label %._crit_edge44
+  br i1 %18, label %.lr.ph.preheader, label %.lr.ph.preheader.i
 
 .lr.ph.preheader:                                 ; preds = %15
   %19 = sext i32 %.sroa.speculated to i64
@@ -261,7 +261,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline14cartToPolar64fEPKdS3_PdS4_ib(ptr n
   %29 = icmp slt i64 %indvars.iv.next, %19
   br i1 %29, label %.lr.ph, label %.lr.ph.preheader.i, !llvm.loop !6
 
-.lr.ph.preheader.i:                               ; preds = %.lr.ph
+.lr.ph.preheader.i:                               ; preds = %.lr.ph, %15
   %wide.trip.count.i = zext nneg i32 %.sroa.speculated to i64
   br label %.lr.ph.i
 
@@ -315,9 +315,12 @@ _ZN2cv3hal12cpu_baseline12_GLOBAL__N_18atan_f32Eff.exit.i: ; preds = %48, %40
   store float %61, ptr %62, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.lr.ph41.preheader, label %.lr.ph.i, !llvm.loop !4
+  br i1 %exitcond.not.i, label %_ZN2cv3hal12cpu_baselineL15cartToPolar32f_EPKfS3_PfS4_ib.exit.loopexit, label %.lr.ph.i, !llvm.loop !4
 
-.lr.ph41.preheader:                               ; preds = %_ZN2cv3hal12cpu_baseline12_GLOBAL__N_18atan_f32Eff.exit.i
+_ZN2cv3hal12cpu_baselineL15cartToPolar32f_EPKfS3_PfS4_ib.exit.loopexit: ; preds = %_ZN2cv3hal12cpu_baseline12_GLOBAL__N_18atan_f32Eff.exit.i
+  br i1 %18, label %.lr.ph41.preheader, label %._crit_edge44
+
+.lr.ph41.preheader:                               ; preds = %_ZN2cv3hal12cpu_baselineL15cartToPolar32f_EPKfS3_PfS4_ib.exit.loopexit
   %63 = sext i32 %.sroa.speculated to i64
   %invariant.gep = getelementptr inbounds double, ptr %2, i64 %indvars.iv56
   br label %.lr.ph41
@@ -349,7 +352,7 @@ _ZN2cv3hal12cpu_baseline12_GLOBAL__N_18atan_f32Eff.exit.i: ; preds = %48, %40
   %72 = icmp slt i64 %indvars.iv.next54, %64
   br i1 %72, label %.lr.ph43, label %._crit_edge44, !llvm.loop !8
 
-._crit_edge44:                                    ; preds = %.lr.ph43, %15
+._crit_edge44:                                    ; preds = %.lr.ph43, %_ZN2cv3hal12cpu_baselineL15cartToPolar32f_EPKfS3_PfS4_ib.exit.loopexit
   %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 128
   %73 = icmp samesign ult i64 %indvars.iv.next57, %14
   br i1 %73, label %15, label %._crit_edge48, !llvm.loop !9
@@ -476,7 +479,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline11fastAtan64fEPKdS3_Pdib(ptr nocaptu
   %15 = trunc nsw i64 %14 to i32
   %.sroa.speculated = call i32 @llvm.smin.i32(i32 %15, i32 128)
   %16 = icmp sgt i64 %14, 0
-  br i1 %16, label %.lr.ph.preheader, label %._crit_edge35
+  br i1 %16, label %.lr.ph.preheader, label %.lr.ph.preheader.i
 
 .lr.ph.preheader:                                 ; preds = %13
   %17 = sext i32 %.sroa.speculated to i64
@@ -499,7 +502,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline11fastAtan64fEPKdS3_Pdib(ptr nocaptu
   %27 = icmp slt i64 %indvars.iv.next, %17
   br i1 %27, label %.lr.ph, label %.lr.ph.preheader.i, !llvm.loop !11
 
-.lr.ph.preheader.i:                               ; preds = %.lr.ph
+.lr.ph.preheader.i:                               ; preds = %.lr.ph, %13
   %wide.trip.count.i = zext nneg i32 %.sroa.speculated to i64
   br label %.lr.ph.i
 
@@ -548,9 +551,12 @@ _ZN2cv3hal12cpu_baseline12_GLOBAL__N_18atan_f32Eff.exit.i: ; preds = %43, %35
   store float %56, ptr %57, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.lr.ph34.preheader, label %.lr.ph.i, !llvm.loop !10
+  br i1 %exitcond.not.i, label %_ZN2cv3hal12cpu_baselineL12fastAtan32f_EPKfS3_Pfib.exit.loopexit, label %.lr.ph.i, !llvm.loop !10
 
-.lr.ph34.preheader:                               ; preds = %_ZN2cv3hal12cpu_baseline12_GLOBAL__N_18atan_f32Eff.exit.i
+_ZN2cv3hal12cpu_baselineL12fastAtan32f_EPKfS3_Pfib.exit.loopexit: ; preds = %_ZN2cv3hal12cpu_baseline12_GLOBAL__N_18atan_f32Eff.exit.i
+  br i1 %16, label %.lr.ph34.preheader, label %._crit_edge35
+
+.lr.ph34.preheader:                               ; preds = %_ZN2cv3hal12cpu_baselineL12fastAtan32f_EPKfS3_Pfib.exit.loopexit
   %58 = sext i32 %.sroa.speculated to i64
   %invariant.gep = getelementptr inbounds double, ptr %2, i64 %indvars.iv44
   br label %.lr.ph34
@@ -566,7 +572,7 @@ _ZN2cv3hal12cpu_baseline12_GLOBAL__N_18atan_f32Eff.exit.i: ; preds = %43, %35
   %62 = icmp slt i64 %indvars.iv.next42, %58
   br i1 %62, label %.lr.ph34, label %._crit_edge35, !llvm.loop !12
 
-._crit_edge35:                                    ; preds = %.lr.ph34, %13
+._crit_edge35:                                    ; preds = %.lr.ph34, %_ZN2cv3hal12cpu_baselineL12fastAtan32f_EPKfS3_Pfib.exit.loopexit
   %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 128
   %63 = icmp samesign ult i64 %indvars.iv.next45, %12
   br i1 %63, label %13, label %._crit_edge39, !llvm.loop !13

@@ -351,8 +351,8 @@ arrayctor.loop.preheader.lr.ph:                   ; preds = %if.end
 arrayctor.loop.preheader:                         ; preds = %arrayctor.loop.preheader.lr.ph, %for.inc47
   %indvars.iv = phi i32 [ %2, %arrayctor.loop.preheader.lr.ph ], [ %indvars.iv.next, %for.inc47 ]
   %maxDot.0101 = phi float [ 0xC3ABC16D60000000, %arrayctor.loop.preheader.lr.ph ], [ %maxDot.1, %for.inc47 ]
-  %pos.0100 = phi ptr [ %4, %arrayctor.loop.preheader.lr.ph ], [ %pos.1.lcssa107, %for.inc47 ]
-  %rad.099 = phi ptr [ %3, %arrayctor.loop.preheader.lr.ph ], [ %rad.1.lcssa106, %for.inc47 ]
+  %pos.0100 = phi ptr [ %4, %arrayctor.loop.preheader.lr.ph ], [ %pos.1.lcssa, %for.inc47 ]
+  %rad.099 = phi ptr [ %3, %arrayctor.loop.preheader.lr.ph ], [ %rad.1.lcssa, %for.inc47 ]
   %k.098 = phi i32 [ 0, %arrayctor.loop.preheader.lr.ph ], [ %add, %for.inc47 ]
   %retval.sroa.4.097 = phi <2 x float> [ zeroinitializer, %arrayctor.loop.preheader.lr.ph ], [ %retval.sroa.4.1, %for.inc47 ]
   %retval.sroa.0.096 = phi <2 x float> [ zeroinitializer, %arrayctor.loop.preheader.lr.ph ], [ %retval.sroa.0.1, %for.inc47 ]
@@ -363,7 +363,7 @@ arrayctor.loop.preheader:                         ; preds = %arrayctor.loop.preh
   %cond = tail call i32 @llvm.smin.i32(i32 %sub, i32 128)
   %conv = sext i32 %cond to i64
   %cmp1789 = icmp sgt i32 %sub, 0
-  br i1 %cmp1789, label %for.body18, label %_ZNK9btVector36maxDotEPKS_lRf.exit
+  br i1 %cmp1789, label %for.body18, label %for.end
 
 for.body18:                                       ; preds = %arrayctor.loop.preheader, %for.body18
   %pos.192 = phi ptr [ %incdec.ptr, %for.body18 ], [ %pos.0100, %arrayctor.loop.preheader ]
@@ -411,12 +411,17 @@ for.body18:                                       ; preds = %arrayctor.loop.preh
   %incdec.ptr39 = getelementptr inbounds i8, ptr %rad.191, i64 4
   %inc = add nuw nsw i64 %i.090, 1
   %exitcond.not = icmp eq i64 %inc, %smax
-  br i1 %exitcond.not, label %for.body.i, label %for.body18, !llvm.loop !10
+  br i1 %exitcond.not, label %for.end, label %for.body18, !llvm.loop !10
 
-for.body.i:                                       ; preds = %for.body18, %for.body.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i ], [ 0, %for.body18 ]
-  %maxDot1.09.i = phi float [ %maxDot1.1.i, %for.body.i ], [ 0xC7EFFFFFE0000000, %for.body18 ]
-  %ptIndex.08.i = phi i32 [ %ptIndex.1.i, %for.body.i ], [ -1, %for.body18 ]
+for.end:                                          ; preds = %for.body18, %arrayctor.loop.preheader
+  %rad.1.lcssa = phi ptr [ %rad.099, %arrayctor.loop.preheader ], [ %incdec.ptr39, %for.body18 ]
+  %pos.1.lcssa = phi ptr [ %pos.0100, %arrayctor.loop.preheader ], [ %incdec.ptr, %for.body18 ]
+  br label %for.body.i
+
+for.body.i:                                       ; preds = %for.end, %for.body.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i ], [ 0, %for.end ]
+  %maxDot1.09.i = phi float [ %maxDot1.1.i, %for.body.i ], [ 0xC7EFFFFFE0000000, %for.end ]
+  %ptIndex.08.i = phi i32 [ %ptIndex.1.i, %for.body.i ], [ -1, %for.end ]
   %arrayidx.i = getelementptr inbounds %class.btVector3, ptr %temp, i64 %indvars.iv.i
   %15 = load float, ptr %arrayidx.i, align 16
   %arrayidx5.i.i70 = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
@@ -435,28 +440,21 @@ for.body.i:                                       ; preds = %for.body18, %for.bo
   br i1 %exitcond.not.i, label %for.end.loopexit.i, label %for.body.i, !llvm.loop !11
 
 for.end.loopexit.i:                               ; preds = %for.body.i
-  %21 = sext i32 %ptIndex.1.i to i64
-  br label %_ZNK9btVector36maxDotEPKS_lRf.exit
-
-_ZNK9btVector36maxDotEPKS_lRf.exit:               ; preds = %arrayctor.loop.preheader, %for.end.loopexit.i
-  %pos.1.lcssa107 = phi ptr [ %incdec.ptr, %for.end.loopexit.i ], [ %pos.0100, %arrayctor.loop.preheader ]
-  %rad.1.lcssa106 = phi ptr [ %incdec.ptr39, %for.end.loopexit.i ], [ %rad.099, %arrayctor.loop.preheader ]
-  %ptIndex.0.lcssa.i = phi i64 [ %21, %for.end.loopexit.i ], [ -1, %arrayctor.loop.preheader ]
-  %maxDot1.0.lcssa.i = phi float [ %maxDot1.1.i, %for.end.loopexit.i ], [ 0xC7EFFFFFE0000000, %arrayctor.loop.preheader ]
-  %cmp43 = fcmp ogt float %maxDot1.0.lcssa.i, %maxDot.0101
+  %cmp43 = fcmp ogt float %maxDot1.1.i, %maxDot.0101
   br i1 %cmp43, label %if.then44, label %for.inc47
 
-if.then44:                                        ; preds = %_ZNK9btVector36maxDotEPKS_lRf.exit
-  %arrayidx45 = getelementptr inbounds [128 x %class.btVector3], ptr %temp, i64 0, i64 %ptIndex.0.lcssa.i
+if.then44:                                        ; preds = %for.end.loopexit.i
+  %21 = sext i32 %ptIndex.1.i to i64
+  %arrayidx45 = getelementptr inbounds [128 x %class.btVector3], ptr %temp, i64 0, i64 %21
   %retval.sroa.0.0.copyload = load <2 x float>, ptr %arrayidx45, align 16
   %retval.sroa.4.0.arrayidx45.sroa_idx = getelementptr inbounds i8, ptr %arrayidx45, i64 8
   %retval.sroa.4.0.copyload = load <2 x float>, ptr %retval.sroa.4.0.arrayidx45.sroa_idx, align 8
   br label %for.inc47
 
-for.inc47:                                        ; preds = %_ZNK9btVector36maxDotEPKS_lRf.exit, %if.then44
-  %retval.sroa.0.1 = phi <2 x float> [ %retval.sroa.0.0.copyload, %if.then44 ], [ %retval.sroa.0.096, %_ZNK9btVector36maxDotEPKS_lRf.exit ]
-  %retval.sroa.4.1 = phi <2 x float> [ %retval.sroa.4.0.copyload, %if.then44 ], [ %retval.sroa.4.097, %_ZNK9btVector36maxDotEPKS_lRf.exit ]
-  %maxDot.1 = phi float [ %maxDot1.0.lcssa.i, %if.then44 ], [ %maxDot.0101, %_ZNK9btVector36maxDotEPKS_lRf.exit ]
+for.inc47:                                        ; preds = %for.end.loopexit.i, %if.then44
+  %retval.sroa.0.1 = phi <2 x float> [ %retval.sroa.0.0.copyload, %if.then44 ], [ %retval.sroa.0.096, %for.end.loopexit.i ]
+  %retval.sroa.4.1 = phi <2 x float> [ %retval.sroa.4.0.copyload, %if.then44 ], [ %retval.sroa.4.097, %for.end.loopexit.i ]
+  %maxDot.1 = phi float [ %maxDot1.1.i, %if.then44 ], [ %maxDot.0101, %for.end.loopexit.i ]
   %add = add nuw nsw i32 %k.098, 128
   %cmp13 = icmp slt i32 %add, %2
   %indvars.iv.next = add i32 %indvars.iv, -128
@@ -514,8 +512,8 @@ arrayctor.loop.preheader.lr.ph:                   ; preds = %for.body
 arrayctor.loop.preheader:                         ; preds = %arrayctor.loop.preheader.lr.ph, %for.inc41
   %indvars.iv = phi i32 [ %2, %arrayctor.loop.preheader.lr.ph ], [ %indvars.iv.next, %for.inc41 ]
   %maxDot.075 = phi float [ 0xC3ABC16D60000000, %arrayctor.loop.preheader.lr.ph ], [ %maxDot.1, %for.inc41 ]
-  %pos.074 = phi ptr [ %4, %arrayctor.loop.preheader.lr.ph ], [ %pos.1.lcssa88, %for.inc41 ]
-  %rad.073 = phi ptr [ %3, %arrayctor.loop.preheader.lr.ph ], [ %rad.1.lcssa87, %for.inc41 ]
+  %pos.074 = phi ptr [ %4, %arrayctor.loop.preheader.lr.ph ], [ %pos.1.lcssa, %for.inc41 ]
+  %rad.073 = phi ptr [ %3, %arrayctor.loop.preheader.lr.ph ], [ %rad.1.lcssa, %for.inc41 ]
   %k.072 = phi i32 [ 0, %arrayctor.loop.preheader.lr.ph ], [ %add, %for.inc41 ]
   %5 = tail call i32 @llvm.smin.i32(i32 %indvars.iv, i32 128)
   %6 = tail call i32 @llvm.smax.i32(i32 %5, i32 1)
@@ -524,21 +522,18 @@ arrayctor.loop.preheader:                         ; preds = %arrayctor.loop.preh
   %cond = tail call i32 @llvm.smin.i32(i32 %sub, i32 128)
   %conv = sext i32 %cond to i64
   %cmp1165 = icmp sgt i32 %sub, 0
-  br i1 %cmp1165, label %for.body12.preheader, label %_ZNK9btVector36maxDotEPKS_lRf.exit
+  %.pre85 = load float, ptr %arrayidx, align 4
+  %.pre = load float, ptr %arrayidx5.i18, align 4
+  %.pre86 = load float, ptr %arrayidx11.i21, align 4
+  br i1 %cmp1165, label %for.body12, label %for.end
 
-for.body12.preheader:                             ; preds = %arrayctor.loop.preheader
-  %.pre = load float, ptr %arrayidx, align 4
-  %.pre83 = load float, ptr %arrayidx5.i18, align 4
-  %.pre84 = load float, ptr %arrayidx11.i21, align 4
-  br label %for.body12
-
-for.body12:                                       ; preds = %for.body12.preheader, %for.body12
-  %7 = phi float [ %20, %for.body12 ], [ %.pre84, %for.body12.preheader ]
-  %8 = phi float [ %19, %for.body12 ], [ %.pre83, %for.body12.preheader ]
-  %9 = phi float [ %18, %for.body12 ], [ %.pre, %for.body12.preheader ]
-  %pos.168 = phi ptr [ %incdec.ptr, %for.body12 ], [ %pos.074, %for.body12.preheader ]
-  %i.067 = phi i64 [ %inc, %for.body12 ], [ 0, %for.body12.preheader ]
-  %rad.166 = phi ptr [ %incdec.ptr33, %for.body12 ], [ %rad.073, %for.body12.preheader ]
+for.body12:                                       ; preds = %arrayctor.loop.preheader, %for.body12
+  %7 = phi float [ %20, %for.body12 ], [ %.pre86, %arrayctor.loop.preheader ]
+  %8 = phi float [ %19, %for.body12 ], [ %.pre, %arrayctor.loop.preheader ]
+  %9 = phi float [ %18, %for.body12 ], [ %.pre85, %arrayctor.loop.preheader ]
+  %pos.168 = phi ptr [ %incdec.ptr, %for.body12 ], [ %pos.074, %arrayctor.loop.preheader ]
+  %i.067 = phi i64 [ %inc, %for.body12 ], [ 0, %arrayctor.loop.preheader ]
+  %rad.166 = phi ptr [ %incdec.ptr33, %for.body12 ], [ %rad.073, %arrayctor.loop.preheader ]
   %10 = load float, ptr %pos.168, align 4
   %11 = load float, ptr %m_localScaling, align 8
   %mul.i = fmul float %10, %11
@@ -584,27 +579,29 @@ for.body12:                                       ; preds = %for.body12.preheade
   %incdec.ptr33 = getelementptr inbounds i8, ptr %rad.166, i64 4
   %inc = add nuw nsw i64 %i.067, 1
   %exitcond.not = icmp eq i64 %inc, %smax
-  br i1 %exitcond.not, label %for.body.lr.ph.i, label %for.body12, !llvm.loop !13
+  br i1 %exitcond.not, label %for.end, label %for.body12, !llvm.loop !13
 
-for.body.lr.ph.i:                                 ; preds = %for.body12
-  %21 = load float, ptr %arrayidx, align 4
-  %22 = load float, ptr %arrayidx5.i18, align 4
-  %23 = load float, ptr %arrayidx11.i21, align 4
+for.end:                                          ; preds = %for.body12, %arrayctor.loop.preheader
+  %21 = phi float [ %.pre86, %arrayctor.loop.preheader ], [ %20, %for.body12 ]
+  %22 = phi float [ %.pre, %arrayctor.loop.preheader ], [ %19, %for.body12 ]
+  %23 = phi float [ %.pre85, %arrayctor.loop.preheader ], [ %18, %for.body12 ]
+  %rad.1.lcssa = phi ptr [ %rad.073, %arrayctor.loop.preheader ], [ %incdec.ptr33, %for.body12 ]
+  %pos.1.lcssa = phi ptr [ %pos.074, %arrayctor.loop.preheader ], [ %incdec.ptr, %for.body12 ]
   br label %for.body.i
 
-for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.body.i ]
-  %maxDot1.09.i = phi float [ 0xC7EFFFFFE0000000, %for.body.lr.ph.i ], [ %maxDot1.1.i, %for.body.i ]
-  %ptIndex.08.i = phi i32 [ -1, %for.body.lr.ph.i ], [ %ptIndex.1.i, %for.body.i ]
+for.body.i:                                       ; preds = %for.body.i, %for.end
+  %indvars.iv.i = phi i64 [ 0, %for.end ], [ %indvars.iv.next.i, %for.body.i ]
+  %maxDot1.09.i = phi float [ 0xC7EFFFFFE0000000, %for.end ], [ %maxDot1.1.i, %for.body.i ]
+  %ptIndex.08.i = phi i32 [ -1, %for.end ], [ %ptIndex.1.i, %for.body.i ]
   %arrayidx.i = getelementptr inbounds %class.btVector3, ptr %temp, i64 %indvars.iv.i
   %24 = load float, ptr %arrayidx.i, align 16
   %arrayidx5.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
   %25 = load float, ptr %arrayidx5.i.i, align 4
   %mul8.i.i = fmul float %22, %25
-  %26 = tail call float @llvm.fmuladd.f32(float %24, float %21, float %mul8.i.i)
+  %26 = tail call float @llvm.fmuladd.f32(float %24, float %23, float %mul8.i.i)
   %arrayidx10.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %27 = load float, ptr %arrayidx10.i.i, align 8
-  %28 = tail call noundef float @llvm.fmuladd.f32(float %27, float %23, float %26)
+  %28 = tail call noundef float @llvm.fmuladd.f32(float %27, float %21, float %26)
   %cmp2.i = fcmp ogt float %28, %maxDot1.09.i
   %29 = trunc nuw nsw i64 %indvars.iv.i to i32
   %ptIndex.1.i = select i1 %cmp2.i, i32 %29, i32 %ptIndex.08.i
@@ -614,24 +611,17 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   br i1 %exitcond.not.i, label %for.end.loopexit.i, label %for.body.i, !llvm.loop !11
 
 for.end.loopexit.i:                               ; preds = %for.body.i
-  %30 = sext i32 %ptIndex.1.i to i64
-  br label %_ZNK9btVector36maxDotEPKS_lRf.exit
-
-_ZNK9btVector36maxDotEPKS_lRf.exit:               ; preds = %arrayctor.loop.preheader, %for.end.loopexit.i
-  %pos.1.lcssa88 = phi ptr [ %incdec.ptr, %for.end.loopexit.i ], [ %pos.074, %arrayctor.loop.preheader ]
-  %rad.1.lcssa87 = phi ptr [ %incdec.ptr33, %for.end.loopexit.i ], [ %rad.073, %arrayctor.loop.preheader ]
-  %ptIndex.0.lcssa.i = phi i64 [ %30, %for.end.loopexit.i ], [ -1, %arrayctor.loop.preheader ]
-  %maxDot1.0.lcssa.i = phi float [ %maxDot1.1.i, %for.end.loopexit.i ], [ 0xC7EFFFFFE0000000, %arrayctor.loop.preheader ]
-  %cmp37 = fcmp ogt float %maxDot1.0.lcssa.i, %maxDot.075
+  %cmp37 = fcmp ogt float %maxDot1.1.i, %maxDot.075
   br i1 %cmp37, label %if.then, label %for.inc41
 
-if.then:                                          ; preds = %_ZNK9btVector36maxDotEPKS_lRf.exit
-  %arrayidx38 = getelementptr inbounds [128 x %class.btVector3], ptr %temp, i64 0, i64 %ptIndex.0.lcssa.i
+if.then:                                          ; preds = %for.end.loopexit.i
+  %30 = sext i32 %ptIndex.1.i to i64
+  %arrayidx38 = getelementptr inbounds [128 x %class.btVector3], ptr %temp, i64 0, i64 %30
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx40, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx38, i64 16, i1 false)
   br label %for.inc41
 
-for.inc41:                                        ; preds = %_ZNK9btVector36maxDotEPKS_lRf.exit, %if.then
-  %maxDot.1 = phi float [ %maxDot1.0.lcssa.i, %if.then ], [ %maxDot.075, %_ZNK9btVector36maxDotEPKS_lRf.exit ]
+for.inc41:                                        ; preds = %for.end.loopexit.i, %if.then
+  %maxDot.1 = phi float [ %maxDot1.1.i, %if.then ], [ %maxDot.075, %for.end.loopexit.i ]
   %add = add nuw nsw i32 %k.072, 128
   %cmp6 = icmp slt i32 %add, %2
   %indvars.iv.next = add i32 %indvars.iv, -128

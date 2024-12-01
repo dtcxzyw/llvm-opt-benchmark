@@ -7436,23 +7436,19 @@ if.end:                                           ; preds = %entry
 
 if.end.i:                                         ; preds = %if.end
   %sub = sub nsw i32 %0, %len
-  %cmp.i = icmp slt i32 %sub, 0
-  %memory.phi.trans.insert = getelementptr inbounds i8, ptr %str, i64 64
-  %.pre = load ptr, ptr %memory.phi.trans.insert, align 8
-  %allocated.phi.trans.insert = getelementptr inbounds i8, ptr %str, i64 88
-  %.pre18 = load i64, ptr %allocated.phi.trans.insert, align 8
-  br i1 %cmp.i, label %nk_str_at_rune.exit, label %if.end5.i
-
-if.end5.i:                                        ; preds = %if.end.i
-  %conv.i = trunc i64 %.pre18 to i32
-  %call.i = call i32 @nk_utf_decode(ptr noundef %.pre, ptr noundef nonnull %unicode, i32 noundef %conv.i)
+  %memory.i = getelementptr inbounds i8, ptr %str, i64 64
+  %1 = load ptr, ptr %memory.i, align 8
+  %allocated.i = getelementptr inbounds i8, ptr %str, i64 88
+  %2 = load i64, ptr %allocated.i, align 8
+  %conv.i = trunc i64 %2 to i32
+  %call.i = call i32 @nk_utf_decode(ptr noundef %1, ptr noundef nonnull %unicode, i32 noundef %conv.i)
   %tobool7.not26.i = icmp eq i32 %call.i, 0
   br i1 %tobool7.not26.i, label %while.end.i, label %while.body.i
 
-while.body.i:                                     ; preds = %if.end5.i, %if.end11.i
-  %i.029.i = phi i32 [ %inc.i, %if.end11.i ], [ 0, %if.end5.i ]
-  %glyph_len.028.i = phi i32 [ %call12.i, %if.end11.i ], [ %call.i, %if.end5.i ]
-  %src_len.027.i = phi i32 [ %add.i, %if.end11.i ], [ 0, %if.end5.i ]
+while.body.i:                                     ; preds = %if.end.i, %if.end11.i
+  %i.029.i = phi i32 [ %inc.i, %if.end11.i ], [ 0, %if.end.i ]
+  %glyph_len.028.i = phi i32 [ %call12.i, %if.end11.i ], [ %call.i, %if.end.i ]
+  %src_len.027.i = phi i32 [ %add.i, %if.end11.i ], [ 0, %if.end.i ]
   %cmp8.i = icmp eq i32 %i.029.i, %sub
   br i1 %cmp8.i, label %if.end16.i, label %if.end11.i
 
@@ -7460,29 +7456,28 @@ if.end11.i:                                       ; preds = %while.body.i
   %inc.i = add nuw nsw i32 %i.029.i, 1
   %add.i = add nsw i32 %src_len.027.i, %glyph_len.028.i
   %idx.ext.i = sext i32 %add.i to i64
-  %add.ptr.i = getelementptr inbounds i8, ptr %.pre, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %1, i64 %idx.ext.i
   %sub.i = sub nsw i32 %conv.i, %add.i
   %call12.i = call i32 @nk_utf_decode(ptr noundef %add.ptr.i, ptr noundef nonnull %unicode, i32 noundef %sub.i)
   %tobool7.not.i = icmp eq i32 %call12.i, 0
   br i1 %tobool7.not.i, label %while.end.i, label %while.body.i, !llvm.loop !36
 
-while.end.i:                                      ; preds = %if.end11.i, %if.end5.i
-  %src_len.025.i = phi i32 [ 0, %if.end5.i ], [ %add.i, %if.end11.i ]
-  %i.022.i = phi i32 [ 0, %if.end5.i ], [ %inc.i, %if.end11.i ]
+while.end.i:                                      ; preds = %if.end11.i, %if.end.i
+  %src_len.025.i = phi i32 [ 0, %if.end.i ], [ %add.i, %if.end11.i ]
+  %i.022.i = phi i32 [ 0, %if.end.i ], [ %inc.i, %if.end11.i ]
   %cmp13.not.i = icmp eq i32 %i.022.i, %sub
   br i1 %cmp13.not.i, label %if.end16.i, label %nk_str_at_rune.exit
 
 if.end16.i:                                       ; preds = %while.body.i, %while.end.i
   %src_len.02537.i = phi i32 [ %src_len.025.i, %while.end.i ], [ %src_len.027.i, %while.body.i ]
   %idx.ext17.i = sext i32 %src_len.02537.i to i64
-  %add.ptr18.i = getelementptr inbounds i8, ptr %.pre, i64 %idx.ext17.i
-  %1 = ptrtoint ptr %add.ptr18.i to i64
+  %add.ptr18.i = getelementptr inbounds i8, ptr %1, i64 %idx.ext17.i
+  %3 = ptrtoint ptr %add.ptr18.i to i64
   br label %nk_str_at_rune.exit
 
-nk_str_at_rune.exit:                              ; preds = %if.end.i, %while.end.i, %if.end16.i
-  %retval.0.i = phi i64 [ %1, %if.end16.i ], [ 0, %while.end.i ], [ 0, %if.end.i ]
-  %allocated = getelementptr inbounds i8, ptr %str, i64 88
-  %add.ptr = getelementptr inbounds i8, ptr %.pre, i64 %.pre18
+nk_str_at_rune.exit:                              ; preds = %while.end.i, %if.end16.i
+  %retval.0.i = phi i64 [ %3, %if.end16.i ], [ 0, %while.end.i ]
+  %add.ptr = getelementptr inbounds i8, ptr %1, i64 %2
   %sub.ptr.lhs.cast = ptrtoint ptr %add.ptr to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %retval.0.i
   %conv = trunc i64 %sub.ptr.sub to i32
@@ -7492,14 +7487,14 @@ nk_str_at_rune.exit:                              ; preds = %if.end.i, %while.en
 lor.lhs.false1.i:                                 ; preds = %nk_str_at_rune.exit
   %add = add i64 %sub.ptr.sub, 1
   %conv.i10 = and i64 %add, 4294967295
-  %cmp2.i = icmp ult i64 %.pre18, %conv.i10
+  %cmp2.i = icmp ult i64 %2, %conv.i10
   br i1 %cmp2.i, label %return, label %if.end.i12
 
 if.end.i12:                                       ; preds = %lor.lhs.false1.i
-  %sub.i13 = sub nuw i64 %.pre18, %conv.i10
-  store i64 %sub.i13, ptr %allocated, align 8
+  %sub.i13 = sub nuw i64 %2, %conv.i10
+  store i64 %sub.i13, ptr %allocated.i, align 8
   %conv10.i = trunc i64 %sub.i13 to i32
-  %call.i15 = call i32 @nk_utf_len(ptr noundef %.pre, i32 noundef %conv10.i)
+  %call.i15 = call i32 @nk_utf_len(ptr noundef %1, i32 noundef %conv10.i)
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %if.end, %if.end.i12
@@ -52639,10 +52634,8 @@ nk_text_clamp.exit122.thread.i:                   ; preds = %nk_utf_decode.exit.
   %spec.select160.i = select i1 %tobool18.not.i75.i, i32 %add.i92172.i, i32 %sep_len.1.i102174.i
   %48 = select i1 %cmp2.lcssa.i74.i, i32 %spec.select160.i, i32 %add.i92172.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %unicode.i61.i)
-  %cmp48.i = icmp slt i32 %add60.i, %len
-  %tobool49.i = icmp ne i32 %48, 0
-  %or.cond1.i = select i1 %cmp48.i, i1 %tobool49.i, i1 false
-  br i1 %or.cond1.i, label %lor.lhs.false50.i, label %return, !llvm.loop !212
+  %tobool49.i.not = icmp eq i32 %48, 0
+  br i1 %tobool49.i.not, label %return, label %lor.lhs.false50.i, !llvm.loop !212
 
 return:                                           ; preds = %nk_text_clamp.exit122.thread.i, %lor.lhs.false50.i, %nk_text_clamp.exit122.thread.thread.i, %nk_text_clamp.exit.thread.i, %nk_text_clamp.exit.thread.thread.i, %entry, %lor.lhs.false, %lor.lhs.false2
   ret void

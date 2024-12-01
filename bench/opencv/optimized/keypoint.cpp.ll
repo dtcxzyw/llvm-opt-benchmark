@@ -232,72 +232,67 @@ define void @_ZN2cv15KeyPointsFilter16runByImageBorderERSt6vectorINS_8KeyPointES
 11:                                               ; preds = %5
   %12 = sub nsw i32 %.sroa.013.0.extract.trunc, %2
   %13 = sub nsw i32 %.sroa.3.0.extract.trunc, %2
-  %14 = tail call i32 @llvm.smin.i32(i32 %12, i32 %2)
-  %15 = tail call i32 @llvm.smin.i32(i32 %13, i32 %2)
-  %16 = tail call i32 @llvm.smax.i32(i32 %2, i32 %12)
-  %17 = sub nsw i32 %16, %14
-  %18 = tail call i32 @llvm.smax.i32(i32 %2, i32 %13)
-  %19 = sub nsw i32 %18, %15
-  %.sroa.231.0.insert.ext = zext i32 %15 to i64
-  %.sroa.231.0.insert.shift = shl nuw i64 %.sroa.231.0.insert.ext, 32
-  %.sroa.030.0.insert.ext = zext i32 %14 to i64
-  %.sroa.030.0.insert.insert = or disjoint i64 %.sroa.231.0.insert.shift, %.sroa.030.0.insert.ext
-  %.sroa.5.8.insert.ext = zext i32 %19 to i64
+  %14 = sub nsw i32 %12, %2
+  %15 = sub nsw i32 %13, %2
+  %.sroa.231.0.insert.ext = zext nneg i32 %2 to i64
+  %.sroa.231.0.insert.shift = shl nuw nsw i64 %.sroa.231.0.insert.ext, 32
+  %.sroa.030.0.insert.insert = or disjoint i64 %.sroa.231.0.insert.shift, %.sroa.231.0.insert.ext
+  %.sroa.5.8.insert.ext = zext i32 %15 to i64
   %.sroa.5.8.insert.shift = shl nuw i64 %.sroa.5.8.insert.ext, 32
-  %.sroa.332.8.insert.ext = zext i32 %17 to i64
+  %.sroa.332.8.insert.ext = zext i32 %14 to i64
   %.sroa.332.8.insert.insert = or disjoint i64 %.sroa.5.8.insert.shift, %.sroa.332.8.insert.ext
-  %20 = tail call ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEENS0_5__ops10_Iter_predINS2_12RoiPredicateEEEET_SD_SD_T0_St26random_access_iterator_tag(ptr %7, ptr %9, i64 %.sroa.030.0.insert.insert, i64 %.sroa.332.8.insert.insert)
-  %21 = icmp eq ptr %20, %9
-  %.sroa.07.022.i.i = getelementptr inbounds i8, ptr %20, i64 28
+  %16 = tail call ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEENS0_5__ops10_Iter_predINS2_12RoiPredicateEEEET_SD_SD_T0_St26random_access_iterator_tag(ptr %7, ptr %9, i64 %.sroa.030.0.insert.insert, i64 %.sroa.332.8.insert.insert)
+  %17 = icmp eq ptr %16, %9
+  %.sroa.07.022.i.i = getelementptr inbounds i8, ptr %16, i64 28
   %.not23.i.i = icmp eq ptr %.sroa.07.022.i.i, %9
-  %or.cond35 = select i1 %21, i1 true, i1 %.not23.i.i
+  %or.cond35 = select i1 %17, i1 true, i1 %.not23.i.i
   br i1 %or.cond35, label %_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEENS2_12RoiPredicateEET_SA_SA_T0_.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %11, %_ZN9__gnu_cxx5__ops10_Iter_predIN2cv12RoiPredicateEEclINS_17__normal_iteratorIPNS2_8KeyPointESt6vectorIS7_SaIS7_EEEEEEbT_.exit.thread.i.i
   %.sroa.07.026.i.i = phi ptr [ %.sroa.07.0.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIN2cv12RoiPredicateEEclINS_17__normal_iteratorIPNS2_8KeyPointESt6vectorIS7_SaIS7_EEEEEEbT_.exit.thread.i.i ], [ %.sroa.07.022.i.i, %11 ]
-  %.sroa.013.125.i.i = phi ptr [ %.sroa.013.2.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIN2cv12RoiPredicateEEclINS_17__normal_iteratorIPNS2_8KeyPointESt6vectorIS7_SaIS7_EEEEEEbT_.exit.thread.i.i ], [ %20, %11 ]
-  %.pn24.i.i = phi ptr [ %.sroa.07.026.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIN2cv12RoiPredicateEEclINS_17__normal_iteratorIPNS2_8KeyPointESt6vectorIS7_SaIS7_EEEEEEbT_.exit.thread.i.i ], [ %20, %11 ]
-  %22 = load <4 x float>, ptr %.sroa.07.026.i.i, align 4
-  %23 = tail call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %22)
-  %24 = getelementptr inbounds i8, ptr %.pn24.i.i, i64 32
-  %25 = load <4 x float>, ptr %24, align 4
-  %26 = tail call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %25)
-  %.not.i.i.i.i.i = icmp slt i32 %23, %14
-  %27 = icmp sge i32 %23, %16
-  %or.cond.not21.i.i = or i1 %.not.i.i.i.i.i, %27
-  %.not8.i.i.i.i.i = icmp slt i32 %26, %15
-  %28 = icmp sge i32 %26, %18
-  %29 = or i1 %.not8.i.i.i.i.i, %28
-  %or.cond19.i.i = select i1 %or.cond.not21.i.i, i1 true, i1 %29
-  br i1 %or.cond19.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIN2cv12RoiPredicateEEclINS_17__normal_iteratorIPNS2_8KeyPointESt6vectorIS7_SaIS7_EEEEEEbT_.exit.thread.i.i, label %30
+  %.sroa.013.125.i.i = phi ptr [ %.sroa.013.2.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIN2cv12RoiPredicateEEclINS_17__normal_iteratorIPNS2_8KeyPointESt6vectorIS7_SaIS7_EEEEEEbT_.exit.thread.i.i ], [ %16, %11 ]
+  %.pn24.i.i = phi ptr [ %.sroa.07.026.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIN2cv12RoiPredicateEEclINS_17__normal_iteratorIPNS2_8KeyPointESt6vectorIS7_SaIS7_EEEEEEbT_.exit.thread.i.i ], [ %16, %11 ]
+  %18 = load <4 x float>, ptr %.sroa.07.026.i.i, align 4
+  %19 = tail call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %18)
+  %20 = getelementptr inbounds i8, ptr %.pn24.i.i, i64 32
+  %21 = load <4 x float>, ptr %20, align 4
+  %22 = tail call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %21)
+  %.not.i.i.i.i.i = icmp slt i32 %19, %2
+  %23 = icmp sge i32 %19, %12
+  %or.cond.not21.i.i = or i1 %.not.i.i.i.i.i, %23
+  %.not8.i.i.i.i.i = icmp slt i32 %22, %2
+  %24 = icmp sge i32 %22, %13
+  %25 = or i1 %.not8.i.i.i.i.i, %24
+  %or.cond19.i.i = select i1 %or.cond.not21.i.i, i1 true, i1 %25
+  br i1 %or.cond19.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIN2cv12RoiPredicateEEclINS_17__normal_iteratorIPNS2_8KeyPointESt6vectorIS7_SaIS7_EEEEEEbT_.exit.thread.i.i, label %26
 
-30:                                               ; preds = %.lr.ph.i.i
+26:                                               ; preds = %.lr.ph.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.013.125.i.i, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.07.026.i.i, i64 28, i1 false)
-  %31 = getelementptr inbounds i8, ptr %.sroa.013.125.i.i, i64 28
+  %27 = getelementptr inbounds i8, ptr %.sroa.013.125.i.i, i64 28
   br label %_ZN9__gnu_cxx5__ops10_Iter_predIN2cv12RoiPredicateEEclINS_17__normal_iteratorIPNS2_8KeyPointESt6vectorIS7_SaIS7_EEEEEEbT_.exit.thread.i.i
 
-_ZN9__gnu_cxx5__ops10_Iter_predIN2cv12RoiPredicateEEclINS_17__normal_iteratorIPNS2_8KeyPointESt6vectorIS7_SaIS7_EEEEEEbT_.exit.thread.i.i: ; preds = %30, %.lr.ph.i.i
-  %.sroa.013.2.i.i = phi ptr [ %31, %30 ], [ %.sroa.013.125.i.i, %.lr.ph.i.i ]
+_ZN9__gnu_cxx5__ops10_Iter_predIN2cv12RoiPredicateEEclINS_17__normal_iteratorIPNS2_8KeyPointESt6vectorIS7_SaIS7_EEEEEEbT_.exit.thread.i.i: ; preds = %26, %.lr.ph.i.i
+  %.sroa.013.2.i.i = phi ptr [ %27, %26 ], [ %.sroa.013.125.i.i, %.lr.ph.i.i ]
   %.sroa.07.0.i.i = getelementptr inbounds i8, ptr %.sroa.07.026.i.i, i64 28
   %.not.i.i18 = icmp eq ptr %.sroa.07.0.i.i, %9
   br i1 %.not.i.i18, label %_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEENS2_12RoiPredicateEET_SA_SA_T0_.exit, label %.lr.ph.i.i, !llvm.loop !8
 
 _ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEENS2_12RoiPredicateEET_SA_SA_T0_.exit: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIN2cv12RoiPredicateEEclINS_17__normal_iteratorIPNS2_8KeyPointESt6vectorIS7_SaIS7_EEEEEEbT_.exit.thread.i.i, %11
-  %.sroa.013.0.i.i = phi ptr [ %20, %11 ], [ %.sroa.013.2.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIN2cv12RoiPredicateEEclINS_17__normal_iteratorIPNS2_8KeyPointESt6vectorIS7_SaIS7_EEEEEEbT_.exit.thread.i.i ]
-  %32 = load ptr, ptr %8, align 8
-  %.not.i.i19 = icmp eq ptr %.sroa.013.0.i.i, %32
+  %.sroa.013.0.i.i = phi ptr [ %16, %11 ], [ %.sroa.013.2.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIN2cv12RoiPredicateEEclINS_17__normal_iteratorIPNS2_8KeyPointESt6vectorIS7_SaIS7_EEEEEEbT_.exit.thread.i.i ]
+  %28 = load ptr, ptr %8, align 8
+  %.not.i.i19 = icmp eq ptr %.sroa.013.0.i.i, %28
   br i1 %.not.i.i19, label %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE5clearEv.exit, label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEENS2_12RoiPredicateEET_SA_SA_T0_.exit
-  %33 = load ptr, ptr %0, align 8
-  %34 = ptrtoint ptr %.sroa.013.0.i.i to i64
-  %35 = ptrtoint ptr %33 to i64
-  %36 = sub i64 %34, %35
-  %37 = getelementptr inbounds i8, ptr %33, i64 %36
+  %29 = load ptr, ptr %0, align 8
+  %30 = ptrtoint ptr %.sroa.013.0.i.i to i64
+  %31 = ptrtoint ptr %29 to i64
+  %32 = sub i64 %30, %31
+  %33 = getelementptr inbounds i8, ptr %29, i64 %32
   br label %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE5clearEv.exit.sink.split
 
 _ZNSt6vectorIN2cv8KeyPointESaIS1_EE5clearEv.exit.sink.split: ; preds = %10, %._crit_edge.i.i
-  %.sink = phi ptr [ %37, %._crit_edge.i.i ], [ %7, %10 ]
+  %.sink = phi ptr [ %33, %._crit_edge.i.i ], [ %7, %10 ]
   store ptr %.sink, ptr %8, align 8
   br label %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE5clearEv.exit
 
@@ -5379,12 +5374,6 @@ declare i64 @llvm.umax.i64(i64, i64) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #17
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #17
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #17
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }

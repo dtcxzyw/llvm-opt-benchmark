@@ -3104,12 +3104,12 @@ _ZN5arrowL15ShiftArrayRightEPjll.exit.i:          ; preds = %for.end.i145.i, %fo
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %result_array.i152.i)
   %sub1.i.i.i = add i64 %sub.i, -9
   %cmp18.i.i.i = icmp sgt i64 %sub1.i.i.i, -1
-  br i1 %cmp18.i.i.i, label %for.body.i.i159.i, label %for.end.i.i153.i
+  br i1 %cmp18.i.i.i, label %for.body.i.i159.i, label %for.body8.preheader.i.i.i
 
 for.cond.i.i.i:                                   ; preds = %for.body.i.i159.i
   %dec.i.i161.i = add nsw i64 %i.019.i.i.i, -1
   %cmp.i.i162.i = icmp sgt i64 %i.019.i.i.i, 0
-  br i1 %cmp.i.i162.i, label %for.body.i.i159.i, label %for.end.i.i153.i, !llvm.loop !24
+  br i1 %cmp.i.i162.i, label %for.body.i.i159.i, label %for.body8.preheader.i.i.i, !llvm.loop !24
 
 for.body.i.i159.i:                                ; preds = %_ZN5arrowL15ShiftArrayRightEPjll.exit.i, %for.cond.i.i.i
   %i.019.i.i.i = phi i64 [ %dec.i.i161.i, %for.cond.i.i.i ], [ %sub1.i.i.i, %_ZN5arrowL15ShiftArrayRightEPjll.exit.i ]
@@ -3118,10 +3118,7 @@ for.body.i.i159.i:                                ; preds = %_ZN5arrowL15ShiftAr
   %cmp2.not.i.i160.i = icmp eq i32 %45, 0
   br i1 %cmp2.not.i.i160.i, label %for.cond.i.i.i, label %_ZN5arrowL14BuildFromArrayEPNS_15BasicDecimal256EPKjl.exit.i
 
-for.end.i.i153.i:                                 ; preds = %for.cond.i.i.i, %_ZN5arrowL15ShiftArrayRightEPjll.exit.i
-  br i1 %cmp23243.i, label %for.body8.preheader.i.i.i, label %for.body20.preheader.i.i.i
-
-for.body8.preheader.i.i.i:                        ; preds = %for.end.i.i153.i
+for.body8.preheader.i.i.i:                        ; preds = %for.cond.i.i.i, %_ZN5arrowL15ShiftArrayRightEPjll.exit.i
   %sub3.i.i.i = add nsw i64 %sub.i, -1
   br label %for.body8.i.i.i
 
@@ -3130,9 +3127,8 @@ for.cond18.preheader.i.i.i:                       ; preds = %cond.end.i.i.i, %co
   %cmp1923.i.i.i = icmp samesign ult i64 %i4.0.lcssa.i.i.i, 4
   br i1 %cmp1923.i.i.i, label %for.body20.preheader.i.i.i, label %if.end133.i
 
-for.body20.preheader.i.i.i:                       ; preds = %for.cond18.preheader.i.i.i, %for.end.i.i153.i
-  %i4.0.lcssa28.i.i.i = phi i64 [ %i4.0.lcssa.i.i.i, %for.cond18.preheader.i.i.i ], [ 0, %for.end.i.i153.i ]
-  %46 = shl nuw nsw i64 %i4.0.lcssa28.i.i.i, 3
+for.body20.preheader.i.i.i:                       ; preds = %for.cond18.preheader.i.i.i
+  %46 = shl nuw nsw i64 %i4.0.lcssa.i.i.i, 3
   %scevgep.i.i.i = getelementptr i8, ptr %result_array.i152.i, i64 %46
   %47 = sub nuw nsw i64 32, %46
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep.i.i.i, i8 0, i64 %47, i1 false)

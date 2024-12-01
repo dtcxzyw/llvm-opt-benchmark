@@ -818,19 +818,15 @@ cond.end:                                         ; preds = %cond.false, %cond.t
 if.end:                                           ; preds = %cond.end
   %sub = sub nsw i32 %cond, %conv
   %add = add nsw i32 %sub, 1
-  %cmp9 = icmp slt i32 %sub, 0
-  br i1 %cmp9, label %if.then12, label %lor.lhs.false
-
-lor.lhs.false:                                    ; preds = %if.end
   %call11 = tail call i32 @lua_checkstack(ptr noundef %L, i32 noundef %add) #8
   %tobool.not = icmp eq i32 %call11, 0
   br i1 %tobool.not, label %if.then12, label %if.end14
 
-if.then12:                                        ; preds = %lor.lhs.false, %if.end
+if.then12:                                        ; preds = %if.end
   %call13 = tail call i32 (ptr, ptr, ...) @luaL_error(ptr noundef %L, ptr noundef nonnull @.str.63) #8
   br label %cleanup
 
-if.end14:                                         ; preds = %lor.lhs.false
+if.end14:                                         ; preds = %if.end
   tail call void @lua_rawgeti(ptr noundef %L, i32 noundef 1, i32 noundef %conv) #8
   %cmp1535 = icmp slt i32 %conv, %cond
   br i1 %cmp1535, label %while.body, label %cleanup

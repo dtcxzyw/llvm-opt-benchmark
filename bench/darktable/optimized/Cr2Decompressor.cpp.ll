@@ -541,7 +541,7 @@ define weak_odr hidden void @_ZN8rawspeed15Cr2DecompressorINS_20PrefixCodeLUTDec
 38:                                               ; preds = %73, %48, %36
   %39 = landingpad { ptr, i32 }
           cleanup
-  br label %310
+  br label %307
 
 40:                                               ; preds = %8
   %41 = getelementptr inbounds i8, ptr %32, i64 584
@@ -640,7 +640,7 @@ define weak_odr hidden void @_ZN8rawspeed15Cr2DecompressorINS_20PrefixCodeLUTDec
 99:                                               ; preds = %193, %128
   %100 = landingpad { ptr, i32 }
           cleanup
-  br label %310
+  br label %307
 
 101:                                              ; preds = %92
   store i32 %97, ptr %20, align 4, !tbaa !106
@@ -719,7 +719,7 @@ define weak_odr hidden void @_ZN8rawspeed15Cr2DecompressorINS_20PrefixCodeLUTDec
 146:                                              ; preds = %144
   %147 = landingpad { ptr, i32 }
           cleanup
-  br label %310
+  br label %307
 
 148:                                              ; preds = %133
   %149 = load ptr, ptr %26, align 8, !tbaa !12
@@ -767,7 +767,7 @@ define weak_odr hidden void @_ZN8rawspeed15Cr2DecompressorINS_20PrefixCodeLUTDec
 174:                                              ; preds = %172
   %175 = landingpad { ptr, i32 }
           cleanup
-  br label %310
+  br label %307
 
 176:                                              ; preds = %181, %.loopexit16
   %177 = phi i32 [ %163, %.loopexit16 ], [ %182, %181 ]
@@ -780,7 +780,7 @@ define weak_odr hidden void @_ZN8rawspeed15Cr2DecompressorINS_20PrefixCodeLUTDec
 179:                                              ; preds = %176
   %180 = landingpad { ptr, i32 }
           cleanup
-  br label %310
+  br label %307
 
 181:                                              ; preds = %.loopexit16
   store i32 %165, ptr %162, align 8, !tbaa !11
@@ -844,13 +844,13 @@ define weak_odr hidden void @_ZN8rawspeed15Cr2DecompressorINS_20PrefixCodeLUTDec
   %221 = select i1 %219, i32 0, i32 %203
   br label %222
 
-222:                                              ; preds = %276, %218
-  %223 = phi i64 [ %243, %276 ], [ %209, %218 ]
-  %224 = phi i64 [ %280, %276 ], [ 0, %218 ]
-  %225 = phi i32 [ %289, %276 ], [ %220, %218 ]
-  %226 = phi i32 [ %288, %276 ], [ %221, %218 ]
-  %227 = phi i32 [ %285, %276 ], [ %214, %218 ]
-  %228 = phi i32 [ %284, %276 ], [ %213, %218 ]
+222:                                              ; preds = %272, %218
+  %223 = phi i64 [ %243, %272 ], [ %209, %218 ]
+  %224 = phi i64 [ %277, %272 ], [ 0, %218 ]
+  %225 = phi i32 [ %286, %272 ], [ %220, %218 ]
+  %226 = phi i32 [ %285, %272 ], [ %221, %218 ]
+  %227 = phi i32 [ %282, %272 ], [ %214, %218 ]
+  %228 = phi i32 [ %281, %272 ], [ %213, %218 ]
   %229 = icmp ugt i32 %126, %228
   tail call void @llvm.assume(i1 %229)
   %230 = add nuw nsw i32 %228, 1
@@ -893,98 +893,96 @@ define weak_odr hidden void @_ZN8rawspeed15Cr2DecompressorINS_20PrefixCodeLUTDec
 261:                                              ; preds = %.loopexit
   %262 = landingpad { ptr, i32 }
           cleanup
-  br label %310
+  br label %307
 
 263:                                              ; preds = %256, %222
   %264 = add nsw i32 %234, %226
-  %265 = add nuw nsw i32 %239, %225
-  %266 = icmp sle i32 %264, %97
-  %267 = icmp sle i32 %265, %89
-  %268 = select i1 %266, i1 %267, i1 false
-  br i1 %268, label %276, label %269
+  %.not = icmp sgt i32 %264, %97
+  br i1 %.not, label %265, label %272
 
-269:                                              ; preds = %263
-  %270 = icmp slt i32 %226, %97
-  %271 = icmp slt i32 %225, %89
-  %272 = and i1 %271, %270
-  br i1 %272, label %.loopexit, label %.loopexit15
+265:                                              ; preds = %263
+  %266 = icmp slt i32 %226, %97
+  %267 = icmp slt i32 %225, %89
+  %268 = and i1 %267, %266
+  br i1 %268, label %.loopexit, label %.loopexit15
 
 .thread:                                          ; preds = %199
-  %273 = icmp sgt i32 %97, 0
-  br i1 %273, label %.loopexit, label %.thread14
+  %269 = icmp sgt i32 %97, 0
+  br i1 %269, label %.loopexit, label %.thread14
 
-.loopexit:                                        ; preds = %256, %.thread, %269
-  %274 = phi ptr [ @.str.14, %269 ], [ @.str.14, %.thread ], [ @.str.13, %256 ]
-  invoke void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_19RawDecoderExceptionEEEvPKcz(ptr noundef nonnull %274, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed15Cr2DecompressorINS_20PrefixCodeLUTDecoderINS_15BaselineCodeTagENS_23PrefixCodeLookupDecoderIS2_EEEEEC2ENS_8RawImageESt5tupleIJiiiEENS_8iPoint2DENS_14Cr2SliceWidthsESt6vectorINS6_18PerComponentRecipeESaISD_EENS_10Array1DRefIKhEE) #12
-          to label %275 unwind label %261
+.loopexit:                                        ; preds = %256, %.thread, %265
+  %270 = phi ptr [ @.str.14, %265 ], [ @.str.14, %.thread ], [ @.str.13, %256 ]
+  invoke void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_19RawDecoderExceptionEEEvPKcz(ptr noundef nonnull %270, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed15Cr2DecompressorINS_20PrefixCodeLUTDecoderINS_15BaselineCodeTagENS_23PrefixCodeLookupDecoderIS2_EEEEEC2ENS_8RawImageESt5tupleIJiiiEENS_8iPoint2DENS_14Cr2SliceWidthsESt6vectorINS6_18PerComponentRecipeESaISD_EENS_10Array1DRefIKhEE) #12
+          to label %271 unwind label %261
 
-275:                                              ; preds = %.loopexit
+271:                                              ; preds = %.loopexit
   unreachable
 
-276:                                              ; preds = %263
-  %277 = zext nneg i32 %225 to i64
-  %278 = shl nuw nsw i64 %277, 32
-  %279 = zext i32 %226 to i64
-  %280 = or disjoint i64 %278, %279
-  %281 = add nuw nsw i32 %239, %227
-  %282 = icmp sle i32 %281, %118
-  tail call void @llvm.assume(i1 %282)
-  %283 = icmp eq i32 %281, %118
-  %284 = select i1 %283, i32 %230, i32 %228
-  %285 = select i1 %283, i32 0, i32 %281
-  %286 = icmp eq i32 %265, %89
-  %287 = select i1 %286, i32 %234, i32 0
-  %288 = add nsw i32 %287, %226
-  %289 = select i1 %286, i32 0, i32 %265
-  %290 = icmp eq i32 %284, %126
-  %291 = icmp eq i32 %285, 0
-  %292 = and i1 %290, %291
-  br i1 %292, label %.loopexit15, label %222, !llvm.loop !145
+272:                                              ; preds = %263
+  %273 = add nuw nsw i32 %239, %225
+  %274 = zext nneg i32 %225 to i64
+  %275 = shl nuw nsw i64 %274, 32
+  %276 = zext i32 %226 to i64
+  %277 = or disjoint i64 %275, %276
+  %278 = add nuw nsw i32 %239, %227
+  %279 = icmp sle i32 %278, %118
+  tail call void @llvm.assume(i1 %279)
+  %280 = icmp eq i32 %278, %118
+  %281 = select i1 %280, i32 %230, i32 %228
+  %282 = select i1 %280, i32 0, i32 %278
+  %283 = icmp eq i32 %273, %89
+  %284 = select i1 %283, i32 %234, i32 0
+  %285 = add nsw i32 %284, %226
+  %286 = select i1 %283, i32 0, i32 %273
+  %287 = icmp eq i32 %281, %126
+  %288 = icmp eq i32 %282, 0
+  %289 = and i1 %287, %288
+  br i1 %289, label %.loopexit15, label %222, !llvm.loop !145
 
-293:                                              ; preds = %.thread14
-  %294 = landingpad { ptr, i32 }
+290:                                              ; preds = %.thread14
+  %291 = landingpad { ptr, i32 }
           cleanup
-  br label %310
+  br label %307
 
-.loopexit15:                                      ; preds = %276, %269, %211
-  %295 = phi i64 [ %209, %211 ], [ %223, %269 ], [ %243, %276 ]
-  %296 = phi i64 [ 0, %211 ], [ %224, %269 ], [ %280, %276 ]
-  %297 = add nuw i64 %296, %295
-  %298 = lshr i64 %296, 32
-  %299 = trunc nuw nsw i64 %298 to i32
-  %300 = lshr i64 %295, 32
-  %301 = trunc nuw nsw i64 %300 to i32
-  %302 = add nuw nsw i32 %299, %301
-  %303 = trunc i64 %297 to i32
-  %304 = icmp eq i32 %97, %303
-  %305 = icmp eq i32 %302, %89
-  %306 = select i1 %304, i1 %305, i1 false
-  br i1 %306, label %309, label %.thread14
+.loopexit15:                                      ; preds = %272, %265, %211
+  %292 = phi i64 [ %209, %211 ], [ %223, %265 ], [ %243, %272 ]
+  %293 = phi i64 [ 0, %211 ], [ %224, %265 ], [ %277, %272 ]
+  %294 = add nuw i64 %293, %292
+  %295 = lshr i64 %293, 32
+  %296 = trunc nuw nsw i64 %295 to i32
+  %297 = lshr i64 %292, 32
+  %298 = trunc nuw nsw i64 %297 to i32
+  %299 = add nuw nsw i32 %296, %298
+  %300 = trunc i64 %294 to i32
+  %301 = icmp eq i32 %97, %300
+  %302 = icmp eq i32 %299, %89
+  %303 = select i1 %301, i1 %302, i1 false
+  br i1 %303, label %306, label %.thread14
 
 .thread14:                                        ; preds = %.thread, %.loopexit15, %196
-  %307 = phi ptr [ @.str.16, %.loopexit15 ], [ @.str.15, %196 ], [ @.str.15, %.thread ]
-  invoke void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_19RawDecoderExceptionEEEvPKcz(ptr noundef nonnull %307, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed15Cr2DecompressorINS_20PrefixCodeLUTDecoderINS_15BaselineCodeTagENS_23PrefixCodeLookupDecoderIS2_EEEEEC2ENS_8RawImageESt5tupleIJiiiEENS_8iPoint2DENS_14Cr2SliceWidthsESt6vectorINS6_18PerComponentRecipeESaISD_EENS_10Array1DRefIKhEE) #12
-          to label %308 unwind label %293
+  %304 = phi ptr [ @.str.16, %.loopexit15 ], [ @.str.15, %196 ], [ @.str.15, %.thread ]
+  invoke void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_19RawDecoderExceptionEEEvPKcz(ptr noundef nonnull %304, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed15Cr2DecompressorINS_20PrefixCodeLUTDecoderINS_15BaselineCodeTagENS_23PrefixCodeLookupDecoderIS2_EEEEEC2ENS_8RawImageESt5tupleIJiiiEENS_8iPoint2DENS_14Cr2SliceWidthsESt6vectorINS6_18PerComponentRecipeESaISD_EENS_10Array1DRefIKhEE) #12
+          to label %305 unwind label %290
 
-308:                                              ; preds = %.thread14
+305:                                              ; preds = %.thread14
   unreachable
 
-309:                                              ; preds = %.loopexit15
+306:                                              ; preds = %.loopexit15
   ret void
 
-310:                                              ; preds = %293, %261, %179, %174, %146, %99, %38
-  %311 = phi { ptr, i32 } [ %39, %38 ], [ %100, %99 ], [ %147, %146 ], [ %175, %174 ], [ %180, %179 ], [ %294, %293 ], [ %262, %261 ]
-  %312 = load ptr, ptr %25, align 8, !tbaa !147
-  %313 = icmp eq ptr %312, null
-  br i1 %313, label %315, label %314
+307:                                              ; preds = %290, %261, %179, %174, %146, %99, %38
+  %308 = phi { ptr, i32 } [ %39, %38 ], [ %100, %99 ], [ %147, %146 ], [ %175, %174 ], [ %180, %179 ], [ %291, %290 ], [ %262, %261 ]
+  %309 = load ptr, ptr %25, align 8, !tbaa !147
+  %310 = icmp eq ptr %309, null
+  br i1 %310, label %312, label %311
 
-314:                                              ; preds = %310
-  tail call void @_ZdlPv(ptr noundef nonnull %312) #18
-  br label %315
+311:                                              ; preds = %307
+  tail call void @_ZdlPv(ptr noundef nonnull %309) #18
+  br label %312
 
-315:                                              ; preds = %314, %310
+312:                                              ; preds = %311, %307
   tail call void @_ZN8rawspeed8RawImageD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #19
-  resume { ptr, i32 } %311
+  resume { ptr, i32 } %308
 }
 
 declare i32 @__gxx_personality_v0(...)

@@ -1010,10 +1010,9 @@ define internal fastcc void @_ZN2cvL15calcPixelCostBTERKNS_3MatES2_iiiPsPhPKhii(
   %24 = add i32 %23, %.sroa.speculated465
   %25 = add nuw i32 %20, %.sroa.speculated465
   %26 = sub i32 %25, %4
-  %.sroa.speculated440 = tail call i32 @llvm.smax.i32(i32 %26, i32 0)
   %27 = sub i32 %24, %3
   %.sroa.speculated427 = tail call i32 @llvm.smin.i32(i32 %12, i32 %27)
-  %28 = sub nsw i32 %.sroa.speculated427, %.sroa.speculated440
+  %28 = sub nsw i32 %.sroa.speculated427, %26
   %29 = getelementptr inbounds i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds i8, ptr %0, i64 72
@@ -1086,7 +1085,7 @@ define internal fastcc void @_ZN2cvL15calcPixelCostBTERKNS_3MatES2_iiiPsPhPKhii(
   %82 = add nsw i32 %81, -1
   %83 = icmp slt i32 %2, %82
   %84 = select i1 %83, i32 %77, i32 0
-  %.sroa.speculated449 = tail call i32 @llvm.umin.i32(i32 %.sroa.speculated440, i32 %25)
+  %.sroa.speculated449 = tail call i32 @llvm.umin.i32(i32 %26, i32 %25)
   %.sroa.speculated433 = tail call i32 @llvm.smax.i32(i32 %24, i32 %.sroa.speculated427)
   %85 = add i32 %.sroa.speculated433, 1
   %86 = tail call i32 @llvm.smax.i32(i32 %.sroa.speculated449, i32 2)
@@ -1474,8 +1473,8 @@ define internal fastcc void @_ZN2cvL15calcPixelCostBTERKNS_3MatES2_iiiPsPhPKhii(
   %386 = sext i32 %385 to i64
   %387 = sub nsw i64 0, %386
   %388 = getelementptr inbounds i16, ptr %5, i64 %387
-  %389 = sub nsw i32 %12, %.sroa.speculated440
-  %390 = icmp slt i32 %.sroa.speculated440, %.sroa.speculated427
+  %389 = sub nsw i32 %12, %26
+  %390 = icmp slt i32 %26, %.sroa.speculated427
   %invariant.op554 = add i32 %12, %28
   %391 = icmp slt i32 %20, %23
   %392 = icmp slt i32 %3, %4

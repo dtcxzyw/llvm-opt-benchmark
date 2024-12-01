@@ -109993,12 +109993,12 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs3CRSEEEC2ENS0_30i_promise_i
           to label %282 unwind label %2042
 
 282:                                              ; preds = %281, %244, %257, %233
-  %.merged531 = phi { ptr, i32 } [ %.pn407.pn744, %281 ], [ %258, %257 ], [ %.pn405, %244 ], [ %.pn, %233 ]
+  %.merged534 = phi { ptr, i32 } [ %.pn407.pn744, %281 ], [ %258, %257 ], [ %.pn405, %244 ], [ %.pn, %233 ]
   call void @_ZNSt10shared_ptrIN5osgeo4proj3crs3CRSEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #39
   br label %283
 
 283:                                              ; preds = %282, %227
-  %.merged530 = phi { ptr, i32 } [ %.merged531, %282 ], [ %228, %227 ]
+  %.merged533 = phi { ptr, i32 } [ %.merged534, %282 ], [ %228, %227 ]
   call void @_ZN5osgeo4proj4util15BaseObjectNNPtrD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #39
   br label %286
 
@@ -110023,7 +110023,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs3CRSEEEC2ENS0_30i_promise_i
   br label %_ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES2_IhSaIhEEED2Ev.exit582
 
 286:                                              ; preds = %.loopexit859, %.loopexit.split-lp860, %283
-  %.merged529 = phi { ptr, i32 } [ %.merged530, %283 ], [ %lpad.loopexit861, %.loopexit859 ], [ %lpad.loopexit.split-lp862, %.loopexit.split-lp860 ]
+  %.merged532 = phi { ptr, i32 } [ %.merged533, %283 ], [ %lpad.loopexit861, %.loopexit859 ], [ %lpad.loopexit.split-lp862, %.loopexit.split-lp860 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #39
   br label %2041
 
@@ -110351,7 +110351,7 @@ _ZN5osgeo4proj2io10JSONParserD2Ev.exit:           ; preds = %386, %404, %417, %_
   br label %428
 
 428:                                              ; preds = %385, %426, %_ZNSt8functionIFbiN8nlohmann6detail13parse_event_tERNS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEEEEED2Ev.exit574
-  %.merged532 = phi { ptr, i32 } [ %427, %426 ], [ %.pn410, %385 ], [ %361, %_ZNSt8functionIFbiN8nlohmann6detail13parse_event_tERNS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEEEEED2Ev.exit574 ]
+  %.merged529 = phi { ptr, i32 } [ %427, %426 ], [ %.pn410, %385 ], [ %361, %_ZNSt8functionIFbiN8nlohmann6detail13parse_event_tERNS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEEEEED2Ev.exit574 ]
   call void @_ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES2_IhSaIhEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %17) #39
   br label %2041
 
@@ -114521,7 +114521,7 @@ _ZN5osgeo4proj4util15BaseObjectNNPtrC2INS0_3crs11CompoundCRSEEEON7dropbox6oxygen
   br label %2039
 
 _ZNSt6vectorIN5osgeo4proj2io16AuthorityFactory10ObjectTypeESaIS4_EED2Ev.exit721: ; preds = %2000, %1997, %.thread805, %.thread809, %1993, %1942
-  %.merged534 = phi { ptr, i32 } [ %1994, %1993 ], [ %.pn432.pn.pn.pn.pn.pn.pn.pn, %1942 ], [ %1996, %.thread809 ], [ %1995, %.thread805 ], [ %1998, %1997 ], [ %1998, %2000 ]
+  %.merged531 = phi { ptr, i32 } [ %1994, %1993 ], [ %.pn432.pn.pn.pn.pn.pn.pn.pn, %1942 ], [ %1996, %.thread809 ], [ %1995, %.thread805 ], [ %1998, %1997 ], [ %1998, %2000 ]
   call void @_ZNSt10shared_ptrIN5osgeo4proj3crs11CompoundCRSEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %159) #39
   call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2io16AuthorityFactoryEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %155) #39
   br label %2040
@@ -114556,7 +114556,7 @@ _ZNSt6vectorIN5osgeo4proj2io16AuthorityFactory10ObjectTypeESaIS4_EED2Ev.exit721:
   br label %_ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES2_IhSaIhEEED2Ev.exit582
 
 2040:                                             ; preds = %1737, %1777, %1739, %2037, %_ZNSt6vectorIN5osgeo4proj2io16AuthorityFactory10ObjectTypeESaIS4_EED2Ev.exit721, %1906, %1826, %1792, %1741, %1709, %1616, %1609, %983, %976, %847, %610, %608
-  %.merged533 = phi { ptr, i32 } [ %.pn502.pn.pn, %1609 ], [ %611, %610 ], [ %984, %983 ], [ %.pn455.pn, %1709 ], [ %1617, %1616 ], [ %1742, %1741 ], [ %1740, %1739 ], [ %1738, %1737 ], [ %.pn445.pn.pn.pn, %1792 ], [ %1827, %1826 ], [ %2038, %2037 ], [ %.merged534, %_ZNSt6vectorIN5osgeo4proj2io16AuthorityFactory10ObjectTypeESaIS4_EED2Ev.exit721 ], [ %1907, %1906 ], [ %1778, %1777 ], [ %.pn523.pn, %847 ], [ %609, %608 ], [ %.pn418.pn.pn.pn.pn.pn.pn.pn.pn.pn, %976 ]
+  %.merged530 = phi { ptr, i32 } [ %.pn502.pn.pn, %1609 ], [ %611, %610 ], [ %984, %983 ], [ %.pn455.pn, %1709 ], [ %1617, %1616 ], [ %1742, %1741 ], [ %1740, %1739 ], [ %1738, %1737 ], [ %.pn445.pn.pn.pn, %1792 ], [ %1827, %1826 ], [ %2038, %2037 ], [ %.merged531, %_ZNSt6vectorIN5osgeo4proj2io16AuthorityFactory10ObjectTypeESaIS4_EED2Ev.exit721 ], [ %1907, %1906 ], [ %1778, %1777 ], [ %.pn523.pn, %847 ], [ %609, %608 ], [ %.pn418.pn.pn.pn.pn.pn.pn.pn.pn.pn, %976 ]
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %32) #39
   br label %2041
 
@@ -114564,7 +114564,7 @@ _ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_trai
   ret void
 
 2041:                                             ; preds = %2040, %594, %576, %545, %460, %453, %428, %286, %186
-  %.merged = phi { ptr, i32 } [ %187, %186 ], [ %461, %460 ], [ %546, %545 ], [ %577, %576 ], [ %.merged533, %2040 ], [ %595, %594 ], [ %.pn412, %453 ], [ %.merged532, %428 ], [ %.merged529, %286 ]
+  %.merged = phi { ptr, i32 } [ %187, %186 ], [ %461, %460 ], [ %546, %545 ], [ %577, %576 ], [ %.merged530, %2040 ], [ %595, %594 ], [ %.pn412, %453 ], [ %.merged529, %428 ], [ %.merged532, %286 ]
   resume { ptr, i32 } %.merged
 
 2042:                                             ; preds = %844, %834, %385, %281, %244
