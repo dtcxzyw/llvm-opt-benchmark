@@ -4,7 +4,7 @@ import subprocess
 import os
 import heapq
 
-max_diff_per_file = 500
+max_diff_per_file = 1000
 max_diff_total = 15000
 max_diff_size_total = 900_000
 max_file_total = 200
