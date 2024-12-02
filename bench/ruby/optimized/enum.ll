@@ -10895,19 +10895,19 @@ rb_float_new_inline.exit:                         ; preds = %46, %50, %52
   %55 = call i64 @rb_funcallv(i64 noundef %.0.i46, i64 noundef 43, i32 noundef 1, ptr noundef nonnull %3) #13
   store i64 %55, ptr %1, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  br label %95
+  br label %83
 
 rb_float_value_inline.exit:                       ; preds = %28, %22, %21, %36, %34, %rb_type.exit.thread54
   %.041 = phi double [ %37, %36 ], [ %35, %34 ], [ %33, %rb_type.exit.thread54 ], [ %31, %28 ], [ %27, %22 ], [ 0.000000e+00, %21 ]
   %56 = getelementptr inbounds i8, ptr %1, i64 24
   %57 = load double, ptr %56, align 8
   %58 = fcmp uno double %57, 0.000000e+00
-  br i1 %58, label %95, label %59
+  br i1 %58, label %83, label %59
 
 59:                                               ; preds = %rb_float_value_inline.exit
   %60 = tail call double @llvm.fabs.f64(double %.041)
   %61 = fcmp ueq double %60, 0x7FF0000000000000
-  br i1 %61, label %62, label %83
+  br i1 %61, label %62, label %71
 
 62:                                               ; preds = %59
   %63 = fcmp oeq double %60, 0x7FF0000000000000
@@ -10924,59 +10924,37 @@ rb_float_value_inline.exit:                       ; preds = %28, %22, %21, %36, 
   br i1 %.not, label %rb_float_new_inline.exit50, label %69
 
 69:                                               ; preds = %66
-  %cond.i47 = icmp eq i64 %68, 3458764513820540928
-  br i1 %cond.i47, label %81, label %70
-
-70:                                               ; preds = %69
-  %71 = lshr i64 %68, 60
-  %72 = trunc nuw nsw i64 %71 to i32
-  %73 = and i32 %72, 7
-  %74 = add nsw i32 %73, -3
-  %.not7.i48 = icmp ult i32 %74, 2
-  br i1 %.not7.i48, label %75, label %79
-
-75:                                               ; preds = %70
-  %76 = tail call noundef i64 @llvm.fshl.i64(i64 range(i64 3458764513820540929, 3458764513820540928) %68, i64 range(i64 3458764513820540929, 3458764513820540928) %68, i64 3)
-  %77 = and i64 %76, -4
-  %78 = or disjoint i64 %77, 2
+  %70 = tail call i64 @rb_float_new_in_heap(double noundef %57) #13
   br label %rb_float_new_inline.exit50
 
-79:                                               ; preds = %70
-  %80 = icmp eq i64 %68, 0
-  br i1 %80, label %rb_float_new_inline.exit50, label %81
-
-81:                                               ; preds = %79, %69
-  %82 = tail call i64 @rb_float_new_in_heap(double noundef %57) #13
-  br label %rb_float_new_inline.exit50
-
-rb_float_new_inline.exit50:                       ; preds = %81, %79, %75, %66, %62
-  %.1 = phi double [ %.041, %66 ], [ %.041, %62 ], [ 0x7FF8000000000000, %75 ], [ 0x7FF8000000000000, %79 ], [ 0x7FF8000000000000, %81 ]
-  %.0 = phi i64 [ %0, %66 ], [ %0, %62 ], [ %78, %75 ], [ -9223372036854775806, %79 ], [ %82, %81 ]
+rb_float_new_inline.exit50:                       ; preds = %69, %66, %62
+  %.1 = phi double [ %.041, %66 ], [ %.041, %62 ], [ 0x7FF8000000000000, %69 ]
+  %.0 = phi i64 [ %0, %66 ], [ %0, %62 ], [ %70, %69 ]
   store i64 %.0, ptr %1, align 8
   store double %.1, ptr %56, align 8
-  br label %95
+  br label %83
 
-83:                                               ; preds = %59
-  %84 = tail call double @llvm.fabs.f64(double %57)
-  %85 = fcmp oeq double %84, 0x7FF0000000000000
-  br i1 %85, label %95, label %86
+71:                                               ; preds = %59
+  %72 = tail call double @llvm.fabs.f64(double %57)
+  %73 = fcmp oeq double %72, 0x7FF0000000000000
+  br i1 %73, label %83, label %74
 
-86:                                               ; preds = %83
-  %87 = getelementptr inbounds i8, ptr %1, i64 32
-  %88 = load double, ptr %87, align 8
-  %89 = fadd double %.041, %57
-  %90 = fcmp ult double %84, %60
-  %91 = fsub double %57, %89
-  %92 = fadd double %.041, %91
-  %93 = fsub double %.041, %89
-  %94 = fadd double %57, %93
-  %.pn = select i1 %90, double %94, double %92
-  %.040 = fadd double %.pn, %88
-  store double %89, ptr %56, align 8
-  store double %.040, ptr %87, align 8
-  br label %95
+74:                                               ; preds = %71
+  %75 = getelementptr inbounds i8, ptr %1, i64 32
+  %76 = load double, ptr %75, align 8
+  %77 = fadd double %.041, %57
+  %78 = fcmp ult double %72, %60
+  %79 = fsub double %57, %77
+  %80 = fadd double %.041, %79
+  %81 = fsub double %.041, %77
+  %82 = fadd double %57, %81
+  %.pn = select i1 %78, double %82, double %80
+  %.040 = fadd double %.pn, %76
+  store double %77, ptr %56, align 8
+  store double %.040, ptr %75, align 8
+  br label %83
 
-95:                                               ; preds = %83, %rb_float_value_inline.exit, %86, %rb_float_new_inline.exit50, %rb_float_new_inline.exit
+83:                                               ; preds = %71, %rb_float_value_inline.exit, %74, %rb_float_new_inline.exit50, %rb_float_new_inline.exit
   ret void
 }
 

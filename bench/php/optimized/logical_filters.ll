@@ -672,7 +672,7 @@ define hidden void @php_filter_float(ptr noundef %0, i64 noundef %1, ptr noundef
 ._crit_edge:                                      ; preds = %.critedge2, %4
   %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not312 = icmp eq ptr %14, null
-  br i1 %.not312, label %15, label %218
+  br i1 %.not312, label %15, label %216
 
 15:                                               ; preds = %._crit_edge
   %16 = and i64 %1, 134217728
@@ -683,11 +683,11 @@ define hidden void @php_filter_float(ptr noundef %0, i64 noundef %1, ptr noundef
 
 18:                                               ; preds = %15
   store i32 1, ptr %17, align 8
-  br label %218
+  br label %216
 
 19:                                               ; preds = %15
   store i32 2, ptr %17, align 8
-  br label %218
+  br label %216
 
 .critedge:                                        ; preds = %.lr.ph, %.critedge.backedge
   %.2255 = phi i64 [ %20, %.critedge.backedge ], [ %.0253397, %.lr.ph ]
@@ -747,7 +747,7 @@ define hidden void @php_filter_float(ptr noundef %0, i64 noundef %1, ptr noundef
   tail call void (ptr, ...) @zend_value_error(ptr noundef nonnull @.str.9, ptr noundef %44) #14
   %45 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not310 = icmp eq ptr %45, null
-  br i1 %.not310, label %46, label %218
+  br i1 %.not310, label %46, label %216
 
 46:                                               ; preds = %43
   %47 = and i64 %1, 134217728
@@ -758,11 +758,11 @@ define hidden void @php_filter_float(ptr noundef %0, i64 noundef %1, ptr noundef
 
 49:                                               ; preds = %46
   store i32 1, ptr %48, align 8
-  br label %218
+  br label %216
 
 50:                                               ; preds = %46
   store i32 2, ptr %48, align 8
-  br label %218
+  br label %216
 
 .thread331:                                       ; preds = %38
   %51 = getelementptr inbounds i8, ptr %39, i64 24
@@ -809,7 +809,7 @@ define hidden void @php_filter_float(ptr noundef %0, i64 noundef %1, ptr noundef
   tail call void (ptr, ...) @zend_value_error(ptr noundef nonnull @.str.11, ptr noundef %72) #14
   %73 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not308 = icmp eq ptr %73, null
-  br i1 %.not308, label %74, label %218
+  br i1 %.not308, label %74, label %216
 
 74:                                               ; preds = %71
   %75 = and i64 %1, 134217728
@@ -820,11 +820,11 @@ define hidden void @php_filter_float(ptr noundef %0, i64 noundef %1, ptr noundef
 
 77:                                               ; preds = %74
   store i32 1, ptr %76, align 8
-  br label %218
+  br label %216
 
 78:                                               ; preds = %74
   store i32 2, ptr %76, align 8
-  br label %218
+  br label %216
 
 .thread359:                                       ; preds = %.thread336, %63, %66
   %79 = phi ptr [ %68, %66 ], [ @.str.12, %63 ], [ @.str.12, %.thread336 ]
@@ -1139,71 +1139,68 @@ switch.early.test:                                ; preds = %134
   call void @zval_ptr_dtor(ptr noundef nonnull %0) #14
   %194 = load i64, ptr %5, align 8
   %195 = sitofp i64 %194 to double
-  br label %216
+  br label %214
 
 196:                                              ; preds = %181
   %197 = load double, ptr %6, align 8
   %198 = fcmp oeq double %197, 0.000000e+00
   %199 = icmp sgt i64 %178, 1
   %or.cond319 = select i1 %198, i1 %199, i1 false
-  br i1 %or.cond319, label %200, label %204
+  br i1 %or.cond319, label %200, label %202
 
 200:                                              ; preds = %196
   %201 = call ptr @strpbrk(ptr noundef nonnull %104, ptr noundef nonnull @.str.13) #15
-  %.not301 = icmp ne ptr %201, null
-  %202 = call double @llvm.fabs.f64(double %197)
-  %203 = fcmp ueq double %202, 0x7FF0000000000000
-  %or.cond382 = or i1 %203, %.not301
-  br i1 %or.cond382, label %.thread379, label %205
+  %.not301.not = icmp eq ptr %201, null
+  br i1 %.not301.not, label %203, label %.thread379
 
-204:                                              ; preds = %196
+202:                                              ; preds = %196
   %.old = call double @llvm.fabs.f64(double %197)
   %.old381 = fcmp ueq double %.old, 0x7FF0000000000000
-  br i1 %.old381, label %.thread379, label %205
+  br i1 %.old381, label %.thread379, label %203
 
-205:                                              ; preds = %200, %204
-  %206 = fcmp uge double %197, %.0242374
-  %or.cond320.not = select i1 %.not302376, i1 true, i1 %206
-  %207 = fcmp ule double %197, %.0241
-  %or.cond322.not = select i1 %.not303, i1 true, i1 %207
+203:                                              ; preds = %200, %202
+  %204 = fcmp uge double %197, %.0242374
+  %or.cond320.not = select i1 %.not302376, i1 true, i1 %204
+  %205 = fcmp ule double %197, %.0241
+  %or.cond322.not = select i1 %.not303, i1 true, i1 %205
   %or.cond386 = select i1 %or.cond320.not, i1 %or.cond322.not, i1 false
-  br i1 %or.cond386, label %208, label %.thread379
+  br i1 %or.cond386, label %206, label %.thread379
 
-208:                                              ; preds = %205
+206:                                              ; preds = %203
   call void @zval_ptr_dtor(ptr noundef nonnull %0) #14
-  %209 = load double, ptr %6, align 8
+  %207 = load double, ptr %6, align 8
+  br label %214
+
+.thread379:                                       ; preds = %172, %170, %167, %switch.early.test.us, %175, %203, %181, %200, %202, %184, %189, %.critedge11, %.split410.us
+  call void @_efree(ptr noundef %104) #14
+  %208 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %.not306 = icmp eq ptr %208, null
+  br i1 %.not306, label %209, label %216
+
+209:                                              ; preds = %.thread379
+  %210 = and i64 %1, 134217728
+  %.not307 = icmp eq i64 %210, 0
+  call void @zval_ptr_dtor(ptr noundef nonnull %0) #14
+  %211 = getelementptr inbounds i8, ptr %0, i64 8
+  br i1 %.not307, label %213, label %212
+
+212:                                              ; preds = %209
+  store i32 1, ptr %211, align 8
   br label %216
 
-.thread379:                                       ; preds = %172, %170, %167, %switch.early.test.us, %175, %205, %181, %200, %204, %184, %189, %.critedge11, %.split410.us
-  call void @_efree(ptr noundef %104) #14
-  %210 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
-  %.not306 = icmp eq ptr %210, null
-  br i1 %.not306, label %211, label %218
+213:                                              ; preds = %209
+  store i32 2, ptr %211, align 8
+  br label %216
 
-211:                                              ; preds = %.thread379
-  %212 = and i64 %1, 134217728
-  %.not307 = icmp eq i64 %212, 0
-  call void @zval_ptr_dtor(ptr noundef nonnull %0) #14
-  %213 = getelementptr inbounds i8, ptr %0, i64 8
-  br i1 %.not307, label %215, label %214
-
-214:                                              ; preds = %211
-  store i32 1, ptr %213, align 8
-  br label %218
-
-215:                                              ; preds = %211
-  store i32 2, ptr %213, align 8
-  br label %218
-
-216:                                              ; preds = %208, %193
-  %.sink = phi double [ %209, %208 ], [ %195, %193 ]
+214:                                              ; preds = %206, %193
+  %.sink = phi double [ %207, %206 ], [ %195, %193 ]
   store double %.sink, ptr %0, align 8
-  %217 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 5, ptr %217, align 8
+  %215 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 5, ptr %215, align 8
   call void @_efree(ptr noundef nonnull %104) #14
-  br label %218
+  br label %216
 
-218:                                              ; preds = %215, %214, %.thread379, %78, %77, %71, %50, %49, %43, %19, %18, %._crit_edge, %216
+216:                                              ; preds = %213, %212, %.thread379, %78, %77, %71, %50, %49, %43, %19, %18, %._crit_edge, %214
   ret void
 }
 

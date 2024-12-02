@@ -12443,7 +12443,7 @@ define linkonce_odr hidden noundef double @_ZN2cv15line_descriptor16BinaryDescri
 27:                                               ; preds = %25
   %28 = fneg double %3
   %29 = uitofp nneg i32 %1 to double
-  %30 = tail call double @log10(double noundef %2) #24
+  %30 = tail call double @llvm.log10.f64(double %2)
   %31 = fneg double %29
   %32 = tail call double @llvm.fmuladd.f64(double %31, double %30, double %28)
   br label %195
@@ -12613,7 +12613,7 @@ _ZN2cv15line_descriptor16BinaryDescriptor14EDLineDetector17log_gamma_lanczosEd.e
 147:                                              ; preds = %_ZN2cv15line_descriptor16BinaryDescriptor14EDLineDetector17log_gamma_lanczosEd.exit104, %115
   %148 = phi double [ %128, %115 ], [ %146, %_ZN2cv15line_descriptor16BinaryDescriptor14EDLineDetector17log_gamma_lanczosEd.exit104 ]
   %149 = fsub double %110, %148
-  %150 = tail call double @log(double noundef %2) #24
+  %150 = tail call double @llvm.log.f64(double %2)
   %151 = tail call double @llvm.fmuladd.f64(double %73, double %150, double %149)
   %152 = tail call double @log(double noundef %34) #24
   %153 = tail call double @llvm.fmuladd.f64(double %112, double %152, double %151)
@@ -14818,6 +14818,12 @@ declare void @llvm.assume(i1 noundef) #19
 declare i16 @llvm.smin.i16(i16, i16) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.log.f64(double) #20
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.log10.f64(double) #20
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -14834,9 +14840,6 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #20
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.log.f64(double) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.sqrt.f64(double) #20

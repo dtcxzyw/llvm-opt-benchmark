@@ -2759,121 +2759,115 @@ define noundef zeroext i1 @zend_parse_arg_long_weak(ptr nocapture noundef readon
   %4 = alloca double, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load i8, ptr %5, align 8
-  switch i8 %6, label %48 [
+  switch i8 %6, label %44 [
     i8 5, label %7
-    i8 6, label %24
+    i8 6, label %22
   ]
 
 7:                                                ; preds = %3
   %8 = load double, ptr %0, align 8
   %9 = fcmp uno double %8, 0.000000e+00
-  br i1 %9, label %57, label %10
+  br i1 %9, label %53, label %10
 
 10:                                               ; preds = %7
   %11 = fcmp oge double %8, 0x43E0000000000000
   %12 = fcmp olt double %8, 0xC3E0000000000000
   %13 = or i1 %11, %12
-  br i1 %13, label %57, label %14
+  br i1 %13, label %53, label %14
 
 14:                                               ; preds = %10
-  %15 = tail call double @llvm.fabs.f64(double %8)
-  %16 = fcmp ueq double %15, 0x7FF0000000000000
-  %17 = fptosi double %8 to i64
-  %.0 = select i1 %16, i64 0, i64 %17
-  %18 = sitofp i64 %.0 to double
-  %19 = fcmp une double %8, %18
-  br i1 %19, label %20, label %.sink.split
+  %15 = fptosi double %8 to i64
+  %16 = sitofp i64 %15 to double
+  %17 = fcmp une double %8, %16
+  br i1 %17, label %18, label %.sink.split
 
-20:                                               ; preds = %14
+18:                                               ; preds = %14
   %.not63 = icmp eq i32 %2, -1
-  br i1 %.not63, label %22, label %21
+  br i1 %.not63, label %20, label %19
 
-21:                                               ; preds = %20
+19:                                               ; preds = %18
   tail call void @zend_incompatible_double_to_long_error(double noundef %8) #33
-  br label %22
+  br label %20
 
-22:                                               ; preds = %21, %20
-  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
-  %.not64 = icmp eq ptr %23, null
-  br i1 %.not64, label %.sink.split, label %57
+20:                                               ; preds = %19, %18
+  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %.not64 = icmp eq ptr %21, null
+  br i1 %.not64, label %.sink.split, label %53
 
-24:                                               ; preds = %3
-  %25 = load ptr, ptr %0, align 8
-  %26 = call zeroext i8 @is_numeric_str_function(ptr noundef %25, ptr noundef %1, ptr noundef nonnull %4) #33
-  switch i8 %26, label %27 [
-    i8 4, label %46
-    i8 0, label %57
+22:                                               ; preds = %3
+  %23 = load ptr, ptr %0, align 8
+  %24 = call zeroext i8 @is_numeric_str_function(ptr noundef %23, ptr noundef %1, ptr noundef nonnull %4) #33
+  switch i8 %24, label %25 [
+    i8 4, label %42
+    i8 0, label %53
   ]
 
-27:                                               ; preds = %24
-  %28 = load double, ptr %4, align 8
-  %29 = fcmp uno double %28, 0.000000e+00
-  br i1 %29, label %57, label %30
+25:                                               ; preds = %22
+  %26 = load double, ptr %4, align 8
+  %27 = fcmp uno double %26, 0.000000e+00
+  br i1 %27, label %53, label %28
 
-30:                                               ; preds = %27
-  %31 = fcmp oge double %28, 0x43E0000000000000
-  %32 = fcmp olt double %28, 0xC3E0000000000000
-  %33 = or i1 %31, %32
-  br i1 %33, label %57, label %34
+28:                                               ; preds = %25
+  %29 = fcmp oge double %26, 0x43E0000000000000
+  %30 = fcmp olt double %26, 0xC3E0000000000000
+  %31 = or i1 %29, %30
+  br i1 %31, label %53, label %32
 
-34:                                               ; preds = %30
-  %35 = call double @llvm.fabs.f64(double %28)
-  %36 = fcmp ueq double %35, 0x7FF0000000000000
-  %37 = fptosi double %28 to i64
-  %.052 = select i1 %36, i64 0, i64 %37
-  %38 = sitofp i64 %.052 to double
-  %39 = fcmp une double %28, %38
-  br i1 %39, label %40, label %45
+32:                                               ; preds = %28
+  %33 = fptosi double %26 to i64
+  %34 = sitofp i64 %33 to double
+  %35 = fcmp une double %26, %34
+  br i1 %35, label %36, label %41
 
-40:                                               ; preds = %34
+36:                                               ; preds = %32
   %.not60 = icmp eq i32 %2, -1
-  br i1 %.not60, label %43, label %41
+  br i1 %.not60, label %39, label %37
 
-41:                                               ; preds = %40
-  %42 = load ptr, ptr %0, align 8
-  call void @zend_incompatible_string_to_long_error(ptr noundef %42) #33
-  br label %43
+37:                                               ; preds = %36
+  %38 = load ptr, ptr %0, align 8
+  call void @zend_incompatible_string_to_long_error(ptr noundef %38) #33
+  br label %39
 
-43:                                               ; preds = %41, %40
-  %44 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
-  %.not61 = icmp eq ptr %44, null
-  br i1 %.not61, label %45, label %57
+39:                                               ; preds = %37, %36
+  %40 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %.not61 = icmp eq ptr %40, null
+  br i1 %.not61, label %41, label %53
 
-45:                                               ; preds = %43, %34
-  store i64 %.052, ptr %1, align 8
-  br label %46
+41:                                               ; preds = %39, %32
+  store i64 %33, ptr %1, align 8
+  br label %42
 
-46:                                               ; preds = %24, %45
-  %47 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
-  %.not62 = icmp eq ptr %47, null
-  br i1 %.not62, label %56, label %57
+42:                                               ; preds = %22, %41
+  %43 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %.not62 = icmp eq ptr %43, null
+  br i1 %.not62, label %52, label %53
 
-48:                                               ; preds = %3
-  %49 = icmp ult i8 %6, 3
-  br i1 %49, label %50, label %54
+44:                                               ; preds = %3
+  %45 = icmp ult i8 %6, 3
+  br i1 %45, label %46, label %50
 
-50:                                               ; preds = %48
-  %51 = icmp eq i8 %6, 1
-  br i1 %51, label %52, label %.sink.split
+46:                                               ; preds = %44
+  %47 = icmp eq i8 %6, 1
+  br i1 %47, label %48, label %.sink.split
 
-52:                                               ; preds = %50
-  %53 = tail call fastcc zeroext i1 @zend_null_arg_deprecated(ptr noundef nonnull @.str.3, i32 noundef %2)
-  br i1 %53, label %.sink.split, label %57
+48:                                               ; preds = %46
+  %49 = tail call fastcc zeroext i1 @zend_null_arg_deprecated(ptr noundef nonnull @.str.3, i32 noundef %2)
+  br i1 %49, label %.sink.split, label %53
 
-54:                                               ; preds = %48
-  %55 = icmp eq i8 %6, 3
-  br i1 %55, label %.sink.split, label %57
+50:                                               ; preds = %44
+  %51 = icmp eq i8 %6, 3
+  br i1 %51, label %.sink.split, label %53
 
-.sink.split:                                      ; preds = %54, %50, %52, %14, %22
-  %.sink = phi i64 [ %.0, %22 ], [ %.0, %14 ], [ 0, %52 ], [ 0, %50 ], [ 1, %54 ]
+.sink.split:                                      ; preds = %50, %46, %48, %14, %20
+  %.sink = phi i64 [ %15, %20 ], [ %15, %14 ], [ 0, %48 ], [ 0, %46 ], [ 1, %50 ]
   store i64 %.sink, ptr %1, align 8
-  br label %56
+  br label %52
 
-56:                                               ; preds = %.sink.split, %46
-  br label %57
+52:                                               ; preds = %.sink.split, %42
+  br label %53
 
-57:                                               ; preds = %54, %52, %46, %24, %43, %30, %27, %22, %10, %7, %56
-  %.053 = phi i1 [ true, %56 ], [ false, %7 ], [ false, %10 ], [ false, %22 ], [ false, %27 ], [ false, %30 ], [ false, %43 ], [ false, %24 ], [ false, %46 ], [ false, %52 ], [ false, %54 ]
+53:                                               ; preds = %50, %48, %42, %22, %39, %28, %25, %20, %10, %7, %52
+  %.053 = phi i1 [ true, %52 ], [ false, %7 ], [ false, %10 ], [ false, %20 ], [ false, %25 ], [ false, %28 ], [ false, %39 ], [ false, %22 ], [ false, %42 ], [ false, %48 ], [ false, %50 ]
   ret i1 %.053
 }
 

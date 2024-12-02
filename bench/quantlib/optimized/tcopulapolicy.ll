@@ -14902,7 +14902,6 @@ if.end75:                                         ; preds = %if.then21, %if.then
 define linkonce_odr noundef x86_fp80 @_ZN5boost4math6detail22tgamma_delta_ratio_impIeNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EEEET_SB_SB_RKT0_(x86_fp80 noundef %z, x86_fp80 noundef %delta, ptr noundef nonnull align 1 dereferenceable(1) %pol) local_unnamed_addr #0 comdat {
 entry:
   %ref.tmp.i.i.i27 = alloca x86_fp80, align 16
-  %ref.tmp.i.i.i = alloca x86_fp80, align 16
   %ref.tmp.i.i18 = alloca %"struct.boost::math::policies::policy", align 1
   %ref.tmp1.i.i19 = alloca %"struct.boost::math::lanczos::lanczos17m64", align 1
   %ref.tmp.i.i = alloca %"struct.boost::math::policies::policy", align 1
@@ -14961,34 +14960,11 @@ if.then7:                                         ; preds = %if.end
   %or.cond.not44 = or i1 %cmp11, %cmp9
   %cmp13 = fcmp ugt x86_fp80 %add, 0xK4006AA00000000000000
   %or.cond17 = or i1 %or.cond.not44, %cmp13
-  br i1 %or.cond17, label %if.end23, label %if.then14
+  br i1 %or.cond17, label %if.end23, label %_ZN5boost4math5truncIeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEENS0_5tools12promote_argsIT_fffffE4typeERKSC_RKT0_.exit.i
 
-if.then14:                                        ; preds = %if.then7
-  %4 = tail call x86_fp80 @llvm.fabs.f80(x86_fp80 %z)
-  %5 = fcmp ueq x86_fp80 %4, 0xK7FFF8000000000000000
-  br i1 %5, label %if.then.i.i.i25, label %if.end.i.i.i
-
-if.then.i.i.i25:                                  ; preds = %if.then14
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i.i) #31
-  store x86_fp80 %z, ptr %ref.tmp.i.i.i, align 16, !tbaa !50
-  call void @_ZN5boost4math8policies6detail11raise_errorINS0_14rounding_errorEeEEvPKcS6_RKT0_(ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.43, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i.i) #31
-  br label %_ZN5boost4math5truncIeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEENS0_5tools12promote_argsIT_fffffE4typeERKSC_RKT0_.exit.i
-
-if.end.i.i.i:                                     ; preds = %if.then14
-  %cmp.i.i.i24 = fcmp ult x86_fp80 %z, 0xK00000000000000000000
-  br i1 %cmp.i.i.i24, label %cond.false.i.i.i, label %_ZN5boost4math5truncIeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEENS0_5tools12promote_argsIT_fffffE4typeERKSC_RKT0_.exit.i
-
-cond.false.i.i.i:                                 ; preds = %if.end.i.i.i
-  %6 = tail call noundef x86_fp80 @llvm.ceil.f80(x86_fp80 %z)
-  br label %_ZN5boost4math5truncIeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEENS0_5tools12promote_argsIT_fffffE4typeERKSC_RKT0_.exit.i
-
-_ZN5boost4math5truncIeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEENS0_5tools12promote_argsIT_fffffE4typeERKSC_RKT0_.exit.i: ; preds = %if.end.i.i.i, %cond.false.i.i.i, %if.then.i.i.i25
-  %retval.0.i.i.i = phi x86_fp80 [ 0xK00000000000000000000, %if.then.i.i.i25 ], [ %6, %cond.false.i.i.i ], [ %3, %if.end.i.i.i ]
-  %cmp.i = fcmp ult x86_fp80 %retval.0.i.i.i, 0xK401E8000000000000000
-  %cmp1.i = fcmp uge x86_fp80 %retval.0.i.i.i, 0xKC01E8000000000000000
-  %or.cond.not.i = and i1 %cmp.i, %cmp1.i
-  br i1 %or.cond.not.i, label %_ZN5boost4math6itruncIeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEEiRKT_RKT0_.exit, label %if.then.i
+_ZN5boost4math5truncIeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEENS0_5tools12promote_argsIT_fffffE4typeERKSC_RKT0_.exit.i: ; preds = %if.then7
+  %cmp.i = fcmp ult x86_fp80 %3, 0xK401E8000000000000000
+  br i1 %cmp.i, label %_ZN5boost4math6itruncIeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEEiRKT_RKT0_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN5boost4math5truncIeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEENS0_5tools12promote_argsIT_fffffE4typeERKSC_RKT0_.exit.i
   call void @_ZN5boost4math8policies6detail11raise_errorINS0_14rounding_errorEeEEvPKcS6_RKT0_(ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.43, ptr noundef nonnull align 16 dereferenceable(16) %z.addr)
@@ -14998,17 +14974,17 @@ if.then.i:                                        ; preds = %_ZN5boost4math5trun
 
 _ZN5boost4math6itruncIeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEEiRKT_RKT0_.exit: ; preds = %_ZN5boost4math5truncIeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEENS0_5tools12promote_argsIT_fffffE4typeERKSC_RKT0_.exit.i, %if.then.i
   %add17.pre-phi = phi x86_fp80 [ %add, %_ZN5boost4math5truncIeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEENS0_5tools12promote_argsIT_fffffE4typeERKSC_RKT0_.exit.i ], [ %.pre62, %if.then.i ]
-  %conv.i = fptosi x86_fp80 %retval.0.i.i.i to i32
-  %7 = add i32 %conv.i, -1
-  %8 = zext i32 %7 to i64
-  %conv.i26 = select i1 %or.cond.not.i, i64 %8, i64 4294967295
+  %conv.i = fptosi x86_fp80 %3 to i32
+  %4 = add i32 %conv.i, -1
+  %5 = zext i32 %4 to i64
+  %conv.i26 = select i1 %cmp.i, i64 %5, i64 4294967295
   %arrayidx.i.i.i = getelementptr inbounds nuw [171 x x86_fp80], ptr @_ZN5boost4math24unchecked_factorial_dataIeLb1EE10factorialsE, i64 0, i64 %conv.i26
-  %9 = load x86_fp80, ptr %arrayidx.i.i.i, align 16, !tbaa !50
+  %6 = load x86_fp80, ptr %arrayidx.i.i.i, align 16, !tbaa !50
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp) #31
   store x86_fp80 %add17.pre-phi, ptr %ref.tmp, align 16, !tbaa !50
-  %10 = call x86_fp80 @llvm.fabs.f80(x86_fp80 %add17.pre-phi)
-  %11 = fcmp ueq x86_fp80 %10, 0xK7FFF8000000000000000
-  br i1 %11, label %if.then.i.i.i40, label %if.end.i.i.i28
+  %7 = call x86_fp80 @llvm.fabs.f80(x86_fp80 %add17.pre-phi)
+  %8 = fcmp ueq x86_fp80 %7, 0xK7FFF8000000000000000
+  br i1 %8, label %if.then.i.i.i40, label %if.end.i.i.i28
 
 if.then.i.i.i40:                                  ; preds = %_ZN5boost4math6itruncIeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEEiRKT_RKT0_.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i.i27) #31
@@ -15022,15 +14998,15 @@ if.end.i.i.i28:                                   ; preds = %_ZN5boost4math6itru
   br i1 %cmp.i.i.i29, label %cond.false.i.i.i39, label %cond.true.i.i.i30
 
 cond.true.i.i.i30:                                ; preds = %if.end.i.i.i28
-  %12 = call noundef x86_fp80 @llvm.floor.f80(x86_fp80 %add17.pre-phi)
+  %9 = call noundef x86_fp80 @llvm.floor.f80(x86_fp80 %add17.pre-phi)
   br label %_ZN5boost4math5truncIeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEENS0_5tools12promote_argsIT_fffffE4typeERKSC_RKT0_.exit.i31
 
 cond.false.i.i.i39:                               ; preds = %if.end.i.i.i28
-  %13 = call noundef x86_fp80 @llvm.ceil.f80(x86_fp80 %add17.pre-phi)
+  %10 = call noundef x86_fp80 @llvm.ceil.f80(x86_fp80 %add17.pre-phi)
   br label %_ZN5boost4math5truncIeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEENS0_5tools12promote_argsIT_fffffE4typeERKSC_RKT0_.exit.i31
 
 _ZN5boost4math5truncIeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEENS0_5tools12promote_argsIT_fffffE4typeERKSC_RKT0_.exit.i31: ; preds = %cond.false.i.i.i39, %cond.true.i.i.i30, %if.then.i.i.i40
-  %retval.0.i.i.i32 = phi x86_fp80 [ 0xK00000000000000000000, %if.then.i.i.i40 ], [ %12, %cond.true.i.i.i30 ], [ %13, %cond.false.i.i.i39 ]
+  %retval.0.i.i.i32 = phi x86_fp80 [ 0xK00000000000000000000, %if.then.i.i.i40 ], [ %9, %cond.true.i.i.i30 ], [ %10, %cond.false.i.i.i39 ]
   %cmp.i33 = fcmp ult x86_fp80 %retval.0.i.i.i32, 0xK401E8000000000000000
   %cmp1.i34 = fcmp uge x86_fp80 %retval.0.i.i.i32, 0xKC01E8000000000000000
   %or.cond.not.i35 = and i1 %cmp.i33, %cmp1.i34
@@ -15042,18 +15018,18 @@ if.then.i36:                                      ; preds = %_ZN5boost4math5trun
 
 _ZN5boost4math6itruncIeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEEiRKT_RKT0_.exit41: ; preds = %_ZN5boost4math5truncIeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEENS0_5tools12promote_argsIT_fffffE4typeERKSC_RKT0_.exit.i31, %if.then.i36
   %conv.i37 = fptosi x86_fp80 %retval.0.i.i.i32 to i32
-  %14 = add i32 %conv.i37, -1
-  %15 = zext i32 %14 to i64
-  %conv.i42 = select i1 %or.cond.not.i35, i64 %15, i64 4294967295
+  %11 = add i32 %conv.i37, -1
+  %12 = zext i32 %11 to i64
+  %conv.i42 = select i1 %or.cond.not.i35, i64 %12, i64 4294967295
   %arrayidx.i.i.i43 = getelementptr inbounds nuw [171 x x86_fp80], ptr @_ZN5boost4math24unchecked_factorial_dataIeLb1EE10factorialsE, i64 0, i64 %conv.i42
-  %16 = load x86_fp80, ptr %arrayidx.i.i.i43, align 16, !tbaa !50
-  %div21 = fdiv x86_fp80 %9, %16
+  %13 = load x86_fp80, ptr %arrayidx.i.i.i43, align 16, !tbaa !50
+  %div21 = fdiv x86_fp80 %6, %13
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp) #31
   br label %return
 
 if.end23:                                         ; preds = %if.then7
-  %17 = tail call noundef x86_fp80 @llvm.fabs.f80(x86_fp80 %delta)
-  %cmp25 = fcmp olt x86_fp80 %17, 0xK4003A000000000000000
+  %14 = tail call noundef x86_fp80 @llvm.fabs.f80(x86_fp80 %delta)
+  %cmp25 = fcmp olt x86_fp80 %14, 0xK4003A000000000000000
   br i1 %cmp25, label %if.then26, label %if.end46
 
 if.then26:                                        ; preds = %if.end23

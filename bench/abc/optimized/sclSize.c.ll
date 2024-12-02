@@ -1677,7 +1677,7 @@ Scl_LibHandleInputDriver.exit.i:                  ; preds = %53, %38
   %112 = load float, ptr %111, align 8
   %113 = fpext float %112 to double
   %114 = fpext float %32 to double
-  %115 = tail call double @log(double noundef %114) #24
+  %115 = tail call double @llvm.log.f64(double %114)
   %116 = fmul double %115, %113
   %117 = fptrunc double %116 to float
   %118 = load float, ptr %110, align 4
@@ -1893,7 +1893,7 @@ Scl_CellPinTime.exit:                             ; preds = %.lr.ph.split, %203
   %221 = load float, ptr %220, align 8
   %222 = fpext float %221 to double
   %223 = fpext float %32 to double
-  %224 = tail call double @log(double noundef %223) #24
+  %224 = tail call double @llvm.log.f64(double %223)
   %225 = fmul double %224, %222
   %226 = fptrunc double %225 to float
   %227 = load float, ptr %219, align 4
@@ -7980,6 +7980,9 @@ declare i32 @llvm.smax.i32(i32, i32) #20
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #21
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.log.f64(double) #20
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #21

@@ -25764,9 +25764,7 @@ land.rhs.i:                                       ; preds = %land.lhs.true28.i
   %75 = call float @llvm.fmuladd.f32(float %37, float %70, float %mul8.i.i171.i)
   %76 = call noundef float @llvm.fmuladd.f32(float %41, float %74, float %75)
   %cmp50.i = fcmp ogt float %76, 0xBEB4000000000000
-  %cmp61 = fcmp ogt float %div.i, 0.000000e+00
-  %or.cond = and i1 %cmp61, %cmp50.i
-  br i1 %or.cond, label %if.then62, label %for.inc68
+  br i1 %cmp50.i, label %if.then62, label %for.inc68
 
 if.then62:                                        ; preds = %land.rhs.i
   %inc63 = add nsw i32 %cnt.559, 1
