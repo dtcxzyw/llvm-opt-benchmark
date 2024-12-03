@@ -282,7 +282,7 @@ def regen_optimized():
     stats_acc = dict()
     stats_nondeter_keys = {
         "dse.NumDomMemDefChecks", "ir.NumInstrRenumberings",
-        "basicaa.SearchTimes", "aa.NumMayAnlias",
+        "basicaa.SearchTimes", "aa.NumMayAlias",
         "capture-tracking.NumCaptured", "aa.NumMustAlias",
         "memory-builtins.ObjectVisitorArgument", "aa.NumNoAlias",
         "assume-queries.NumAssumeQueries", "capture-tracking.NumNotCaptured",
@@ -335,6 +335,7 @@ def update_baseline():
         if not finalize_baseline_comptime():
             return False
     if STATS_OUT is not None:
+        os_do("python3 scripts/stats_diff.py stats.baseline {} >> stdiff.log".format(STATS_OUT))
         if not finalize_baseline_stats():
             return False
 
