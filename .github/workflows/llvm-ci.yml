@@ -36,6 +36,8 @@ jobs:
         run: |
           ${{ github.workspace }}/scripts/update_optimized.sh
           cat ${{ github.workspace }}/scripts/issue.md
+        env:
+          GH_RUNNER: ${{ runner.name }}
 
       - name: Report
         uses: JasonEtco/create-an-issue@v2
