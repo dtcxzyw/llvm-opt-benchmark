@@ -141409,7 +141409,7 @@ define linkonce_odr void @_ZN5Eigen8internal21dense_assignment_loopINS0_41restri
   br i1 %16, label %.lr.ph, label %.preheader47
 
 .preheader47:                                     ; preds = %_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEEEENS2_INS_7ProductINS6_INS_7InverseINS6_INS_9TransposeIS4_EES4_Li0EEEEES9_Li0EEES4_Li1EEEEENS0_9assign_opIffEELi1EE23assignCoeffByOuterInnerEll.exit, %12
-  %17 = icmp sgt i64 %14, 0
+  %17 = icmp sgt i64 %13, 3
   br i1 %17, label %.lr.ph52, label %.preheader
 
 .lr.ph:                                           ; preds = %12, %_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEEEENS2_INS_7ProductINS6_INS_7InverseINS6_INS_9TransposeIS4_EES4_Li0EEEEES9_Li0EEES4_Li1EEEEENS0_9assign_opIffEELi1EE23assignCoeffByOuterInnerEll.exit
@@ -142007,7 +142007,7 @@ define linkonce_odr void @_ZN5Eigen8internal21dense_assignment_loopINS0_41restri
   br i1 %16, label %.lr.ph, label %.preheader47
 
 .preheader47:                                     ; preds = %_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEEEENS2_INS_7ProductINS_7InverseINS6_INS_9TransposeIS4_EES4_Li0EEEEENS8_IKS4_EELi1EEEEENS0_9assign_opIffEELi1EE23assignCoeffByOuterInnerEll.exit, %12
-  %17 = icmp sgt i64 %14, 0
+  %17 = icmp sgt i64 %13, 3
   br i1 %17, label %.lr.ph52, label %.preheader
 
 .lr.ph:                                           ; preds = %12, %_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEEEENS2_INS_7ProductINS_7InverseINS6_INS_9TransposeIS4_EES4_Li0EEEEENS8_IKS4_EELi1EEEEENS0_9assign_opIffEELi1EE23assignCoeffByOuterInnerEll.exit
@@ -146560,7 +146560,7 @@ define linkonce_odr void @_ZN5Eigen8internal11gebp_kernelIfflNS0_16blas_data_map
   %42 = getelementptr inbounds i8, ptr %1, i64 8
   %.idx456 = shl i64 %11, 4
   %invariant.gep886 = getelementptr i8, ptr %3, i64 %.idx456
-  %43 = icmp sgt i64 %34, 0
+  %43 = icmp sgt i64 %5, 7
   %.not = icmp eq i64 %34, %5
   %44 = insertelement <4 x float> poison, float %7, i64 0
   %45 = shufflevector <4 x float> %44, <4 x float> poison, <4 x i32> zeroinitializer
@@ -150544,7 +150544,7 @@ _ZN5Eigen8internal13first_alignedILi16EflEET1_PKT0_S2_.exit: ; preds = %1
   br i1 %85, label %.lr.ph, label %.preheader51
 
 .preheader51:                                     ; preds = %_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_3RefINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEELi0ENS_11OuterStrideILin1EEEEEEENS2_INS_7ProductIS8_S8_Li1EEEEENS0_13sub_assign_opIffEELi1EE23assignCoeffByOuterInnerEll.exit, %81
-  %86 = icmp sgt i64 %83, 0
+  %86 = icmp sgt i64 %82, 3
   br i1 %86, label %.lr.ph59, label %.preheader
 
 .lr.ph:                                           ; preds = %81, %_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_3RefINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEELi0ENS_11OuterStrideILin1EEEEEEENS2_INS_7ProductIS8_S8_Li1EEEEENS0_13sub_assign_opIffEELi1EE23assignCoeffByOuterInnerEll.exit
@@ -159044,7 +159044,7 @@ _ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit: ; preds = %1
   br label %.preheader47
 
 .preheader47:                                     ; preds = %.lr.ph, %47
-  %59 = icmp sgt i64 %49, 0
+  %59 = icmp sgt i64 %48, 1
   br i1 %59, label %.lr.ph51, label %.preheader
 
 .lr.ph51:                                         ; preds = %.preheader47
@@ -159390,7 +159390,7 @@ _ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit: ; preds = %1
   br label %.preheader47
 
 .preheader47:                                     ; preds = %.lr.ph, %53
-  %70 = icmp sgt i64 %55, 0
+  %70 = icmp sgt i64 %54, 1
   br i1 %70, label %.lr.ph51, label %.preheader
 
 .lr.ph51:                                         ; preds = %.preheader47
@@ -159571,7 +159571,7 @@ _ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit: ; preds = %1
   br label %.preheader47
 
 .preheader47:                                     ; preds = %.lr.ph, %53
-  %70 = icmp sgt i64 %55, 0
+  %70 = icmp sgt i64 %54, 1
   br i1 %70, label %.lr.ph51, label %.preheader
 
 .lr.ph51:                                         ; preds = %.preheader47
@@ -162113,7 +162113,7 @@ define linkonce_odr void @_ZN5Eigen8internal11gebp_kernelIddlNS0_16blas_data_map
   %41 = getelementptr inbounds i8, ptr %1, i64 8
   %.idx445 = shl i64 %11, 5
   %invariant.gep903 = getelementptr i8, ptr %3, i64 %.idx445
-  %42 = icmp sgt i64 %34, 0
+  %42 = icmp sgt i64 %5, 7
   %.not = icmp eq i64 %34, %5
   %43 = insertelement <2 x double> poison, double %7, i64 0
   %44 = shufflevector <2 x double> %43, <2 x double> poison, <2 x i32> zeroinitializer
@@ -171132,7 +171132,7 @@ _ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit: ; preds = %1
   br i1 %100, label %_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_3RefINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi0ENS_11OuterStrideILin1EEEEEEENS2_INS_7ProductIS8_S8_Li1EEEEENS0_13sub_assign_opIddEELi1EE23assignCoeffByOuterInnerEll.exit, label %102
 
 .preheader51:                                     ; preds = %_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_3RefINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi0ENS_11OuterStrideILin1EEEEEEENS2_INS_7ProductIS8_S8_Li1EEEEENS0_13sub_assign_opIddEELi1EE23assignCoeffByOuterInnerEll.exit, %79
-  %101 = icmp sgt i64 %81, 0
+  %101 = icmp sgt i64 %80, 1
   br i1 %101, label %.lr.ph59, label %.preheader
 
 102:                                              ; preds = %.lr.ph.preheader
@@ -180176,7 +180176,7 @@ _ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit: ; preds = %1
   br label %.preheader45
 
 .preheader45:                                     ; preds = %.lr.ph.preheader, %54
-  %69 = icmp sgt i64 %56, 0
+  %69 = icmp sgt i64 %55, 1
   br i1 %69, label %.lr.ph49, label %.preheader
 
 .preheader:                                       ; preds = %.lr.ph49, %.preheader45
@@ -184701,7 +184701,7 @@ define linkonce_odr void @_ZN5Eigen8internal21dense_assignment_loopINS0_31generi
   br label %.preheader41
 
 .preheader41:                                     ; preds = %.lr.ph.preheader, %11
-  %33 = icmp sgt i64 %13, 0
+  %33 = icmp sgt i64 %12, 1
   br i1 %33, label %.lr.ph44, label %.preheader
 
 .preheader:                                       ; preds = %.lr.ph44, %.preheader41
@@ -186203,7 +186203,7 @@ define linkonce_odr void @_ZN5Eigen8internal21dense_assignment_loopINS0_41restri
   br i1 %28, label %_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEENS2_INS_7ProductINS_7InverseINS6_INS_9TransposeIS4_EES4_Li0EEEEENS8_IKS4_EELi1EEEEENS0_9assign_opIddEELi1EE23assignCoeffByOuterInnerEll.exit, label %30
 
 .preheader47:                                     ; preds = %_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEENS2_INS_7ProductINS_7InverseINS6_INS_9TransposeIS4_EES4_Li0EEEEENS8_IKS4_EELi1EEEEENS0_9assign_opIddEELi1EE23assignCoeffByOuterInnerEll.exit, %11
-  %29 = icmp sgt i64 %13, 0
+  %29 = icmp sgt i64 %12, 1
   br i1 %29, label %.lr.ph52, label %.preheader
 
 30:                                               ; preds = %.lr.ph.preheader

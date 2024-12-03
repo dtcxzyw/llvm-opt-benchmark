@@ -3461,7 +3461,7 @@ define internal fastcc range(i32 -30, 1) i32 @parse_codes(ptr noundef %0) unname
   %25 = load i32, ptr %24, align 8
   %26 = and i32 %25, -8
   store i32 %26, ptr %24, align 8
-  %27 = icmp sgt i32 %26, 0
+  %27 = icmp sgt i32 %25, 7
   br i1 %27, label %thread-pre-split, label %28
 
 28:                                               ; preds = %1

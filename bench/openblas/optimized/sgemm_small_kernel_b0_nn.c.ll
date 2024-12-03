@@ -16,11 +16,11 @@ define noundef i32 @sgemm_small_kernel_b0_nn(i64 noundef %0, i64 noundef %1, i64
   %19 = and i64 %1, -2
   %20 = insertelement <4 x float> poison, float %5, i64 0
   %21 = shufflevector <4 x float> %20, <4 x float> poison, <16 x i32> zeroinitializer
-  %22 = icmp sgt i64 %11, 0
+  %22 = icmp sgt i64 %0, 63
   br i1 %22, label %23, label %.loopexit180
 
 23:                                               ; preds = %10
-  %24 = icmp sgt i64 %18, 0
+  %24 = icmp sgt i64 %1, 3
   %25 = icmp sgt i64 %2, 0
   %26 = fmul <16 x float> %21, zeroinitializer
   br label %27
@@ -1396,7 +1396,7 @@ define noundef i32 @sgemm_small_kernel_b0_nn(i64 noundef %0, i64 noundef %1, i64
   br i1 %888, label %889, label %913
 
 889:                                              ; preds = %.loopexit158
-  %890 = icmp sgt i64 %18, 0
+  %890 = icmp sgt i64 %1, 3
   %891 = icmp eq i64 %768, 0
   %892 = add nsw i64 %768, -1
   %893 = and i64 %892, -16
@@ -1434,7 +1434,7 @@ define noundef i32 @sgemm_small_kernel_b0_nn(i64 noundef %0, i64 noundef %1, i64
   br i1 %916, label %917, label %1423
 
 917:                                              ; preds = %913
-  %918 = icmp sgt i64 %18, 0
+  %918 = icmp sgt i64 %1, 3
   %919 = icmp eq i64 %768, 0
   %920 = add nsw i64 %768, -1
   %921 = and i64 %920, -16
@@ -2027,7 +2027,7 @@ define noundef i32 @sgemm_small_kernel_b0_nn(i64 noundef %0, i64 noundef %1, i64
   br i1 %1426, label %1427, label %.loopexit144
 
 1427:                                             ; preds = %1423
-  %1428 = icmp sgt i64 %18, 0
+  %1428 = icmp sgt i64 %1, 3
   %1429 = icmp eq i64 %768, 0
   %1430 = add nsw i64 %768, -1
   %1431 = and i64 %1430, -16

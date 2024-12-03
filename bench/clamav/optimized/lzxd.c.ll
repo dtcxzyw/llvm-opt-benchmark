@@ -37,7 +37,7 @@ define ptr @lzxd_init(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 nounde
 18:                                               ; preds = %15
   %19 = add nsw i32 %5, 1
   %20 = and i32 %19, -2
-  %21 = icmp slt i32 %20, 2
+  %21 = icmp slt i32 %5, 1
   br i1 %21, label %80, label %22
 
 22:                                               ; preds = %18

@@ -19,14 +19,14 @@ define internal range(i32 0, 2) i32 @ExtractAlpha_SSE41(ptr noalias nocapture no
   br i1 %9, label %.preheader161.lr.ph, label %._crit_edge175
 
 .preheader161.lr.ph:                              ; preds = %6
-  %10 = icmp sgt i32 %8, 0
+  %10 = icmp sgt i32 %2, 16
   %11 = sext i32 %1 to i64
   %12 = sext i32 %5 to i64
   br i1 %10, label %.preheader161.us.preheader, label %.preheader161.lr.ph.split
 
 .preheader161.us.preheader:                       ; preds = %.preheader161.lr.ph
-  %13 = zext nneg i32 %8 to i64
-  %14 = sext i32 %2 to i64
+  %13 = sext i32 %8 to i64
+  %14 = zext nneg i32 %2 to i64
   br label %.preheader161.us
 
 .preheader161.us:                                 ; preds = %.preheader161.us.preheader, %._crit_edge.us
@@ -56,7 +56,7 @@ define internal range(i32 0, 2) i32 @ExtractAlpha_SSE41(ptr noalias nocapture no
   store i8 %20, ptr %22, align 1
   %23 = and i32 %.1167.us, %21
   %indvars.iv.next207 = add nuw nsw i64 %indvars.iv206, 1
-  %24 = icmp slt i64 %indvars.iv.next207, %14
+  %24 = icmp samesign ult i64 %indvars.iv.next207, %14
   br i1 %24, label %.lr.ph168.us, label %._crit_edge.us, !llvm.loop !6
 
 25:                                               ; preds = %.preheader161.us, %25
@@ -84,7 +84,7 @@ define internal range(i32 0, 2) i32 @ExtractAlpha_SSE41(ptr noalias nocapture no
   %42 = and <2 x i64> %.1159163.us, %40
   %43 = getelementptr inbounds i8, ptr %.0160162.us, i64 64
   %indvars.iv.next202 = add nuw nsw i64 %indvars.iv201, 16
-  %44 = icmp samesign ult i64 %indvars.iv.next202, %13
+  %44 = icmp slt i64 %indvars.iv.next202, %13
   %indvars.iv.next205 = add nuw nsw i64 %indvars.iv204, 16
   br i1 %44, label %25, label %..preheader_crit_edge.us, !llvm.loop !7
 

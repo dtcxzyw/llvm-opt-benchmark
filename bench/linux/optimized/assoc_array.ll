@@ -1410,7 +1410,7 @@ define dso_local noundef ptr @assoc_array_insert(ptr noundef %0, ptr noundef %1,
   %344 = and i32 %310, -4
   %345 = getelementptr inbounds i8, ptr %328, i64 12
   store i32 %344, ptr %345, align 4
-  %346 = icmp slt i32 %344, 1
+  %346 = icmp slt i32 %310, 4
   br i1 %346, label %351, label %347, !prof !9
 
 347:                                              ; preds = %330

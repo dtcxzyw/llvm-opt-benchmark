@@ -19,7 +19,7 @@ define ptr @mszipd_init(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noun
 6:                                                ; preds = %5
   %7 = add nsw i32 %3, 1
   %8 = and i32 %7, -2
-  %9 = icmp slt i32 %8, 2
+  %9 = icmp slt i32 %3, 1
   br i1 %9, label %35, label %10
 
 10:                                               ; preds = %6
@@ -2168,7 +2168,7 @@ define range(i32 -14, 12) i32 @mszipd_decompress_kwaj(ptr noundef %0) local_unna
   %19 = and i32 %18, 7
   %20 = lshr i32 %17, %19
   %21 = and i32 %18, -8
-  %22 = icmp slt i32 %21, 8
+  %22 = icmp slt i32 %18, 8
   br i1 %22, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %14, %44
@@ -2237,7 +2237,7 @@ define range(i32 -14, 12) i32 @mszipd_decompress_kwaj(ptr noundef %0) local_unna
   %52 = and i32 %.091.lcssa, 255
   %53 = lshr i32 %.091.lcssa, 8
   %54 = add nsw i32 %.090.lcssa, -8
-  %55 = icmp samesign ult i32 %.090.lcssa, 16
+  %55 = icmp slt i32 %.090.lcssa, 16
   br i1 %55, label %.lr.ph185, label %._crit_edge186
 
 .lr.ph185:                                        ; preds = %._crit_edge, %77

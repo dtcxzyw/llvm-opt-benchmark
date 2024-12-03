@@ -20115,7 +20115,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE6resizeEll.exit.
   %20 = getelementptr double, ptr %17, i64 %.014.i.i.i.i.i.i
   %21 = load <2 x double>, ptr %20, align 1
   %22 = fmul <2 x double> %21, %21
-  %23 = icmp sgt i64 %19, 1
+  %23 = icmp sgt i64 %14, 4
   br i1 %23, label %.lr.ph.i.i.i.i.i.i.i.i.i.i, label %.preheader.i.i.i.i.i.i.i.i.i.i
 
 .preheader.i.i.i.i.i.i.i.i.i.i:                   ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i, %16
@@ -26001,7 +26001,7 @@ _ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit: ; preds = %1
   br label %.preheader45
 
 .preheader45:                                     ; preds = %.lr.ph.preheader, %58
-  %76 = icmp sgt i64 %60, 0
+  %76 = icmp sgt i64 %59, 1
   br i1 %76, label %.lr.ph49, label %.preheader
 
 .preheader:                                       ; preds = %.lr.ph49, %.preheader45
@@ -30049,7 +30049,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE6resizeEll.exit:
   br label %.preheader45.i.us
 
 .preheader45.i.us:                                ; preds = %.lr.ph.preheader.i.us, %.lr.ph54.i.us
-  %41 = icmp sgt i64 %37, 0
+  %41 = icmp sgt i64 %36, 1
   br i1 %41, label %.lr.ph49.i.us, label %.preheader.i.us
 
 .lr.ph49.i.us:                                    ; preds = %.preheader45.i.us, %.lr.ph49.i.us
@@ -30572,7 +30572,7 @@ _ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit: ; preds = %1
   br label %.preheader45
 
 .preheader45:                                     ; preds = %.lr.ph.preheader, %58
-  %76 = icmp sgt i64 %60, 0
+  %76 = icmp sgt i64 %59, 1
   br i1 %76, label %.lr.ph49, label %.preheader
 
 .preheader:                                       ; preds = %.lr.ph49, %.preheader45
@@ -30731,7 +30731,7 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit: ; preds = %1
   br i1 %64, label %.lr.ph, label %.preheader45
 
 .preheader45:                                     ; preds = %.lr.ph, %60
-  %65 = icmp sgt i64 %62, 0
+  %65 = icmp sgt i64 %61, 3
   br i1 %65, label %.lr.ph49, label %.preheader
 
 .lr.ph:                                           ; preds = %60, %.lr.ph
@@ -61854,7 +61854,7 @@ define linkonce_odr void @_ZN5Eigen8internal11gebp_kernelIddlNS0_16blas_data_map
   %41 = getelementptr inbounds i8, ptr %1, i64 8
   %.idx445 = shl i64 %11, 5
   %invariant.gep903 = getelementptr i8, ptr %3, i64 %.idx445
-  %42 = icmp sgt i64 %34, 0
+  %42 = icmp sgt i64 %5, 7
   %.not = icmp eq i64 %34, %5
   %43 = insertelement <2 x double> poison, double %7, i64 0
   %44 = shufflevector <2 x double> %43, <2 x double> poison, <2 x i32> zeroinitializer
@@ -63499,7 +63499,7 @@ _ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit: ; preds = %1
   br label %.preheader45
 
 .preheader45:                                     ; preds = %.lr.ph.preheader, %50
-  %63 = icmp sgt i64 %52, 0
+  %63 = icmp sgt i64 %51, 1
   br i1 %63, label %.lr.ph49, label %.preheader
 
 .preheader:                                       ; preds = %.lr.ph49, %.preheader45

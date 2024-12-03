@@ -2543,7 +2543,7 @@ _ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit: ; preds = %1
   br label %.preheader45
 
 .preheader45:                                     ; preds = %.lr.ph.preheader, %66
-  %92 = icmp sgt i64 %68, 0
+  %92 = icmp sgt i64 %67, 1
   br i1 %92, label %.lr.ph49, label %.preheader
 
 .preheader:                                       ; preds = %.lr.ph49, %.preheader45

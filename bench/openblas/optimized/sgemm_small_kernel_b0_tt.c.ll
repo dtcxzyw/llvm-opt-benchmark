@@ -15,13 +15,13 @@ define noundef i32 @sgemm_small_kernel_b0_tt(i64 noundef %0, i64 noundef %1, i64
   %16 = and i64 %1, -32
   %17 = insertelement <4 x float> poison, float %5, i64 0
   %18 = shufflevector <4 x float> %17, <4 x float> poison, <16 x i32> zeroinitializer
-  %19 = icmp sgt i64 %12, 0
+  %19 = icmp sgt i64 %0, 7
   br i1 %19, label %20, label %.loopexit85
 
 20:                                               ; preds = %10
   %21 = load <16 x i32>, ptr getelementptr inbounds (i8, ptr @__const.sgemm_small_kernel_b0_tt.permute_table, i64 64), align 64
   %22 = load <16 x i32>, ptr @__const.sgemm_small_kernel_b0_tt.permute_table, align 64
-  %23 = icmp sgt i64 %16, 0
+  %23 = icmp sgt i64 %1, 31
   %24 = icmp sgt i64 %2, 0
   br label %25
 
@@ -54,7 +54,7 @@ define noundef i32 @sgemm_small_kernel_b0_tt(i64 noundef %0, i64 noundef %1, i64
   br i1 %45, label %46, label %.loopexit79
 
 46:                                               ; preds = %.loopexit85
-  %47 = icmp sgt i64 %15, 0
+  %47 = icmp sgt i64 %1, 63
   %48 = icmp sgt i64 %2, 0
   br label %560
 
@@ -1697,7 +1697,7 @@ define noundef i32 @sgemm_small_kernel_b0_tt(i64 noundef %0, i64 noundef %1, i64
   br i1 %1349, label %1350, label %.loopexit70
 
 1350:                                             ; preds = %1347
-  %1351 = icmp sgt i64 %15, 0
+  %1351 = icmp sgt i64 %1, 63
   %1352 = icmp sgt i64 %2, 0
   %1353 = bitcast <8 x i64> %1348 to <16 x i32>
   br label %1361
@@ -1728,7 +1728,7 @@ define noundef i32 @sgemm_small_kernel_b0_tt(i64 noundef %0, i64 noundef %1, i64
   br i1 %1368, label %1369, label %.loopexit61
 
 1369:                                             ; preds = %.loopexit70
-  %1370 = icmp sgt i64 %15, 0
+  %1370 = icmp sgt i64 %1, 63
   %1371 = icmp sgt i64 %2, 0
   %1372 = bitcast <8 x i64> %1348 to <16 x i32>
   %1373 = fmul <16 x float> %18, zeroinitializer

@@ -1625,7 +1625,7 @@ define noundef i64 @Java_com_sun_imageio_plugins_jpeg_JPEGImageReader_initJPEGIm
 
 6:                                                ; preds = %2
   call void @JNU_ThrowByName(ptr noundef %0, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.23) #13
-  br label %40
+  br label %41
 
 7:                                                ; preds = %2
   %8 = call noalias dereferenceable_or_null(368) ptr @malloc(i64 noundef 368) #14
@@ -1635,7 +1635,7 @@ define noundef i64 @Java_com_sun_imageio_plugins_jpeg_JPEGImageReader_initJPEGIm
 10:                                               ; preds = %7
   call void @JNU_ThrowByName(ptr noundef %0, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.23) #13
   call void @free(ptr noundef nonnull %4) #13
-  br label %40
+  br label %41
 
 11:                                               ; preds = %7
   %12 = call ptr @jStdError(ptr noundef nonnull %8) #13
@@ -1646,72 +1646,73 @@ define noundef i64 @Java_com_sun_imageio_plugins_jpeg_JPEGImageReader_initJPEGIm
   %14 = getelementptr inbounds i8, ptr %8, i64 168
   %15 = call i32 @_setjmp(ptr noundef nonnull %14) #15
   %.not = icmp eq i32 %15, 0
-  br i1 %.not, label %19, label %16
+  br i1 %.not, label %20, label %16
 
 16:                                               ; preds = %11
-  %17 = getelementptr inbounds i8, ptr %12, i64 24
-  %18 = load ptr, ptr %17, align 8
-  call void %18(ptr noundef nonnull %4, ptr noundef nonnull %3) #13
+  %17 = load ptr, ptr %4, align 8
+  %18 = getelementptr inbounds i8, ptr %17, i64 24
+  %19 = load ptr, ptr %18, align 8
+  call void %19(ptr noundef nonnull %4, ptr noundef nonnull %3) #13
   call void @JNU_ThrowByName(ptr noundef %0, ptr noundef nonnull @.str.24, ptr noundef nonnull %3) #13
-  br label %40
+  br label %41
 
-19:                                               ; preds = %11
+20:                                               ; preds = %11
   call void @jCreaDecompress(ptr noundef nonnull %4, i32 noundef 62, i64 noundef 632) #13
   call void @jSaveMarkers(ptr noundef nonnull %4, i32 noundef 226, i32 noundef 65535) #13
-  %20 = call noalias dereferenceable_or_null(56) ptr @malloc(i64 noundef 56) #14
-  %21 = getelementptr inbounds i8, ptr %4, i64 40
-  store ptr %20, ptr %21, align 8
-  %22 = icmp eq ptr %20, null
-  br i1 %22, label %imageio_dispose.exit, label %25
+  %21 = call noalias dereferenceable_or_null(56) ptr @malloc(i64 noundef 56) #14
+  %22 = getelementptr inbounds i8, ptr %4, i64 40
+  store ptr %21, ptr %22, align 8
+  %23 = icmp eq ptr %21, null
+  br i1 %23, label %imageio_dispose.exit, label %26
 
-imageio_dispose.exit:                             ; preds = %19
+imageio_dispose.exit:                             ; preds = %20
   call void @JNU_ThrowByName(ptr noundef %0, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.23) #13
-  %23 = load ptr, ptr %21, align 8
-  call void @free(ptr noundef %23) #13
-  store ptr null, ptr %21, align 8
-  call void @jDestroy(ptr noundef nonnull %4) #13
-  %24 = load ptr, ptr %4, align 8
+  %24 = load ptr, ptr %22, align 8
   call void @free(ptr noundef %24) #13
-  call void @free(ptr noundef nonnull %4) #13
-  br label %40
-
-25:                                               ; preds = %19
-  %26 = getelementptr inbounds i8, ptr %20, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, i8 0, i64 16, i1 false)
-  store ptr @imageio_init_source, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %20, i64 24
-  store ptr @imageio_fill_input_buffer, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %20, i64 32
-  store ptr @imageio_skip_input_data, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %20, i64 40
-  store ptr @jResyncRestart, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %20, i64 48
-  store ptr @imageio_term_source, ptr %30, align 8
-  %31 = call fastcc ptr @initImageioData(ptr noundef %0, ptr noundef %4, ptr noundef %1)
-  %32 = icmp eq ptr %31, null
-  br i1 %32, label %imageio_dispose.exit40, label %38
-
-imageio_dispose.exit40:                           ; preds = %25
-  %33 = load ptr, ptr %0, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 136
-  %35 = load ptr, ptr %34, align 8
-  call void %35(ptr noundef nonnull %0) #13
-  call void @JNU_ThrowByName(ptr noundef nonnull %0, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.23) #13
-  %36 = load ptr, ptr %21, align 8
-  call void @free(ptr noundef %36) #13
-  store ptr null, ptr %21, align 8
+  store ptr null, ptr %22, align 8
   call void @jDestroy(ptr noundef nonnull %4) #13
-  %37 = load ptr, ptr %4, align 8
-  call void @free(ptr noundef %37) #13
+  %25 = load ptr, ptr %4, align 8
+  call void @free(ptr noundef %25) #13
   call void @free(ptr noundef nonnull %4) #13
-  br label %40
+  br label %41
 
-38:                                               ; preds = %25
-  %39 = ptrtoint ptr %31 to i64
-  br label %40
+26:                                               ; preds = %20
+  %27 = getelementptr inbounds i8, ptr %21, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, i8 0, i64 16, i1 false)
+  store ptr @imageio_init_source, ptr %27, align 8
+  %28 = getelementptr inbounds i8, ptr %21, i64 24
+  store ptr @imageio_fill_input_buffer, ptr %28, align 8
+  %29 = getelementptr inbounds i8, ptr %21, i64 32
+  store ptr @imageio_skip_input_data, ptr %29, align 8
+  %30 = getelementptr inbounds i8, ptr %21, i64 40
+  store ptr @jResyncRestart, ptr %30, align 8
+  %31 = getelementptr inbounds i8, ptr %21, i64 48
+  store ptr @imageio_term_source, ptr %31, align 8
+  %32 = call fastcc ptr @initImageioData(ptr noundef %0, ptr noundef %4, ptr noundef %1)
+  %33 = icmp eq ptr %32, null
+  br i1 %33, label %imageio_dispose.exit40, label %39
 
-40:                                               ; preds = %38, %imageio_dispose.exit40, %imageio_dispose.exit, %16, %10, %6
-  %.0 = phi i64 [ 0, %6 ], [ 0, %10 ], [ 0, %16 ], [ 0, %imageio_dispose.exit ], [ 0, %imageio_dispose.exit40 ], [ %39, %38 ]
+imageio_dispose.exit40:                           ; preds = %26
+  %34 = load ptr, ptr %0, align 8
+  %35 = getelementptr inbounds i8, ptr %34, i64 136
+  %36 = load ptr, ptr %35, align 8
+  call void %36(ptr noundef nonnull %0) #13
+  call void @JNU_ThrowByName(ptr noundef nonnull %0, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.23) #13
+  %37 = load ptr, ptr %22, align 8
+  call void @free(ptr noundef %37) #13
+  store ptr null, ptr %22, align 8
+  call void @jDestroy(ptr noundef nonnull %4) #13
+  %38 = load ptr, ptr %4, align 8
+  call void @free(ptr noundef %38) #13
+  call void @free(ptr noundef nonnull %4) #13
+  br label %41
+
+39:                                               ; preds = %26
+  %40 = ptrtoint ptr %32 to i64
+  br label %41
+
+41:                                               ; preds = %39, %imageio_dispose.exit40, %imageio_dispose.exit, %16, %10, %6
+  %.0 = phi i64 [ 0, %6 ], [ 0, %10 ], [ 0, %16 ], [ 0, %imageio_dispose.exit ], [ 0, %imageio_dispose.exit40 ], [ %40, %39 ]
   ret i64 %.0
 }
 
@@ -4381,7 +4382,7 @@ define noundef i64 @Java_com_sun_imageio_plugins_jpeg_JPEGImageWriter_initJPEGIm
 
 6:                                                ; preds = %2
   call void @JNU_ThrowByName(ptr noundef %0, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.36) #13
-  br label %39
+  br label %40
 
 7:                                                ; preds = %2
   %8 = call noalias dereferenceable_or_null(368) ptr @malloc(i64 noundef 368) #14
@@ -4391,7 +4392,7 @@ define noundef i64 @Java_com_sun_imageio_plugins_jpeg_JPEGImageWriter_initJPEGIm
 10:                                               ; preds = %7
   call void @JNU_ThrowByName(ptr noundef %0, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.36) #13
   call void @free(ptr noundef nonnull %4) #13
-  br label %39
+  br label %40
 
 11:                                               ; preds = %7
   %12 = call ptr @jStdError(ptr noundef nonnull %8) #13
@@ -4402,68 +4403,69 @@ define noundef i64 @Java_com_sun_imageio_plugins_jpeg_JPEGImageWriter_initJPEGIm
   %14 = getelementptr inbounds i8, ptr %8, i64 168
   %15 = call i32 @_setjmp(ptr noundef nonnull %14) #15
   %.not = icmp eq i32 %15, 0
-  br i1 %.not, label %19, label %16
+  br i1 %.not, label %20, label %16
 
 16:                                               ; preds = %11
-  %17 = getelementptr inbounds i8, ptr %12, i64 24
-  %18 = load ptr, ptr %17, align 8
-  call void %18(ptr noundef nonnull %4, ptr noundef nonnull %3) #13
+  %17 = load ptr, ptr %4, align 8
+  %18 = getelementptr inbounds i8, ptr %17, i64 24
+  %19 = load ptr, ptr %18, align 8
+  call void %19(ptr noundef nonnull %4, ptr noundef nonnull %3) #13
   call void @JNU_ThrowByName(ptr noundef %0, ptr noundef nonnull @.str.24, ptr noundef nonnull %3) #13
-  br label %39
+  br label %40
 
-19:                                               ; preds = %11
+20:                                               ; preds = %11
   call void @jCreaCompress(ptr noundef nonnull %4, i32 noundef 62, i64 noundef 520) #13
-  %20 = call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #14
-  %21 = icmp eq ptr %20, null
-  br i1 %21, label %imageio_dispose.exit, label %25
+  %21 = call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #14
+  %22 = icmp eq ptr %21, null
+  br i1 %22, label %imageio_dispose.exit, label %26
 
-imageio_dispose.exit:                             ; preds = %19
+imageio_dispose.exit:                             ; preds = %20
   call void @JNU_ThrowByName(ptr noundef %0, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.36) #13
-  %22 = getelementptr inbounds i8, ptr %4, i64 40
-  %23 = load ptr, ptr %22, align 8
-  call void @free(ptr noundef %23) #13
-  store ptr null, ptr %22, align 8
-  call void @jDestroy(ptr noundef nonnull %4) #13
-  %24 = load ptr, ptr %4, align 8
+  %23 = getelementptr inbounds i8, ptr %4, i64 40
+  %24 = load ptr, ptr %23, align 8
   call void @free(ptr noundef %24) #13
-  call void @free(ptr noundef nonnull %4) #13
-  br label %39
-
-25:                                               ; preds = %19
-  %26 = getelementptr inbounds i8, ptr %20, i64 16
-  store ptr @imageio_init_destination, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %20, i64 24
-  store ptr @imageio_empty_output_buffer, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %20, i64 32
-  store ptr @imageio_term_destination, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %4, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, i8 0, i64 16, i1 false)
-  store ptr %20, ptr %29, align 8
-  %30 = call fastcc ptr @initImageioData(ptr noundef %0, ptr noundef %4, ptr noundef %1)
-  %31 = icmp eq ptr %30, null
-  br i1 %31, label %imageio_dispose.exit38, label %37
-
-imageio_dispose.exit38:                           ; preds = %25
-  %32 = load ptr, ptr %0, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 136
-  %34 = load ptr, ptr %33, align 8
-  call void %34(ptr noundef nonnull %0) #13
-  call void @JNU_ThrowByName(ptr noundef nonnull %0, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.36) #13
-  %35 = load ptr, ptr %29, align 8
-  call void @free(ptr noundef %35) #13
-  store ptr null, ptr %29, align 8
+  store ptr null, ptr %23, align 8
   call void @jDestroy(ptr noundef nonnull %4) #13
-  %36 = load ptr, ptr %4, align 8
-  call void @free(ptr noundef %36) #13
+  %25 = load ptr, ptr %4, align 8
+  call void @free(ptr noundef %25) #13
   call void @free(ptr noundef nonnull %4) #13
-  br label %39
+  br label %40
 
-37:                                               ; preds = %25
-  %38 = ptrtoint ptr %30 to i64
-  br label %39
+26:                                               ; preds = %20
+  %27 = getelementptr inbounds i8, ptr %21, i64 16
+  store ptr @imageio_init_destination, ptr %27, align 8
+  %28 = getelementptr inbounds i8, ptr %21, i64 24
+  store ptr @imageio_empty_output_buffer, ptr %28, align 8
+  %29 = getelementptr inbounds i8, ptr %21, i64 32
+  store ptr @imageio_term_destination, ptr %29, align 8
+  %30 = getelementptr inbounds i8, ptr %4, i64 40
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, i8 0, i64 16, i1 false)
+  store ptr %21, ptr %30, align 8
+  %31 = call fastcc ptr @initImageioData(ptr noundef %0, ptr noundef %4, ptr noundef %1)
+  %32 = icmp eq ptr %31, null
+  br i1 %32, label %imageio_dispose.exit38, label %38
 
-39:                                               ; preds = %37, %imageio_dispose.exit38, %imageio_dispose.exit, %16, %10, %6
-  %.0 = phi i64 [ 0, %6 ], [ 0, %10 ], [ 0, %16 ], [ 0, %imageio_dispose.exit ], [ 0, %imageio_dispose.exit38 ], [ %38, %37 ]
+imageio_dispose.exit38:                           ; preds = %26
+  %33 = load ptr, ptr %0, align 8
+  %34 = getelementptr inbounds i8, ptr %33, i64 136
+  %35 = load ptr, ptr %34, align 8
+  call void %35(ptr noundef nonnull %0) #13
+  call void @JNU_ThrowByName(ptr noundef nonnull %0, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.36) #13
+  %36 = load ptr, ptr %30, align 8
+  call void @free(ptr noundef %36) #13
+  store ptr null, ptr %30, align 8
+  call void @jDestroy(ptr noundef nonnull %4) #13
+  %37 = load ptr, ptr %4, align 8
+  call void @free(ptr noundef %37) #13
+  call void @free(ptr noundef nonnull %4) #13
+  br label %40
+
+38:                                               ; preds = %26
+  %39 = ptrtoint ptr %31 to i64
+  br label %40
+
+40:                                               ; preds = %38, %imageio_dispose.exit38, %imageio_dispose.exit, %16, %10, %6
+  %.0 = phi i64 [ 0, %6 ], [ 0, %10 ], [ 0, %16 ], [ 0, %imageio_dispose.exit ], [ 0, %imageio_dispose.exit38 ], [ %39, %38 ]
   ret i64 %.0
 }
 

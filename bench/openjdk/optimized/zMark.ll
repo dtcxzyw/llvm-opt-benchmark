@@ -1593,7 +1593,7 @@ _ZN6ZStackI15ZMarkStackEntryLm254EE4pushES0_.exit.i.i: ; preds = %48, %17
   br label %_ZN5ZMark18push_partial_arrayEP8zpointermb.exit
 
 _ZN5ZMark18push_partial_arrayEP8zpointermb.exit:  ; preds = %_ZN6ZStackI15ZMarkStackEntryLm254EE4pushES0_.exit.i.i, %_ZN6ZStackI15ZMarkStackEntryLm254EE4pushES0_.exit.thread.i.i, %4
-  %54 = icmp sgt i64 %14, 0
+  %54 = icmp sgt i64 %13, 511
   br i1 %54, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZN5ZMark18push_partial_arrayEP8zpointermb.exit

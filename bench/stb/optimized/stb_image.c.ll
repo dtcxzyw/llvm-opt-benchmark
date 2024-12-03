@@ -17120,12 +17120,12 @@ if.end:                                           ; preds = %entry
   %mul9 = mul nuw nsw i32 %conv8, 3
   %conv11 = zext i8 %1 to i32
   %add12 = add nuw nsw i32 %mul9, %conv11
-  %sub = add nsw i32 %w, -1
-  %and = and i32 %sub, -8
-  %cmp1366 = icmp sgt i32 %and, 0
+  %cmp1366 = icmp sgt i32 %w, 8
   br i1 %cmp1366, label %for.body.preheader, label %for.end
 
 for.body.preheader:                               ; preds = %if.end
+  %sub = add nsw i32 %w, -1
+  %and = and i32 %sub, -8
   %2 = zext nneg i32 %and to i64
   br label %for.body
 

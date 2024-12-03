@@ -22,7 +22,7 @@ define ptr @qtmd_init(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 nounde
 8:                                                ; preds = %5
   %9 = add nsw i32 %4, 1
   %10 = and i32 %9, -2
-  %11 = icmp slt i32 %10, 2
+  %11 = icmp slt i32 %4, 1
   br i1 %11, label %qtmd_init_model.exit115, label %12
 
 12:                                               ; preds = %8

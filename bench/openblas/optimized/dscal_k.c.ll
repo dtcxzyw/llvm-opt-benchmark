@@ -16,7 +16,7 @@ define noundef i32 @dscal_k(i64 noundef %0, i64 noundef %1, i64 noundef %2, doub
 
 15:                                               ; preds = %13
   %16 = and i64 %0, -2
-  %17 = icmp sgt i64 %16, 0
+  %17 = icmp sgt i64 %0, 1
   br i1 %17, label %18, label %24
 
 18:                                               ; preds = %15
@@ -58,20 +58,20 @@ define noundef i32 @dscal_k(i64 noundef %0, i64 noundef %1, i64 noundef %2, doub
   br i1 %41, label %.loopexit, label %.preheader11, !llvm.loop !10
 
 42:                                               ; preds = %13
-  %43 = and i64 %0, -8
-  %44 = icmp sgt i64 %43, 0
-  br i1 %44, label %45, label %50
+  %43 = icmp sgt i64 %0, 7
+  br i1 %43, label %44, label %50
 
-45:                                               ; preds = %42
+44:                                               ; preds = %42
+  %45 = and i64 %0, 9223372036854775800
   %46 = shl i64 %5, 3
   %47 = mul i64 %5, 24
-  %48 = call { i64, ptr, ptr } asm sideeffect "movddup               ($3), %xmm0                 \0A\09leaq\09\09($1,$4,4), $2\09\09            \0A\09.p2align 4                                          \0A\091:                                                 \0A\09movsd\09($1)     , %xmm4\09\09\09    \0A\09movhpd ($1,$4,1), %xmm4\09\09\09    \0A\09movsd\09($1,$4,2), %xmm5\09\09\09    \0A\09movhpd ($1,$5,1), %xmm5\09\09\09    \0A\09movsd\09($2)     , %xmm6\09\09\09    \0A\09movhpd ($2,$4,1), %xmm6\09\09\09    \0A\09movsd\09($2,$4,2), %xmm7\09\09\09    \0A\09movhpd ($2,$5,1), %xmm7\09\09\09    \0A\09mulpd  %xmm0, %xmm4\09\09\09\09    \0A\09mulpd  %xmm0, %xmm5\09\09\09\09    \0A\09mulpd  %xmm0, %xmm6\09\09\09\09    \0A\09mulpd  %xmm0, %xmm7\09\09\09\09    \0A\09movsd  %xmm4 , ($1)\09\09\09\09    \0A\09movhpd %xmm4 , ($1,$4,1)\09\09\09    \0A\09movsd  %xmm5 , ($1,$4,2)\09\09\09    \0A\09movhpd %xmm5 , ($1,$5,1)\09\09\09    \0A\09movsd  %xmm6 , ($2)\09\09\09\09    \0A\09movhpd %xmm6 , ($2,$4,1)\09\09\09    \0A\09movsd  %xmm7 , ($2,$4,2)\09\09\09    \0A\09movhpd %xmm7 , ($2,$5,1)\09\09\09    \0A\09leaq   ($1,$4,8), $1\09\09\09\09    \0A\09leaq   ($2,$4,8), $2\09\09\09\09    \0A\09subq\09$$8, $0\09\09\09\09\09    \0A\09jnz    1b\09\09\09\09\09    \0A\09", "=r,=r,=r,r,r,r,0,1,2,~{cc},~{xmm0},~{xmm1},~{xmm2},~{xmm3},~{xmm4},~{xmm5},~{xmm6},~{xmm7},~{xmm8},~{xmm9},~{xmm10},~{xmm11},~{xmm12},~{xmm13},~{xmm14},~{xmm15},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %11, i64 %46, i64 %47, i64 range(i64 1, -9223372036854775808) %43, ptr %4, ptr null) #2, !srcloc !11
-  %49 = mul nsw i64 %5, %43
+  %48 = call { i64, ptr, ptr } asm sideeffect "movddup               ($3), %xmm0                 \0A\09leaq\09\09($1,$4,4), $2\09\09            \0A\09.p2align 4                                          \0A\091:                                                 \0A\09movsd\09($1)     , %xmm4\09\09\09    \0A\09movhpd ($1,$4,1), %xmm4\09\09\09    \0A\09movsd\09($1,$4,2), %xmm5\09\09\09    \0A\09movhpd ($1,$5,1), %xmm5\09\09\09    \0A\09movsd\09($2)     , %xmm6\09\09\09    \0A\09movhpd ($2,$4,1), %xmm6\09\09\09    \0A\09movsd\09($2,$4,2), %xmm7\09\09\09    \0A\09movhpd ($2,$5,1), %xmm7\09\09\09    \0A\09mulpd  %xmm0, %xmm4\09\09\09\09    \0A\09mulpd  %xmm0, %xmm5\09\09\09\09    \0A\09mulpd  %xmm0, %xmm6\09\09\09\09    \0A\09mulpd  %xmm0, %xmm7\09\09\09\09    \0A\09movsd  %xmm4 , ($1)\09\09\09\09    \0A\09movhpd %xmm4 , ($1,$4,1)\09\09\09    \0A\09movsd  %xmm5 , ($1,$4,2)\09\09\09    \0A\09movhpd %xmm5 , ($1,$5,1)\09\09\09    \0A\09movsd  %xmm6 , ($2)\09\09\09\09    \0A\09movhpd %xmm6 , ($2,$4,1)\09\09\09    \0A\09movsd  %xmm7 , ($2,$4,2)\09\09\09    \0A\09movhpd %xmm7 , ($2,$5,1)\09\09\09    \0A\09leaq   ($1,$4,8), $1\09\09\09\09    \0A\09leaq   ($2,$4,8), $2\09\09\09\09    \0A\09subq\09$$8, $0\09\09\09\09\09    \0A\09jnz    1b\09\09\09\09\09    \0A\09", "=r,=r,=r,r,r,r,0,1,2,~{cc},~{xmm0},~{xmm1},~{xmm2},~{xmm3},~{xmm4},~{xmm5},~{xmm6},~{xmm7},~{xmm8},~{xmm9},~{xmm10},~{xmm11},~{xmm12},~{xmm13},~{xmm14},~{xmm15},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %11, i64 %46, i64 %47, i64 range(i64 1, -9223372036854775808) %45, ptr %4, ptr null) #2, !srcloc !11
+  %49 = mul nsw i64 %5, %45
   br label %50
 
-50:                                               ; preds = %45, %42
-  %51 = phi i64 [ %43, %45 ], [ 0, %42 ]
-  %52 = phi i64 [ %49, %45 ], [ 0, %42 ]
+50:                                               ; preds = %44, %42
+  %51 = phi i64 [ %45, %44 ], [ 0, %42 ]
+  %52 = phi i64 [ %49, %44 ], [ 0, %42 ]
   %53 = icmp slt i64 %51, %0
   br i1 %53, label %54, label %.loopexit
 
@@ -93,7 +93,7 @@ define noundef i32 @dscal_k(i64 noundef %0, i64 noundef %1, i64 noundef %2, doub
 
 65:                                               ; preds = %10
   %66 = and i64 %0, -8
-  %67 = icmp sgt i64 %66, 0
+  %67 = icmp sgt i64 %0, 7
   br i1 %67, label %68, label %.loopexit10
 
 68:                                               ; preds = %65

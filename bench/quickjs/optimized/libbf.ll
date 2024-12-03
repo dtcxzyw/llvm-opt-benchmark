@@ -5538,7 +5538,7 @@ mp_add_ui.exit:                                   ; preds = %.lr.ph.i99, %mp_add
   br i1 %.not94148, label %mp_sub_ui.exit.thread, label %130
 
 77:                                               ; preds = %72
-  %78 = icmp sgt i64 %15, 0
+  %78 = icmp sgt i64 %3, 1
   br i1 %78, label %.lr.ph.i102, label %mp_sub.exit105
 
 .lr.ph.i102:                                      ; preds = %77, %.lr.ph.i102
@@ -19224,7 +19224,7 @@ mp_add_ui_dec.exit:                               ; preds = %.lr.ph.i98, %99, %m
 118:                                              ; preds = %mp_add_ui_dec.exit
   %119 = getelementptr i64, ptr %1, i64 %2
   tail call void @mp_mul_basecase_dec(ptr noundef %119, ptr noundef %0, i64 noundef %64, ptr noundef %0, i64 noundef %64)
-  %120 = icmp sgt i64 %67, 0
+  %120 = icmp sgt i64 %2, 1
   br i1 %120, label %.lr.ph.i103, label %mp_sub_dec.exit108
 
 .lr.ph.i103:                                      ; preds = %118, %.lr.ph.i103

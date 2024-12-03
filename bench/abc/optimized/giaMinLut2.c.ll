@@ -2218,7 +2218,7 @@ Abc_TtHasVar.exit:                                ; preds = %59, %69
   %93 = getelementptr i8, ptr %3, i64 8
   %.val135 = load ptr, ptr %93, align 8
   %94 = and i32 %10, -2
-  %95 = icmp sgt i32 %94, 0
+  %95 = icmp sgt i32 %10, 1
   %wide.trip.count.i221 = zext nneg i32 %94 to i64
   br i1 %95, label %.lr.ph.preheader.i220.us.preheader, label %.lr.ph.split
 
@@ -3254,7 +3254,7 @@ Abc_TtHasVar.exit:                                ; preds = %60
   %.val169 = load ptr, ptr %103, align 8
   %.val172 = load ptr, ptr %13, align 8
   %104 = and i32 %17, -2
-  %105 = icmp sgt i32 %104, 0
+  %105 = icmp sgt i32 %17, 1
   %wide.trip.count39.i = zext nneg i32 %104 to i64
   br i1 %105, label %.lr.ph29.preheader.i.us, label %.lr.ph.split
 
@@ -4615,7 +4615,7 @@ Abc_TtHasVar.exit:                                ; preds = %64, %74
   %98 = getelementptr i8, ptr %4, i64 8
   %.val198 = load ptr, ptr %98, align 8
   %99 = and i32 %15, -2
-  %100 = icmp sgt i32 %99, 0
+  %100 = icmp sgt i32 %15, 1
   %wide.trip.count.i284 = zext nneg i32 %99 to i64
   br i1 %100, label %.lr.ph.preheader.i283.us, label %.lr.ph.split
 

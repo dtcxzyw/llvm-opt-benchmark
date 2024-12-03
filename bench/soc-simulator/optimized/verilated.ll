@@ -5491,7 +5491,7 @@ _ZL13VL_SHIFTL_WWIiiiPjPKjj.exit:                 ; preds = %.lr.ph.i45._crit_ed
   store i8 0, ptr %106, align 1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
   %107 = and i32 %.pre-phi, -4
-  %108 = icmp sgt i32 %107, 0
+  %108 = icmp sgt i32 %9, 14
   br i1 %108, label %.lr.ph55, label %._crit_edge56
 
 .lr.ph55:                                         ; preds = %._crit_edge52, %118
@@ -5504,7 +5504,7 @@ _ZL13VL_SHIFTL_WWIiiiPjPKjj.exit:                 ; preds = %.lr.ph.i45._crit_ed
   %114 = shl nuw i32 15, %113
   %115 = and i32 %112, %114
   %.not42 = icmp eq i32 %115, 0
-  br i1 %.not42, label %118, label %.lr.ph61.preheader
+  br i1 %.not42, label %118, label %._crit_edge56
 
 116:                                              ; preds = %140
   %117 = landingpad { ptr, i32 }
@@ -5517,17 +5517,13 @@ _ZL13VL_SHIFTL_WWIiiiPjPKjj.exit:                 ; preds = %.lr.ph.i45._crit_ed
   %120 = icmp sgt i32 %.03853, 4
   br i1 %120, label %.lr.ph55, label %._crit_edge56, !llvm.loop !40
 
-._crit_edge56:                                    ; preds = %118, %._crit_edge52
-  %.038.lcssa = phi i32 [ %107, %._crit_edge52 ], [ %119, %118 ]
+._crit_edge56:                                    ; preds = %118, %.lr.ph55, %._crit_edge52
+  %.038.lcssa = phi i32 [ %107, %._crit_edge52 ], [ %.03853, %.lr.ph55 ], [ %119, %118 ]
   %121 = icmp sgt i32 %.038.lcssa, -1
-  br i1 %121, label %.lr.ph61.preheader, label %._crit_edge62
+  br i1 %121, label %.lr.ph61, label %._crit_edge62
 
-.lr.ph61.preheader:                               ; preds = %.lr.ph55, %._crit_edge56
-  %.13959.ph = phi i32 [ 0, %._crit_edge56 ], [ %.03853, %.lr.ph55 ]
-  br label %.lr.ph61
-
-.lr.ph61:                                         ; preds = %.lr.ph61.preheader, %141
-  %.13959 = phi i32 [ %146, %141 ], [ %.13959.ph, %.lr.ph61.preheader ]
+.lr.ph61:                                         ; preds = %._crit_edge56, %141
+  %.13959 = phi i32 [ %146, %141 ], [ %.038.lcssa, %._crit_edge56 ]
   %122 = lshr i32 %.13959, 5
   %123 = zext nneg i32 %122 to i64
   %124 = getelementptr inbounds i32, ptr %5, i64 %123
@@ -14300,7 +14296,7 @@ define dso_local void @_Z18_vl_vint_to_stringiPcPKj(i32 noundef %0, ptr noundef 
 19:                                               ; preds = %15, %.lr.ph
   %.121 = phi i8 [ 0, %15 ], [ %.02023, %.lr.ph ]
   %.1 = phi ptr [ %18, %15 ], [ %.01924, %.lr.ph ]
-  %20 = icmp sgt i32 %5, 0
+  %20 = icmp sgt i32 %.0.in25, 8
   br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !108
 
 ._crit_edge:                                      ; preds = %19
@@ -17791,7 +17787,7 @@ define dso_local noundef range(i32 -8388608, 8388608) i32 @_Z12VL_SYSTEM_IWiPKj(
 22:                                               ; preds = %18, %.lr.ph.i
   %.121.i = phi i8 [ 0, %18 ], [ %.02023.i, %.lr.ph.i ]
   %.1.i = phi ptr [ %21, %18 ], [ %.01924.i, %.lr.ph.i ]
-  %23 = icmp sgt i32 %8, 0
+  %23 = icmp sgt i32 %.0.in25.i, 8
   br i1 %23, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !108
 
 ._crit_edge.i:                                    ; preds = %22
@@ -19354,7 +19350,7 @@ define dso_local void @_Z18VL_CVT_PACK_STR_NWB5cxx11iPKj(ptr dead_on_unwind noal
 20:                                               ; preds = %.lr.ph, %16
   %.116 = phi i64 [ %19, %16 ], [ %.01518, %.lr.ph ]
   %.1 = phi ptr [ %18, %16 ], [ %.01419, %.lr.ph ]
-  %21 = icmp sgt i32 %8, 0
+  %21 = icmp sgt i32 %.0.in20, 8
   br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !135
 
 ._crit_edge:                                      ; preds = %20, %3

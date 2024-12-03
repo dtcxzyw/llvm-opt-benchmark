@@ -30940,7 +30940,7 @@ land.rhs.i.i.i:                                   ; preds = %while.cond.i.i.i
   br i1 %32, label %mi_atomic_maxi64_relaxed.exit.i.i, label %while.cond.i.i.i, !llvm.loop !5
 
 mi_atomic_maxi64_relaxed.exit.i.i:                ; preds = %land.rhs.i.i.i, %while.cond.i.i.i
-  %cmp4.i.i38 = icmp sgt i64 %mul.i33, 0
+  %cmp4.i.i38 = icmp sgt i64 %info_slices.0.in, 65535
   br i1 %cmp4.i.i38, label %if.then5.i.i, label %if.else.i.i39
 
 if.then5.i.i:                                     ; preds = %mi_atomic_maxi64_relaxed.exit.i.i
@@ -30967,7 +30967,7 @@ if.then15.i.i:                                    ; preds = %if.else9.i.i
   br label %if.end18.i.i
 
 if.end18.i.i:                                     ; preds = %if.then15.i.i, %if.else9.i.i
-  %cmp19.i.i = icmp sgt i64 %mul.i33, 0
+  %cmp19.i.i = icmp sgt i64 %info_slices.0.in, 65535
   br i1 %cmp19.i.i, label %if.then20.i.i, label %if.else23.i.i
 
 if.then20.i.i:                                    ; preds = %if.end18.i.i

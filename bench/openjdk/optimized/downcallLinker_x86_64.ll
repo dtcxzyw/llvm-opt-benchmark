@@ -323,7 +323,7 @@ _ZN13GrowableArrayI9VMStorageEC2Ev.exit:          ; preds = %.lr.ph.i.i.i
   %95 = getelementptr inbounds i8, ptr %94, i64 16
   %96 = load ptr, ptr %95, align 8
   call void @_ZN14MacroAssembler5enterEv(ptr noundef nonnull align 8 dereferenceable(40) %92) #9
-  %97 = icmp sgt i32 %77, 0
+  %97 = icmp sgt i32 %76, 15
   br i1 %97, label %98, label %100
 
 98:                                               ; preds = %88

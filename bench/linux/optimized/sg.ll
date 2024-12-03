@@ -4529,7 +4529,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @sg_build_indirect(ptr noca
   %27 = lshr i64 %26, 12
   %28 = tail call i32 asm "bsrq $1,${0:q}", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i64 %27, i32 -1) #20, !srcloc !66
   %29 = add i32 %28, 1
-  %30 = icmp sgt i32 %6, 0
+  %30 = icmp sgt i32 %5, 511
   %31 = icmp ne i32 %.16.val.64.val, 0
   %32 = and i1 %31, %30
   %33 = zext nneg i32 %.16.val.64.val to i64

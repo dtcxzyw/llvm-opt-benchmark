@@ -1282,7 +1282,7 @@ radius_add_attribute.exit169.i.i:                 ; preds = %567, %565, %563
   %584 = call ptr @palloc(i64 noundef %583) #16
   %585 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %486) #19
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %584, ptr readonly align 1 %486, i64 %585, i1 false)
-  %586 = icmp sgt i32 %581, 0
+  %586 = icmp sgt i32 %580, 15
   br i1 %586, label %.lr.ph178.preheader.i.i, label %._crit_edge.i.i
 
 .lr.ph178.preheader.i.i:                          ; preds = %radius_add_attribute.exit169.i.i

@@ -60324,13 +60324,13 @@ define internal noundef ptr @_ZL28stbi__resample_row_hv_2_simdPhS_S_ii(ptr nound
   %20 = mul nuw nsw i32 %19, 3
   %21 = zext i8 %8 to i32
   %22 = add nuw nsw i32 %20, %21
-  %23 = add nsw i32 %3, -1
-  %24 = and i32 %23, -8
-  %25 = icmp sgt i32 %24, 0
-  br i1 %25, label %.lr.ph.preheader, label %._crit_edge
+  %23 = icmp sgt i32 %3, 8
+  br i1 %23, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %18
-  %26 = zext nneg i32 %24 to i64
+  %24 = add nsw i32 %3, -1
+  %25 = and i32 %24, -8
+  %26 = zext nneg i32 %25 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph

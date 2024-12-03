@@ -67,7 +67,7 @@ define hidden void @PMurHash32_Process(ptr nocapture noundef %0, ptr nocapture n
   %32 = and i32 %.068, -4
   %33 = sext i32 %32 to i64
   %34 = getelementptr inbounds i8, ptr %.077, i64 %33
-  %35 = icmp sgt i32 %32, 0
+  %35 = icmp sgt i32 %.068, 3
   br i1 %35, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.loopexit, %.lr.ph

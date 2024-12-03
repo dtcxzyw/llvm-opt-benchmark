@@ -2923,7 +2923,7 @@ _ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit: ; preds = %1
   br label %.preheader49
 
 .preheader49:                                     ; preds = %.lr.ph, %48
-  %60 = icmp sgt i64 %50, 0
+  %60 = icmp sgt i64 %49, 1
   br i1 %60, label %.lr.ph53, label %.preheader
 
 .lr.ph53:                                         ; preds = %.preheader49
@@ -3077,7 +3077,7 @@ _ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit: ; preds = %1
   br label %.preheader47
 
 .preheader47:                                     ; preds = %.lr.ph, %45
-  %55 = icmp sgt i64 %47, 0
+  %55 = icmp sgt i64 %46, 1
   br i1 %55, label %.lr.ph51, label %.preheader
 
 .lr.ph51:                                         ; preds = %.preheader47

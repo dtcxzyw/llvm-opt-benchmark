@@ -6924,7 +6924,7 @@ define linkonce_odr void @_ZN5Eigen8internal11gebp_kernelIfflNS0_16blas_data_map
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.idx456 = shl i64 %11, 4
   %invariant.gep886 = getelementptr i8, ptr %3, i64 %.idx456
-  %43 = icmp sgt i64 %34, 0
+  %43 = icmp sgt i64 %5, 7
   %.not = icmp eq i64 %34, %5
   %44 = insertelement <4 x float> poison, float %7, i64 0
   %45 = shufflevector <4 x float> %44, <4 x float> poison, <4 x i32> zeroinitializer

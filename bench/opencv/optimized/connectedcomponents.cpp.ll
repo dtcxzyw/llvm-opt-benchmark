@@ -30499,7 +30499,7 @@ _ZN2cv19connectedcomponentsL7setRootItEEvPT_S2_S2_.exit.i4759: ; preds = %.lr.ph
 
 _ZN2cv19connectedcomponentsL8flattenLItEET_PS2_S2_.exit: ; preds = %5635, %5624
   %.015.lcssa.i = phi i16 [ 1, %5624 ], [ %.1.i, %5635 ]
-  %5636 = icmp sgt i32 %47, 0
+  %5636 = icmp sgt i32 %13, 1
   br i1 %5636, label %.lr.ph5336, label %._crit_edge5337
 
 .lr.ph5336:                                       ; preds = %_ZN2cv19connectedcomponentsL8flattenLItEET_PS2_S2_.exit
@@ -30507,7 +30507,7 @@ _ZN2cv19connectedcomponentsL8flattenLItEET_PS2_S2_.exit: ; preds = %5635, %5624
   %5638 = getelementptr inbounds i8, ptr %1, i64 72
   %5639 = getelementptr inbounds i8, ptr %2, i64 16
   %5640 = getelementptr inbounds i8, ptr %2, i64 72
-  %5641 = icmp sgt i32 %50, 0
+  %5641 = icmp sgt i32 %26, 1
   %5642 = sext i32 %50 to i64
   %5643 = zext nneg i32 %47 to i64
   br label %5644
@@ -30650,7 +30650,7 @@ _ZN2cv19connectedcomponentsL8flattenLItEET_PS2_S2_.exit: ; preds = %5635, %5624
   %5713 = load i64, ptr %5712, align 8
   %5714 = mul i64 %5713, %.03137.lcssa
   %5715 = getelementptr inbounds i8, ptr %5710, i64 %5714
-  %5716 = icmp sgt i32 %50, 0
+  %5716 = icmp sgt i32 %26, 1
   br i1 %5716, label %.lr.ph5341.preheader, label %._crit_edge5342
 
 .lr.ph5341.preheader:                             ; preds = %5701
@@ -42176,7 +42176,7 @@ _ZN2cv19connectedcomponentsL7setRootIiEEvPT_S2_S2_.exit.i4759: ; preds = %.lr.ph
 
 _ZN2cv19connectedcomponentsL8flattenLIiEET_PS2_S2_.exit: ; preds = %5640, %5629
   %.015.lcssa.i = phi i32 [ 1, %5629 ], [ %.1.i, %5640 ]
-  %5641 = icmp sgt i32 %47, 0
+  %5641 = icmp sgt i32 %13, 1
   br i1 %5641, label %.lr.ph5336, label %._crit_edge5337
 
 .lr.ph5336:                                       ; preds = %_ZN2cv19connectedcomponentsL8flattenLIiEET_PS2_S2_.exit
@@ -42184,7 +42184,7 @@ _ZN2cv19connectedcomponentsL8flattenLIiEET_PS2_S2_.exit: ; preds = %5640, %5629
   %5643 = getelementptr inbounds i8, ptr %1, i64 72
   %5644 = getelementptr inbounds i8, ptr %2, i64 16
   %5645 = getelementptr inbounds i8, ptr %2, i64 72
-  %5646 = icmp sgt i32 %50, 0
+  %5646 = icmp sgt i32 %26, 1
   %5647 = sext i32 %50 to i64
   %5648 = zext nneg i32 %47 to i64
   br label %5649
@@ -42329,7 +42329,7 @@ _ZN2cv19connectedcomponentsL8flattenLIiEET_PS2_S2_.exit: ; preds = %5640, %5629
   %5720 = load i64, ptr %5719, align 8
   %5721 = mul i64 %5720, %.03137.lcssa
   %5722 = getelementptr inbounds i8, ptr %5717, i64 %5721
-  %5723 = icmp sgt i32 %50, 0
+  %5723 = icmp sgt i32 %26, 1
   br i1 %5723, label %.lr.ph5341.preheader, label %._crit_edge5342
 
 .lr.ph5341.preheader:                             ; preds = %5708
@@ -100969,7 +100969,7 @@ _ZN2cv19connectedcomponentsL8flattenLItEET_PS2_S2_.exit: ; preds = %5641, %5630
           to label %.preheader unwind label %471
 
 .preheader:                                       ; preds = %_ZN2cv19connectedcomponentsL8flattenLItEET_PS2_S2_.exit
-  %5643 = icmp sgt i32 %50, 0
+  %5643 = icmp sgt i32 %13, 1
   br i1 %5643, label %.lr.ph5364, label %._crit_edge5365
 
 .lr.ph5364:                                       ; preds = %.preheader
@@ -100977,7 +100977,7 @@ _ZN2cv19connectedcomponentsL8flattenLItEET_PS2_S2_.exit: ; preds = %5641, %5630
   %5645 = getelementptr inbounds i8, ptr %1, i64 72
   %5646 = getelementptr inbounds i8, ptr %2, i64 16
   %5647 = getelementptr inbounds i8, ptr %2, i64 72
-  %5648 = icmp sgt i32 %53, 0
+  %5648 = icmp sgt i32 %27, 1
   %5649 = getelementptr inbounds i8, ptr %4, i64 24
   %5650 = getelementptr inbounds i8, ptr %4, i64 80
   %5651 = getelementptr inbounds i8, ptr %4, i64 208
@@ -101717,7 +101717,7 @@ _ZN2cv19connectedcomponentsL8flattenLItEET_PS2_S2_.exit: ; preds = %5641, %5630
   %6142 = load i64, ptr %6141, align 8
   %6143 = mul i64 %6142, %6135
   %6144 = getelementptr inbounds i8, ptr %6139, i64 %6143
-  %6145 = icmp sgt i32 %53, 0
+  %6145 = icmp sgt i32 %27, 1
   br i1 %6145, label %.lr.ph5369, label %._crit_edge5370
 
 .lr.ph5369:                                       ; preds = %6129
@@ -113632,7 +113632,7 @@ _ZN2cv19connectedcomponentsL8flattenLIiEET_PS2_S2_.exit: ; preds = %5646, %5635
           to label %.preheader unwind label %476
 
 .preheader:                                       ; preds = %_ZN2cv19connectedcomponentsL8flattenLIiEET_PS2_S2_.exit
-  %5647 = icmp sgt i32 %50, 0
+  %5647 = icmp sgt i32 %13, 1
   br i1 %5647, label %.lr.ph5364, label %._crit_edge5365
 
 .lr.ph5364:                                       ; preds = %.preheader
@@ -113640,7 +113640,7 @@ _ZN2cv19connectedcomponentsL8flattenLIiEET_PS2_S2_.exit: ; preds = %5646, %5635
   %5649 = getelementptr inbounds i8, ptr %1, i64 72
   %5650 = getelementptr inbounds i8, ptr %2, i64 16
   %5651 = getelementptr inbounds i8, ptr %2, i64 72
-  %5652 = icmp sgt i32 %53, 0
+  %5652 = icmp sgt i32 %27, 1
   %5653 = getelementptr inbounds i8, ptr %4, i64 24
   %5654 = getelementptr inbounds i8, ptr %4, i64 208
   %5655 = getelementptr inbounds i8, ptr %4, i64 80
@@ -114382,7 +114382,7 @@ _ZN2cv19connectedcomponentsL8flattenLIiEET_PS2_S2_.exit: ; preds = %5646, %5635
   %6148 = load i64, ptr %6147, align 8
   %6149 = mul i64 %6148, %6141
   %6150 = getelementptr inbounds i8, ptr %6145, i64 %6149
-  %6151 = icmp sgt i32 %53, 0
+  %6151 = icmp sgt i32 %27, 1
   br i1 %6151, label %.lr.ph5369, label %._crit_edge5370
 
 .lr.ph5369:                                       ; preds = %6135

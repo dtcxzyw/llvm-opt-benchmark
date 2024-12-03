@@ -16489,7 +16489,7 @@ _ZN5boost10shared_ptrIN8QuantLib18FloatingRateCouponEED2Ev.exit: ; preds = %if.e
   br i1 %cmp151, label %for.body, label %for.cond372.preheader, !llvm.loop !201
 
 ehcleanup368:                                     ; preds = %lpad201, %lpad217, %ehcleanup364, %lpad225, %lpad178, %lpad163, %lpad155
-  %.merged = phi { ptr, i32 } [ %125, %lpad225 ], [ %108, %lpad155 ], [ %110, %lpad178 ], [ %109, %lpad163 ], [ %.pn165.pn.pn.pn.pn.pn, %ehcleanup364 ], [ %124, %lpad217 ], [ %111, %lpad201 ]
+  %.merged174 = phi { ptr, i32 } [ %125, %lpad225 ], [ %108, %lpad155 ], [ %110, %lpad178 ], [ %109, %lpad163 ], [ %.pn165.pn.pn.pn.pn.pn, %ehcleanup364 ], [ %124, %lpad217 ], [ %111, %lpad201 ]
   call void @_ZN5boost10shared_ptrIN8QuantLib18FloatingRateCouponEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %coupon) #29
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %coupon) #29
   br label %ehcleanup625
@@ -17212,7 +17212,7 @@ _ZN5boost10shared_ptrIN8QuantLib18FloatingRateCouponEED2Ev.exit1024: ; preds = %
   br i1 %cmp374, label %for.body376, label %cleanup, !llvm.loop !211
 
 ehcleanup619:                                     ; preds = %lpad430, %lpad451, %ehcleanup615, %lpad461, %lpad407, %lpad389, %lpad381
-  %.merged174 = phi { ptr, i32 } [ %239, %lpad461 ], [ %222, %lpad381 ], [ %224, %lpad407 ], [ %223, %lpad389 ], [ %.pn154.pn.pn.pn.pn.pn, %ehcleanup615 ], [ %238, %lpad451 ], [ %225, %lpad430 ]
+  %.merged = phi { ptr, i32 } [ %239, %lpad461 ], [ %222, %lpad381 ], [ %224, %lpad407 ], [ %223, %lpad389 ], [ %.pn154.pn.pn.pn.pn.pn, %ehcleanup615 ], [ %238, %lpad451 ], [ %225, %lpad430 ]
   call void @_ZN5boost10shared_ptrIN8QuantLib18FloatingRateCouponEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %coupon377) #29
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %coupon377) #29
   br label %ehcleanup625
@@ -17221,7 +17221,7 @@ cleanup:                                          ; preds = %_ZN5boost10shared_p
   ret void
 
 ehcleanup625:                                     ; preds = %ehcleanup619, %ehcleanup368, %ehcleanup29, %ehcleanup
-  %lpad.val630.merged = phi { ptr, i32 } [ %.merged, %ehcleanup368 ], [ %.merged174, %ehcleanup619 ], [ %.pn142, %ehcleanup29 ], [ %.pn, %ehcleanup ]
+  %lpad.val630.merged = phi { ptr, i32 } [ %.merged174, %ehcleanup368 ], [ %.merged, %ehcleanup619 ], [ %.pn142, %ehcleanup29 ], [ %.pn, %ehcleanup ]
   resume { ptr, i32 } %lpad.val630.merged
 
 unreachable:                                      ; preds = %invoke.cont545, %invoke.cont301

@@ -9721,7 +9721,7 @@ define internal range(i32 0, 3) i32 @little2_toUtf8(ptr nocapture readnone %0, p
   %9 = sub i64 %7, %8
   %10 = and i64 %9, -2
   %11 = getelementptr inbounds i8, ptr %6, i64 %10
-  %12 = icmp sgt i64 %10, 0
+  %12 = icmp sgt i64 %9, 1
   br i1 %12, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5
@@ -15238,7 +15238,7 @@ define internal range(i32 0, 3) i32 @big2_toUtf8(ptr nocapture readnone %0, ptr 
   %9 = sub i64 %7, %8
   %10 = and i64 %9, -2
   %11 = getelementptr inbounds i8, ptr %6, i64 %10
-  %12 = icmp sgt i64 %10, 0
+  %12 = icmp sgt i64 %9, 1
   br i1 %12, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5

@@ -522,7 +522,7 @@ if.then180:                                       ; preds = %if.end177
   %and = and i32 %i.2, -4
   %conv185 = sext i32 %and to i64
   %call186 = call i32 @EVP_DecodeBlock(ptr noundef nonnull %buf81, ptr noundef nonnull %tmp.ptr, i64 noundef %conv185) #10
-  %cmp187 = icmp sgt i32 %and, 2
+  %cmp187 = icmp sgt i32 %i.2, 3
   br i1 %cmp187, label %if.then189, label %if.end209
 
 if.then189:                                       ; preds = %if.then180

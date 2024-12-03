@@ -89788,7 +89788,7 @@ vdbeMemAddTerminator.exit.thread:                 ; preds = %47
   %76 = and i32 %75, -2
   %77 = sext i32 %76 to i64
   %78 = getelementptr inbounds i8, ptr %73, i64 %77
-  %79 = icmp sgt i32 %76, 0
+  %79 = icmp sgt i32 %75, 1
   br i1 %79, label %.lr.ph341, label %._crit_edge
 
 .lr.ph341:                                        ; preds = %69, %.lr.ph341

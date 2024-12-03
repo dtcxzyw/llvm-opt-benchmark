@@ -955,12 +955,12 @@ define hidden void @WebPInitConvertARGBToYUVSSE41() local_unnamed_addr #1 {
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @ConvertARGBToY_SSE41(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i32 noundef %2) #2 {
-  %4 = and i32 %2, -16
-  %5 = icmp sgt i32 %4, 0
-  br i1 %5, label %.lr.ph.preheader, label %.preheader
+  %4 = icmp sgt i32 %2, 15
+  br i1 %4, label %.lr.ph.preheader, label %.preheader
 
 .lr.ph.preheader:                                 ; preds = %3
-  %6 = zext nneg i32 %4 to i64
+  %5 = and i32 %2, 2147483632
+  %6 = zext nneg i32 %5 to i64
   br label %.lr.ph
 
 .preheader.loopexit:                              ; preds = %.lr.ph
@@ -1089,13 +1089,13 @@ define internal void @ConvertARGBToY_SSE41(ptr nocapture noundef readonly %0, pt
 
 ; Function Attrs: nounwind uwtable
 define internal void @ConvertARGBToUV_SSE41(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #3 {
-  %6 = and i32 %3, -32
-  %7 = icmp sgt i32 %6, 0
-  br i1 %7, label %.lr.ph, label %._crit_edge
+  %6 = icmp sgt i32 %3, 31
+  br i1 %6, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5
+  %7 = and i32 %3, 2147483616
   %.not = icmp eq i32 %4, 0
-  %8 = zext nneg i32 %6 to i64
+  %8 = zext nneg i32 %7 to i64
   br label %9
 
 9:                                                ; preds = %.lr.ph, %172
@@ -1305,7 +1305,7 @@ define internal void @ConvertARGBToUV_SSE41(ptr noundef %0, ptr noundef %1, ptr 
 define internal void @ConvertRGB24ToY_SSE41(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i32 noundef %2) #2 {
   %4 = alloca [6 x <2 x i64>], align 16
   %5 = and i32 %2, -32
-  %6 = icmp sgt i32 %5, 0
+  %6 = icmp sgt i32 %2, 31
   %indvars.iv.sroa.gep88 = getelementptr inbounds i8, ptr %4, i64 16
   br i1 %6, label %.lr.ph, label %.preheader
 
@@ -1484,7 +1484,7 @@ define internal void @ConvertRGB24ToY_SSE41(ptr nocapture noundef readonly %0, p
 define internal void @ConvertBGR24ToY_SSE41(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i32 noundef %2) #2 {
   %4 = alloca [6 x <2 x i64>], align 16
   %5 = and i32 %2, -32
-  %6 = icmp sgt i32 %5, 0
+  %6 = icmp sgt i32 %2, 31
   %indvars.iv.sroa.gep88 = getelementptr inbounds i8, ptr %4, i64 16
   br i1 %6, label %.lr.ph, label %.preheader
 
@@ -1665,7 +1665,7 @@ define internal void @ConvertRGBA32ToUV_SSE41(ptr noundef %0, ptr noundef %1, pt
   %6 = shl nsw i32 %5, 2
   %7 = sext i32 %6 to i64
   %8 = getelementptr inbounds i16, ptr %0, i64 %7
-  %9 = icmp sgt i32 %5, 0
+  %9 = icmp sgt i32 %3, 15
   br i1 %9, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4, %.lr.ph

@@ -344,7 +344,7 @@ define hidden void @PMurHash128x86_Process(ptr nocapture noundef %0, ptr nocaptu
   %94 = and i32 %.0286, -16
   %95 = sext i32 %94 to i64
   %96 = getelementptr inbounds i8, ptr %.0233, i64 %95
-  %97 = icmp sgt i32 %94, 0
+  %97 = icmp sgt i32 %.0286, 15
   br i1 %97, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.loopexit, %.lr.ph
@@ -778,7 +778,7 @@ define hidden void @PMurHash128x64_Process(ptr nocapture noundef %0, ptr nocaptu
   %55 = and i32 %.0160, -16
   %56 = sext i32 %55 to i64
   %57 = getelementptr inbounds i8, ptr %.0131, i64 %56
-  %58 = icmp sgt i32 %55, 0
+  %58 = icmp sgt i32 %.0160, 15
   br i1 %58, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.loopexit, %.lr.ph

@@ -946,12 +946,12 @@ define hidden void @WebPInitYUV444ConvertersSSE41() local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal void @Yuv444ToRgb_SSE41(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #2 {
-  %6 = and i32 %4, -32
-  %7 = icmp sgt i32 %6, 0
-  br i1 %7, label %.lr.ph.preheader, label %._crit_edge
+  %6 = icmp sgt i32 %4, 31
+  br i1 %6, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %5
-  %8 = zext nneg i32 %6 to i64
+  %7 = and i32 %4, 2147483616
+  %8 = zext nneg i32 %7 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -993,12 +993,12 @@ define internal void @Yuv444ToRgb_SSE41(ptr noundef %0, ptr noundef %1, ptr noun
 
 ; Function Attrs: nounwind uwtable
 define internal void @Yuv444ToBgr_SSE41(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #2 {
-  %6 = and i32 %4, -32
-  %7 = icmp sgt i32 %6, 0
-  br i1 %7, label %.lr.ph.preheader, label %._crit_edge
+  %6 = icmp sgt i32 %4, 31
+  br i1 %6, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %5
-  %8 = zext nneg i32 %6 to i64
+  %7 = and i32 %4, 2147483616
+  %8 = zext nneg i32 %7 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph

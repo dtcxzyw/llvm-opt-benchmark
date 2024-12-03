@@ -43,7 +43,7 @@ define dso_local i64 @lzma_crc64(ptr noundef %0, i64 noundef %1, i64 noundef %2)
   %20 = and i64 %.125.lcssa, -4
   %21 = getelementptr inbounds i8, ptr %.1.lcssa, i64 %20
   %22 = and i64 %.125.lcssa, 3
-  %23 = icmp sgt i64 %20, 0
+  %23 = icmp sgt i64 %.125.lcssa, 3
   br i1 %23, label %.lr.ph43, label %.loopexit
 
 .lr.ph43:                                         ; preds = %._crit_edge, %.lr.ph43
