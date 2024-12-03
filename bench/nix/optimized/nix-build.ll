@@ -7226,7 +7226,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i10
   br label %.loopexit1864
 
 .loopexit1864:                                    ; preds = %1487, %1731, %1562
-  %.merged833 = phi { ptr, i32 } [ %.pn647.pn, %1731 ], [ %1563, %1562 ], [ %.pn640, %1487 ]
+  %.merged831 = phi { ptr, i32 } [ %.pn647.pn, %1731 ], [ %1563, %1562 ], [ %.pn640, %1487 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %121) #35
   br label %1737
 
@@ -7257,7 +7257,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1062: ; preds = %_
   br i1 %1736, label %.loopexit1860, label %1351
 
 1737:                                             ; preds = %.loopexit1864, %1481, %1438
-  %.merged832 = phi { ptr, i32 } [ %.pn650, %1438 ], [ %.merged833, %.loopexit1864 ], [ %1482, %1481 ]
+  %.merged830 = phi { ptr, i32 } [ %.pn650, %1438 ], [ %.merged831, %.loopexit1864 ], [ %1482, %1481 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %118) #35
   br label %_ZNSt8functionIFbRKN3nix5ValueEEED2Ev.exit1085
 
@@ -11380,13 +11380,13 @@ _ZNSt6vectorIPcSaIS0_EED2Ev.exit1303:             ; preds = %3077, %_ZNSt6vector
   unreachable
 
 _ZNSt8functionIFvN3nix3refINS0_17SingleDerivedPathEEERKNS0_14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISB_ESaISB_EEE9ChildNodeEEED2Ev.exit1305: ; preds = %3085, %.body1152, %2178, %2176, %_ZNSt8optionalIN3nix11PackageInfoEED2Ev.exit1143
-  %.merged831 = phi { ptr, i32 } [ %2177, %2176 ], [ %.pn702, %2178 ], [ %.pn698.pn.pn, %_ZNSt8optionalIN3nix11PackageInfoEED2Ev.exit1143 ], [ %.pn807.pn, %.body1152 ], [ %.pn807.pn, %3085 ]
+  %.merged833 = phi { ptr, i32 } [ %2177, %2176 ], [ %.pn702, %2178 ], [ %.pn698.pn.pn, %_ZNSt8optionalIN3nix11PackageInfoEED2Ev.exit1143 ], [ %.pn807.pn, %.body1152 ], [ %.pn807.pn, %3085 ]
   call void @_ZNSt8optionalIN3nix9StorePathEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %151) #35
   call void @_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %148) #35
   br label %3090
 
 3090:                                             ; preds = %_ZNSt8functionIFvN3nix3refINS0_17SingleDerivedPathEEERKNS0_14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISB_ESaISB_EEE9ChildNodeEEED2Ev.exit1305, %1949
-  %.merged830 = phi { ptr, i32 } [ %.merged831, %_ZNSt8functionIFvN3nix3refINS0_17SingleDerivedPathEEERKNS0_14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISB_ESaISB_EEE9ChildNodeEEED2Ev.exit1305 ], [ %.pn684, %1949 ]
+  %.merged832 = phi { ptr, i32 } [ %.merged833, %_ZNSt8functionIFvN3nix3refINS0_17SingleDerivedPathEEERKNS0_14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISB_ESaISB_EEE9ChildNodeEEED2Ev.exit1305 ], [ %.pn684, %1949 ]
   call void @_ZNSt3setIN3nix12RealisedPathESt4lessIS1_ESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %147) #35
   call void @_ZNSt6vectorIN3nix11DerivedPathESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %146) #35
   call void @_ZN3nix10DerivationD2Ev(ptr noundef nonnull align 8 dereferenceable(320) %144) #35
@@ -13789,7 +13789,7 @@ _ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit
 
 _ZNSt8functionIFbRKN3nix5ValueEEED2Ev.exit1085:   ; preds = %.loopexit1853, %.loopexit.split-lp1854.loopexit.split-lp, %.loopexit.split-lp1854.loopexit, %1825, %1823, %.loopexit1858, %1844, %1846, %3728, %3090, %1943, %1737
   %.sroa.01653.2 = phi ptr [ %.sroa.01653.1, %3090 ], [ %.sroa.01653.1, %1943 ], [ %.sroa.01653.1, %1846 ], [ %.sroa.01653.1, %1844 ], [ %.sroa.01653.1, %3728 ], [ %.sroa.01653.1, %.loopexit1858 ], [ %.sroa.01653.32054, %1737 ], [ %.sroa.01653.1, %1823 ], [ %.sroa.01653.1, %1825 ], [ %.sroa.01653.1, %.loopexit1853 ], [ %.sroa.01653.32054, %.loopexit.split-lp1854.loopexit ], [ %.sroa.01653.0.ph.ph, %.loopexit.split-lp1854.loopexit.split-lp ]
-  %.merged829 = phi { ptr, i32 } [ %.merged830, %3090 ], [ %1944, %1943 ], [ %.pn8101706, %1846 ], [ %1845, %1844 ], [ %.pn677.pn.pn.pn.pn, %3728 ], [ %.pn652, %.loopexit1858 ], [ %.merged832, %1737 ], [ %.pn812.pn, %1823 ], [ %.pn812.pn, %1825 ], [ %lpad.loopexit1855, %.loopexit1853 ], [ %lpad.loopexit1861, %.loopexit.split-lp1854.loopexit ], [ %lpad.loopexit.split-lp1862, %.loopexit.split-lp1854.loopexit.split-lp ]
+  %.merged829 = phi { ptr, i32 } [ %.merged832, %3090 ], [ %1944, %1943 ], [ %.pn8101706, %1846 ], [ %1845, %1844 ], [ %.pn677.pn.pn.pn.pn, %3728 ], [ %.pn652, %.loopexit1858 ], [ %.merged830, %1737 ], [ %.pn812.pn, %1823 ], [ %.pn812.pn, %1825 ], [ %lpad.loopexit1855, %.loopexit1853 ], [ %lpad.loopexit1861, %.loopexit.split-lp1854.loopexit ], [ %lpad.loopexit.split-lp1862, %.loopexit.split-lp1854.loopexit.split-lp ]
   %.not.i.i.i1576 = icmp eq ptr %.sroa.01653.2, null
   br i1 %.not.i.i.i1576, label %_ZNSt6vectorIPN3nix4ExprESaIS2_EED2Ev.exit1577, label %3877
 
