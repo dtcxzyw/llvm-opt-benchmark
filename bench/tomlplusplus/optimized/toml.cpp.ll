@@ -11793,7 +11793,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %add.ptr1 = getelementptr inbounds i8, ptr %str, i64 %sub
-  %cmp12 = icmp sgt i64 %sub, 0
+  %cmp12 = icmp sgt i64 %len, 15
   br i1 %cmp12, label %for.body, label %if.end19
 
 for.body:                                         ; preds = %if.then, %for.body
@@ -17305,7 +17305,7 @@ if.end:                                           ; preds = %entry
 
 if.then.i:                                        ; preds = %if.end
   %add.ptr1.i = getelementptr inbounds i8, ptr %str.coerce1, i64 %sub.i
-  %cmp12.i = icmp sgt i64 %sub.i, 0
+  %cmp12.i = icmp sgt i64 %str.coerce0, 15
   br i1 %cmp12.i, label %for.body.i, label %if.end19.i
 
 for.body.i:                                       ; preds = %if.then.i, %for.body.i
@@ -43036,7 +43036,7 @@ land.rhs.i:                                       ; preds = %lor.rhs, %lor.rhs
 
 if.then.i.i:                                      ; preds = %land.rhs.i
   %add.ptr1.i.i = getelementptr inbounds i8, ptr %raw_bytes.i, i64 %sub.i24.i
-  %cmp12.i.i = icmp sgt i64 %sub.i24.i, 0
+  %cmp12.i.i = icmp sgt i64 %sub.i.i, 15
   br i1 %cmp12.i.i, label %for.body.i.i, label %if.end19.i.i
 
 for.body.i.i:                                     ; preds = %if.then.i.i, %for.body.i.i
@@ -43659,7 +43659,7 @@ land.rhs.i:                                       ; preds = %if.end26.i, %if.end
 
 if.then.i.i:                                      ; preds = %land.rhs.i
   %add.ptr1.i.i = getelementptr inbounds i8, ptr %raw_bytes.i, i64 %sub.i.i
-  %cmp12.i.i = icmp sgt i64 %sub.i.i, 0
+  %cmp12.i.i = icmp sgt i64 %call3.i27.i, 15
   br i1 %cmp12.i.i, label %for.body.i.i, label %if.end19.i.i
 
 for.body.i.i:                                     ; preds = %if.then.i.i, %for.body.i.i

@@ -1043,7 +1043,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backERKS2_.exit96: ; preds = %_ZNSt6ve
           to label %.preheader.i unwind label %366
 
 .preheader.i:                                     ; preds = %313
-  %314 = icmp sgt i32 %311, 0
+  %314 = icmp sgt i32 %tr.sh.diff.i, 1
   br i1 %314, label %.lr.ph119.i, label %._crit_edge120.i
 
 .lr.ph119.i:                                      ; preds = %.preheader.i
@@ -1061,7 +1061,8 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backERKS2_.exit96: ; preds = %_ZNSt6ve
   %326 = getelementptr inbounds i8, ptr %17, i64 4
   %327 = getelementptr inbounds i8, ptr %26, i64 8
   %328 = getelementptr inbounds i8, ptr %26, i64 16
-  %wide.trip.count125.i = and i64 %sh.diff.i, 4294967294
+  %smax125.i = call i32 @llvm.smax.i32(i32 %311, i32 1)
+  %wide.trip.count126.i = zext nneg i32 %smax125.i to i64
   br label %329
 
 329:                                              ; preds = %404, %.lr.ph119.i
@@ -1267,8 +1268,8 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit.i:               ; preds = %330
   %indvars.iv.next123.pre-phi.i = phi i64 [ %386, %389 ], [ %.pre.i, %355 ]
   %.153.i = phi i32 [ %398, %389 ], [ %.052117.i, %355 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %23) #18
-  %exitcond126.not.i = icmp eq i64 %indvars.iv.next123.pre-phi.i, %wide.trip.count125.i
-  br i1 %exitcond126.not.i, label %._crit_edge120.i, label %329, !llvm.loop !50
+  %exitcond127.not.i = icmp eq i64 %indvars.iv.next123.pre-phi.i, %wide.trip.count126.i
+  br i1 %exitcond127.not.i, label %._crit_edge120.i, label %329, !llvm.loop !50
 
 405:                                              ; preds = %403, %376, %370
   %.pn97.pn.pn.i = phi { ptr, i32 } [ %.pn97.pn.i, %376 ], [ %371, %370 ], [ %.pn94.pn.i, %403 ]
@@ -1351,7 +1352,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit.i:               ; preds = %330
           to label %.preheader114.i unwind label %480
 
 .preheader114.i:                                  ; preds = %429
-  %430 = icmp sgt i32 %311, 0
+  %430 = icmp sgt i32 %tr.sh.diff.i, 1
   br i1 %430, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.preheader114.i
@@ -1369,7 +1370,8 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit.i:               ; preds = %330
   %442 = getelementptr inbounds i8, ptr %9, i64 4
   %443 = getelementptr inbounds i8, ptr %41, i64 8
   %444 = getelementptr inbounds i8, ptr %41, i64 16
-  %wide.trip.count.i = and i64 %sh.diff.i, 4294967294
+  %smax.i = call i32 @llvm.smax.i32(i32 %311, i32 1)
+  %wide.trip.count.i = zext nneg i32 %smax.i to i64
   br label %445
 
 445:                                              ; preds = %521, %.lr.ph.i
@@ -1460,7 +1462,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit109.i:            ; preds = %446
   %478 = mul i64 %477, %indvars.iv.i
   %479 = getelementptr inbounds i8, ptr %475, i64 %478
   store float %474, ptr %479, align 4
-  %.pre127.i = add nuw nsw i64 %indvars.iv.i, 1
+  %.pre128.i = add nuw nsw i64 %indvars.iv.i, 1
   br label %521
 
 480:                                              ; preds = %429
@@ -1570,7 +1572,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit109.i:            ; preds = %446
   br label %522
 
 521:                                              ; preds = %506, %471
-  %indvars.iv.next.pre-phi.i = phi i64 [ %503, %506 ], [ %.pre127.i, %471 ]
+  %indvars.iv.next.pre-phi.i = phi i64 [ %503, %506 ], [ %.pre128.i, %471 ]
   %.1.i = phi i32 [ %515, %506 ], [ %.050115.i, %471 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %38) #18
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.pre-phi.i, %wide.trip.count.i
@@ -1686,11 +1688,11 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit109.i:            ; preds = %446
   br label %.body
 
 588:                                              ; preds = %532, %418
-  %.sink129.i = phi ptr [ %31, %418 ], [ %46, %532 ]
-  %.sink128.i = phi ptr [ %22, %418 ], [ %37, %532 ]
+  %.sink130.i = phi ptr [ %31, %418 ], [ %46, %532 ]
+  %.sink129.i = phi ptr [ %22, %418 ], [ %37, %532 ]
   %.sink.i = phi ptr [ %21, %418 ], [ %36, %532 ]
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.sink130.i) #18
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.sink129.i) #18
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.sink128.i) #18
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.sink.i) #18
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %21)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %22)
@@ -2676,6 +2678,9 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #15
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #17

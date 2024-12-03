@@ -3606,8 +3606,8 @@ define internal fastcc ptr @try_realloc_chunk(ptr noundef %0, ptr noundef nonnul
   %.not = icmp uge ptr %1, %10
   %11 = and i64 %6, 3
   %.not246 = icmp ne i64 %11, 1
-  %12 = icmp sgt i64 %7, 0
-  %13 = and i1 %.not246, %12
+  %12 = icmp sgt i64 %6, 7
+  %13 = and i1 %12, %.not246
   %or.cond269 = select i1 %.not, i1 %13, i1 false
   br i1 %or.cond269, label %14, label %.critedge271, !prof !71
 
@@ -3632,7 +3632,7 @@ define internal fastcc ptr @try_realloc_chunk(ptr noundef %0, ptr noundef nonnul
   br i1 %.not.i, label %28, label %24
 
 24:                                               ; preds = %22
-  %25 = sub nuw nsw i64 %7, %2
+  %25 = sub nuw i64 %7, %2
   %26 = load i64, ptr getelementptr inbounds nuw (i8, ptr @mparams, i64 16), align 8, !tbaa !30
   %27 = shl i64 %26, 1
   %.not43.i = icmp ugt i64 %25, %27
@@ -3693,8 +3693,8 @@ define internal fastcc ptr @try_realloc_chunk(ptr noundef %0, ptr noundef nonnul
   br i1 %.not247, label %74, label %62
 
 62:                                               ; preds = %61
-  %63 = sub nuw nsw i64 %7, %2
-  %64 = icmp samesign ugt i64 %63, 31
+  %63 = sub nuw i64 %7, %2
+  %64 = icmp ugt i64 %63, 31
   br i1 %64, label %65, label %mmap_resize.exit
 
 65:                                               ; preds = %62
@@ -9498,8 +9498,8 @@ define internal fastcc ptr @try_realloc_chunk_with_min(ptr noundef %0, i64 nound
   %.not = icmp uge ptr %0, %8
   %9 = and i64 %5, 3
   %.not274 = icmp ne i64 %9, 1
-  %10 = icmp sgt i64 %6, 0
-  %11 = and i1 %.not274, %10
+  %10 = icmp sgt i64 %5, 7
+  %11 = and i1 %10, %.not274
   %or.cond301 = select i1 %.not, i1 %11, i1 false
   br i1 %or.cond301, label %12, label %.critedge303, !prof !71
 
@@ -9524,7 +9524,7 @@ define internal fastcc ptr @try_realloc_chunk_with_min(ptr noundef %0, i64 nound
   br i1 %.not.i, label %26, label %22
 
 22:                                               ; preds = %20
-  %23 = sub nuw nsw i64 %6, %2
+  %23 = sub nuw i64 %6, %2
   %24 = load i64, ptr getelementptr inbounds nuw (i8, ptr @mparams, i64 16), align 8, !tbaa !30
   %25 = shl i64 %24, 1
   %.not43.i = icmp ugt i64 %23, %25
@@ -10135,8 +10135,8 @@ spin_acquire_lock.exit:                           ; preds = %11, %5, %8
   %.not.i14 = icmp uge ptr %.ptr.i, %33
   %34 = and i64 %31, 3
   %.not68.i = icmp ne i64 %34, 1
-  %35 = icmp sgt i64 %32, 0
-  %36 = and i1 %.not68.i, %35
+  %35 = icmp sgt i64 %31, 7
+  %36 = and i1 %35, %.not68.i
   %or.cond73.i = select i1 %.not.i14, i1 %36, i1 false
   br i1 %or.cond73.i, label %37, label %.critedge.i15, !prof !71
 
@@ -10166,11 +10166,11 @@ spin_acquire_lock.exit:                           ; preds = %11, %5, %8
 50:                                               ; preds = %48
   %51 = tail call i64 @llvm.umax.i64(i64 range(i64 0, -105) %44, i64 256)
   %52 = or disjoint i64 %51, 8
-  %.not.i.i = icmp samesign ult i64 %32, %52
+  %.not.i.i = icmp ult i64 %32, %52
   br i1 %.not.i.i, label %57, label %53
 
 53:                                               ; preds = %50
-  %54 = sub nuw nsw i64 %32, %51
+  %54 = sub nuw i64 %32, %51
   %55 = load i64, ptr getelementptr inbounds nuw (i8, ptr @mparams, i64 16), align 8, !tbaa !30
   %56 = shl i64 %55, 1
   %.not45.i.i = icmp ugt i64 %54, %56
@@ -10234,7 +10234,7 @@ spin_acquire_lock.exit:                           ; preds = %11, %5, %8
   br label %internal_shrink.exit
 
 90:                                               ; preds = %46
-  %91 = sub nsw i64 %32, %44
+  %91 = sub i64 %32, %44
   %92 = icmp ult i64 %91, 32
   br i1 %92, label %internal_shrink.exit, label %93
 
@@ -10269,7 +10269,7 @@ spin_acquire_lock.exit:                           ; preds = %11, %5, %8
 
 110:                                              ; preds = %94, %93
   %.pre-phi.i = phi i64 [ %109, %94 ], [ -8, %93 ]
-  %111 = add nsw i64 %.pre-phi.i, %44
+  %111 = add i64 %.pre-phi.i, %44
   store i64 %111, ptr %3, align 8, !tbaa !36
   br label %internal_shrink.exit
 

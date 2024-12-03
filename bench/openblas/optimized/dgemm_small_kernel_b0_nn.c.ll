@@ -18,11 +18,11 @@ define noundef i32 @dgemm_small_kernel_b0_nn(i64 noundef %0, i64 noundef %1, i64
   %19 = and i64 %1, -2
   %20 = insertelement <2 x double> poison, double %5, i64 0
   %21 = shufflevector <2 x double> %20, <2 x double> poison, <8 x i32> zeroinitializer
-  %22 = icmp sgt i64 %11, 0
+  %22 = icmp sgt i64 %0, 31
   br i1 %22, label %23, label %.loopexit176
 
 23:                                               ; preds = %10
-  %24 = icmp sgt i64 %18, 0
+  %24 = icmp sgt i64 %1, 3
   %25 = icmp sgt i64 %2, 0
   %26 = fmul <8 x double> %21, zeroinitializer
   br label %27
@@ -1337,7 +1337,7 @@ define noundef i32 @dgemm_small_kernel_b0_nn(i64 noundef %0, i64 noundef %1, i64
   br i1 %847, label %848, label %872
 
 848:                                              ; preds = %.loopexit154
-  %849 = icmp sgt i64 %18, 0
+  %849 = icmp sgt i64 %1, 3
   %850 = icmp eq i64 %768, 0
   %851 = add nsw i64 %768, -1
   %852 = and i64 %851, -8
@@ -1375,7 +1375,7 @@ define noundef i32 @dgemm_small_kernel_b0_nn(i64 noundef %0, i64 noundef %1, i64
   br i1 %875, label %876, label %1354
 
 876:                                              ; preds = %872
-  %877 = icmp sgt i64 %18, 0
+  %877 = icmp sgt i64 %1, 3
   %878 = icmp eq i64 %768, 0
   %879 = add nsw i64 %768, -1
   %880 = and i64 %879, -8
@@ -1940,7 +1940,7 @@ define noundef i32 @dgemm_small_kernel_b0_nn(i64 noundef %0, i64 noundef %1, i64
   br i1 %1357, label %1358, label %.loopexit140
 
 1358:                                             ; preds = %1354
-  %1359 = icmp sgt i64 %18, 0
+  %1359 = icmp sgt i64 %1, 3
   %1360 = icmp eq i64 %768, 0
   %1361 = add nsw i64 %768, -1
   %1362 = and i64 %1361, -8

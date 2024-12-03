@@ -14,7 +14,7 @@ define noundef i32 @sscal_k(i64 noundef %0, i64 noundef %1, i64 noundef %2, floa
 
 14:                                               ; preds = %12
   %15 = and i64 %0, -2
-  %16 = icmp sgt i64 %15, 0
+  %16 = icmp sgt i64 %0, 1
   br i1 %16, label %17, label %23
 
 17:                                               ; preds = %14
@@ -31,7 +31,7 @@ define noundef i32 @sscal_k(i64 noundef %0, i64 noundef %1, i64 noundef %2, floa
   %24 = phi i64 [ 0, %14 ], [ %22, %20 ]
   %25 = phi i64 [ 0, %14 ], [ %32, %20 ]
   %26 = icmp slt i64 %24, %0
-  br i1 %26, label %.preheader14, label %.loopexit
+  br i1 %26, label %.preheader15, label %.loopexit
 
 27:                                               ; preds = %27, %17
   %28 = phi i64 [ 0, %17 ], [ %32, %27 ]
@@ -45,30 +45,30 @@ define noundef i32 @sscal_k(i64 noundef %0, i64 noundef %1, i64 noundef %2, floa
   %34 = icmp slt i64 %33, %15
   br i1 %34, label %27, label %20, !llvm.loop !7
 
-.preheader14:                                     ; preds = %23, %.preheader14
-  %35 = phi i64 [ %38, %.preheader14 ], [ %25, %23 ]
-  %36 = phi i64 [ %39, %.preheader14 ], [ %24, %23 ]
+.preheader15:                                     ; preds = %23, %.preheader15
+  %35 = phi i64 [ %38, %.preheader15 ], [ %25, %23 ]
+  %36 = phi i64 [ %39, %.preheader15 ], [ %24, %23 ]
   %37 = getelementptr inbounds float, ptr %4, i64 %35
   store float 0.000000e+00, ptr %37, align 4, !tbaa !3
   %38 = add nsw i64 %35, %5
   %39 = add nuw nsw i64 %36, 1
   %40 = icmp eq i64 %39, %0
-  br i1 %40, label %.loopexit, label %.preheader14, !llvm.loop !10
+  br i1 %40, label %.loopexit, label %.preheader15, !llvm.loop !10
 
 41:                                               ; preds = %12
-  %42 = and i64 %0, -8
-  %43 = icmp sgt i64 %42, 0
-  br i1 %43, label %44, label %63
+  %42 = icmp sgt i64 %0, 7
+  br i1 %42, label %43, label %63
 
-44:                                               ; preds = %41
+43:                                               ; preds = %41
+  %44 = and i64 %0, 9223372036854775800
   %.idx.i = shl nsw i64 %5, 3
   %.idx1.i = mul i64 %5, 12
   %.idx2.i = shl nsw i64 %5, 4
   br label %45
 
-45:                                               ; preds = %45, %44
-  %46 = phi ptr [ %4, %44 ], [ %59, %45 ]
-  %47 = phi i64 [ 0, %44 ], [ %60, %45 ]
+45:                                               ; preds = %45, %43
+  %46 = phi ptr [ %4, %43 ], [ %59, %45 ]
+  %47 = phi i64 [ 0, %43 ], [ %60, %45 ]
   %48 = load float, ptr %46, align 4, !tbaa !3
   %49 = fmul float %3, %48
   %50 = getelementptr inbounds float, ptr %46, i64 %5
@@ -86,22 +86,22 @@ define noundef i32 @sscal_k(i64 noundef %0, i64 noundef %1, i64 noundef %2, floa
   store float %58, ptr %56, align 4, !tbaa !3
   %59 = getelementptr inbounds i8, ptr %46, i64 %.idx2.i
   %60 = add nuw nsw i64 %47, 4
-  %61 = icmp samesign ult i64 %60, %42
+  %61 = icmp samesign ult i64 %60, %44
   br i1 %61, label %45, label %sscal_kernel_inc_8.exit, !llvm.loop !11
 
 sscal_kernel_inc_8.exit:                          ; preds = %45
-  %62 = mul nsw i64 %5, %42
+  %62 = mul nsw i64 %5, %44
   br label %63
 
 63:                                               ; preds = %sscal_kernel_inc_8.exit, %41
-  %64 = phi i64 [ %42, %sscal_kernel_inc_8.exit ], [ 0, %41 ]
+  %64 = phi i64 [ %44, %sscal_kernel_inc_8.exit ], [ 0, %41 ]
   %65 = phi i64 [ %62, %sscal_kernel_inc_8.exit ], [ 0, %41 ]
   %66 = icmp slt i64 %64, %0
-  br i1 %66, label %.preheader16, label %.loopexit
+  br i1 %66, label %.preheader17, label %.loopexit
 
-.preheader16:                                     ; preds = %63, %.preheader16
-  %67 = phi i64 [ %72, %.preheader16 ], [ %65, %63 ]
-  %68 = phi i64 [ %73, %.preheader16 ], [ %64, %63 ]
+.preheader17:                                     ; preds = %63, %.preheader17
+  %67 = phi i64 [ %72, %.preheader17 ], [ %65, %63 ]
+  %68 = phi i64 [ %73, %.preheader17 ], [ %64, %63 ]
   %69 = getelementptr inbounds float, ptr %4, i64 %67
   %70 = load float, ptr %69, align 4, !tbaa !3
   %71 = fmul float %3, %70
@@ -109,12 +109,12 @@ sscal_kernel_inc_8.exit:                          ; preds = %45
   %72 = add nsw i64 %67, %5
   %73 = add nuw nsw i64 %68, 1
   %74 = icmp eq i64 %73, %0
-  br i1 %74, label %.loopexit, label %.preheader16, !llvm.loop !12
+  br i1 %74, label %.loopexit, label %.preheader17, !llvm.loop !12
 
 75:                                               ; preds = %10
   %76 = and i64 %0, -16
-  %77 = icmp sgt i64 %76, 0
-  br i1 %77, label %78, label %.loopexit12
+  %77 = icmp sgt i64 %0, 15
+  br i1 %77, label %78, label %.loopexit13
 
 78:                                               ; preds = %75
   %79 = fcmp oeq float %3, 0.000000e+00
@@ -126,79 +126,79 @@ sscal_kernel_inc_8.exit:                          ; preds = %45
   %83 = and i64 %82, -64
   %84 = add i64 %83, 64
   tail call void @llvm.memset.p0.i64(ptr align 1 %4, i8 0, i64 %84, i1 false), !tbaa !13
-  br label %.loopexit12
+  br label %.loopexit13
 
 85:                                               ; preds = %78
   %86 = insertelement <4 x float> poison, float %3, i64 0
   %87 = shufflevector <4 x float> %86, <4 x float> poison, <16 x i32> zeroinitializer
-  %88 = and i64 %0, -32
-  %89 = icmp sgt i64 %88, 0
-  br i1 %89, label %.preheader13, label %92
+  %88 = and i64 %0, 9223372036854775776
+  %.not = icmp eq i64 %88, 0
+  br i1 %.not, label %91, label %.preheader14
 
-90:                                               ; preds = %.preheader13
-  %91 = and i64 %103, 4294967264
-  br label %92
+89:                                               ; preds = %.preheader14
+  %90 = and i64 %102, 4294967264
+  br label %91
 
-92:                                               ; preds = %90, %85
-  %93 = phi i64 [ 0, %85 ], [ %91, %90 ]
-  %94 = icmp slt i64 %93, %76
-  br i1 %94, label %.preheader11, label %.loopexit12
+91:                                               ; preds = %89, %85
+  %92 = phi i64 [ 0, %85 ], [ %90, %89 ]
+  %93 = icmp slt i64 %92, %76
+  br i1 %93, label %.preheader12, label %.loopexit13
 
-.preheader13:                                     ; preds = %85, %.preheader13
-  %95 = phi i64 [ %103, %.preheader13 ], [ 0, %85 ]
-  %96 = getelementptr inbounds float, ptr %4, i64 %95
-  %97 = load <16 x float>, ptr %96, align 1, !tbaa !13
-  %98 = or disjoint i64 %95, 16
-  %99 = getelementptr inbounds float, ptr %4, i64 %98
-  %100 = load <16 x float>, ptr %99, align 1, !tbaa !13
-  %101 = fmul <16 x float> %87, %97
-  %102 = fmul <16 x float> %87, %100
-  store <16 x float> %101, ptr %96, align 1, !tbaa !13
-  store <16 x float> %102, ptr %99, align 1, !tbaa !13
-  %103 = add nuw nsw i64 %95, 32
-  %104 = icmp sgt i64 %88, %103
-  br i1 %104, label %.preheader13, label %90, !llvm.loop !14
+.preheader14:                                     ; preds = %85, %.preheader14
+  %94 = phi i64 [ %102, %.preheader14 ], [ 0, %85 ]
+  %95 = getelementptr inbounds float, ptr %4, i64 %94
+  %96 = load <16 x float>, ptr %95, align 1, !tbaa !13
+  %97 = or disjoint i64 %94, 16
+  %98 = getelementptr inbounds float, ptr %4, i64 %97
+  %99 = load <16 x float>, ptr %98, align 1, !tbaa !13
+  %100 = fmul <16 x float> %87, %96
+  %101 = fmul <16 x float> %87, %99
+  store <16 x float> %100, ptr %95, align 1, !tbaa !13
+  store <16 x float> %101, ptr %98, align 1, !tbaa !13
+  %102 = add nuw nsw i64 %94, 32
+  %103 = icmp samesign ugt i64 %88, %102
+  br i1 %103, label %.preheader14, label %89, !llvm.loop !14
 
-.preheader11:                                     ; preds = %92, %.preheader11
-  %105 = phi i64 [ %109, %.preheader11 ], [ %93, %92 ]
-  %106 = getelementptr inbounds float, ptr %4, i64 %105
-  %107 = load <16 x float>, ptr %106, align 1, !tbaa !13
-  %108 = fmul <16 x float> %87, %107
-  store <16 x float> %108, ptr %106, align 1, !tbaa !13
-  %109 = add nuw nsw i64 %105, 16
-  %110 = icmp slt i64 %109, %76
-  br i1 %110, label %.preheader11, label %.loopexit12, !llvm.loop !15
+.preheader12:                                     ; preds = %91, %.preheader12
+  %104 = phi i64 [ %108, %.preheader12 ], [ %92, %91 ]
+  %105 = getelementptr inbounds float, ptr %4, i64 %104
+  %106 = load <16 x float>, ptr %105, align 1, !tbaa !13
+  %107 = fmul <16 x float> %87, %106
+  store <16 x float> %107, ptr %105, align 1, !tbaa !13
+  %108 = add nuw nsw i64 %104, 16
+  %109 = icmp slt i64 %108, %76
+  br i1 %109, label %.preheader12, label %.loopexit13, !llvm.loop !15
 
-.loopexit12:                                      ; preds = %.preheader11, %92, %80, %75
-  %111 = fcmp oeq float %3, 0.000000e+00
-  %.not = icmp eq i64 %76, %0
-  br i1 %111, label %113, label %112
+.loopexit13:                                      ; preds = %.preheader12, %91, %80, %75
+  %110 = fcmp oeq float %3, 0.000000e+00
+  %.not11 = icmp eq i64 %76, %0
+  br i1 %110, label %112, label %111
 
-112:                                              ; preds = %.loopexit12
-  br i1 %.not, label %.loopexit, label %.preheader
+111:                                              ; preds = %.loopexit13
+  br i1 %.not11, label %.loopexit, label %.preheader
 
-113:                                              ; preds = %.loopexit12
-  br i1 %.not, label %.loopexit, label %114
+112:                                              ; preds = %.loopexit13
+  br i1 %.not11, label %.loopexit, label %113
 
-114:                                              ; preds = %113
-  %115 = shl i64 %0, 2
-  %116 = and i64 %115, -64
-  %117 = getelementptr i8, ptr %4, i64 %116
-  %118 = and i64 %115, 60
-  tail call void @llvm.memset.p0.i64(ptr align 4 %117, i8 0, i64 %118, i1 false), !tbaa !3
+113:                                              ; preds = %112
+  %114 = shl i64 %0, 2
+  %115 = and i64 %114, -64
+  %116 = getelementptr i8, ptr %4, i64 %115
+  %117 = and i64 %114, 60
+  tail call void @llvm.memset.p0.i64(ptr align 4 %116, i8 0, i64 %117, i1 false), !tbaa !3
   br label %.loopexit
 
-.preheader:                                       ; preds = %112, %.preheader
-  %119 = phi i64 [ %123, %.preheader ], [ %76, %112 ]
-  %120 = getelementptr inbounds float, ptr %4, i64 %119
-  %121 = load float, ptr %120, align 4, !tbaa !3
-  %122 = fmul float %3, %121
-  store float %122, ptr %120, align 4, !tbaa !3
-  %123 = add nsw i64 %119, 1
-  %124 = icmp eq i64 %123, %0
-  br i1 %124, label %.loopexit, label %.preheader, !llvm.loop !16
+.preheader:                                       ; preds = %111, %.preheader
+  %118 = phi i64 [ %122, %.preheader ], [ %76, %111 ]
+  %119 = getelementptr inbounds float, ptr %4, i64 %118
+  %120 = load float, ptr %119, align 4, !tbaa !3
+  %121 = fmul float %3, %120
+  store float %121, ptr %119, align 4, !tbaa !3
+  %122 = add nsw i64 %118, 1
+  %123 = icmp eq i64 %122, %0
+  br i1 %123, label %.loopexit, label %.preheader, !llvm.loop !16
 
-.loopexit:                                        ; preds = %.preheader16, %.preheader14, %.preheader, %114, %113, %112, %63, %23
+.loopexit:                                        ; preds = %.preheader17, %.preheader15, %.preheader, %113, %112, %111, %63, %23
   ret i32 0
 }
 

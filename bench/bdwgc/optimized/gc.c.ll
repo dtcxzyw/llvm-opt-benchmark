@@ -39872,8 +39872,7 @@ define internal fastcc void @GC_promote_black_lists() unnamed_addr #1 {
   %14 = load i64, ptr %13, align 8
   %15 = lshr i64 %14, 12
   %16 = getelementptr inbounds %struct.GC_hblk_s, ptr %12, i64 %15
-  %.idx.i = and i64 %14, -4096
-  %17 = icmp sgt i64 %.idx.i, 0
+  %17 = icmp sgt i64 %14, 4095
   br i1 %17, label %.lr.ph.i.i, label %GC_number_stack_black_listed.exit.i
 
 .lr.ph.i.i:                                       ; preds = %10, %.lr.ph.i.i
