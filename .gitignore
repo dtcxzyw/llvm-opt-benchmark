@@ -1,5 +1,5 @@
 bench_build
-llvm-build
+llvm-build*
 llvm-cov-build
 CHANGELOGS
 *.log
