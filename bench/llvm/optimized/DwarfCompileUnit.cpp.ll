@@ -1003,7 +1003,7 @@ define dso_local noundef i32 @_ZN4llvm16DwarfCompileUnit19getOrCreateSourceIDEPK
   %20 = load i32, ptr %19, align 8
   %21 = select i1 %18, i32 0, i32 %20
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %22, label %34
+  br i1 %.not, label %22, label %30
 
 22:                                               ; preds = %2
   %23 = load ptr, ptr %11, align 8
@@ -1024,120 +1024,115 @@ define dso_local noundef i32 @_ZN4llvm16DwarfCompileUnit19getOrCreateSourceIDEPK
   %27 = getelementptr inbounds i8, ptr %26, i64 688
   %28 = load ptr, ptr %27, align 8
   call void %28(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected") align 8 %6, ptr noundef nonnull align 8 dereferenceable(288) %25, i32 noundef 0, ptr nonnull @.str.3, i64 0, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %7, ptr noundef nonnull byval(%"class.std::optional") align 8 %9, ptr noundef nonnull byval(%"class.std::optional.314") align 8 %8, i32 noundef %21) #23
-  %29 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %30 = load i8, ptr %29, align 8
-  %31 = trunc i8 %30 to i1
-  %32 = xor i1 %31, true
-  call void @llvm.assume(i1 %32)
-  %33 = load i32, ptr %6, align 8
+  %29 = load i32, ptr %6, align 8
   call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  br label %92
+  br label %84
 
-34:                                               ; preds = %2
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 656
-  %36 = load ptr, ptr %35, align 8
-  %.not13 = icmp eq ptr %36, %1
-  br i1 %.not13, label %._crit_edge, label %37
+30:                                               ; preds = %2
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 656
+  %32 = load ptr, ptr %31, align 8
+  %.not13 = icmp eq ptr %32, %1
+  br i1 %.not13, label %._crit_edge, label %33
 
-._crit_edge:                                      ; preds = %34
+._crit_edge:                                      ; preds = %30
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 664
   %.pre = load i32, ptr %.phi.trans.insert, align 8
-  br label %92
+  br label %84
 
-37:                                               ; preds = %34
-  store ptr %1, ptr %35, align 8
-  %38 = load ptr, ptr %11, align 8
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 80
-  %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %1, i64 -16
-  %42 = load i64, ptr %41, align 8
-  %43 = and i64 %42, 2
-  %.not.i.i.i.i.i = icmp eq i64 %43, 0
-  br i1 %.not.i.i.i.i.i, label %48, label %44
+33:                                               ; preds = %30
+  store ptr %1, ptr %31, align 8
+  %34 = load ptr, ptr %11, align 8
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 80
+  %36 = load ptr, ptr %35, align 8
+  %37 = getelementptr inbounds i8, ptr %1, i64 -16
+  %38 = load i64, ptr %37, align 8
+  %39 = and i64 %38, 2
+  %.not.i.i.i.i.i = icmp eq i64 %39, 0
+  br i1 %.not.i.i.i.i.i, label %44, label %40
 
-44:                                               ; preds = %37
-  %45 = getelementptr inbounds i8, ptr %1, i64 -32
-  %46 = load ptr, ptr %45, align 8
-  %47 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %45) #23
+40:                                               ; preds = %33
+  %41 = getelementptr inbounds i8, ptr %1, i64 -32
+  %42 = load ptr, ptr %41, align 8
+  %43 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %41) #23
   br label %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i
 
-48:                                               ; preds = %37
-  %49 = lshr i64 %42, 2
-  %50 = and i64 %49, 15
-  %51 = sub nsw i64 0, %50
-  %52 = getelementptr inbounds %"class.llvm::MDOperand", ptr %41, i64 %51
+44:                                               ; preds = %33
+  %45 = lshr i64 %38, 2
+  %46 = and i64 %45, 15
+  %47 = sub nsw i64 0, %46
+  %48 = getelementptr inbounds %"class.llvm::MDOperand", ptr %37, i64 %47
   br label %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i
 
-_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i: ; preds = %48, %44
-  %.sroa.0.0.i.i.i.i.i = phi ptr [ %52, %48 ], [ %46, %44 ]
-  %53 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i.i.i, i64 8
-  %54 = load ptr, ptr %53, align 8
-  %.not.i.i = icmp eq ptr %54, null
-  br i1 %.not.i.i, label %_ZNK4llvm6DIFile12getDirectoryEv.exit, label %55
+_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i: ; preds = %44, %40
+  %.sroa.0.0.i.i.i.i.i = phi ptr [ %48, %44 ], [ %42, %40 ]
+  %49 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i.i.i, i64 8
+  %50 = load ptr, ptr %49, align 8
+  %.not.i.i = icmp eq ptr %50, null
+  br i1 %.not.i.i, label %_ZNK4llvm6DIFile12getDirectoryEv.exit, label %51
 
-55:                                               ; preds = %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i
-  %56 = tail call { ptr, i64 } @_ZNK4llvm8MDString9getStringEv(ptr noundef nonnull align 8 dereferenceable(16) %54) #23
-  %57 = extractvalue { ptr, i64 } %56, 0
-  %58 = extractvalue { ptr, i64 } %56, 1
+51:                                               ; preds = %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i
+  %52 = tail call { ptr, i64 } @_ZNK4llvm8MDString9getStringEv(ptr noundef nonnull align 8 dereferenceable(16) %50) #23
+  %53 = extractvalue { ptr, i64 } %52, 0
+  %54 = extractvalue { ptr, i64 } %52, 1
   br label %_ZNK4llvm6DIFile12getDirectoryEv.exit
 
-_ZNK4llvm6DIFile12getDirectoryEv.exit:            ; preds = %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i, %55
-  %.sroa.0.0.i.i = phi ptr [ %57, %55 ], [ null, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i ]
-  %.sroa.4.0.i.i = phi i64 [ %58, %55 ], [ 0, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i ]
-  %59 = load i64, ptr %41, align 8
-  %60 = and i64 %59, 2
-  %.not.i.i.i.i.i14 = icmp eq i64 %60, 0
-  br i1 %.not.i.i.i.i.i14, label %65, label %61
+_ZNK4llvm6DIFile12getDirectoryEv.exit:            ; preds = %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i, %51
+  %.sroa.0.0.i.i = phi ptr [ %53, %51 ], [ null, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i ]
+  %.sroa.4.0.i.i = phi i64 [ %54, %51 ], [ 0, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i ]
+  %55 = load i64, ptr %37, align 8
+  %56 = and i64 %55, 2
+  %.not.i.i.i.i.i14 = icmp eq i64 %56, 0
+  br i1 %.not.i.i.i.i.i14, label %61, label %57
+
+57:                                               ; preds = %_ZNK4llvm6DIFile12getDirectoryEv.exit
+  %58 = getelementptr inbounds i8, ptr %1, i64 -32
+  %59 = load ptr, ptr %58, align 8
+  %60 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %58) #23
+  br label %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i15
 
 61:                                               ; preds = %_ZNK4llvm6DIFile12getDirectoryEv.exit
-  %62 = getelementptr inbounds i8, ptr %1, i64 -32
-  %63 = load ptr, ptr %62, align 8
-  %64 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %62) #23
+  %62 = lshr i64 %55, 2
+  %63 = and i64 %62, 15
+  %64 = sub nsw i64 0, %63
+  %65 = getelementptr inbounds %"class.llvm::MDOperand", ptr %37, i64 %64
   br label %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i15
 
-65:                                               ; preds = %_ZNK4llvm6DIFile12getDirectoryEv.exit
-  %66 = lshr i64 %59, 2
-  %67 = and i64 %66, 15
-  %68 = sub nsw i64 0, %67
-  %69 = getelementptr inbounds %"class.llvm::MDOperand", ptr %41, i64 %68
-  br label %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i15
+_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i15: ; preds = %61, %57
+  %.sroa.0.0.i.i.i.i.i16 = phi ptr [ %65, %61 ], [ %59, %57 ]
+  %66 = load ptr, ptr %.sroa.0.0.i.i.i.i.i16, align 8
+  %.not.i.i17 = icmp eq ptr %66, null
+  br i1 %.not.i.i17, label %_ZNK4llvm6DIFile11getFilenameEv.exit, label %67
 
-_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i15: ; preds = %65, %61
-  %.sroa.0.0.i.i.i.i.i16 = phi ptr [ %69, %65 ], [ %63, %61 ]
-  %70 = load ptr, ptr %.sroa.0.0.i.i.i.i.i16, align 8
-  %.not.i.i17 = icmp eq ptr %70, null
-  br i1 %.not.i.i17, label %_ZNK4llvm6DIFile11getFilenameEv.exit, label %71
-
-71:                                               ; preds = %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i15
-  %72 = tail call { ptr, i64 } @_ZNK4llvm8MDString9getStringEv(ptr noundef nonnull align 8 dereferenceable(16) %70) #23
-  %73 = extractvalue { ptr, i64 } %72, 0
-  %74 = extractvalue { ptr, i64 } %72, 1
+67:                                               ; preds = %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i15
+  %68 = tail call { ptr, i64 } @_ZNK4llvm8MDString9getStringEv(ptr noundef nonnull align 8 dereferenceable(16) %66) #23
+  %69 = extractvalue { ptr, i64 } %68, 0
+  %70 = extractvalue { ptr, i64 } %68, 1
   br label %_ZNK4llvm6DIFile11getFilenameEv.exit
 
-_ZNK4llvm6DIFile11getFilenameEv.exit:             ; preds = %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i15, %71
-  %.sroa.0.0.i.i18 = phi ptr [ %73, %71 ], [ null, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i15 ]
-  %.sroa.4.0.i.i19 = phi i64 [ %74, %71 ], [ 0, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i15 ]
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %76 = load ptr, ptr %75, align 8
-  call void @_ZNK4llvm10DwarfDebug13getMD5AsBytesEPKNS_6DIFileE(ptr dead_on_unwind nonnull writable sret(%"class.std::optional") align 1 %10, ptr noundef nonnull align 8 dereferenceable(5828) %76, ptr noundef nonnull %1) #23
-  %77 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %78 = load ptr, ptr %77, align 8, !noalias !10
-  %.not.i = icmp eq ptr %78, null
-  br i1 %.not.i, label %_ZNK4llvm6DIFile9getSourceEv.exit, label %79
+_ZNK4llvm6DIFile11getFilenameEv.exit:             ; preds = %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i15, %67
+  %.sroa.0.0.i.i18 = phi ptr [ %69, %67 ], [ null, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i15 ]
+  %.sroa.4.0.i.i19 = phi i64 [ %70, %67 ], [ 0, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i15 ]
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 208
+  %72 = load ptr, ptr %71, align 8
+  call void @_ZNK4llvm10DwarfDebug13getMD5AsBytesEPKNS_6DIFileE(ptr dead_on_unwind nonnull writable sret(%"class.std::optional") align 1 %10, ptr noundef nonnull align 8 dereferenceable(5828) %72, ptr noundef nonnull %1) #23
+  %73 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %74 = load ptr, ptr %73, align 8, !noalias !10
+  %.not.i = icmp eq ptr %74, null
+  br i1 %.not.i, label %_ZNK4llvm6DIFile9getSourceEv.exit, label %75
 
-79:                                               ; preds = %_ZNK4llvm6DIFile11getFilenameEv.exit
-  %80 = call { ptr, i64 } @_ZNK4llvm8MDString9getStringEv(ptr noundef nonnull align 8 dereferenceable(16) %78) #23, !noalias !10
-  %81 = extractvalue { ptr, i64 } %80, 0
-  %82 = extractvalue { ptr, i64 } %80, 1
+75:                                               ; preds = %_ZNK4llvm6DIFile11getFilenameEv.exit
+  %76 = call { ptr, i64 } @_ZNK4llvm8MDString9getStringEv(ptr noundef nonnull align 8 dereferenceable(16) %74) #23, !noalias !10
+  %77 = extractvalue { ptr, i64 } %76, 0
+  %78 = extractvalue { ptr, i64 } %76, 1
   br label %_ZNK4llvm6DIFile9getSourceEv.exit
 
-_ZNK4llvm6DIFile9getSourceEv.exit:                ; preds = %_ZNK4llvm6DIFile11getFilenameEv.exit, %79
-  %.sroa.2.0 = phi i64 [ undef, %_ZNK4llvm6DIFile11getFilenameEv.exit ], [ %82, %79 ]
-  %.sroa.0.0 = phi ptr [ undef, %_ZNK4llvm6DIFile11getFilenameEv.exit ], [ %81, %79 ]
-  %.sink.i = phi i8 [ 0, %_ZNK4llvm6DIFile11getFilenameEv.exit ], [ 1, %79 ]
+_ZNK4llvm6DIFile9getSourceEv.exit:                ; preds = %_ZNK4llvm6DIFile11getFilenameEv.exit, %75
+  %.sroa.2.0 = phi i64 [ undef, %_ZNK4llvm6DIFile11getFilenameEv.exit ], [ %78, %75 ]
+  %.sroa.0.0 = phi ptr [ undef, %_ZNK4llvm6DIFile11getFilenameEv.exit ], [ %77, %75 ]
+  %.sink.i = phi i8 [ 0, %_ZNK4llvm6DIFile11getFilenameEv.exit ], [ 1, %75 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
@@ -1149,25 +1144,20 @@ _ZNK4llvm6DIFile9getSourceEv.exit:                ; preds = %_ZNK4llvm6DIFile11g
   store ptr %.sroa.0.0.i.i18, ptr %4, align 8
   %.sroa.23.0..sroa_idx.i22 = getelementptr inbounds i8, ptr %4, i64 8
   store i64 %.sroa.4.0.i.i19, ptr %.sroa.23.0..sroa_idx.i22, align 8
-  %83 = load ptr, ptr %40, align 8
-  %84 = getelementptr inbounds i8, ptr %83, i64 688
-  %85 = load ptr, ptr %84, align 8
-  call void %85(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected") align 8 %3, ptr noundef nonnull align 8 dereferenceable(288) %40, i32 noundef 0, ptr %.sroa.0.0.i.i, i64 %.sroa.4.0.i.i, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %4, ptr noundef nonnull byval(%"class.std::optional") align 8 %10, ptr noundef nonnull byval(%"class.std::optional.314") align 8 %5, i32 noundef %21) #23
-  %86 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %87 = load i8, ptr %86, align 8
-  %88 = trunc i8 %87 to i1
-  %89 = xor i1 %88, true
-  call void @llvm.assume(i1 %89)
-  %90 = load i32, ptr %3, align 8
+  %79 = load ptr, ptr %36, align 8
+  %80 = getelementptr inbounds i8, ptr %79, i64 688
+  %81 = load ptr, ptr %80, align 8
+  call void %81(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected") align 8 %3, ptr noundef nonnull align 8 dereferenceable(288) %36, i32 noundef 0, ptr %.sroa.0.0.i.i, i64 %.sroa.4.0.i.i, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %4, ptr noundef nonnull byval(%"class.std::optional") align 8 %10, ptr noundef nonnull byval(%"class.std::optional.314") align 8 %5, i32 noundef %21) #23
+  %82 = load i32, ptr %3, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  %91 = getelementptr inbounds nuw i8, ptr %0, i64 664
-  store i32 %90, ptr %91, align 8
-  br label %92
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 664
+  store i32 %82, ptr %83, align 8
+  br label %84
 
-92:                                               ; preds = %_ZNK4llvm6DIFile9getSourceEv.exit, %._crit_edge, %22
-  %.0 = phi i32 [ %33, %22 ], [ %.pre, %._crit_edge ], [ %90, %_ZNK4llvm6DIFile9getSourceEv.exit ]
+84:                                               ; preds = %_ZNK4llvm6DIFile9getSourceEv.exit, %._crit_edge, %22
+  %.0 = phi i32 [ %29, %22 ], [ %.pre, %._crit_edge ], [ %82, %_ZNK4llvm6DIFile9getSourceEv.exit ]
   ret i32 %.0
 }
 

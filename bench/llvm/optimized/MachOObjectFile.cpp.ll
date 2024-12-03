@@ -16124,43 +16124,38 @@ _ZN4llvm8ExpectedIjED2Ev.exit:
   %4 = getelementptr inbounds i8, ptr %3, i64 40
   %5 = load ptr, ptr %4, align 8
   call void %5(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.35") align 8 %2, ptr noundef nonnull align 8 dereferenceable(360) %0, i64 %1) #29
-  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %7 = load i8, ptr %6, align 8
-  %8 = trunc i8 %7 to i1
-  %9 = xor i1 %8, true
-  call void @llvm.assume(i1 %9)
-  %10 = load i32, ptr %2, align 8
-  %11 = and i32 %10, 16
-  %.not = icmp eq i32 %11, 0
-  br i1 %.not, label %32, label %12
+  %6 = load i32, ptr %2, align 8
+  %7 = and i32 %6, 16
+  %.not = icmp eq i32 %7, 0
+  br i1 %.not, label %28, label %8
 
-12:                                               ; preds = %_ZN4llvm8ExpectedIjED2Ev.exit
-  %13 = inttoptr i64 %1 to ptr
-  %14 = call { ptr, i64 } @_ZNK4llvm6object6Binary7getDataEv(ptr noundef nonnull align 8 dereferenceable(360) %0) #29
-  %15 = extractvalue { ptr, i64 } %14, 0
-  %16 = icmp ugt ptr %15, %13
-  br i1 %16, label %.critedge.i.i, label %17
+8:                                                ; preds = %_ZN4llvm8ExpectedIjED2Ev.exit
+  %9 = inttoptr i64 %1 to ptr
+  %10 = call { ptr, i64 } @_ZNK4llvm6object6Binary7getDataEv(ptr noundef nonnull align 8 dereferenceable(360) %0) #29
+  %11 = extractvalue { ptr, i64 } %10, 0
+  %12 = icmp ugt ptr %11, %9
+  br i1 %12, label %.critedge.i.i, label %13
 
-17:                                               ; preds = %12
-  %18 = getelementptr inbounds i8, ptr %13, i64 8
-  %19 = call { ptr, i64 } @_ZNK4llvm6object6Binary7getDataEv(ptr noundef nonnull align 8 dereferenceable(360) %0) #29
-  %20 = extractvalue { ptr, i64 } %19, 0
-  %21 = extractvalue { ptr, i64 } %19, 1
-  %22 = getelementptr inbounds i8, ptr %20, i64 %21
-  %23 = icmp ugt ptr %18, %22
-  br i1 %23, label %.critedge.i.i, label %24
+13:                                               ; preds = %8
+  %14 = getelementptr inbounds i8, ptr %9, i64 8
+  %15 = call { ptr, i64 } @_ZNK4llvm6object6Binary7getDataEv(ptr noundef nonnull align 8 dereferenceable(360) %0) #29
+  %16 = extractvalue { ptr, i64 } %15, 0
+  %17 = extractvalue { ptr, i64 } %15, 1
+  %18 = getelementptr inbounds i8, ptr %16, i64 %17
+  %19 = icmp ugt ptr %14, %18
+  br i1 %19, label %.critedge.i.i, label %20
 
-.critedge.i.i:                                    ; preds = %17, %12
+.critedge.i.i:                                    ; preds = %13, %8
   call void @_ZN4llvm18report_fatal_errorEPKcb(ptr noundef nonnull @.str.472, i1 noundef zeroext true) #31
   unreachable
 
-24:                                               ; preds = %17
-  %25 = load i64, ptr %13, align 1
-  %.sroa.410.0.extract.shift.i.i = lshr i64 %25, 48
+20:                                               ; preds = %13
+  %21 = load i64, ptr %9, align 1
+  %.sroa.410.0.extract.shift.i.i = lshr i64 %21, 48
   %.sroa.410.0.extract.trunc.i.i = trunc nuw i64 %.sroa.410.0.extract.shift.i.i to i16
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %27 = load i32, ptr %26, align 8
-  switch i32 %27, label %_ZL23getSymbolTableEntryBaseRKN4llvm6object15MachOObjectFileENS0_11DataRefImplE.exit [
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %23 = load i32, ptr %22, align 8
+  switch i32 %23, label %_ZL23getSymbolTableEntryBaseRKN4llvm6object15MachOObjectFileENS0_11DataRefImplE.exit [
     i32 14, label %_ZNK4llvm6object6Binary14isLittleEndianEv.exit.i.i
     i32 16, label %_ZNK4llvm6object6Binary14isLittleEndianEv.exit.i.i
     i32 18, label %_ZNK4llvm6object6Binary14isLittleEndianEv.exit.i.i
@@ -16169,20 +16164,20 @@ _ZN4llvm8ExpectedIjED2Ev.exit:
     i32 12, label %_ZNK4llvm6object6Binary14isLittleEndianEv.exit.i.i
   ]
 
-_ZNK4llvm6object6Binary14isLittleEndianEv.exit.i.i: ; preds = %24, %24, %24, %24, %24, %24
+_ZNK4llvm6object6Binary14isLittleEndianEv.exit.i.i: ; preds = %20, %20, %20, %20, %20, %20
   %rev.i.i.i.i.i.i = call noundef i16 @llvm.bswap.i16(i16 %.sroa.410.0.extract.trunc.i.i)
   br label %_ZL23getSymbolTableEntryBaseRKN4llvm6object15MachOObjectFileENS0_11DataRefImplE.exit
 
-_ZL23getSymbolTableEntryBaseRKN4llvm6object15MachOObjectFileENS0_11DataRefImplE.exit: ; preds = %24, %_ZNK4llvm6object6Binary14isLittleEndianEv.exit.i.i
-  %.sroa.410.0.i.i = phi i16 [ %rev.i.i.i.i.i.i, %_ZNK4llvm6object6Binary14isLittleEndianEv.exit.i.i ], [ %.sroa.410.0.extract.trunc.i.i, %24 ]
-  %28 = lshr i16 %.sroa.410.0.i.i, 8
-  %29 = and i16 %28, 15
-  %30 = zext nneg i16 %29 to i32
-  %31 = shl nuw nsw i32 1, %30
-  br label %32
+_ZL23getSymbolTableEntryBaseRKN4llvm6object15MachOObjectFileENS0_11DataRefImplE.exit: ; preds = %20, %_ZNK4llvm6object6Binary14isLittleEndianEv.exit.i.i
+  %.sroa.410.0.i.i = phi i16 [ %rev.i.i.i.i.i.i, %_ZNK4llvm6object6Binary14isLittleEndianEv.exit.i.i ], [ %.sroa.410.0.extract.trunc.i.i, %20 ]
+  %24 = lshr i16 %.sroa.410.0.i.i, 8
+  %25 = and i16 %24, 15
+  %26 = zext nneg i16 %25 to i32
+  %27 = shl nuw nsw i32 1, %26
+  br label %28
 
-32:                                               ; preds = %_ZN4llvm8ExpectedIjED2Ev.exit, %_ZL23getSymbolTableEntryBaseRKN4llvm6object15MachOObjectFileENS0_11DataRefImplE.exit
-  %.0 = phi i32 [ %31, %_ZL23getSymbolTableEntryBaseRKN4llvm6object15MachOObjectFileENS0_11DataRefImplE.exit ], [ 0, %_ZN4llvm8ExpectedIjED2Ev.exit ]
+28:                                               ; preds = %_ZN4llvm8ExpectedIjED2Ev.exit, %_ZL23getSymbolTableEntryBaseRKN4llvm6object15MachOObjectFileENS0_11DataRefImplE.exit
+  %.0 = phi i32 [ %27, %_ZL23getSymbolTableEntryBaseRKN4llvm6object15MachOObjectFileENS0_11DataRefImplE.exit ], [ 0, %_ZN4llvm8ExpectedIjED2Ev.exit ]
   ret i32 %.0
 }
 

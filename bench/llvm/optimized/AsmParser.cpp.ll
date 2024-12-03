@@ -12109,7 +12109,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19AsmParser26enabledG
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 1777
   %18 = load i8, ptr %17, align 1
   %19 = trunc i8 %18 to i1
-  br i1 %19, label %20, label %98
+  br i1 %19, label %20, label %94
 
 20:                                               ; preds = %1
   %21 = load ptr, ptr %0, align 8
@@ -12119,7 +12119,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19AsmParser26enabledG
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 1780
   %26 = load i32, ptr %25, align 4
   %27 = icmp eq i32 %26, 0
-  br i1 %27, label %28, label %98
+  br i1 %27, label %28, label %94
 
 28:                                               ; preds = %20
   %29 = getelementptr inbounds i8, ptr %0, i64 528
@@ -12268,20 +12268,15 @@ _ZN4llvm9MCContext19getMCDwarfLineTableEj.exit:   ; preds = %65, %.critedge.i.i
   %90 = getelementptr inbounds i8, ptr %89, i64 688
   %91 = load ptr, ptr %90, align 8
   call void %91(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected") align 8 %2, ptr noundef nonnull align 8 dereferenceable(288) %77, i32 noundef 0, ptr %83, i64 %84, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %3, ptr noundef nonnull byval(%"class.std::optional.285") align 8 %4, ptr noundef nonnull byval(%"class.std::optional.292") align 8 %88, i32 noundef 0) #28
-  %92 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %93 = load i8, ptr %92, align 8
-  %94 = trunc i8 %93 to i1
-  %95 = xor i1 %94, true
-  call void @llvm.assume(i1 %95)
-  %96 = load i32, ptr %2, align 8
+  %92 = load i32, ptr %2, align 8
   call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  %97 = getelementptr inbounds nuw i8, ptr %73, i64 1780
-  store i32 %96, ptr %97, align 4
-  br label %98
+  %93 = getelementptr inbounds nuw i8, ptr %73, i64 1780
+  store i32 %92, ptr %93, align 4
+  br label %94
 
-98:                                               ; preds = %20, %_ZN4llvm9MCContext19getMCDwarfLineTableEj.exit, %1
+94:                                               ; preds = %20, %_ZN4llvm9MCContext19getMCDwarfLineTableEj.exit, %1
   ret i1 %19
 }
 
@@ -22499,7 +22494,7 @@ _ZN4llvm11SmallStringILj256EED2Ev.exit:           ; preds = %114, %_ZN4llvm11raw
   %116 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %115) #28
   %117 = xor i1 %116, true
   %brmerge = or i1 %41, %117
-  br i1 %brmerge, label %232, label %118
+  br i1 %brmerge, label %228, label %118
 
 118:                                              ; preds = %_ZN4llvm11SmallStringILj256EED2Ev.exit
   %119 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19AsmParser26enabledGenDwarfForAssemblyEv(ptr noundef nonnull align 8 dereferenceable(928) %0)
@@ -22586,7 +22581,7 @@ _ZNK4llvm9SetVectorIPNS_9MCSectionENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_
   %173 = getelementptr inbounds i8, ptr %0, i64 488
   %174 = load i64, ptr %173, align 8
   %175 = icmp eq i64 %174, 0
-  br i1 %175, label %207, label %176
+  br i1 %175, label %203, label %176
 
 176:                                              ; preds = %172
   %177 = getelementptr inbounds nuw i8, ptr %0, i64 480
@@ -22611,73 +22606,68 @@ _ZNK4llvm9SetVectorIPNS_9MCSectionENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_
   %183 = getelementptr inbounds i8, ptr %182, i64 688
   %184 = load ptr, ptr %183, align 8
   call void %184(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected") align 8 %7, ptr noundef nonnull align 8 dereferenceable(288) %181, i32 noundef 0, ptr null, i64 0, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %8, ptr noundef nonnull byval(%"class.std::optional.285") align 8 %10, ptr noundef nonnull byval(%"class.std::optional.292") align 8 %9, i32 noundef 0) #28
-  %185 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %186 = load i8, ptr %185, align 8
-  %187 = trunc i8 %186 to i1
-  %188 = xor i1 %187, true
-  call void @llvm.assume(i1 %188)
-  %189 = load i32, ptr %7, align 8
+  %185 = load i32, ptr %7, align 8
   call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  %190 = load ptr, ptr %0, align 8
-  %191 = getelementptr inbounds i8, ptr %190, i64 48
+  %186 = load ptr, ptr %0, align 8
+  %187 = getelementptr inbounds i8, ptr %186, i64 48
+  %188 = load ptr, ptr %187, align 8
+  %189 = call noundef nonnull align 8 dereferenceable(2432) ptr %188(ptr noundef nonnull align 8 dereferenceable(928) %0) #28
+  %190 = getelementptr inbounds nuw i8, ptr %189, i64 1780
+  store i32 %185, ptr %190, align 4
+  %191 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %192 = load ptr, ptr %191, align 8
-  %193 = call noundef nonnull align 8 dereferenceable(2432) ptr %192(ptr noundef nonnull align 8 dereferenceable(928) %0) #28
-  %194 = getelementptr inbounds nuw i8, ptr %193, i64 1780
-  store i32 %189, ptr %194, align 4
-  %195 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  %196 = load ptr, ptr %195, align 8
-  %197 = getelementptr inbounds nuw i8, ptr %0, i64 504
-  %.sroa.01.0.copyload = load ptr, ptr %197, align 8
-  %198 = getelementptr inbounds nuw i8, ptr %0, i64 512
-  %199 = load i32, ptr %198, align 8
-  %200 = call i64 @_ZNK4llvm9SourceMgr16getLineAndColumnENS_5SMLocEj(ptr noundef nonnull align 8 dereferenceable(64) %196, ptr %.sroa.01.0.copyload, i32 noundef %199) #28
-  %.sroa.01.0.extract.trunc.i43 = trunc i64 %200 to i32
-  %201 = getelementptr inbounds nuw i8, ptr %0, i64 496
-  %202 = load i64, ptr %201, align 8
-  %203 = trunc i64 %202 to i32
-  %204 = xor i32 %.sroa.01.0.extract.trunc.i43, -1
-  %205 = add i32 %204, %.027
-  %206 = add i32 %205, %203
-  br label %207
+  %193 = getelementptr inbounds nuw i8, ptr %0, i64 504
+  %.sroa.01.0.copyload = load ptr, ptr %193, align 8
+  %194 = getelementptr inbounds nuw i8, ptr %0, i64 512
+  %195 = load i32, ptr %194, align 8
+  %196 = call i64 @_ZNK4llvm9SourceMgr16getLineAndColumnENS_5SMLocEj(ptr noundef nonnull align 8 dereferenceable(64) %192, ptr %.sroa.01.0.copyload, i32 noundef %195) #28
+  %.sroa.01.0.extract.trunc.i43 = trunc i64 %196 to i32
+  %197 = getelementptr inbounds nuw i8, ptr %0, i64 496
+  %198 = load i64, ptr %197, align 8
+  %199 = trunc i64 %198 to i32
+  %200 = xor i32 %.sroa.01.0.extract.trunc.i43, -1
+  %201 = add i32 %200, %.027
+  %202 = add i32 %201, %199
+  br label %203
 
-207:                                              ; preds = %176, %172
-  %.1 = phi i32 [ %.027, %172 ], [ %206, %176 ]
+203:                                              ; preds = %176, %172
+  %.1 = phi i32 [ %.027, %172 ], [ %202, %176 ]
+  %204 = load ptr, ptr %0, align 8
+  %205 = getelementptr inbounds i8, ptr %204, i64 56
+  %206 = load ptr, ptr %205, align 8
+  %207 = call noundef nonnull align 8 dereferenceable(288) ptr %206(ptr noundef nonnull align 8 dereferenceable(928) %0) #28
   %208 = load ptr, ptr %0, align 8
-  %209 = getelementptr inbounds i8, ptr %208, i64 56
+  %209 = getelementptr inbounds i8, ptr %208, i64 48
   %210 = load ptr, ptr %209, align 8
-  %211 = call noundef nonnull align 8 dereferenceable(288) ptr %210(ptr noundef nonnull align 8 dereferenceable(928) %0) #28
-  %212 = load ptr, ptr %0, align 8
-  %213 = getelementptr inbounds i8, ptr %212, i64 48
-  %214 = load ptr, ptr %213, align 8
-  %215 = call noundef nonnull align 8 dereferenceable(2432) ptr %214(ptr noundef nonnull align 8 dereferenceable(928) %0) #28
-  %216 = getelementptr inbounds nuw i8, ptr %215, i64 1780
-  %217 = load i32, ptr %216, align 4
+  %211 = call noundef nonnull align 8 dereferenceable(2432) ptr %210(ptr noundef nonnull align 8 dereferenceable(928) %0) #28
+  %212 = getelementptr inbounds nuw i8, ptr %211, i64 1780
+  %213 = load i32, ptr %212, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, i8 0, i64 16, i1 false)
-  %218 = load ptr, ptr %211, align 8
-  %219 = getelementptr inbounds i8, ptr %218, i64 720
-  %220 = load ptr, ptr %219, align 8
-  call void %220(ptr noundef nonnull align 8 dereferenceable(288) %211, i32 noundef %217, i32 noundef %.1, i32 noundef 0, i32 noundef 1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %20) #28
+  %214 = load ptr, ptr %207, align 8
+  %215 = getelementptr inbounds i8, ptr %214, i64 720
+  %216 = load ptr, ptr %215, align 8
+  call void %216(ptr noundef nonnull align 8 dereferenceable(288) %207, i32 noundef %213, i32 noundef %.1, i32 noundef 0, i32 noundef 1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %20) #28
   br label %.critedge
 
-.critedge:                                        ; preds = %.lr.ph.i.i.i.i.i.i, %120, %207, %118
-  %221 = load ptr, ptr %25, align 8
-  %222 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %223 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %224 = load ptr, ptr %223, align 8
-  %225 = getelementptr inbounds nuw i8, ptr %221, i64 64
-  %226 = load i8, ptr %225, align 8
-  %227 = trunc i8 %226 to i1
-  %228 = load ptr, ptr %221, align 8
-  %229 = getelementptr inbounds i8, ptr %228, i64 80
-  %230 = load ptr, ptr %229, align 8
-  %231 = call noundef zeroext i1 %230(ptr noundef nonnull align 8 dereferenceable(304) %221, ptr %5, ptr noundef nonnull align 4 dereferenceable(4) %222, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(288) %224, ptr noundef nonnull align 8 dereferenceable(8) %21, i1 noundef zeroext %227) #28
-  br label %232
+.critedge:                                        ; preds = %.lr.ph.i.i.i.i.i.i, %120, %203, %118
+  %217 = load ptr, ptr %25, align 8
+  %218 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %219 = getelementptr inbounds nuw i8, ptr %0, i64 232
+  %220 = load ptr, ptr %219, align 8
+  %221 = getelementptr inbounds nuw i8, ptr %217, i64 64
+  %222 = load i8, ptr %221, align 8
+  %223 = trunc i8 %222 to i1
+  %224 = load ptr, ptr %217, align 8
+  %225 = getelementptr inbounds i8, ptr %224, i64 80
+  %226 = load ptr, ptr %225, align 8
+  %227 = call noundef zeroext i1 %226(ptr noundef nonnull align 8 dereferenceable(304) %217, ptr %5, ptr noundef nonnull align 4 dereferenceable(4) %218, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(288) %220, ptr noundef nonnull align 8 dereferenceable(8) %21, i1 noundef zeroext %223) #28
+  br label %228
 
-232:                                              ; preds = %.critedge, %_ZN4llvm11SmallStringILj256EED2Ev.exit
-  %.0 = phi i1 [ true, %_ZN4llvm11SmallStringILj256EED2Ev.exit ], [ %231, %.critedge ]
+228:                                              ; preds = %.critedge, %_ZN4llvm11SmallStringILj256EED2Ev.exit
+  %.0 = phi i1 [ true, %_ZN4llvm11SmallStringILj256EED2Ev.exit ], [ %227, %.critedge ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #28
   ret i1 %.0
 }

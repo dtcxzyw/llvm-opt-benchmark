@@ -2491,28 +2491,18 @@ define linkonce_odr hidden void @_ZN4llvm12MCAsmBackend5resetEv(ptr noundef nonn
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNK12_GLOBAL__N_119DarwinX86AsmBackend24createObjectTargetWriterEv(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.249") align 8 %0, ptr noundef nonnull align 8 dereferenceable(312) %1) unnamed_addr #0 align 2 {
-_ZN4llvm8ExpectedIjED2Ev.exit5:
+_ZN4llvm8ExpectedIjED2Ev.exit:
   %2 = alloca %"class.llvm::Expected", align 8
   %3 = alloca %"class.llvm::Expected", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 240
   call void @_ZN4llvm5MachO10getCPUTypeERKNS_6TripleE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected") align 8 %2, ptr noundef nonnull align 8 dereferenceable(56) %4) #23
-  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %6 = load i8, ptr %5, align 8
-  %7 = trunc i8 %6 to i1
-  %8 = xor i1 %7, true
-  call void @llvm.assume(i1 %8)
-  %9 = load i32, ptr %2, align 8
+  %5 = load i32, ptr %2, align 8
   call void @_ZN4llvm5MachO13getCPUSubTypeERKNS_6TripleE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected") align 8 %3, ptr noundef nonnull align 8 dereferenceable(56) %4) #23
-  %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %11 = load i8, ptr %10, align 8
-  %12 = trunc i8 %11 to i1
-  %13 = xor i1 %12, true
-  call void @llvm.assume(i1 %13)
-  %14 = load i32, ptr %3, align 8
-  %15 = getelementptr inbounds nuw i8, ptr %1, i64 296
-  %16 = load i8, ptr %15, align 8
-  %17 = trunc i8 %16 to i1
-  call void @_ZN4llvm25createX86MachObjectWriterEbjj(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.249") align 8 %0, i1 noundef zeroext %17, i32 noundef %9, i32 noundef %14) #23
+  %6 = load i32, ptr %3, align 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 296
+  %8 = load i8, ptr %7, align 8
+  %9 = trunc i8 %8 to i1
+  call void @_ZN4llvm25createX86MachObjectWriterEbjj(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.249") align 8 %0, i1 noundef zeroext %9, i32 noundef %5, i32 noundef %6) #23
   ret void
 }
 

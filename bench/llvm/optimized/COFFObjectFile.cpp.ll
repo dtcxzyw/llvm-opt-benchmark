@@ -688,209 +688,204 @@ _ZN4llvm8ExpectedImED2Ev.exit:
   %3 = alloca %"class.llvm::Expected.7", align 8
   %4 = alloca %"class.llvm::Expected.11", align 8
   call void @_ZNK4llvm6object10ObjectFile14getSymbolValueENS0_11DataRefImplE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.7") align 8 %3, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 %2) #28
-  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %6 = load i8, ptr %5, align 8
-  %7 = trunc i8 %6 to i1
-  %8 = xor i1 %7, true
-  call void @llvm.assume(i1 %8)
-  %9 = load i64, ptr %3, align 8
-  %10 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %11 = load ptr, ptr %10, align 8
-  %.not.i = icmp eq ptr %11, null
+  %5 = load i64, ptr %3, align 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 96
+  %7 = load ptr, ptr %6, align 8
+  %.not.i = icmp eq ptr %7, null
   br i1 %.not.i, label %_ZNK4llvm6object14COFFObjectFile13getCOFFSymbolERKNS0_11DataRefImplE.exit.thread, label %_ZNK4llvm6object14COFFObjectFile13getCOFFSymbolERKNS0_11DataRefImplE.exit
 
 _ZNK4llvm6object14COFFObjectFile13getCOFFSymbolERKNS0_11DataRefImplE.exit.thread: ; preds = %_ZN4llvm8ExpectedImED2Ev.exit
-  %12 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %13 = load ptr, ptr %12, align 8
-  %14 = icmp ne ptr %13, null
-  call void @llvm.assume(i1 %14)
-  %15 = inttoptr i64 %2 to ptr
-  %16 = getelementptr inbounds nuw i8, ptr %15, i64 12
-  call void @llvm.assume(i1 true) [ "align"(ptr %16, i64 1) ]
-  %.0.copyload.i.i.i4.i = load i32, ptr %16, align 1
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 104
+  %9 = load ptr, ptr %8, align 8
+  %10 = icmp ne ptr %9, null
+  call void @llvm.assume(i1 %10)
+  %11 = inttoptr i64 %2 to ptr
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 12
+  call void @llvm.assume(i1 true) [ "align"(ptr %12, i64 1) ]
+  %.0.copyload.i.i.i4.i = load i32, ptr %12, align 1
   br label %_ZNK4llvm6object13COFFSymbolRef16getSectionNumberEv.exit
 
 _ZNK4llvm6object14COFFObjectFile13getCOFFSymbolERKNS0_11DataRefImplE.exit: ; preds = %_ZN4llvm8ExpectedImED2Ev.exit
-  %17 = inttoptr i64 %2 to ptr
+  %13 = inttoptr i64 %2 to ptr
   %.not.i2 = icmp ne i64 %2, 0
   call void @llvm.assume(i1 %.not.i2)
-  %18 = getelementptr inbounds nuw i8, ptr %17, i64 12
-  call void @llvm.assume(i1 true) [ "align"(ptr %18, i64 1) ]
-  %.0.copyload.i.i.i.i = load i16, ptr %18, align 1
-  %19 = icmp ult i16 %.0.copyload.i.i.i.i, -256
-  call void @llvm.assume(i1 true) [ "align"(ptr %18, i64 1) ]
-  br i1 %19, label %20, label %22
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 12
+  call void @llvm.assume(i1 true) [ "align"(ptr %14, i64 1) ]
+  %.0.copyload.i.i.i.i = load i16, ptr %14, align 1
+  %15 = icmp ult i16 %.0.copyload.i.i.i.i, -256
+  call void @llvm.assume(i1 true) [ "align"(ptr %14, i64 1) ]
+  br i1 %15, label %16, label %18
 
-20:                                               ; preds = %_ZNK4llvm6object14COFFObjectFile13getCOFFSymbolERKNS0_11DataRefImplE.exit
-  %21 = zext i16 %.0.copyload.i.i.i.i to i32
+16:                                               ; preds = %_ZNK4llvm6object14COFFObjectFile13getCOFFSymbolERKNS0_11DataRefImplE.exit
+  %17 = zext i16 %.0.copyload.i.i.i.i to i32
   br label %_ZNK4llvm6object13COFFSymbolRef16getSectionNumberEv.exit
 
-22:                                               ; preds = %_ZNK4llvm6object14COFFObjectFile13getCOFFSymbolERKNS0_11DataRefImplE.exit
-  %23 = sext i16 %.0.copyload.i.i.i.i to i32
+18:                                               ; preds = %_ZNK4llvm6object14COFFObjectFile13getCOFFSymbolERKNS0_11DataRefImplE.exit
+  %19 = sext i16 %.0.copyload.i.i.i.i to i32
   br label %_ZNK4llvm6object13COFFSymbolRef16getSectionNumberEv.exit
 
-_ZNK4llvm6object13COFFSymbolRef16getSectionNumberEv.exit: ; preds = %20, %22, %_ZNK4llvm6object14COFFObjectFile13getCOFFSymbolERKNS0_11DataRefImplE.exit.thread
-  %.pn.i.i.i = phi ptr [ %17, %20 ], [ %17, %22 ], [ %15, %_ZNK4llvm6object14COFFObjectFile13getCOFFSymbolERKNS0_11DataRefImplE.exit.thread ]
-  %.sroa.0.0.i29 = phi ptr [ %17, %20 ], [ %17, %22 ], [ null, %_ZNK4llvm6object14COFFObjectFile13getCOFFSymbolERKNS0_11DataRefImplE.exit.thread ]
-  %.sroa.3.0.i28 = phi ptr [ null, %20 ], [ null, %22 ], [ %15, %_ZNK4llvm6object14COFFObjectFile13getCOFFSymbolERKNS0_11DataRefImplE.exit.thread ]
-  %.0.i = phi i32 [ %21, %20 ], [ %23, %22 ], [ %.0.copyload.i.i.i4.i, %_ZNK4llvm6object14COFFObjectFile13getCOFFSymbolERKNS0_11DataRefImplE.exit.thread ]
-  %24 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i29, i64 16
-  %25 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i28, i64 18
-  %.in.i.i.i.i = select i1 %.not.i, ptr %25, ptr %24
-  %26 = load i8, ptr %.in.i.i.i.i, align 1
-  switch i8 %26, label %_ZNK4llvm6object13COFFSymbolRef8isCommonEv.exit.thread [
-    i8 2, label %27
+_ZNK4llvm6object13COFFSymbolRef16getSectionNumberEv.exit: ; preds = %16, %18, %_ZNK4llvm6object14COFFObjectFile13getCOFFSymbolERKNS0_11DataRefImplE.exit.thread
+  %.pn.i.i.i = phi ptr [ %13, %16 ], [ %13, %18 ], [ %11, %_ZNK4llvm6object14COFFObjectFile13getCOFFSymbolERKNS0_11DataRefImplE.exit.thread ]
+  %.sroa.0.0.i29 = phi ptr [ %13, %16 ], [ %13, %18 ], [ null, %_ZNK4llvm6object14COFFObjectFile13getCOFFSymbolERKNS0_11DataRefImplE.exit.thread ]
+  %.sroa.3.0.i28 = phi ptr [ null, %16 ], [ null, %18 ], [ %11, %_ZNK4llvm6object14COFFObjectFile13getCOFFSymbolERKNS0_11DataRefImplE.exit.thread ]
+  %.0.i = phi i32 [ %17, %16 ], [ %19, %18 ], [ %.0.copyload.i.i.i4.i, %_ZNK4llvm6object14COFFObjectFile13getCOFFSymbolERKNS0_11DataRefImplE.exit.thread ]
+  %20 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i29, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i28, i64 18
+  %.in.i.i.i.i = select i1 %.not.i, ptr %21, ptr %20
+  %22 = load i8, ptr %.in.i.i.i.i, align 1
+  switch i8 %22, label %_ZNK4llvm6object13COFFSymbolRef8isCommonEv.exit.thread [
+    i8 2, label %23
     i8 105, label %_ZNK4llvm6object13COFFSymbolRef14isAnyUndefinedEv.exit.thread
     i8 104, label %.thread
   ]
 
-27:                                               ; preds = %_ZNK4llvm6object13COFFSymbolRef16getSectionNumberEv.exit
-  br i1 %.not.i, label %34, label %28
+23:                                               ; preds = %_ZNK4llvm6object13COFFSymbolRef16getSectionNumberEv.exit
+  br i1 %.not.i, label %30, label %24
 
-28:                                               ; preds = %27
-  %29 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i29, i64 12
-  call void @llvm.assume(i1 true) [ "align"(ptr %29, i64 1) ]
-  %.0.copyload.i.i.i.i.i.i = load i16, ptr %29, align 1
-  %30 = icmp ult i16 %.0.copyload.i.i.i.i.i.i, -256
-  call void @llvm.assume(i1 true) [ "align"(ptr %29, i64 1) ]
-  br i1 %30, label %32, label %.thread.thread.thread
+24:                                               ; preds = %23
+  %25 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i29, i64 12
+  call void @llvm.assume(i1 true) [ "align"(ptr %25, i64 1) ]
+  %.0.copyload.i.i.i.i.i.i = load i16, ptr %25, align 1
+  %26 = icmp ult i16 %.0.copyload.i.i.i.i.i.i, -256
+  call void @llvm.assume(i1 true) [ "align"(ptr %25, i64 1) ]
+  br i1 %26, label %28, label %.thread.thread.thread
 
-.thread.thread.thread:                            ; preds = %28
-  %31 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i29, i64 12
-  call void @llvm.assume(i1 true) [ "align"(ptr %31, i64 1) ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %31, i64 1) ]
+.thread.thread.thread:                            ; preds = %24
+  %27 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i29, i64 12
+  call void @llvm.assume(i1 true) [ "align"(ptr %27, i64 1) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %27, i64 1) ]
   br label %_ZNK4llvm6object13COFFSymbolRef8isCommonEv.exit.thread
 
-32:                                               ; preds = %28
-  %33 = zext i16 %.0.copyload.i.i.i.i.i.i to i32
+28:                                               ; preds = %24
+  %29 = zext i16 %.0.copyload.i.i.i.i.i.i to i32
   br label %_ZNK4llvm6object13COFFSymbolRef16getSectionNumberEv.exit.i.i
 
-34:                                               ; preds = %27
-  %35 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i28, i64 12
-  call void @llvm.assume(i1 true) [ "align"(ptr %35, i64 1) ]
-  %.0.copyload.i.i.i4.i.i.i = load i32, ptr %35, align 1
+30:                                               ; preds = %23
+  %31 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i28, i64 12
+  call void @llvm.assume(i1 true) [ "align"(ptr %31, i64 1) ]
+  %.0.copyload.i.i.i4.i.i.i = load i32, ptr %31, align 1
   br label %_ZNK4llvm6object13COFFSymbolRef16getSectionNumberEv.exit.i.i
 
-_ZNK4llvm6object13COFFSymbolRef16getSectionNumberEv.exit.i.i: ; preds = %34, %32
-  %.0.i.i.i = phi i32 [ %33, %32 ], [ %.0.copyload.i.i.i4.i.i.i, %34 ]
-  %36 = icmp eq i32 %.0.i.i.i, 0
-  br i1 %36, label %_ZNK4llvm6object13COFFSymbolRef11isUndefinedEv.exit.i, label %.thread
+_ZNK4llvm6object13COFFSymbolRef16getSectionNumberEv.exit.i.i: ; preds = %30, %28
+  %.0.i.i.i = phi i32 [ %29, %28 ], [ %.0.copyload.i.i.i4.i.i.i, %30 ]
+  %32 = icmp eq i32 %.0.i.i.i, 0
+  br i1 %32, label %_ZNK4llvm6object13COFFSymbolRef11isUndefinedEv.exit.i, label %.thread
 
 _ZNK4llvm6object13COFFSymbolRef11isUndefinedEv.exit.i: ; preds = %_ZNK4llvm6object13COFFSymbolRef16getSectionNumberEv.exit.i.i
-  %37 = getelementptr inbounds nuw i8, ptr %.pn.i.i.i, i64 8
-  call void @llvm.assume(i1 true) [ "align"(ptr %37, i64 1) ]
-  %.0.copyload.i.i.i.i2.i.i = load i32, ptr %37, align 1
-  %38 = icmp eq i32 %.0.copyload.i.i.i.i2.i.i, 0
-  br i1 %38, label %_ZNK4llvm6object13COFFSymbolRef14isAnyUndefinedEv.exit.thread, label %.thread
+  %33 = getelementptr inbounds nuw i8, ptr %.pn.i.i.i, i64 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %33, i64 1) ]
+  %.0.copyload.i.i.i.i2.i.i = load i32, ptr %33, align 1
+  %34 = icmp eq i32 %.0.copyload.i.i.i.i2.i.i, 0
+  br i1 %34, label %_ZNK4llvm6object13COFFSymbolRef14isAnyUndefinedEv.exit.thread, label %.thread
 
 .thread:                                          ; preds = %_ZNK4llvm6object13COFFSymbolRef16getSectionNumberEv.exit, %_ZNK4llvm6object13COFFSymbolRef16getSectionNumberEv.exit.i.i, %_ZNK4llvm6object13COFFSymbolRef11isUndefinedEv.exit.i
-  br i1 %.not.i, label %43, label %.thread.thread
+  br i1 %.not.i, label %39, label %.thread.thread
 
 .thread.thread:                                   ; preds = %.thread
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i29, i64 12
   %.0.copyload.i.i.i.i.i.pre = load i16, ptr %.phi.trans.insert, align 1
-  %39 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i29, i64 12
-  call void @llvm.assume(i1 true) [ "align"(ptr %39, i64 1) ]
-  %40 = icmp ult i16 %.0.copyload.i.i.i.i.i.pre, -256
-  call void @llvm.assume(i1 true) [ "align"(ptr %39, i64 1) ]
-  br i1 %40, label %41, label %_ZNK4llvm6object13COFFSymbolRef8isCommonEv.exit.thread
+  %35 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i29, i64 12
+  call void @llvm.assume(i1 true) [ "align"(ptr %35, i64 1) ]
+  %36 = icmp ult i16 %.0.copyload.i.i.i.i.i.pre, -256
+  call void @llvm.assume(i1 true) [ "align"(ptr %35, i64 1) ]
+  br i1 %36, label %37, label %_ZNK4llvm6object13COFFSymbolRef8isCommonEv.exit.thread
 
-41:                                               ; preds = %.thread.thread
-  %42 = zext i16 %.0.copyload.i.i.i.i.i.pre to i32
+37:                                               ; preds = %.thread.thread
+  %38 = zext i16 %.0.copyload.i.i.i.i.i.pre to i32
   br label %_ZNK4llvm6object13COFFSymbolRef16getSectionNumberEv.exit.i
 
-43:                                               ; preds = %.thread
-  %44 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i28, i64 12
-  call void @llvm.assume(i1 true) [ "align"(ptr %44, i64 1) ]
-  %.0.copyload.i.i.i4.i.i = load i32, ptr %44, align 1
+39:                                               ; preds = %.thread
+  %40 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i28, i64 12
+  call void @llvm.assume(i1 true) [ "align"(ptr %40, i64 1) ]
+  %.0.copyload.i.i.i4.i.i = load i32, ptr %40, align 1
   br label %_ZNK4llvm6object13COFFSymbolRef16getSectionNumberEv.exit.i
 
-_ZNK4llvm6object13COFFSymbolRef16getSectionNumberEv.exit.i: ; preds = %43, %41
-  %.0.i.i = phi i32 [ %42, %41 ], [ %.0.copyload.i.i.i4.i.i, %43 ]
-  %45 = icmp eq i32 %.0.i.i, 0
-  br i1 %45, label %_ZNK4llvm6object13COFFSymbolRef8isCommonEv.exit, label %_ZNK4llvm6object13COFFSymbolRef8isCommonEv.exit.thread
+_ZNK4llvm6object13COFFSymbolRef16getSectionNumberEv.exit.i: ; preds = %39, %37
+  %.0.i.i = phi i32 [ %38, %37 ], [ %.0.copyload.i.i.i4.i.i, %39 ]
+  %41 = icmp eq i32 %.0.i.i, 0
+  br i1 %41, label %_ZNK4llvm6object13COFFSymbolRef8isCommonEv.exit, label %_ZNK4llvm6object13COFFSymbolRef8isCommonEv.exit.thread
 
 _ZNK4llvm6object13COFFSymbolRef8isCommonEv.exit:  ; preds = %_ZNK4llvm6object13COFFSymbolRef16getSectionNumberEv.exit.i
-  %46 = getelementptr inbounds nuw i8, ptr %.pn.i.i.i, i64 8
-  call void @llvm.assume(i1 true) [ "align"(ptr %46, i64 1) ]
-  %.0.copyload.i.i.i.i4.i = load i32, ptr %46, align 1
-  %47 = icmp ne i32 %.0.copyload.i.i.i.i4.i, 0
-  %48 = icmp slt i32 %.0.i, 1
-  %or.cond = select i1 %47, i1 true, i1 %48
-  br i1 %or.cond, label %_ZNK4llvm6object13COFFSymbolRef14isAnyUndefinedEv.exit.thread, label %52
+  %42 = getelementptr inbounds nuw i8, ptr %.pn.i.i.i, i64 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %42, i64 1) ]
+  %.0.copyload.i.i.i.i4.i = load i32, ptr %42, align 1
+  %43 = icmp ne i32 %.0.copyload.i.i.i.i4.i, 0
+  %44 = icmp slt i32 %.0.i, 1
+  %or.cond = select i1 %43, i1 true, i1 %44
+  br i1 %or.cond, label %_ZNK4llvm6object13COFFSymbolRef14isAnyUndefinedEv.exit.thread, label %48
 
 _ZNK4llvm6object13COFFSymbolRef8isCommonEv.exit.thread: ; preds = %.thread.thread.thread, %_ZNK4llvm6object13COFFSymbolRef16getSectionNumberEv.exit, %.thread.thread, %_ZNK4llvm6object13COFFSymbolRef16getSectionNumberEv.exit.i
   %.old = icmp slt i32 %.0.i, 1
-  br i1 %.old, label %_ZNK4llvm6object13COFFSymbolRef14isAnyUndefinedEv.exit.thread, label %52
+  br i1 %.old, label %_ZNK4llvm6object13COFFSymbolRef14isAnyUndefinedEv.exit.thread, label %48
 
 _ZNK4llvm6object13COFFSymbolRef14isAnyUndefinedEv.exit.thread: ; preds = %_ZNK4llvm6object13COFFSymbolRef16getSectionNumberEv.exit, %_ZNK4llvm6object13COFFSymbolRef11isUndefinedEv.exit.i, %_ZNK4llvm6object13COFFSymbolRef8isCommonEv.exit.thread, %_ZNK4llvm6object13COFFSymbolRef8isCommonEv.exit
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %50 = load i8, ptr %49, align 8
-  %51 = and i8 %50, -2
-  store i8 %51, ptr %49, align 8
-  store i64 %9, ptr %0, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %46 = load i8, ptr %45, align 8
+  %47 = and i8 %46, -2
+  store i8 %47, ptr %45, align 8
+  store i64 %5, ptr %0, align 8
   br label %_ZN4llvm8ExpectedIPKNS_6object12coff_sectionEED2Ev.exit
 
-52:                                               ; preds = %_ZNK4llvm6object13COFFSymbolRef8isCommonEv.exit, %_ZNK4llvm6object13COFFSymbolRef8isCommonEv.exit.thread
+48:                                               ; preds = %_ZNK4llvm6object13COFFSymbolRef8isCommonEv.exit, %_ZNK4llvm6object13COFFSymbolRef8isCommonEv.exit.thread
   call void @_ZNK4llvm6object14COFFObjectFile10getSectionEi(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.11") align 8 %4, ptr noundef nonnull align 8 dereferenceable(232) %1, i32 noundef %.0.i)
-  %53 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %54 = load i8, ptr %53, align 8
-  %55 = trunc i8 %54 to i1
-  br i1 %55, label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i10, label %56
+  %49 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %50 = load i8, ptr %49, align 8
+  %51 = trunc i8 %50 to i1
+  br i1 %51, label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i10, label %52
 
-56:                                               ; preds = %52
-  %57 = load ptr, ptr %4, align 8
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 12
-  call void @llvm.assume(i1 true) [ "align"(ptr %58, i64 1) ]
-  %.0.copyload.i.i.i = load i32, ptr %58, align 1
-  %59 = zext i32 %.0.copyload.i.i.i to i64
-  %60 = add i64 %9, %59
-  %61 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %62 = load ptr, ptr %61, align 8
-  %.not.i4 = icmp eq ptr %62, null
-  br i1 %.not.i4, label %66, label %63
+52:                                               ; preds = %48
+  %53 = load ptr, ptr %4, align 8
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 12
+  call void @llvm.assume(i1 true) [ "align"(ptr %54, i64 1) ]
+  %.0.copyload.i.i.i = load i32, ptr %54, align 1
+  %55 = zext i32 %.0.copyload.i.i.i to i64
+  %56 = add i64 %5, %55
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %58 = load ptr, ptr %57, align 8
+  %.not.i4 = icmp eq ptr %58, null
+  br i1 %.not.i4, label %62, label %59
 
-63:                                               ; preds = %56
-  %64 = getelementptr inbounds nuw i8, ptr %62, i64 28
-  call void @llvm.assume(i1 true) [ "align"(ptr %64, i64 1) ]
-  %.0.copyload.i.i.i.i5 = load i32, ptr %64, align 1
-  %65 = zext i32 %.0.copyload.i.i.i.i5 to i64
-  br label %71
+59:                                               ; preds = %52
+  %60 = getelementptr inbounds nuw i8, ptr %58, i64 28
+  call void @llvm.assume(i1 true) [ "align"(ptr %60, i64 1) ]
+  %.0.copyload.i.i.i.i5 = load i32, ptr %60, align 1
+  %61 = zext i32 %.0.copyload.i.i.i.i5 to i64
+  br label %67
 
-66:                                               ; preds = %56
-  %67 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %68 = load ptr, ptr %67, align 8
-  %.not3.i = icmp eq ptr %68, null
-  br i1 %.not3.i, label %71, label %69
+62:                                               ; preds = %52
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %64 = load ptr, ptr %63, align 8
+  %.not3.i = icmp eq ptr %64, null
+  br i1 %.not3.i, label %67, label %65
 
-69:                                               ; preds = %66
-  %70 = getelementptr inbounds nuw i8, ptr %68, i64 24
-  call void @llvm.assume(i1 true) [ "align"(ptr %70, i64 1) ]
-  %.0.copyload.i.i.i4.i7 = load i64, ptr %70, align 1
-  br label %71
+65:                                               ; preds = %62
+  %66 = getelementptr inbounds nuw i8, ptr %64, i64 24
+  call void @llvm.assume(i1 true) [ "align"(ptr %66, i64 1) ]
+  %.0.copyload.i.i.i4.i7 = load i64, ptr %66, align 1
+  br label %67
 
-71:                                               ; preds = %69, %66, %63
-  %.0.i6 = phi i64 [ %65, %63 ], [ %.0.copyload.i.i.i4.i7, %69 ], [ 0, %66 ]
-  %72 = add i64 %60, %.0.i6
-  %73 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %74 = load i8, ptr %73, align 8
-  %75 = and i8 %74, -2
-  store i8 %75, ptr %73, align 8
-  %storemerge = inttoptr i64 %72 to ptr
+67:                                               ; preds = %65, %62, %59
+  %.0.i6 = phi i64 [ %61, %59 ], [ %.0.copyload.i.i.i4.i7, %65 ], [ 0, %62 ]
+  %68 = add i64 %56, %.0.i6
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %70 = load i8, ptr %69, align 8
+  %71 = and i8 %70, -2
+  store i8 %71, ptr %69, align 8
+  %storemerge = inttoptr i64 %68 to ptr
   store ptr %storemerge, ptr %0, align 8
   br label %_ZN4llvm8ExpectedIPKNS_6object12coff_sectionEED2Ev.exit
 
-_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i10: ; preds = %52
-  %76 = load i64, ptr %4, align 8, !noalias !14
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %78 = load i8, ptr %77, align 8
-  %79 = or i8 %78, 1
-  store i8 %79, ptr %77, align 8
-  %storemerge38 = inttoptr i64 %76 to ptr
+_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i10: ; preds = %48
+  %72 = load i64, ptr %4, align 8, !noalias !14
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %74 = load i8, ptr %73, align 8
+  %75 = or i8 %74, 1
+  store i8 %75, ptr %73, align 8
+  %storemerge38 = inttoptr i64 %72 to ptr
   store ptr %storemerge38, ptr %0, align 8
   br label %_ZN4llvm8ExpectedIPKNS_6object12coff_sectionEED2Ev.exit
 
-_ZN4llvm8ExpectedIPKNS_6object12coff_sectionEED2Ev.exit: ; preds = %71, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i10, %_ZNK4llvm6object13COFFSymbolRef14isAnyUndefinedEv.exit.thread
+_ZN4llvm8ExpectedIPKNS_6object12coff_sectionEED2Ev.exit: ; preds = %67, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i10, %_ZNK4llvm6object13COFFSymbolRef14isAnyUndefinedEv.exit.thread
   ret void
 }
 

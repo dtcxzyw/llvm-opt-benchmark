@@ -1768,7 +1768,7 @@ define dso_local noundef i32 @_ZN4llvm13DwarfTypeUnit19getOrCreateSourceIDEPKNS_
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %13 = load ptr, ptr %12, align 8
   %14 = tail call noundef i32 @_ZN4llvm16DwarfCompileUnit19getOrCreateSourceIDEPKNS_6DIFileE(ptr noundef nonnull align 8 dereferenceable(696) %13, ptr noundef %1) #19
-  br label %101
+  br label %97
 
 15:                                               ; preds = %2
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 360
@@ -1930,20 +1930,15 @@ _ZNK4llvm6DIFile9getSourceEv.exit:                ; preds = %_ZNK4llvm6DIFile11g
   %95 = getelementptr inbounds nuw i8, ptr %44, i64 520
   store i8 1, ptr %95, align 8
   call void @_ZN4llvm22MCDwarfLineTableHeader10tryGetFileERNS_9StringRefES2_St8optionalINS_3MD59MD5ResultEES3_IS1_Etj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected") align 8 %5, ptr noundef nonnull align 8 dereferenceable(521) %44, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull byval(%"class.std::optional.395") align 8 %8, ptr noundef nonnull byval(%"class.std::optional.401") align 8 %6, i16 noundef zeroext %86, i32 noundef 0) #19
-  %96 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %97 = load i8, ptr %96, align 8
-  %98 = trunc i8 %97 to i1
-  %99 = xor i1 %98, true
-  call void @llvm.assume(i1 %99)
-  %100 = load i32, ptr %5, align 8
+  %96 = load i32, ptr %5, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  br label %101
+  br label %97
 
-101:                                              ; preds = %_ZNK4llvm6DIFile9getSourceEv.exit, %11
-  %.0 = phi i32 [ %100, %_ZNK4llvm6DIFile9getSourceEv.exit ], [ %14, %11 ]
+97:                                               ; preds = %_ZNK4llvm6DIFile9getSourceEv.exit, %11
+  %.0 = phi i32 [ %96, %_ZNK4llvm6DIFile9getSourceEv.exit ], [ %14, %11 ]
   ret i32 %.0
 }
 

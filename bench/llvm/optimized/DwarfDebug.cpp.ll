@@ -22145,7 +22145,7 @@ _ZNK4llvm11DIMacroFile7getFileEv.exit:            ; preds = %54, %58
   %65 = load i8, ptr %64, align 1
   %66 = trunc i8 %65 to i1
   %67 = load ptr, ptr %16, align 8
-  br i1 %66, label %68, label %123
+  br i1 %66, label %68, label %119
 
 68:                                               ; preds = %_ZNK4llvm11DIMacroFile7getFileEv.exit
   %69 = call noundef ptr @_ZN4llvm10DwarfDebug15getDwoLineTableERKNS_16DwarfCompileUnitE(ptr noundef nonnull align 8 dereferenceable(5828) %0, ptr noundef nonnull align 8 dereferenceable(696) %2)
@@ -22256,69 +22256,64 @@ _ZNK4llvm6DIFile9getSourceEv.exit:                ; preds = %_ZNK4llvm6DIFile11g
   %117 = getelementptr inbounds nuw i8, ptr %69, i64 520
   store i8 1, ptr %117, align 8
   call void @_ZN4llvm22MCDwarfLineTableHeader10tryGetFileERNS_9StringRefES2_St8optionalINS_3MD59MD5ResultEES3_IS1_Etj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected") align 8 %9, ptr noundef nonnull align 8 dereferenceable(521) %69, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull byval(%"class.std::optional.305") align 8 %14, ptr noundef nonnull byval(%"class.std::optional.311") align 8 %10, i16 noundef zeroext %108, i32 noundef 0) #27
-  %118 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %119 = load i8, ptr %118, align 8
-  %120 = trunc i8 %119 to i1
-  %121 = xor i1 %120, true
-  call void @llvm.assume(i1 %121)
-  %122 = load i32, ptr %9, align 8
+  %118 = load i32, ptr %9, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
-  br label %125
+  br label %121
 
-123:                                              ; preds = %_ZNK4llvm11DIMacroFile7getFileEv.exit
-  %124 = call noundef i32 @_ZN4llvm16DwarfCompileUnit19getOrCreateSourceIDEPKNS_6DIFileE(ptr noundef nonnull align 8 dereferenceable(696) %2, ptr noundef %63) #27
-  br label %125
+119:                                              ; preds = %_ZNK4llvm11DIMacroFile7getFileEv.exit
+  %120 = call noundef i32 @_ZN4llvm16DwarfCompileUnit19getOrCreateSourceIDEPKNS_6DIFileE(ptr noundef nonnull align 8 dereferenceable(696) %2, ptr noundef %63) #27
+  br label %121
 
-125:                                              ; preds = %123, %_ZNK4llvm6DIFile9getSourceEv.exit
-  %.sink34 = phi i32 [ %124, %123 ], [ %122, %_ZNK4llvm6DIFile9getSourceEv.exit ]
-  %126 = zext i32 %.sink34 to i64
-  call void @_ZNK4llvm10AsmPrinter11emitULEB128EmPKcj(ptr noundef nonnull align 8 dereferenceable(785) %67, i64 noundef %126, ptr noundef null, i32 noundef 0) #27
-  %127 = load i64, ptr %51, align 8
-  %128 = and i64 %127, 2
-  %.not.i.i.i.i28 = icmp eq i64 %128, 0
-  br i1 %.not.i.i.i.i28, label %133, label %129
+121:                                              ; preds = %119, %_ZNK4llvm6DIFile9getSourceEv.exit
+  %.sink34 = phi i32 [ %120, %119 ], [ %118, %_ZNK4llvm6DIFile9getSourceEv.exit ]
+  %122 = zext i32 %.sink34 to i64
+  call void @_ZNK4llvm10AsmPrinter11emitULEB128EmPKcj(ptr noundef nonnull align 8 dereferenceable(785) %67, i64 noundef %122, ptr noundef null, i32 noundef 0) #27
+  %123 = load i64, ptr %51, align 8
+  %124 = and i64 %123, 2
+  %.not.i.i.i.i28 = icmp eq i64 %124, 0
+  br i1 %.not.i.i.i.i28, label %129, label %125
 
-129:                                              ; preds = %125
-  %130 = getelementptr inbounds i8, ptr %1, i64 -32
-  %131 = load ptr, ptr %130, align 8
-  %132 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %130) #27
+125:                                              ; preds = %121
+  %126 = getelementptr inbounds i8, ptr %1, i64 -32
+  %127 = load ptr, ptr %126, align 8
+  %128 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %126) #27
   br label %_ZNK4llvm11DIMacroFile11getElementsEv.exit
 
-133:                                              ; preds = %125
-  %134 = lshr i64 %127, 2
-  %135 = and i64 %134, 15
-  %136 = sub nsw i64 0, %135
-  %137 = getelementptr inbounds %"class.llvm::MDOperand", ptr %51, i64 %136
+129:                                              ; preds = %121
+  %130 = lshr i64 %123, 2
+  %131 = and i64 %130, 15
+  %132 = sub nsw i64 0, %131
+  %133 = getelementptr inbounds %"class.llvm::MDOperand", ptr %51, i64 %132
   br label %_ZNK4llvm11DIMacroFile11getElementsEv.exit
 
-_ZNK4llvm11DIMacroFile11getElementsEv.exit:       ; preds = %129, %133
-  %.sroa.0.0.i.i.i.i29 = phi ptr [ %137, %133 ], [ %131, %129 ]
-  %138 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i.i29, i64 8
-  %139 = load ptr, ptr %138, align 8
-  call void @_ZN4llvm10DwarfDebug16handleMacroNodesENS_24MDTupleTypedArrayWrapperINS_11DIMacroNodeEEERNS_16DwarfCompileUnitE(ptr noundef nonnull align 8 dereferenceable(5828) %0, ptr %139, ptr noundef nonnull align 8 dereferenceable(696) %2)
-  %140 = load ptr, ptr %16, align 8
-  %141 = getelementptr inbounds nuw i8, ptr %140, i64 80
-  %142 = load ptr, ptr %141, align 8
-  %143 = call { ptr, i64 } %5(i32 noundef %4) #27
-  %144 = extractvalue { ptr, i64 } %143, 0
-  %145 = extractvalue { ptr, i64 } %143, 1
-  %146 = getelementptr inbounds nuw i8, ptr %15, i64 32
-  store i8 5, ptr %146, align 8
-  %147 = getelementptr inbounds nuw i8, ptr %15, i64 33
-  store i8 1, ptr %147, align 1
-  store ptr %144, ptr %15, align 8
-  %148 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  store i64 %145, ptr %148, align 8
-  %149 = load ptr, ptr %142, align 8
-  %150 = getelementptr inbounds i8, ptr %149, i64 120
-  %151 = load ptr, ptr %150, align 8
-  call void %151(ptr noundef nonnull align 8 dereferenceable(288) %142, ptr noundef nonnull align 8 dereferenceable(34) %15, i1 noundef zeroext true) #27
-  %152 = load ptr, ptr %16, align 8
-  %153 = zext i32 %4 to i64
-  call void @_ZNK4llvm10AsmPrinter11emitULEB128EmPKcj(ptr noundef nonnull align 8 dereferenceable(785) %152, i64 noundef %153, ptr noundef null, i32 noundef 0) #27
+_ZNK4llvm11DIMacroFile11getElementsEv.exit:       ; preds = %125, %129
+  %.sroa.0.0.i.i.i.i29 = phi ptr [ %133, %129 ], [ %127, %125 ]
+  %134 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i.i29, i64 8
+  %135 = load ptr, ptr %134, align 8
+  call void @_ZN4llvm10DwarfDebug16handleMacroNodesENS_24MDTupleTypedArrayWrapperINS_11DIMacroNodeEEERNS_16DwarfCompileUnitE(ptr noundef nonnull align 8 dereferenceable(5828) %0, ptr %135, ptr noundef nonnull align 8 dereferenceable(696) %2)
+  %136 = load ptr, ptr %16, align 8
+  %137 = getelementptr inbounds nuw i8, ptr %136, i64 80
+  %138 = load ptr, ptr %137, align 8
+  %139 = call { ptr, i64 } %5(i32 noundef %4) #27
+  %140 = extractvalue { ptr, i64 } %139, 0
+  %141 = extractvalue { ptr, i64 } %139, 1
+  %142 = getelementptr inbounds nuw i8, ptr %15, i64 32
+  store i8 5, ptr %142, align 8
+  %143 = getelementptr inbounds nuw i8, ptr %15, i64 33
+  store i8 1, ptr %143, align 1
+  store ptr %140, ptr %15, align 8
+  %144 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  store i64 %141, ptr %144, align 8
+  %145 = load ptr, ptr %138, align 8
+  %146 = getelementptr inbounds i8, ptr %145, i64 120
+  %147 = load ptr, ptr %146, align 8
+  call void %147(ptr noundef nonnull align 8 dereferenceable(288) %138, ptr noundef nonnull align 8 dereferenceable(34) %15, i1 noundef zeroext true) #27
+  %148 = load ptr, ptr %16, align 8
+  %149 = zext i32 %4 to i64
+  call void @_ZNK4llvm10AsmPrinter11emitULEB128EmPKcj(ptr noundef nonnull align 8 dereferenceable(785) %148, i64 noundef %149, ptr noundef null, i32 noundef 0) #27
   ret void
 }
 

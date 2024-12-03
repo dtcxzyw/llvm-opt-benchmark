@@ -13456,90 +13456,85 @@ _ZN4llvm18IntrusiveRefCntPtrIN5clang13DiagnosticIDsEED2Ev.exit: ; preds = %_ZNSt
   %69 = load ptr, ptr %16, align 8
   store ptr %68, ptr %16, align 8
   %.not.i.i.i.i15 = icmp eq ptr %69, null
-  br i1 %.not.i.i.i.i15, label %_ZN4llvm8ExpectedIN5clang12FileEntryRefEED2Ev.exit, label %_ZNKSt14default_deleteIN5clang13SourceManagerEEclEPS1_.exit.i.i.i.i
+  br i1 %.not.i.i.i.i15, label %_ZNSt10unique_ptrIN5clang13SourceManagerESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN5clang13SourceManagerEEclEPS1_.exit.i.i.i.i
 
 _ZNKSt14default_deleteIN5clang13SourceManagerEEclEPS1_.exit.i.i.i.i: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIN5clang13DiagnosticIDsEED2Ev.exit
   call void @_ZN5clang13SourceManagerD1Ev(ptr noundef nonnull align 8 dereferenceable(696) %69) #26
   call void @_ZdlPvm(ptr noundef nonnull %69, i64 noundef 696) #28
-  br label %_ZN4llvm8ExpectedIN5clang12FileEntryRefEED2Ev.exit
+  br label %_ZNSt10unique_ptrIN5clang13SourceManagerESt14default_deleteIS1_EED2Ev.exit
 
-_ZN4llvm8ExpectedIN5clang12FileEntryRefEED2Ev.exit: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIN5clang13DiagnosticIDsEED2Ev.exit, %_ZNKSt14default_deleteIN5clang13SourceManagerEEclEPS1_.exit.i.i.i.i
+_ZNSt10unique_ptrIN5clang13SourceManagerESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIN5clang13SourceManagerEEclEPS1_.exit.i.i.i.i, %_ZN4llvm18IntrusiveRefCntPtrIN5clang13DiagnosticIDsEED2Ev.exit
   %70 = load ptr, ptr %0, align 8
   call void @_ZN5clang11FileManager10getFileRefEN4llvm9StringRefEbb(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected") align 8 %14, ptr noundef nonnull align 8 dereferenceable(808) %70, ptr %1, i64 %2, i1 noundef zeroext false, i1 noundef zeroext true) #26
-  %71 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %72 = load i8, ptr %71, align 8
-  %73 = trunc i8 %72 to i1
-  %74 = xor i1 %73, true
-  call void @llvm.assume(i1 %74)
   %.sroa.0.0.copyload.i = load ptr, ptr %14, align 8
-  %75 = load ptr, ptr %16, align 8
+  %71 = load ptr, ptr %16, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6)
-  %76 = call noundef nonnull align 8 dereferenceable(49) ptr @_ZN5clang13SourceManager23getOrCreateContentCacheENS_12FileEntryRefEb(ptr noundef nonnull align 8 dereferenceable(696) %75, ptr %.sroa.0.0.copyload.i, i1 noundef zeroext false)
-  %77 = getelementptr inbounds nuw i8, ptr %76, i64 16
-  %78 = load ptr, ptr %77, align 8
-  br label %79
+  %72 = call noundef nonnull align 8 dereferenceable(49) ptr @_ZN5clang13SourceManager23getOrCreateContentCacheENS_12FileEntryRefEb(ptr noundef nonnull align 8 dereferenceable(696) %71, ptr %.sroa.0.0.copyload.i, i1 noundef zeroext false)
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 16
+  %74 = load ptr, ptr %73, align 8
+  br label %75
 
-79:                                               ; preds = %79, %_ZN4llvm8ExpectedIN5clang12FileEntryRefEED2Ev.exit
-  %.0.i.i.i.i = phi ptr [ %78, %_ZN4llvm8ExpectedIN5clang12FileEntryRefEED2Ev.exit ], [ %83, %79 ]
-  %80 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
-  %.sroa.0.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %80, align 8
-  %81 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i.i.i, 4
-  %.not.i.i.i.i.i.i.i.i = icmp eq i64 %81, 0
-  %82 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i.i.i, -8
-  %83 = inttoptr i64 %82 to ptr
-  %.not6.i.i.i.i = icmp eq i64 %82, 0
+75:                                               ; preds = %75, %_ZNSt10unique_ptrIN5clang13SourceManagerESt14default_deleteIS1_EED2Ev.exit
+  %.0.i.i.i.i = phi ptr [ %74, %_ZNSt10unique_ptrIN5clang13SourceManagerESt14default_deleteIS1_EED2Ev.exit ], [ %79, %75 ]
+  %76 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
+  %.sroa.0.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %76, align 8
+  %77 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i.i.i, 4
+  %.not.i.i.i.i.i.i.i.i = icmp eq i64 %77, 0
+  %78 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i.i.i, -8
+  %79 = inttoptr i64 %78 to ptr
+  %.not6.i.i.i.i = icmp eq i64 %78, 0
   %.not.i.i.i.i18 = or i1 %.not.i.i.i.i.i.i.i.i, %.not6.i.i.i.i
-  br i1 %.not.i.i.i.i18, label %_ZNK5clang12FileEntryRef11isNamedPipeEv.exit.i, label %79, !llvm.loop !4
+  br i1 %.not.i.i.i.i18, label %_ZNK5clang12FileEntryRef11isNamedPipeEv.exit.i, label %75, !llvm.loop !4
 
-_ZNK5clang12FileEntryRef11isNamedPipeEv.exit.i:   ; preds = %79
-  %84 = getelementptr inbounds nuw i8, ptr %83, i64 76
-  %85 = load i8, ptr %84, align 4
-  %86 = trunc i8 %85 to i1
-  br i1 %86, label %87, label %.preheader
+_ZNK5clang12FileEntryRef11isNamedPipeEv.exit.i:   ; preds = %75
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 76
+  %81 = load i8, ptr %80, align 4
+  %82 = trunc i8 %81 to i1
+  br i1 %82, label %83, label %.preheader
 
-87:                                               ; preds = %_ZNK5clang12FileEntryRef11isNamedPipeEv.exit.i
-  %88 = getelementptr inbounds nuw i8, ptr %75, i64 8
-  %89 = load ptr, ptr %88, align 8
-  %90 = getelementptr inbounds nuw i8, ptr %75, i64 16
-  %91 = load ptr, ptr %90, align 8
-  call void @_ZNK5clang6SrcMgr12ContentCache15getBufferOrNoneERNS_17DiagnosticsEngineERNS_11FileManagerENS_14SourceLocationE(ptr dead_on_unwind nonnull writable sret(%"class.std::optional.2") align 8 %6, ptr noundef nonnull align 8 dereferenceable(49) %76, ptr noundef nonnull align 8 dereferenceable(1304) %89, ptr noundef nonnull align 8 dereferenceable(808) %91, i32 0)
+83:                                               ; preds = %_ZNK5clang12FileEntryRef11isNamedPipeEv.exit.i
+  %84 = getelementptr inbounds nuw i8, ptr %71, i64 8
+  %85 = load ptr, ptr %84, align 8
+  %86 = getelementptr inbounds nuw i8, ptr %71, i64 16
+  %87 = load ptr, ptr %86, align 8
+  call void @_ZNK5clang6SrcMgr12ContentCache15getBufferOrNoneERNS_17DiagnosticsEngineERNS_11FileManagerENS_14SourceLocationE(ptr dead_on_unwind nonnull writable sret(%"class.std::optional.2") align 8 %6, ptr noundef nonnull align 8 dereferenceable(49) %72, ptr noundef nonnull align 8 dereferenceable(1304) %85, ptr noundef nonnull align 8 dereferenceable(808) %87, i32 0)
   br label %.preheader
 
-.preheader:                                       ; preds = %87, %_ZNK5clang12FileEntryRef11isNamedPipeEv.exit.i
-  br label %92
+.preheader:                                       ; preds = %83, %_ZNK5clang12FileEntryRef11isNamedPipeEv.exit.i
+  br label %88
 
-92:                                               ; preds = %.preheader, %92
-  %.0.i.i.i = phi ptr [ %96, %92 ], [ %.sroa.0.0.copyload.i, %.preheader ]
-  %93 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
-  %.sroa.0.0.copyload.i.i.i.i.i.i.i = load i64, ptr %93, align 8
-  %94 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i.i, 4
-  %.not.i.i.i.i.i.i.i = icmp eq i64 %94, 0
-  %95 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i.i, -8
-  %96 = inttoptr i64 %95 to ptr
-  %.not6.i.i.i = icmp eq i64 %95, 0
+88:                                               ; preds = %.preheader, %88
+  %.0.i.i.i = phi ptr [ %92, %88 ], [ %.sroa.0.0.copyload.i, %.preheader ]
+  %89 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
+  %.sroa.0.0.copyload.i.i.i.i.i.i.i = load i64, ptr %89, align 8
+  %90 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i.i, 4
+  %.not.i.i.i.i.i.i.i = icmp eq i64 %90, 0
+  %91 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i.i, -8
+  %92 = inttoptr i64 %91 to ptr
+  %.not6.i.i.i = icmp eq i64 %91, 0
   %.not.i.i.i19 = or i1 %.not.i.i.i.i.i.i.i, %.not6.i.i.i
-  br i1 %.not.i.i.i19, label %97, label %92, !llvm.loop !4
+  br i1 %.not.i.i.i19, label %93, label %88, !llvm.loop !4
 
-97:                                               ; preds = %92
-  %98 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 32
-  %99 = load i64, ptr %.0.i.i.i, align 8
-  %100 = call noundef i32 @_ZN5clang13SourceManager16createFileIDImplERNS_6SrcMgr12ContentCacheEN4llvm9StringRefENS_14SourceLocationENS1_18CharacteristicKindEij(ptr noundef nonnull align 8 dereferenceable(696) %75, ptr noundef nonnull align 8 dereferenceable(49) %76, ptr nonnull %98, i64 %99, i32 0, i32 noundef 0, i32 noundef 0, i32 noundef 0)
+93:                                               ; preds = %88
+  %94 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 32
+  %95 = load i64, ptr %.0.i.i.i, align 8
+  %96 = call noundef i32 @_ZN5clang13SourceManager16createFileIDImplERNS_6SrcMgr12ContentCacheEN4llvm9StringRefENS_14SourceLocationENS1_18CharacteristicKindEij(ptr noundef nonnull align 8 dereferenceable(696) %71, ptr noundef nonnull align 8 dereferenceable(49) %72, ptr nonnull %94, i64 %95, i32 0, i32 noundef 0, i32 noundef 0, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
-  %101 = load ptr, ptr %16, align 8
-  %102 = getelementptr inbounds nuw i8, ptr %101, i64 448
-  store i32 %100, ptr %102, align 8
-  %103 = atomicrmw sub ptr %18, i32 1 acq_rel, align 4
-  %104 = icmp eq i32 %103, 1
-  br i1 %104, label %105, label %_ZN4llvm18IntrusiveRefCntPtrINS_3vfs18InMemoryFileSystemEED2Ev.exit
+  %97 = load ptr, ptr %16, align 8
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 448
+  store i32 %96, ptr %98, align 8
+  %99 = atomicrmw sub ptr %18, i32 1 acq_rel, align 4
+  %100 = icmp eq i32 %99, 1
+  br i1 %100, label %101, label %_ZN4llvm18IntrusiveRefCntPtrINS_3vfs18InMemoryFileSystemEED2Ev.exit
 
-105:                                              ; preds = %97
-  %106 = load ptr, ptr %17, align 8
-  %107 = getelementptr inbounds i8, ptr %106, i64 8
-  %108 = load ptr, ptr %107, align 8
-  call void %108(ptr noundef nonnull align 8 dereferenceable(12) %17) #26
+101:                                              ; preds = %93
+  %102 = load ptr, ptr %17, align 8
+  %103 = getelementptr inbounds i8, ptr %102, i64 8
+  %104 = load ptr, ptr %103, align 8
+  call void %104(ptr noundef nonnull align 8 dereferenceable(12) %17) #26
   br label %_ZN4llvm18IntrusiveRefCntPtrINS_3vfs18InMemoryFileSystemEED2Ev.exit
 
-_ZN4llvm18IntrusiveRefCntPtrINS_3vfs18InMemoryFileSystemEED2Ev.exit: ; preds = %97, %105
+_ZN4llvm18IntrusiveRefCntPtrINS_3vfs18InMemoryFileSystemEED2Ev.exit: ; preds = %93, %101
   ret void
 }
 

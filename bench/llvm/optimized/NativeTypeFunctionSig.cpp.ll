@@ -204,7 +204,7 @@ define dso_local void @_ZN4llvm3pdb21NativeTypeFunctionSig10initializeEv(ptr nou
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %9 = load i8, ptr %8, align 8
   %10 = trunc i8 %9 to i1
-  br i1 %10, label %11, label %38
+  br i1 %10, label %11, label %34
 
 11:                                               ; preds = %1
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -224,72 +224,62 @@ define dso_local void @_ZN4llvm3pdb21NativeTypeFunctionSig10initializeEv(ptr nou
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load ptr, ptr %20, align 8
   call void @_ZN4llvm3pdb7PDBFile15getPDBTpiStreamEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected") align 8 %5, ptr noundef nonnull align 8 dereferenceable(280) %21) #14
-  %22 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %23 = load i8, ptr %22, align 8
-  %24 = trunc i8 %23 to i1
-  %25 = xor i1 %24, true
-  call void @llvm.assume(i1 %25)
-  %26 = load ptr, ptr %5, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  %28 = load ptr, ptr %27, align 8
-  %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 32
-  %31 = load ptr, ptr %30, align 8
-  %32 = call { ptr, i64 } %31(ptr noundef nonnull align 8 dereferenceable(248) %28, i32 %.sroa.01.0.copyload) #14
-  %33 = extractvalue { ptr, i64 } %32, 0
-  store ptr %33, ptr %6, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %35 = extractvalue { ptr, i64 } %32, 1
-  store i64 %35, ptr %34, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  call void @_ZN4llvm8codeview16TypeDeserializer13deserializeAsINS0_13ArgListRecordEEENS_5ErrorERNS0_8CVRecordINS0_12TypeLeafKindEEERT_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %7, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(32) %36)
-  %37 = load ptr, ptr %7, align 8
-  %.not.i.i = icmp eq ptr %37, null
+  %22 = load ptr, ptr %5, align 8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
+  %24 = load ptr, ptr %23, align 8
+  %25 = load ptr, ptr %24, align 8
+  %26 = getelementptr inbounds i8, ptr %25, i64 32
+  %27 = load ptr, ptr %26, align 8
+  %28 = call { ptr, i64 } %27(ptr noundef nonnull align 8 dereferenceable(248) %24, i32 %.sroa.01.0.copyload) #14
+  %29 = extractvalue { ptr, i64 } %28, 0
+  store ptr %29, ptr %6, align 8
+  %30 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %31 = extractvalue { ptr, i64 } %28, 1
+  store i64 %31, ptr %30, align 8
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  call void @_ZN4llvm8codeview16TypeDeserializer13deserializeAsINS0_13ArgListRecordEEENS_5ErrorERNS0_8CVRecordINS0_12TypeLeafKindEEERT_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %7, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(32) %32)
+  %33 = load ptr, ptr %7, align 8
+  %.not.i.i = icmp eq ptr %33, null
   call void @llvm.assume(i1 %.not.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  br label %60
+  br label %52
 
-38:                                               ; preds = %1
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 34
-  %.sroa.0.0.copyload = load i32, ptr %39, align 2
+34:                                               ; preds = %1
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 34
+  %.sroa.0.0.copyload = load i32, ptr %35, align 2
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %37 = load ptr, ptr %36, align 8
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
+  %39 = load ptr, ptr %38, align 8
+  call void @_ZN4llvm3pdb7PDBFile15getPDBTpiStreamEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected") align 8 %2, ptr noundef nonnull align 8 dereferenceable(280) %39) #14
+  %40 = load ptr, ptr %2, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
+  %42 = load ptr, ptr %41, align 8
   %43 = load ptr, ptr %42, align 8
-  call void @_ZN4llvm3pdb7PDBFile15getPDBTpiStreamEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected") align 8 %2, ptr noundef nonnull align 8 dereferenceable(280) %43) #14
-  %44 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %45 = load i8, ptr %44, align 8
-  %46 = trunc i8 %45 to i1
-  %47 = xor i1 %46, true
-  call void @llvm.assume(i1 %47)
-  %48 = load ptr, ptr %2, align 8
-  %49 = getelementptr inbounds nuw i8, ptr %48, i64 16
-  %50 = load ptr, ptr %49, align 8
-  %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 32
-  %53 = load ptr, ptr %52, align 8
-  %54 = call { ptr, i64 } %53(ptr noundef nonnull align 8 dereferenceable(248) %50, i32 %.sroa.0.0.copyload) #14
-  %55 = extractvalue { ptr, i64 } %54, 0
-  store ptr %55, ptr %3, align 8
-  %56 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %57 = extractvalue { ptr, i64 } %54, 1
-  store i64 %57, ptr %56, align 8
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  call void @_ZN4llvm8codeview16TypeDeserializer13deserializeAsINS0_13ArgListRecordEEENS_5ErrorERNS0_8CVRecordINS0_12TypeLeafKindEEERT_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %4, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(32) %58)
-  %59 = load ptr, ptr %4, align 8
-  %.not.i.i3 = icmp eq ptr %59, null
+  %44 = getelementptr inbounds i8, ptr %43, i64 32
+  %45 = load ptr, ptr %44, align 8
+  %46 = call { ptr, i64 } %45(ptr noundef nonnull align 8 dereferenceable(248) %42, i32 %.sroa.0.0.copyload) #14
+  %47 = extractvalue { ptr, i64 } %46, 0
+  store ptr %47, ptr %3, align 8
+  %48 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %49 = extractvalue { ptr, i64 } %46, 1
+  store i64 %49, ptr %48, align 8
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  call void @_ZN4llvm8codeview16TypeDeserializer13deserializeAsINS0_13ArgListRecordEEENS_5ErrorERNS0_8CVRecordINS0_12TypeLeafKindEEERT_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %4, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(32) %50)
+  %51 = load ptr, ptr %4, align 8
+  %.not.i.i3 = icmp eq ptr %51, null
   call void @llvm.assume(i1 %.not.i.i3)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  br label %60
+  br label %52
 
-60:                                               ; preds = %38, %11
+52:                                               ; preds = %34, %11
   ret void
 }
 
@@ -306,27 +296,22 @@ _ZN4llvm5ErrorD2Ev.exit:
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
   call void @_ZN4llvm3pdb7PDBFile15getPDBTpiStreamEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected") align 8 %2, ptr noundef nonnull align 8 dereferenceable(280) %8) #14
-  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %10 = load i8, ptr %9, align 8
-  %11 = trunc i8 %10 to i1
-  %12 = xor i1 %11, true
-  call void @llvm.assume(i1 %12)
-  %13 = load ptr, ptr %2, align 8
-  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %15 = load ptr, ptr %14, align 8
-  %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 32
-  %18 = load ptr, ptr %17, align 8
-  %19 = call { ptr, i64 } %18(ptr noundef nonnull align 8 dereferenceable(248) %15, i32 %1) #14
-  %20 = extractvalue { ptr, i64 } %19, 0
-  store ptr %20, ptr %3, align 8
-  %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %22 = extractvalue { ptr, i64 } %19, 1
-  store i64 %22, ptr %21, align 8
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  call void @_ZN4llvm8codeview16TypeDeserializer13deserializeAsINS0_13ArgListRecordEEENS_5ErrorERNS0_8CVRecordINS0_12TypeLeafKindEEERT_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %4, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(32) %23)
-  %24 = load ptr, ptr %4, align 8
-  %.not.i = icmp eq ptr %24, null
+  %9 = load ptr, ptr %2, align 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %11 = load ptr, ptr %10, align 8
+  %12 = load ptr, ptr %11, align 8
+  %13 = getelementptr inbounds i8, ptr %12, i64 32
+  %14 = load ptr, ptr %13, align 8
+  %15 = call { ptr, i64 } %14(ptr noundef nonnull align 8 dereferenceable(248) %11, i32 %1) #14
+  %16 = extractvalue { ptr, i64 } %15, 0
+  store ptr %16, ptr %3, align 8
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %18 = extractvalue { ptr, i64 } %15, 1
+  store i64 %18, ptr %17, align 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  call void @_ZN4llvm8codeview16TypeDeserializer13deserializeAsINS0_13ArgListRecordEEENS_5ErrorERNS0_8CVRecordINS0_12TypeLeafKindEEERT_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %4, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(32) %19)
+  %20 = load ptr, ptr %4, align 8
+  %.not.i = icmp eq ptr %20, null
   call void @llvm.assume(i1 %.not.i)
   ret void
 }

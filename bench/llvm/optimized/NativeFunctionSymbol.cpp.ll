@@ -1025,8 +1025,8 @@ _ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit.i: ; preds = %_ZNK4ll
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %82, i8 0, i64 40, i1 false), !noalias !7
   call void @_ZN4llvm8codeview18SymbolDeserializer13deserializeAsINS0_13InlineSiteSymEEENS_5ErrorENS0_8CVRecordINS0_10SymbolKindEEERT_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %7, ptr nonnull %150, i64 %148, ptr noundef nonnull align 8 dereferenceable(44) %6), !noalias !7
   %152 = load ptr, ptr %7, align 8, !noalias !7
-  %.not.i.not = icmp eq ptr %152, null
-  br i1 %.not.i.not, label %.thread.i, label %161
+  %.not.i = icmp eq ptr %152, null
+  br i1 %.not.i, label %.thread.i, label %161
 
 .thread.i:                                        ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit.i
   %153 = load i16, ptr %6, align 8, !noalias !7
@@ -1045,13 +1045,13 @@ _ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit.i: ; preds = %_ZNK4ll
   %158 = load ptr, ptr %84, align 8, !noalias !7
   %159 = load i32, ptr %86, align 8, !noalias !7
   %160 = ptrtoint ptr %158 to i64
-  br label %_ZN4llvm8ExpectedINS_8codeview13InlineSiteSymEED2Ev.exit
+  br label %_ZN4llvm8codeview18SymbolDeserializer13deserializeAsINS0_13InlineSiteSymEEENS_8ExpectedIT_EENS0_8CVRecordINS0_10SymbolKindEEE.exit
 
 161:                                              ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit.i
   store ptr null, ptr %7, align 8, !noalias !10
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !7
   %.not.i.i.i.i.i = icmp eq ptr %.pre.i, null
-  br i1 %.not.i.i.i.i.i, label %_ZN4llvm8ExpectedINS_8codeview13InlineSiteSymEED2Ev.exit, label %162
+  br i1 %.not.i.i.i.i.i, label %_ZN4llvm8codeview18SymbolDeserializer13deserializeAsINS0_13InlineSiteSymEEENS_8ExpectedIT_EENS0_8CVRecordINS0_10SymbolKindEEE.exit, label %162
 
 162:                                              ; preds = %161
   %163 = load ptr, ptr %84, align 8, !noalias !7
@@ -1059,18 +1059,17 @@ _ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit.i: ; preds = %_ZNK4ll
   %165 = ptrtoint ptr %.pre.i to i64
   %166 = sub i64 %164, %165
   call void @_ZdlPvm(ptr noundef nonnull %.pre.i, i64 noundef %166) #15, !noalias !7
-  br label %_ZN4llvm8ExpectedINS_8codeview13InlineSiteSymEED2Ev.exit
+  br label %_ZN4llvm8codeview18SymbolDeserializer13deserializeAsINS0_13InlineSiteSymEEENS_8ExpectedIT_EENS0_8CVRecordINS0_10SymbolKindEEE.exit
 
-_ZN4llvm8ExpectedINS_8codeview13InlineSiteSymEED2Ev.exit: ; preds = %162, %161, %.thread.i
+_ZN4llvm8codeview18SymbolDeserializer13deserializeAsINS0_13InlineSiteSymEEENS_8ExpectedIT_EENS0_8CVRecordINS0_10SymbolKindEEE.exit: ; preds = %.thread.i, %161, %162
   %.sroa.796.4 = phi ptr [ %156, %.thread.i ], [ null, %161 ], [ null, %162 ]
   %.sroa.11.4 = phi ptr [ %157, %.thread.i ], [ null, %161 ], [ null, %162 ]
   %.sroa.16.4 = phi i32 [ %159, %.thread.i ], [ %.sroa.16.1, %161 ], [ %.sroa.16.1, %162 ]
   %.sroa.13.4 = phi i64 [ %160, %.thread.i ], [ 0, %161 ], [ 0, %162 ]
   %.sroa.7.4 = phi i64 [ %.sroa.7.4.copyload, %.thread.i ], [ %.sroa.7.1, %161 ], [ %.sroa.7.1, %162 ]
-  %.sroa.091.4 = phi ptr [ %155, %.thread.i ], [ null, %161 ], [ null, %162 ]
+  %.sroa.091.4 = phi ptr [ %155, %.thread.i ], [ %152, %161 ], [ %152, %162 ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  call void @llvm.assume(i1 %.not.i.not)
   %167 = ptrtoint ptr %.sroa.091.4 to i64
   %.sroa.091.0.extract.trunc = trunc i64 %167 to i16
   %.sroa.091.4.extract.shift = lshr i64 %167, 32
@@ -1086,9 +1085,9 @@ _ZN4llvm8ExpectedINS_8codeview13InlineSiteSymEED2Ev.exit: ; preds = %162, %161, 
   %.not.i.i.i.i9.not.i = icmp eq ptr %.sroa.11.4, %.sroa.796.4
   br i1 %.not.i.i.i.i9.not.i, label %.loopexit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %_ZN4llvm8ExpectedINS_8codeview13InlineSiteSymEED2Ev.exit, %_ZN4llvm8codeview24BinaryAnnotationIteratorppEv.exit.i
-  %.02011.i = phi i1 [ %.1.i, %_ZN4llvm8codeview24BinaryAnnotationIteratorppEv.exit.i ], [ false, %_ZN4llvm8ExpectedINS_8codeview13InlineSiteSymEED2Ev.exit ]
-  %.02110.i = phi i32 [ %.122.i, %_ZN4llvm8codeview24BinaryAnnotationIteratorppEv.exit.i ], [ 0, %_ZN4llvm8ExpectedINS_8codeview13InlineSiteSymEED2Ev.exit ]
+.lr.ph.i:                                         ; preds = %_ZN4llvm8codeview18SymbolDeserializer13deserializeAsINS0_13InlineSiteSymEEENS_8ExpectedIT_EENS0_8CVRecordINS0_10SymbolKindEEE.exit, %_ZN4llvm8codeview24BinaryAnnotationIteratorppEv.exit.i
+  %.02011.i = phi i1 [ %.1.i, %_ZN4llvm8codeview24BinaryAnnotationIteratorppEv.exit.i ], [ false, %_ZN4llvm8codeview18SymbolDeserializer13deserializeAsINS0_13InlineSiteSymEEENS_8ExpectedIT_EENS0_8CVRecordINS0_10SymbolKindEEE.exit ]
+  %.02110.i = phi i32 [ %.122.i, %_ZN4llvm8codeview24BinaryAnnotationIteratorppEv.exit.i ], [ 0, %_ZN4llvm8codeview18SymbolDeserializer13deserializeAsINS0_13InlineSiteSymEEENS_8ExpectedIT_EENS0_8CVRecordINS0_10SymbolKindEEE.exit ]
   %171 = call noundef zeroext i1 @_ZN4llvm8codeview24BinaryAnnotationIterator22ParseCurrentAnnotationEv(ptr noundef nonnull align 8 dereferenceable(88) %5)
   %172 = load i32, ptr %91, align 8
   switch i32 %172, label %187 [
@@ -1389,7 +1388,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   call void %298(ptr noundef nonnull align 8 dereferenceable(16) %264) #14
   br label %_ZN4llvm22VarStreamArrayIteratorINS_8codeview8CVRecordINS1_10SymbolKindEEENS_23VarStreamArrayExtractorIS4_EEED2Ev.exit
 
-.loopexit:                                        ; preds = %_ZN4llvm8codeview24BinaryAnnotationIteratorppEv.exit.i, %_ZN4llvm8ExpectedINS_8codeview13InlineSiteSymEED2Ev.exit
+.loopexit:                                        ; preds = %_ZN4llvm8codeview24BinaryAnnotationIteratorppEv.exit.i, %_ZN4llvm8codeview18SymbolDeserializer13deserializeAsINS0_13InlineSiteSymEEENS_8ExpectedIT_EENS0_8CVRecordINS0_10SymbolKindEEE.exit
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %5)
   %.sroa.4.8.extract.trunc = trunc i64 %.sroa.7.4 to i32
   call void @_ZN4llvm22VarStreamArrayIteratorINS_8codeview8CVRecordINS1_10SymbolKindEEENS_23VarStreamArrayExtractorIS4_EEEC2ERKNS_14VarStreamArrayIS4_S6_EERKS6_jPb(ptr noundef nonnull align 8 dereferenceable(104) %20, ptr noundef nonnull align 8 dereferenceable(56) %13, ptr noundef nonnull align 1 dereferenceable(1) %68, i32 noundef %.sroa.4.8.extract.trunc, ptr noundef null)
