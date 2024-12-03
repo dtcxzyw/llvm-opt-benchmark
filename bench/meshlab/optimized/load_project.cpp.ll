@@ -15251,7 +15251,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i774: ; preds = %_ZN9QtPrivate8RefCo
 
 1418:                                             ; preds = %.loopexit961, %.loopexit.split-lp962, %500, %_ZN11QStringListD2Ev.exit435, %567, %_ZNSt7__cxx114listIP9MeshModelSaIS2_EED2Ev.exit, %444, %433, %401, %390, %385, %377, %368
   %.sroa.0935.2 = phi ptr [ %320, %_ZN11QStringListD2Ev.exit435 ], [ %320, %567 ], [ %320, %500 ], [ %320, %_ZNSt7__cxx114listIP9MeshModelSaIS2_EED2Ev.exit ], [ %320, %444 ], [ %320, %433 ], [ %320, %401 ], [ %320, %390 ], [ %.sroa.0935.1, %385 ], [ %.sroa.0935.1, %377 ], [ @_ZN10QArrayData11shared_nullE, %368 ], [ %.sroa.0935.0.ph, %.loopexit961 ], [ @_ZN10QArrayData11shared_nullE, %.loopexit.split-lp962 ]
-  %.merged236 = phi { ptr, i32 } [ %.pn225.pn, %_ZN11QStringListD2Ev.exit435 ], [ %.pn170, %567 ], [ %.pn168, %500 ], [ %.pn164, %_ZNSt7__cxx114listIP9MeshModelSaIS2_EED2Ev.exit ], [ %.pn160.pn.pn, %444 ], [ %.pn158, %433 ], [ %.pn154.pn.pn, %401 ], [ %.pn152, %390 ], [ %.pn149.pn, %385 ], [ %.pn146.pn, %377 ], [ %369, %368 ], [ %lpad.loopexit963, %.loopexit961 ], [ %lpad.loopexit.split-lp964, %.loopexit.split-lp962 ]
+  %.merged244 = phi { ptr, i32 } [ %.pn225.pn, %_ZN11QStringListD2Ev.exit435 ], [ %.pn170, %567 ], [ %.pn168, %500 ], [ %.pn164, %_ZNSt7__cxx114listIP9MeshModelSaIS2_EED2Ev.exit ], [ %.pn160.pn.pn, %444 ], [ %.pn158, %433 ], [ %.pn154.pn.pn, %401 ], [ %.pn152, %390 ], [ %.pn149.pn, %385 ], [ %.pn146.pn, %377 ], [ %369, %368 ], [ %lpad.loopexit963, %.loopexit961 ], [ %lpad.loopexit.split-lp964, %.loopexit.split-lp962 ]
   %1419 = load atomic i32, ptr %.sroa.0935.2 monotonic, align 4
   switch i32 %1419, label %_ZN9QtPrivate8RefCount5derefEv.exit.i781 [
     i32 0, label %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i780
@@ -15887,12 +15887,12 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i866: ; preds = %_ZN7QStringD2Ev.exi
   br label %.loopexit960
 
 .loopexit960:                                     ; preds = %1536, %1576, %1583, %1577, %1574
-  %.merged244 = phi { ptr, i32 } [ %.pn144, %1583 ], [ %1575, %1574 ], [ %1578, %1577 ], [ %.pn142, %1576 ], [ %1537, %1536 ]
+  %.merged243 = phi { ptr, i32 } [ %.pn144, %1583 ], [ %1575, %1574 ], [ %1578, %1577 ], [ %.pn142, %1576 ], [ %1537, %1536 ]
   call void @_ZN6QImageD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %137) #26
   br label %1584
 
 1584:                                             ; preds = %.loopexit960, %1534, %1532
-  %.merged243 = phi { ptr, i32 } [ %.merged244, %.loopexit960 ], [ %1535, %1534 ], [ %1533, %1532 ]
+  %.merged242 = phi { ptr, i32 } [ %.merged243, %.loopexit960 ], [ %1535, %1534 ], [ %1533, %1532 ]
   %1585 = load ptr, ptr %136, align 8
   %1586 = load atomic i32, ptr %1585 monotonic, align 4
   switch i32 %1586, label %_ZN9QtPrivate8RefCount5derefEv.exit.i873 [
@@ -15915,12 +15915,12 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i872: ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN7QStringD2Ev.exit877
 
 _ZN7QStringD2Ev.exit877:                          ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i872, %_ZN9QtPrivate8RefCount5derefEv.exit.i873, %1584, %1530
-  %.merged242 = phi { ptr, i32 } [ %1531, %1530 ], [ %.merged243, %1584 ], [ %.merged243, %_ZN9QtPrivate8RefCount5derefEv.exit.i873 ], [ %.merged243, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i872 ]
+  %.merged241 = phi { ptr, i32 } [ %1531, %1530 ], [ %.merged242, %1584 ], [ %.merged242, %_ZN9QtPrivate8RefCount5derefEv.exit.i873 ], [ %.merged242, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i872 ]
   call void @_ZN9QFileInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %135) #26
   br label %1589
 
 1589:                                             ; preds = %_ZN7QStringD2Ev.exit877, %1528
-  %.merged241 = phi { ptr, i32 } [ %.merged242, %_ZN7QStringD2Ev.exit877 ], [ %1529, %1528 ]
+  %.merged240 = phi { ptr, i32 } [ %.merged241, %_ZN7QStringD2Ev.exit877 ], [ %1529, %1528 ]
   %1590 = load ptr, ptr %132, align 8
   %1591 = load atomic i32, ptr %1590 monotonic, align 4
   switch i32 %1591, label %_ZN9QtPrivate8RefCount5derefEv.exit.i879 [
@@ -15985,17 +15985,17 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i884: ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN7QStringD2Ev.exit883
 
 _ZN7QStringD2Ev.exit883:                          ; preds = %.loopexit, %.loopexit.split-lp, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i878, %_ZN9QtPrivate8RefCount5derefEv.exit.i879, %1589, %1602, %1526
-  %.merged240 = phi { ptr, i32 } [ %1527, %1526 ], [ %1603, %1602 ], [ %.merged241, %1589 ], [ %.merged241, %_ZN9QtPrivate8RefCount5derefEv.exit.i879 ], [ %.merged241, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i878 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.merged239 = phi { ptr, i32 } [ %1527, %1526 ], [ %1603, %1602 ], [ %.merged240, %1589 ], [ %.merged240, %_ZN9QtPrivate8RefCount5derefEv.exit.i879 ], [ %.merged240, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i878 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN8QDomNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %130) #26
   br label %1604
 
 1604:                                             ; preds = %_ZN7QStringD2Ev.exit883, %1524, %1522
-  %.merged239 = phi { ptr, i32 } [ %.merged240, %_ZN7QStringD2Ev.exit883 ], [ %1525, %1524 ], [ %1523, %1522 ]
+  %.merged238 = phi { ptr, i32 } [ %.merged239, %_ZN7QStringD2Ev.exit883 ], [ %1525, %1524 ], [ %1523, %1522 ]
   call void @_ZN8QDomNodeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %129) #26
   br label %1605
 
 1605:                                             ; preds = %1604, %1520
-  %.merged238 = phi { ptr, i32 } [ %.merged239, %1604 ], [ %1521, %1520 ]
+  %.merged237 = phi { ptr, i32 } [ %.merged238, %1604 ], [ %1521, %1520 ]
   %1606 = load ptr, ptr %124, align 8
   %1607 = load atomic i32, ptr %1606 monotonic, align 4
   switch i32 %1607, label %_ZN9QtPrivate8RefCount5derefEv.exit.i891 [
@@ -16018,7 +16018,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i890: ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN7QStringD2Ev.exit895
 
 _ZN7QStringD2Ev.exit895:                          ; preds = %.loopexit966, %.loopexit.split-lp967, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i890, %_ZN9QtPrivate8RefCount5derefEv.exit.i891, %1605, %1519, %1510
-  %.merged237 = phi { ptr, i32 } [ %.pn139.pn, %1519 ], [ %1511, %1510 ], [ %.merged238, %1605 ], [ %.merged238, %_ZN9QtPrivate8RefCount5derefEv.exit.i891 ], [ %.merged238, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i890 ], [ %lpad.loopexit968, %.loopexit966 ], [ %lpad.loopexit.split-lp969, %.loopexit.split-lp967 ]
+  %.merged236 = phi { ptr, i32 } [ %.pn139.pn, %1519 ], [ %1511, %1510 ], [ %.merged237, %1605 ], [ %.merged237, %_ZN9QtPrivate8RefCount5derefEv.exit.i891 ], [ %.merged237, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i890 ], [ %lpad.loopexit968, %.loopexit966 ], [ %lpad.loopexit.split-lp969, %.loopexit.split-lp967 ]
   call void @_ZN8QDomNodeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %122) #26
   br label %1642
 
@@ -16115,7 +16115,7 @@ _ZN7QStringD2Ev.exit901:                          ; preds = %1619, %_ZN9QtPrivat
   ret void
 
 1642:                                             ; preds = %.loopexit971, %.loopexit.split-lp972, %1639, %1614, %_ZN7QStringD2Ev.exit895, %1508, %_ZN7QStringD2Ev.exit791, %366, %365
-  %.merged235 = phi { ptr, i32 } [ %.merged236, %_ZN7QStringD2Ev.exit791 ], [ %1615, %1614 ], [ %.merged237, %_ZN7QStringD2Ev.exit895 ], [ %1509, %1508 ], [ %367, %366 ], [ %1640, %1639 ], [ %.pn137, %365 ], [ %lpad.loopexit973, %.loopexit971 ], [ %lpad.loopexit.split-lp974, %.loopexit.split-lp972 ]
+  %.merged235 = phi { ptr, i32 } [ %.merged244, %_ZN7QStringD2Ev.exit791 ], [ %1615, %1614 ], [ %.merged236, %_ZN7QStringD2Ev.exit895 ], [ %1509, %1508 ], [ %367, %366 ], [ %1640, %1639 ], [ %.pn137, %365 ], [ %lpad.loopexit973, %.loopexit971 ], [ %lpad.loopexit.split-lp974, %.loopexit.split-lp972 ]
   call void @_ZN4QDirD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %21) #26
   br label %.body
 
