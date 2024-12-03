@@ -18,9 +18,8 @@ define hidden range(i32 0, 2) i32 @OPENSSL_gmtime_adj(ptr nocapture noundef %tm,
 entry:
   %div.i = sdiv i64 %offset_sec, 86400
   %conv.i = trunc i64 %div.i to i32
-  %sext.i = mul i64 %div.i, 371085174374400
-  %conv1.i = lshr exact i64 %sext.i, 32
-  %sub.i = sub i64 %offset_sec, %conv1.i
+  %.neg.i = mul i64 %div.i, 4294880896
+  %sub.i = add i64 %.neg.i, %offset_sec
   %conv2.i = trunc i64 %sub.i to i32
   %add.i = add nsw i32 %off_day, %conv.i
   %tm_hour.i = getelementptr inbounds i8, ptr %tm, i64 8

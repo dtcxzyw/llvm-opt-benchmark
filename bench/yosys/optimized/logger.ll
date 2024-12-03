@@ -1356,7 +1356,7 @@ _ZNSt7__cxx1111basic_regexIcNS_12regex_traitsIcEEED2Ev.exit: ; preds = %_ZNSt6ve
           to label %161 unwind label %520
 
 161:                                              ; preds = %159, %.body, %91
-  %.merged70 = phi { ptr, i32 } [ %160, %159 ], [ %.pn67, %.body ], [ %92, %91 ]
+  %.merged69 = phi { ptr, i32 } [ %160, %159 ], [ %.pn67, %.body ], [ %92, %91 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #24
   br label %519
 
@@ -1574,7 +1574,7 @@ _ZNSt7__cxx1111basic_regexIcNS_12regex_traitsIcEEED2Ev.exit86: ; preds = %_ZNSt6
           to label %258 unwind label %520
 
 258:                                              ; preds = %256, %.body74, %188
-  %.merged71 = phi { ptr, i32 } [ %257, %256 ], [ %.pn65, %.body74 ], [ %189, %188 ]
+  %.merged72 = phi { ptr, i32 } [ %257, %256 ], [ %.pn65, %.body74 ], [ %189, %188 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #24
   br label %519
 
@@ -1792,7 +1792,7 @@ _ZNSt7__cxx1111basic_regexIcNS_12regex_traitsIcEEED2Ev.exit99: ; preds = %_ZNSt6
           to label %355 unwind label %520
 
 355:                                              ; preds = %353, %.body87, %285
-  %.merged69 = phi { ptr, i32 } [ %354, %353 ], [ %.pn63, %.body87 ], [ %286, %285 ]
+  %.merged73 = phi { ptr, i32 } [ %354, %353 ], [ %.pn63, %.body87 ], [ %286, %285 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #24
   br label %519
 
@@ -2121,12 +2121,12 @@ _ZNSt7__cxx1111basic_regexIcNS_12regex_traitsIcEEED2Ev.exit99: ; preds = %_ZNSt6
   br label %501
 
 488:                                              ; preds = %.loopexit105, %.loopexit.split-lp106, %485, %476
-  %.merged73 = phi { ptr, i32 } [ %486, %485 ], [ %.pn, %476 ], [ %lpad.loopexit107, %.loopexit105 ], [ %lpad.loopexit.split-lp108, %.loopexit.split-lp106 ]
+  %.merged71 = phi { ptr, i32 } [ %486, %485 ], [ %.pn, %476 ], [ %lpad.loopexit107, %.loopexit105 ], [ %lpad.loopexit.split-lp108, %.loopexit.split-lp106 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #24
   br label %489
 
 489:                                              ; preds = %.loopexit, %.loopexit.split-lp, %488
-  %.merged72 = phi { ptr, i32 } [ %.merged73, %488 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.merged70 = phi { ptr, i32 } [ %.merged71, %488 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #24
   br label %519
 
@@ -2206,7 +2206,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   br label %519
 
 519:                                              ; preds = %517, %489, %386, %355, %258, %161
-  %.merged = phi { ptr, i32 } [ %.merged70, %161 ], [ %.merged71, %258 ], [ %.merged69, %355 ], [ %387, %386 ], [ %.merged72, %489 ], [ %518, %517 ]
+  %.merged = phi { ptr, i32 } [ %.merged69, %161 ], [ %.merged72, %258 ], [ %.merged73, %355 ], [ %387, %386 ], [ %.merged70, %489 ], [ %518, %517 ]
   resume { ptr, i32 } %.merged
 
 520:                                              ; preds = %485, %353, %256, %159
