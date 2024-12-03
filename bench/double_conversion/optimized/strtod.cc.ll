@@ -65,13 +65,9 @@ if.else.i:                                        ; preds = %if.end.i
 if.else10:                                        ; preds = %if.else
   %and = and i64 %1, 1
   %cmp13 = icmp eq i64 %and, 0
-  br i1 %cmp13, label %return, label %if.else15
+  br i1 %cmp13, label %return, label %if.end.i11
 
-if.else15:                                        ; preds = %if.else10
-  %cmp.i10 = icmp eq i64 %1, 9218868437227405312
-  br i1 %cmp.i10, label %return, label %if.end.i11
-
-if.end.i11:                                       ; preds = %if.else15
+if.end.i11:                                       ; preds = %if.else10
   %cmp3.i12 = icmp slt i64 %1, 0
   br i1 %cmp3.i12, label %land.lhs.true.i16, label %if.else.i13
 
@@ -89,8 +85,8 @@ if.else.i13:                                      ; preds = %if.end.i11
   %9 = bitcast i64 %add.i14 to double
   br label %return
 
-return:                                           ; preds = %entry, %if.else.i13, %if.then10.i18, %land.lhs.true.i16, %if.else15, %if.else10, %if.else.i, %if.then10.i, %land.lhs.true.i, %if.then7, %if.end
-  %retval.0 = phi double [ %0, %if.end ], [ %6, %if.then10.i ], [ %7, %if.else.i ], [ 0.000000e+00, %land.lhs.true.i ], [ 0x7FF0000000000000, %if.then7 ], [ %0, %if.else10 ], [ %8, %if.then10.i18 ], [ %9, %if.else.i13 ], [ 0.000000e+00, %land.lhs.true.i16 ], [ 0x7FF0000000000000, %if.else15 ], [ %0, %entry ]
+return:                                           ; preds = %entry, %if.else.i13, %if.then10.i18, %land.lhs.true.i16, %if.else10, %if.else.i, %if.then10.i, %land.lhs.true.i, %if.then7, %if.end
+  %retval.0 = phi double [ %0, %if.end ], [ %6, %if.then10.i ], [ %7, %if.else.i ], [ 0.000000e+00, %land.lhs.true.i ], [ 0x7FF0000000000000, %if.then7 ], [ %0, %if.else10 ], [ %8, %if.then10.i18 ], [ %9, %if.else.i13 ], [ 0.000000e+00, %land.lhs.true.i16 ], [ %0, %entry ]
   ret double %retval.0
 }
 
@@ -365,8 +361,7 @@ if.end.i15:                                       ; preds = %_ZN17double_convers
 
 if.then4.i:                                       ; preds = %if.end.i15
   %sub5.i = sub nsw i32 %add123.i, %22
-  %switch.tableidx = add i32 %sub5.i, -1
-  %23 = icmp ult i32 %switch.tableidx, 7
+  %23 = icmp ult i32 %sub5.i, 8
   br i1 %23, label %switch.lookup, label %sw.default.i.i
 
 sw.default.i.i:                                   ; preds = %if.then4.i
@@ -374,10 +369,11 @@ sw.default.i.i:                                   ; preds = %if.then4.i
   unreachable
 
 switch.lookup:                                    ; preds = %if.then4.i
-  %24 = zext nneg i32 %switch.tableidx to i64
+  %switch.tableidx = add nsw i32 %sub5.i, -1
+  %24 = sext i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds [7 x i32], ptr @switch.table._ZN17double_conversionL12ComputeGuessENS_6VectorIKcEEiPd, i64 0, i64 %24
   %switch.load = load i32, ptr %switch.gep, align 4
-  %25 = zext nneg i32 %switch.tableidx to i64
+  %25 = sext i32 %switch.tableidx to i64
   %switch.gep28 = getelementptr inbounds [7 x i64], ptr @switch.table._ZN17double_conversionL12ComputeGuessENS_6VectorIKcEEiPd.1, i64 0, i64 %25
   %switch.load29 = load i64, ptr %switch.gep28, align 8
   %shr.i.i = lshr i64 %significand.1.lcssa.i.i, 32
@@ -735,13 +731,9 @@ if.else.i.i:                                      ; preds = %if.end.i.i
 if.else10.i:                                      ; preds = %if.else.i4
   %and.i = and i64 %7, 1
   %cmp13.i = icmp eq i64 %and.i, 0
-  br i1 %cmp13.i, label %_ZN17double_conversion13StrtodTrimmedENS_6VectorIKcEEi.exit, label %if.else15.i
+  br i1 %cmp13.i, label %_ZN17double_conversion13StrtodTrimmedENS_6VectorIKcEEi.exit, label %if.end.i11.i
 
-if.else15.i:                                      ; preds = %if.else10.i
-  %cmp.i10.i = icmp eq i64 %7, 9218868437227405312
-  br i1 %cmp.i10.i, label %_ZN17double_conversion13StrtodTrimmedENS_6VectorIKcEEi.exit, label %if.end.i11.i
-
-if.end.i11.i:                                     ; preds = %if.else15.i
+if.end.i11.i:                                     ; preds = %if.else10.i
   %cmp3.i12.i = icmp slt i64 %7, 0
   br i1 %cmp3.i12.i, label %land.lhs.true.i16.i, label %if.else.i13.i
 
@@ -759,8 +751,8 @@ if.else.i13.i:                                    ; preds = %if.end.i11.i
   %15 = bitcast i64 %add.i14.i to double
   br label %_ZN17double_conversion13StrtodTrimmedENS_6VectorIKcEEi.exit
 
-_ZN17double_conversion13StrtodTrimmedENS_6VectorIKcEEi.exit: ; preds = %_ZN17double_conversionL10TrimAndCutENS_6VectorIKcEEiPciPS2_Pi.exit, %if.end.i, %if.then7.i, %land.lhs.true.i.i, %if.then10.i.i, %if.else.i.i, %if.else10.i, %if.else15.i, %land.lhs.true.i16.i, %if.then10.i18.i, %if.else.i13.i
-  %retval.0.i = phi double [ %6, %if.end.i ], [ %12, %if.then10.i.i ], [ %13, %if.else.i.i ], [ 0.000000e+00, %land.lhs.true.i.i ], [ 0x7FF0000000000000, %if.then7.i ], [ %6, %if.else10.i ], [ %14, %if.then10.i18.i ], [ %15, %if.else.i13.i ], [ 0.000000e+00, %land.lhs.true.i16.i ], [ 0x7FF0000000000000, %if.else15.i ], [ %6, %_ZN17double_conversionL10TrimAndCutENS_6VectorIKcEEiPciPS2_Pi.exit ]
+_ZN17double_conversion13StrtodTrimmedENS_6VectorIKcEEi.exit: ; preds = %_ZN17double_conversionL10TrimAndCutENS_6VectorIKcEEiPciPS2_Pi.exit, %if.end.i, %if.then7.i, %land.lhs.true.i.i, %if.then10.i.i, %if.else.i.i, %if.else10.i, %land.lhs.true.i16.i, %if.then10.i18.i, %if.else.i13.i
+  %retval.0.i = phi double [ %6, %if.end.i ], [ %12, %if.then10.i.i ], [ %13, %if.else.i.i ], [ 0.000000e+00, %land.lhs.true.i.i ], [ 0x7FF0000000000000, %if.then7.i ], [ %6, %if.else10.i ], [ %14, %if.then10.i18.i ], [ %15, %if.else.i13.i ], [ 0.000000e+00, %land.lhs.true.i16.i ], [ %6, %_ZN17double_conversionL10TrimAndCutENS_6VectorIKcEEiPciPS2_Pi.exit ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %guess.i)
   ret double %retval.0.i
 }

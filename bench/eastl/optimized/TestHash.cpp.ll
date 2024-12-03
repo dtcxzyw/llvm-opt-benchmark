@@ -56519,9 +56519,7 @@ _ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i31: ; preds = %while.body.i.i
 
 _ZN5eastl5countINS_18hashtable_iteratorIiLb1ELb0EEEiEENS_15iterator_traitsIT_E15difference_typeES4_S4_RKT0_.exit: ; preds = %_ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i31
   %cmp19 = icmp eq i64 %spec.select.i, 0
-  %cmp.i.not4.i38 = icmp eq ptr %i.sroa.0.096, %last1.coerce0
-  %or.cond = or i1 %cmp19, %cmp.i.not4.i38
-  br i1 %or.cond, label %return, label %for.body.i40
+  br i1 %cmp19, label %return, label %for.body.i40
 
 for.body.i40:                                     ; preds = %_ZN5eastl5countINS_18hashtable_iteratorIiLb1ELb0EEEiEENS_15iterator_traitsIT_E15difference_typeES4_S4_RKT0_.exit, %_ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i50
   %result.07.i41 = phi i64 [ %spec.select.i46, %_ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i50 ], [ 0, %_ZN5eastl5countINS_18hashtable_iteratorIiLb1ELb0EEEiEENS_15iterator_traitsIT_E15difference_typeES4_S4_RKT0_.exit ]
@@ -56775,9 +56773,7 @@ _ZN5eastl18hashtable_iteratorINS_4pairIKiiEELb1ELb0EEppEv.exit.i34: ; preds = %w
 
 _ZN5eastl5countINS_18hashtable_iteratorINS_4pairIKiiEELb1ELb0EEES4_EENS_15iterator_traitsIT_E15difference_typeES7_S7_RKT0_.exit: ; preds = %_ZN5eastl18hashtable_iteratorINS_4pairIKiiEELb1ELb0EEppEv.exit.i34
   %cmp = icmp eq i64 %spec.select.i, 0
-  %cmp.i.not5.i41 = icmp eq ptr %i.sroa.0.0102, %last1.coerce0
-  %or.cond = or i1 %cmp, %cmp.i.not5.i41
-  br i1 %or.cond, label %return, label %for.body.i44
+  br i1 %cmp, label %return, label %for.body.i44
 
 for.body.i44:                                     ; preds = %_ZN5eastl5countINS_18hashtable_iteratorINS_4pairIKiiEELb1ELb0EEES4_EENS_15iterator_traitsIT_E15difference_typeES7_S7_RKT0_.exit, %_ZN5eastl18hashtable_iteratorINS_4pairIKiiEELb1ELb0EEppEv.exit.i56
   %result.08.i45 = phi i64 [ %spec.select.i52, %_ZN5eastl18hashtable_iteratorINS_4pairIKiiEELb1ELb0EEppEv.exit.i56 ], [ 0, %_ZN5eastl5countINS_18hashtable_iteratorINS_4pairIKiiEELb1ELb0EEES4_EENS_15iterator_traitsIT_E15difference_typeES7_S7_RKT0_.exit ]
@@ -61632,9 +61628,7 @@ _ZN5eastl18hashtable_iteratorI14HashtableValueLb1ELb0EEppEv.exit.i34: ; preds = 
 
 _ZN5eastl5countINS_18hashtable_iteratorI14HashtableValueLb1ELb0EEES2_EENS_15iterator_traitsIT_E15difference_typeES5_S5_RKT0_.exit: ; preds = %_ZN5eastl18hashtable_iteratorI14HashtableValueLb1ELb0EEppEv.exit.i34
   %cmp = icmp eq i64 %spec.select.i, 0
-  %cmp.i.not5.i41 = icmp eq ptr %i.sroa.0.0102, %last1.coerce0
-  %or.cond = or i1 %cmp, %cmp.i.not5.i41
-  br i1 %or.cond, label %return, label %for.body.i44
+  br i1 %cmp, label %return, label %for.body.i44
 
 for.body.i44:                                     ; preds = %_ZN5eastl5countINS_18hashtable_iteratorI14HashtableValueLb1ELb0EEES2_EENS_15iterator_traitsIT_E15difference_typeES5_S5_RKT0_.exit, %_ZN5eastl18hashtable_iteratorI14HashtableValueLb1ELb0EEppEv.exit.i56
   %result.08.i45 = phi i64 [ %spec.select.i52, %_ZN5eastl18hashtable_iteratorI14HashtableValueLb1ELb0EEppEv.exit.i56 ], [ 0, %_ZN5eastl5countINS_18hashtable_iteratorI14HashtableValueLb1ELb0EEES2_EENS_15iterator_traitsIT_E15difference_typeES5_S5_RKT0_.exit ]
@@ -62676,16 +62670,12 @@ _ZN5eastl18hashtable_iteratorINS_4pairIKm14HashtableValueEELb1ELb0EEppEv.exit.i3
 
 _ZN5eastl5countINS_18hashtable_iteratorINS_4pairIKm14HashtableValueEELb1ELb0EEES5_EENS_15iterator_traitsIT_E15difference_typeES8_S8_RKT0_.exit: ; preds = %_ZN5eastl18hashtable_iteratorINS_4pairIKm14HashtableValueEELb1ELb0EEppEv.exit.i35
   %cmp = icmp eq i64 %26, 0
-  br i1 %cmp, label %return, label %lor.lhs.false
+  br i1 %cmp, label %return, label %for.body.i50
 
-lor.lhs.false:                                    ; preds = %_ZN5eastl5countINS_18hashtable_iteratorINS_4pairIKm14HashtableValueEELb1ELb0EEES5_EENS_15iterator_traitsIT_E15difference_typeES8_S8_RKT0_.exit
-  %cmp.i.not8.i46 = icmp eq ptr %i.sroa.0.0114, %last1.coerce0
-  br i1 %cmp.i.not8.i46, label %_ZN5eastl5countINS_18hashtable_iteratorINS_4pairIKm14HashtableValueEELb1ELb0EEES5_EENS_15iterator_traitsIT_E15difference_typeES8_S8_RKT0_.exit76, label %for.body.i50
-
-for.body.i50:                                     ; preds = %lor.lhs.false, %_ZN5eastl18hashtable_iteratorINS_4pairIKm14HashtableValueEELb1ELb0EEppEv.exit.i59
-  %result.011.i51 = phi i64 [ %32, %_ZN5eastl18hashtable_iteratorINS_4pairIKm14HashtableValueEELb1ELb0EEppEv.exit.i59 ], [ 0, %lor.lhs.false ]
-  %first.sroa.6.010.i52 = phi ptr [ %first.sroa.6.1.i61, %_ZN5eastl18hashtable_iteratorINS_4pairIKm14HashtableValueEELb1ELb0EEppEv.exit.i59 ], [ %i.sroa.11.0113, %lor.lhs.false ]
-  %first.sroa.0.09.i53 = phi ptr [ %first.sroa.0.1.i60, %_ZN5eastl18hashtable_iteratorINS_4pairIKm14HashtableValueEELb1ELb0EEppEv.exit.i59 ], [ %i.sroa.0.0114, %lor.lhs.false ]
+for.body.i50:                                     ; preds = %_ZN5eastl5countINS_18hashtable_iteratorINS_4pairIKm14HashtableValueEELb1ELb0EEES5_EENS_15iterator_traitsIT_E15difference_typeES8_S8_RKT0_.exit, %_ZN5eastl18hashtable_iteratorINS_4pairIKm14HashtableValueEELb1ELb0EEppEv.exit.i59
+  %result.011.i51 = phi i64 [ %32, %_ZN5eastl18hashtable_iteratorINS_4pairIKm14HashtableValueEELb1ELb0EEppEv.exit.i59 ], [ 0, %_ZN5eastl5countINS_18hashtable_iteratorINS_4pairIKm14HashtableValueEELb1ELb0EEES5_EENS_15iterator_traitsIT_E15difference_typeES8_S8_RKT0_.exit ]
+  %first.sroa.6.010.i52 = phi ptr [ %first.sroa.6.1.i61, %_ZN5eastl18hashtable_iteratorINS_4pairIKm14HashtableValueEELb1ELb0EEppEv.exit.i59 ], [ %i.sroa.11.0113, %_ZN5eastl5countINS_18hashtable_iteratorINS_4pairIKm14HashtableValueEELb1ELb0EEES5_EENS_15iterator_traitsIT_E15difference_typeES8_S8_RKT0_.exit ]
+  %first.sroa.0.09.i53 = phi ptr [ %first.sroa.0.1.i60, %_ZN5eastl18hashtable_iteratorINS_4pairIKm14HashtableValueEELb1ELb0EEppEv.exit.i59 ], [ %i.sroa.0.0114, %_ZN5eastl5countINS_18hashtable_iteratorINS_4pairIKm14HashtableValueEELb1ELb0EEES5_EENS_15iterator_traitsIT_E15difference_typeES8_S8_RKT0_.exit ]
   %28 = load i64, ptr %first.sroa.0.09.i53, align 8
   %cmp.i2.i54 = icmp eq i64 %28, %19
   br i1 %cmp.i2.i54, label %_ZN5eastleqIKm14HashtableValueEEbRKNS_4pairIT_T0_EES8_.exit.i68, label %_ZN5eastleqIKm14HashtableValueEEbRKNS_4pairIT_T0_EES8_.exit.thread.i55
@@ -62723,9 +62713,8 @@ _ZN5eastl18hashtable_iteratorINS_4pairIKm14HashtableValueEELb1ELb0EEppEv.exit.i5
   %cmp.i.not.i62 = icmp eq ptr %first.sroa.0.1.i60, %last1.coerce0
   br i1 %cmp.i.not.i62, label %_ZN5eastl5countINS_18hashtable_iteratorINS_4pairIKm14HashtableValueEELb1ELb0EEES5_EENS_15iterator_traitsIT_E15difference_typeES8_S8_RKT0_.exit76, label %for.body.i50, !llvm.loop !2232
 
-_ZN5eastl5countINS_18hashtable_iteratorINS_4pairIKm14HashtableValueEELb1ELb0EEES5_EENS_15iterator_traitsIT_E15difference_typeES8_S8_RKT0_.exit76: ; preds = %_ZN5eastl18hashtable_iteratorINS_4pairIKm14HashtableValueEELb1ELb0EEppEv.exit.i59, %lor.lhs.false
-  %result.0.lcssa.i63 = phi i64 [ 0, %lor.lhs.false ], [ %32, %_ZN5eastl18hashtable_iteratorINS_4pairIKm14HashtableValueEELb1ELb0EEppEv.exit.i59 ]
-  %cmp24.not = icmp eq i64 %26, %result.0.lcssa.i63
+_ZN5eastl5countINS_18hashtable_iteratorINS_4pairIKm14HashtableValueEELb1ELb0EEES5_EENS_15iterator_traitsIT_E15difference_typeES8_S8_RKT0_.exit76: ; preds = %_ZN5eastl18hashtable_iteratorINS_4pairIKm14HashtableValueEELb1ELb0EEppEv.exit.i59
+  %cmp24.not = icmp eq i64 %26, %32
   br i1 %cmp24.not, label %for.inc, label %return
 
 for.inc:                                          ; preds = %_ZN5eastl4findINS_18hashtable_iteratorINS_4pairIKm14HashtableValueEELb1ELb0EEES5_EET_S7_S7_RKT0_.exit, %_ZN5eastl5countINS_18hashtable_iteratorINS_4pairIKm14HashtableValueEELb1ELb0EEES5_EENS_15iterator_traitsIT_E15difference_typeES8_S8_RKT0_.exit76

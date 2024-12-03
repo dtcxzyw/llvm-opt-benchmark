@@ -233,10 +233,8 @@ define internal fastcc i64 @H5MF__aggr_alloc(ptr noundef %0, ptr nocapture nound
   %94 = getelementptr inbounds i8, ptr %2, i64 32
   %95 = load i64, ptr %94, align 8
   %96 = add i64 %95, %92
-  %.not241 = icmp ne i64 %96, -1
   %97 = icmp eq i64 %96, %8
-  %or.cond247 = and i1 %.not241, %97
-  br i1 %or.cond247, label %98, label %113
+  br i1 %97, label %98, label %113
 
 98:                                               ; preds = %93
   %99 = getelementptr inbounds i8, ptr %2, i64 16
@@ -342,10 +340,8 @@ define internal fastcc i64 @H5MF__aggr_alloc(ptr noundef %0, ptr nocapture nound
   %157 = getelementptr inbounds i8, ptr %2, i64 32
   %158 = load i64, ptr %157, align 8
   %159 = add i64 %158, %155
-  %.not233 = icmp ne i64 %159, -1
   %160 = icmp eq i64 %159, %8
-  %or.cond249 = and i1 %.not233, %160
-  br i1 %or.cond249, label %161, label %176
+  br i1 %160, label %161, label %176
 
 161:                                              ; preds = %156
   %162 = getelementptr inbounds i8, ptr %2, i64 16

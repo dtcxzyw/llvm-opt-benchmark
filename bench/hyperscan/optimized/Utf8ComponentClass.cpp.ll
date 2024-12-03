@@ -7563,7 +7563,7 @@ if.end7:                                          ; preds = %_ZN5boost3icl17inte
   %cmp.i.i.i.i.i = icmp ult i32 %left.sroa.5.0.extract.trunc.i, %left.sroa.0.0.extract.trunc.i
   %cmp.i.i.i.i = icmp ugt i32 %1, %left.sroa.5.0.extract.trunc.i
   %or.cond = or i1 %cmp.i.i.i.i.i, %cmp.i.i.i.i
-  br i1 %or.cond, label %if.then16, label %if.else.i
+  br i1 %or.cond, label %_ZN5boost3icl14right_subtractINS0_15closed_intervalIjSt4lessEEEENS_9enable_ifINS0_16is_static_closedIT_EES7_E4typeES7_RKS7_.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %if.end7
   %spec.select.i3.not.i = icmp ugt i32 %1, %left.sroa.0.0.extract.trunc.i
@@ -7589,7 +7589,9 @@ invoke.cont.i.i:                                  ; preds = %init.check.i.i
 
 _ZN5boost3icl16identity_elementINS0_15closed_intervalIjSt4lessEEE5valueEv.exit.i: ; preds = %invoke.cont.i.i, %init.check.i.i, %if.then2.i
   %retval.sroa.0.0.copyload.i.i = load i64, ptr @_ZZN5boost3icl16identity_elementINS0_15closed_intervalIjSt4lessEEE5valueEvE6_value, align 4
-  br label %if.then16
+  %.pre = load i32, ptr %_upb.i.i.i.i, align 4
+  %.pre101 = load i32, ptr %minuend, align 4
+  br label %_ZN5boost3icl14right_subtractINS0_15closed_intervalIjSt4lessEEEENS_9enable_ifINS0_16is_static_closedIT_EES7_E4typeES7_RKS7_.exit
 
 if.end4.i:                                        ; preds = %if.else.i
   %dec.i.i.i.i = add i32 %1, -1
@@ -7597,9 +7599,11 @@ if.end4.i:                                        ; preds = %if.else.i
   %retval.sroa.2.0.insert.shift.i.i.i = shl nuw i64 %retval.sroa.2.0.insert.ext.i.i.i, 32
   %retval.sroa.0.0.insert.ext.i.i.i = and i64 %agg.tmp12.sroa.0.0.copyload, 4294967295
   %retval.sroa.0.0.insert.insert.i.i.i = or disjoint i64 %retval.sroa.0.0.insert.ext.i.i.i, %retval.sroa.2.0.insert.shift.i.i.i
-  br label %if.then16
+  br label %_ZN5boost3icl14right_subtractINS0_15closed_intervalIjSt4lessEEEENS_9enable_ifINS0_16is_static_closedIT_EES7_E4typeES7_RKS7_.exit
 
-if.then16:                                        ; preds = %if.end4.i, %_ZN5boost3icl16identity_elementINS0_15closed_intervalIjSt4lessEEE5valueEv.exit.i, %if.end7
+_ZN5boost3icl14right_subtractINS0_15closed_intervalIjSt4lessEEEENS_9enable_ifINS0_16is_static_closedIT_EES7_E4typeES7_RKS7_.exit: ; preds = %if.end7, %_ZN5boost3icl16identity_elementINS0_15closed_intervalIjSt4lessEEE5valueEv.exit.i, %if.end4.i
+  %8 = phi i32 [ %.pre101, %_ZN5boost3icl16identity_elementINS0_15closed_intervalIjSt4lessEEE5valueEv.exit.i ], [ %1, %if.end4.i ], [ %1, %if.end7 ]
+  %9 = phi i32 [ %.pre, %_ZN5boost3icl16identity_elementINS0_15closed_intervalIjSt4lessEEE5valueEv.exit.i ], [ %0, %if.end4.i ], [ %0, %if.end7 ]
   %retval.sroa.0.0.i = phi i64 [ %retval.sroa.0.0.copyload.i.i, %_ZN5boost3icl16identity_elementINS0_15closed_intervalIjSt4lessEEE5valueEv.exit.i ], [ %retval.sroa.0.0.insert.insert.i.i.i, %if.end4.i ], [ %agg.tmp12.sroa.0.0.copyload, %if.end7 ]
   %left_resid.sroa.0.0.extract.trunc = trunc i64 %retval.sroa.0.0.i to i32
   %left_resid.sroa.4.0.extract.shift = lshr i64 %retval.sroa.0.0.i, 32
@@ -7608,20 +7612,18 @@ if.then16:                                        ; preds = %if.end4.i, %_ZN5boo
   %agg.tmp17.sroa.0.0.copyload = load i64, ptr %_M_storage.i.i5, align 4
   %right.sroa.3.0.extract.shift.i = lshr i64 %agg.tmp17.sroa.0.0.copyload, 32
   %right.sroa.3.0.extract.trunc.i = trunc nuw i64 %right.sroa.3.0.extract.shift.i to i32
-  %8 = load i32, ptr %_upb.i.i.i.i, align 4
-  %9 = load i32, ptr %minuend, align 4
-  %cmp.i.i.i.i.i6 = icmp ult i32 %8, %9
-  br i1 %cmp.i.i.i.i.i6, label %if.end20, label %_ZN5boost3icl14exclusive_lessINS0_15closed_intervalIjSt4lessEEEENS_9enable_ifINS0_20has_symmetric_boundsIT_EEbE4typeERKS7_SC_.exit.i7
+  %cmp.i.i.i.i.i6 = icmp ult i32 %9, %8
+  br i1 %cmp.i.i.i.i.i6, label %_ZN5boost3icl13left_subtractINS0_15closed_intervalIjSt4lessEEEENS_9enable_ifINS0_16is_static_closedIT_EES7_E4typeES7_RKS7_.exit, label %_ZN5boost3icl14exclusive_lessINS0_15closed_intervalIjSt4lessEEEENS_9enable_ifINS0_20has_symmetric_boundsIT_EEbE4typeERKS7_SC_.exit.i7
 
-_ZN5boost3icl14exclusive_lessINS0_15closed_intervalIjSt4lessEEEENS_9enable_ifINS0_20has_symmetric_boundsIT_EEbE4typeERKS7_SC_.exit.i7: ; preds = %if.then16
+_ZN5boost3icl14exclusive_lessINS0_15closed_intervalIjSt4lessEEEENS_9enable_ifINS0_20has_symmetric_boundsIT_EEbE4typeERKS7_SC_.exit.i7: ; preds = %_ZN5boost3icl14right_subtractINS0_15closed_intervalIjSt4lessEEEENS_9enable_ifINS0_16is_static_closedIT_EES7_E4typeES7_RKS7_.exit
   %right.sroa.0.0.extract.trunc.i = trunc i64 %agg.tmp17.sroa.0.0.copyload to i32
   %cmp.i.i.i4.i.i8 = icmp ult i32 %right.sroa.3.0.extract.trunc.i, %right.sroa.0.0.extract.trunc.i
-  %cmp.i.i.i.i9 = icmp ult i32 %8, %right.sroa.0.0.extract.trunc.i
+  %cmp.i.i.i.i9 = icmp ult i32 %9, %right.sroa.0.0.extract.trunc.i
   %spec.select.i.i10 = or i1 %cmp.i.i.i.i9, %cmp.i.i.i4.i.i8
-  br i1 %spec.select.i.i10, label %if.end20, label %if.else.i11
+  br i1 %spec.select.i.i10, label %_ZN5boost3icl13left_subtractINS0_15closed_intervalIjSt4lessEEEENS_9enable_ifINS0_16is_static_closedIT_EES7_E4typeES7_RKS7_.exit, label %if.else.i11
 
 if.else.i11:                                      ; preds = %_ZN5boost3icl14exclusive_lessINS0_15closed_intervalIjSt4lessEEEENS_9enable_ifINS0_20has_symmetric_boundsIT_EEbE4typeERKS7_SC_.exit.i7
-  %spec.select.i4.not.i = icmp ult i32 %8, %right.sroa.3.0.extract.trunc.i
+  %spec.select.i4.not.i = icmp ult i32 %9, %right.sroa.3.0.extract.trunc.i
   br i1 %spec.select.i4.not.i, label %if.end4.i21, label %if.then2.i12
 
 if.then2.i12:                                     ; preds = %if.else.i11
@@ -7644,17 +7646,17 @@ invoke.cont.i.i19:                                ; preds = %init.check.i.i17
 
 _ZN5boost3icl16identity_elementINS0_15closed_intervalIjSt4lessEEE5valueEv.exit.i14: ; preds = %invoke.cont.i.i19, %init.check.i.i17, %if.then2.i12
   %retval.sroa.0.0.copyload.i.i15 = load i64, ptr @_ZZN5boost3icl16identity_elementINS0_15closed_intervalIjSt4lessEEE5valueEvE6_value, align 4
-  br label %if.end20
+  br label %_ZN5boost3icl13left_subtractINS0_15closed_intervalIjSt4lessEEEENS_9enable_ifINS0_16is_static_closedIT_EES7_E4typeES7_RKS7_.exit
 
 if.end4.i21:                                      ; preds = %if.else.i11
-  %inc.i.i.i.i = add nuw i32 %8, 1
+  %inc.i.i.i.i = add nuw i32 %9, 1
   %retval.sroa.2.0.insert.shift.i.i.i22 = and i64 %agg.tmp17.sroa.0.0.copyload, -4294967296
   %retval.sroa.0.0.insert.ext.i.i.i23 = zext i32 %inc.i.i.i.i to i64
   %retval.sroa.0.0.insert.insert.i.i.i24 = or disjoint i64 %retval.sroa.2.0.insert.shift.i.i.i22, %retval.sroa.0.0.insert.ext.i.i.i23
-  br label %if.end20
+  br label %_ZN5boost3icl13left_subtractINS0_15closed_intervalIjSt4lessEEEENS_9enable_ifINS0_16is_static_closedIT_EES7_E4typeES7_RKS7_.exit
 
-if.end20:                                         ; preds = %if.end4.i21, %_ZN5boost3icl16identity_elementINS0_15closed_intervalIjSt4lessEEE5valueEv.exit.i14, %_ZN5boost3icl14exclusive_lessINS0_15closed_intervalIjSt4lessEEEENS_9enable_ifINS0_20has_symmetric_boundsIT_EEbE4typeERKS7_SC_.exit.i7, %if.then16
-  %retval.sroa.0.0.i16 = phi i64 [ %retval.sroa.0.0.copyload.i.i15, %_ZN5boost3icl16identity_elementINS0_15closed_intervalIjSt4lessEEE5valueEv.exit.i14 ], [ %retval.sroa.0.0.insert.insert.i.i.i24, %if.end4.i21 ], [ %agg.tmp17.sroa.0.0.copyload, %if.then16 ], [ %agg.tmp17.sroa.0.0.copyload, %_ZN5boost3icl14exclusive_lessINS0_15closed_intervalIjSt4lessEEEENS_9enable_ifINS0_20has_symmetric_boundsIT_EEbE4typeERKS7_SC_.exit.i7 ]
+_ZN5boost3icl13left_subtractINS0_15closed_intervalIjSt4lessEEEENS_9enable_ifINS0_16is_static_closedIT_EES7_E4typeES7_RKS7_.exit: ; preds = %_ZN5boost3icl14right_subtractINS0_15closed_intervalIjSt4lessEEEENS_9enable_ifINS0_16is_static_closedIT_EES7_E4typeES7_RKS7_.exit, %_ZN5boost3icl14exclusive_lessINS0_15closed_intervalIjSt4lessEEEENS_9enable_ifINS0_20has_symmetric_boundsIT_EEbE4typeERKS7_SC_.exit.i7, %_ZN5boost3icl16identity_elementINS0_15closed_intervalIjSt4lessEEE5valueEv.exit.i14, %if.end4.i21
+  %retval.sroa.0.0.i16 = phi i64 [ %retval.sroa.0.0.copyload.i.i15, %_ZN5boost3icl16identity_elementINS0_15closed_intervalIjSt4lessEEE5valueEv.exit.i14 ], [ %retval.sroa.0.0.insert.insert.i.i.i24, %if.end4.i21 ], [ %agg.tmp17.sroa.0.0.copyload, %_ZN5boost3icl14right_subtractINS0_15closed_intervalIjSt4lessEEEENS_9enable_ifINS0_16is_static_closedIT_EES7_E4typeES7_RKS7_.exit ], [ %agg.tmp17.sroa.0.0.copyload, %_ZN5boost3icl14exclusive_lessINS0_15closed_intervalIjSt4lessEEEENS_9enable_ifINS0_20has_symmetric_boundsIT_EEbE4typeERKS7_SC_.exit.i7 ]
   %right_resid.sroa.0.0.extract.trunc = trunc i64 %retval.sroa.0.0.i16 to i32
   %right_resid.sroa.5.0.extract.shift = lshr i64 %retval.sroa.0.0.i16, 32
   %right_resid.sroa.5.0.extract.trunc = trunc nuw i64 %right_resid.sroa.5.0.extract.shift to i32
@@ -7665,7 +7667,7 @@ if.end20:                                         ; preds = %if.end4.i21, %_ZN5b
   %or.cond100 = select i1 %cmp.i.i.i.i25, i1 %cmp.i1.i.i.i, i1 false
   br i1 %or.cond100, label %if.then.i.i.i, label %while.body.lr.ph.i.i.i
 
-if.then.i.i.i:                                    ; preds = %if.end20
+if.then.i.i.i:                                    ; preds = %_ZN5boost3icl13left_subtractINS0_15closed_intervalIjSt4lessEEEENS_9enable_ifINS0_16is_static_closedIT_EES7_E4typeES7_RKS7_.exit
   %14 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
   invoke void @_ZNSt8_Rb_treeIN5boost3icl15closed_intervalIjSt4lessEES4_St9_IdentityIS4_ENS1_19exclusive_less_thanIS4_EESaIS4_EE8_M_eraseEPSt13_Rb_tree_nodeIS4_E(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %14)
           to label %_ZNSt8_Rb_treeIN5boost3icl15closed_intervalIjSt4lessEES4_St9_IdentityIS4_ENS1_19exclusive_less_thanIS4_EESaIS4_EE5clearEv.exit.i.i.i unwind label %terminate.lpad.i.i.i.i
@@ -7686,7 +7688,7 @@ _ZNSt8_Rb_treeIN5boost3icl15closed_intervalIjSt4lessEES4_St9_IdentityIS4_ENS1_19
   store i64 0, ptr %_M_node_count.i.i.i.i.i, align 8
   br label %_ZNSt3setIN5boost3icl15closed_intervalIjSt4lessEENS1_19exclusive_less_thanIS4_EESaIS4_EE5eraseB5cxx11ESt23_Rb_tree_const_iteratorIS4_ESA_.exit
 
-while.body.lr.ph.i.i.i:                           ; preds = %if.end20
+while.body.lr.ph.i.i.i:                           ; preds = %_ZN5boost3icl13left_subtractINS0_15closed_intervalIjSt4lessEEEENS_9enable_ifINS0_16is_static_closedIT_EES7_E4typeES7_RKS7_.exit
   %_M_node_count.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   br label %while.body.i.i.i
 
@@ -9575,7 +9577,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZSt22__uninitializ
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %add.ptr.i.i.i.i.i, ptr align 4 %__position.coerce, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
   br label %for.body.i.i.i.i.i26.preheader
 
-for.body.i.i.i.i.i26.preheader:                   ; preds = %if.then.i.i.i.i.i, %_ZSt22__uninitialized_move_aIPN3ue212PositionInfoES2_SaIS1_EET0_T_S5_S4_RT1_.exit
+for.body.i.i.i.i.i26.preheader:                   ; preds = %_ZSt22__uninitialized_move_aIPN3ue212PositionInfoES2_SaIS1_EET0_T_S5_S4_RT1_.exit, %if.then.i.i.i.i.i
   br label %for.body.i.i.i.i.i26
 
 for.body.i.i.i.i.i26:                             ; preds = %for.body.i.i.i.i.i26.preheader, %for.body.i.i.i.i.i26

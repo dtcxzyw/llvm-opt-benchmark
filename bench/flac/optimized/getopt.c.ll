@@ -274,19 +274,19 @@ land.lhs.true45:                                  ; preds = %if.end42
   %31 = load ptr, ptr %arrayidx47, align 8
   %32 = load i8, ptr %31, align 1
   %.not = icmp eq i8 %32, 45
-  br i1 %.not, label %sub_1, label %if.end64
+  br i1 %.not, label %sub_1, label %if.end72
 
 sub_1:                                            ; preds = %land.lhs.true45
   %33 = getelementptr inbounds i8, ptr %31, i64 1
   %34 = load i8, ptr %33, align 1
   %.not250 = icmp eq i8 %34, 45
-  br i1 %.not250, label %land.lhs.true45.tail, label %if.end64
+  br i1 %.not250, label %land.lhs.true45.tail, label %if.end72
 
 land.lhs.true45.tail:                             ; preds = %sub_1
   %35 = getelementptr inbounds i8, ptr %31, i64 2
   %36 = load i8, ptr %35, align 1
   %37 = icmp eq i8 %36, 0
-  br i1 %37, label %if.then50, label %if.end64
+  br i1 %37, label %if.then50, label %if.end72
 
 if.then50:                                        ; preds = %land.lhs.true45.tail
   %inc51 = add nsw i32 %30, 1
@@ -392,13 +392,9 @@ if.end63:                                         ; preds = %if.end63.sink.split
   store i32 %argc, ptr @share__optind, align 4
   br label %if.then67
 
-if.end64:                                         ; preds = %sub_1, %land.lhs.true45, %land.lhs.true45.tail
-  %cmp65 = icmp eq i32 %30, %argc
-  br i1 %cmp65, label %if.then67, label %if.end72
-
-if.then67:                                        ; preds = %if.end42, %if.end63, %if.end64
-  %49 = phi i32 [ %29, %if.end64 ], [ %29, %if.end42 ], [ %48, %if.end63 ]
-  %50 = phi i32 [ %28, %if.end64 ], [ %28, %if.end42 ], [ %argc, %if.end63 ]
+if.then67:                                        ; preds = %if.end42, %if.end63
+  %49 = phi i32 [ %29, %if.end42 ], [ %48, %if.end63 ]
+  %50 = phi i32 [ %28, %if.end42 ], [ %argc, %if.end63 ]
   %cmp68.not = icmp eq i32 %49, %50
   br i1 %cmp68.not, label %return, label %if.then70
 
@@ -406,7 +402,7 @@ if.then70:                                        ; preds = %if.then67
   store i32 %49, ptr @share__optind, align 4
   br label %return
 
-if.end72:                                         ; preds = %if.end64
+if.end72:                                         ; preds = %land.lhs.true45.tail, %land.lhs.true45, %sub_1
   %idxprom73 = sext i32 %30 to i64
   %arrayidx74 = getelementptr inbounds ptr, ptr %argv, i64 %idxprom73
   %51 = load ptr, ptr %arrayidx74, align 8

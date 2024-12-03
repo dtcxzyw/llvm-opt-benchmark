@@ -70654,9 +70654,8 @@ terminate.lpad.i.i.i.i:                           ; preds = %lor.lhs.false.i.i
 
 invoke.cont15:                                    ; preds = %lor.lhs.false.i.i
   %cmp.i.i.i.i = icmp slt i32 %call.i.i.i.i, 0
-  %cmp.i1565 = icmp eq ptr %__y.addr.1.i.i.i, %add.ptr.i.i.i
-  %cmp.i15 = select i1 %cmp.i.i.i.i, i1 true, i1 %cmp.i1565
-  br i1 %cmp.i15, label %for.cond.preheader, label %if.end30
+  %spec.select.i.i = select i1 %cmp.i.i.i.i, ptr %add.ptr.i.i.i, ptr %__y.addr.1.i.i.i
+  br i1 %cmp.i.i.i.i, label %for.cond.preheader, label %if.end30
 
 for.cond.preheader:                               ; preds = %if.end, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S6_IiiEESt10_Select1stIS9_ESt4lessIS5_ESaIS9_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS9_EPSt18_Rb_tree_node_baseRS7_.exit.i.i, %invoke.cont15
   %16 = load i64, ptr %n, align 8
@@ -70752,7 +70751,7 @@ for.inc:                                          ; preds = %_ZNSt6vectorIiSaIiE
 
 if.end30:                                         ; preds = %invoke.cont15
   %symbols = getelementptr inbounds i8, ptr %this, i64 8
-  %second32 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i, i64 64
+  %second32 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 64
   %27 = load i32, ptr %second32, align 8
   %conv33 = sext i32 %27 to i64
   %28 = load ptr, ptr %symbols, align 8
@@ -70761,7 +70760,7 @@ if.end30:                                         ; preds = %invoke.cont15
           to label %invoke.cont35 unwind label %lpad3.loopexit.split-lp
 
 invoke.cont35:                                    ; preds = %if.end30
-  %second39 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i, i64 68
+  %second39 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 68
   %29 = load i32, ptr %second39, align 4
   %conv40 = sext i32 %29 to i64
   %30 = load ptr, ptr %symbols, align 8

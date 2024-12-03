@@ -1866,14 +1866,16 @@ _ZN6Assimp8skipLineIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S
 
 sw.bb293:                                         ; preds = %while.body
   %incdec.ptr.i.i.i484 = getelementptr inbounds i8, ptr %2, i64 -1
-  %cmp.i.i6.i = icmp eq ptr %3, %2
   %cmp.i1.i7.i = icmp eq ptr %3, %incdec.ptr.i.i.i484
-  %retval.0.i8.i = select i1 %cmp.i.i6.i, i1 true, i1 %cmp.i1.i7.i
-  br i1 %retval.0.i8.i, label %_ZN6Assimp12getNextTokenIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_.exit, label %while.body.i485
+  br i1 %cmp.i1.i7.i, label %_ZN6Assimp12getNextTokenIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_.exit, label %while.body.i485
 
-while.body.i485:                                  ; preds = %sw.bb293, %if.end.i492
-  %pBuffer.sroa.0.09.i = phi ptr [ %incdec.ptr.i.i493, %if.end.i492 ], [ %3, %sw.bb293 ]
-  %115 = load i8, ptr %pBuffer.sroa.0.09.i, align 1
+while.body.i485thread-pre-split:                  ; preds = %if.end.i492
+  %.pr = load i8, ptr %incdec.ptr.i.i493, align 1
+  br label %while.body.i485
+
+while.body.i485:                                  ; preds = %sw.bb293, %while.body.i485thread-pre-split
+  %115 = phi i8 [ %.pr, %while.body.i485thread-pre-split ], [ 105, %sw.bb293 ]
+  %pBuffer.sroa.0.09.i = phi ptr [ %incdec.ptr.i.i493, %while.body.i485thread-pre-split ], [ %3, %sw.bb293 ]
   switch i8 %115, label %if.end.i492 [
     i8 32, label %while.body.i.i487.preheader
     i8 9, label %while.body.i.i487.preheader
@@ -1890,8 +1892,8 @@ if.end.i492:                                      ; preds = %while.body.i485
   %incdec.ptr.i.i493 = getelementptr inbounds i8, ptr %pBuffer.sroa.0.09.i, i64 1
   %cmp.i.i.i494 = icmp eq ptr %incdec.ptr.i.i493, %2
   %cmp.i1.i.i495 = icmp eq ptr %incdec.ptr.i.i493, %incdec.ptr.i.i.i484
-  %retval.0.i.i496 = select i1 %cmp.i.i.i494, i1 true, i1 %cmp.i1.i.i495
-  br i1 %retval.0.i.i496, label %_ZN6Assimp12getNextTokenIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_.exit, label %while.body.i485, !llvm.loop !9
+  %retval.0.i.i496 = or i1 %cmp.i.i.i494, %cmp.i1.i.i495
+  br i1 %retval.0.i.i496, label %_ZN6Assimp12getNextTokenIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_.exit, label %while.body.i485thread-pre-split, !llvm.loop !9
 
 while.body.i.i487:                                ; preds = %while.body.i.i487.preheader, %if.end.i.i488
   %pBuffer.sroa.0.06.i.i = phi ptr [ %incdec.ptr.i.i1.i, %if.end.i.i488 ], [ %pBuffer.sroa.0.09.i, %while.body.i.i487.preheader ]
@@ -1905,7 +1907,7 @@ if.end.i.i488:                                    ; preds = %while.body.i.i487, 
   %incdec.ptr.i.i1.i = getelementptr inbounds i8, ptr %pBuffer.sroa.0.06.i.i, i64 1
   %cmp.i.i.i.i489 = icmp eq ptr %incdec.ptr.i.i1.i, %2
   %cmp.i1.i.i.i490 = icmp eq ptr %incdec.ptr.i.i1.i, %incdec.ptr.i.i.i484
-  %retval.0.i.i.i491 = select i1 %cmp.i.i.i.i489, i1 true, i1 %cmp.i1.i.i.i490
+  %retval.0.i.i.i491 = or i1 %cmp.i.i.i.i489, %cmp.i1.i.i.i490
   br i1 %retval.0.i.i.i491, label %_ZN6Assimp12getNextTokenIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_.exit, label %while.body.i.i487, !llvm.loop !7
 
 _ZN6Assimp12getNextTokenIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_.exit: ; preds = %if.end.i492, %while.body.i.i487, %if.end.i.i488, %sw.bb293
@@ -1922,7 +1924,7 @@ if.then307:                                       ; preds = %_ZN6Assimp12getNext
   %119 = load ptr, ptr %m_buffer.i568, align 8
   %cmp.i.i3.i.i.i503 = icmp eq ptr %pBuffer.sroa.0.0.lcssa.i.i, %2
   %cmp.i1.i4.i.i.i504 = icmp eq ptr %pBuffer.sroa.0.0.lcssa.i.i, %incdec.ptr.i.i.i484
-  %retval.0.i5.i.i.i505 = select i1 %cmp.i.i3.i.i.i503, i1 true, i1 %cmp.i1.i4.i.i.i504
+  %retval.0.i5.i.i.i505 = or i1 %cmp.i.i3.i.i.i503, %cmp.i1.i4.i.i.i504
   br i1 %retval.0.i5.i.i.i505, label %while.cond.i.i515.preheader, label %while.body.i.i.i506
 
 while.body.i.i.i506:                              ; preds = %if.then307, %if.end.i.i.i508
@@ -1937,7 +1939,7 @@ if.end.i.i.i508:                                  ; preds = %while.body.i.i.i506
   %incdec.ptr.i.i.i.i509 = getelementptr inbounds i8, ptr %pBuffer.sroa.0.06.i.i.i507, i64 1
   %cmp.i.i.i.i.i510 = icmp eq ptr %incdec.ptr.i.i.i.i509, %2
   %cmp.i1.i.i.i.i511 = icmp eq ptr %incdec.ptr.i.i.i.i509, %incdec.ptr.i.i.i484
-  %retval.0.i.i.i.i512 = select i1 %cmp.i.i.i.i.i510, i1 true, i1 %cmp.i1.i.i.i.i511
+  %retval.0.i.i.i.i512 = or i1 %cmp.i.i.i.i.i510, %cmp.i1.i.i.i.i511
   br i1 %retval.0.i.i.i.i512, label %while.cond.i.i515.preheader, label %while.body.i.i.i506, !llvm.loop !7
 
 while.cond.i.i515.preheader:                      ; preds = %if.end.i.i.i508, %while.body.i.i.i506, %if.then307
@@ -1960,7 +1962,7 @@ while.cond.i.i515:                                ; preds = %while.cond.i.i515.p
 land.rhs.i.i521:                                  ; preds = %while.cond.i.i515
   %cmp.i.i.i.i522 = icmp eq ptr %it.sroa.0.0.i.i516, %2
   %cmp.i1.i.i.i523 = icmp eq ptr %it.sroa.0.0.i.i516, %incdec.ptr.i.i.i484
-  %retval.0.i.i.i524 = select i1 %cmp.i.i.i.i522, i1 true, i1 %cmp.i1.i.i.i523
+  %retval.0.i.i.i524 = or i1 %cmp.i.i.i.i522, %cmp.i1.i.i.i523
   br i1 %retval.0.i.i.i524, label %_ZN6Assimp18ObjFileMtlImporter20getIlluminationModelERi.exit, label %while.body.i.i525
 
 while.body.i.i525:                                ; preds = %land.rhs.i.i521

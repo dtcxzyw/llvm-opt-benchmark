@@ -1109,7 +1109,7 @@ if.end.i59:                                       ; preds = %do.body10
   %size_.i.i = getelementptr inbounds i8, ptr %14, i64 24
   %15 = load i64, ptr %size_.i.i, align 8, !noalias !30
   %cmp4.i = icmp eq i64 %15, 0
-  br i1 %cmp4.i, label %land.rhs.i, label %if.end19.i60
+  br i1 %cmp4.i, label %land.rhs.i, label %for.body.preheader.i
 
 land.rhs.i:                                       ; preds = %if.end.i59
   %shr.i.i.i.i = ashr i64 %sub.ptr.sub.i.i, 5
@@ -1161,7 +1161,7 @@ for.end.i.i.i.i:                                  ; preds = %for.end.loopexit.i.
   %sub.ptr.sub.i20.pre-phi.i.i.i.i = phi i64 [ %.pre65.i.i.i.i, %for.end.loopexit.i.i.i.i ], [ %sub.ptr.sub.i.i, %land.rhs.i ]
   %__first.sroa.0.0.lcssa.i.i.i.i = phi ptr [ %scevgep.i.i.i.i, %for.end.loopexit.i.i.i.i ], [ %shape.val14, %land.rhs.i ]
   %sub.ptr.div.i21.i.i.i.i = ashr exact i64 %sub.ptr.sub.i20.pre-phi.i.i.i.i, 3
-  switch i64 %sub.ptr.div.i21.i.i.i.i, label %if.end19.i60 [
+  switch i64 %sub.ptr.div.i21.i.i.i.i, label %for.body.preheader.i [
     i64 3, label %sw.bb.i.i.i.i
     i64 2, label %sw.bb31.i.i.i.i
     i64 1, label %sw.bb38.i.i.i.i
@@ -1208,13 +1208,9 @@ _ZSt4findIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEiET_S8_S8_RKT0_.e
 _ZSt4findIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEiET_S8_S8_RKT0_.exit.i: ; preds = %for.body.i.i.i.i, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEiET_S8_S8_RKT0_.exit.i.loopexit.split.loop.exit, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEiET_S8_S8_RKT0_.exit.i.loopexit.split.loop.exit269, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEiET_S8_S8_RKT0_.exit.i.loopexit.split.loop.exit271, %sw.bb38.i.i.i.i, %sw.bb31.i.i.i.i, %sw.bb.i.i.i.i
   %retval.sroa.0.0.in.sroa.speculated.i.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i.i, %sw.bb.i.i.i.i ], [ %__first.sroa.0.1.i.i.i.i, %sw.bb31.i.i.i.i ], [ %spec.select.i.i.i.i, %sw.bb38.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.le, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEiET_S8_S8_RKT0_.exit.i.loopexit.split.loop.exit ], [ %incdec.ptr.i11.i.i.i.i.le, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEiET_S8_S8_RKT0_.exit.i.loopexit.split.loop.exit269 ], [ %incdec.ptr.i14.i.i.i.i.le, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEiET_S8_S8_RKT0_.exit.i.loopexit.split.loop.exit271 ], [ %__first.sroa.0.057.i.i.i.i, %for.body.i.i.i.i ]
   %cmp.i.not.i63 = icmp eq ptr %retval.sroa.0.0.in.sroa.speculated.i.i.i.i, %shape.val15
-  br i1 %cmp.i.not.i63, label %if.end19.i60, label %nrvo.skipdtor29.thread
+  br i1 %cmp.i.not.i63, label %for.body.preheader.i, label %nrvo.skipdtor29.thread
 
-if.end19.i60:                                     ; preds = %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEiET_S8_S8_RKT0_.exit.i, %for.end.i.i.i.i, %if.end.i59
-  %cmp2117.not.i = icmp eq i64 %sub.ptr.sub.i.i, 0
-  br i1 %cmp2117.not.i, label %for.end.i, label %for.body.preheader.i
-
-for.body.preheader.i:                             ; preds = %if.end19.i60
+for.body.preheader.i:                             ; preds = %if.end.i59, %for.end.i.i.i.i, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEiET_S8_S8_RKT0_.exit.i
   %umax.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i19.i, i64 1)
   br label %for.body.i
 
@@ -1259,8 +1255,7 @@ for.inc.i:                                        ; preds = %if.then33.i, %for.b
   %exitcond.not.i = icmp eq i64 %inc.i, %umax.i
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !34
 
-for.end.i:                                        ; preds = %for.inc.i, %if.end19.i60
-  %largest_offset.0.lcssa.i = phi i64 [ 0, %if.end19.i60 ], [ %largest_offset.1.i, %for.inc.i ]
+for.end.i:                                        ; preds = %for.inc.i
   %vtable.i61 = load ptr, ptr %type.val17, align 8, !noalias !30
   %vfn.i62 = getelementptr inbounds i8, ptr %vtable.i61, i64 64
   %32 = load ptr, ptr %vfn.i62, align 8, !noalias !30
@@ -1270,7 +1265,7 @@ for.end.i:                                        ; preds = %for.inc.i, %if.end1
   %34 = load i64, ptr %size_.i30.i, align 8, !noalias !30
   %conv.i = sext i32 %call39.i to i64
   %sub42.i = sub nsw i64 %34, %conv.i
-  %cmp43.i = icmp sgt i64 %largest_offset.0.lcssa.i, %sub42.i
+  %cmp43.i = icmp sgt i64 %largest_offset.1.i, %sub42.i
   br i1 %cmp43.i, label %if.then44.i, label %nrvo.skipdtor29.thread
 
 if.then44.i:                                      ; preds = %for.end.i

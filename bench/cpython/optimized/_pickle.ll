@@ -12549,8 +12549,7 @@ if.end29.i126:                                    ; preds = %if.then21.i136, %if
   %65 = load i64, ptr %output_len.i76, align 8
   %add46.i134 = add i64 %65, 1
   store i64 %add46.i134, ptr %output_len.i76, align 8
-  %cmp137 = icmp eq i32 %add, 1000
-  br i1 %cmp137, label %do.body, label %return, !llvm.loop !26
+  br i1 %cmp122, label %do.body, label %return, !llvm.loop !26
 
 if.then.i:                                        ; preds = %if.end8.i101, %if.end29.i83, %if.end81, %if.then7.i99, %if.then42, %if.then46, %if.end50, %if.end56, %if.end62
   %obj.1.ph = phi ptr [ null, %if.end62 ], [ null, %if.end56 ], [ null, %if.end50 ], [ null, %if.then46 ], [ null, %if.then42 ], [ %call44, %if.then7.i99 ], [ %call44, %if.end81 ], [ %call44, %if.end29.i83 ], [ %call44, %if.end8.i101 ]
@@ -12984,8 +12983,7 @@ if.end29.i100:                                    ; preds = %if.then21.i110, %if
   %44 = load i64, ptr %output_len.i53, align 8
   %add46.i108 = add i64 %44, 1
   store i64 %add46.i108, ptr %output_len.i53, align 8
-  %cmp85 = icmp eq i32 %add, 1000
-  br i1 %cmp85, label %do.body, label %return, !llvm.loop !28
+  br i1 %cmp70, label %do.body, label %return, !llvm.loop !28
 
 if.then.i:                                        ; preds = %if.end29.i60, %if.end8.i78, %if.then7.i76, %if.end33, %if.end29, %if.then25
   %45 = load i64, ptr %call15, align 8

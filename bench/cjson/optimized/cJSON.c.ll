@@ -399,13 +399,13 @@ sub_1.i:                                          ; preds = %sub_0.i
   %23 = getelementptr inbounds i8, ptr %0, i64 %21
   %24 = load i8, ptr %23, align 1
   %25 = icmp ult i8 %24, 33
-  br i1 %25, label %.lr.ph, label %.critedge.i
+  br i1 %25, label %.lr.ph, label %buffer_skip_whitespace.exit.sink.split
 
 .lr.ph.i:                                         ; preds = %.lr.ph
   %26 = getelementptr inbounds i8, ptr %0, i64 %30
   %27 = load i8, ptr %26, align 1
   %28 = icmp ult i8 %27, 33
-  br i1 %28, label %.lr.ph, label %.critedge.i
+  br i1 %28, label %.lr.ph, label %buffer_skip_whitespace.exit.sink.split
 
 .lr.ph:                                           ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %29 = phi i64 [ %30, %.lr.ph.i ], [ %21, %.lr.ph.i.preheader ]
@@ -413,18 +413,17 @@ sub_1.i:                                          ; preds = %sub_0.i
   %exitcond.not.i = icmp eq i64 %30, %1
   br i1 %exitcond.not.i, label %.critedge.thread.i.loopexit, label %.lr.ph.i
 
-.critedge.i:                                      ; preds = %.lr.ph.i, %.lr.ph.i.preheader
-  %.lcssa81 = phi i64 [ %.0.i.sroa.gep.promoted, %.lr.ph.i.preheader ], [ %30, %.lr.ph.i ]
-  store i64 %.lcssa81, ptr %.0.i.sroa.gep, align 8
-  br label %buffer_skip_whitespace.exit
-
 .critedge.thread.i.loopexit:                      ; preds = %.lr.ph
   store i64 %30, ptr %.0.i.sroa.gep, align 8
   %31 = add i64 %1, -1
-  store i64 %31, ptr %.0.i.sroa.gep, align 8
+  br label %buffer_skip_whitespace.exit.sink.split
+
+buffer_skip_whitespace.exit.sink.split:           ; preds = %.lr.ph.i, %.lr.ph.i.preheader, %.critedge.thread.i.loopexit
+  %.lcssa81.sink = phi i64 [ %31, %.critedge.thread.i.loopexit ], [ %.0.i.sroa.gep.promoted, %.lr.ph.i.preheader ], [ %30, %.lr.ph.i ]
+  store i64 %.lcssa81.sink, ptr %.0.i.sroa.gep, align 8
   br label %buffer_skip_whitespace.exit
 
-buffer_skip_whitespace.exit:                      ; preds = %.critedge.i, %20, %.critedge.thread.i.loopexit
+buffer_skip_whitespace.exit:                      ; preds = %buffer_skip_whitespace.exit.sink.split, %20
   %32 = call fastcc i32 @parse_value(ptr noundef %10, ptr noundef nonnull %5)
   %.not = icmp eq i32 %32, 0
   br i1 %.not, label %55, label %33

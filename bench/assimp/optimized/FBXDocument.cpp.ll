@@ -6255,17 +6255,13 @@ invoke.cont6:                                     ; preds = %_ZNSt12_Vector_base
   store ptr %call5.i.i.i.i2, ptr %_M_finish.i.i, align 8
   %add.ptr21.i = getelementptr inbounds ptr, ptr %call5.i.i.i.i2, i64 %inc.i.i
   store ptr %add.ptr21.i, ptr %_M_end_of_storage.i.i, align 8
-  %cmp.i3.not51 = icmp eq ptr %__y.addr.0.lcssa.i.i.i, %retval.sroa.3.0.i.i
-  br i1 %cmp.i3.not51, label %nrvo.skipdtor, label %for.body.lr.ph
-
-for.body.lr.ph:                                   ; preds = %invoke.cont6
   %_M_finish.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   br label %for.body
 
-for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %6 = phi ptr [ %call5.i.i.i.i2, %for.body.lr.ph ], [ %11, %for.inc ]
-  %it.sroa.0.053 = phi ptr [ %__y.addr.0.lcssa.i.i.i, %for.body.lr.ph ], [ %call.i, %for.inc ]
-  %cond.i10.i.i5052 = phi ptr [ %call5.i.i.i.i2, %for.body.lr.ph ], [ %cond.i10.i.i49, %for.inc ]
+for.body:                                         ; preds = %invoke.cont6, %for.inc
+  %6 = phi ptr [ %call5.i.i.i.i2, %invoke.cont6 ], [ %11, %for.inc ]
+  %it.sroa.0.053 = phi ptr [ %__y.addr.0.lcssa.i.i.i, %invoke.cont6 ], [ %call.i, %for.inc ]
+  %cond.i10.i.i5052 = phi ptr [ %call5.i.i.i.i2, %invoke.cont6 ], [ %cond.i10.i.i49, %for.inc ]
   %second11 = getelementptr inbounds i8, ptr %it.sroa.0.053, i64 40
   %7 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %cmp.not.i = icmp eq ptr %6, %7
@@ -6379,7 +6375,7 @@ if.then.i.i14:                                    ; preds = %for.end
   invoke void @_ZSt22__final_insertion_sortIN9__gnu_cxx17__normal_iteratorIPPKN6Assimp3FBX10ConnectionESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterISt7_Mem_fnIMS4_KFbS6_EEEEEvT_SJ_T0_(ptr %.pre, ptr nonnull %11, i64 ptrtoint (ptr @_ZNK6Assimp3FBX10Connection7CompareEPKS1_ to i64), i64 0)
           to label %nrvo.skipdtor unwind label %lpad.loopexit.split-lp
 
-nrvo.skipdtor:                                    ; preds = %if.end19.i.i, %entry, %invoke.cont, %invoke.cont6, %for.end, %.noexc15
+nrvo.skipdtor:                                    ; preds = %if.end19.i.i, %entry, %invoke.cont, %for.end, %.noexc15
   ret void
 }
 
@@ -6518,17 +6514,13 @@ invoke.cont8:                                     ; preds = %_ZNSt12_Vector_base
   store ptr %call5.i.i.i.i14, ptr %_M_finish.i.i, align 8
   %add.ptr21.i = getelementptr inbounds ptr, ptr %call5.i.i.i.i14, i64 %inc.i.i
   store ptr %add.ptr21.i, ptr %_M_end_of_storage.i.i, align 8
-  %cmp.i15.not95 = icmp eq ptr %__y.addr.0.lcssa.i.i.i, %retval.sroa.3.0.i.i
-  br i1 %cmp.i15.not95, label %nrvo.skipdtor, label %for.body13.lr.ph
-
-for.body13.lr.ph:                                 ; preds = %invoke.cont8
   %_M_finish.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   br label %for.body13
 
-for.body13:                                       ; preds = %for.body13.lr.ph, %for.inc53
-  %7 = phi ptr [ %call5.i.i.i.i14, %for.body13.lr.ph ], [ %26, %for.inc53 ]
-  %it.sroa.0.097 = phi ptr [ %__y.addr.0.lcssa.i.i.i, %for.body13.lr.ph ], [ %call.i, %for.inc53 ]
-  %cond.i10.i.i9496 = phi ptr [ %call5.i.i.i.i14, %for.body13.lr.ph ], [ %cond.i10.i.i93, %for.inc53 ]
+for.body13:                                       ; preds = %invoke.cont8, %for.inc53
+  %7 = phi ptr [ %call5.i.i.i.i14, %invoke.cont8 ], [ %26, %for.inc53 ]
+  %it.sroa.0.097 = phi ptr [ %__y.addr.0.lcssa.i.i.i, %invoke.cont8 ], [ %call.i, %for.inc53 ]
+  %cond.i10.i.i9496 = phi ptr [ %call5.i.i.i.i14, %invoke.cont8 ], [ %cond.i10.i.i93, %for.inc53 ]
   %second15 = getelementptr inbounds i8, ptr %it.sroa.0.097, i64 40
   %8 = load ptr, ptr %second15, align 8
   %doc.i = getelementptr inbounds i8, ptr %8, i64 56
@@ -6739,7 +6731,7 @@ if.then.i.i50:                                    ; preds = %for.end55
   invoke void @_ZSt22__final_insertion_sortIN9__gnu_cxx17__normal_iteratorIPPKN6Assimp3FBX10ConnectionESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterISt7_Mem_fnIMS4_KFbS6_EEEEEvT_SJ_T0_(ptr %.pre102, ptr %26, i64 ptrtoint (ptr @_ZNK6Assimp3FBX10Connection7CompareEPKS1_ to i64), i64 0)
           to label %nrvo.skipdtor unwind label %lpad.loopexit.split-lp
 
-nrvo.skipdtor:                                    ; preds = %if.end19.i.i, %for.end, %invoke.cont, %invoke.cont8, %for.end55, %.noexc51
+nrvo.skipdtor:                                    ; preds = %if.end19.i.i, %for.end, %invoke.cont, %for.end55, %.noexc51
   ret void
 }
 

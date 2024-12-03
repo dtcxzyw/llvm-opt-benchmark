@@ -1996,9 +1996,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %lor.lhs.false.i.i
 
 invoke.cont:                                      ; preds = %lor.lhs.false.i.i
   %cmp.i.i.i.i = icmp slt i32 %call.i.i.i.i, 0
-  %spec.select.i.i = select i1 %cmp.i.i.i.i, ptr %add.ptr.i.i.i, ptr %__y.addr.1.i.i.i
-  %cmp.i = icmp eq ptr %spec.select.i.i, %add.ptr.i.i.i
-  br i1 %cmp.i, label %if.then, label %if.end
+  br i1 %cmp.i.i.i.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10unique_ptrIN9grpc_core22XdsCertificateProvider23ClusterCertificateStateESt14default_deleteISB_EEESt10_Select1stISF_ESt4lessIS5_ESaISF_EE14_M_lower_boundEPSt13_Rb_tree_nodeISF_EPSt18_Rb_tree_node_baseRS7_.exit.i.i, %invoke.cont
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16)
@@ -2107,7 +2105,7 @@ _ZNSt10unique_ptrIN9grpc_core22XdsCertificateProvider23ClusterCertificateStateES
   br label %ehcleanup
 
 if.end:                                           ; preds = %_ZNSt10unique_ptrIN9grpc_core22XdsCertificateProvider23ClusterCertificateStateESt14default_deleteIS2_EED2Ev.exit, %invoke.cont
-  %it.sroa.0.0 = phi ptr [ %retval.sroa.0.0.i, %_ZNSt10unique_ptrIN9grpc_core22XdsCertificateProvider23ClusterCertificateStateESt14default_deleteIS2_EED2Ev.exit ], [ %spec.select.i.i, %invoke.cont ]
+  %it.sroa.0.0 = phi ptr [ %retval.sroa.0.0.i, %_ZNSt10unique_ptrIN9grpc_core22XdsCertificateProvider23ClusterCertificateStateESt14default_deleteIS2_EED2Ev.exit ], [ %__y.addr.1.i.i.i, %invoke.cont ]
   %second = getelementptr inbounds i8, ptr %it.sroa.0.0, i64 64
   %14 = load ptr, ptr %second, align 8
   invoke void @_ZN9grpc_core22XdsCertificateProvider23ClusterCertificateState19WatchStatusCallbackERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbb(ptr noundef nonnull align 8 dereferenceable(113) %14, ptr noundef nonnull align 8 dereferenceable(32) %cert_name, i1 noundef zeroext %root_being_watched, i1 noundef zeroext %identity_being_watched)
@@ -2566,9 +2564,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %lor.lhs.false.i.i
 
 invoke.cont:                                      ; preds = %lor.lhs.false.i.i
   %cmp.i.i.i.i = icmp slt i32 %call.i.i.i.i, 0
-  %spec.select.i.i = select i1 %cmp.i.i.i.i, ptr %add.ptr.i.i.i, ptr %__y.addr.1.i.i.i
-  %cmp.i = icmp eq ptr %spec.select.i.i, %add.ptr.i.i.i
-  br i1 %cmp.i, label %if.then, label %if.end
+  br i1 %cmp.i.i.i.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10unique_ptrIN9grpc_core22XdsCertificateProvider23ClusterCertificateStateESt14default_deleteISB_EEESt10_Select1stISF_ESt4lessIS5_ESaISF_EE14_M_lower_boundEPSt13_Rb_tree_nodeISF_EPSt18_Rb_tree_node_baseRS7_.exit.i.i, %invoke.cont
   tail call void @llvm.experimental.noalias.scope.decl(metadata !23)
@@ -2677,7 +2673,7 @@ _ZNSt10unique_ptrIN9grpc_core22XdsCertificateProvider23ClusterCertificateStateES
   br label %ehcleanup
 
 if.end:                                           ; preds = %_ZNSt10unique_ptrIN9grpc_core22XdsCertificateProvider23ClusterCertificateStateESt14default_deleteIS2_EED2Ev.exit, %invoke.cont
-  %it.sroa.0.0 = phi ptr [ %retval.sroa.0.0.i, %_ZNSt10unique_ptrIN9grpc_core22XdsCertificateProvider23ClusterCertificateStateESt14default_deleteIS2_EED2Ev.exit ], [ %spec.select.i.i, %invoke.cont ]
+  %it.sroa.0.0 = phi ptr [ %retval.sroa.0.0.i, %_ZNSt10unique_ptrIN9grpc_core22XdsCertificateProvider23ClusterCertificateStateESt14default_deleteIS2_EED2Ev.exit ], [ %__y.addr.1.i.i.i, %invoke.cont ]
   %second = getelementptr inbounds i8, ptr %it.sroa.0.0, i64 64
   %14 = load ptr, ptr %second, align 8
   %15 = load ptr, ptr %root_cert_distributor, align 8
@@ -2943,9 +2939,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %lor.lhs.false.i.i
 
 invoke.cont:                                      ; preds = %lor.lhs.false.i.i
   %cmp.i.i.i.i = icmp slt i32 %call.i.i.i.i, 0
-  %spec.select.i.i = select i1 %cmp.i.i.i.i, ptr %add.ptr.i.i.i, ptr %__y.addr.1.i.i.i
-  %cmp.i = icmp eq ptr %spec.select.i.i, %add.ptr.i.i.i
-  br i1 %cmp.i, label %if.then, label %if.end
+  br i1 %cmp.i.i.i.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10unique_ptrIN9grpc_core22XdsCertificateProvider23ClusterCertificateStateESt14default_deleteISB_EEESt10_Select1stISF_ESt4lessIS5_ESaISF_EE14_M_lower_boundEPSt13_Rb_tree_nodeISF_EPSt18_Rb_tree_node_baseRS7_.exit.i.i, %invoke.cont
   tail call void @llvm.experimental.noalias.scope.decl(metadata !26)
@@ -3054,7 +3048,7 @@ _ZNSt10unique_ptrIN9grpc_core22XdsCertificateProvider23ClusterCertificateStateES
   br label %ehcleanup
 
 if.end:                                           ; preds = %_ZNSt10unique_ptrIN9grpc_core22XdsCertificateProvider23ClusterCertificateStateESt14default_deleteIS2_EED2Ev.exit, %invoke.cont
-  %it.sroa.0.0 = phi ptr [ %retval.sroa.0.0.i, %_ZNSt10unique_ptrIN9grpc_core22XdsCertificateProvider23ClusterCertificateStateESt14default_deleteIS2_EED2Ev.exit ], [ %spec.select.i.i, %invoke.cont ]
+  %it.sroa.0.0 = phi ptr [ %retval.sroa.0.0.i, %_ZNSt10unique_ptrIN9grpc_core22XdsCertificateProvider23ClusterCertificateStateESt14default_deleteIS2_EED2Ev.exit ], [ %__y.addr.1.i.i.i, %invoke.cont ]
   %second = getelementptr inbounds i8, ptr %it.sroa.0.0, i64 64
   %14 = load ptr, ptr %second, align 8
   %15 = load ptr, ptr %identity_cert_distributor, align 8

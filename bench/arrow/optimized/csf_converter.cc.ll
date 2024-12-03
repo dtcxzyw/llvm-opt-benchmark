@@ -3334,23 +3334,17 @@ if.then.i.i.i.i.i:                                ; preds = %_ZNSt6vectorIlSaIlE
   store i64 0, ptr %call5.i.i.i.i2.i.i3, align 8
   %incdec.ptr.i.i.i.i.i = getelementptr i8, ptr %call5.i.i.i.i2.i.i3, i64 8
   %cmp.i.i.i.i.i.i.i = icmp eq i64 %sub.ptr.sub.i, 8
-  br i1 %cmp.i.i.i.i.i.i.i, label %invoke.cont.thread12, label %invoke.cont
-
-invoke.cont.thread12:                             ; preds = %if.then.i.i.i.i.i
-  %_M_finish.i.i7.i14 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  store ptr %incdec.ptr.i.i.i.i.i, ptr %_M_finish.i.i7.i14, align 8
-  br label %for.body.i.preheader
+  br i1 %cmp.i.i.i.i.i.i.i, label %for.body.i.preheader, label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.then.i.i.i.i.i
   %2 = add nsw i64 %sub.ptr.sub.i, -8
   tail call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i.i, i8 0, i64 %2, i1 false)
-  %_M_finish.i.i7.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  store ptr %add.ptr.i.i.i, ptr %_M_finish.i.i7.i, align 8
-  %cmp.i.not4.i = icmp eq ptr %0, %1
-  br i1 %cmp.i.not4.i, label %nrvo.skipdtor, label %for.body.i.preheader
+  br label %for.body.i.preheader
 
-for.body.i.preheader:                             ; preds = %invoke.cont.thread12, %invoke.cont
-  %__first.addr.0.i.i.i.i.i16 = phi ptr [ %incdec.ptr.i.i.i.i.i, %invoke.cont.thread12 ], [ %add.ptr.i.i.i, %invoke.cont ]
+for.body.i.preheader:                             ; preds = %if.then.i.i.i.i.i, %invoke.cont
+  %add.ptr.i.i.i.sink = phi ptr [ %add.ptr.i.i.i, %invoke.cont ], [ %incdec.ptr.i.i.i.i.i, %if.then.i.i.i.i.i ]
+  %_M_finish.i.i7.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  store ptr %add.ptr.i.i.i.sink, ptr %_M_finish.i.i7.i, align 8
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i.preheader, %for.body.i
@@ -3359,25 +3353,25 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   store i64 %indvars.iv.i, ptr %__first.sroa.0.05.i, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.05.i, i64 8
-  %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i, %__first.addr.0.i.i.i.i.i16
+  %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i.i.i.sink
   br i1 %cmp.i.not.i, label %if.then.i.i6, label %for.body.i, !llvm.loop !121
 
 if.then.i.i6:                                     ; preds = %for.body.i
-  %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %__first.addr.0.i.i.i.i.i16 to i64
+  %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %add.ptr.i.i.i.sink to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %call5.i.i.i.i2.i.i3 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 3
   %3 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.ptr.div.i.i.i, i1 true)
   %sub.i.i.i = shl nuw nsw i64 %3, 1
   %mul.i.i = xor i64 %sub.i.i.i, 126
-  invoke void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEElNS0_5__ops15_Iter_comp_iterIZN5arrow8internal7ArgSortIlSt4lessIlEEES5_RKS3_IT_SaISE_EEOT0_EUlllE_EEEvSE_SE_SJ_T1_(ptr nonnull %call5.i.i.i.i2.i.i3, ptr %__first.addr.0.i.i.i.i.i16, i64 noundef %mul.i.i, ptr nonnull %cmp, ptr nonnull %values)
+  invoke void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEElNS0_5__ops15_Iter_comp_iterIZN5arrow8internal7ArgSortIlSt4lessIlEEES5_RKS3_IT_SaISE_EEOT0_EUlllE_EEEvSE_SE_SJ_T1_(ptr nonnull %call5.i.i.i.i2.i.i3, ptr %add.ptr.i.i.i.sink, i64 noundef %mul.i.i, ptr nonnull %cmp, ptr nonnull %values)
           to label %.noexc7 unwind label %eh.resume
 
 .noexc7:                                          ; preds = %if.then.i.i6
-  invoke void @_ZSt22__final_insertion_sortIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal7ArgSortIlSt4lessIlEEES5_RKS3_IT_SaISE_EEOT0_EUlllE_EEEvSE_SE_SJ_(ptr nonnull %call5.i.i.i.i2.i.i3, ptr %__first.addr.0.i.i.i.i.i16, ptr nonnull %cmp, ptr nonnull %values)
+  invoke void @_ZSt22__final_insertion_sortIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal7ArgSortIlSt4lessIlEEES5_RKS3_IT_SaISE_EEOT0_EUlllE_EEEvSE_SE_SJ_(ptr nonnull %call5.i.i.i.i2.i.i3, ptr %add.ptr.i.i.i.sink, ptr nonnull %cmp, ptr nonnull %values)
           to label %nrvo.skipdtor unwind label %eh.resume
 
-nrvo.skipdtor:                                    ; preds = %invoke.cont.thread, %invoke.cont, %.noexc7
+nrvo.skipdtor:                                    ; preds = %invoke.cont.thread, %.noexc7
   ret void
 
 eh.resume:                                        ; preds = %.noexc7, %if.then.i.i6

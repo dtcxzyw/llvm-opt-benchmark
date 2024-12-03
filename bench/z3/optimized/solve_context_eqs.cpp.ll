@@ -4667,7 +4667,7 @@ for.cond.us.preheader:                            ; preds = %while.end
   br label %for.cond.us
 
 for.cond.us:                                      ; preds = %for.cond.us.preheader, %for.inc.us
-  %indvars.iv106 = phi i64 [ 0, %for.cond.us.preheader ], [ %indvars.iv.next107, %for.inc.us ]
+  %indvars.iv104 = phi i64 [ 0, %for.cond.us.preheader ], [ %indvars.iv.next105, %for.inc.us ]
   br i1 %cmp.i24, label %_ZNK6vectorISt5tupleIJbjP4exprjEELb0EjE4sizeEv.exit.us, label %if.end.i.us
 
 if.end.i.us:                                      ; preds = %for.cond.us
@@ -4677,15 +4677,15 @@ if.end.i.us:                                      ; preds = %for.cond.us
 
 _ZNK6vectorISt5tupleIJbjP4exprjEELb0EjE4sizeEv.exit.us: ; preds = %if.end.i.us, %for.cond.us
   %retval.0.i.us = phi i64 [ %14, %if.end.i.us ], [ 0, %for.cond.us ]
-  %cmp17.us.not.not.not = icmp samesign uge i64 %indvars.iv106, %retval.0.i.us
+  %cmp17.us.not.not.not = icmp samesign uge i64 %indvars.iv104, %retval.0.i.us
   br i1 %cmp17.us.not.not.not, label %return, label %for.body.us
 
 for.body.us:                                      ; preds = %_ZNK6vectorISt5tupleIJbjP4exprjEELb0EjE4sizeEv.exit.us
-  %cmp27.us = icmp eq i64 %indvars.iv106, 0
+  %cmp27.us = icmp eq i64 %indvars.iv104, 0
   br i1 %cmp27.us, label %for.inc.us, label %lor.lhs.false.us
 
 lor.lhs.false.us:                                 ; preds = %for.body.us
-  %.sroa.1.0.arrayidx.i27.sroa_idx.us = getelementptr inbounds %"class.std::tuple", ptr %9, i64 %indvars.iv106, i32 0, i32 0, i32 0, i32 1
+  %.sroa.1.0.arrayidx.i27.sroa_idx.us = getelementptr inbounds %"class.std::tuple", ptr %9, i64 %indvars.iv104, i32 0, i32 0, i32 0, i32 1
   %.sroa.1.0.copyload.us = load ptr, ptr %.sroa.1.0.arrayidx.i27.sroa_idx.us, align 8
   %15 = load i32, ptr %.sroa.1.0.copyload.us, align 4
   %cmp.i.i.us = icmp ult i32 %15, %10
@@ -4703,8 +4703,8 @@ _ZNK8obj_markI4expr10bit_vector14default_t2uintIS0_EE9is_markedEPS0_.exit.us: ; 
   br i1 %cmp.i.i.i.not.us, label %for.inc.us, label %if.end34.us
 
 if.end34.us:                                      ; preds = %_ZNK8obj_markI4expr10bit_vector14default_t2uintIS0_EE9is_markedEPS0_.exit.us
-  %cmp1.i32.us.not = icmp eq i64 %indvars.iv106, %12
-  %17 = trunc nuw i64 %indvars.iv106 to i32
+  %cmp1.i32.us.not = icmp eq i64 %indvars.iv104, %12
+  %17 = trunc nuw i64 %indvars.iv104 to i32
   br i1 %cmp1.i32.us.not, label %"_ZZN3euf17solve_context_eqs11is_safe_varEP4exprjS2_RK7svectorISt5tupleIJbjS2_jEEjEENK3$_0clEjj.exit44.us", label %while.body.i37.us
 
 while.body.i37.us:                                ; preds = %if.end34.us, %while.body.i37.us
@@ -4723,7 +4723,7 @@ while.body.i37.us:                                ; preds = %if.end34.us, %while
   br i1 %cmp7.i35.us, label %for.inc.us, label %return
 
 for.inc.us:                                       ; preds = %"_ZZN3euf17solve_context_eqs11is_safe_varEP4exprjS2_RK7svectorISt5tupleIJbjS2_jEEjEENK3$_0clEjj.exit44.us", %_ZNK8obj_markI4expr10bit_vector14default_t2uintIS0_EE9is_markedEPS0_.exit.us, %lor.lhs.false.us, %for.body.us
-  %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
+  %indvars.iv.next105 = add nuw nsw i64 %indvars.iv104, 1
   br label %for.cond.us, !llvm.loop !26
 
 while.end.split:                                  ; preds = %while.end
@@ -4731,8 +4731,8 @@ while.end.split:                                  ; preds = %while.end
 
 while.end.split.split:                            ; preds = %while.end.split
   %19 = load i32, ptr %arrayidx.i25, align 4
-  %cmp1795 = icmp eq i32 %19, 0
-  br i1 %cmp1795, label %return, label %for.body.preheader
+  %cmp1793 = icmp eq i32 %19, 0
+  br i1 %cmp1793, label %return, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %while.end.split.split
   %20 = zext i32 %pi.0 to i64
@@ -4771,36 +4771,35 @@ while.body.i:                                     ; preds = %_ZNK8obj_markI4expr
   %cmp.i31 = icmp ne i64 %indvars.iv, %23
   %cmp2.i = icmp ne i32 %.sroa.0.0.copyload.i, 0
   %24 = and i1 %cmp.i31, %cmp2.i
-  br i1 %24, label %while.body.i, label %"_ZZN3euf17solve_context_eqs11is_safe_varEP4exprjS2_RK7svectorISt5tupleIJbjS2_jEEjEENK3$_0clEjj.exit", !llvm.loop !25
+  br i1 %24, label %while.body.i, label %"_ZZN3euf17solve_context_eqs11is_safe_varEP4exprjS2_RK7svectorISt5tupleIJbjS2_jEEjEENK3$_0clEjj.exit.loopexit", !llvm.loop !25
 
-"_ZZN3euf17solve_context_eqs11is_safe_varEP4exprjS2_RK7svectorISt5tupleIJbjS2_jEEjEENK3$_0clEjj.exit": ; preds = %while.body.i
-  %25 = zext i32 %.sroa.0.0.copyload.i to i64
-  %cmp7.i = icmp eq i64 %indvars.iv, %25
+"_ZZN3euf17solve_context_eqs11is_safe_varEP4exprjS2_RK7svectorISt5tupleIJbjS2_jEEjEENK3$_0clEjj.exit.loopexit": ; preds = %while.body.i
+  %cmp7.i = icmp eq i64 %indvars.iv, %23
   br i1 %cmp7.i, label %for.inc, label %if.end34
 
-if.end34:                                         ; preds = %"_ZZN3euf17solve_context_eqs11is_safe_varEP4exprjS2_RK7svectorISt5tupleIJbjS2_jEEjEENK3$_0clEjj.exit"
+if.end34:                                         ; preds = %"_ZZN3euf17solve_context_eqs11is_safe_varEP4exprjS2_RK7svectorISt5tupleIJbjS2_jEEjEENK3$_0clEjj.exit.loopexit"
   %cmp1.i32 = icmp ne i64 %indvars.iv, %20
   %cmp22.i33 = icmp ne i64 %indvars.iv, 0
-  %26 = and i1 %cmp1.i32, %cmp22.i33
-  %27 = trunc nuw i64 %indvars.iv to i32
-  br i1 %26, label %while.body.i37, label %"_ZZN3euf17solve_context_eqs11is_safe_varEP4exprjS2_RK7svectorISt5tupleIJbjS2_jEEjEENK3$_0clEjj.exit44"
+  %25 = and i1 %cmp1.i32, %cmp22.i33
+  %26 = trunc nuw i64 %indvars.iv to i32
+  br i1 %25, label %while.body.i37, label %"_ZZN3euf17solve_context_eqs11is_safe_varEP4exprjS2_RK7svectorISt5tupleIJbjS2_jEEjEENK3$_0clEjj.exit44"
 
 while.body.i37:                                   ; preds = %if.end34, %while.body.i37
-  %i.addr.03.i38 = phi i32 [ %.sroa.0.0.copyload.i41, %while.body.i37 ], [ %27, %if.end34 ]
+  %i.addr.03.i38 = phi i32 [ %.sroa.0.0.copyload.i41, %while.body.i37 ], [ %26, %if.end34 ]
   %idxprom.i.i39 = zext i32 %i.addr.03.i38 to i64
   %arrayidx.i.i40 = getelementptr inbounds %"class.std::tuple", ptr %9, i64 %idxprom.i.i39
   %.sroa.0.0.copyload.i41 = load i32, ptr %arrayidx.i.i40, align 8
   %cmp.i42 = icmp ne i32 %pi.0, %.sroa.0.0.copyload.i41
   %cmp2.i43 = icmp ne i32 %.sroa.0.0.copyload.i41, 0
-  %28 = and i1 %cmp.i42, %cmp2.i43
-  br i1 %28, label %while.body.i37, label %"_ZZN3euf17solve_context_eqs11is_safe_varEP4exprjS2_RK7svectorISt5tupleIJbjS2_jEEjEENK3$_0clEjj.exit44", !llvm.loop !25
+  %27 = and i1 %cmp.i42, %cmp2.i43
+  br i1 %27, label %while.body.i37, label %"_ZZN3euf17solve_context_eqs11is_safe_varEP4exprjS2_RK7svectorISt5tupleIJbjS2_jEEjEENK3$_0clEjj.exit44", !llvm.loop !25
 
 "_ZZN3euf17solve_context_eqs11is_safe_varEP4exprjS2_RK7svectorISt5tupleIJbjS2_jEEjEENK3$_0clEjj.exit44": ; preds = %while.body.i37, %if.end34
-  %i.addr.0.lcssa.i34 = phi i32 [ %27, %if.end34 ], [ %.sroa.0.0.copyload.i41, %while.body.i37 ]
+  %i.addr.0.lcssa.i34 = phi i32 [ %26, %if.end34 ], [ %.sroa.0.0.copyload.i41, %while.body.i37 ]
   %cmp7.i35 = icmp eq i32 %pi.0, %i.addr.0.lcssa.i34
   br i1 %cmp7.i35, label %for.inc, label %return
 
-for.inc:                                          ; preds = %lor.lhs.false, %"_ZZN3euf17solve_context_eqs11is_safe_varEP4exprjS2_RK7svectorISt5tupleIJbjS2_jEEjEENK3$_0clEjj.exit44", %"_ZZN3euf17solve_context_eqs11is_safe_varEP4exprjS2_RK7svectorISt5tupleIJbjS2_jEEjEENK3$_0clEjj.exit", %for.body, %_ZNK8obj_markI4expr10bit_vector14default_t2uintIS0_EE9is_markedEPS0_.exit
+for.inc:                                          ; preds = %lor.lhs.false, %"_ZZN3euf17solve_context_eqs11is_safe_varEP4exprjS2_RK7svectorISt5tupleIJbjS2_jEEjEENK3$_0clEjj.exit44", %"_ZZN3euf17solve_context_eqs11is_safe_varEP4exprjS2_RK7svectorISt5tupleIJbjS2_jEEjEENK3$_0clEjj.exit.loopexit", %for.body, %_ZNK8obj_markI4expr10bit_vector14default_t2uintIS0_EE9is_markedEPS0_.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !26

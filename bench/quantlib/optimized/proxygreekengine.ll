@@ -1599,19 +1599,14 @@ _ZNSt6vectorIS_IS_IdSaIdEESaIS1_EESaIS3_EE6resizeEm.exit: ; preds = %_ZNKSt6vect
   store ptr %add.ptr37.i, ptr %_M_finish.i.i, align 8, !tbaa !16
   store ptr %add.ptr37.i, ptr %_M_end_of_storage.i, align 8, !tbaa !17
   %sub.ptr.rhs.cast.i39 = ptrtoint ptr %call5.i.i.i.i236 to i64
-  %cmp285.not = icmp eq ptr %3, %4
-  br i1 %cmp285.not, label %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i43, label %for.body.preheader
-
-for.body.preheader:                               ; preds = %_ZNSt6vectorIS_IS_IdSaIdEESaIS1_EESaIS3_EE6resizeEm.exit
   %sub.ptr.div.i41 = sdiv exact i64 %sub.ptr.sub.i, 24
   %umax = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i41, i64 1)
   br label %for.body
 
-_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i43: ; preds = %for.cond.cleanup19, %invoke.cont, %_ZNSt6vectorIS_IS_IdSaIdEESaIS1_EESaIS3_EE6resizeEm.exit
-  %cmp285.not330 = phi i1 [ true, %_ZNSt6vectorIS_IS_IdSaIdEESaIS1_EESaIS3_EE6resizeEm.exit ], [ true, %invoke.cont ], [ false, %for.cond.cleanup19 ]
-  %sub.ptr.rhs.cast.i39329 = phi i64 [ %sub.ptr.rhs.cast.i39, %_ZNSt6vectorIS_IS_IdSaIdEESaIS1_EESaIS3_EE6resizeEm.exit ], [ 0, %invoke.cont ], [ %sub.ptr.rhs.cast.i39, %for.cond.cleanup19 ]
-  %5 = phi ptr [ %add.ptr37.i, %_ZNSt6vectorIS_IS_IdSaIdEESaIS1_EESaIS3_EE6resizeEm.exit ], [ null, %invoke.cont ], [ %add.ptr37.i, %for.cond.cleanup19 ]
-  %6 = phi ptr [ %call5.i.i.i.i236, %_ZNSt6vectorIS_IS_IdSaIdEESaIS1_EESaIS3_EE6resizeEm.exit ], [ null, %invoke.cont ], [ %call5.i.i.i.i236, %for.cond.cleanup19 ]
+_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i43: ; preds = %for.cond.cleanup19, %invoke.cont
+  %sub.ptr.rhs.cast.i39329 = phi i64 [ 0, %invoke.cont ], [ %sub.ptr.rhs.cast.i39, %for.cond.cleanup19 ]
+  %5 = phi ptr [ null, %invoke.cont ], [ %add.ptr37.i, %for.cond.cleanup19 ]
+  %6 = phi ptr [ null, %invoke.cont ], [ %call5.i.i.i.i236, %for.cond.cleanup19 ]
   br i1 %cmp.not.i.i.i.i, label %invoke.cont29, label %if.then.i.i.i.i.i45
 
 if.then.i.i.i.i.i45:                              ; preds = %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i43
@@ -1636,8 +1631,8 @@ lpad4:                                            ; preds = %_ZNKSt6vectorIS_IS_
           cleanup
   br label %ehcleanup99
 
-for.body:                                         ; preds = %for.body.preheader, %for.cond.cleanup19
-  %i.0286 = phi i64 [ %inc, %for.cond.cleanup19 ], [ 0, %for.body.preheader ]
+for.body:                                         ; preds = %_ZNSt6vectorIS_IS_IdSaIdEESaIS1_EESaIS3_EE6resizeEm.exit, %for.cond.cleanup19
+  %i.0286 = phi i64 [ %inc, %for.cond.cleanup19 ], [ 0, %_ZNSt6vectorIS_IS_IdSaIdEESaIS1_EESaIS3_EE6resizeEm.exit ]
   %add.ptr.i60 = getelementptr inbounds nuw %"class.std::vector.43", ptr %call5.i.i.i.i236, i64 %i.0286
   %9 = load ptr, ptr %constrainedEvolvers_, align 8, !tbaa !10
   %add.ptr.i61 = getelementptr inbounds nuw %"class.std::vector.37", ptr %9, i64 %i.0286
@@ -1871,7 +1866,7 @@ if.then.i.i.i:                                    ; preds = %for.cond.cleanup35
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit
 
 _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %for.cond.cleanup35, %if.then.i.i.i
-  br i1 %cmp285.not330, label %invoke.cont.i, label %for.body.i.i.i.i
+  br i1 %cmp.i.not, label %invoke.cont.i, label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit, %_ZSt8_DestroyISt6vectorIS0_IdSaIdEESaIS2_EEEvPT_.exit.i.i.i.i
   %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %_ZSt8_DestroyISt6vectorIS0_IdSaIdEESaIS2_EEEvPT_.exit.i.i.i.i ], [ %6, %_ZNSt6vectorIdSaIdEED2Ev.exit ]
@@ -3861,7 +3856,7 @@ cond.true.i:                                      ; preds = %do.end76
   %call.i = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %44) #22
   br label %for.body.preheader
 
-for.body.preheader:                               ; preds = %do.end76, %cond.true.i
+for.body.preheader:                               ; preds = %cond.true.i, %do.end76
   %cond.i = phi ptr [ %call.i, %cond.true.i ], [ null, %do.end76 ]
   store ptr %cond.i, ptr %agg.result, align 8, !tbaa !22
   %rows_.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
@@ -3870,9 +3865,9 @@ for.body.preheader:                               ; preds = %do.end76, %cond.tru
   store i64 %sub.ptr.div.i.i.i34, ptr %columns_.i, align 8, !tbaa !161
   br label %for.body
 
-for.body:                                         ; preds = %for.body.preheader, %for.inc.loopexit
-  %i.0101 = phi i64 [ %inc, %for.inc.loopexit ], [ 0, %for.body.preheader ]
-  %v1begin.sroa.0.0100 = phi ptr [ %incdec.ptr.i61, %for.inc.loopexit ], [ %v1begin.coerce, %for.body.preheader ]
+for.body:                                         ; preds = %for.body.preheader, %for.inc
+  %i.0101 = phi i64 [ %inc, %for.inc ], [ 0, %for.body.preheader ]
+  %v1begin.sroa.0.0100 = phi ptr [ %incdec.ptr.i61, %for.inc ], [ %v1begin.coerce, %for.body.preheader ]
   %mul.i60 = mul i64 %i.0101, %sub.ptr.div.i.i.i34
   %add.ptr.i = getelementptr inbounds nuw double, ptr %cond.i, i64 %mul.i60
   br label %for.body.i
@@ -3887,15 +3882,15 @@ for.body.i:                                       ; preds = %for.body, %for.body
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.06.i, i64 8
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__result.addr.07.i, i64 8
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i, %v2end.coerce
-  br i1 %cmp.i.not.i, label %for.inc.loopexit, label %for.body.i, !llvm.loop !169
+  br i1 %cmp.i.not.i, label %for.inc, label %for.body.i, !llvm.loop !169
 
-for.inc.loopexit:                                 ; preds = %for.body.i
+for.inc:                                          ; preds = %for.body.i
   %inc = add nuw nsw i64 %i.0101, 1
   %incdec.ptr.i61 = getelementptr inbounds nuw i8, ptr %v1begin.sroa.0.0100, i64 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i61, %v1end.coerce
   br i1 %cmp.i.not, label %nrvo.skipdtor, label %for.body, !llvm.loop !170
 
-nrvo.skipdtor:                                    ; preds = %for.inc.loopexit
+nrvo.skipdtor:                                    ; preds = %for.inc
   ret void
 
 ehcleanup95:                                      ; preds = %ehcleanup72, %ehcleanup29

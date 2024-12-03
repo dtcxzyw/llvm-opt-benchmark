@@ -424,8 +424,6 @@ define internal noundef i64 @_ZN4core4iter6traits8iterator8Iterator10advance_by1
 
 8:                                                ; preds = %4
   %9 = sub i64 %1, %.sroa.01.0
-  %10 = icmp ne i64 %9, 0
-  tail call void @llvm.assume(i1 %10)
   br label %.loopexit
 }
 
@@ -436,27 +434,27 @@ define internal { i32, float } @_ZN4core4iter6traits8iterator8Iterator3nth17hbc2
 3:                                                ; preds = %4, %2
   %.sroa.01.0.i = phi i64 [ 0, %2 ], [ %5, %4 ]
   %exitcond.not.i = icmp eq i64 %.sroa.01.0.i, %1
-  br i1 %exitcond.not.i, label %8, label %4
+  br i1 %exitcond.not.i, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17h1c3dd5d0122da766E.exit.thread, label %4
 
 4:                                                ; preds = %3
   %5 = add i64 %.sroa.01.0.i, 1
   %6 = tail call { i32, float } @"_ZN117_$LT$rodio..source..uniform..UniformSourceIterator$LT$I$C$D$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he3a68353982a0216E"(ptr noalias noundef nonnull align 8 dereferenceable(184) %0)
   %7 = extractvalue { i32, float } %6, 0
   %switch.i = icmp eq i32 %7, 1
-  br i1 %switch.i, label %3, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17h1c3dd5d0122da766E.exit.thread
+  br i1 %switch.i, label %3, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17h1c3dd5d0122da766E.exit
 
-8:                                                ; preds = %3
-  %9 = tail call { i32, float } @"_ZN117_$LT$rodio..source..uniform..UniformSourceIterator$LT$I$C$D$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he3a68353982a0216E"(ptr noalias noundef nonnull align 8 dereferenceable(184) %0)
-  %10 = extractvalue { i32, float } %9, 0
-  %11 = extractvalue { i32, float } %9, 1
-  br label %_ZN4core4iter6traits8iterator8Iterator10advance_by17h1c3dd5d0122da766E.exit.thread
+_ZN4core4iter6traits8iterator8Iterator10advance_by17h1c3dd5d0122da766E.exit.thread: ; preds = %3
+  %8 = tail call { i32, float } @"_ZN117_$LT$rodio..source..uniform..UniformSourceIterator$LT$I$C$D$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he3a68353982a0216E"(ptr noalias noundef nonnull align 8 dereferenceable(184) %0)
+  %9 = extractvalue { i32, float } %8, 0
+  %10 = extractvalue { i32, float } %8, 1
+  br label %_ZN4core4iter6traits8iterator8Iterator10advance_by17h1c3dd5d0122da766E.exit
 
-_ZN4core4iter6traits8iterator8Iterator10advance_by17h1c3dd5d0122da766E.exit.thread: ; preds = %4, %8
-  %.sroa.3.0 = phi float [ %11, %8 ], [ undef, %4 ]
-  %.sroa.0.0 = phi i32 [ %10, %8 ], [ 0, %4 ]
-  %12 = insertvalue { i32, float } poison, i32 %.sroa.0.0, 0
-  %13 = insertvalue { i32, float } %12, float %.sroa.3.0, 1
-  ret { i32, float } %13
+_ZN4core4iter6traits8iterator8Iterator10advance_by17h1c3dd5d0122da766E.exit: ; preds = %4, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h1c3dd5d0122da766E.exit.thread
+  %.sroa.3.0 = phi float [ %10, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h1c3dd5d0122da766E.exit.thread ], [ undef, %4 ]
+  %.sroa.0.0 = phi i32 [ %9, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h1c3dd5d0122da766E.exit.thread ], [ 0, %4 ]
+  %11 = insertvalue { i32, float } poison, i32 %.sroa.0.0, 0
+  %12 = insertvalue { i32, float } %11, float %.sroa.3.0, 1
+  ret { i32, float } %12
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

@@ -7389,17 +7389,17 @@ invoke.cont:                                      ; preds = %lor.lhs.false.i.i
   br i1 %cmp.i.i.i.i, label %nrvo.skipdtor, label %if.end
 
 lpad.loopexit:                                    ; preds = %for.body
-  %lpad.loopexit68 = landingpad { ptr, i32 }
+  %lpad.loopexit66 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp:                           ; preds = %if.end, %if.end11
-  %lpad.loopexit.split-lp69 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp67 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit68, %lpad.loopexit ], [ %lpad.loopexit.split-lp69, %lpad.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit66, %lpad.loopexit ], [ %lpad.loopexit.split-lp67, %lpad.loopexit.split-lp ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #27
   resume { ptr, i32 } %lpad.phi
 
@@ -7459,9 +7459,9 @@ terminate.lpad.i.i.i.i24:                         ; preds = %lor.lhs.false.i.i21
 
 invoke.cont15:                                    ; preds = %lor.lhs.false.i.i21
   %cmp.i.i.i.i26 = icmp slt i32 %call.i.i.i.i23, 0
-  br i1 %cmp.i.i.i.i26, label %nrvo.skipdtor, label %if.end24
+  br i1 %cmp.i.i.i.i26, label %nrvo.skipdtor, label %for.body.lr.ph
 
-if.end24:                                         ; preds = %invoke.cont15
+for.body.lr.ph:                                   ; preds = %invoke.cont15
   %call25 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #27
   %call26 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buffer, i64 noundef 1024, ptr noundef nonnull @.str.61, ptr noundef %call25) #27
   %idx.ext = sext i32 %call26 to i64
@@ -7469,9 +7469,9 @@ if.end24:                                         ; preds = %invoke.cont15
   %sub = sub nsw i64 1024, %idx.ext
   br label %for.body
 
-for.body:                                         ; preds = %if.end24, %invoke.cont39
-  %i.070 = phi i32 [ 0, %if.end24 ], [ %inc, %invoke.cont39 ]
-  %call33 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %add.ptr, i64 noundef %sub, ptr noundef nonnull @.str.62, i32 noundef %i.070) #27
+for.body:                                         ; preds = %for.body.lr.ph, %invoke.cont39
+  %i.069 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %invoke.cont39 ]
+  %call33 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %add.ptr, i64 noundef %sub, ptr noundef nonnull @.str.62, i32 noundef %i.069) #27
   %call36 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull %buffer)
           to label %invoke.cont35 unwind label %lpad.loopexit
 
@@ -7521,10 +7521,8 @@ terminate.lpad.i.i.i.i55:                         ; preds = %lor.lhs.false.i.i52
 
 invoke.cont39:                                    ; preds = %lor.lhs.false.i.i52
   %cmp.i.i.i.i57 = icmp slt i32 %call.i.i.i.i54, 0
-  %inc = add nuw nsw i32 %i.070, 1
-  %cmp.i33.not74 = icmp eq ptr %__y.addr.1.i.i.i45, %add.ptr.i.i.i4
-  %cmp.i33.not = select i1 %cmp.i.i.i.i57, i1 true, i1 %cmp.i33.not74
-  br i1 %cmp.i33.not, label %nrvo.skipdtor, label %for.body, !llvm.loop !80
+  %inc = add nuw nsw i32 %i.069, 1
+  br i1 %cmp.i.i.i.i57, label %nrvo.skipdtor, label %for.body, !llvm.loop !80
 
 nrvo.skipdtor:                                    ; preds = %invoke.cont35, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_iESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS7_.exit.i.i50, %invoke.cont39, %invoke.cont12, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_iESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS7_.exit.i.i19, %if.then, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_iESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS7_.exit.i.i, %invoke.cont, %invoke.cont15
   ret void

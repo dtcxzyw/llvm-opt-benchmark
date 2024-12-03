@@ -293,7 +293,7 @@ _ZN5zxing8ArrayRefIiED2Ev.exit:                   ; preds = %64, %65, %70
   %89 = getelementptr inbounds i8, ptr %85, i64 16
   %90 = sext i32 %87 to i64
   %91 = icmp slt i32 %87, 0
-  br i1 %91, label %.noexc.i, label %.noexc3.i
+  br i1 %91, label %.noexc.i, label %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i
 
 .noexc.i:                                         ; preds = %86
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.4) #14
@@ -302,13 +302,13 @@ _ZN5zxing8ArrayRefIiED2Ev.exit:                   ; preds = %64, %65, %70
 .noexc:                                           ; preds = %.noexc.i
   unreachable
 
-.noexc3.i:                                        ; preds = %86
+_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %86
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %89, i8 0, i64 24, i1 false)
   %92 = shl nuw nsw i64 %90, 2
   %93 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %92) #13
-          to label %_ZN5zxing8ArrayRefIiED2Ev.exit38 unwind label %116
+          to label %.lr.ph57.preheader unwind label %116
 
-_ZN5zxing8ArrayRefIiED2Ev.exit38:                 ; preds = %.noexc3.i
+.lr.ph57.preheader:                               ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i
   store ptr %93, ptr %89, align 8
   %94 = getelementptr inbounds i32, ptr %93, i64 %90
   %95 = getelementptr inbounds i8, ptr %85, i64 32
@@ -318,10 +318,6 @@ _ZN5zxing8ArrayRefIiED2Ev.exit38:                 ; preds = %.noexc3.i
   store ptr %94, ptr %96, align 8
   store ptr %85, ptr %11, align 8
   store i32 1, ptr %88, align 8
-  %.not = icmp eq i32 %44, %22
-  br i1 %.not, label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit, label %.lr.ph57.preheader
-
-.lr.ph57.preheader:                               ; preds = %_ZN5zxing8ArrayRefIiED2Ev.exit38
   %97 = and i64 %indvars.iv, 4294967295
   br label %.lr.ph57
 
@@ -350,7 +346,7 @@ _ZN5zxing8ArrayRefIiED2Ev.exit38:                 ; preds = %.noexc3.i
   %115 = icmp slt i64 %indvars.iv.next60, %114
   br i1 %115, label %.lr.ph57, label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit, !llvm.loop !9
 
-116:                                              ; preds = %.noexc3.i, %.noexc.i
+116:                                              ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i, %.noexc.i
   %117 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %85) #15
@@ -385,7 +381,7 @@ _ZN5zxing8ArrayRefIiEaSERKS1_.exit43:             ; preds = %118, %123, %128
   store ptr %13, ptr %11, align 8
   br label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit
 
-_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit:      ; preds = %.lr.ph57, %_ZN5zxing8ArrayRefIiED2Ev.exit38, %80, %75, %_ZN5zxing8ArrayRefIiED2Ev.exit, %_ZN5zxing8ArrayRefIiEaSERKS1_.exit43, %28
+_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit:      ; preds = %.lr.ph57, %80, %75, %_ZN5zxing8ArrayRefIiED2Ev.exit, %_ZN5zxing8ArrayRefIiEaSERKS1_.exit43, %28
   ret void
 
 132:                                              ; preds = %116, %32, %30

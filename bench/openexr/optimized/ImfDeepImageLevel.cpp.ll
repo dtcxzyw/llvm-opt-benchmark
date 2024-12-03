@@ -942,8 +942,8 @@ entry:
   %_M_left.i.i = getelementptr inbounds i8, ptr %channels, i64 24
   %1 = load ptr, ptr %_M_left.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %channels, i64 8
-  %cmp.i.not22 = icmp eq ptr %1, %add.ptr.i.i
-  br i1 %cmp.i.not22, label %for.end, label %for.body.lr.ph
+  %cmp.i.not21 = icmp eq ptr %1, %add.ptr.i.i
+  br i1 %cmp.i.not21, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
   %_M_parent.i.i.i = getelementptr inbounds i8, ptr %oldToNewNames, i64 16
@@ -951,8 +951,8 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %invoke.cont20
-  %i.sroa.0.023 = phi ptr [ %1, %for.body.lr.ph ], [ %call.i, %invoke.cont20 ]
-  %_M_storage.i.i = getelementptr inbounds i8, ptr %i.sroa.0.023, i64 32
+  %i.sroa.0.022 = phi ptr [ %1, %for.body.lr.ph ], [ %call.i, %invoke.cont20 ]
+  %_M_storage.i.i = getelementptr inbounds i8, ptr %i.sroa.0.022, i64 32
   %2 = load ptr, ptr %_M_parent.i.i.i, align 8
   %cmp.not6.i.i.i = icmp eq ptr %2, null
   br i1 %cmp.not6.i.i.i, label %cond.end, label %while.body.i.i.i
@@ -1008,7 +1008,7 @@ cond.end:                                         ; preds = %invoke.cont, %for.b
           to label %invoke.cont16 unwind label %lpad.loopexit
 
 invoke.cont16:                                    ; preds = %cond.end
-  %second18 = getelementptr inbounds i8, ptr %i.sroa.0.023, i64 64
+  %second18 = getelementptr inbounds i8, ptr %i.sroa.0.022, i64 64
   %7 = load ptr, ptr %second18, align 8
   %call21 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN7Imf_3_216DeepImageChannelESt4lessIS5_ESaISt4pairIKS5_S8_EEEixERSC_(ptr noundef nonnull align 8 dereferenceable(48) %renamedChannels, ptr noundef nonnull align 8 dereferenceable(32) %newName)
           to label %invoke.cont20 unwind label %lpad19
@@ -1016,17 +1016,17 @@ invoke.cont16:                                    ; preds = %cond.end
 invoke.cont20:                                    ; preds = %invoke.cont16
   store ptr %7, ptr %call21, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %newName) #15
-  %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %i.sroa.0.023) #17
+  %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %i.sroa.0.022) #17
   %cmp.i.not = icmp eq ptr %call.i, %add.ptr.i.i
   br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !14
 
 lpad.loopexit:                                    ; preds = %cond.end
-  %lpad.loopexit20 = landingpad { ptr, i32 }
+  %lpad.loopexit19 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad.loopexit.split-lp:                           ; preds = %for.end
-  %lpad.loopexit.split-lp21 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp20 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
@@ -1056,7 +1056,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN7Imf_3_216DeepIm
   ret void
 
 ehcleanup:                                        ; preds = %lpad.loopexit, %lpad.loopexit.split-lp, %lpad19
-  %.pn = phi { ptr, i32 } [ %8, %lpad19 ], [ %lpad.loopexit20, %lpad.loopexit ], [ %lpad.loopexit.split-lp21, %lpad.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %8, %lpad19 ], [ %lpad.loopexit19, %lpad.loopexit ], [ %lpad.loopexit.split-lp20, %lpad.loopexit.split-lp ]
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN7Imf_3_216DeepImageChannelESt4lessIS5_ESaISt4pairIKS5_S8_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %renamedChannels) #15
   resume { ptr, i32 } %.pn
 }
@@ -1235,17 +1235,14 @@ terminate.lpad.i.i.i.i:                           ; preds = %lor.lhs.false.i.i
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN7Imf_3_216DeepImageChannelESt4lessIS5_ESaISt4pairIKS5_S8_EEE4findERSC_.exit: ; preds = %lor.lhs.false.i.i
   %cmp.i.i.i.i = icmp slt i32 %call.i.i.i.i, 0
-  %spec.select.i.i = select i1 %cmp.i.i.i.i, ptr %add.ptr.i.i.i, ptr %__y.addr.1.i.i.i
-  %cmp.i = icmp eq ptr %spec.select.i.i, %add.ptr.i.i.i
-  br i1 %cmp.i, label %if.then, label %if.end
+  br i1 %cmp.i.i.i.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN7Imf_3_216DeepImageChannelEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE14_M_lower_boundEPSt13_Rb_tree_nodeISB_EPSt18_Rb_tree_node_baseRS7_.exit.i.i, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN7Imf_3_216DeepImageChannelESt4lessIS5_ESaISt4pairIKS5_S8_EEE4findERSC_.exit
-  %retval.sroa.0.0.i.i6 = phi ptr [ %spec.select.i.i, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN7Imf_3_216DeepImageChannelESt4lessIS5_ESaISt4pairIKS5_S8_EEE4findERSC_.exit ], [ %add.ptr.i.i.i, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN7Imf_3_216DeepImageChannelEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE14_M_lower_boundEPSt13_Rb_tree_nodeISB_EPSt18_Rb_tree_node_baseRS7_.exit.i.i ], [ %add.ptr.i.i.i, %entry ]
   tail call void @_ZNK7Imf_3_210ImageLevel19throwBadChannelNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(32) %name)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN7Imf_3_216DeepImageChannelESt4lessIS5_ESaISt4pairIKS5_S8_EEE4findERSC_.exit
-  %retval.sroa.0.0.i.i5 = phi ptr [ %retval.sroa.0.0.i.i6, %if.then ], [ %spec.select.i.i, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN7Imf_3_216DeepImageChannelESt4lessIS5_ESaISt4pairIKS5_S8_EEE4findERSC_.exit ]
+  %retval.sroa.0.0.i.i5 = phi ptr [ %add.ptr.i.i.i, %if.then ], [ %__y.addr.1.i.i.i, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN7Imf_3_216DeepImageChannelESt4lessIS5_ESaISt4pairIKS5_S8_EEE4findERSC_.exit ]
   %second = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i5, i64 64
   %5 = load ptr, ptr %second, align 8
   ret ptr %5
@@ -1303,17 +1300,14 @@ terminate.lpad.i.i.i.i:                           ; preds = %lor.lhs.false.i.i
 
 _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN7Imf_3_216DeepImageChannelESt4lessIS5_ESaISt4pairIKS5_S8_EEE4findERSC_.exit: ; preds = %lor.lhs.false.i.i
   %cmp.i.i.i.i = icmp slt i32 %call.i.i.i.i, 0
-  %spec.select.i.i = select i1 %cmp.i.i.i.i, ptr %add.ptr.i.i.i, ptr %__y.addr.1.i.i.i
-  %cmp.i = icmp eq ptr %spec.select.i.i, %add.ptr.i.i.i
-  br i1 %cmp.i, label %if.then, label %if.end
+  br i1 %cmp.i.i.i.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN7Imf_3_216DeepImageChannelEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISB_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i, %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN7Imf_3_216DeepImageChannelESt4lessIS5_ESaISt4pairIKS5_S8_EEE4findERSC_.exit
-  %retval.sroa.0.0.i.i6 = phi ptr [ %spec.select.i.i, %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN7Imf_3_216DeepImageChannelESt4lessIS5_ESaISt4pairIKS5_S8_EEE4findERSC_.exit ], [ %add.ptr.i.i.i, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN7Imf_3_216DeepImageChannelEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISB_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i ], [ %add.ptr.i.i.i, %entry ]
   tail call void @_ZNK7Imf_3_210ImageLevel19throwBadChannelNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(32) %name)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN7Imf_3_216DeepImageChannelESt4lessIS5_ESaISt4pairIKS5_S8_EEE4findERSC_.exit
-  %retval.sroa.0.0.i.i5 = phi ptr [ %retval.sroa.0.0.i.i6, %if.then ], [ %spec.select.i.i, %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN7Imf_3_216DeepImageChannelESt4lessIS5_ESaISt4pairIKS5_S8_EEE4findERSC_.exit ]
+  %retval.sroa.0.0.i.i5 = phi ptr [ %add.ptr.i.i.i, %if.then ], [ %__y.addr.1.i.i.i, %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN7Imf_3_216DeepImageChannelESt4lessIS5_ESaISt4pairIKS5_S8_EEE4findERSC_.exit ]
   %second = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i5, i64 64
   %5 = load ptr, ptr %second, align 8
   ret ptr %5

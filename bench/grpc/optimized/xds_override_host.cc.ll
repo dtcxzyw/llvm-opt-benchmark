@@ -2702,16 +2702,16 @@ invoke.cont3.i:                                   ; preds = %invoke.cont2.i
   %14 = getelementptr inbounds i8, ptr %this, i64 136
   %subchannel_map_.val.i = load ptr, ptr %14, align 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 120
-  %cmp.i.not99.i = icmp eq ptr %subchannel_map_.val.i, %add.ptr.i.i.i
-  br i1 %cmp.i.not99.i, label %for.end.i, label %for.body.lr.ph.i
+  %cmp.i.not98.i = icmp eq ptr %subchannel_map_.val.i, %add.ptr.i.i.i
+  br i1 %cmp.i.not98.i, label %for.end.i, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %invoke.cont3.i
   %_M_node_count.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 152
   br label %for.body.i
 
 for.body.i:                                       ; preds = %if.end33.i, %for.body.lr.ph.i
-  %it.sroa.0.0100.i = phi ptr [ %subchannel_map_.val.i, %for.body.lr.ph.i ], [ %it.sroa.0.1.i, %if.end33.i ]
-  %_M_storage.i.i.i = getelementptr inbounds i8, ptr %it.sroa.0.0100.i, i64 32
+  %it.sroa.0.099.i = phi ptr [ %subchannel_map_.val.i, %for.body.lr.ph.i ], [ %it.sroa.0.1.i, %if.end33.i ]
+  %_M_storage.i.i.i = getelementptr inbounds i8, ptr %it.sroa.0.099.i, i64 32
   %this.val.i.i.i = load ptr, ptr %_M_parent.i.i.i.i.i.i, align 8
   %cmp.not2.i.i.i.i = icmp eq ptr %this.val.i.i.i, null
   br i1 %cmp.not2.i.i.i.i, label %if.then.i, label %while.body.i.i.i.i
@@ -2798,8 +2798,8 @@ terminate.lpad.i.i:                               ; preds = %lpad11.body.i
   unreachable
 
 invoke.cont29.i:                                  ; preds = %if.then20.i, %if.then.i
-  %call.i.i.i.i = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %it.sroa.0.0100.i) #29
-  %call.i1.i.i.i = call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef %it.sroa.0.0100.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i) #25
+  %call.i.i.i.i = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %it.sroa.0.099.i) #29
+  %call.i1.i.i.i = call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef %it.sroa.0.099.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i) #25
   call fastcc void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12_GLOBAL__N_117XdsOverrideHostLb15SubchannelEntryEESt10_Select1stISC_ESt4lessIvESaISC_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISC_E(ptr noundef %call.i1.i.i.i) #25
   %23 = load i64, ptr %_M_node_count.i.i.i.i, align 8
   %dec.i.i.i.i = add i64 %23, -1
@@ -2807,7 +2807,7 @@ invoke.cont29.i:                                  ; preds = %if.then20.i, %if.th
   br label %if.end33.i
 
 if.else.i:                                        ; preds = %invoke.cont12.i
-  %call.i.i7 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %it.sroa.0.0100.i) #29
+  %call.i.i7 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %it.sroa.0.099.i) #29
   br label %if.end33.i
 
 if.end33.i:                                       ; preds = %if.else.i, %invoke.cont29.i
@@ -2817,8 +2817,8 @@ if.end33.i:                                       ; preds = %if.else.i, %invoke.
 
 for.end.i:                                        ; preds = %if.end33.i, %invoke.cont3.i
   %addresses_for_map.val.i = load ptr, ptr %_M_left.i.i.i.i.i.i, align 8
-  %cmp.i24.not101.i = icmp eq ptr %addresses_for_map.val.i, %11
-  br i1 %cmp.i24.not101.i, label %for.end96.i, label %for.body40.lr.ph.i
+  %cmp.i24.not100.i = icmp eq ptr %addresses_for_map.val.i, %11
+  br i1 %cmp.i24.not100.i, label %for.end96.i, label %for.body40.lr.ph.i
 
 for.body40.lr.ph.i:                               ; preds = %for.end.i
   %24 = getelementptr inbounds i8, ptr %this, i64 128
@@ -2826,9 +2826,9 @@ for.body40.lr.ph.i:                               ; preds = %for.end.i
   br label %for.body40.i
 
 for.body40.i:                                     ; preds = %_ZN9grpc_core21RefCountedStringValueD2Ev.exit.i, %for.body40.lr.ph.i
-  %__begin2.sroa.0.0102.i = phi ptr [ %addresses_for_map.val.i, %for.body40.lr.ph.i ], [ %call.i80.i, %_ZN9grpc_core21RefCountedStringValueD2Ev.exit.i ]
-  %_M_storage.i.i25.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.0102.i, i64 32
-  %second.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.0102.i, i64 64
+  %__begin2.sroa.0.0101.i = phi ptr [ %addresses_for_map.val.i, %for.body40.lr.ph.i ], [ %call.i80.i, %_ZN9grpc_core21RefCountedStringValueD2Ev.exit.i ]
+  %_M_storage.i.i25.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.0101.i, i64 32
+  %second.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.0101.i, i64 64
   %this.val.i.i26.i = load ptr, ptr %24, align 8
   %cmp.not2.i.i.i28.i = icmp eq ptr %this.val.i.i26.i, null
   br i1 %cmp.not2.i.i.i28.i, label %if.then53.i, label %while.body.i.i.i29.i
@@ -2874,9 +2874,7 @@ terminate.lpad.i.i.i.i.i42.i:                     ; preds = %lor.lhs.false.i.i39
 
 invoke.cont45.i:                                  ; preds = %lor.lhs.false.i.i39.i
   %cmp.i.i.i.i.i43.i = icmp slt i32 %call.i.i.i.i.i41.i, 0
-  %spec.select.i.i44.i = select i1 %cmp.i.i.i.i.i43.i, ptr %add.ptr.i.i.i, ptr %__y.addr.1.i.i.i33.i
-  %cmp.i47.i = icmp eq ptr %spec.select.i.i44.i, %add.ptr.i.i.i
-  br i1 %cmp.i47.i, label %if.then53.i, label %if.else66.i
+  br i1 %cmp.i.i.i.i.i43.i, label %if.then53.i, label %if.else66.i
 
 if.then53.i:                                      ; preds = %invoke.cont45.i, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12_GLOBAL__N_117XdsOverrideHostLb15SubchannelEntryEESt10_Select1stISC_ESt4lessIvESaISC_EE14_M_lower_boundEPSt13_Rb_tree_nodeISC_EPSt18_Rb_tree_node_baseRS7_.exit.i.i.i, %for.body40.i
   %29 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN9grpc_core31grpc_lb_xds_override_host_traceE, i64 16) monotonic, align 8
@@ -3036,10 +3034,10 @@ invoke.cont71.i:                                  ; preds = %if.then68.i
           to label %if.end74.i unwind label %lpad11.loopexit.i
 
 if.end74.i:                                       ; preds = %invoke.cont71.i, %if.else66.i
-  %second76.i = getelementptr inbounds i8, ptr %spec.select.i.i44.i, i64 64
+  %second76.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i33.i, i64 64
   %agg.tmp77.sroa.0.0.copyload.i = load i32, ptr %second.i, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i)
-  %eds_health_status_.i.i = getelementptr inbounds i8, ptr %spec.select.i.i44.i, i64 80
+  %eds_health_status_.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i33.i, i64 80
   store i32 %agg.tmp77.sroa.0.0.copyload.i, ptr %eds_health_status_.i.i, align 8
   %call.i6269.i = invoke fastcc noundef ptr @_ZNK9grpc_core12_GLOBAL__N_117XdsOverrideHostLb15SubchannelEntry13GetSubchannelEv(ptr noundef nonnull align 8 dereferenceable(32) %second76.i)
           to label %call.i62.noexc.i unwind label %lpad11.loopexit.i
@@ -3098,7 +3096,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i68.i
 if.else.i.i:                                      ; preds = %if.end.i.i
   %refs_.i.i4.i.i = getelementptr inbounds i8, ptr %call.i6269.i, i64 8
   %54 = atomicrmw add ptr %refs_.i.i4.i.i, i64 1 monotonic, align 8, !noalias !25
-  %55 = getelementptr inbounds i8, ptr %spec.select.i.i44.i, i64 72
+  %55 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i33.i, i64 72
   %this.val.i.i64.i = load i8, ptr %55, align 8
   switch i8 %this.val.i.i64.i, label %if.end.i.i.i.i.i.i [
     i8 0, label %invoke.cont.i.i65.i
@@ -3171,14 +3169,14 @@ _ZN9grpc_core12_GLOBAL__N_117XdsOverrideHostLb15SubchannelEntry18SetEdsHealthSta
   br label %if.end81.i
 
 if.end81.i:                                       ; preds = %_ZN9grpc_core12_GLOBAL__N_117XdsOverrideHostLb15SubchannelEntry18SetEdsHealthStatusENS_15XdsHealthStatusE.exit.i, %if.then.i11.i.i.i, %cleanup.thread.i.i.i
-  %it43.sroa.0.0.i = phi ptr [ %spec.select.i.i44.i, %_ZN9grpc_core12_GLOBAL__N_117XdsOverrideHostLb15SubchannelEntry18SetEdsHealthStatusENS_15XdsHealthStatusE.exit.i ], [ %call5.i.i.i.i.i.i.i59.i, %cleanup.thread.i.i.i ], [ %__j.sroa.0.0.i.i.i.i, %if.then.i11.i.i.i ]
+  %it43.sroa.0.0.i = phi ptr [ %__y.addr.1.i.i.i33.i, %_ZN9grpc_core12_GLOBAL__N_117XdsOverrideHostLb15SubchannelEntry18SetEdsHealthStatusENS_15XdsHealthStatusE.exit.i ], [ %call5.i.i.i.i.i.i.i59.i, %cleanup.thread.i.i.i ], [ %__j.sroa.0.0.i.i.i.i, %if.then.i11.i.i.i ]
   %65 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN9grpc_core31grpc_lb_xds_override_host_traceE, i64 16) monotonic, align 8
   %tobool.i.i.i70.i = trunc i8 %65 to i1
   br i1 %tobool.i.i.i70.i, label %invoke.cont85.i, label %if.end88.i
 
 invoke.cont85.i:                                  ; preds = %if.end81.i
   %call84.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i25.i) #25
-  %address_list.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.0102.i, i64 72
+  %address_list.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.0101.i, i64 72
   %66 = load ptr, ptr %address_list.i, align 8
   %cmp.i.i.i = icmp eq ptr %66, null
   %payload_.i.i.i = getelementptr inbounds i8, ptr %66, i64 16
@@ -3187,7 +3185,7 @@ invoke.cont85.i:                                  ; preds = %if.end81.i
           to label %if.end88.i unwind label %lpad11.loopexit.i
 
 if.end88.i:                                       ; preds = %invoke.cont85.i, %if.end81.i
-  %address_list92.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.0102.i, i64 72
+  %address_list92.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.0101.i, i64 72
   %67 = load ptr, ptr %address_list92.i, align 8
   store ptr null, ptr %address_list92.i, align 8
   %address_list_.i.i = getelementptr inbounds i8, ptr %it43.sroa.0.0.i, i64 88
@@ -3213,7 +3211,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i74
   unreachable
 
 _ZN9grpc_core21RefCountedStringValueD2Ev.exit.i:  ; preds = %if.then.i.i.i.i.i74.i, %if.then.i.i.i.i.i, %if.end88.i
-  %call.i80.i = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__begin2.sroa.0.0102.i) #29
+  %call.i80.i = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__begin2.sroa.0.0101.i) #29
   %cmp.i24.not.i = icmp eq ptr %call.i80.i, %11
   br i1 %cmp.i24.not.i, label %for.end96.i, label %for.body40.i
 

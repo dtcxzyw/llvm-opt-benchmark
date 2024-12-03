@@ -8932,7 +8932,7 @@ for.body.lr.ph:                                   ; preds = %_ZSt27__uninitializ
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %invoke.cont45
-  %i.079 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %invoke.cont45 ]
+  %i.077 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %invoke.cont45 ]
   %17 = load ptr, ptr %buffer, align 8
   %add.ptr = getelementptr inbounds i8, ptr %17, i64 %idx.ext
   %18 = load ptr, ptr %_M_finish.i.i, align 8
@@ -8940,7 +8940,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %in
   %sub.ptr.rhs.cast.i41 = ptrtoint ptr %17 to i64
   %19 = add i64 %sub.ptr.rhs.cast.i41, %idx.ext
   %sub = sub i64 %sub.ptr.lhs.cast.i40, %19
-  %call39 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %add.ptr, i64 noundef %sub, ptr noundef nonnull @.str.237, i32 noundef %i.079) #26
+  %call39 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %add.ptr, i64 noundef %sub, ptr noundef nonnull @.str.237, i32 noundef %i.077) #26
   %20 = load ptr, ptr %buffer, align 8
   %call42 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %20)
           to label %invoke.cont41 unwind label %lpad26.loopexit
@@ -8991,10 +8991,8 @@ terminate.lpad.i.i.i.i64:                         ; preds = %lor.lhs.false.i.i61
 
 invoke.cont45:                                    ; preds = %lor.lhs.false.i.i61
   %cmp.i.i.i.i66 = icmp slt i32 %call.i.i.i.i63, 0
-  %inc = add nuw nsw i32 %i.079, 1
-  %cmp.i38.not83 = icmp eq ptr %__y.addr.1.i.i.i54, %add.ptr.i.i.i5
-  %cmp.i38.not = select i1 %cmp.i.i.i.i66, i1 true, i1 %cmp.i38.not83
-  br i1 %cmp.i38.not, label %for.end, label %for.body, !llvm.loop !93
+  %inc = add nuw nsw i32 %i.077, 1
+  br i1 %cmp.i.i.i.i66, label %for.end, label %for.body, !llvm.loop !93
 
 lpad26.loopexit:                                  ; preds = %for.body
   %lpad.loopexit = landingpad { ptr, i32 }
