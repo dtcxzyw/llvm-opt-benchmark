@@ -30,8 +30,8 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @step_wise_throttle(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = alloca i64, align 8
-  %4 = tail call i32 @thermal_zone_trip_id(ptr noundef %0, ptr noundef %1) #8
-  %5 = tail call i32 @get_tz_trend(ptr noundef %0, ptr noundef %1) #8
+  %4 = tail call i32 @thermal_zone_trip_id(ptr noundef %0, ptr noundef %1) #7
+  %5 = tail call i32 @get_tz_trend(ptr noundef %0, ptr noundef %1) #7
   %6 = getelementptr inbounds i8, ptr %0, i64 896
   %7 = load i32, ptr %6, align 8
   %8 = load i32, ptr %1, align 8
@@ -41,21 +41,21 @@ define internal noundef i32 @step_wise_throttle(ptr noundef %0, ptr noundef %1) 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds i8, ptr %1, i64 12
   %12 = load i32, ptr %11, align 4
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_thermal_zone_trip, i64 8), i32 2) #8
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_thermal_zone_trip, i64 8), i32 2) #7
           to label %33 [label %13], !srcloc !6
 
 13:                                               ; preds = %10
-  %14 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #8, !srcloc !7
+  %14 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #7, !srcloc !7
   %15 = zext i32 %14 to i64
-  %16 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @__cpu_online_mask, i64 %15) #8, !srcloc !8
+  %16 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @__cpu_online_mask, i64 %15) #7, !srcloc !8
   %17 = icmp ult i8 %16, 2
   tail call void @llvm.assume(i1 %17)
   %18 = icmp eq i8 %16, 0
   br i1 %18, label %33, label %19
 
 19:                                               ; preds = %13
-  tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #8, !srcloc !9
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !10
+  tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #7, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !10
   %20 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @__tracepoint_thermal_zone_trip, i64 72), align 8
   %21 = icmp eq ptr %20, null
   br i1 %21, label %26, label %22
@@ -63,12 +63,12 @@ define internal noundef i32 @step_wise_throttle(ptr noundef %0, ptr noundef %1) 
 22:                                               ; preds = %19
   %23 = getelementptr inbounds i8, ptr %20, i64 8
   %24 = load ptr, ptr %23, align 8
-  %25 = tail call i32 @__SCT__tp_func_thermal_zone_trip(ptr noundef %24, ptr noundef %0, i32 noundef %4, i32 noundef %12) #8
+  %25 = tail call i32 @__SCT__tp_func_thermal_zone_trip(ptr noundef %24, ptr noundef %0, i32 noundef %4, i32 noundef %12) #7
   br label %26
 
 26:                                               ; preds = %22, %19
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !11
-  %27 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #8, !srcloc !12
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !11
+  %27 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #7, !srcloc !12
   %28 = icmp ult i8 %27, 2
   tail call void @llvm.assume(i1 %28)
   %29 = icmp eq i8 %27, 0
@@ -76,7 +76,7 @@ define internal noundef i32 @step_wise_throttle(ptr noundef %0, ptr noundef %1) 
 
 30:                                               ; preds = %26
   %31 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %32 = tail call i64 asm sideeffect "call __SCT__preempt_schedule_notrace", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %31) #8, !srcloc !14
+  %32 = tail call i64 asm sideeffect "call __SCT__preempt_schedule_notrace", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %31) #7, !srcloc !14
   tail call void @llvm.write_register.i64(metadata !0, i64 %32)
   br label %33
 
@@ -93,25 +93,25 @@ define internal noundef i32 @step_wise_throttle(ptr noundef %0, ptr noundef %1) 
   %41 = getelementptr inbounds i8, ptr %0, i64 908
   br label %42
 
-42:                                               ; preds = %126, %37
-  %43 = phi ptr [ %35, %37 ], [ %127, %126 ]
+42:                                               ; preds = %128, %37
+  %43 = phi ptr [ %35, %37 ], [ %129, %128 ]
   %44 = getelementptr i8, ptr %43, i64 -152
   %45 = load ptr, ptr %44, align 8
   %46 = icmp eq ptr %45, %1
-  br i1 %46, label %47, label %126
+  br i1 %46, label %47, label %128
 
 47:                                               ; preds = %42
   %48 = getelementptr i8, ptr %43, i64 -120
   %49 = load i64, ptr %48, align 8
   %50 = getelementptr i8, ptr %43, i64 -160
   %51 = load ptr, ptr %50, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #7
   store i64 0, ptr %3, align 8, !annotation !15
   %52 = getelementptr inbounds i8, ptr %51, i64 776
   %53 = load ptr, ptr %52, align 8
   %54 = getelementptr inbounds i8, ptr %53, i64 8
   %55 = load ptr, ptr %54, align 8
-  %56 = call i32 %55(ptr noundef %51, ptr noundef nonnull %3) #8
+  %56 = call i32 %55(ptr noundef %51, ptr noundef nonnull %3) #7
   %57 = load i64, ptr %48, align 8
   %58 = getelementptr i8, ptr %43, i64 -144
   %59 = load i8, ptr %58, align 8, !range !16, !noundef !17
@@ -119,7 +119,7 @@ define internal noundef i32 @step_wise_throttle(ptr noundef %0, ptr noundef %1) 
   br i1 %60, label %61, label %72
 
 61:                                               ; preds = %47
-  br i1 %9, label %95, label %62
+  br i1 %9, label %97, label %62
 
 62:                                               ; preds = %61
   %63 = load i64, ptr %3, align 8
@@ -127,19 +127,19 @@ define internal noundef i32 @step_wise_throttle(ptr noundef %0, ptr noundef %1) 
   %65 = getelementptr i8, ptr %43, i64 -136
   %66 = load i64, ptr %65, align 8
   %67 = icmp ult i64 %64, %66
-  br i1 %67, label %68, label %95
+  br i1 %67, label %68, label %97
 
 68:                                               ; preds = %62
   %69 = getelementptr i8, ptr %43, i64 -128
   %70 = load i64, ptr %69, align 8
   %71 = call i64 @llvm.umax.i64(i64 %64, i64 %70)
-  br label %95
+  br label %97
 
 72:                                               ; preds = %47
   br i1 %9, label %84, label %73
 
 73:                                               ; preds = %72
-  br i1 %38, label %74, label %95
+  br i1 %38, label %74, label %97
 
 74:                                               ; preds = %73
   %75 = load i64, ptr %3, align 8
@@ -147,109 +147,111 @@ define internal noundef i32 @step_wise_throttle(ptr noundef %0, ptr noundef %1) 
   %77 = getelementptr i8, ptr %43, i64 -136
   %78 = load i64, ptr %77, align 8
   %79 = icmp ult i64 %76, %78
-  br i1 %79, label %80, label %95
+  br i1 %79, label %80, label %97
 
 80:                                               ; preds = %74
   %81 = getelementptr i8, ptr %43, i64 -128
   %82 = load i64, ptr %81, align 8
   %83 = call i64 @llvm.umax.i64(i64 %76, i64 %82)
-  br label %95
+  br label %97
 
 84:                                               ; preds = %72
-  br i1 %39, label %85, label %95
+  br i1 %39, label %85, label %97
 
 85:                                               ; preds = %84
   %86 = load i64, ptr %3, align 8
   %87 = getelementptr i8, ptr %43, i64 -128
   %88 = load i64, ptr %87, align 8
   %89 = icmp ugt i64 %86, %88
-  br i1 %89, label %90, label %95
+  br i1 %89, label %90, label %97
 
 90:                                               ; preds = %85
   %91 = add i64 %86, -1
   %92 = getelementptr i8, ptr %43, i64 -136
   %93 = load i64, ptr %92, align 8
-  %94 = call i64 @llvm.umin.i64(i64 %91, i64 %93)
-  br label %95
+  %94 = icmp ult i64 %91, %93
+  %95 = call i64 @llvm.umax.i64(i64 %91, i64 %88)
+  %96 = select i1 %94, i64 %95, i64 %93
+  br label %97
 
-95:                                               ; preds = %90, %85, %84, %80, %74, %73, %68, %62, %61
-  %96 = phi i64 [ %71, %68 ], [ %66, %62 ], [ -1, %61 ], [ %57, %73 ], [ %94, %90 ], [ %57, %84 ], [ %83, %80 ], [ %78, %74 ], [ -1, %85 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #8
-  store i64 %96, ptr %48, align 8
-  %97 = load i8, ptr %58, align 8, !range !16, !noundef !17
-  %98 = icmp eq i8 %97, 0
-  br i1 %98, label %103, label %99
+97:                                               ; preds = %90, %85, %84, %80, %74, %73, %68, %62, %61
+  %98 = phi i64 [ %71, %68 ], [ %66, %62 ], [ -1, %61 ], [ %57, %73 ], [ %96, %90 ], [ %57, %84 ], [ %83, %80 ], [ %78, %74 ], [ -1, %85 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #7
+  store i64 %98, ptr %48, align 8
+  %99 = load i8, ptr %58, align 8, !range !16, !noundef !17
+  %100 = icmp eq i8 %99, 0
+  br i1 %100, label %105, label %101
 
-99:                                               ; preds = %95
-  %100 = shl i64 %49, 32
-  %101 = ashr exact i64 %100, 32
-  %102 = icmp eq i64 %101, %96
-  br i1 %102, label %126, label %103
+101:                                              ; preds = %97
+  %102 = shl i64 %49, 32
+  %103 = ashr exact i64 %102, 32
+  %104 = icmp eq i64 %103, %98
+  br i1 %104, label %128, label %105
 
-103:                                              ; preds = %99, %95
-  %104 = and i64 %49, 4294967295
-  %105 = icmp eq i64 %104, 4294967295
-  %106 = icmp eq i64 %96, -1
-  br i1 %105, label %107, label %111
+105:                                              ; preds = %101, %97
+  %106 = and i64 %49, 4294967295
+  %107 = icmp eq i64 %106, 4294967295
+  %108 = icmp eq i64 %98, -1
+  br i1 %107, label %109, label %113
 
-107:                                              ; preds = %103
-  br i1 %106, label %119, label %108
+109:                                              ; preds = %105
+  br i1 %108, label %121, label %110
 
-108:                                              ; preds = %107
-  %109 = load i32, ptr %40, align 4
-  %110 = icmp eq i32 %109, 1
-  br i1 %110, label %115, label %119
+110:                                              ; preds = %109
+  %111 = load i32, ptr %40, align 4
+  %112 = icmp eq i32 %111, 1
+  br i1 %112, label %117, label %121
 
-111:                                              ; preds = %103
-  br i1 %106, label %112, label %119
+113:                                              ; preds = %105
+  br i1 %108, label %114, label %121
 
-112:                                              ; preds = %111
-  %113 = load i32, ptr %40, align 4
-  %114 = icmp eq i32 %113, 1
-  br i1 %114, label %115, label %119
+114:                                              ; preds = %113
+  %115 = load i32, ptr %40, align 4
+  %116 = icmp eq i32 %115, 1
+  br i1 %116, label %117, label %121
 
-115:                                              ; preds = %112, %108
-  %116 = phi i32 [ 1, %108 ], [ -1, %112 ]
-  %117 = load i32, ptr %41, align 4
-  %118 = add i32 %117, %116
-  store i32 %118, ptr %41, align 4
-  br label %119
+117:                                              ; preds = %114, %110
+  %118 = phi i32 [ 1, %110 ], [ -1, %114 ]
+  %119 = load i32, ptr %41, align 4
+  %120 = add i32 %119, %118
+  store i32 %120, ptr %41, align 4
+  br label %121
 
-119:                                              ; preds = %115, %112, %111, %108, %107
+121:                                              ; preds = %117, %114, %113, %110, %109
   store i8 1, ptr %58, align 8
-  %120 = load ptr, ptr %50, align 8
-  %121 = getelementptr inbounds i8, ptr %120, i64 792
-  call void @mutex_lock(ptr noundef %121) #8
   %122 = load ptr, ptr %50, align 8
-  %123 = getelementptr inbounds i8, ptr %122, i64 784
-  store i8 0, ptr %123, align 8
+  %123 = getelementptr inbounds i8, ptr %122, i64 792
+  call void @mutex_lock(ptr noundef %123) #7
   %124 = load ptr, ptr %50, align 8
-  %125 = getelementptr inbounds i8, ptr %124, i64 792
-  call void @mutex_unlock(ptr noundef %125) #8
-  br label %126
+  %125 = getelementptr inbounds i8, ptr %124, i64 784
+  store i8 0, ptr %125, align 8
+  %126 = load ptr, ptr %50, align 8
+  %127 = getelementptr inbounds i8, ptr %126, i64 792
+  call void @mutex_unlock(ptr noundef %127) #7
+  br label %128
 
-126:                                              ; preds = %119, %99, %42
-  %127 = load ptr, ptr %43, align 8
-  %128 = icmp eq ptr %127, %34
-  br i1 %128, label %.loopexit11.loopexit, label %42, !llvm.loop !18
+128:                                              ; preds = %121, %101, %42
+  %129 = load ptr, ptr %43, align 8
+  %130 = icmp eq ptr %129, %34
+  br i1 %130, label %.loopexit11.loopexit, label %42, !llvm.loop !18
 
-.loopexit11.loopexit:                             ; preds = %126
+.loopexit11.loopexit:                             ; preds = %128
   %.pre = load ptr, ptr %34, align 8
   br label %.loopexit11
 
 .loopexit11:                                      ; preds = %.loopexit11.loopexit, %33
-  %129 = phi ptr [ %.pre, %.loopexit11.loopexit ], [ %35, %33 ]
-  %130 = icmp eq ptr %129, %34
-  br i1 %130, label %.loopexit, label %.preheader
+  %131 = phi ptr [ %.pre, %.loopexit11.loopexit ], [ %35, %33 ]
+  %132 = icmp eq ptr %131, %34
+  br i1 %132, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %.loopexit11, %.preheader
-  %131 = phi ptr [ %134, %.preheader ], [ %129, %.loopexit11 ]
-  %132 = getelementptr i8, ptr %131, i64 -160
-  %133 = load ptr, ptr %132, align 8
-  call void @thermal_cdev_update(ptr noundef %133) #8
-  %134 = load ptr, ptr %131, align 8
-  %135 = icmp eq ptr %134, %34
-  br i1 %135, label %.loopexit, label %.preheader, !llvm.loop !21
+  %133 = phi ptr [ %136, %.preheader ], [ %131, %.loopexit11 ]
+  %134 = getelementptr i8, ptr %133, i64 -160
+  %135 = load ptr, ptr %134, align 8
+  call void @thermal_cdev_update(ptr noundef %135) #7
+  %136 = load ptr, ptr %133, align 8
+  %137 = icmp eq ptr %136, %34
+  br i1 %137, label %.loopexit, label %.preheader, !llvm.loop !21
 
 .loopexit:                                        ; preds = %.preheader, %.loopexit11
   ret i32 0
@@ -291,9 +293,6 @@ declare void @llvm.assume(i1 noundef) #5
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #6
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #7
-
 attributes #0 = { fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
@@ -301,8 +300,7 @@ attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memo
 attributes #4 = { nocallback nounwind }
 attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { nounwind }
+attributes #7 = { nounwind }
 
 !llvm.named.register.rsp = !{!0}
 !llvm.module.flags = !{!1, !2, !3, !4, !5}

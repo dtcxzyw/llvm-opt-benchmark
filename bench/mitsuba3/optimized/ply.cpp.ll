@@ -2468,7 +2468,7 @@ _ZNSt3__110unique_ptrIA_fNS_14default_deleteIS1_EEED2B8ne190000Ev.exit759: ; pre
 
 .loopexit.split-lp1151:                           ; preds = %.loopexit1150, %.loopexit.split-lp1151.loopexit.split-lp, %.loopexit.split-lp1151.loopexit, %_ZNSt3__110unique_ptrIA_fNS_14default_deleteIS1_EEED2B8ne190000Ev.exit759
   %.sroa.01033.1 = phi ptr [ %.sroa.01033.0, %_ZNSt3__110unique_ptrIA_fNS_14default_deleteIS1_EEED2B8ne190000Ev.exit759 ], [ %.sroa.01033.0, %.loopexit1150 ], [ %.sroa.01033.2.ph.ph, %.loopexit.split-lp1151.loopexit ], [ %.sroa.01033.0, %.loopexit.split-lp1151.loopexit.split-lp ]
-  %.merged607 = phi { ptr, i32 } [ %.pn593.pn.pn.pn, %_ZNSt3__110unique_ptrIA_fNS_14default_deleteIS1_EEED2B8ne190000Ev.exit759 ], [ %lpad.loopexit1152, %.loopexit1150 ], [ %lpad.loopexit1196, %.loopexit.split-lp1151.loopexit ], [ %lpad.loopexit.split-lp1197, %.loopexit.split-lp1151.loopexit.split-lp ]
+  %.merged604 = phi { ptr, i32 } [ %.pn593.pn.pn.pn, %_ZNSt3__110unique_ptrIA_fNS_14default_deleteIS1_EEED2B8ne190000Ev.exit759 ], [ %lpad.loopexit1152, %.loopexit1150 ], [ %lpad.loopexit1196, %.loopexit.split-lp1151.loopexit ], [ %lpad.loopexit.split-lp1197, %.loopexit.split-lp1151.loopexit.split-lp ]
   %.not.i760 = icmp eq ptr %.sroa.01033.1, null
   br i1 %.not.i760, label %_ZN7mitsuba3refINS_15StructConverterEED2Ev.exit761, label %746
 
@@ -2477,7 +2477,7 @@ _ZNSt3__110unique_ptrIA_fNS_14default_deleteIS1_EEED2B8ne190000Ev.exit759: ; pre
   br label %_ZN7mitsuba3refINS_15StructConverterEED2Ev.exit761
 
 _ZN7mitsuba3refINS_15StructConverterEED2Ev.exit761: ; preds = %483, %540, %746, %.loopexit.split-lp1151, %_ZN7mitsuba3refINS_6StructEED2Ev.exit705, %471
-  %.merged606 = phi { ptr, i32 } [ %472, %471 ], [ %474, %_ZN7mitsuba3refINS_6StructEED2Ev.exit705 ], [ %.merged607, %.loopexit.split-lp1151 ], [ %.merged607, %746 ], [ %541, %540 ], [ %.pn588, %483 ]
+  %.merged603 = phi { ptr, i32 } [ %472, %471 ], [ %474, %_ZN7mitsuba3refINS_6StructEED2Ev.exit705 ], [ %.merged604, %.loopexit.split-lp1151 ], [ %.merged604, %746 ], [ %541, %540 ], [ %.pn588, %483 ]
   %747 = load ptr, ptr %52, align 8
   %.not.i.i762 = icmp eq ptr %747, null
   br i1 %.not.i.i762, label %_ZNSt3__16vectorIN7mitsuba7PLYMeshIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEE22PLYAttributeDescriptorENS_9allocatorIS9_EEED2B8ne190000Ev.exit772, label %748
@@ -3248,7 +3248,7 @@ _ZNSt3__110unique_ptrIA_jNS_14default_deleteIS1_EEED2B8ne190000Ev.exit878: ; pre
 
 991:                                              ; preds = %.loopexit1177, %.loopexit.split-lp1178, %_ZNSt3__110unique_ptrIA_jNS_14default_deleteIS1_EEED2B8ne190000Ev.exit878
   %.sroa.0984.1 = phi ptr [ %.sroa.0984.0, %_ZNSt3__110unique_ptrIA_jNS_14default_deleteIS1_EEED2B8ne190000Ev.exit878 ], [ %.sroa.0984.0, %.loopexit1177 ], [ %.sroa.0984.2.ph, %.loopexit.split-lp1178 ]
-  %.merged605 = phi { ptr, i32 } [ %.pn571.pn, %_ZNSt3__110unique_ptrIA_jNS_14default_deleteIS1_EEED2B8ne190000Ev.exit878 ], [ %lpad.loopexit1179, %.loopexit1177 ], [ %lpad.loopexit.split-lp1180, %.loopexit.split-lp1178 ]
+  %.merged607 = phi { ptr, i32 } [ %.pn571.pn, %_ZNSt3__110unique_ptrIA_jNS_14default_deleteIS1_EEED2B8ne190000Ev.exit878 ], [ %lpad.loopexit1179, %.loopexit1177 ], [ %lpad.loopexit.split-lp1180, %.loopexit.split-lp1178 ]
   %.not.i879 = icmp eq ptr %.sroa.0984.1, null
   br i1 %.not.i879, label %_ZN7mitsuba3refINS_15StructConverterEED2Ev.exit880, label %992
 
@@ -3257,13 +3257,13 @@ _ZNSt3__110unique_ptrIA_jNS_14default_deleteIS1_EEED2B8ne190000Ev.exit878: ; pre
   br label %_ZN7mitsuba3refINS_15StructConverterEED2Ev.exit880
 
 _ZN7mitsuba3refINS_15StructConverterEED2Ev.exit880: ; preds = %850, %887, %992, %991, %_ZN7mitsuba3refINS_6StructEED2Ev.exit831, %838
-  %.merged604 = phi { ptr, i32 } [ %839, %838 ], [ %841, %_ZN7mitsuba3refINS_6StructEED2Ev.exit831 ], [ %.merged605, %991 ], [ %.merged605, %992 ], [ %888, %887 ], [ %.pn567, %850 ]
+  %.merged606 = phi { ptr, i32 } [ %839, %838 ], [ %841, %_ZN7mitsuba3refINS_6StructEED2Ev.exit831 ], [ %.merged607, %991 ], [ %.merged607, %992 ], [ %888, %887 ], [ %.pn567, %850 ]
   call void @_ZNSt3__16vectorIN7mitsuba7PLYMeshIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEE22PLYAttributeDescriptorENS_9allocatorIS9_EEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %63) #24
   call void @_ZNSt3__113unordered_setINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_4hashIS6_EENS_8equal_toIS6_EENS4_IS6_EEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(40) %61) #24
   br label %.body793
 
 .body793:                                         ; preds = %830, %834, %.loopexit1182, %.loopexit.split-lp1183.loopexit.split-lp, %.loopexit.split-lp1183.loopexit, %.thread1122, %789, %_ZN7mitsuba3refINS_15StructConverterEED2Ev.exit880, %798, %782, %774
-  %.merged603 = phi { ptr, i32 } [ %799, %798 ], [ %.merged604, %_ZN7mitsuba3refINS_15StructConverterEED2Ev.exit880 ], [ %783, %782 ], [ %775, %774 ], [ %790, %789 ], [ %801, %.thread1122 ], [ %lpad.loopexit1184, %.loopexit1182 ], [ %lpad.loopexit1190, %.loopexit.split-lp1183.loopexit ], [ %lpad.loopexit.split-lp1191, %.loopexit.split-lp1183.loopexit.split-lp ], [ %803, %834 ], [ %829, %830 ]
+  %.merged605 = phi { ptr, i32 } [ %799, %798 ], [ %.merged606, %_ZN7mitsuba3refINS_15StructConverterEED2Ev.exit880 ], [ %783, %782 ], [ %775, %774 ], [ %790, %789 ], [ %801, %.thread1122 ], [ %lpad.loopexit1184, %.loopexit1182 ], [ %lpad.loopexit1190, %.loopexit.split-lp1183.loopexit ], [ %lpad.loopexit.split-lp1191, %.loopexit.split-lp1183.loopexit.split-lp ], [ %803, %834 ], [ %829, %830 ]
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %56) #24
   br label %_ZN7mitsuba3refINS_6StructEED2Ev.exit922
 
@@ -3644,7 +3644,7 @@ _ZN7mitsuba10filesystem4pathD2Ev.exit920:         ; preds = %_ZN7mitsuba3refINS_
   ret void
 
 _ZN7mitsuba3refINS_6StructEED2Ev.exit922:         ; preds = %463, %467, %.loopexit1155, %.loopexit.split-lp1156.loopexit.split-lp.loopexit, %.loopexit.split-lp1156.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp1156.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp1156.loopexit, %760, %_ZNSt3__112__hash_tableINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_4hashIS6_EENS_8equal_toIS6_EENS4_IS6_EEE17__deallocate_nodeEPNS_16__hash_node_baseIPNS_11__hash_nodeIS6_PvEEEE.exit.i.i777, %.thread1113, %1041, %1005, %1113, %1110, %.body793, %432, %431, %411, %409, %408, %385, %383, %382, %360, %346, %324, %315
-  %.merged602 = phi { ptr, i32 } [ %316, %315 ], [ %433, %432 ], [ %.pn585, %431 ], [ %386, %385 ], [ %384, %383 ], [ %412, %411 ], [ %410, %409 ], [ %.pn583, %408 ], [ %.pn581, %382 ], [ %.pn579, %360 ], [ %325, %324 ], [ %.pn576.pn, %346 ], [ %.merged603, %.body793 ], [ %1114, %1113 ], [ %.pn563, %1110 ], [ %1006, %1005 ], [ %1042, %1041 ], [ %434, %.thread1113 ], [ %.merged606, %_ZNSt3__112__hash_tableINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_4hashIS6_EENS_8equal_toIS6_EENS4_IS6_EEE17__deallocate_nodeEPNS_16__hash_node_baseIPNS_11__hash_nodeIS6_PvEEEE.exit.i.i777 ], [ %.merged606, %760 ], [ %lpad.loopexit1157, %.loopexit1155 ], [ %lpad.loopexit1161, %.loopexit.split-lp1156.loopexit ], [ %lpad.loopexit1165, %.loopexit.split-lp1156.loopexit.split-lp.loopexit ], [ %lpad.loopexit1187, %.loopexit.split-lp1156.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp1188, %.loopexit.split-lp1156.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %436, %467 ], [ %462, %463 ]
+  %.merged602 = phi { ptr, i32 } [ %316, %315 ], [ %433, %432 ], [ %.pn585, %431 ], [ %386, %385 ], [ %384, %383 ], [ %412, %411 ], [ %410, %409 ], [ %.pn583, %408 ], [ %.pn581, %382 ], [ %.pn579, %360 ], [ %325, %324 ], [ %.pn576.pn, %346 ], [ %.merged605, %.body793 ], [ %1114, %1113 ], [ %.pn563, %1110 ], [ %1006, %1005 ], [ %1042, %1041 ], [ %434, %.thread1113 ], [ %.merged603, %_ZNSt3__112__hash_tableINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_4hashIS6_EENS_8equal_toIS6_EENS4_IS6_EEE17__deallocate_nodeEPNS_16__hash_node_baseIPNS_11__hash_nodeIS6_PvEEEE.exit.i.i777 ], [ %.merged603, %760 ], [ %lpad.loopexit1157, %.loopexit1155 ], [ %lpad.loopexit1161, %.loopexit.split-lp1156.loopexit ], [ %lpad.loopexit1165, %.loopexit.split-lp1156.loopexit.split-lp.loopexit ], [ %lpad.loopexit1187, %.loopexit.split-lp1156.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp1188, %.loopexit.split-lp1156.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %436, %467 ], [ %462, %463 ]
   call void @_ZNK7mitsuba6Object7dec_refEb(ptr noundef nonnull align 8 dereferenceable(12) %232, i1 noundef zeroext true) #24
   br label %_ZN7mitsuba3refINS_6StructEED2Ev.exit924
 

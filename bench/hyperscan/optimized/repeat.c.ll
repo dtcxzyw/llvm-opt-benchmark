@@ -2211,8 +2211,10 @@ if.end7.i:                                        ; preds = %do.end43
   %spec.select274.i = sub nuw i32 %add10.i, %sub14.i
   %cmp16.i = icmp ult i32 %spec.select.i, %spec.select274.i
   %cond.i = select i1 %cmp16.i, i32 %spec.select274.i, i32 %add.i
+  %tobool.i36.not.i = icmp eq i32 %add.i, 0
   %cmp.i39.i = icmp eq i32 %cond.i, %spec.select.i
-  br i1 %cmp.i39.i, label %if.end22.i, label %if.end.i40.i
+  %or.cond.i = select i1 %tobool.i36.not.i, i1 true, i1 %cmp.i39.i
+  br i1 %or.cond.i, label %if.end22.i, label %if.end.i40.i
 
 if.end.i40.i:                                     ; preds = %if.end7.i
   %cmp.i50.i = icmp ult i32 %add.i, 257
@@ -2223,7 +2225,7 @@ if.then2.i46.i:                                   ; preds = %if.end.i40.i
   br i1 %cmp.i58.i, label %if.then.i60.i, label %if.end5.i59.i
 
 if.then.i60.i:                                    ; preds = %if.then2.i46.i
-  %add.i292.i = add nsw i32 %info.val, 8
+  %add.i292.i = add nuw nsw i32 %info.val, 8
   %div.i294261.i = lshr i32 %add.i292.i, 3
   switch i32 %div.i294261.i, label %sw.default.i309.i [
     i32 1, label %sw.bb.i307.i
@@ -2499,7 +2501,8 @@ if.end5.i45.i:                                    ; preds = %if.then.i157.i, %if
 
 if.end22.i:                                       ; preds = %if.else.i155.i, %if.end5.i45.i, %get_flat_masks.exit520.i, %for.end.i.i, %if.end.i437.i, %if.end7.i
   %cmp.i.i39 = icmp eq i32 %add10.i, %sub14.i
-  %or.cond278.i = or i1 %cmp16.i, %cmp.i.i39
+  %or.cond276.i = select i1 %tobool.i36.not.i, i1 true, i1 %cmp.i.i39
+  %or.cond278.i = or i1 %cmp16.i, %or.cond276.i
   br i1 %or.cond278.i, label %ringHasMatch.exit.thread45, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.end22.i
@@ -2511,7 +2514,7 @@ if.then2.i.i:                                     ; preds = %if.end.i.i
   br i1 %cmp.i79.i, label %if.then.i125.i, label %if.end5.i80.i
 
 if.then.i125.i:                                   ; preds = %if.then2.i.i
-  %add.i238.i = add nsw i32 %info.val, 8
+  %add.i238.i = add nuw nsw i32 %info.val, 8
   %div.i240270.i = lshr i32 %add.i238.i, 3
   switch i32 %div.i240270.i, label %sw.default.i.i [
     i32 1, label %sw.bb.i.i

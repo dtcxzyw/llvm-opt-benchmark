@@ -1702,21 +1702,18 @@ define dso_local noundef zeroext i1 @_Z19equal_variable_setsRKSt6vectorIPK8Varia
 
 .lr.ph:                                           ; preds = %.preheader
   %.not.i = icmp eq ptr %11, %12
-  br i1 %.not.i, label %_Z18is_variable_in_setRKSt6vectorIPK8VariableSaIS2_EES2_.exit.thread, label %.lr.ph.preheader.i.preheader
+  %umax.i = tail call i64 @llvm.umax.i64(i64 %9, i64 1)
+  br i1 %.not.i, label %_Z18is_variable_in_setRKSt6vectorIPK8VariableSaIS2_EES2_.exit.thread, label %.lr.ph.preheader.i
 
-.lr.ph.preheader.i.preheader:                     ; preds = %.lr.ph
-  %umax = tail call i64 @llvm.umax.i64(i64 %9, i64 1)
-  br label %.lr.ph.preheader.i
-
-.lr.ph.preheader.i:                               ; preds = %.lr.ph.preheader.i.preheader, %_Z18is_variable_in_setRKSt6vectorIPK8VariableSaIS2_EES2_.exit
-  %.011 = phi i64 [ %24, %_Z18is_variable_in_setRKSt6vectorIPK8VariableSaIS2_EES2_.exit ], [ 0, %.lr.ph.preheader.i.preheader ]
+.lr.ph.preheader.i:                               ; preds = %.lr.ph, %_Z18is_variable_in_setRKSt6vectorIPK8VariableSaIS2_EES2_.exit
+  %.011 = phi i64 [ %24, %_Z18is_variable_in_setRKSt6vectorIPK8VariableSaIS2_EES2_.exit ], [ 0, %.lr.ph ]
   %17 = getelementptr inbounds ptr, ptr %5, i64 %.011
   %18 = load ptr, ptr %17, align 8
   br label %.lr.ph.i
 
 19:                                               ; preds = %.lr.ph.i
   %20 = add nuw i64 %.07.i, 1
-  %exitcond.not.i = icmp eq i64 %20, %9
+  %exitcond.not.i = icmp eq i64 %20, %umax.i
   br i1 %exitcond.not.i, label %_Z18is_variable_in_setRKSt6vectorIPK8VariableSaIS2_EES2_.exit.thread, label %.lr.ph.i, !llvm.loop !12
 
 .lr.ph.i:                                         ; preds = %19, %.lr.ph.preheader.i
@@ -1728,7 +1725,7 @@ define dso_local noundef zeroext i1 @_Z19equal_variable_setsRKSt6vectorIPK8Varia
 
 _Z18is_variable_in_setRKSt6vectorIPK8VariableSaIS2_EES2_.exit: ; preds = %.lr.ph.i
   %24 = add nuw i64 %.011, 1
-  %exitcond.not = icmp eq i64 %24, %umax
+  %exitcond.not = icmp eq i64 %24, %umax.i
   br i1 %exitcond.not, label %_Z18is_variable_in_setRKSt6vectorIPK8VariableSaIS2_EES2_.exit.thread, label %.lr.ph.preheader.i, !llvm.loop !14
 
 _Z18is_variable_in_setRKSt6vectorIPK8VariableSaIS2_EES2_.exit.thread: ; preds = %_Z18is_variable_in_setRKSt6vectorIPK8VariableSaIS2_EES2_.exit, %19, %.preheader, %.lr.ph, %2
@@ -1761,6 +1758,7 @@ define dso_local noundef zeroext i1 @_Z17sub_variable_setsRKSt6vectorIPK8Variabl
 
 .lr.ph:                                           ; preds = %.preheader
   %.not.i = icmp eq ptr %11, %12
+  %umax.i = tail call i64 @llvm.umax.i64(i64 %16, i64 1)
   br i1 %.not.i, label %_Z18is_variable_in_setRKSt6vectorIPK8VariableSaIS2_EES2_.exit.thread, label %.lr.ph.preheader.i.preheader
 
 .lr.ph.preheader.i.preheader:                     ; preds = %.lr.ph
@@ -1775,7 +1773,7 @@ define dso_local noundef zeroext i1 @_Z17sub_variable_setsRKSt6vectorIPK8Variabl
 
 19:                                               ; preds = %.lr.ph.i
   %20 = add nuw i64 %.07.i, 1
-  %exitcond.not.i = icmp eq i64 %20, %16
+  %exitcond.not.i = icmp eq i64 %20, %umax.i
   br i1 %exitcond.not.i, label %_Z18is_variable_in_setRKSt6vectorIPK8VariableSaIS2_EES2_.exit.thread, label %.lr.ph.i, !llvm.loop !12
 
 .lr.ph.i:                                         ; preds = %19, %.lr.ph.preheader.i

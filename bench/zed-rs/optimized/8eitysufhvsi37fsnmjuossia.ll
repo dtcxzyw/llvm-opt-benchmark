@@ -8445,9 +8445,10 @@ define hidden void @"_ZN3vte4ansi18Processor$LT$T$GT$16advance_sync_csi17h91d2b6
 
 27:                                               ; preds = %15
   tail call void @llvm.experimental.noalias.scope.decl(metadata !724)
-  br label %.lr.ph.i
+  %.not.i = icmp eq i64 %5, 0
+  br i1 %.not.i, label %"_ZN3vte4ansi18Processor$LT$T$GT$9stop_sync17h998f858f0d38185fE.exit", label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %27, %26
+.lr.ph.i:                                         ; preds = %26, %27
   %28 = getelementptr inbounds i8, ptr %0, i64 8
   %29 = getelementptr inbounds i8, ptr %3, i64 8
   %30 = getelementptr inbounds i8, ptr %0, i64 48
@@ -8476,7 +8477,7 @@ define hidden void @"_ZN3vte4ansi18Processor$LT$T$GT$16advance_sync_csi17h91d2b6
   call void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %.sroa.01.04.i, i64 noundef %32, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e3cc8027431ef4e63f1cd1d874429458.85.llvm.16596252480382604378) #24
   unreachable
 
-"_ZN3vte4ansi18Processor$LT$T$GT$9stop_sync17h998f858f0d38185fE.exit": ; preds = %34
+"_ZN3vte4ansi18Processor$LT$T$GT$9stop_sync17h998f858f0d38185fE.exit": ; preds = %34, %27
   call void @"_ZN78_$LT$alacritty_terminal..term..Term$LT$T$GT$$u20$as$u20$vte..ansi..Handler$GT$18unset_private_mode17hf038456de6f0e718E.llvm.16596252480382604378"(ptr noalias noundef nonnull align 8 dereferenceable(1736) %1, i16 noundef 0, i16 noundef 2026)
   store i64 0, ptr %4, align 8, !alias.scope !724, !noalias !727
   br label %.sink.split
