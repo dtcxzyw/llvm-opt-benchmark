@@ -7197,7 +7197,7 @@ _ZSt13__lower_boundIPKccN9__gnu_cxx5__ops14_Iter_less_valEET_S5_S5_RKT0_T1_.exit
   br i1 %.not.i.i.us, label %.critedge, label %_ZNK5boost9algorithm6detail10is_any_ofFIcEclIcEEbT_.exit.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph
-  %.not.i.i = icmp eq i64 %33, 0
+  %.not.i.i = icmp samesign eq i64 %33, 0
   br i1 %.not.i.i, label %.critedge, label %.lr.ph.split.split
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
@@ -8663,7 +8663,7 @@ define linkonce_odr hidden void @_ZN5boost9algorithm6detail10is_any_ofFIcEC2INS_
 _ZSt4copyIPKcPcET0_T_S4_S3_.exit:                 ; preds = %13, %16
   %20 = phi i64 [ %9, %13 ], [ %.pre10, %16 ]
   %21 = getelementptr inbounds nuw i8, ptr %.0, i64 %20
-  %.not.i.i = icmp eq i64 %20, 0
+  %.not.i.i = icmp samesign eq i64 %20, 0
   br i1 %.not.i.i, label %_ZSt4sortIPcEvT_S1_.exit, label %22
 
 22:                                               ; preds = %_ZSt4copyIPKcPcET0_T_S4_S3_.exit
@@ -9176,7 +9176,7 @@ define linkonce_odr hidden void @_ZN5boost9algorithm7trim_ifINSt7__cxx1112basic_
   store i16 %16, ptr %3, align 8, !tbaa !54
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @_ZNSt6localeC1ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 8 dereferenceable(8) %11) #32
-  %.not6.i.i = icmp eq i64 %14, 0
+  %.not6.i.i = icmp samesign eq i64 %14, 0
   br i1 %.not6.i.i, label %_ZN5boost9algorithm6detail10trim_beginIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_14is_classifiedFEEET_SE_SE_T0_.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %9, %27
@@ -10563,7 +10563,7 @@ _ZSt13__lower_boundIPKccN9__gnu_cxx5__ops14_Iter_less_valEET_S5_S5_RKT0_T1_.exit
   br i1 %.not.i.i.us, label %.critedge, label %_ZNK5boost9algorithm6detail10is_any_ofFIcEclIcEEbT_.exit.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph
-  %.not.i.i = icmp eq i64 %33, 0
+  %.not.i.i = icmp samesign eq i64 %33, 0
   br i1 %.not.i.i, label %.critedge, label %.lr.ph.split.split
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
@@ -17028,7 +17028,7 @@ _ZNSt8__detail9_CompilerINSt7__cxx1112regex_traitsIcEEE14_M_match_tokenENS_12_Sc
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %77 = load i64, ptr %76, align 8, !tbaa !13
   %78 = getelementptr inbounds nuw i8, ptr %75, i64 %77
-  %.not12.i = icmp eq i64 %77, 0
+  %.not12.i = icmp samesign eq i64 %77, 0
   br i1 %.not12.i, label %_ZNSt8__detail9_CompilerINSt7__cxx1112regex_traitsIcEEE16_M_cur_int_valueEi.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %71
@@ -18151,7 +18151,7 @@ _ZNSt8__detail9_CompilerINSt7__cxx1112regex_traitsIcEEE6_M_popEv.exit44: ; preds
   %300 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %301 = load i64, ptr %300, align 8, !tbaa !13
   %302 = getelementptr inbounds nuw i8, ptr %299, i64 %301
-  %.not12.i = icmp eq i64 %301, 0
+  %.not12.i = icmp samesign eq i64 %301, 0
   br i1 %.not12.i, label %_ZNSt8__detail9_CompilerINSt7__cxx1112regex_traitsIcEEE16_M_cur_int_valueEi.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNSt8__detail9_CompilerINSt7__cxx1112regex_traitsIcEEE6_M_popEv.exit44
@@ -19822,7 +19822,7 @@ define linkonce_odr noundef zeroext i1 @_ZNSt8__detail9_CompilerINSt7__cxx1112re
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %23 = load i64, ptr %22, align 8, !tbaa !13
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 %23
-  %.not12.i = icmp eq i64 %23, 0
+  %.not12.i = icmp samesign eq i64 %23, 0
   br i1 %.not12.i, label %_ZNSt8__detail9_CompilerINSt7__cxx1112regex_traitsIcEEE16_M_cur_int_valueEi.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %20
@@ -19907,7 +19907,7 @@ _ZNSt8__detail9_CompilerINSt7__cxx1112regex_traitsIcEEE16_M_cur_int_valueEi.exit
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %61 = load i64, ptr %60, align 8, !tbaa !13
   %62 = getelementptr inbounds nuw i8, ptr %59, i64 %61
-  %.not12.i2 = icmp eq i64 %61, 0
+  %.not12.i2 = icmp samesign eq i64 %61, 0
   br i1 %.not12.i2, label %_ZNSt8__detail9_CompilerINSt7__cxx1112regex_traitsIcEEE16_M_cur_int_valueEi.exit8, label %.lr.ph.i3
 
 .lr.ph.i3:                                        ; preds = %58
@@ -20558,7 +20558,7 @@ define linkonce_odr noundef i32 @_ZNSt8__detail9_CompilerINSt7__cxx1112regex_tra
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %6 = load i64, ptr %5, align 8, !tbaa !13
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 %6
-  %.not12 = icmp eq i64 %6, 0
+  %.not12 = icmp samesign eq i64 %6, 0
   br i1 %.not12, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
