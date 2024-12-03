@@ -25945,12 +25945,12 @@ terminate.lpad.i149:                              ; preds = %if.then.i147
   unreachable
 
 ehcleanup133:                                     ; preds = %lpad50.loopexit, %lpad50.loopexit.split-lp, %lpad126, %ehcleanup, %catch.fallthrough, %lpad63
-  %.merged29 = phi { ptr, i32 } [ %lpad.phi, %lpad63 ], [ %86, %lpad126 ], [ %.pn, %ehcleanup ], [ %75, %catch.fallthrough ], [ %lpad.loopexit230, %lpad50.loopexit ], [ %lpad.loopexit.split-lp231, %lpad50.loopexit.split-lp ]
+  %.merged25 = phi { ptr, i32 } [ %lpad.phi, %lpad63 ], [ %86, %lpad126 ], [ %.pn, %ehcleanup ], [ %75, %catch.fallthrough ], [ %lpad.loopexit230, %lpad50.loopexit ], [ %lpad.loopexit.split-lp231, %lpad50.loopexit.split-lp ]
   call void @_ZN10ref_vectorI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %asms) #28
   br label %ehcleanup134
 
 ehcleanup134:                                     ; preds = %ehcleanup133, %lpad46
-  %.merged28 = phi { ptr, i32 } [ %.merged29, %ehcleanup133 ], [ %51, %lpad46 ]
+  %.merged24 = phi { ptr, i32 } [ %.merged25, %ehcleanup133 ], [ %51, %lpad46 ]
   invoke void @_ZN8reslimit3popEv(ptr noundef nonnull align 8 dereferenceable(40) %call42)
           to label %ehcleanup135 unwind label %terminate.lpad.i150
 
@@ -25962,17 +25962,17 @@ terminate.lpad.i150:                              ; preds = %ehcleanup134
   unreachable
 
 ehcleanup135:                                     ; preds = %ehcleanup134, %lpad40
-  %.merged27 = phi { ptr, i32 } [ %50, %lpad40 ], [ %.merged28, %ehcleanup134 ]
+  %.merged23 = phi { ptr, i32 } [ %50, %lpad40 ], [ %.merged24, %ehcleanup134 ]
   call void @_ZN12scoped_timerD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %timer) #28
   br label %ehcleanup136
 
 ehcleanup136:                                     ; preds = %ehcleanup135, %lpad38
-  %.merged26 = phi { ptr, i32 } [ %.merged27, %ehcleanup135 ], [ %49, %lpad38 ]
+  %.merged22 = phi { ptr, i32 } [ %.merged23, %ehcleanup135 ], [ %49, %lpad38 ]
   call void @_ZN13scoped_ctrl_cD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ctrlc) #28
   br label %ehcleanup137
 
 ehcleanup137:                                     ; preds = %ehcleanup136, %lpad36
-  %.merged25 = phi { ptr, i32 } [ %.merged26, %ehcleanup136 ], [ %48, %lpad36 ]
+  %.merged = phi { ptr, i32 } [ %.merged22, %ehcleanup136 ], [ %48, %lpad36 ]
   call void @_ZN9cancel_ehI8reslimitED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %eh) #28
   br label %ehcleanup272
 
@@ -26198,7 +26198,7 @@ terminate.lpad.i185:                              ; preds = %if.then.i183
   unreachable
 
 ehcleanup238:                                     ; preds = %lpad229, %lpad199, %lpad221, %catch.fallthrough194
-  %.merged24 = phi { ptr, i32 } [ %132, %lpad229 ], [ %131, %lpad221 ], [ %128, %lpad199 ], [ %119, %catch.fallthrough194 ]
+  %.merged29 = phi { ptr, i32 } [ %132, %lpad229 ], [ %131, %lpad221 ], [ %128, %lpad199 ], [ %119, %catch.fallthrough194 ]
   invoke void @_ZN8reslimit3popEv(ptr noundef nonnull align 8 dereferenceable(40) %call169)
           to label %ehcleanup239 unwind label %terminate.lpad.i187
 
@@ -26210,17 +26210,17 @@ terminate.lpad.i187:                              ; preds = %ehcleanup238
   unreachable
 
 ehcleanup239:                                     ; preds = %ehcleanup238, %lpad167
-  %.merged23 = phi { ptr, i32 } [ %118, %lpad167 ], [ %.merged24, %ehcleanup238 ]
+  %.merged28 = phi { ptr, i32 } [ %118, %lpad167 ], [ %.merged29, %ehcleanup238 ]
   call void @_ZN12scoped_timerD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %timer163) #28
   br label %ehcleanup240
 
 ehcleanup240:                                     ; preds = %ehcleanup239, %lpad164
-  %.merged22 = phi { ptr, i32 } [ %.merged23, %ehcleanup239 ], [ %117, %lpad164 ]
+  %.merged27 = phi { ptr, i32 } [ %.merged28, %ehcleanup239 ], [ %117, %lpad164 ]
   call void @_ZN13scoped_ctrl_cD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ctrlc160) #28
   br label %ehcleanup241
 
 ehcleanup241:                                     ; preds = %ehcleanup240, %lpad161
-  %.merged = phi { ptr, i32 } [ %.merged22, %ehcleanup240 ], [ %116, %lpad161 ]
+  %.merged26 = phi { ptr, i32 } [ %.merged27, %ehcleanup240 ], [ %116, %lpad161 ]
   call void @_ZN9cancel_ehI8reslimitED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %eh154) #28
   br label %ehcleanup272
 
@@ -26376,7 +26376,7 @@ cleanup.cont:                                     ; preds = %if.then.i.i208, %cl
   ret void
 
 ehcleanup272:                                     ; preds = %lpad265, %ehcleanup241, %ehcleanup137, %lpad
-  %lpad.val275.merged = phi { ptr, i32 } [ %150, %lpad265 ], [ %47, %lpad ], [ %.merged, %ehcleanup241 ], [ %.merged25, %ehcleanup137 ]
+  %lpad.val275.merged = phi { ptr, i32 } [ %150, %lpad265 ], [ %47, %lpad ], [ %.merged26, %ehcleanup241 ], [ %.merged, %ehcleanup137 ]
   %157 = load i8, ptr %m_running.i.i, align 8
   %tobool.i.i212 = trunc i8 %157 to i1
   br i1 %tobool.i.i212, label %if.then.i.i213, label %_ZN11cmd_context12scoped_watchD2Ev.exit220
