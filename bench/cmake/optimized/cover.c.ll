@@ -823,431 +823,430 @@ define internal fastcc i64 @COVER_buildDictionary(ptr nocapture noundef readonly
   %9 = trunc i64 %8 to i32
   %10 = mul i32 %.0.val, 10
   %11 = udiv i32 %6, %.0.val
-  %12 = icmp ult i32 %11, 4
-  %13 = lshr i32 %11, 2
-  %spec.select = select i1 %12, i32 1, i32 %13
-  %14 = udiv i32 %9, %spec.select
-  %.not.i = icmp ult i32 %14, %10
-  br i1 %.not.i, label %15, label %COVER_computeEpochs.exit
+  %12 = tail call i32 @llvm.umax.i32(i32 %11, i32 4)
+  %spec.select = lshr i32 %12, 2
+  %13 = udiv i32 %9, %spec.select
+  %.not.i = icmp ult i32 %13, %10
+  br i1 %.not.i, label %14, label %COVER_computeEpochs.exit
 
-15:                                               ; preds = %5
-  %16 = tail call i32 @llvm.umin.i32(i32 %10, i32 %9)
-  %17 = udiv i32 %9, %16
+14:                                               ; preds = %5
+  %15 = tail call i32 @llvm.umin.i32(i32 %10, i32 %9)
+  %16 = udiv i32 %9, %15
   br label %COVER_computeEpochs.exit
 
-COVER_computeEpochs.exit:                         ; preds = %5, %15
-  %.sroa.0.0.i = phi i32 [ %spec.select, %5 ], [ %17, %15 ]
-  %.sroa.4.0.i = phi i32 [ %14, %5 ], [ %16, %15 ]
+COVER_computeEpochs.exit:                         ; preds = %5, %14
+  %.sroa.0.0.i = phi i32 [ %spec.select, %5 ], [ %16, %14 ]
+  %.sroa.4.0.i = phi i32 [ %13, %5 ], [ %15, %14 ]
   %.sroa.0.0.insert.ext.i = zext i32 %.sroa.0.0.i to i64
-  %18 = icmp ult i32 %.sroa.0.0.i, 80
-  %19 = lshr i32 %.sroa.0.0.i, 3
-  %20 = tail call i32 @llvm.umin.i32(i32 %19, i32 100)
-  %narrow = select i1 %18, i32 10, i32 %20
-  %21 = zext nneg i32 %narrow to i64
-  %22 = load i32, ptr @g_displayLevel, align 4
-  %23 = icmp sgt i32 %22, 1
-  br i1 %23, label %24, label %29
+  %17 = icmp ult i32 %.sroa.0.0.i, 80
+  %18 = lshr i32 %.sroa.0.0.i, 3
+  %19 = tail call i32 @llvm.umin.i32(i32 %18, i32 100)
+  %narrow = select i1 %17, i32 10, i32 %19
+  %20 = zext nneg i32 %narrow to i64
+  %21 = load i32, ptr @g_displayLevel, align 4
+  %22 = icmp sgt i32 %21, 1
+  br i1 %22, label %23, label %28
 
-24:                                               ; preds = %COVER_computeEpochs.exit
-  %25 = load ptr, ptr @stderr, align 8
-  %26 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef nonnull @.str.24, i32 noundef %.sroa.0.0.i, i32 noundef %.sroa.4.0.i) #23
-  %27 = load ptr, ptr @stderr, align 8
-  %28 = tail call i32 @fflush(ptr noundef %27)
-  br label %29
+23:                                               ; preds = %COVER_computeEpochs.exit
+  %24 = load ptr, ptr @stderr, align 8
+  %25 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.24, i32 noundef %.sroa.0.0.i, i32 noundef %.sroa.4.0.i) #23
+  %26 = load ptr, ptr @stderr, align 8
+  %27 = tail call i32 @fflush(ptr noundef %26)
+  br label %28
 
-29:                                               ; preds = %24, %COVER_computeEpochs.exit
+28:                                               ; preds = %23, %COVER_computeEpochs.exit
   %.not14 = icmp eq i64 %4, 0
   br i1 %.not14, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %29
-  %30 = getelementptr i8, ptr %2, i64 12
-  %31 = getelementptr inbounds i8, ptr %0, i64 72
-  %32 = getelementptr i8, ptr %2, i64 8
-  %33 = getelementptr inbounds i8, ptr %2, i64 16
-  %34 = add i32 %.0.val, 2
-  %35 = sub i32 %34, %.4.val
-  %36 = add i32 %.4.val, -1
-  %37 = zext i32 %.4.val to i64
-  br label %38
+.lr.ph:                                           ; preds = %28
+  %29 = getelementptr i8, ptr %2, i64 12
+  %30 = getelementptr inbounds i8, ptr %0, i64 72
+  %31 = getelementptr i8, ptr %2, i64 8
+  %32 = getelementptr inbounds i8, ptr %2, i64 16
+  %33 = add i32 %.0.val, 2
+  %34 = sub i32 %33, %.4.val
+  %35 = add i32 %.4.val, -1
+  %36 = zext i32 %.4.val to i64
+  br label %37
 
-38:                                               ; preds = %.lr.ph, %228
-  %.017 = phi i64 [ %4, %.lr.ph ], [ %.1, %228 ]
-  %.04016 = phi i64 [ 0, %.lr.ph ], [ %.141, %228 ]
-  %.04215 = phi i64 [ 0, %.lr.ph ], [ %230, %228 ]
-  %39 = trunc i64 %.04215 to i32
-  %40 = mul i32 %.sroa.4.0.i, %39
-  %41 = add i32 %40, %.sroa.4.0.i
+37:                                               ; preds = %.lr.ph, %227
+  %.017 = phi i64 [ %4, %.lr.ph ], [ %.1, %227 ]
+  %.04016 = phi i64 [ 0, %.lr.ph ], [ %.141, %227 ]
+  %.04215 = phi i64 [ 0, %.lr.ph ], [ %229, %227 ]
+  %38 = trunc i64 %.04215 to i32
+  %39 = mul i32 %.sroa.4.0.i, %38
+  %40 = add i32 %39, %.sroa.4.0.i
   %.val.i = load ptr, ptr %2, align 8
-  %.val71.i = load i32, ptr %30, align 4
-  %42 = zext i32 %.val71.i to i64
-  %43 = shl nuw nsw i64 %42, 3
-  tail call void @llvm.memset.p0.i64(ptr align 4 %.val.i, i8 -1, i64 %43, i1 false)
-  %44 = icmp ult i32 %40, %41
-  br i1 %44, label %.lr.ph.i, label %COVER_selectSegment.exit.thread
+  %.val71.i = load i32, ptr %29, align 4
+  %41 = zext i32 %.val71.i to i64
+  %42 = shl nuw nsw i64 %41, 3
+  tail call void @llvm.memset.p0.i64(ptr align 4 %.val.i, i8 -1, i64 %42, i1 false)
+  %43 = icmp ult i32 %39, %40
+  br i1 %43, label %.lr.ph.i, label %COVER_selectSegment.exit.thread
 
-.lr.ph.i:                                         ; preds = %38
-  %45 = zext i32 %40 to i64
-  %wide.trip.count.i = zext i32 %41 to i64
-  br label %47
+.lr.ph.i:                                         ; preds = %37
+  %44 = zext i32 %39 to i64
+  %wide.trip.count.i = zext i32 %40 to i64
+  br label %46
 
-.preheader1.i:                                    ; preds = %179
+.preheader1.i:                                    ; preds = %178
   %.not15.i = icmp eq i32 %.sroa.048.sroa.0.1.i, %.sroa.048.sroa.7.1.i
   br i1 %.not15.i, label %COVER_selectSegment.exit, label %.lr.ph19.i
 
 .lr.ph19.i:                                       ; preds = %.preheader1.i
-  %46 = load ptr, ptr %31, align 8
-  br label %181
+  %45 = load ptr, ptr %30, align 8
+  br label %180
 
-47:                                               ; preds = %179, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ %45, %.lr.ph.i ], [ %indvars.iv.next.i, %179 ]
-  %.sroa.048.sroa.0.012.i = phi i32 [ 0, %.lr.ph.i ], [ %.sroa.048.sroa.0.1.i, %179 ]
-  %.sroa.048.sroa.7.011.i = phi i32 [ 0, %.lr.ph.i ], [ %.sroa.048.sroa.7.1.i, %179 ]
-  %.sroa.1257.010.i = phi i32 [ 0, %.lr.ph.i ], [ %.sroa.1257.1.i, %179 ]
-  %.sroa.12.08.i = phi i32 [ 0, %.lr.ph.i ], [ %.sroa.12.2.i, %179 ]
-  %.sroa.022.06.i = phi i32 [ %40, %.lr.ph.i ], [ %.sroa.022.1.i, %179 ]
-  %48 = load ptr, ptr %31, align 8
-  %49 = getelementptr inbounds i32, ptr %48, i64 %indvars.iv.i
-  %50 = load i32, ptr %49, align 4
-  %51 = load ptr, ptr %2, align 8
-  %.val.i.i.i = load i32, ptr %32, align 8
-  %52 = mul i32 %50, -1640531535
-  %53 = sub i32 32, %.val.i.i.i
-  %54 = lshr i32 %52, %53
-  %55 = zext i32 %54 to i64
-  %56 = getelementptr inbounds %struct.COVER_map_pair_t_s, ptr %51, i64 %55
-  %57 = getelementptr inbounds i8, ptr %56, i64 4
-  %58 = load i32, ptr %57, align 4
-  %59 = icmp eq i32 %58, -1
-  br i1 %59, label %COVER_map_at.exit.thread.i, label %.lr.ph.i.i.i
+46:                                               ; preds = %178, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ %44, %.lr.ph.i ], [ %indvars.iv.next.i, %178 ]
+  %.sroa.048.sroa.0.012.i = phi i32 [ 0, %.lr.ph.i ], [ %.sroa.048.sroa.0.1.i, %178 ]
+  %.sroa.048.sroa.7.011.i = phi i32 [ 0, %.lr.ph.i ], [ %.sroa.048.sroa.7.1.i, %178 ]
+  %.sroa.1257.010.i = phi i32 [ 0, %.lr.ph.i ], [ %.sroa.1257.1.i, %178 ]
+  %.sroa.12.08.i = phi i32 [ 0, %.lr.ph.i ], [ %.sroa.12.2.i, %178 ]
+  %.sroa.022.06.i = phi i32 [ %39, %.lr.ph.i ], [ %.sroa.022.1.i, %178 ]
+  %47 = load ptr, ptr %30, align 8
+  %48 = getelementptr inbounds i32, ptr %47, i64 %indvars.iv.i
+  %49 = load i32, ptr %48, align 4
+  %50 = load ptr, ptr %2, align 8
+  %.val.i.i.i = load i32, ptr %31, align 8
+  %51 = mul i32 %49, -1640531535
+  %52 = sub i32 32, %.val.i.i.i
+  %53 = lshr i32 %51, %52
+  %54 = zext i32 %53 to i64
+  %55 = getelementptr inbounds %struct.COVER_map_pair_t_s, ptr %50, i64 %54
+  %56 = getelementptr inbounds i8, ptr %55, i64 4
+  %57 = load i32, ptr %56, align 4
+  %58 = icmp eq i32 %57, -1
+  br i1 %58, label %COVER_map_at.exit.thread.i, label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %47, %62
-  %60 = phi ptr [ %67, %62 ], [ %56, %47 ]
-  %.01213.i.i.i = phi i32 [ %65, %62 ], [ %54, %47 ]
-  %61 = load i32, ptr %60, align 4
-  %.not.i.i = icmp eq i32 %61, %50
-  br i1 %.not.i.i, label %COVER_map_at.exit.i, label %62
+.lr.ph.i.i.i:                                     ; preds = %46, %61
+  %59 = phi ptr [ %66, %61 ], [ %55, %46 ]
+  %.01213.i.i.i = phi i32 [ %64, %61 ], [ %53, %46 ]
+  %60 = load i32, ptr %59, align 4
+  %.not.i.i = icmp eq i32 %60, %49
+  br i1 %.not.i.i, label %COVER_map_at.exit.i, label %61
 
-62:                                               ; preds = %.lr.ph.i.i.i
-  %63 = add i32 %.01213.i.i.i, 1
-  %64 = load i32, ptr %33, align 8
-  %65 = and i32 %64, %63
-  %66 = zext i32 %65 to i64
-  %67 = getelementptr inbounds %struct.COVER_map_pair_t_s, ptr %51, i64 %66
-  %68 = getelementptr inbounds i8, ptr %67, i64 4
-  %69 = load i32, ptr %68, align 4
-  %70 = icmp eq i32 %69, -1
-  br i1 %70, label %COVER_map_at.exit.thread.i, label %.lr.ph.i.i.i
+61:                                               ; preds = %.lr.ph.i.i.i
+  %62 = add i32 %.01213.i.i.i, 1
+  %63 = load i32, ptr %32, align 8
+  %64 = and i32 %63, %62
+  %65 = zext i32 %64 to i64
+  %66 = getelementptr inbounds %struct.COVER_map_pair_t_s, ptr %50, i64 %65
+  %67 = getelementptr inbounds i8, ptr %66, i64 4
+  %68 = load i32, ptr %67, align 4
+  %69 = icmp eq i32 %68, -1
+  br i1 %69, label %COVER_map_at.exit.thread.i, label %.lr.ph.i.i.i
 
-COVER_map_at.exit.thread.i:                       ; preds = %62, %47
-  %.pre-phi.ph.i.i = phi i64 [ %55, %47 ], [ %66, %62 ]
-  %71 = getelementptr inbounds %struct.COVER_map_pair_t_s, ptr %51, i64 %.pre-phi.ph.i.i
-  %72 = getelementptr inbounds i8, ptr %71, i64 4
-  store i32 %50, ptr %71, align 4
-  store i32 0, ptr %72, align 4
-  br label %75
+COVER_map_at.exit.thread.i:                       ; preds = %61, %46
+  %.pre-phi.ph.i.i = phi i64 [ %54, %46 ], [ %65, %61 ]
+  %70 = getelementptr inbounds %struct.COVER_map_pair_t_s, ptr %50, i64 %.pre-phi.ph.i.i
+  %71 = getelementptr inbounds i8, ptr %70, i64 4
+  store i32 %49, ptr %70, align 4
+  store i32 0, ptr %71, align 4
+  br label %74
 
 COVER_map_at.exit.i:                              ; preds = %.lr.ph.i.i.i
   %.phi.trans.insert.phi.trans.insert.i.i = zext i32 %.01213.i.i.i to i64
-  %73 = getelementptr inbounds %struct.COVER_map_pair_t_s, ptr %51, i64 %.phi.trans.insert.phi.trans.insert.i.i, i32 1
-  %.pr.i = load i32, ptr %73, align 4
-  %74 = icmp eq i32 %.pr.i, 0
-  br i1 %74, label %75, label %81
+  %72 = getelementptr inbounds %struct.COVER_map_pair_t_s, ptr %50, i64 %.phi.trans.insert.phi.trans.insert.i.i, i32 1
+  %.pr.i = load i32, ptr %72, align 4
+  %73 = icmp eq i32 %.pr.i, 0
+  br i1 %73, label %74, label %80
 
-75:                                               ; preds = %COVER_map_at.exit.i, %COVER_map_at.exit.thread.i
-  %76 = phi ptr [ %72, %COVER_map_at.exit.thread.i ], [ %73, %COVER_map_at.exit.i ]
-  %77 = zext i32 %50 to i64
-  %78 = getelementptr inbounds i32, ptr %1, i64 %77
-  %79 = load i32, ptr %78, align 4
-  %80 = add i32 %79, %.sroa.12.08.i
-  br label %81
+74:                                               ; preds = %COVER_map_at.exit.i, %COVER_map_at.exit.thread.i
+  %75 = phi ptr [ %71, %COVER_map_at.exit.thread.i ], [ %72, %COVER_map_at.exit.i ]
+  %76 = zext i32 %49 to i64
+  %77 = getelementptr inbounds i32, ptr %1, i64 %76
+  %78 = load i32, ptr %77, align 4
+  %79 = add i32 %78, %.sroa.12.08.i
+  br label %80
 
-81:                                               ; preds = %75, %COVER_map_at.exit.i
-  %82 = phi ptr [ %76, %75 ], [ %73, %COVER_map_at.exit.i ]
-  %83 = phi i32 [ 0, %75 ], [ %.pr.i, %COVER_map_at.exit.i ]
-  %.sroa.12.1.i = phi i32 [ %80, %75 ], [ %.sroa.12.08.i, %COVER_map_at.exit.i ]
+80:                                               ; preds = %74, %COVER_map_at.exit.i
+  %81 = phi ptr [ %75, %74 ], [ %72, %COVER_map_at.exit.i ]
+  %82 = phi i32 [ 0, %74 ], [ %.pr.i, %COVER_map_at.exit.i ]
+  %.sroa.12.1.i = phi i32 [ %79, %74 ], [ %.sroa.12.08.i, %COVER_map_at.exit.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %indvars.i = trunc i64 %indvars.iv.next.i to i32
-  %84 = add i32 %83, 1
-  store i32 %84, ptr %82, align 4
-  %85 = sub i32 %indvars.i, %.sroa.022.06.i
-  %86 = icmp eq i32 %85, %35
-  br i1 %86, label %87, label %179
+  %83 = add i32 %82, 1
+  store i32 %83, ptr %81, align 4
+  %84 = sub i32 %indvars.i, %.sroa.022.06.i
+  %85 = icmp eq i32 %84, %34
+  br i1 %85, label %86, label %178
 
-87:                                               ; preds = %81
-  %88 = load ptr, ptr %31, align 8
-  %89 = zext i32 %.sroa.022.06.i to i64
-  %90 = getelementptr inbounds i32, ptr %88, i64 %89
-  %91 = load i32, ptr %90, align 4
-  %92 = load ptr, ptr %2, align 8
-  %.val.i.i72.i = load i32, ptr %32, align 8
-  %93 = mul i32 %91, -1640531535
-  %94 = sub i32 32, %.val.i.i72.i
-  %95 = lshr i32 %93, %94
-  %96 = zext i32 %95 to i64
-  %97 = getelementptr inbounds %struct.COVER_map_pair_t_s, ptr %92, i64 %96
-  %98 = getelementptr inbounds i8, ptr %97, i64 4
-  %99 = load i32, ptr %98, align 4
-  %100 = icmp eq i32 %99, -1
-  br i1 %100, label %COVER_map_at.exit80.thread.i, label %.lr.ph.i.i73.i
+86:                                               ; preds = %80
+  %87 = load ptr, ptr %30, align 8
+  %88 = zext i32 %.sroa.022.06.i to i64
+  %89 = getelementptr inbounds i32, ptr %87, i64 %88
+  %90 = load i32, ptr %89, align 4
+  %91 = load ptr, ptr %2, align 8
+  %.val.i.i72.i = load i32, ptr %31, align 8
+  %92 = mul i32 %90, -1640531535
+  %93 = sub i32 32, %.val.i.i72.i
+  %94 = lshr i32 %92, %93
+  %95 = zext i32 %94 to i64
+  %96 = getelementptr inbounds %struct.COVER_map_pair_t_s, ptr %91, i64 %95
+  %97 = getelementptr inbounds i8, ptr %96, i64 4
+  %98 = load i32, ptr %97, align 4
+  %99 = icmp eq i32 %98, -1
+  br i1 %99, label %COVER_map_at.exit80.thread.i, label %.lr.ph.i.i73.i
 
-.lr.ph.i.i73.i:                                   ; preds = %87, %103
-  %101 = phi ptr [ %108, %103 ], [ %97, %87 ]
-  %.01213.i.i74.i = phi i32 [ %106, %103 ], [ %95, %87 ]
-  %102 = load i32, ptr %101, align 4
-  %.not.i75.i = icmp eq i32 %102, %91
-  br i1 %.not.i75.i, label %COVER_map_at.exit80.i, label %103
+.lr.ph.i.i73.i:                                   ; preds = %86, %102
+  %100 = phi ptr [ %107, %102 ], [ %96, %86 ]
+  %.01213.i.i74.i = phi i32 [ %105, %102 ], [ %94, %86 ]
+  %101 = load i32, ptr %100, align 4
+  %.not.i75.i = icmp eq i32 %101, %90
+  br i1 %.not.i75.i, label %COVER_map_at.exit80.i, label %102
 
-103:                                              ; preds = %.lr.ph.i.i73.i
-  %104 = add i32 %.01213.i.i74.i, 1
-  %105 = load i32, ptr %33, align 8
-  %106 = and i32 %105, %104
-  %107 = zext i32 %106 to i64
-  %108 = getelementptr inbounds %struct.COVER_map_pair_t_s, ptr %92, i64 %107
-  %109 = getelementptr inbounds i8, ptr %108, i64 4
-  %110 = load i32, ptr %109, align 4
-  %111 = icmp eq i32 %110, -1
-  br i1 %111, label %COVER_map_at.exit80.thread.i, label %.lr.ph.i.i73.i
+102:                                              ; preds = %.lr.ph.i.i73.i
+  %103 = add i32 %.01213.i.i74.i, 1
+  %104 = load i32, ptr %32, align 8
+  %105 = and i32 %104, %103
+  %106 = zext i32 %105 to i64
+  %107 = getelementptr inbounds %struct.COVER_map_pair_t_s, ptr %91, i64 %106
+  %108 = getelementptr inbounds i8, ptr %107, i64 4
+  %109 = load i32, ptr %108, align 4
+  %110 = icmp eq i32 %109, -1
+  br i1 %110, label %COVER_map_at.exit80.thread.i, label %.lr.ph.i.i73.i
 
-COVER_map_at.exit80.thread.i:                     ; preds = %103, %87
-  %.pre-phi.ph.i77.i = phi i64 [ %96, %87 ], [ %107, %103 ]
-  %112 = getelementptr inbounds %struct.COVER_map_pair_t_s, ptr %92, i64 %.pre-phi.ph.i77.i
-  %113 = getelementptr inbounds i8, ptr %112, i64 4
-  store i32 %91, ptr %112, align 4
-  %114 = add i32 %.sroa.022.06.i, 1
-  store i32 -1, ptr %113, align 4
-  br label %179
+COVER_map_at.exit80.thread.i:                     ; preds = %102, %86
+  %.pre-phi.ph.i77.i = phi i64 [ %95, %86 ], [ %106, %102 ]
+  %111 = getelementptr inbounds %struct.COVER_map_pair_t_s, ptr %91, i64 %.pre-phi.ph.i77.i
+  %112 = getelementptr inbounds i8, ptr %111, i64 4
+  store i32 %90, ptr %111, align 4
+  %113 = add i32 %.sroa.022.06.i, 1
+  store i32 -1, ptr %112, align 4
+  br label %178
 
 COVER_map_at.exit80.i:                            ; preds = %.lr.ph.i.i73.i
   %.phi.trans.insert.phi.trans.insert.i79.i = zext i32 %.01213.i.i74.i to i64
-  %115 = getelementptr inbounds %struct.COVER_map_pair_t_s, ptr %92, i64 %.phi.trans.insert.phi.trans.insert.i79.i, i32 1
-  %.pre.i = load i32, ptr %115, align 4
-  %116 = add i32 %.pre.i, -1
-  %117 = add i32 %.sroa.022.06.i, 1
-  store i32 %116, ptr %115, align 4
-  %118 = icmp eq i32 %116, 0
-  br i1 %118, label %119, label %179
+  %114 = getelementptr inbounds %struct.COVER_map_pair_t_s, ptr %91, i64 %.phi.trans.insert.phi.trans.insert.i79.i, i32 1
+  %.pre.i = load i32, ptr %114, align 4
+  %115 = add i32 %.pre.i, -1
+  %116 = add i32 %.sroa.022.06.i, 1
+  store i32 %115, ptr %114, align 4
+  %117 = icmp eq i32 %115, 0
+  br i1 %117, label %118, label %178
 
-119:                                              ; preds = %COVER_map_at.exit80.i
-  %.val.i.i81.i = load i32, ptr %32, align 8
-  %120 = sub i32 32, %.val.i.i81.i
-  %121 = lshr i32 %93, %120
-  %122 = load ptr, ptr %2, align 8
-  %123 = zext i32 %121 to i64
-  %124 = getelementptr inbounds %struct.COVER_map_pair_t_s, ptr %122, i64 %123
-  %125 = getelementptr inbounds i8, ptr %124, i64 4
-  %126 = load i32, ptr %125, align 4
-  %127 = icmp eq i32 %126, -1
-  br i1 %127, label %COVER_map_remove.exit.i, label %.lr.ph.i.i82.i
+118:                                              ; preds = %COVER_map_at.exit80.i
+  %.val.i.i81.i = load i32, ptr %31, align 8
+  %119 = sub i32 32, %.val.i.i81.i
+  %120 = lshr i32 %92, %119
+  %121 = load ptr, ptr %2, align 8
+  %122 = zext i32 %120 to i64
+  %123 = getelementptr inbounds %struct.COVER_map_pair_t_s, ptr %121, i64 %122
+  %124 = getelementptr inbounds i8, ptr %123, i64 4
+  %125 = load i32, ptr %124, align 4
+  %126 = icmp eq i32 %125, -1
+  br i1 %126, label %COVER_map_remove.exit.i, label %.lr.ph.i.i82.i
 
-.lr.ph.i.i82.i:                                   ; preds = %119, %130
-  %128 = phi ptr [ %135, %130 ], [ %124, %119 ]
-  %.01213.i.i83.i = phi i32 [ %133, %130 ], [ %121, %119 ]
-  %129 = load i32, ptr %128, align 4
-  %.not38.i.i = icmp eq i32 %129, %91
-  br i1 %.not38.i.i, label %139, label %130
+.lr.ph.i.i82.i:                                   ; preds = %118, %129
+  %127 = phi ptr [ %134, %129 ], [ %123, %118 ]
+  %.01213.i.i83.i = phi i32 [ %132, %129 ], [ %120, %118 ]
+  %128 = load i32, ptr %127, align 4
+  %.not38.i.i = icmp eq i32 %128, %90
+  br i1 %.not38.i.i, label %138, label %129
 
-130:                                              ; preds = %.lr.ph.i.i82.i
-  %131 = add i32 %.01213.i.i83.i, 1
-  %132 = load i32, ptr %33, align 8
-  %133 = and i32 %132, %131
-  %134 = zext i32 %133 to i64
-  %135 = getelementptr inbounds %struct.COVER_map_pair_t_s, ptr %122, i64 %134
-  %136 = getelementptr inbounds i8, ptr %135, i64 4
-  %137 = load i32, ptr %136, align 4
-  %138 = icmp eq i32 %137, -1
-  br i1 %138, label %COVER_map_remove.exit.i, label %.lr.ph.i.i82.i
+129:                                              ; preds = %.lr.ph.i.i82.i
+  %130 = add i32 %.01213.i.i83.i, 1
+  %131 = load i32, ptr %32, align 8
+  %132 = and i32 %131, %130
+  %133 = zext i32 %132 to i64
+  %134 = getelementptr inbounds %struct.COVER_map_pair_t_s, ptr %121, i64 %133
+  %135 = getelementptr inbounds i8, ptr %134, i64 4
+  %136 = load i32, ptr %135, align 4
+  %137 = icmp eq i32 %136, -1
+  br i1 %137, label %COVER_map_remove.exit.i, label %.lr.ph.i.i82.i
 
-139:                                              ; preds = %.lr.ph.i.i82.i
+138:                                              ; preds = %.lr.ph.i.i82.i
   %.phi.trans.insert.phi.trans.insert.i84.i = zext i32 %.01213.i.i83.i to i64
-  %140 = getelementptr inbounds %struct.COVER_map_pair_t_s, ptr %122, i64 %.phi.trans.insert.phi.trans.insert.i84.i
-  %141 = add i32 %.01213.i.i83.i, 1
-  %142 = load i32, ptr %33, align 8
-  %143 = and i32 %142, %141
-  %144 = zext i32 %143 to i64
-  %145 = getelementptr inbounds %struct.COVER_map_pair_t_s, ptr %122, i64 %144
-  %146 = getelementptr inbounds i8, ptr %145, i64 4
-  %147 = load i32, ptr %146, align 4
-  %148 = icmp eq i32 %147, -1
-  br i1 %148, label %._crit_edge.i.i, label %.lr.ph.i.i
+  %139 = getelementptr inbounds %struct.COVER_map_pair_t_s, ptr %121, i64 %.phi.trans.insert.phi.trans.insert.i84.i
+  %140 = add i32 %.01213.i.i83.i, 1
+  %141 = load i32, ptr %32, align 8
+  %142 = and i32 %141, %140
+  %143 = zext i32 %142 to i64
+  %144 = getelementptr inbounds %struct.COVER_map_pair_t_s, ptr %121, i64 %143
+  %145 = getelementptr inbounds i8, ptr %144, i64 4
+  %146 = load i32, ptr %145, align 4
+  %147 = icmp eq i32 %146, -1
+  br i1 %147, label %._crit_edge.i.i, label %.lr.ph.i.i
 
-._crit_edge.i.i:                                  ; preds = %165, %139
-  %.024.lcssa.i.i = phi ptr [ %140, %139 ], [ %.125.i.i, %165 ]
-  %149 = getelementptr inbounds i8, ptr %.024.lcssa.i.i, i64 4
-  store i32 -1, ptr %149, align 4
+._crit_edge.i.i:                                  ; preds = %164, %138
+  %.024.lcssa.i.i = phi ptr [ %139, %138 ], [ %.125.i.i, %164 ]
+  %148 = getelementptr inbounds i8, ptr %.024.lcssa.i.i, i64 4
+  store i32 -1, ptr %148, align 4
   br label %COVER_map_remove.exit.i
 
-.lr.ph.i.i:                                       ; preds = %139, %165
-  %150 = phi ptr [ %166, %165 ], [ %122, %139 ]
-  %151 = phi i32 [ %167, %165 ], [ %142, %139 ]
-  %152 = phi ptr [ %172, %165 ], [ %146, %139 ]
-  %153 = phi ptr [ %171, %165 ], [ %145, %139 ]
-  %.028.i.i = phi i32 [ %169, %165 ], [ %143, %139 ]
-  %.02327.i.i = phi i32 [ %.1.i.i, %165 ], [ 1, %139 ]
-  %.02426.i.i = phi ptr [ %.125.i.i, %165 ], [ %140, %139 ]
-  %154 = load i32, ptr %153, align 4
-  %.val.i.i = load i32, ptr %32, align 8
-  %155 = mul i32 %154, -1640531535
-  %156 = sub i32 32, %.val.i.i
-  %157 = lshr i32 %155, %156
-  %158 = sub i32 %.028.i.i, %157
-  %159 = and i32 %158, %151
-  %.not.i85.i = icmp ult i32 %159, %.02327.i.i
-  br i1 %.not.i85.i, label %163, label %160
+.lr.ph.i.i:                                       ; preds = %138, %164
+  %149 = phi ptr [ %165, %164 ], [ %121, %138 ]
+  %150 = phi i32 [ %166, %164 ], [ %141, %138 ]
+  %151 = phi ptr [ %171, %164 ], [ %145, %138 ]
+  %152 = phi ptr [ %170, %164 ], [ %144, %138 ]
+  %.028.i.i = phi i32 [ %168, %164 ], [ %142, %138 ]
+  %.02327.i.i = phi i32 [ %.1.i.i, %164 ], [ 1, %138 ]
+  %.02426.i.i = phi ptr [ %.125.i.i, %164 ], [ %139, %138 ]
+  %153 = load i32, ptr %152, align 4
+  %.val.i.i = load i32, ptr %31, align 8
+  %154 = mul i32 %153, -1640531535
+  %155 = sub i32 32, %.val.i.i
+  %156 = lshr i32 %154, %155
+  %157 = sub i32 %.028.i.i, %156
+  %158 = and i32 %157, %150
+  %.not.i85.i = icmp ult i32 %158, %.02327.i.i
+  br i1 %.not.i85.i, label %162, label %159
 
-160:                                              ; preds = %.lr.ph.i.i
-  store i32 %154, ptr %.02426.i.i, align 4
-  %161 = load i32, ptr %152, align 4
-  %162 = getelementptr inbounds i8, ptr %.02426.i.i, i64 4
-  store i32 %161, ptr %162, align 4
-  %.pre31.i.i = load i32, ptr %33, align 8
+159:                                              ; preds = %.lr.ph.i.i
+  store i32 %153, ptr %.02426.i.i, align 4
+  %160 = load i32, ptr %151, align 4
+  %161 = getelementptr inbounds i8, ptr %.02426.i.i, i64 4
+  store i32 %160, ptr %161, align 4
+  %.pre31.i.i = load i32, ptr %32, align 8
   %.pre32.i.i = load ptr, ptr %2, align 8
-  br label %165
+  br label %164
 
-163:                                              ; preds = %.lr.ph.i.i
-  %164 = add i32 %.02327.i.i, 1
-  br label %165
+162:                                              ; preds = %.lr.ph.i.i
+  %163 = add i32 %.02327.i.i, 1
+  br label %164
 
-165:                                              ; preds = %163, %160
-  %166 = phi ptr [ %.pre32.i.i, %160 ], [ %150, %163 ]
-  %167 = phi i32 [ %.pre31.i.i, %160 ], [ %151, %163 ]
-  %.125.i.i = phi ptr [ %153, %160 ], [ %.02426.i.i, %163 ]
-  %.1.i.i = phi i32 [ 1, %160 ], [ %164, %163 ]
-  %168 = add i32 %.028.i.i, 1
-  %169 = and i32 %167, %168
-  %170 = zext i32 %169 to i64
-  %171 = getelementptr inbounds %struct.COVER_map_pair_t_s, ptr %166, i64 %170
-  %172 = getelementptr inbounds i8, ptr %171, i64 4
-  %173 = load i32, ptr %172, align 4
-  %174 = icmp eq i32 %173, -1
-  br i1 %174, label %._crit_edge.i.i, label %.lr.ph.i.i
+164:                                              ; preds = %162, %159
+  %165 = phi ptr [ %.pre32.i.i, %159 ], [ %149, %162 ]
+  %166 = phi i32 [ %.pre31.i.i, %159 ], [ %150, %162 ]
+  %.125.i.i = phi ptr [ %152, %159 ], [ %.02426.i.i, %162 ]
+  %.1.i.i = phi i32 [ 1, %159 ], [ %163, %162 ]
+  %167 = add i32 %.028.i.i, 1
+  %168 = and i32 %166, %167
+  %169 = zext i32 %168 to i64
+  %170 = getelementptr inbounds %struct.COVER_map_pair_t_s, ptr %165, i64 %169
+  %171 = getelementptr inbounds i8, ptr %170, i64 4
+  %172 = load i32, ptr %171, align 4
+  %173 = icmp eq i32 %172, -1
+  br i1 %173, label %._crit_edge.i.i, label %.lr.ph.i.i
 
-COVER_map_remove.exit.i:                          ; preds = %130, %._crit_edge.i.i, %119
-  %175 = zext i32 %91 to i64
-  %176 = getelementptr inbounds i32, ptr %1, i64 %175
-  %177 = load i32, ptr %176, align 4
-  %178 = sub i32 %.sroa.12.1.i, %177
-  br label %179
+COVER_map_remove.exit.i:                          ; preds = %129, %._crit_edge.i.i, %118
+  %174 = zext i32 %90 to i64
+  %175 = getelementptr inbounds i32, ptr %1, i64 %174
+  %176 = load i32, ptr %175, align 4
+  %177 = sub i32 %.sroa.12.1.i, %176
+  br label %178
 
-179:                                              ; preds = %COVER_map_remove.exit.i, %COVER_map_at.exit80.i, %COVER_map_at.exit80.thread.i, %81
-  %.sroa.022.1.i = phi i32 [ %117, %COVER_map_remove.exit.i ], [ %117, %COVER_map_at.exit80.i ], [ %.sroa.022.06.i, %81 ], [ %114, %COVER_map_at.exit80.thread.i ]
-  %.sroa.12.2.i = phi i32 [ %178, %COVER_map_remove.exit.i ], [ %.sroa.12.1.i, %COVER_map_at.exit80.i ], [ %.sroa.12.1.i, %81 ], [ %.sroa.12.1.i, %COVER_map_at.exit80.thread.i ]
-  %180 = icmp ugt i32 %.sroa.12.2.i, %.sroa.1257.010.i
+178:                                              ; preds = %COVER_map_remove.exit.i, %COVER_map_at.exit80.i, %COVER_map_at.exit80.thread.i, %80
+  %.sroa.022.1.i = phi i32 [ %116, %COVER_map_remove.exit.i ], [ %116, %COVER_map_at.exit80.i ], [ %.sroa.022.06.i, %80 ], [ %113, %COVER_map_at.exit80.thread.i ]
+  %.sroa.12.2.i = phi i32 [ %177, %COVER_map_remove.exit.i ], [ %.sroa.12.1.i, %COVER_map_at.exit80.i ], [ %.sroa.12.1.i, %80 ], [ %.sroa.12.1.i, %COVER_map_at.exit80.thread.i ]
+  %179 = icmp ugt i32 %.sroa.12.2.i, %.sroa.1257.010.i
   %.sroa.1257.1.i = tail call i32 @llvm.umax.i32(i32 %.sroa.12.2.i, i32 %.sroa.1257.010.i)
-  %.sroa.048.sroa.7.1.i = select i1 %180, i32 %indvars.i, i32 %.sroa.048.sroa.7.011.i
-  %.sroa.048.sroa.0.1.i = select i1 %180, i32 %.sroa.022.1.i, i32 %.sroa.048.sroa.0.012.i
+  %.sroa.048.sroa.7.1.i = select i1 %179, i32 %indvars.i, i32 %.sroa.048.sroa.7.011.i
+  %.sroa.048.sroa.0.1.i = select i1 %179, i32 %.sroa.022.1.i, i32 %.sroa.048.sroa.0.012.i
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.preheader1.i, label %47, !llvm.loop !14
+  br i1 %exitcond.not.i, label %.preheader1.i, label %46, !llvm.loop !14
 
-.preheader.i:                                     ; preds = %181
+.preheader.i:                                     ; preds = %180
   %.not6922.i = icmp eq i32 %.168.i, %.1.i
   br i1 %.not6922.i, label %COVER_selectSegment.exit, label %.lr.ph24.i
 
-181:                                              ; preds = %181, %.lr.ph19.i
-  %.06518.i = phi i32 [ %.sroa.048.sroa.0.1.i, %.lr.ph19.i ], [ %189, %181 ]
-  %.06617.i = phi i32 [ %.sroa.048.sroa.0.1.i, %.lr.ph19.i ], [ %.1.i, %181 ]
-  %.06716.i = phi i32 [ %.sroa.048.sroa.7.1.i, %.lr.ph19.i ], [ %.168.i, %181 ]
-  %182 = zext i32 %.06518.i to i64
-  %183 = getelementptr inbounds i32, ptr %46, i64 %182
-  %184 = load i32, ptr %183, align 4
-  %185 = zext i32 %184 to i64
-  %186 = getelementptr inbounds i32, ptr %1, i64 %185
-  %187 = load i32, ptr %186, align 4
-  %.not70.i = icmp eq i32 %187, 0
-  %188 = tail call i32 @llvm.umin.i32(i32 %.06716.i, i32 %.06518.i)
-  %189 = add i32 %.06518.i, 1
-  %.168.i = select i1 %.not70.i, i32 %.06716.i, i32 %188
-  %.1.i = select i1 %.not70.i, i32 %.06617.i, i32 %189
-  %.not.i49 = icmp eq i32 %189, %.sroa.048.sroa.7.1.i
-  br i1 %.not.i49, label %.preheader.i, label %181, !llvm.loop !15
+180:                                              ; preds = %180, %.lr.ph19.i
+  %.06518.i = phi i32 [ %.sroa.048.sroa.0.1.i, %.lr.ph19.i ], [ %188, %180 ]
+  %.06617.i = phi i32 [ %.sroa.048.sroa.0.1.i, %.lr.ph19.i ], [ %.1.i, %180 ]
+  %.06716.i = phi i32 [ %.sroa.048.sroa.7.1.i, %.lr.ph19.i ], [ %.168.i, %180 ]
+  %181 = zext i32 %.06518.i to i64
+  %182 = getelementptr inbounds i32, ptr %45, i64 %181
+  %183 = load i32, ptr %182, align 4
+  %184 = zext i32 %183 to i64
+  %185 = getelementptr inbounds i32, ptr %1, i64 %184
+  %186 = load i32, ptr %185, align 4
+  %.not70.i = icmp eq i32 %186, 0
+  %187 = tail call i32 @llvm.umin.i32(i32 %.06716.i, i32 %.06518.i)
+  %188 = add i32 %.06518.i, 1
+  %.168.i = select i1 %.not70.i, i32 %.06716.i, i32 %187
+  %.1.i = select i1 %.not70.i, i32 %.06617.i, i32 %188
+  %.not.i49 = icmp eq i32 %188, %.sroa.048.sroa.7.1.i
+  br i1 %.not.i49, label %.preheader.i, label %180, !llvm.loop !15
 
 .lr.ph24.i:                                       ; preds = %.preheader.i, %.lr.ph24.i
-  %.023.i = phi i32 [ %196, %.lr.ph24.i ], [ %.168.i, %.preheader.i ]
-  %190 = load ptr, ptr %31, align 8
-  %191 = zext i32 %.023.i to i64
-  %192 = getelementptr inbounds i32, ptr %190, i64 %191
-  %193 = load i32, ptr %192, align 4
-  %194 = zext i32 %193 to i64
-  %195 = getelementptr inbounds i32, ptr %1, i64 %194
-  store i32 0, ptr %195, align 4
-  %196 = add i32 %.023.i, 1
-  %.not69.i = icmp eq i32 %196, %.1.i
+  %.023.i = phi i32 [ %195, %.lr.ph24.i ], [ %.168.i, %.preheader.i ]
+  %189 = load ptr, ptr %30, align 8
+  %190 = zext i32 %.023.i to i64
+  %191 = getelementptr inbounds i32, ptr %189, i64 %190
+  %192 = load i32, ptr %191, align 4
+  %193 = zext i32 %192 to i64
+  %194 = getelementptr inbounds i32, ptr %1, i64 %193
+  store i32 0, ptr %194, align 4
+  %195 = add i32 %.023.i, 1
+  %.not69.i = icmp eq i32 %195, %.1.i
   br i1 %.not69.i, label %COVER_selectSegment.exit, label %.lr.ph24.i, !llvm.loop !16
 
 COVER_selectSegment.exit:                         ; preds = %.lr.ph24.i, %.preheader1.i, %.preheader.i
   %.066.lcssa41.i = phi i32 [ %.168.i, %.preheader.i ], [ %.sroa.048.sroa.7.1.i, %.preheader1.i ], [ %.1.i, %.lr.ph24.i ]
   %.067.lcssa40.i = phi i32 [ %.168.i, %.preheader.i ], [ %.sroa.048.sroa.7.1.i, %.preheader1.i ], [ %.168.i, %.lr.ph24.i ]
   %.sroa.048.sroa.0.0.insert.ext.i = zext i32 %.067.lcssa40.i to i64
-  %197 = icmp eq i32 %.sroa.1257.1.i, 0
-  br i1 %197, label %COVER_selectSegment.exit.thread, label %199
+  %196 = icmp eq i32 %.sroa.1257.1.i, 0
+  br i1 %196, label %COVER_selectSegment.exit.thread, label %198
 
-COVER_selectSegment.exit.thread:                  ; preds = %38, %COVER_selectSegment.exit
-  %198 = add i64 %.04016, 1
-  %.not47 = icmp ult i64 %198, %21
-  br i1 %.not47, label %228, label %._crit_edge
+COVER_selectSegment.exit.thread:                  ; preds = %37, %COVER_selectSegment.exit
+  %197 = add i64 %.04016, 1
+  %.not47 = icmp ult i64 %197, %20
+  br i1 %.not47, label %227, label %._crit_edge
 
-199:                                              ; preds = %COVER_selectSegment.exit
-  %200 = add i32 %36, %.066.lcssa41.i
-  %201 = sub i32 %200, %.067.lcssa40.i
-  %202 = zext i32 %201 to i64
-  %..0 = tail call i64 @llvm.umin.i64(i64 %.017, i64 %202)
-  %203 = icmp samesign ult i64 %..0, %37
-  br i1 %203, label %._crit_edge, label %204
+198:                                              ; preds = %COVER_selectSegment.exit
+  %199 = add i32 %35, %.066.lcssa41.i
+  %200 = sub i32 %199, %.067.lcssa40.i
+  %201 = zext i32 %200 to i64
+  %..0 = tail call i64 @llvm.umin.i64(i64 %.017, i64 %201)
+  %202 = icmp samesign ult i64 %..0, %36
+  br i1 %202, label %._crit_edge, label %203
 
-204:                                              ; preds = %199
-  %205 = sub i64 %.017, %..0
-  %206 = getelementptr inbounds i8, ptr %3, i64 %205
-  %207 = load ptr, ptr %0, align 8
-  %208 = getelementptr inbounds i8, ptr %207, i64 %.sroa.048.sroa.0.0.insert.ext.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %206, ptr align 1 %208, i64 %..0, i1 false)
-  %209 = load i32, ptr @g_displayLevel, align 4
-  %210 = icmp sgt i32 %209, 1
-  br i1 %210, label %211, label %228
+203:                                              ; preds = %198
+  %204 = sub i64 %.017, %..0
+  %205 = getelementptr inbounds i8, ptr %3, i64 %204
+  %206 = load ptr, ptr %0, align 8
+  %207 = getelementptr inbounds i8, ptr %206, i64 %.sroa.048.sroa.0.0.insert.ext.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %205, ptr align 1 %207, i64 %..0, i1 false)
+  %208 = load i32, ptr @g_displayLevel, align 4
+  %209 = icmp sgt i32 %208, 1
+  br i1 %209, label %210, label %227
 
-211:                                              ; preds = %204
-  %212 = tail call i64 @clock() #26
-  %213 = load i64, ptr @g_time, align 8
-  %214 = sub nsw i64 %212, %213
-  %215 = icmp sgt i64 %214, 150000
-  %216 = load i32, ptr @g_displayLevel, align 4
-  %217 = icmp sgt i32 %216, 3
-  %or.cond = select i1 %215, i1 true, i1 %217
-  br i1 %or.cond, label %218, label %228
+210:                                              ; preds = %203
+  %211 = tail call i64 @clock() #26
+  %212 = load i64, ptr @g_time, align 8
+  %213 = sub nsw i64 %211, %212
+  %214 = icmp sgt i64 %213, 150000
+  %215 = load i32, ptr @g_displayLevel, align 4
+  %216 = icmp sgt i32 %215, 3
+  %or.cond = select i1 %214, i1 true, i1 %216
+  br i1 %or.cond, label %217, label %227
 
-218:                                              ; preds = %211
-  %219 = tail call i64 @clock() #26
-  store i64 %219, ptr @g_time, align 8
-  %220 = load ptr, ptr @stderr, align 8
-  %221 = sub i64 %4, %205
-  %222 = mul i64 %221, 100
-  %223 = udiv i64 %222, %4
-  %224 = trunc i64 %223 to i32
-  %225 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %220, ptr noundef nonnull @.str.13, i32 noundef %224) #23
-  %226 = load ptr, ptr @stderr, align 8
-  %227 = tail call i32 @fflush(ptr noundef %226)
-  br label %228
+217:                                              ; preds = %210
+  %218 = tail call i64 @clock() #26
+  store i64 %218, ptr @g_time, align 8
+  %219 = load ptr, ptr @stderr, align 8
+  %220 = sub i64 %4, %204
+  %221 = mul i64 %220, 100
+  %222 = udiv i64 %221, %4
+  %223 = trunc i64 %222 to i32
+  %224 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %219, ptr noundef nonnull @.str.13, i32 noundef %223) #23
+  %225 = load ptr, ptr @stderr, align 8
+  %226 = tail call i32 @fflush(ptr noundef %225)
+  br label %227
 
-228:                                              ; preds = %204, %211, %218, %COVER_selectSegment.exit.thread
-  %.141 = phi i64 [ %198, %COVER_selectSegment.exit.thread ], [ 0, %218 ], [ 0, %211 ], [ 0, %204 ]
-  %.1 = phi i64 [ %.017, %COVER_selectSegment.exit.thread ], [ %205, %218 ], [ %205, %211 ], [ %205, %204 ]
-  %229 = add nsw i64 %.04215, 1
-  %230 = urem i64 %229, %.sroa.0.0.insert.ext.i
+227:                                              ; preds = %203, %210, %217, %COVER_selectSegment.exit.thread
+  %.141 = phi i64 [ %197, %COVER_selectSegment.exit.thread ], [ 0, %217 ], [ 0, %210 ], [ 0, %203 ]
+  %.1 = phi i64 [ %.017, %COVER_selectSegment.exit.thread ], [ %204, %217 ], [ %204, %210 ], [ %204, %203 ]
+  %228 = add nsw i64 %.04215, 1
+  %229 = urem i64 %228, %.sroa.0.0.insert.ext.i
   %.not = icmp eq i64 %.1, 0
-  br i1 %.not, label %._crit_edge, label %38, !llvm.loop !17
+  br i1 %.not, label %._crit_edge, label %37, !llvm.loop !17
 
-._crit_edge:                                      ; preds = %228, %COVER_selectSegment.exit.thread, %199, %29
-  %.0.lcssa = phi i64 [ 0, %29 ], [ %.017, %199 ], [ %.017, %COVER_selectSegment.exit.thread ], [ 0, %228 ]
-  %231 = load i32, ptr @g_displayLevel, align 4
-  %232 = icmp sgt i32 %231, 1
-  br i1 %232, label %233, label %238
+._crit_edge:                                      ; preds = %227, %COVER_selectSegment.exit.thread, %198, %28
+  %.0.lcssa = phi i64 [ 0, %28 ], [ %.017, %198 ], [ %.017, %COVER_selectSegment.exit.thread ], [ 0, %227 ]
+  %230 = load i32, ptr @g_displayLevel, align 4
+  %231 = icmp sgt i32 %230, 1
+  br i1 %231, label %232, label %237
 
-233:                                              ; preds = %._crit_edge
-  %234 = load ptr, ptr @stderr, align 8
-  %235 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %234, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15) #23
-  %236 = load ptr, ptr @stderr, align 8
-  %237 = tail call i32 @fflush(ptr noundef %236)
-  br label %238
+232:                                              ; preds = %._crit_edge
+  %233 = load ptr, ptr @stderr, align 8
+  %234 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %233, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15) #23
+  %235 = load ptr, ptr @stderr, align 8
+  %236 = tail call i32 @fflush(ptr noundef %235)
+  br label %237
 
-238:                                              ; preds = %233, %._crit_edge
+237:                                              ; preds = %232, %._crit_edge
   ret i64 %.0.lcssa
 }
 

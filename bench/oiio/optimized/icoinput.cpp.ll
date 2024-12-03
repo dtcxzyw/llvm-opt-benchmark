@@ -1905,7 +1905,7 @@ if.else41:                                        ; preds = %if.then31
   %30 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store i64 9, ptr %30, align 8, !noalias !13
   %31 = bitcast float %div35 to i32
-  %retval.i.sroa.0.0.insert.ext.i.i = zext i32 %31 to i64
+  %retval.i.sroa.0.0.insert.ext.i.i = zext nneg i32 %31 to i64
   store i64 %retval.i.sroa.0.0.insert.ext.i.i, ptr %ref.tmp1.i, align 16, !noalias !13
   call void @_ZN3fmt2v88vsprintfINS0_17basic_string_viewIcEEcEENSt7__cxx1112basic_stringIT0_St11char_traitsIS6_ESaIS6_EEERKT_NS0_17basic_format_argsINS0_20basic_printf_contextINSt11conditionalIXsr3std7is_sameINS0_13type_identityIS6_E4typeEcEE5valueENS0_8appenderESt20back_insert_iteratorINS0_6detail6bufferISJ_EEEE4typeESJ_EEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp44, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i64 9, ptr nonnull %ref.tmp1.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)

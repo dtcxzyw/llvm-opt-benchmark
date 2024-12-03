@@ -2363,8 +2363,7 @@ _ZN6vectorIjLb1EjE3endEv.exit:                    ; preds = %entry, %if.end.i.i
 _ZN6vectorIjLb1EjE3endEv.exit.split:              ; preds = %_ZN6vectorIjLb1EjE3endEv.exit
   %arrayidx.i = getelementptr inbounds i8, ptr %3, i64 -4
   %4 = load i32, ptr %arrayidx.i, align 4
-  %umax = tail call i32 @llvm.umax.i32(i32 %4, i32 1)
-  %5 = add i32 %umax, -1
+  %5 = tail call i32 @llvm.usub.sat.i32(i32 %4, i32 1)
   br label %for.cond
 
 for.cond:                                         ; preds = %for.body, %_ZN6vectorIjLb1EjE3endEv.exit.split
@@ -33402,7 +33401,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #18
+declare i32 @llvm.usub.sat.i32(i32, i32) #18
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

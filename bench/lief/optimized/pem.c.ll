@@ -605,22 +605,22 @@ define internal fastcc i32 @pem_pbkdf1(ptr nocapture noundef nonnull writeonly %
   call void @mbedtls_md5_init(ptr noundef nonnull %6) #12
   %8 = call i32 @mbedtls_md5_starts(ptr noundef nonnull %6) #12
   %.not = icmp eq i32 %8, 0
-  br i1 %.not, label %9, label %32
+  br i1 %.not, label %9, label %30
 
 9:                                                ; preds = %5
   %10 = call i32 @mbedtls_md5_update(ptr noundef nonnull %6, ptr noundef nonnull %3, i64 noundef %4) #12
   %.not27 = icmp eq i32 %10, 0
-  br i1 %.not27, label %11, label %32
+  br i1 %.not27, label %11, label %30
 
 11:                                               ; preds = %9
   %12 = call i32 @mbedtls_md5_update(ptr noundef nonnull %6, ptr noundef nonnull %2, i64 noundef 8) #12
   %.not28 = icmp eq i32 %12, 0
-  br i1 %.not28, label %13, label %32
+  br i1 %.not28, label %13, label %30
 
 13:                                               ; preds = %11
   %14 = call i32 @mbedtls_md5_finish(ptr noundef nonnull %6, ptr noundef nonnull %7) #12
   %.not29 = icmp eq i32 %14, 0
-  br i1 %.not29, label %15, label %32
+  br i1 %.not29, label %15, label %30
 
 15:                                               ; preds = %13
   %16 = icmp samesign ult i64 %1, 17
@@ -628,43 +628,41 @@ define internal fastcc i32 @pem_pbkdf1(ptr nocapture noundef nonnull writeonly %
 
 17:                                               ; preds = %15
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 16 dereferenceable(1) %7, i64 %1, i1 false)
-  br label %32
+  br label %30
 
 18:                                               ; preds = %15
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %0, ptr noundef nonnull align 16 dereferenceable(16) %7, i64 16, i1 false)
   %19 = call i32 @mbedtls_md5_starts(ptr noundef nonnull %6) #12
   %.not30 = icmp eq i32 %19, 0
-  br i1 %.not30, label %20, label %32
+  br i1 %.not30, label %20, label %30
 
 20:                                               ; preds = %18
   %21 = call i32 @mbedtls_md5_update(ptr noundef nonnull %6, ptr noundef nonnull %7, i64 noundef 16) #12
   %.not31 = icmp eq i32 %21, 0
-  br i1 %.not31, label %22, label %32
+  br i1 %.not31, label %22, label %30
 
 22:                                               ; preds = %20
   %23 = call i32 @mbedtls_md5_update(ptr noundef nonnull %6, ptr noundef nonnull %3, i64 noundef %4) #12
   %.not32 = icmp eq i32 %23, 0
-  br i1 %.not32, label %24, label %32
+  br i1 %.not32, label %24, label %30
 
 24:                                               ; preds = %22
   %25 = call i32 @mbedtls_md5_update(ptr noundef nonnull %6, ptr noundef nonnull %2, i64 noundef 8) #12
   %.not33 = icmp eq i32 %25, 0
-  br i1 %.not33, label %26, label %32
+  br i1 %.not33, label %26, label %30
 
 26:                                               ; preds = %24
   %27 = call i32 @mbedtls_md5_finish(ptr noundef nonnull %6, ptr noundef nonnull %7) #12
   %.not34 = icmp eq i32 %27, 0
-  br i1 %.not34, label %28, label %32
+  br i1 %.not34, label %28, label %30
 
 28:                                               ; preds = %26
-  %29 = icmp samesign ult i64 %1, 32
-  %30 = add nsw i64 %1, -16
-  %spec.select = select i1 %29, i64 %30, i64 16
-  %31 = getelementptr inbounds i8, ptr %0, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %31, ptr nonnull align 16 %7, i64 %spec.select, i1 false)
-  br label %32
+  %spec.select = add nsw i64 %1, -16
+  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %29, ptr nonnull align 16 %7, i64 %spec.select, i1 false)
+  br label %30
 
-32:                                               ; preds = %26, %24, %22, %20, %18, %13, %11, %9, %5, %28, %17
+30:                                               ; preds = %26, %24, %22, %20, %18, %13, %11, %9, %5, %28, %17
   %.0 = phi i32 [ %8, %5 ], [ %10, %9 ], [ %12, %11 ], [ %14, %13 ], [ 0, %17 ], [ %19, %18 ], [ %21, %20 ], [ %23, %22 ], [ %25, %24 ], [ %27, %26 ], [ 0, %28 ]
   call void @mbedtls_md5_free(ptr noundef nonnull %6) #12
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %7, i64 noundef 16) #12

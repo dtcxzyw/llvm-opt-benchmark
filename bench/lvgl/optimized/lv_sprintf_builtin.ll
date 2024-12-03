@@ -1723,8 +1723,8 @@ define internal fastcc i64 @_etoa(ptr nocapture noundef readonly %0, ptr noundef
   %or.cond7 = and i1 %74, %75
   %.1 = select i1 %or.cond7, i32 0, i32 %.0100
   %.not116 = icmp eq i32 %.1107.fr, 0
-  %76 = fdiv double %.0104, %.sroa.0.0.in
-  %77 = select i1 %.not116, double %.0104, double %76
+  %76 = select i1 %.not116, double 1.000000e+00, double %.sroa.0.0.in
+  %77 = fdiv double %.0104, %76
   %78 = fneg double %77
   %79 = select i1 %16, double %78, double %77
   %80 = and i32 %.0110, -2049

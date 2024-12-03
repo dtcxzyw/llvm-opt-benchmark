@@ -1151,72 +1151,71 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %130
 133:                                              ; preds = %_ZN4llvm5ErrorD2Ev.exit
   %134 = getelementptr inbounds nuw i8, ptr %132, i64 16
   %135 = load i32, ptr %134, align 8
-  %136 = icmp sgt i32 %135, 1
-  %137 = add nsw i32 %135, -1
-  %spec.select.i = select i1 %136, i32 %137, i32 0
+  %136 = tail call i32 @llvm.smax.i32(i32 %135, i32 1)
+  %spec.select.i = add nsw i32 %136, -1
   store i32 %spec.select.i, ptr %134, align 8
-  %138 = load ptr, ptr %31, align 8
-  %139 = load ptr, ptr %138, align 8
-  %140 = getelementptr inbounds i8, ptr %139, i64 288
-  %141 = load ptr, ptr %140, align 8
-  %142 = tail call noundef nonnull align 8 dereferenceable(48) ptr %141(ptr noundef nonnull align 8 dereferenceable(44) %138) #16
-  %143 = getelementptr inbounds nuw i8, ptr %142, i64 24
-  %144 = load ptr, ptr %143, align 8
-  %145 = getelementptr inbounds nuw i8, ptr %142, i64 32
-  %146 = load ptr, ptr %145, align 8
-  %147 = ptrtoint ptr %144 to i64
-  %148 = ptrtoint ptr %146 to i64
-  %149 = sub i64 %147, %148
-  %150 = icmp ult i64 %149, 2
-  br i1 %150, label %151, label %153
+  %137 = load ptr, ptr %31, align 8
+  %138 = load ptr, ptr %137, align 8
+  %139 = getelementptr inbounds i8, ptr %138, i64 288
+  %140 = load ptr, ptr %139, align 8
+  %141 = tail call noundef nonnull align 8 dereferenceable(48) ptr %140(ptr noundef nonnull align 8 dereferenceable(44) %137) #16
+  %142 = getelementptr inbounds nuw i8, ptr %141, i64 24
+  %143 = load ptr, ptr %142, align 8
+  %144 = getelementptr inbounds nuw i8, ptr %141, i64 32
+  %145 = load ptr, ptr %144, align 8
+  %146 = ptrtoint ptr %143 to i64
+  %147 = ptrtoint ptr %145 to i64
+  %148 = sub i64 %146, %147
+  %149 = icmp ult i64 %148, 2
+  br i1 %149, label %150, label %152
 
-151:                                              ; preds = %133
-  %152 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %142, ptr noundef nonnull @.str.24, i64 noundef 2) #16
+150:                                              ; preds = %133
+  %151 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %141, ptr noundef nonnull @.str.24, i64 noundef 2) #16
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit63
 
-153:                                              ; preds = %133
-  store i16 2685, ptr %146, align 1
-  %154 = load ptr, ptr %145, align 8
-  %155 = getelementptr inbounds i8, ptr %154, i64 2
-  store ptr %155, ptr %145, align 8
+152:                                              ; preds = %133
+  store i16 2685, ptr %145, align 1
+  %153 = load ptr, ptr %144, align 8
+  %154 = getelementptr inbounds i8, ptr %153, i64 2
+  store ptr %154, ptr %144, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit63
 
-_ZN4llvm11raw_ostreamlsEPKc.exit63:               ; preds = %153, %151, %_ZN4llvm5ErrorD2Ev.exit
-  %156 = load i64, ptr %.sroa.268.0..sroa_idx, align 8
-  %157 = load i64, ptr %25, align 8
-  %158 = icmp eq i64 %156, %157
-  br i1 %158, label %._crit_edge, label %48, !llvm.loop !118
+_ZN4llvm11raw_ostreamlsEPKc.exit63:               ; preds = %152, %150, %_ZN4llvm5ErrorD2Ev.exit
+  %155 = load i64, ptr %.sroa.268.0..sroa_idx, align 8
+  %156 = load i64, ptr %25, align 8
+  %157 = icmp eq i64 %155, %156
+  br i1 %157, label %._crit_edge, label %48, !llvm.loop !118
 
 ._crit_edge:                                      ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit63, %.preheader
   tail call void @llvm.experimental.noalias.scope.decl(metadata !119)
-  %159 = load ptr, ptr %26, align 8, !noalias !119
-  store ptr %159, ptr %0, align 8, !alias.scope !119
+  %158 = load ptr, ptr %26, align 8, !noalias !119
+  store ptr %158, ptr %0, align 8, !alias.scope !119
   store ptr null, ptr %26, align 8, !noalias !119
   br label %.critedge
 
 .critedge:                                        ; preds = %130, %._crit_edge, %_ZN4llvmplERKNS_5TwineES2_.exit60, %51, %_ZN4llvm9utohexstrB5cxx11Embj.exit
-  %160 = load ptr, ptr %26, align 8, !noalias !122
+  %159 = load ptr, ptr %26, align 8, !noalias !122
   store ptr null, ptr %26, align 8, !noalias !122
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  store ptr %160, ptr %7, align 8
+  store ptr %159, ptr %7, align 8
   call void @_ZN4llvm12handleErrorsIJZNS_12consumeErrorENS_5ErrorEEUlRKNS_13ErrorInfoBaseEE_EEES1_S1_DpOT_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %6, ptr noundef nonnull %7, ptr noundef nonnull align 1 dereferenceable(1) %8)
-  %161 = load ptr, ptr %6, align 8
-  %.not.i.i.i.i = icmp eq ptr %161, null
+  %160 = load ptr, ptr %6, align 8
+  %.not.i.i.i.i = icmp eq ptr %160, null
   call void @llvm.assume(i1 %.not.i.i.i.i)
-  %162 = load ptr, ptr %7, align 8
-  %163 = icmp eq ptr %162, null
-  br i1 %163, label %_ZZN4llvm18ELFAttributeParser5parseENS_8ArrayRefIhEENS_10endiannessEEN16ClearCursorErrorD2Ev.exit, label %164
+  %161 = load ptr, ptr %7, align 8
+  %162 = icmp eq ptr %161, null
+  br i1 %162, label %_ZZN4llvm18ELFAttributeParser5parseENS_8ArrayRefIhEENS_10endiannessEEN16ClearCursorErrorD2Ev.exit, label %163
 
-164:                                              ; preds = %.critedge
-  %165 = load ptr, ptr %162, align 8
-  %166 = getelementptr inbounds i8, ptr %165, i64 8
-  %167 = load ptr, ptr %166, align 8
-  call void %167(ptr noundef nonnull align 8 dereferenceable(8) %162) #16
+163:                                              ; preds = %.critedge
+  %164 = load ptr, ptr %161, align 8
+  %165 = getelementptr inbounds i8, ptr %164, i64 8
+  %166 = load ptr, ptr %165, align 8
+  call void %166(ptr noundef nonnull align 8 dereferenceable(8) %161) #16
   br label %_ZZN4llvm18ELFAttributeParser5parseENS_8ArrayRefIhEENS_10endiannessEEN16ClearCursorErrorD2Ev.exit
 
-_ZZN4llvm18ELFAttributeParser5parseENS_8ArrayRefIhEENS_10endiannessEEN16ClearCursorErrorD2Ev.exit: ; preds = %.critedge, %164
+_ZZN4llvm18ELFAttributeParser5parseENS_8ArrayRefIhEENS_10endiannessEEN16ClearCursorErrorD2Ev.exit: ; preds = %.critedge, %163
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8)
@@ -2548,6 +2547,9 @@ declare i64 @llvm.umax.i64(i64, i64) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #15
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #15
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

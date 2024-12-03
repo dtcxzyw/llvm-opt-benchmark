@@ -2385,8 +2385,8 @@ define internal fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_122formatF
 entry:
   %ref.tmp = alloca %"class.std::allocator", align 1
   %cmp = icmp ugt i64 %minRepresentDigits, 3
-  %add = add i64 %minRepresentDigits, 1
-  %cond = select i1 %cmp, i64 %add, i64 4
+  %0 = tail call i64 @llvm.umax.i64(i64 %minRepresentDigits, i64 3)
+  %cond = add i64 %0, 1
   %vla = alloca i8, i64 %cond, align 16
   %cmp1 = icmp ult i16 %subseconds, 10
   br i1 %cmp1, label %if.then, label %if.else
@@ -2395,8 +2395,8 @@ if.then:                                          ; preds = %entry
   store i8 48, ptr %vla, align 16
   %arrayidx2 = getelementptr inbounds i8, ptr %vla, i64 1
   store i8 48, ptr %arrayidx2, align 1
-  %0 = trunc nuw i16 %subseconds to i8
-  %conv5 = or disjoint i8 %0, 48
+  %1 = trunc nuw i16 %subseconds to i8
+  %conv5 = or disjoint i8 %1, 48
   %arrayidx6 = getelementptr inbounds i8, ptr %vla, i64 2
   store i8 %conv5, ptr %arrayidx6, align 2
   br label %if.end38
@@ -2420,19 +2420,19 @@ if.then9:                                         ; preds = %if.else
 
 if.else20:                                        ; preds = %if.else
   %rem22 = urem i16 %subseconds, 10
-  %1 = trunc nuw nsw i16 %rem22 to i8
-  %conv24 = or disjoint i8 %1, 48
+  %2 = trunc nuw nsw i16 %rem22 to i8
+  %conv24 = or disjoint i8 %2, 48
   store i8 %conv24, ptr %arrayidx13, align 2
   %div27 = udiv i16 %subseconds, 10
   %rem28 = urem i16 %div27, 10
-  %2 = trunc nuw nsw i16 %rem28 to i8
-  %conv30 = or disjoint i8 %2, 48
+  %3 = trunc nuw nsw i16 %rem28 to i8
+  %conv30 = or disjoint i8 %3, 48
   %arrayidx31 = getelementptr inbounds i8, ptr %vla, i64 1
   store i8 %conv30, ptr %arrayidx31, align 1
   %div33 = udiv i16 %subseconds, 100
   %rem34 = urem i16 %div33, 10
-  %3 = trunc nuw nsw i16 %rem34 to i8
-  %conv36 = or disjoint i8 %3, 48
+  %4 = trunc nuw nsw i16 %rem34 to i8
+  %conv36 = or disjoint i8 %4, 48
   store i8 %conv36, ptr %vla, align 16
   br label %if.end38
 
@@ -2463,7 +2463,7 @@ call.i.noexc:                                     ; preds = %if.end41
           to label %invoke.cont unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #2
   br label %lpad.body
@@ -2473,12 +2473,12 @@ invoke.cont:                                      ; preds = %.noexc
   ret void
 
 lpad:                                             ; preds = %call.i.noexc, %if.end41
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.body:                                        ; preds = %lpad.i, %lpad
-  %eh.lpad-body = phi { ptr, i32 } [ %5, %lpad ], [ %4, %lpad.i ]
+  %eh.lpad-body = phi { ptr, i32 } [ %6, %lpad ], [ %5, %lpad.i ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #2
   resume { ptr, i32 } %eh.lpad-body
 }
@@ -7350,14 +7350,14 @@ declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #10
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #22
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #23
+
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #23
+declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #24
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #24
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #24
+declare i64 @llvm.umin.i64(i64, i64) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #25
@@ -7366,10 +7366,10 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #25
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #24
+declare i32 @llvm.smax.i32(i32, i32) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.abs.i64(i64, i1 immarg) #24
+declare i64 @llvm.abs.i64(i64, i1 immarg) #23
 
 attributes #0 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
@@ -7394,8 +7394,8 @@ attributes #19 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "sta
 attributes #20 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #21 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #22 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #23 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #24 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #23 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #24 = { nofree nounwind willreturn memory(argmem: read) }
 attributes #25 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #26 = { builtin nounwind }
 attributes #27 = { nounwind willreturn memory(read) }

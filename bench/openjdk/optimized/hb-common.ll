@@ -9473,8 +9473,7 @@ _ZN21hb_sanitize_context_tD2Ev.exit:              ; preds = %97, %.noexc14
   %108 = trunc i8 %107 to i1
   %109 = select i1 %108, i32 1, i32 2
   %110 = lshr i32 %106, %109
-  %.sroa.speculated21 = tail call i32 @llvm.umax.i32(i32 %110, i32 1)
-  %111 = add nsw i32 %.sroa.speculated21, -1
+  %111 = tail call i32 @llvm.usub.sat.i32(i32 %110, i32 1)
   store i32 %111, ptr %7, align 4
   %112 = getelementptr inbounds i8, ptr %1, i64 48
   %113 = load atomic i32, ptr %112 monotonic, align 4

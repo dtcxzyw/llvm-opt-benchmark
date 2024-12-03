@@ -76,12 +76,10 @@ define void @Java_sun_java2d_x11_X11Renderer_XDrawRect(ptr noundef %0, ptr nocap
   br i1 %or.cond5, label %24, label %29
 
 24:                                               ; preds = %13
-  %25 = add nuw nsw i32 %6, 1
-  %.inv = icmp slt i32 %6, 65535
-  %spec.select = select i1 %.inv, i32 %25, i32 65535
-  %26 = add nuw nsw i32 %7, 1
-  %.inv44 = icmp slt i32 %7, 65535
-  %27 = select i1 %.inv44, i32 %26, i32 65535
+  %25 = tail call i32 @llvm.smin.i32(i32 %6, i32 65534)
+  %spec.select = add nsw i32 %25, 1
+  %26 = tail call i32 @llvm.smin.i32(i32 %7, i32 65534)
+  %27 = add nsw i32 %26, 1
   %28 = tail call i32 @XFillRectangle(ptr noundef %16, i64 noundef %18, ptr noundef %19, i32 noundef %21, i32 noundef %23, i32 noundef %spec.select, i32 noundef %27) #10
   br label %33
 
@@ -137,12 +135,10 @@ define void @Java_sun_java2d_x11_X11Renderer_XDrawRoundRect(ptr noundef %0, ptr 
   br i1 %or.cond5.i, label %31, label %36
 
 31:                                               ; preds = %20
-  %32 = add nuw nsw i32 %6, 1
-  %.inv.i = icmp slt i32 %6, 65535
-  %spec.select.i = select i1 %.inv.i, i32 %32, i32 65535
-  %33 = add nuw nsw i32 %7, 1
-  %.inv44.i = icmp slt i32 %7, 65535
-  %34 = select i1 %.inv44.i, i32 %33, i32 65535
+  %32 = tail call i32 @llvm.smin.i32(i32 %6, i32 65534)
+  %spec.select.i = add nsw i32 %32, 1
+  %33 = tail call i32 @llvm.smin.i32(i32 %7, i32 65534)
+  %34 = add nsw i32 %33, 1
   %35 = tail call i32 @XFillRectangle(ptr noundef %23, i64 noundef %25, ptr noundef %26, i32 noundef %28, i32 noundef %30, i32 noundef %spec.select.i, i32 noundef %34) #10
   br label %.sink.split
 

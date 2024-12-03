@@ -521,62 +521,61 @@ define dso_local void @table_block_parallelscan_startblock_init(ptr noundef %0, 
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 0, i64 16, i1 false)
   %4 = getelementptr inbounds i8, ptr %2, i64 16
   %5 = load i32, ptr %4, align 8
-  %6 = icmp ugt i32 %5, 4095
-  %7 = lshr i32 %5, 11
-  %spec.select = select i1 %6, i32 %7, i32 1
-  %8 = tail call range(i32 1, 22) i32 @llvm.ctpop.i32(i32 range(i32 1, 2097152) %spec.select)
-  %9 = icmp samesign ult i32 %8, 2
-  %10 = tail call range(i32 11, 33) i32 @llvm.ctlz.i32(i32 range(i32 1, 2097152) %spec.select, i1 true)
-  %11 = xor i32 %10, 31
-  %12 = shl nuw nsw i32 2, %11
-  %.0.i = select i1 %9, i32 %spec.select, i32 %12
-  %13 = getelementptr inbounds i8, ptr %1, i64 12
-  %14 = tail call i32 @llvm.umin.i32(i32 %.0.i, i32 8192)
-  store i32 %14, ptr %13, align 4
-  %15 = getelementptr inbounds i8, ptr %2, i64 20
-  %16 = getelementptr inbounds i8, ptr %2, i64 24
-  %17 = getelementptr inbounds i8, ptr %2, i64 4
-  br label %18
+  %6 = tail call i32 @llvm.umax.i32(i32 %5, i32 4095)
+  %spec.select = lshr i32 %6, 11
+  %7 = tail call range(i32 1, 22) i32 @llvm.ctpop.i32(i32 range(i32 1, 2097152) %spec.select)
+  %8 = icmp samesign ult i32 %7, 2
+  %9 = tail call range(i32 11, 33) i32 @llvm.ctlz.i32(i32 range(i32 1, 2097152) %spec.select, i1 true)
+  %10 = xor i32 %9, 31
+  %11 = shl nuw nsw i32 2, %10
+  %.0.i = select i1 %8, i32 %spec.select, i32 %11
+  %12 = getelementptr inbounds i8, ptr %1, i64 12
+  %13 = tail call i32 @llvm.umin.i32(i32 %.0.i, i32 8192)
+  store i32 %13, ptr %12, align 4
+  %14 = getelementptr inbounds i8, ptr %2, i64 20
+  %15 = getelementptr inbounds i8, ptr %2, i64 24
+  %16 = getelementptr inbounds i8, ptr %2, i64 4
+  br label %17
 
-18:                                               ; preds = %29, %3
-  %.0 = phi i32 [ -1, %3 ], [ %31, %29 ]
-  %19 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %15, i8 1, ptr nonnull elementtype(i8) %15) #9, !srcloc !6
-  %.not = icmp eq i8 %19, 0
-  br i1 %.not, label %22, label %20
+17:                                               ; preds = %28, %3
+  %.0 = phi i32 [ -1, %3 ], [ %30, %28 ]
+  %18 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %14, i8 1, ptr nonnull elementtype(i8) %14) #9, !srcloc !6
+  %.not = icmp eq i8 %18, 0
+  br i1 %.not, label %21, label %19
 
-20:                                               ; preds = %18
-  %21 = tail call i32 @s_lock(ptr noundef nonnull %15, ptr noundef nonnull @.str.2, i32 noundef 464, ptr noundef nonnull @__func__.table_block_parallelscan_startblock_init) #9
-  br label %22
+19:                                               ; preds = %17
+  %20 = tail call i32 @s_lock(ptr noundef nonnull %14, ptr noundef nonnull @.str.2, i32 noundef 464, ptr noundef nonnull @__func__.table_block_parallelscan_startblock_init) #9
+  br label %21
 
-22:                                               ; preds = %18, %20
-  %23 = load i32, ptr %16, align 8
-  %24 = icmp eq i32 %23, -1
-  br i1 %24, label %25, label %.loopexit
+21:                                               ; preds = %17, %19
+  %22 = load i32, ptr %15, align 8
+  %23 = icmp eq i32 %22, -1
+  br i1 %23, label %24, label %.loopexit
 
-25:                                               ; preds = %22
-  %26 = load i8, ptr %17, align 4
-  %27 = trunc i8 %26 to i1
-  br i1 %27, label %28, label %.loopexit.sink.split
+24:                                               ; preds = %21
+  %25 = load i8, ptr %16, align 4
+  %26 = trunc i8 %25 to i1
+  br i1 %26, label %27, label %.loopexit.sink.split
 
-28:                                               ; preds = %25
+27:                                               ; preds = %24
   %.not20 = icmp eq i32 %.0, -1
-  br i1 %.not20, label %29, label %.loopexit.sink.split
+  br i1 %.not20, label %28, label %.loopexit.sink.split
 
-29:                                               ; preds = %28
+28:                                               ; preds = %27
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !7
-  store i8 0, ptr %15, align 4
-  %30 = load i32, ptr %4, align 8
-  %31 = tail call i32 @ss_get_location(ptr noundef %0, i32 noundef %30) #9
-  br label %18
+  store i8 0, ptr %14, align 4
+  %29 = load i32, ptr %4, align 8
+  %30 = tail call i32 @ss_get_location(ptr noundef %0, i32 noundef %29) #9
+  br label %17
 
-.loopexit.sink.split:                             ; preds = %28, %25
-  %.0.lcssa31.sink = phi i32 [ 0, %25 ], [ %.0, %28 ]
-  store i32 %.0.lcssa31.sink, ptr %16, align 8
+.loopexit.sink.split:                             ; preds = %27, %24
+  %.0.lcssa31.sink = phi i32 [ 0, %24 ], [ %.0, %27 ]
+  store i32 %.0.lcssa31.sink, ptr %15, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %22, %.loopexit.sink.split
+.loopexit:                                        ; preds = %21, %.loopexit.sink.split
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !8
-  store i8 0, ptr %15, align 4
+  store i8 0, ptr %14, align 4
   ret void
 }
 
@@ -859,6 +858,9 @@ declare void @llvm.assume(i1 noundef) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctpop.i32(i32) #8
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #8

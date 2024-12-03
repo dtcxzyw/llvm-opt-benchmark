@@ -942,7 +942,7 @@ _ZNSt8__detail8_AdaptorIN10pcg_detail6engineIjmNS1_12xsh_rr_mixinIjmEELb1ENS1_15
   br i1 %13, label %do.body, label %do.end, !llvm.loop !15
 
 do.end:                                           ; preds = %_ZNSt8__detail8_AdaptorIN10pcg_detail6engineIjmNS1_12xsh_rr_mixinIjmEELb1ENS1_15specific_streamImEENS1_18default_multiplierImEEEEdEclEv.exit44
-  %call6 = tail call double @log(double noundef %12) #16
+  %call6 = tail call double @llvm.log.f64(double %12)
   %mul = fmul double %call6, -2.000000e+00
   %div = fdiv double %mul, %12
   %call7 = tail call double @sqrt(double noundef %div) #16
@@ -967,9 +967,6 @@ declare double @llvm.fmuladd.f64(double, double, double) #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
 declare double @sqrt(double noundef) local_unnamed_addr #10
-
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @log(double noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind
 declare double @nextafter(double noundef, double noundef) local_unnamed_addr #1
@@ -1209,6 +1206,9 @@ entry:
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshr.i32(i32, i32, i32) #14
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.log.f64(double) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15

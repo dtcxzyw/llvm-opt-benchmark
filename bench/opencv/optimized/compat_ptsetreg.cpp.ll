@@ -2061,9 +2061,8 @@ define noundef zeroext i1 @_ZN9CvLevMarq6updateERPK5CvMatRPS0_S5_(ptr noundef no
 ._crit_edge:                                      ; preds = %66, %74
   %82 = phi i32 [ %75, %74 ], [ %73, %66 ]
   %83 = getelementptr inbounds i8, ptr %0, i64 176
-  %84 = add nsw i32 %82, -1
-  %.inv = icmp sgt i32 %82, -16
-  %spec.select = select i1 %.inv, i32 %84, i32 -16
+  %84 = tail call i32 @llvm.smax.i32(i32 %82, i32 -15)
+  %spec.select = add nsw i32 %84, -1
   store i32 %spec.select, ptr %83, align 8
   %85 = getelementptr inbounds i8, ptr %0, i64 204
   %86 = load i32, ptr %85, align 4
@@ -2826,9 +2825,8 @@ define noundef zeroext i1 @_ZN9CvLevMarq9updateAltERPK5CvMatRPS0_S5_RPd(ptr noun
 ._crit_edge:                                      ; preds = %51, %59
   %65 = phi i32 [ %60, %59 ], [ %58, %51 ]
   %66 = getelementptr inbounds i8, ptr %0, i64 176
-  %67 = add nsw i32 %65, -1
-  %.inv = icmp sgt i32 %65, -16
-  %spec.select = select i1 %.inv, i32 %67, i32 -16
+  %67 = tail call i32 @llvm.smax.i32(i32 %65, i32 -15)
+  %spec.select = add nsw i32 %67, -1
   store i32 %spec.select, ptr %66, align 8
   %68 = getelementptr inbounds i8, ptr %0, i64 204
   %69 = load i32, ptr %68, align 4

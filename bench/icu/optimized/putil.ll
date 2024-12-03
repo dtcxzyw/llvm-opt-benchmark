@@ -853,21 +853,22 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp.i10, label %if.end, label %return
 
 if.end:                                           ; preds = %lor.lhs.false
-  %cmp = fcmp une double %x, 0.000000e+00
-  %cmp4 = fcmp une double %y, 0.000000e+00
-  %or.cond.not13 = or i1 %cmp, %cmp4
-  %2 = bitcast double %x to i64
-  %tobool7.not = icmp sgt i64 %2, -1
-  %or.cond12 = or i1 %tobool7.not, %or.cond.not13
-  br i1 %or.cond12, label %if.end9, label %return
+  %cmp = fcmp oeq double %x, 0.000000e+00
+  %cmp4 = fcmp oeq double %y, 0.000000e+00
+  %or.cond = and i1 %cmp, %cmp4
+  br i1 %or.cond, label %land.lhs.true5, label %if.end9
 
-if.end9:                                          ; preds = %if.end
+land.lhs.true5:                                   ; preds = %if.end
+  %tobool7.not = tail call i1 @llvm.is.fpclass.f64(double %x, i32 64)
+  br i1 %tobool7.not, label %if.end9, label %return
+
+if.end9:                                          ; preds = %land.lhs.true5, %if.end
   %cmp10 = fcmp ogt double %x, %y
   %cond = select i1 %cmp10, double %x, double %y
   br label %return
 
-return:                                           ; preds = %if.end, %entry, %lor.lhs.false, %if.end9
-  %retval.0 = phi double [ %cond, %if.end9 ], [ 0x7FF8000000000000, %lor.lhs.false ], [ 0x7FF8000000000000, %entry ], [ %y, %if.end ]
+return:                                           ; preds = %entry, %lor.lhs.false, %land.lhs.true5, %if.end9
+  %retval.0 = phi double [ %cond, %if.end9 ], [ %y, %land.lhs.true5 ], [ 0x7FF8000000000000, %lor.lhs.false ], [ 0x7FF8000000000000, %entry ]
   ret double %retval.0
 }
 
@@ -886,21 +887,22 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp.i10, label %if.end, label %return
 
 if.end:                                           ; preds = %lor.lhs.false
-  %cmp = fcmp une double %x, 0.000000e+00
-  %cmp4 = fcmp une double %y, 0.000000e+00
-  %or.cond.not13 = or i1 %cmp, %cmp4
-  %2 = bitcast double %y to i64
-  %tobool7.not = icmp sgt i64 %2, -1
-  %or.cond12 = or i1 %or.cond.not13, %tobool7.not
-  br i1 %or.cond12, label %if.end9, label %return
+  %cmp = fcmp oeq double %x, 0.000000e+00
+  %cmp4 = fcmp oeq double %y, 0.000000e+00
+  %or.cond = and i1 %cmp, %cmp4
+  br i1 %or.cond, label %land.lhs.true5, label %if.end9
 
-if.end9:                                          ; preds = %if.end
+land.lhs.true5:                                   ; preds = %if.end
+  %tobool7.not = tail call i1 @llvm.is.fpclass.f64(double %y, i32 64)
+  br i1 %tobool7.not, label %if.end9, label %return
+
+if.end9:                                          ; preds = %land.lhs.true5, %if.end
   %cmp10 = fcmp ogt double %x, %y
   %cond = select i1 %cmp10, double %y, double %x
   br label %return
 
-return:                                           ; preds = %if.end, %entry, %lor.lhs.false, %if.end9
-  %retval.0 = phi double [ %cond, %if.end9 ], [ 0x7FF8000000000000, %lor.lhs.false ], [ 0x7FF8000000000000, %entry ], [ %y, %if.end ]
+return:                                           ; preds = %entry, %lor.lhs.false, %land.lhs.true5, %if.end9
+  %retval.0 = phi double [ %cond, %if.end9 ], [ %y, %land.lhs.true5 ], [ 0x7FF8000000000000, %lor.lhs.false ], [ 0x7FF8000000000000, %entry ]
   ret double %retval.0
 }
 
@@ -2684,6 +2686,9 @@ declare void @_ZN6icu_7511StringPieceC1EPKc(ptr noundef nonnull align 8 derefere
 
 ; Function Attrs: nounwind
 declare ptr @setlocale(i32 noundef, ptr noundef) local_unnamed_addr #16
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i1 @llvm.is.fpclass.f64(double, i32 immarg) #27
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare { i32, i1 } @llvm.sadd.with.overflow.i32(i32, i32) #27

@@ -15292,9 +15292,7 @@ do.end12.i.i:                                     ; preds = %_ZN4node12stringsea
   %agg.tmp2.sroa.5.0.pattern_.i.sroa_idx.i = getelementptr inbounds i8, ptr %search.i, i64 3048
   store i64 %agg.tmp1027.sroa.6.16.insert.ext, ptr %agg.tmp2.sroa.5.0.pattern_.i.sroa_idx.i, align 8
   %start_.i.i = getelementptr inbounds i8, ptr %search.i, i64 3064
-  %cmp.i.i = icmp ugt i64 %needle_length, 249
-  %sub.i.i = add i64 %needle_length, -250
-  %spec.select.i = select i1 %cmp.i.i, i64 %sub.i.i, i64 0
+  %spec.select.i = tail call i64 @llvm.usub.sat.i64(i64 %needle_length, i64 250)
   store i64 %spec.select.i, ptr %start_.i.i, align 8
   %cmp13.i.i = icmp ult i64 %needle_length, 8
   br i1 %cmp13.i.i, label %if.then14.i.i, label %if.end19.i.i
@@ -15382,9 +15380,7 @@ do.end12.i.i:                                     ; preds = %_ZN4node12stringsea
   %agg.tmp2.sroa.5.0.pattern_.i.sroa_idx.i = getelementptr inbounds i8, ptr %search.i, i64 3048
   store i64 %agg.tmp1027.sroa.6.16.insert.ext, ptr %agg.tmp2.sroa.5.0.pattern_.i.sroa_idx.i, align 8
   %start_.i.i = getelementptr inbounds i8, ptr %search.i, i64 3064
-  %cmp.i.i = icmp ugt i64 %needle_length, 249
-  %sub.i.i = add i64 %needle_length, -250
-  %spec.select.i = select i1 %cmp.i.i, i64 %sub.i.i, i64 0
+  %spec.select.i = tail call i64 @llvm.usub.sat.i64(i64 %needle_length, i64 250)
   store i64 %spec.select.i, ptr %start_.i.i, align 8
   %cmp13.i.i = icmp ult i64 %needle_length, 8
   br i1 %cmp13.i.i, label %if.then14.i.i, label %if.end19.i.i

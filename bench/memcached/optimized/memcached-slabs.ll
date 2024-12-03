@@ -2268,15 +2268,14 @@ if.else13:                                        ; preds = %if.end10
 
 if.then15:                                        ; preds = %if.else13
   %call16 = tail call i32 @usleep(i32 noundef %backoff_timer.0) #22
-  %mul = shl nsw i32 %backoff_timer.0, 1
-  %cmp17 = icmp sgt i32 %backoff_timer.0, 500
-  %spec.select = select i1 %cmp17, i32 1000, i32 %mul
+  %157 = tail call i32 @llvm.smin.i32(i32 %backoff_timer.0, i32 500)
+  %spec.select = shl i32 %157, 1
   br label %if.end21
 
 if.end21:                                         ; preds = %if.then33.i, %if.end18.i, %if.then15, %if.else13
   %backoff_timer.1 = phi i32 [ %backoff_timer.0, %if.else13 ], [ %spec.select, %if.then15 ], [ %backoff_timer.0, %if.end18.i ], [ %backoff_timer.0, %if.then33.i ]
-  %157 = load volatile i32, ptr @slab_rebalance_signal, align 4
-  %cmp22 = icmp eq i32 %157, 0
+  %158 = load volatile i32, ptr @slab_rebalance_signal, align 4
+  %cmp22 = icmp eq i32 %158, 0
   br i1 %cmp22, label %if.then23, label %while.cond.backedge
 
 if.then23:                                        ; preds = %if.end21
@@ -2630,6 +2629,9 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.usub.sat.i64(i64, i64) #20
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #20
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree norecurse nosync nounwind memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

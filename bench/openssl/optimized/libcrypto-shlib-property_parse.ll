@@ -817,12 +817,11 @@ return:                                           ; preds = %if.then37.i, %if.th
 define internal fastcc ptr @stack_to_property_list(ptr noundef %ctx, ptr noundef nonnull %sk) unnamed_addr #0 {
 entry:
   %call.i = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %sk) #9
-  %sub = add nsw i32 %call.i, -1
-  %cmp.inv = icmp sgt i32 %call.i, 0
-  %cond = select i1 %cmp.inv, i32 %sub, i32 0
-  %conv = sext i32 %cond to i64
-  %mul = mul nsw i64 %conv, 24
-  %add = add nsw i64 %mul, 32
+  %0 = tail call i32 @llvm.smax.i32(i32 %call.i, i32 1)
+  %cond = add nsw i32 %0, -1
+  %conv = zext nneg i32 %cond to i64
+  %mul = mul nuw nsw i64 %conv, 24
+  %add = add nuw nsw i64 %mul, 32
   %call1 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %add, ptr noundef nonnull @.str, i32 noundef 320) #9
   %cmp2.not = icmp eq ptr %call1, null
   br i1 %cmp2.not, label %return, label %if.then
@@ -833,7 +832,8 @@ if.then:                                          ; preds = %entry
   %bf.load = load i8, ptr %has_optional, align 4
   %bf.clear = and i8 %bf.load, -2
   store i8 %bf.clear, ptr %has_optional, align 4
-  br i1 %cmp.inv, label %for.body.lr.ph, label %for.end
+  %cmp427 = icmp sgt i32 %call.i, 0
+  br i1 %cmp427, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %if.then
   %properties = getelementptr inbounds i8, ptr %call1, i64 8
@@ -845,13 +845,13 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %if.end ]
   %prev_name_idx.028 = phi i32 [ 0, %for.body.lr.ph ], [ %.pre, %if.end ]
   %arrayidx = getelementptr inbounds [1 x %struct.ossl_property_definition_st], ptr %properties, i64 0, i64 %indvars.iv
-  %0 = trunc nuw nsw i64 %indvars.iv to i32
-  %call.i25 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %sk, i32 noundef %0) #9
+  %1 = trunc nuw nsw i64 %indvars.iv to i32
+  %call.i25 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %sk, i32 noundef %1) #9
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %arrayidx, ptr noundef nonnull align 8 dereferenceable(24) %call.i25, i64 24, i1 false)
   %optional = getelementptr inbounds i8, ptr %arrayidx, i64 12
   %bf.load10 = load i8, ptr %optional, align 4
-  %1 = and i8 %bf.load10, 1
-  %bf.set18 = or i8 %1, %bf.load13
+  %2 = and i8 %bf.load10, 1
+  %bf.set18 = or i8 %2, %bf.load13
   store i8 %bf.set18, ptr %has_optional, align 4
   %cmp19.not = icmp ne i64 %indvars.iv, 0
   %.pre = load i32, ptr %arrayidx, align 8
@@ -1971,14 +1971,17 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
 
 declare i32 @BIO_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #6
+
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #6
+declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.usub.sat.i32(i32, i32) #7
+declare i32 @llvm.usub.sat.i32(i32, i32) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.scmp.i32.i32(i32, i32) #7
+declare i32 @llvm.scmp.i32.i32(i32, i32) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
@@ -1987,13 +1990,13 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.abs.i64(i64, i1 immarg) #7
+declare i64 @llvm.abs.i64(i64, i1 immarg) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #7
+declare i64 @llvm.umin.i64(i64, i64) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.usub.sat.i64(i64, i64) #7
+declare i64 @llvm.usub.sat.i64(i64, i64) #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2001,8 +2004,8 @@ attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protect
 attributes #3 = { nofree nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nofree nounwind willreturn memory(argmem: read) }
 attributes #8 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nounwind }
 attributes #10 = { nounwind willreturn memory(read) }

@@ -1224,33 +1224,33 @@ _ZN7oopDesc11oop_iterateIN17ArchiveHeapWriter20EmbeddedOopRelocatorEEEvPT_.exit:
   %145 = getelementptr inbounds i8, ptr %143, i64 %144
   call void @_ZN7oopDesc16set_narrow_klassEj(ptr noundef nonnull align 8 dereferenceable(16) %145, i32 noundef %136) #18
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %._crit_edge58, label %146
+  br i1 %.not, label %._crit_edge57, label %146
 
 146:                                              ; preds = %._crit_edge
   %147 = load i32, ptr %0, align 4
   %148 = icmp sgt i32 %147, 0
-  br i1 %148, label %.lr.ph57.preheader, label %._crit_edge58
+  br i1 %148, label %.lr.ph56.preheader, label %._crit_edge57
 
-.lr.ph57.preheader:                               ; preds = %146
+.lr.ph56.preheader:                               ; preds = %146
   %wide.trip.count = zext nneg i32 %147 to i64
-  br label %.lr.ph57
+  br label %.lr.ph56
 
-.lr.ph57:                                         ; preds = %.lr.ph57.preheader, %_ZN17ArchiveHeapWriter16relocate_root_atIP7oopDescEEvS2_iP11CHeapBitMap.exit
-  %indvars.iv65 = phi i64 [ 0, %.lr.ph57.preheader ], [ %indvars.iv.next66, %_ZN17ArchiveHeapWriter16relocate_root_atIP7oopDescEEvS2_iP11CHeapBitMap.exit ]
+.lr.ph56:                                         ; preds = %.lr.ph56.preheader, %_ZN17ArchiveHeapWriter16relocate_root_atIP7oopDescEEvS2_iP11CHeapBitMap.exit
+  %indvars.iv64 = phi i64 [ 0, %.lr.ph56.preheader ], [ %indvars.iv.next65, %_ZN17ArchiveHeapWriter16relocate_root_atIP7oopDescEEvS2_iP11CHeapBitMap.exit ]
   %149 = load i8, ptr @UseCompressedOops, align 1
   %150 = trunc i8 %149 to i1
   br i1 %150, label %151, label %153
 
-151:                                              ; preds = %.lr.ph57
-  %152 = trunc nuw nsw i64 %indvars.iv65 to i32
+151:                                              ; preds = %.lr.ph56
+  %152 = trunc nuw nsw i64 %indvars.iv64 to i32
   call void @_ZN17ArchiveHeapWriter16relocate_root_atI9narrowOopEEvP7oopDesciP11CHeapBitMap(ptr noundef %133, i32 noundef %152, ptr noundef nonnull %9)
   br label %_ZN17ArchiveHeapWriter16relocate_root_atIP7oopDescEEvS2_iP11CHeapBitMap.exit
 
-153:                                              ; preds = %.lr.ph57
+153:                                              ; preds = %.lr.ph56
   %154 = load i8, ptr @UseCompressedClassPointers, align 1
   %155 = trunc i8 %154 to i1
   %156 = select i1 %155, i64 16, i64 24
-  %157 = shl nuw nsw i64 %indvars.iv65, 3
+  %157 = shl nuw nsw i64 %indvars.iv64, 3
   %158 = load i64, ptr @_ZN17ArchiveHeapWriter18_heap_roots_offsetE, align 8
   %159 = load ptr, ptr @_ZN17ArchiveHeapWriter7_bufferE, align 8
   %160 = getelementptr inbounds i8, ptr %159, i64 8
@@ -1330,11 +1330,11 @@ _ZN17ArchiveHeapWriter27source_obj_to_requested_objEP7oopDesc.exit.i.i: ; preds 
   br label %_ZN17ArchiveHeapWriter16relocate_root_atIP7oopDescEEvS2_iP11CHeapBitMap.exit
 
 _ZN17ArchiveHeapWriter16relocate_root_atIP7oopDescEEvS2_iP11CHeapBitMap.exit: ; preds = %_ZN17ArchiveHeapWriter27source_obj_to_requested_objEP7oopDesc.exit.i.i, %153, %151
-  %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next66, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge58, label %.lr.ph57, !llvm.loop !19
+  %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next65, %wide.trip.count
+  br i1 %exitcond.not, label %._crit_edge57, label %.lr.ph56, !llvm.loop !19
 
-._crit_edge58:                                    ; preds = %_ZN17ArchiveHeapWriter16relocate_root_atIP7oopDescEEvS2_iP11CHeapBitMap.exit, %._crit_edge, %146
+._crit_edge57:                                    ; preds = %_ZN17ArchiveHeapWriter16relocate_root_atIP7oopDescEEvS2_iP11CHeapBitMap.exit, %._crit_edge, %146
   call void @_ZN17ArchiveHeapWriter14compute_ptrmapEP15ArchiveHeapInfo(ptr noundef nonnull %1)
   %209 = load ptr, ptr @_ZN17ArchiveHeapWriter7_bufferE, align 8
   %210 = load i32, ptr %209, align 4
@@ -1348,7 +1348,7 @@ _ZN17ArchiveHeapWriter16relocate_root_atIP7oopDescEEvS2_iP11CHeapBitMap.exit: ; 
   %.not.i35 = icmp eq i64 %217, 0
   br i1 %.not.i35, label %.loopexit.i.i.i.i, label %218
 
-218:                                              ; preds = %._crit_edge58
+218:                                              ; preds = %._crit_edge57
   %219 = load ptr, ptr %9, align 8
   %220 = load i64, ptr %219, align 8
   %221 = and i64 %220, 1
@@ -1362,8 +1362,7 @@ _ZN17ArchiveHeapWriter16relocate_root_atIP7oopDescEEvS2_iP11CHeapBitMap.exit: ; 
 224:                                              ; preds = %222
   %225 = add i64 %217, 63
   %226 = lshr i64 %225, 6
-  %umax.i = call i64 @llvm.umax.i64(i64 %226, i64 1)
-  %227 = add nsw i64 %umax.i, -1
+  %227 = call i64 @llvm.usub.sat.i64(i64 %226, i64 1)
   br label %228
 
 228:                                              ; preds = %229, %224
@@ -1390,7 +1389,7 @@ _ZN17ArchiveHeapWriter16relocate_root_atIP7oopDescEEvS2_iP11CHeapBitMap.exit: ; 
   %238 = icmp ult i64 %237, %217
   br i1 %238, label %_ZNK6BitMap18find_first_set_bitEm.exit.i, label %.loopexit.i.i.i.i
 
-.loopexit.i.i.i.i:                                ; preds = %228, %235, %._crit_edge58
+.loopexit.i.i.i.i:                                ; preds = %228, %235, %._crit_edge57
   br label %_ZNK6BitMap18find_first_set_bitEm.exit.i
 
 _ZNK6BitMap18find_first_set_bitEm.exit.i:         ; preds = %.loopexit.i.i.i.i, %235, %218
@@ -1432,21 +1431,20 @@ _ZL16log_bitmap_usagePKcP6BitMapm.exit:           ; preds = %_ZNK6BitMap18find_f
 258:                                              ; preds = %256
   %259 = add i64 %250, 63
   %260 = lshr i64 %259, 6
-  %umax.i44 = call i64 @llvm.umax.i64(i64 %260, i64 1)
-  %261 = add nsw i64 %umax.i44, -1
+  %261 = call i64 @llvm.usub.sat.i64(i64 %260, i64 1)
   br label %262
 
 262:                                              ; preds = %263, %258
-  %.025.i.i.i.i45 = phi i64 [ 0, %258 ], [ %264, %263 ]
-  %exitcond.not.i46 = icmp eq i64 %.025.i.i.i.i45, %261
-  br i1 %exitcond.not.i46, label %.loopexit.i.i.i.i43, label %263
+  %.025.i.i.i.i44 = phi i64 [ 0, %258 ], [ %264, %263 ]
+  %exitcond.not.i45 = icmp eq i64 %.025.i.i.i.i44, %261
+  br i1 %exitcond.not.i45, label %.loopexit.i.i.i.i43, label %263
 
 263:                                              ; preds = %262
-  %264 = add nuw nsw i64 %.025.i.i.i.i45, 1
+  %264 = add nuw nsw i64 %.025.i.i.i.i44, 1
   %265 = getelementptr inbounds i64, ptr %253, i64 %264
   %266 = load i64, ptr %265, align 8
-  %.not36.i.i.i.i47 = icmp eq i64 %266, 0
-  br i1 %.not36.i.i.i.i47, label %262, label %267, !llvm.loop !20
+  %.not36.i.i.i.i46 = icmp eq i64 %266, 0
+  br i1 %.not36.i.i.i.i46, label %262, label %267, !llvm.loop !20
 
 267:                                              ; preds = %263
   %268 = shl i64 %264, 6
@@ -1467,7 +1465,7 @@ _ZNK6BitMap18find_first_set_bitEm.exit.i38:       ; preds = %.loopexit.i.i.i.i43
   %.0.i.i.i.i39 = phi i64 [ %250, %.loopexit.i.i.i.i43 ], [ 0, %251 ], [ %271, %269 ]
   %273 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not11.i40 = icmp eq ptr %273, null
-  br i1 %.not11.i40, label %_ZL16log_bitmap_usagePKcP6BitMapm.exit48, label %274
+  br i1 %.not11.i40, label %_ZL16log_bitmap_usagePKcP6BitMapm.exit47, label %274
 
 274:                                              ; preds = %_ZNK6BitMap18find_first_set_bitEm.exit.i38
   %275 = mul i64 %.0.i.i.i.i39, 100
@@ -1478,9 +1476,9 @@ _ZNK6BitMap18find_first_set_bitEm.exit.i38:       ; preds = %.loopexit.i.i.i.i43
   %280 = mul i64 %279, 100
   %281 = udiv i64 %280, %248
   call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.19, i64 noundef %.0.i.i.i.i39, i64 noundef %250, i64 noundef %276, i64 noundef %278, i64 noundef %281)
-  br label %_ZL16log_bitmap_usagePKcP6BitMapm.exit48
+  br label %_ZL16log_bitmap_usagePKcP6BitMapm.exit47
 
-_ZL16log_bitmap_usagePKcP6BitMapm.exit48:         ; preds = %_ZNK6BitMap18find_first_set_bitEm.exit.i38, %274
+_ZL16log_bitmap_usagePKcP6BitMapm.exit47:         ; preds = %_ZNK6BitMap18find_first_set_bitEm.exit.i38, %274
   ret void
 }
 
@@ -9398,6 +9396,9 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.usub.sat.i64(i64, i64) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #17

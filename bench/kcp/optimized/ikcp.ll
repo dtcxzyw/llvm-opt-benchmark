@@ -2577,17 +2577,16 @@ if.then286:                                       ; preds = %if.end284
   %98 = load i32, ptr %snd_nxt, align 4
   %99 = load i32, ptr %snd_una, align 8
   %sub = sub i32 %98, %99
-  %div289204 = lshr i32 %sub, 1
   %ssthresh = getelementptr inbounds i8, ptr %kcp, i64 36
-  %cmp291 = icmp ult i32 %sub, 4
-  %spec.select209 = select i1 %cmp291, i32 2, i32 %div289204
+  %100 = tail call i32 @llvm.umax.i32(i32 %sub, i32 4)
+  %spec.select209 = lshr i32 %100, 1
   store i32 %spec.select209, ptr %ssthresh, align 4
   %add297 = add i32 %spec.select209, %spec.select208
   %cwnd298 = getelementptr inbounds i8, ptr %kcp, i64 68
   store i32 %add297, ptr %cwnd298, align 4
   %mss = getelementptr inbounds i8, ptr %kcp, i64 8
-  %100 = load i32, ptr %mss, align 8
-  %mul = mul i32 %add297, %100
+  %101 = load i32, ptr %mss, align 8
+  %mul = mul i32 %add297, %101
   %incr = getelementptr inbounds i8, ptr %kcp, i64 128
   store i32 %mul, ptr %incr, align 8
   br label %if.end300
@@ -2596,26 +2595,25 @@ if.end300:                                        ; preds = %if.then286, %if.end
   br i1 %lost.0.lcssa, label %if.end314, label %if.end314.thread
 
 if.end314.thread:                                 ; preds = %if.end300
-  %div303206 = lshr i32 %cwnd.0, 1
   %ssthresh304 = getelementptr inbounds i8, ptr %kcp, i64 36
-  %cmp306 = icmp ult i32 %cwnd.0, 4
-  %spec.select210 = select i1 %cmp306, i32 2, i32 %div303206
+  %102 = tail call i32 @llvm.umax.i32(i32 %cwnd.0, i32 4)
+  %spec.select210 = lshr i32 %102, 1
   store i32 %spec.select210, ptr %ssthresh304, align 4
   br label %if.end322.sink.split
 
 if.end314:                                        ; preds = %if.end300
   %cwnd315.phi.trans.insert = getelementptr inbounds i8, ptr %kcp, i64 68
   %.pre387 = load i32, ptr %cwnd315.phi.trans.insert, align 4
-  %101 = icmp eq i32 %.pre387, 0
-  br i1 %101, label %if.end322.sink.split, label %if.end322
+  %103 = icmp eq i32 %.pre387, 0
+  br i1 %103, label %if.end322.sink.split, label %if.end322
 
 if.end322.sink.split:                             ; preds = %if.end314, %if.end314.thread
   %cwnd311 = getelementptr inbounds i8, ptr %kcp, i64 68
   store i32 1, ptr %cwnd311, align 4
   %mss312 = getelementptr inbounds i8, ptr %kcp, i64 8
-  %102 = load i32, ptr %mss312, align 8
+  %104 = load i32, ptr %mss312, align 8
   %incr313 = getelementptr inbounds i8, ptr %kcp, i64 128
-  store i32 %102, ptr %incr313, align 8
+  store i32 %104, ptr %incr313, align 8
   br label %if.end322
 
 if.end322:                                        ; preds = %if.end322.sink.split, %entry, %if.end314

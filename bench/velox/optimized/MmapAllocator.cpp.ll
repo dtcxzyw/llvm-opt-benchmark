@@ -434,41 +434,40 @@ call.i.noexc26:                                   ; preds = %if.then
   %mul.i = shl i64 %19, 12
   %conv29 = sext i32 %20 to i64
   %div30 = udiv i64 %mul.i, %conv29
-  %add.i21 = add nuw i64 %div30, 4095
-  %mul.i22 = and i64 %add.i21, -4096
-  %cmp.i23 = icmp ult i64 %div30, 134213633
-  %.sroa.speculated = select i1 %cmp.i23, i64 134217728, i64 %mul.i22
+  %21 = tail call i64 @llvm.umax.i64(i64 %div30, i64 134213633)
+  %22 = add nuw i64 %21, 4095
+  %.sroa.speculated = and i64 %22, -4096
   invoke void @_ZN8facebook5velox6memory17ManagedMmapArenasC1Em(ptr noundef nonnull align 8 dereferenceable(72) %call.i27, i64 noundef %.sroa.speculated)
           to label %invoke.cont37 unwind label %lpad.i24, !noalias !15
 
 lpad.i24:                                         ; preds = %call.i.noexc26
-  %21 = landingpad { ptr, i32 }
+  %23 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %call.i27) #30, !noalias !15
   br label %ehcleanup
 
 invoke.cont37:                                    ; preds = %call.i.noexc26
-  %22 = load ptr, ptr %managedArenas_, align 8
+  %24 = load ptr, ptr %managedArenas_, align 8
   store ptr %call.i27, ptr %managedArenas_, align 8
-  %tobool.not.i.i.i.i = icmp eq ptr %22, null
+  %tobool.not.i.i.i.i = icmp eq ptr %24, null
   br i1 %tobool.not.i.i.i.i, label %if.end, label %_ZNSt10unique_ptrIN8facebook5velox6memory17ManagedMmapArenasESt14default_deleteIS3_EEaSEOS6_.exit
 
 _ZNSt10unique_ptrIN8facebook5velox6memory17ManagedMmapArenasESt14default_deleteIS3_EEaSEOS6_.exit: ; preds = %invoke.cont37
-  tail call void @_ZNKSt14default_deleteIN8facebook5velox6memory17ManagedMmapArenasEEclEPS3_(ptr noundef nonnull align 8 dereferenceable(8) %managedArenas_, ptr noundef nonnull %22)
+  tail call void @_ZNKSt14default_deleteIN8facebook5velox6memory17ManagedMmapArenasEEclEPS3_(ptr noundef nonnull align 8 dereferenceable(8) %managedArenas_, ptr noundef nonnull %24)
   br label %if.end
 
 if.end:                                           ; preds = %invoke.cont37, %_ZNSt10unique_ptrIN8facebook5velox6memory17ManagedMmapArenasESt14default_deleteIS3_EEaSEOS6_.exit, %for.end
   ret void
 
 ehcleanup:                                        ; preds = %lpad19.loopexit, %lpad19.loopexit.split-lp, %lpad.i, %lpad.i24, %_ZNSt10unique_ptrIN8facebook5velox6memory13MmapAllocator9SizeClassESt14default_deleteIS4_EED2Ev.exit19
-  %.pn = phi { ptr, i32 } [ %lpad.phi49, %_ZNSt10unique_ptrIN8facebook5velox6memory13MmapAllocator9SizeClassESt14default_deleteIS4_EED2Ev.exit19 ], [ %10, %lpad.i ], [ %21, %lpad.i24 ], [ %lpad.loopexit, %lpad19.loopexit ], [ %lpad.loopexit.split-lp, %lpad19.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %lpad.phi49, %_ZNSt10unique_ptrIN8facebook5velox6memory13MmapAllocator9SizeClassESt14default_deleteIS4_EED2Ev.exit19 ], [ %10, %lpad.i ], [ %23, %lpad.i24 ], [ %lpad.loopexit, %lpad19.loopexit ], [ %lpad.loopexit.split-lp, %lpad19.loopexit.split-lp ]
   tail call void @_ZNSt10shared_ptrIN8facebook5velox6memory5CacheEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %cache_) #24
-  %23 = load ptr, ptr %managedArenas_, align 8
-  %cmp.not.i31 = icmp eq ptr %23, null
+  %25 = load ptr, ptr %managedArenas_, align 8
+  %cmp.not.i31 = icmp eq ptr %25, null
   br i1 %cmp.not.i31, label %_ZNSt10unique_ptrIN8facebook5velox6memory17ManagedMmapArenasESt14default_deleteIS3_EED2Ev.exit33, label %if.then.i32
 
 if.then.i32:                                      ; preds = %ehcleanup
-  tail call void @_ZNKSt14default_deleteIN8facebook5velox6memory17ManagedMmapArenasEEclEPS3_(ptr noundef nonnull align 8 dereferenceable(8) %managedArenas_, ptr noundef nonnull %23)
+  tail call void @_ZNKSt14default_deleteIN8facebook5velox6memory17ManagedMmapArenasEEclEPS3_(ptr noundef nonnull align 8 dereferenceable(8) %managedArenas_, ptr noundef nonnull %25)
   br label %_ZNSt10unique_ptrIN8facebook5velox6memory17ManagedMmapArenasESt14default_deleteIS3_EED2Ev.exit33
 
 _ZNSt10unique_ptrIN8facebook5velox6memory17ManagedMmapArenasESt14default_deleteIS3_EED2Ev.exit33: ; preds = %ehcleanup, %if.then.i32

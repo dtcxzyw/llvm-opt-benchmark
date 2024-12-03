@@ -7972,8 +7972,7 @@ define void @_ZN13mini_lsm_mvcc7compact14simple_leveled33SimpleLeveledCompaction
   br i1 %31, label %.lr.ph65.split, label %.lr.ph65.split.us.preheader
 
 .lr.ph65.split.us.preheader:                      ; preds = %.lr.ph65
-  %umax = call i64 @llvm.umax.i64(i64 %.val23, i64 1)
-  %35 = add i64 %umax, -1
+  %35 = call i64 @llvm.usub.sat.i64(i64 %.val23, i64 1)
   br label %.lr.ph65.split.us
 
 .lr.ph65.split.us:                                ; preds = %.lr.ph65.split.us.preheader, %.backedge.us
@@ -9446,6 +9445,9 @@ declare i64 @llvm.umin.i64(i64, i64) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #23
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.usub.sat.i64(i64, i64) #23
 
 attributes #0 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

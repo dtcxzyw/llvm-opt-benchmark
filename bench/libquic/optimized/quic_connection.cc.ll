@@ -3124,8 +3124,7 @@ for.body.lr.ph.split.split.us78:                  ; preds = %for.body.lr.ph.spli
   br i1 %cmp.i.i.not.us96109, label %for.inc.us97.preheader, label %if.then
 
 for.inc.us97.preheader:                           ; preds = %for.body.lr.ph.split.split.us78
-  %umax = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 1)
-  %20 = add i64 %umax, -1
+  %20 = tail call i64 @llvm.usub.sat.i64(i64 %sub.ptr.div.i, i64 1)
   br label %for.inc.us97
 
 for.body.us79:                                    ; preds = %for.inc.us97
@@ -12875,6 +12874,9 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #22
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.usub.sat.i64(i64, i64) #20
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

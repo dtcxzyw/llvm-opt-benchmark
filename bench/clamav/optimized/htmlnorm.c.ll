@@ -5384,7 +5384,7 @@ declare i64 @cli_writen(i32 noundef, ptr noundef, i64 noundef) local_unnamed_add
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @screnc_decode(ptr noundef %0, ptr nocapture noundef nonnull %1) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %123, label %thread-pre-split.preheader
+  br i1 %.not, label %118, label %thread-pre-split.preheader
 
 thread-pre-split.preheader:                       ; preds = %2
   %.pr97 = load i32, ptr %1, align 4
@@ -5511,108 +5511,103 @@ thread-pre-split:                                 ; preds = %.lr.ph, %.lr.ph
   %.165115 = phi ptr [ %48, %.critedge ], [ %0, %thread-pre-split.preheader ], [ %.266, %44 ]
   %49 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.1116) #16
   %50 = icmp ugt i64 %49, 11
-  br i1 %50, label %51, label %120
+  br i1 %50, label %51, label %115
 
 51:                                               ; preds = %.critedge.thread
   %52 = load i8, ptr %.1116, align 1
   %53 = zext i8 %52 to i64
   %54 = getelementptr inbounds [256 x i64], ptr @base64_chars, i64 0, i64 %53
   %55 = load i64, ptr %54, align 8
-  %56 = icmp slt i64 %55, 0
-  %57 = shl i64 %55, 2
-  %spec.select = select i1 %56, i64 0, i64 %57
-  %58 = getelementptr inbounds i8, ptr %.1116, i64 1
-  %59 = load i8, ptr %58, align 1
-  %60 = zext i8 %59 to i64
-  %61 = getelementptr inbounds [256 x i64], ptr @base64_chars, i64 0, i64 %60
-  %62 = load i64, ptr %61, align 8
-  %63 = ashr i64 %62, 4
-  %64 = add i64 %63, %spec.select
-  %65 = shl i64 %62, 12
-  %66 = and i64 %65, 61440
-  %67 = add i64 %64, %66
-  %68 = getelementptr inbounds i8, ptr %.1116, i64 2
-  %69 = load i8, ptr %68, align 1
-  %70 = zext i8 %69 to i64
-  %71 = getelementptr inbounds [256 x i64], ptr @base64_chars, i64 0, i64 %70
-  %72 = load i64, ptr %71, align 8
-  %73 = ashr i64 %72, 2
-  %74 = icmp slt i64 %73, 0
-  %75 = shl i64 %73, 8
-  %76 = select i1 %74, i64 0, i64 %75
-  %77 = shl i64 %72, 22
-  %78 = and i64 %77, 12582912
-  %79 = getelementptr inbounds i8, ptr %.1116, i64 3
-  %80 = load i8, ptr %79, align 1
-  %81 = zext i8 %80 to i64
-  %82 = getelementptr inbounds [256 x i64], ptr @base64_chars, i64 0, i64 %81
-  %83 = load i64, ptr %82, align 8
-  %84 = icmp slt i64 %83, 0
-  %85 = shl i64 %83, 16
-  %86 = select i1 %84, i64 0, i64 %85
-  %87 = getelementptr inbounds i8, ptr %.1116, i64 4
-  %88 = load i8, ptr %87, align 1
-  %89 = zext i8 %88 to i64
-  %90 = getelementptr inbounds [256 x i64], ptr @base64_chars, i64 0, i64 %89
-  %91 = load i64, ptr %90, align 8
-  %92 = icmp slt i64 %91, 0
-  %93 = shl i64 %91, 26
-  %94 = select i1 %92, i64 0, i64 %93
-  %95 = getelementptr inbounds i8, ptr %.1116, i64 5
-  %96 = load i8, ptr %95, align 1
-  %97 = zext i8 %96 to i64
-  %98 = getelementptr inbounds [256 x i64], ptr @base64_chars, i64 0, i64 %97
-  %99 = load i64, ptr %98, align 8
-  %100 = ashr i64 %99, 4
-  %101 = icmp slt i64 %100, 0
-  %102 = shl i64 %100, 24
-  %103 = select i1 %101, i64 0, i64 %102
-  %104 = add i64 %67, %78
-  %105 = add i64 %104, %76
-  %106 = add i64 %105, %86
-  %107 = add i64 %106, %94
-  %108 = add i64 %107, %103
-  %109 = getelementptr inbounds i8, ptr %1, i64 4
-  %110 = load i32, ptr %109, align 4
-  %111 = zext i32 %110 to i64
-  %.not81 = icmp eq i64 %108, %111
-  br i1 %.not81, label %113, label %112
+  %56 = tail call i64 @llvm.smax.i64(i64 %55, i64 0)
+  %spec.select = shl i64 %56, 2
+  %57 = getelementptr inbounds i8, ptr %.1116, i64 1
+  %58 = load i8, ptr %57, align 1
+  %59 = zext i8 %58 to i64
+  %60 = getelementptr inbounds [256 x i64], ptr @base64_chars, i64 0, i64 %59
+  %61 = load i64, ptr %60, align 8
+  %62 = ashr i64 %61, 4
+  %63 = add i64 %62, %spec.select
+  %64 = shl i64 %61, 12
+  %65 = and i64 %64, 61440
+  %66 = add i64 %63, %65
+  %67 = getelementptr inbounds i8, ptr %.1116, i64 2
+  %68 = load i8, ptr %67, align 1
+  %69 = zext i8 %68 to i64
+  %70 = getelementptr inbounds [256 x i64], ptr @base64_chars, i64 0, i64 %69
+  %71 = load i64, ptr %70, align 8
+  %72 = ashr i64 %71, 2
+  %73 = tail call i64 @llvm.smax.i64(i64 %72, i64 0)
+  %74 = shl i64 %73, 8
+  %75 = shl i64 %71, 22
+  %76 = and i64 %75, 12582912
+  %77 = getelementptr inbounds i8, ptr %.1116, i64 3
+  %78 = load i8, ptr %77, align 1
+  %79 = zext i8 %78 to i64
+  %80 = getelementptr inbounds [256 x i64], ptr @base64_chars, i64 0, i64 %79
+  %81 = load i64, ptr %80, align 8
+  %82 = tail call i64 @llvm.smax.i64(i64 %81, i64 0)
+  %83 = shl i64 %82, 16
+  %84 = getelementptr inbounds i8, ptr %.1116, i64 4
+  %85 = load i8, ptr %84, align 1
+  %86 = zext i8 %85 to i64
+  %87 = getelementptr inbounds [256 x i64], ptr @base64_chars, i64 0, i64 %86
+  %88 = load i64, ptr %87, align 8
+  %89 = tail call i64 @llvm.smax.i64(i64 %88, i64 0)
+  %90 = shl i64 %89, 26
+  %91 = getelementptr inbounds i8, ptr %.1116, i64 5
+  %92 = load i8, ptr %91, align 1
+  %93 = zext i8 %92 to i64
+  %94 = getelementptr inbounds [256 x i64], ptr @base64_chars, i64 0, i64 %93
+  %95 = load i64, ptr %94, align 8
+  %96 = ashr i64 %95, 4
+  %97 = tail call i64 @llvm.smax.i64(i64 %96, i64 0)
+  %98 = shl i64 %97, 24
+  %99 = add i64 %66, %76
+  %100 = add i64 %99, %74
+  %101 = add i64 %100, %83
+  %102 = add i64 %101, %90
+  %103 = add i64 %102, %98
+  %104 = getelementptr inbounds i8, ptr %1, i64 4
+  %105 = load i32, ptr %104, align 4
+  %106 = zext i32 %105 to i64
+  %.not81 = icmp eq i64 %103, %106
+  br i1 %.not81, label %108, label %107
 
-112:                                              ; preds = %51
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.57, i32 noundef %110, i64 noundef %108) #15
-  br label %118
+107:                                              ; preds = %51
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.57, i32 noundef %105, i64 noundef %103) #15
+  br label %113
 
-113:                                              ; preds = %51
-  %114 = getelementptr inbounds i8, ptr %.1116, i64 8
-  %115 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %114, ptr noundef nonnull dereferenceable(5) @.str.58, i64 noundef 4) #16
-  %.not82 = icmp eq i32 %115, 0
-  br i1 %.not82, label %117, label %116
+108:                                              ; preds = %51
+  %109 = getelementptr inbounds i8, ptr %.1116, i64 8
+  %110 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %109, ptr noundef nonnull dereferenceable(5) @.str.58, i64 noundef 4) #16
+  %.not82 = icmp eq i32 %110, 0
+  br i1 %.not82, label %112, label %111
 
-116:                                              ; preds = %113
+111:                                              ; preds = %108
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.59) #15
-  br label %118
+  br label %113
 
-117:                                              ; preds = %113
+112:                                              ; preds = %108
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.60) #15
+  br label %113
+
+113:                                              ; preds = %111, %112, %107
+  %114 = getelementptr inbounds i8, ptr %.1116, i64 12
+  br label %115
+
+115:                                              ; preds = %113, %.critedge.thread
+  %.4 = phi ptr [ %114, %113 ], [ %.1116, %.critedge.thread ]
+  %116 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.4) #16
+  %117 = add i64 %116, 1
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %.165115, ptr nonnull align 1 %.4, i64 %117, i1 false)
   br label %118
-
-118:                                              ; preds = %116, %117, %112
-  %119 = getelementptr inbounds i8, ptr %.1116, i64 12
-  br label %120
-
-120:                                              ; preds = %118, %.critedge.thread
-  %.4 = phi ptr [ %119, %118 ], [ %.1116, %.critedge.thread ]
-  %121 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.4) #16
-  %122 = add i64 %121, 1
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %.165115, ptr nonnull align 1 %.4, i64 %122, i1 false)
-  br label %123
 
 .critedge.thread117:                              ; preds = %.lr.ph, %.critedge
   %.165121 = phi ptr [ %48, %.critedge ], [ %.06492.ph, %.lr.ph ]
   store i8 0, ptr %.165121, align 1
-  br label %123
+  br label %118
 
-123:                                              ; preds = %2, %.critedge.thread117, %120
+118:                                              ; preds = %2, %.critedge.thread117, %115
   ret void
 }
 
@@ -6240,6 +6235,9 @@ declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #14
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.smax.i64(i64, i64) #14
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

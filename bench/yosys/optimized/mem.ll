@@ -76551,10 +76551,10 @@ declare void @llvm.va_copy.p0(ptr, ptr) #23
 declare void @llvm.assume(i1 noundef) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #25
+declare i64 @llvm.umin.i64(i64, i64) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #25
+declare i64 @llvm.umax.i64(i64, i64) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #25

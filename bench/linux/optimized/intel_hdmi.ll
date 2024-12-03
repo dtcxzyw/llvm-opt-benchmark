@@ -4292,10 +4292,9 @@ define internal range(i32 0, 65011713) i32 @cpt_infoframes_enabled(ptr nocapture
   %10 = getelementptr inbounds i8, ptr %3, i64 7512
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i32 %11(ptr noundef %9, i32 %8, i1 noundef zeroext true) #14
-  %13 = and i32 %12, 65011712
-  %14 = icmp slt i32 %12, 0
-  %15 = select i1 %14, i32 %13, i32 0
-  ret i32 %15
+  %13 = tail call i32 @llvm.smin.i32(i32 %12, i32 0)
+  %14 = and i32 %13, 65011712
+  ret i32 %14
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

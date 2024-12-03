@@ -3666,7 +3666,7 @@ define void @_ZNK10open_spiel10backgammon15BackgammonState17ObservationTensorEiN
 24:                                               ; preds = %22
   %25 = landingpad { ptr, i32 }
           cleanup
-  br label %146
+  br label %144
 
 26:                                               ; preds = %4
   store i32 %1, ptr %9, align 4
@@ -3688,7 +3688,7 @@ define void @_ZNK10open_spiel10backgammon15BackgammonState17ObservationTensorEiN
 32:                                               ; preds = %30
   %33 = landingpad { ptr, i32 }
           cleanup
-  br label %146
+  br label %144
 
 34:                                               ; preds = %26
   %35 = sub nsw i32 1, %1
@@ -3709,7 +3709,7 @@ define void @_ZNK10open_spiel10backgammon15BackgammonState17ObservationTensorEiN
 39:                                               ; preds = %37
   %40 = landingpad { ptr, i32 }
           cleanup
-  br label %146
+  br label %144
 
 41:                                               ; preds = %34
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 168
@@ -3724,7 +3724,7 @@ define void @_ZNK10open_spiel10backgammon15BackgammonState17ObservationTensorEiN
 
 .lr.ph:                                           ; preds = %41, %.lr.ph
   %.04560.idx = phi i64 [ %.04560.add, %.lr.ph ], [ 0, %41 ]
-  %.sroa.051.059 = phi ptr [ %63, %.lr.ph ], [ %46, %41 ]
+  %.sroa.051.059 = phi ptr [ %62, %.lr.ph ], [ %46, %41 ]
   %.04560.ptr = getelementptr inbounds i8, ptr %2, i64 %.04560.idx
   %49 = load i32, ptr %.sroa.051.059, align 4
   %50 = icmp eq i32 %49, 1
@@ -3739,14 +3739,13 @@ define void @_ZNK10open_spiel10backgammon15BackgammonState17ObservationTensorEiN
   %57 = uitofp i1 %56 to float
   %58 = getelementptr inbounds i8, ptr %.04560.ptr, i64 12
   store float %57, ptr %55, align 4
-  %59 = icmp sgt i32 %49, 3
-  %60 = add nsw i32 %49, -3
-  %61 = select i1 %59, i32 %60, i32 0
-  %62 = sitofp i32 %61 to float
+  %59 = tail call i32 @llvm.smax.i32(i32 %49, i32 3)
+  %60 = add nsw i32 %59, -3
+  %61 = uitofp nneg i32 %60 to float
   %.04560.add = add nuw nsw i64 %.04560.idx, 16
-  store float %62, ptr %58, align 4
-  %63 = getelementptr inbounds i8, ptr %.sroa.051.059, i64 4
-  %.not = icmp eq ptr %63, %48
+  store float %61, ptr %58, align 4
+  %62 = getelementptr inbounds i8, ptr %.sroa.051.059, i64 4
+  %.not = icmp eq ptr %62, %48
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
@@ -3754,144 +3753,143 @@ define void @_ZNK10open_spiel10backgammon15BackgammonState17ObservationTensorEiN
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %41
-  %64 = phi ptr [ %44, %41 ], [ %.pre, %._crit_edge.loopexit ]
+  %63 = phi ptr [ %44, %41 ], [ %.pre, %._crit_edge.loopexit ]
   %.045.lcssa.idx = phi i64 [ 0, %41 ], [ %.04560.add, %._crit_edge.loopexit ]
-  %65 = sext i32 %35 to i64
-  %66 = getelementptr inbounds %"class.std::vector.6", ptr %64, i64 %65
-  %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds nuw i8, ptr %66, i64 8
-  %69 = load ptr, ptr %68, align 8
-  %.not5761 = icmp eq ptr %67, %69
+  %64 = sext i32 %35 to i64
+  %65 = getelementptr inbounds %"class.std::vector.6", ptr %63, i64 %64
+  %66 = load ptr, ptr %65, align 8
+  %67 = getelementptr inbounds nuw i8, ptr %65, i64 8
+  %68 = load ptr, ptr %67, align 8
+  %.not5761 = icmp eq ptr %66, %68
   br i1 %.not5761, label %._crit_edge66, label %.lr.ph65
 
 .lr.ph65:                                         ; preds = %._crit_edge, %.lr.ph65
   %.163.idx = phi i64 [ %.163.add, %.lr.ph65 ], [ %.045.lcssa.idx, %._crit_edge ]
-  %.sroa.047.062 = phi ptr [ %84, %.lr.ph65 ], [ %67, %._crit_edge ]
+  %.sroa.047.062 = phi ptr [ %82, %.lr.ph65 ], [ %66, %._crit_edge ]
   %.163.ptr = getelementptr inbounds i8, ptr %2, i64 %.163.idx
-  %70 = load i32, ptr %.sroa.047.062, align 4
-  %71 = icmp eq i32 %70, 1
-  %72 = uitofp i1 %71 to float
-  %73 = getelementptr inbounds i8, ptr %.163.ptr, i64 4
-  store float %72, ptr %.163.ptr, align 4
-  %74 = icmp eq i32 %70, 2
-  %75 = uitofp i1 %74 to float
-  %76 = getelementptr inbounds i8, ptr %.163.ptr, i64 8
-  store float %75, ptr %73, align 4
-  %77 = icmp eq i32 %70, 3
-  %78 = uitofp i1 %77 to float
-  %79 = getelementptr inbounds i8, ptr %.163.ptr, i64 12
-  store float %78, ptr %76, align 4
-  %80 = icmp sgt i32 %70, 3
-  %81 = add nsw i32 %70, -3
-  %82 = select i1 %80, i32 %81, i32 0
-  %83 = sitofp i32 %82 to float
+  %69 = load i32, ptr %.sroa.047.062, align 4
+  %70 = icmp eq i32 %69, 1
+  %71 = uitofp i1 %70 to float
+  %72 = getelementptr inbounds i8, ptr %.163.ptr, i64 4
+  store float %71, ptr %.163.ptr, align 4
+  %73 = icmp eq i32 %69, 2
+  %74 = uitofp i1 %73 to float
+  %75 = getelementptr inbounds i8, ptr %.163.ptr, i64 8
+  store float %74, ptr %72, align 4
+  %76 = icmp eq i32 %69, 3
+  %77 = uitofp i1 %76 to float
+  %78 = getelementptr inbounds i8, ptr %.163.ptr, i64 12
+  store float %77, ptr %75, align 4
+  %79 = tail call i32 @llvm.smax.i32(i32 %69, i32 3)
+  %80 = add nsw i32 %79, -3
+  %81 = uitofp nneg i32 %80 to float
   %.163.add = add nsw i64 %.163.idx, 16
-  store float %83, ptr %79, align 4
-  %84 = getelementptr inbounds i8, ptr %.sroa.047.062, i64 4
-  %.not57 = icmp eq ptr %84, %69
+  store float %81, ptr %78, align 4
+  %82 = getelementptr inbounds i8, ptr %.sroa.047.062, i64 4
+  %.not57 = icmp eq ptr %82, %68
   br i1 %.not57, label %._crit_edge66, label %.lr.ph65
 
 ._crit_edge66:                                    ; preds = %.lr.ph65, %._crit_edge
   %.1.lcssa.idx = phi i64 [ %.045.lcssa.idx, %._crit_edge ], [ %.163.add, %.lr.ph65 ]
   %.1.lcssa.ptr = getelementptr inbounds i8, ptr %2, i64 %.1.lcssa.idx
-  %85 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %86 = load ptr, ptr %85, align 8
-  %87 = getelementptr inbounds i32, ptr %86, i64 %43
-  %88 = load i32, ptr %87, align 4
-  %89 = sitofp i32 %88 to float
-  %90 = getelementptr inbounds i8, ptr %.1.lcssa.ptr, i64 4
-  store float %89, ptr %.1.lcssa.ptr, align 4
-  %91 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %92 = load ptr, ptr %91, align 8
-  %93 = getelementptr inbounds i32, ptr %92, i64 %43
-  %94 = load i32, ptr %93, align 4
-  %95 = sitofp i32 %94 to float
-  %96 = getelementptr inbounds i8, ptr %.1.lcssa.ptr, i64 8
-  store float %95, ptr %90, align 4
-  %97 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  %98 = load i32, ptr %97, align 4
-  %99 = icmp eq i32 %98, %1
-  %100 = uitofp i1 %99 to float
-  %101 = getelementptr inbounds i8, ptr %.1.lcssa.ptr, i64 12
-  store float %100, ptr %96, align 4
-  %102 = load ptr, ptr %85, align 8
-  %103 = getelementptr inbounds i32, ptr %102, i64 %65
-  %104 = load i32, ptr %103, align 4
-  %105 = sitofp i32 %104 to float
-  %106 = getelementptr inbounds i8, ptr %.1.lcssa.ptr, i64 16
-  store float %105, ptr %101, align 4
-  %107 = load ptr, ptr %91, align 8
-  %108 = getelementptr inbounds i32, ptr %107, i64 %65
-  %109 = load i32, ptr %108, align 4
-  %110 = sitofp i32 %109 to float
-  %111 = getelementptr inbounds i8, ptr %.1.lcssa.ptr, i64 20
-  store float %110, ptr %106, align 4
-  %112 = load i32, ptr %97, align 4
-  %113 = icmp eq i32 %112, %35
-  %114 = uitofp i1 %113 to float
-  %115 = getelementptr inbounds i8, ptr %.1.lcssa.ptr, i64 24
-  store float %114, ptr %111, align 4
-  %116 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %84 = load ptr, ptr %83, align 8
+  %85 = getelementptr inbounds i32, ptr %84, i64 %43
+  %86 = load i32, ptr %85, align 4
+  %87 = sitofp i32 %86 to float
+  %88 = getelementptr inbounds i8, ptr %.1.lcssa.ptr, i64 4
+  store float %87, ptr %.1.lcssa.ptr, align 4
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %90 = load ptr, ptr %89, align 8
+  %91 = getelementptr inbounds i32, ptr %90, i64 %43
+  %92 = load i32, ptr %91, align 4
+  %93 = sitofp i32 %92 to float
+  %94 = getelementptr inbounds i8, ptr %.1.lcssa.ptr, i64 8
+  store float %93, ptr %88, align 4
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 68
+  %96 = load i32, ptr %95, align 4
+  %97 = icmp eq i32 %96, %1
+  %98 = uitofp i1 %97 to float
+  %99 = getelementptr inbounds i8, ptr %.1.lcssa.ptr, i64 12
+  store float %98, ptr %94, align 4
+  %100 = load ptr, ptr %83, align 8
+  %101 = getelementptr inbounds i32, ptr %100, i64 %64
+  %102 = load i32, ptr %101, align 4
+  %103 = sitofp i32 %102 to float
+  %104 = getelementptr inbounds i8, ptr %.1.lcssa.ptr, i64 16
+  store float %103, ptr %99, align 4
+  %105 = load ptr, ptr %89, align 8
+  %106 = getelementptr inbounds i32, ptr %105, i64 %64
+  %107 = load i32, ptr %106, align 4
+  %108 = sitofp i32 %107 to float
+  %109 = getelementptr inbounds i8, ptr %.1.lcssa.ptr, i64 20
+  store float %108, ptr %104, align 4
+  %110 = load i32, ptr %95, align 4
+  %111 = icmp eq i32 %110, %35
+  %112 = uitofp i1 %111 to float
+  %113 = getelementptr inbounds i8, ptr %.1.lcssa.ptr, i64 24
+  store float %112, ptr %109, align 4
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %115 = load ptr, ptr %114, align 8
+  %116 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %117 = load ptr, ptr %116, align 8
-  %118 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %119 = load ptr, ptr %118, align 8
-  %120 = icmp eq ptr %117, %119
-  br i1 %120, label %124, label %121
+  %118 = icmp eq ptr %115, %117
+  br i1 %118, label %122, label %119
 
-121:                                              ; preds = %._crit_edge66
-  %122 = load i32, ptr %117, align 4
-  %123 = sitofp i32 %122 to float
-  br label %124
+119:                                              ; preds = %._crit_edge66
+  %120 = load i32, ptr %115, align 4
+  %121 = sitofp i32 %120 to float
+  br label %122
 
-124:                                              ; preds = %._crit_edge66, %121
-  %125 = phi float [ %123, %121 ], [ 0.000000e+00, %._crit_edge66 ]
-  %126 = getelementptr inbounds i8, ptr %.1.lcssa.ptr, i64 28
-  store float %125, ptr %115, align 4
-  %127 = load ptr, ptr %118, align 8
-  %128 = load ptr, ptr %116, align 8
-  %129 = ptrtoint ptr %127 to i64
-  %130 = ptrtoint ptr %128 to i64
-  %131 = sub i64 %129, %130
-  %132 = icmp ugt i64 %131, 4
-  br i1 %132, label %133, label %137
+122:                                              ; preds = %._crit_edge66, %119
+  %123 = phi float [ %121, %119 ], [ 0.000000e+00, %._crit_edge66 ]
+  %124 = getelementptr inbounds i8, ptr %.1.lcssa.ptr, i64 28
+  store float %123, ptr %113, align 4
+  %125 = load ptr, ptr %116, align 8
+  %126 = load ptr, ptr %114, align 8
+  %127 = ptrtoint ptr %125 to i64
+  %128 = ptrtoint ptr %126 to i64
+  %129 = sub i64 %127, %128
+  %130 = icmp ugt i64 %129, 4
+  br i1 %130, label %131, label %135
 
-133:                                              ; preds = %124
-  %134 = getelementptr inbounds i8, ptr %128, i64 4
-  %135 = load i32, ptr %134, align 4
-  %136 = sitofp i32 %135 to float
-  br label %137
+131:                                              ; preds = %122
+  %132 = getelementptr inbounds i8, ptr %126, i64 4
+  %133 = load i32, ptr %132, align 4
+  %134 = sitofp i32 %133 to float
+  br label %135
 
-137:                                              ; preds = %124, %133
-  %138 = phi float [ %136, %133 ], [ 0.000000e+00, %124 ]
+135:                                              ; preds = %122, %131
+  %136 = phi float [ %134, %131 ], [ 0.000000e+00, %122 ]
   %.1.lcssa.add = add nsw i64 %.1.lcssa.idx, 32
   %.ptr = getelementptr inbounds i8, ptr %2, i64 %.1.lcssa.add
-  store float %138, ptr %126, align 4
+  store float %136, ptr %124, align 4
   store ptr %.ptr, ptr %17, align 8
-  %139 = getelementptr inbounds i8, ptr %2, i64 800
-  store ptr %139, ptr %18, align 8
-  %140 = icmp eq i64 %.1.lcssa.add, 800
-  br i1 %140, label %145, label %141
+  %137 = getelementptr inbounds i8, ptr %2, i64 800
+  store ptr %137, ptr %18, align 8
+  %138 = icmp eq i64 %.1.lcssa.add, 800
+  br i1 %138, label %143, label %139
 
-141:                                              ; preds = %137
+139:                                              ; preds = %135
   store i32 335, ptr %20, align 4
   call void @_ZN10open_spiel8internal11SpielStrCatIJRA140_KcRA2_S2_iS6_RA25_S2_RA10_S2_RA4_S2_RPfRA18_S2_SE_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %19, ptr noundef nonnull align 1 dereferenceable(140) @.str.34, ptr noundef nonnull align 1 dereferenceable(2) @.str.35, ptr noundef nonnull align 4 dereferenceable(4) %20, ptr noundef nonnull align 1 dereferenceable(2) @.str.27, ptr noundef nonnull align 1 dereferenceable(25) @.str.45, ptr noundef nonnull align 1 dereferenceable(10) @.str.46, ptr noundef nonnull align 1 dereferenceable(4) @.str.38, ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 1 dereferenceable(18) @.str.47, ptr noundef nonnull align 8 dereferenceable(8) %18)
   invoke void @_ZN10open_spiel15SpielFatalErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %19) #29
-          to label %142 unwind label %143
+          to label %140 unwind label %141
 
-142:                                              ; preds = %141
+140:                                              ; preds = %139
   unreachable
 
-143:                                              ; preds = %141
-  %144 = landingpad { ptr, i32 }
+141:                                              ; preds = %139
+  %142 = landingpad { ptr, i32 }
           cleanup
-  br label %146
+  br label %144
 
-145:                                              ; preds = %137
+143:                                              ; preds = %135
   ret void
 
-146:                                              ; preds = %143, %39, %32, %24
-  %.sink = phi ptr [ %19, %143 ], [ %15, %39 ], [ %11, %32 ], [ %7, %24 ]
-  %.pn = phi { ptr, i32 } [ %144, %143 ], [ %40, %39 ], [ %33, %32 ], [ %25, %24 ]
+144:                                              ; preds = %141, %39, %32, %24
+  %.sink = phi ptr [ %19, %141 ], [ %15, %39 ], [ %11, %32 ], [ %7, %24 ]
+  %.pn = phi { ptr, i32 } [ %142, %141 ], [ %40, %39 ], [ %33, %32 ], [ %25, %24 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink) #30
   resume { ptr, i32 } %.pn
 }
@@ -22323,29 +22321,29 @@ __cxx_global_var_init.8.exit:                     ; preds = %325, %327
   ret void
 }
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #24
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #24
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #25
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #25
+declare void @llvm.experimental.noalias.scope.decl(metadata) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #26
+declare i64 @llvm.umax.i64(i64, i64) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #26
+declare i64 @llvm.umin.i64(i64, i64) #24
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #27
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #26
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #26
+declare i32 @llvm.umin.i32(i32, i32) #24
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -22371,9 +22369,9 @@ attributes #20 = { mustprogress nofree nounwind willreturn memory(argmem: read) 
 attributes #21 = { cold noreturn }
 attributes #22 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #23 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #24 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #25 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #26 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #24 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #25 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #26 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #27 = { nofree nounwind willreturn memory(argmem: read) }
 attributes #28 = { builtin nounwind }
 attributes #29 = { noreturn }

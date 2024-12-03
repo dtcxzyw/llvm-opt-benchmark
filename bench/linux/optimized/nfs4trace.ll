@@ -7665,40 +7665,38 @@ define internal void @trace_event_raw_event_nfs4_idmap_event(ptr noundef %0, ptr
 
 14:                                               ; preds = %11
   %15 = tail call zeroext i1 @__trace_trigger_soft_disabled(ptr noundef %0) #11
-  br i1 %15, label %36, label %16
+  br i1 %15, label %34, label %16
 
 16:                                               ; preds = %14, %11, %5
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, i8 0, i64 48, i1 false), !annotation !65
-  %17 = add nuw i32 %2, 1
-  %18 = icmp slt i32 %2, 1
-  %19 = select i1 %18, i32 1, i32 %17
-  %20 = sext i32 %19 to i64
-  %21 = add nsw i64 %20, 24
-  %22 = call ptr @trace_event_buffer_reserve(ptr noundef nonnull %6, ptr noundef %0, i64 noundef %21) #11
-  %23 = icmp eq ptr %22, null
-  br i1 %23, label %36, label %24
+  %17 = tail call i32 @llvm.smax.i32(i32 %2, i32 0)
+  %18 = add nuw i32 %17, 1
+  %19 = sext i32 %18 to i64
+  %20 = add nsw i64 %19, 24
+  %21 = call ptr @trace_event_buffer_reserve(ptr noundef nonnull %6, ptr noundef %0, i64 noundef %20) #11
+  %22 = icmp eq ptr %21, null
+  br i1 %22, label %34, label %23
 
-24:                                               ; preds = %16
-  %25 = shl i32 %19, 16
-  %26 = or disjoint i32 %25, 24
-  %27 = getelementptr inbounds i8, ptr %22, i64 20
-  store i32 %26, ptr %27, align 4
-  %28 = call i32 @llvm.smax.i32(i32 %2, i32 0)
-  %29 = call i32 @llvm.smin.i32(i32 %4, i32 0)
-  %30 = sext i32 %29 to i64
-  %31 = getelementptr inbounds i8, ptr %22, i64 8
-  store i64 %30, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %22, i64 16
-  store i32 %3, ptr %32, align 8
-  %33 = getelementptr i8, ptr %22, i64 24
-  %34 = zext nneg i32 %28 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %33, ptr align 1 %1, i64 %34, i1 false)
-  %35 = getelementptr i8, ptr %33, i64 %34
-  store i8 0, ptr %35, align 1
+23:                                               ; preds = %16
+  %24 = shl i32 %18, 16
+  %25 = or disjoint i32 %24, 24
+  %26 = getelementptr inbounds i8, ptr %21, i64 20
+  store i32 %25, ptr %26, align 4
+  %27 = call i32 @llvm.smin.i32(i32 %4, i32 0)
+  %28 = sext i32 %27 to i64
+  %29 = getelementptr inbounds i8, ptr %21, i64 8
+  store i64 %28, ptr %29, align 8
+  %30 = getelementptr inbounds i8, ptr %21, i64 16
+  store i32 %3, ptr %30, align 8
+  %31 = getelementptr i8, ptr %21, i64 24
+  %32 = zext nneg i32 %17 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %31, ptr align 1 %1, i64 %32, i1 false)
+  %33 = getelementptr i8, ptr %31, i64 %32
+  store i8 0, ptr %33, align 1
   call void @trace_event_buffer_commit(ptr noundef nonnull %6) #11
-  br label %36
+  br label %34
 
-36:                                               ; preds = %24, %16, %14
+34:                                               ; preds = %23, %16, %14
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #11
   ret void
 }
@@ -7710,68 +7708,65 @@ define internal void @perf_trace_nfs4_idmap_event(ptr noundef %0, ptr nocapture 
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #11
   store ptr null, ptr %6, align 8, !annotation !65
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #11
-  %8 = add nuw i32 %2, 1
-  %9 = icmp slt i32 %2, 1
-  %10 = select i1 %9, i32 1, i32 %8
-  %11 = shl i32 %10, 16
-  %12 = or disjoint i32 %11, 24
-  %13 = getelementptr inbounds i8, ptr %0, i64 104
-  %14 = load ptr, ptr %13, align 8
-  %15 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr %14) #12, !srcloc !89
-  %16 = inttoptr i64 %15 to ptr
-  %17 = getelementptr inbounds i8, ptr %0, i64 112
-  %18 = load volatile ptr, ptr %17, align 8
-  %19 = icmp eq ptr %18, null
-  br i1 %19, label %20, label %23
+  %8 = tail call i32 @llvm.smax.i32(i32 %2, i32 0)
+  %9 = shl i32 %8, 16
+  %10 = add i32 %9, 65560
+  %11 = getelementptr inbounds i8, ptr %0, i64 104
+  %12 = load ptr, ptr %11, align 8
+  %13 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr %12) #12, !srcloc !89
+  %14 = inttoptr i64 %13 to ptr
+  %15 = getelementptr inbounds i8, ptr %0, i64 112
+  %16 = load volatile ptr, ptr %15, align 8
+  %17 = icmp eq ptr %16, null
+  br i1 %17, label %18, label %21
 
-20:                                               ; preds = %5
-  %21 = load volatile ptr, ptr %16, align 8
-  %22 = icmp eq ptr %21, null
-  br i1 %22, label %50, label %23
+18:                                               ; preds = %5
+  %19 = load volatile ptr, ptr %14, align 8
+  %20 = icmp eq ptr %19, null
+  br i1 %20, label %47, label %21
 
-23:                                               ; preds = %20, %5
+21:                                               ; preds = %18, %5
   store i32 0, ptr %7, align 4, !annotation !65
-  %24 = add nuw i32 %10, 35
-  %25 = and i32 %24, -8
-  %26 = add i32 %25, -4
-  %27 = call ptr @perf_trace_buf_alloc(i32 noundef %26, ptr noundef nonnull %6, ptr noundef nonnull %7) #11
-  %28 = icmp eq ptr %27, null
-  br i1 %28, label %50, label %29
+  %22 = add nuw i32 %8, 36
+  %23 = and i32 %22, -8
+  %24 = add i32 %23, -4
+  %25 = call ptr @perf_trace_buf_alloc(i32 noundef %24, ptr noundef nonnull %6, ptr noundef nonnull %7) #11
+  %26 = icmp eq ptr %25, null
+  br i1 %26, label %47, label %27
 
-29:                                               ; preds = %23
-  %30 = load ptr, ptr %6, align 8
-  %31 = call ptr @llvm.returnaddress(i32 0)
-  %32 = ptrtoint ptr %31 to i64
-  %33 = getelementptr inbounds i8, ptr %30, i64 128
-  store i64 %32, ptr %33, align 8
-  %34 = call ptr @llvm.frameaddress.p0(i32 0)
-  %35 = ptrtoint ptr %34 to i64
-  %36 = getelementptr inbounds i8, ptr %30, i64 152
-  store i64 %35, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %30, i64 136
-  store i64 16, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %30, i64 144
-  store i64 0, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %27, i64 20
-  store i32 %12, ptr %39, align 4
-  %40 = call i32 @llvm.smax.i32(i32 %2, i32 0)
-  %41 = call i32 @llvm.smin.i32(i32 %4, i32 0)
-  %42 = sext i32 %41 to i64
-  %43 = getelementptr inbounds i8, ptr %27, i64 8
-  store i64 %42, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %27, i64 16
-  store i32 %3, ptr %44, align 8
-  %45 = getelementptr i8, ptr %27, i64 24
-  %46 = zext nneg i32 %40 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %45, ptr align 1 %1, i64 %46, i1 false)
-  %47 = getelementptr i8, ptr %45, i64 %46
-  store i8 0, ptr %47, align 1
-  %48 = load i32, ptr %7, align 4
-  %49 = load ptr, ptr %6, align 8
-  call void @perf_trace_run_bpf_submit(ptr noundef nonnull %27, i32 noundef %26, i32 noundef %48, ptr noundef %0, i64 noundef 1, ptr noundef %49, ptr noundef %16, ptr noundef null) #11
-  br label %50
+27:                                               ; preds = %21
+  %28 = load ptr, ptr %6, align 8
+  %29 = call ptr @llvm.returnaddress(i32 0)
+  %30 = ptrtoint ptr %29 to i64
+  %31 = getelementptr inbounds i8, ptr %28, i64 128
+  store i64 %30, ptr %31, align 8
+  %32 = call ptr @llvm.frameaddress.p0(i32 0)
+  %33 = ptrtoint ptr %32 to i64
+  %34 = getelementptr inbounds i8, ptr %28, i64 152
+  store i64 %33, ptr %34, align 8
+  %35 = getelementptr inbounds i8, ptr %28, i64 136
+  store i64 16, ptr %35, align 8
+  %36 = getelementptr inbounds i8, ptr %28, i64 144
+  store i64 0, ptr %36, align 8
+  %37 = getelementptr inbounds i8, ptr %25, i64 20
+  store i32 %10, ptr %37, align 4
+  %38 = call i32 @llvm.smin.i32(i32 %4, i32 0)
+  %39 = sext i32 %38 to i64
+  %40 = getelementptr inbounds i8, ptr %25, i64 8
+  store i64 %39, ptr %40, align 8
+  %41 = getelementptr inbounds i8, ptr %25, i64 16
+  store i32 %3, ptr %41, align 8
+  %42 = getelementptr i8, ptr %25, i64 24
+  %43 = zext nneg i32 %8 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %42, ptr align 1 %1, i64 %43, i1 false)
+  %44 = getelementptr i8, ptr %42, i64 %43
+  store i8 0, ptr %44, align 1
+  %45 = load i32, ptr %7, align 4
+  %46 = load ptr, ptr %6, align 8
+  call void @perf_trace_run_bpf_submit(ptr noundef nonnull %25, i32 noundef %24, i32 noundef %45, ptr noundef %0, i64 noundef 1, ptr noundef %46, ptr noundef %14, ptr noundef null) #11
+  br label %47
 
-50:                                               ; preds = %29, %23, %20
+47:                                               ; preds = %27, %21, %18
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #11
   ret void

@@ -294,58 +294,57 @@ define i32 @dlp_get_cc_count(ptr noundef %0, i64 noundef %1, i32 noundef %2) loc
   %9 = tail call ptr @__ctype_b_loc() #9
   %10 = ptrtoint ptr %0 to i64
   %.neg.i = add i64 %1, %10
-  %11 = icmp samesign ugt i64 %1, 15
-  %12 = add nsw i64 %1, -1
-  %13 = select i1 %11, i64 15, i64 %12
+  %11 = tail call i64 @llvm.umin.i64(i64 %1, i64 16)
+  %12 = add nsw i64 %11, -1
   br label %.lr.ph.split.i
 
-.lr.ph.split.i:                                   ; preds = %36, %.lr.ph.i
-  %.033.i = phi i32 [ %.1.i, %36 ], [ 0, %.lr.ph.i ]
-  %.02532.i = phi ptr [ %37, %36 ], [ %0, %.lr.ph.i ]
-  %14 = load ptr, ptr %9, align 8
-  %15 = load i8, ptr %.02532.i, align 1
-  %16 = zext i8 %15 to i64
-  %17 = getelementptr inbounds i16, ptr %14, i64 %16
-  %18 = load i16, ptr %17, align 2
-  %19 = and i16 %18, 2048
-  %.not.i = icmp eq i16 %19, 0
-  br i1 %.not.i, label %36, label %20
+.lr.ph.split.i:                                   ; preds = %35, %.lr.ph.i
+  %.033.i = phi i32 [ %.1.i, %35 ], [ 0, %.lr.ph.i ]
+  %.02532.i = phi ptr [ %36, %35 ], [ %0, %.lr.ph.i ]
+  %13 = load ptr, ptr %9, align 8
+  %14 = load i8, ptr %.02532.i, align 1
+  %15 = zext i8 %14 to i64
+  %16 = getelementptr inbounds i16, ptr %13, i64 %15
+  %17 = load i16, ptr %16, align 2
+  %18 = and i16 %17, 2048
+  %.not.i = icmp eq i16 %18, 0
+  br i1 %.not.i, label %35, label %19
 
-20:                                               ; preds = %.lr.ph.split.i
-  %21 = icmp eq ptr %.02532.i, %0
-  br i1 %21, label %29, label %22
+19:                                               ; preds = %.lr.ph.split.i
+  %20 = icmp eq ptr %.02532.i, %0
+  br i1 %20, label %28, label %21
 
-22:                                               ; preds = %20
-  %23 = getelementptr inbounds i8, ptr %.02532.i, i64 -1
-  %24 = load i8, ptr %23, align 1
-  %25 = zext i8 %24 to i64
-  %26 = getelementptr inbounds i16, ptr %14, i64 %25
-  %27 = load i16, ptr %26, align 2
-  %28 = and i16 %27, 2048
-  %.not29.i = icmp eq i16 %28, 0
-  br i1 %.not29.i, label %29, label %36
+21:                                               ; preds = %19
+  %22 = getelementptr inbounds i8, ptr %.02532.i, i64 -1
+  %23 = load i8, ptr %22, align 1
+  %24 = zext i8 %23 to i64
+  %25 = getelementptr inbounds i16, ptr %13, i64 %24
+  %26 = load i16, ptr %25, align 2
+  %27 = and i16 %26, 2048
+  %.not29.i = icmp eq i16 %27, 0
+  br i1 %.not29.i, label %28, label %35
 
-29:                                               ; preds = %22, %20
-  %30 = ptrtoint ptr %.02532.i to i64
-  %31 = sub i64 %.neg.i, %30
-  %32 = tail call i32 @dlp_is_valid_cc(ptr noundef nonnull %.02532.i, i64 noundef %31, i32 noundef %2)
-  %.not30.i = icmp eq i32 %32, 0
-  br i1 %.not30.i, label %36, label %33
+28:                                               ; preds = %21, %19
+  %29 = ptrtoint ptr %.02532.i to i64
+  %30 = sub i64 %.neg.i, %29
+  %31 = tail call i32 @dlp_is_valid_cc(ptr noundef nonnull %.02532.i, i64 noundef %30, i32 noundef %2)
+  %.not30.i = icmp eq i32 %31, 0
+  br i1 %.not30.i, label %35, label %32
 
-33:                                               ; preds = %29
-  %34 = add nsw i32 %.033.i, 1
-  %35 = getelementptr inbounds i8, ptr %.02532.i, i64 %13
-  br label %36
+32:                                               ; preds = %28
+  %33 = add nsw i32 %.033.i, 1
+  %34 = getelementptr inbounds i8, ptr %.02532.i, i64 %12
+  br label %35
 
-36:                                               ; preds = %33, %29, %22, %.lr.ph.split.i
-  %.126.i = phi ptr [ %35, %33 ], [ %.02532.i, %29 ], [ %.02532.i, %22 ], [ %.02532.i, %.lr.ph.split.i ]
-  %.1.i = phi i32 [ %34, %33 ], [ %.033.i, %29 ], [ %.033.i, %22 ], [ %.033.i, %.lr.ph.split.i ]
-  %37 = getelementptr inbounds i8, ptr %.126.i, i64 1
-  %38 = icmp ult ptr %37, %7
-  br i1 %38, label %.lr.ph.split.i, label %contains_cc.exit
+35:                                               ; preds = %32, %28, %21, %.lr.ph.split.i
+  %.126.i = phi ptr [ %34, %32 ], [ %.02532.i, %28 ], [ %.02532.i, %21 ], [ %.02532.i, %.lr.ph.split.i ]
+  %.1.i = phi i32 [ %33, %32 ], [ %.033.i, %28 ], [ %.033.i, %21 ], [ %.033.i, %.lr.ph.split.i ]
+  %36 = getelementptr inbounds i8, ptr %.126.i, i64 1
+  %37 = icmp ult ptr %36, %7
+  br i1 %37, label %.lr.ph.split.i, label %contains_cc.exit
 
-contains_cc.exit:                                 ; preds = %36, %3, %6
-  %.024.i = phi i32 [ 0, %3 ], [ 0, %6 ], [ %.1.i, %36 ]
+contains_cc.exit:                                 ; preds = %35, %3, %6
+  %.024.i = phi i32 [ 0, %3 ], [ 0, %6 ], [ %.1.i, %35 ]
   ret i32 %.024.i
 }
 

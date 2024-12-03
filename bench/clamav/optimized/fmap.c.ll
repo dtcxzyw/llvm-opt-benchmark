@@ -1614,183 +1614,182 @@ define internal fastcc void @fmap_aging(ptr nocapture noundef %0) unnamed_addr #
 13:                                               ; preds = %6
   %14 = udiv i64 4194304, %10
   %15 = sub i64 %8, %14
-  %16 = icmp ugt i64 %15, 2048
-  %17 = add nsw i64 %15, -1
-  %spec.select = select i1 %16, i64 2047, i64 %17
-  %18 = getelementptr inbounds i8, ptr %0, i64 32
-  %19 = load i64, ptr %18, align 8
-  %.not93 = icmp eq i64 %19, 0
+  %16 = tail call i64 @llvm.umin.i64(i64 %15, i64 2048)
+  %spec.select = add nsw i64 %16, -1
+  %17 = getelementptr inbounds i8, ptr %0, i64 32
+  %18 = load i64, ptr %17, align 8
+  %.not93 = icmp eq i64 %18, 0
   br i1 %.not93, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %13
-  %20 = getelementptr inbounds i8, ptr %0, i64 224
-  %21 = getelementptr inbounds [2048 x i64], ptr %2, i64 0, i64 %spec.select
-  br label %22
+  %19 = getelementptr inbounds i8, ptr %0, i64 224
+  %20 = getelementptr inbounds [2048 x i64], ptr %2, i64 0, i64 %spec.select
+  br label %21
 
-22:                                               ; preds = %.lr.ph, %58
-  %.089 = phi i64 [ 0, %.lr.ph ], [ %59, %58 ]
-  %.07488 = phi i64 [ 0, %.lr.ph ], [ %.175, %58 ]
-  %23 = load ptr, ptr %20, align 8
-  %24 = getelementptr inbounds i64, ptr %23, i64 %.089
-  %25 = load i64, ptr %24, align 8
-  %26 = and i64 %25, 3221225472
-  %27 = icmp eq i64 %26, 1073741824
-  br i1 %27, label %28, label %58
+21:                                               ; preds = %.lr.ph, %57
+  %.089 = phi i64 [ 0, %.lr.ph ], [ %58, %57 ]
+  %.07488 = phi i64 [ 0, %.lr.ph ], [ %.175, %57 ]
+  %22 = load ptr, ptr %19, align 8
+  %23 = getelementptr inbounds i64, ptr %22, i64 %.089
+  %24 = load i64, ptr %23, align 8
+  %25 = and i64 %24, 3221225472
+  %26 = icmp eq i64 %25, 1073741824
+  br i1 %26, label %27, label %57
 
-28:                                               ; preds = %22
-  %29 = and i64 %25, 1073741823
-  %.not83 = icmp eq i64 %29, 0
-  br i1 %.not83, label %32, label %30
+27:                                               ; preds = %21
+  %28 = and i64 %24, 1073741823
+  %.not83 = icmp eq i64 %28, 0
+  br i1 %.not83, label %31, label %29
 
-30:                                               ; preds = %28
-  %31 = add nsw i64 %25, -1
-  store i64 %31, ptr %24, align 8
-  br label %32
+29:                                               ; preds = %27
+  %30 = add nsw i64 %24, -1
+  store i64 %30, ptr %23, align 8
+  br label %31
 
-32:                                               ; preds = %30, %28
+31:                                               ; preds = %29, %27
   %.not84 = icmp eq i64 %.07488, 0
-  br i1 %.not84, label %33, label %34
+  br i1 %.not84, label %32, label %33
 
-33:                                               ; preds = %32
+32:                                               ; preds = %31
   store i64 %.089, ptr %2, align 16
-  br label %58
+  br label %57
 
-34:                                               ; preds = %32
-  %35 = tail call i64 @llvm.umin.i64(i64 %spec.select, i64 %.07488)
-  %36 = load ptr, ptr %20, align 8
-  %37 = getelementptr inbounds i64, ptr %36, i64 %.089
-  %38 = load i64, ptr %37, align 8
-  %39 = and i64 %38, 1073741823
+33:                                               ; preds = %31
+  %34 = tail call i64 @llvm.umin.i64(i64 %spec.select, i64 %.07488)
+  %35 = load ptr, ptr %19, align 8
+  %36 = getelementptr inbounds i64, ptr %35, i64 %.089
+  %37 = load i64, ptr %36, align 8
+  %38 = and i64 %37, 1073741823
   %.not85 = icmp ule i64 %.07488, %spec.select
-  br i1 %.not85, label %.preheader98, label %40
+  br i1 %.not85, label %.preheader98, label %39
 
-40:                                               ; preds = %34
-  %41 = load i64, ptr %21, align 8
-  %42 = getelementptr inbounds i64, ptr %36, i64 %41
-  %43 = load i64, ptr %42, align 8
-  %44 = and i64 %43, 1073741823
-  %45 = icmp samesign ugt i64 %44, %39
-  br i1 %45, label %.preheader98, label %58
+39:                                               ; preds = %33
+  %40 = load i64, ptr %20, align 8
+  %41 = getelementptr inbounds i64, ptr %35, i64 %40
+  %42 = load i64, ptr %41, align 8
+  %43 = and i64 %42, 1073741823
+  %44 = icmp samesign ugt i64 %43, %38
+  br i1 %44, label %.preheader98, label %57
 
-.preheader98:                                     ; preds = %40, %34
-  br label %46
+.preheader98:                                     ; preds = %39, %33
+  br label %45
 
-46:                                               ; preds = %.preheader98, %53
-  %.076.in = phi i64 [ %.076, %53 ], [ %35, %.preheader98 ]
+45:                                               ; preds = %.preheader98, %52
+  %.076.in = phi i64 [ %.076, %52 ], [ %34, %.preheader98 ]
   %.076 = add i64 %.076.in, -1
-  %47 = getelementptr inbounds [2048 x i64], ptr %2, i64 0, i64 %.076
-  %48 = load i64, ptr %47, align 8
-  %49 = getelementptr inbounds i64, ptr %36, i64 %48
-  %50 = load i64, ptr %49, align 8
-  %51 = and i64 %50, 1073741823
-  %52 = icmp samesign ugt i64 %51, %39
-  br i1 %52, label %53, label %55
+  %46 = getelementptr inbounds [2048 x i64], ptr %2, i64 0, i64 %.076
+  %47 = load i64, ptr %46, align 8
+  %48 = getelementptr inbounds i64, ptr %35, i64 %47
+  %49 = load i64, ptr %48, align 8
+  %50 = and i64 %49, 1073741823
+  %51 = icmp samesign ugt i64 %50, %38
+  br i1 %51, label %52, label %54
 
-53:                                               ; preds = %46
-  %54 = getelementptr inbounds [2048 x i64], ptr %2, i64 0, i64 %.076.in
-  store i64 %48, ptr %54, align 8
+52:                                               ; preds = %45
+  %53 = getelementptr inbounds [2048 x i64], ptr %2, i64 0, i64 %.076.in
+  store i64 %47, ptr %53, align 8
   %.not86 = icmp eq i64 %.076, 0
-  br i1 %.not86, label %55, label %46
+  br i1 %.not86, label %54, label %45
 
-55:                                               ; preds = %53, %46
-  %.177 = phi i64 [ 0, %53 ], [ %.076.in, %46 ]
-  %56 = getelementptr inbounds [2048 x i64], ptr %2, i64 0, i64 %.177
-  store i64 %.089, ptr %56, align 8
-  %57 = zext i1 %.not85 to i64
-  %spec.select87 = add i64 %.07488, %57
-  br label %58
+54:                                               ; preds = %52, %45
+  %.177 = phi i64 [ 0, %52 ], [ %.076.in, %45 ]
+  %55 = getelementptr inbounds [2048 x i64], ptr %2, i64 0, i64 %.177
+  store i64 %.089, ptr %55, align 8
+  %56 = zext i1 %.not85 to i64
+  %spec.select87 = add i64 %.07488, %56
+  br label %57
 
-58:                                               ; preds = %55, %22, %40, %33
-  %.175 = phi i64 [ %.07488, %40 ], [ 1, %33 ], [ %.07488, %22 ], [ %spec.select87, %55 ]
-  %59 = add nuw i64 %.089, 1
-  %60 = load i64, ptr %18, align 8
-  %61 = icmp ult i64 %59, %60
-  br i1 %61, label %22, label %._crit_edge
+57:                                               ; preds = %54, %21, %39, %32
+  %.175 = phi i64 [ %.07488, %39 ], [ 1, %32 ], [ %.07488, %21 ], [ %spec.select87, %54 ]
+  %58 = add nuw i64 %.089, 1
+  %59 = load i64, ptr %17, align 8
+  %60 = icmp ult i64 %58, %59
+  br i1 %60, label %21, label %._crit_edge
 
-._crit_edge:                                      ; preds = %58
+._crit_edge:                                      ; preds = %57
   %.not = icmp eq i64 %.175, 0
   br i1 %.not, label %._crit_edge.thread, label %.preheader
 
 .preheader:                                       ; preds = %._crit_edge
-  %62 = getelementptr inbounds i8, ptr %0, i64 16
-  %63 = getelementptr inbounds i8, ptr %0, i64 224
+  %61 = getelementptr inbounds i8, ptr %0, i64 16
+  %62 = getelementptr inbounds i8, ptr %0, i64 224
   %.pre = load i64, ptr %9, align 8
-  br label %64
+  br label %63
 
-64:                                               ; preds = %.preheader, %84
-  %65 = phi i64 [ %.pre, %.preheader ], [ %85, %84 ]
-  %.192 = phi i64 [ 0, %.preheader ], [ %87, %84 ]
-  %.07091 = phi ptr [ null, %.preheader ], [ %.171, %84 ]
-  %.07290 = phi ptr [ null, %.preheader ], [ %86, %84 ]
-  %66 = load ptr, ptr %62, align 8
-  %67 = getelementptr inbounds [2048 x i64], ptr %2, i64 0, i64 %.192
-  %68 = load i64, ptr %67, align 8
-  %69 = mul i64 %65, %68
-  %70 = getelementptr inbounds i8, ptr %66, i64 %69
-  %71 = load ptr, ptr %63, align 8
-  %72 = getelementptr inbounds i64, ptr %71, i64 %68
-  store i64 2147483648, ptr %72, align 8
+63:                                               ; preds = %.preheader, %83
+  %64 = phi i64 [ %.pre, %.preheader ], [ %84, %83 ]
+  %.192 = phi i64 [ 0, %.preheader ], [ %86, %83 ]
+  %.07091 = phi ptr [ null, %.preheader ], [ %.171, %83 ]
+  %.07290 = phi ptr [ null, %.preheader ], [ %85, %83 ]
+  %65 = load ptr, ptr %61, align 8
+  %66 = getelementptr inbounds [2048 x i64], ptr %2, i64 0, i64 %.192
+  %67 = load i64, ptr %66, align 8
+  %68 = mul i64 %64, %67
+  %69 = getelementptr inbounds i8, ptr %65, i64 %68
+  %70 = load ptr, ptr %62, align 8
+  %71 = getelementptr inbounds i64, ptr %70, i64 %67
+  store i64 2147483648, ptr %71, align 8
   %.not82 = icmp ne ptr %.07290, null
-  %73 = icmp eq ptr %70, %.07290
-  %or.cond = select i1 %.not82, i1 %73, i1 false
+  %72 = icmp eq ptr %69, %.07290
+  %or.cond = select i1 %.not82, i1 %72, i1 false
   %.not82.not = xor i1 %.not82, true
-  %brmerge = select i1 %.not82.not, i1 true, i1 %73
-  %.07091.mux = select i1 %or.cond, ptr %.07091, ptr %70
-  br i1 %brmerge, label %84, label %74
+  %brmerge = select i1 %.not82.not, i1 true, i1 %72
+  %.07091.mux = select i1 %or.cond, ptr %.07091, ptr %69
+  br i1 %brmerge, label %83, label %73
 
-74:                                               ; preds = %64
-  %75 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @fmap_mutex) #18
-  %76 = ptrtoint ptr %.07290 to i64
-  %77 = ptrtoint ptr %.07091 to i64
-  %78 = sub i64 %76, %77
-  %79 = tail call ptr @mmap(ptr noundef %.07091, i64 noundef %78, i32 noundef 3, i32 noundef 50, i32 noundef -1, i64 noundef 0) #18
-  %80 = icmp eq ptr %79, inttoptr (i64 -1 to ptr)
-  br i1 %80, label %81, label %82
+73:                                               ; preds = %63
+  %74 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @fmap_mutex) #18
+  %75 = ptrtoint ptr %.07290 to i64
+  %76 = ptrtoint ptr %.07091 to i64
+  %77 = sub i64 %75, %76
+  %78 = tail call ptr @mmap(ptr noundef %.07091, i64 noundef %77, i32 noundef 3, i32 noundef 50, i32 noundef -1, i64 noundef 0) #18
+  %79 = icmp eq ptr %78, inttoptr (i64 -1 to ptr)
+  br i1 %79, label %80, label %81
 
-81:                                               ; preds = %74
+80:                                               ; preds = %73
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.31) #18
-  br label %82
+  br label %81
 
-82:                                               ; preds = %81, %74
-  %83 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @fmap_mutex) #18
-  br label %84
+81:                                               ; preds = %80, %73
+  %82 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @fmap_mutex) #18
+  br label %83
 
-84:                                               ; preds = %64, %82
-  %.171 = phi ptr [ %70, %82 ], [ %.07091.mux, %64 ]
-  %85 = load i64, ptr %9, align 8
-  %86 = getelementptr inbounds i8, ptr %70, i64 %85
-  %87 = add nuw i64 %.192, 1
-  %exitcond.not = icmp eq i64 %87, %.175
-  br i1 %exitcond.not, label %88, label %64
+83:                                               ; preds = %63, %81
+  %.171 = phi ptr [ %69, %81 ], [ %.07091.mux, %63 ]
+  %84 = load i64, ptr %9, align 8
+  %85 = getelementptr inbounds i8, ptr %69, i64 %84
+  %86 = add nuw i64 %.192, 1
+  %exitcond.not = icmp eq i64 %86, %.175
+  br i1 %exitcond.not, label %87, label %63
 
-88:                                               ; preds = %84
-  %.not81 = icmp eq ptr %66, null
-  br i1 %.not81, label %99, label %89
+87:                                               ; preds = %83
+  %.not81 = icmp eq ptr %65, null
+  br i1 %.not81, label %98, label %88
 
-89:                                               ; preds = %88
-  %90 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @fmap_mutex) #18
-  %91 = ptrtoint ptr %86 to i64
-  %92 = ptrtoint ptr %.171 to i64
-  %93 = sub i64 %91, %92
-  %94 = tail call ptr @mmap(ptr noundef %.171, i64 noundef %93, i32 noundef 3, i32 noundef 50, i32 noundef -1, i64 noundef 0) #18
-  %95 = icmp eq ptr %94, inttoptr (i64 -1 to ptr)
-  br i1 %95, label %96, label %97
+88:                                               ; preds = %87
+  %89 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @fmap_mutex) #18
+  %90 = ptrtoint ptr %85 to i64
+  %91 = ptrtoint ptr %.171 to i64
+  %92 = sub i64 %90, %91
+  %93 = tail call ptr @mmap(ptr noundef %.171, i64 noundef %92, i32 noundef 3, i32 noundef 50, i32 noundef -1, i64 noundef 0) #18
+  %94 = icmp eq ptr %93, inttoptr (i64 -1 to ptr)
+  br i1 %94, label %95, label %96
 
-96:                                               ; preds = %89
+95:                                               ; preds = %88
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.31) #18
-  br label %97
+  br label %96
 
-97:                                               ; preds = %96, %89
-  %98 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @fmap_mutex) #18
-  br label %99
+96:                                               ; preds = %95, %88
+  %97 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @fmap_mutex) #18
+  br label %98
 
-99:                                               ; preds = %97, %88
-  %100 = load i64, ptr %7, align 8
-  %101 = sub i64 %100, %.175
-  store i64 %101, ptr %7, align 8
+98:                                               ; preds = %96, %87
+  %99 = load i64, ptr %7, align 8
+  %100 = sub i64 %99, %.175
+  store i64 %100, ptr %7, align 8
   br label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %13, %._crit_edge, %99, %1, %6
+._crit_edge.thread:                               ; preds = %13, %._crit_edge, %98, %1, %6
   ret void
 }
 

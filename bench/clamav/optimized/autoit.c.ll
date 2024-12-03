@@ -1814,16 +1814,16 @@ ea05.exit:                                        ; preds = %555, %557, %562
   %644 = add i32 %643, %.041.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 2
   %645 = icmp samesign ult i64 %indvars.iv.next.i.i, %633
-  br i1 %645, label %.lr.ph.i.i, label %._crit_edge.i.i
+  br i1 %645, label %.lr.ph.i.i, label %._crit_edge.loopexit.i.i
 
-._crit_edge.i.i:                                  ; preds = %642
+._crit_edge.loopexit.i.i:                         ; preds = %642
   %646 = shl i32 %644, 2
   %647 = icmp ult i32 %646, %632
   br i1 %647, label %u2a.exit.i, label %.lr.ph45.preheader.i.i
 
-.lr.ph45.preheader.i.i:                           ; preds = %._crit_edge.i.i, %.thread.i.i
-  %.03253.i.i = phi ptr [ %582, %.thread.i.i ], [ %3, %._crit_edge.i.i ]
-  %.03352.i.i = phi i32 [ %631, %.thread.i.i ], [ %607, %._crit_edge.i.i ]
+.lr.ph45.preheader.i.i:                           ; preds = %._crit_edge.loopexit.i.i, %.thread.i.i
+  %.03253.i.i = phi ptr [ %582, %.thread.i.i ], [ %3, %._crit_edge.loopexit.i.i ]
+  %.03352.i.i = phi i32 [ %631, %.thread.i.i ], [ %607, %._crit_edge.loopexit.i.i ]
   %umax.i = call i32 @llvm.umax.i32(i32 %.03352.i.i, i32 2)
   %648 = add i32 %umax.i, -1
   %649 = lshr i32 %648, 1
@@ -1842,7 +1842,7 @@ ea05.exit:                                        ; preds = %555, %557, %562
   %exitcond.not.i48 = icmp eq ptr %.03442.i.i, %scevgep.i47
   br i1 %exitcond.not.i48, label %u2a.exit.i, label %.lr.ph45.i.i
 
-u2a.exit.i:                                       ; preds = %.lr.ph45.i.i, %._crit_edge.i.i, %620
+u2a.exit.i:                                       ; preds = %.lr.ph45.i.i, %._crit_edge.loopexit.i.i, %620
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.459, ptr noundef nonnull %3) #14
   %654 = icmp eq i32 %605, 44463
   br i1 %654, label %655, label %657
@@ -1957,16 +1957,16 @@ u2a.exit.i:                                       ; preds = %.lr.ph45.i.i, %._cr
   %711 = add i32 %710, %.041.i339.i
   %indvars.iv.next.i341.i = add nuw nsw i64 %indvars.iv.i338.i, 2
   %712 = icmp samesign ult i64 %indvars.iv.next.i341.i, %700
-  br i1 %712, label %.lr.ph.i337.i, label %._crit_edge.i343.i
+  br i1 %712, label %.lr.ph.i337.i, label %._crit_edge.loopexit.i342.i
 
-._crit_edge.i343.i:                               ; preds = %709
+._crit_edge.loopexit.i342.i:                      ; preds = %709
   %713 = shl i32 %711, 2
   %714 = icmp ult i32 %713, %699
   br i1 %714, label %u2a.exit354.i, label %.lr.ph45.preheader.i345.i
 
-.lr.ph45.preheader.i345.i:                        ; preds = %._crit_edge.i343.i, %.thread.i353.i
-  %.03253.i346.i = phi ptr [ %582, %.thread.i353.i ], [ %3, %._crit_edge.i343.i ]
-  %.03352.i347.i = phi i32 [ %698, %.thread.i353.i ], [ %668, %._crit_edge.i343.i ]
+.lr.ph45.preheader.i345.i:                        ; preds = %._crit_edge.loopexit.i342.i, %.thread.i353.i
+  %.03253.i346.i = phi ptr [ %582, %.thread.i353.i ], [ %3, %._crit_edge.loopexit.i342.i ]
+  %.03352.i347.i = phi i32 [ %698, %.thread.i353.i ], [ %668, %._crit_edge.loopexit.i342.i ]
   %umax580.i = call i32 @llvm.umax.i32(i32 %.03352.i347.i, i32 2)
   %715 = add i32 %umax580.i, -1
   %716 = lshr i32 %715, 1
@@ -1985,7 +1985,7 @@ u2a.exit.i:                                       ; preds = %.lr.ph45.i.i, %._cr
   %exitcond582.not.i = icmp eq ptr %.03442.i350.i, %scevgep581.i
   br i1 %exitcond582.not.i, label %u2a.exit354.i, label %.lr.ph45.i348.i
 
-u2a.exit354.i:                                    ; preds = %.lr.ph45.i348.i, %._crit_edge.i343.i, %683
+u2a.exit354.i:                                    ; preds = %.lr.ph45.i348.i, %._crit_edge.loopexit.i342.i, %683
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.460, ptr noundef nonnull %3) #14
   br label %._crit_edge617.i
 
@@ -4107,47 +4107,46 @@ define internal fastcc void @u2a(ptr nocapture noundef %0, i32 noundef %1) unnam
   br label %.lr.ph45.preheader
 
 17:                                               ; preds = %13, %9, %6, %4
-  %18 = icmp ugt i32 %1, 20
-  %19 = and i32 %1, -2
-  %20 = select i1 %18, i32 20, i32 %19
-  %.not46 = icmp eq i32 %20, 0
+  %18 = tail call i32 @llvm.umin.i32(i32 %1, i32 20)
+  %19 = and i32 %18, 30
+  %.not46 = icmp eq i32 %19, 0
   br i1 %.not46, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %17
-  %21 = zext i32 %20 to i64
+  %20 = zext nneg i32 %19 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %30
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %30 ]
-  %.041 = phi i32 [ 0, %.lr.ph.preheader ], [ %32, %30 ]
-  %22 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
-  %23 = load i8, ptr %22, align 1
-  %.not39 = icmp eq i8 %23, 0
-  br i1 %.not39, label %30, label %24
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %29
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %29 ]
+  %.041 = phi i32 [ 0, %.lr.ph.preheader ], [ %31, %29 ]
+  %21 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  %22 = load i8, ptr %21, align 1
+  %.not39 = icmp eq i8 %22, 0
+  br i1 %.not39, label %29, label %23
 
-24:                                               ; preds = %.lr.ph
-  %25 = or disjoint i64 %indvars.iv, 1
-  %26 = getelementptr inbounds i8, ptr %0, i64 %25
-  %27 = load i8, ptr %26, align 1
-  %28 = icmp eq i8 %27, 0
-  %29 = zext i1 %28 to i32
-  br label %30
+23:                                               ; preds = %.lr.ph
+  %24 = or disjoint i64 %indvars.iv, 1
+  %25 = getelementptr inbounds i8, ptr %0, i64 %24
+  %26 = load i8, ptr %25, align 1
+  %27 = icmp eq i8 %26, 0
+  %28 = zext i1 %27 to i32
+  br label %29
 
-30:                                               ; preds = %24, %.lr.ph
-  %31 = phi i32 [ 0, %.lr.ph ], [ %29, %24 ]
-  %32 = add i32 %31, %.041
+29:                                               ; preds = %23, %.lr.ph
+  %30 = phi i32 [ 0, %.lr.ph ], [ %28, %23 ]
+  %31 = add i32 %30, %.041
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %33 = icmp samesign ult i64 %indvars.iv.next, %21
-  br i1 %33, label %.lr.ph, label %._crit_edge.loopexit
+  %32 = icmp samesign ult i64 %indvars.iv.next, %20
+  br i1 %32, label %.lr.ph, label %._crit_edge.loopexit
 
-._crit_edge.loopexit:                             ; preds = %30
-  %34 = shl i32 %32, 2
+._crit_edge.loopexit:                             ; preds = %29
+  %33 = shl i32 %31, 2
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %17
-  %.0.lcssa = phi i32 [ 0, %17 ], [ %34, %._crit_edge.loopexit ]
-  %35 = icmp ult i32 %.0.lcssa, %20
-  br i1 %35, label %.loopexit, label %.lr.ph45.preheader
+  %.0.lcssa = phi i32 [ 0, %17 ], [ %33, %._crit_edge.loopexit ]
+  %34 = icmp ult i32 %.0.lcssa, %19
+  br i1 %34, label %.loopexit, label %.lr.ph45.preheader
 
 .lr.ph45.preheader:                               ; preds = %._crit_edge, %.thread
   %.03253 = phi ptr [ %14, %.thread ], [ %0, %._crit_edge ]
@@ -4155,16 +4154,16 @@ define internal fastcc void @u2a(ptr nocapture noundef %0, i32 noundef %1) unnam
   br label %.lr.ph45
 
 .lr.ph45:                                         ; preds = %.lr.ph45.preheader, %.lr.ph45
-  %.143 = phi i32 [ %40, %.lr.ph45 ], [ 0, %.lr.ph45.preheader ]
-  %.03442 = phi ptr [ %39, %.lr.ph45 ], [ %0, %.lr.ph45.preheader ]
-  %36 = zext i32 %.143 to i64
-  %37 = getelementptr inbounds i8, ptr %.03253, i64 %36
-  %38 = load i8, ptr %37, align 1
-  %39 = getelementptr inbounds i8, ptr %.03442, i64 1
-  store i8 %38, ptr %.03442, align 1
-  %40 = add i32 %.143, 2
-  %41 = icmp ult i32 %40, %.03352
-  br i1 %41, label %.lr.ph45, label %.loopexit
+  %.143 = phi i32 [ %39, %.lr.ph45 ], [ 0, %.lr.ph45.preheader ]
+  %.03442 = phi ptr [ %38, %.lr.ph45 ], [ %0, %.lr.ph45.preheader ]
+  %35 = zext i32 %.143 to i64
+  %36 = getelementptr inbounds i8, ptr %.03253, i64 %35
+  %37 = load i8, ptr %36, align 1
+  %38 = getelementptr inbounds i8, ptr %.03442, i64 1
+  store i8 %37, ptr %.03442, align 1
+  %39 = add i32 %.143, 2
+  %40 = icmp ult i32 %39, %.03352
+  br i1 %40, label %.lr.ph45, label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph45, %._crit_edge, %2
   ret void
@@ -4185,10 +4184,10 @@ declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #12
 declare i64 @llvm.umin.i64(i64, i64) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #11
+declare i32 @llvm.umin.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #11
+declare i32 @llvm.fshl.i32(i32, i32, i32) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #11

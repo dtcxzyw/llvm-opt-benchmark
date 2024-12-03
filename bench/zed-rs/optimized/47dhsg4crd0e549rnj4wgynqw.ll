@@ -86705,18 +86705,18 @@ common.ret:                                       ; preds = %43, %"_ZN77_$LT$asy
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @"_ZN14ordered_stream23PollResult$LT$T$C$D$GT$9into_data17h63b657cf2af8af31E.llvm.2840939845381089846"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([80 x i8]) align 8 dereferenceable(80) initializes((0, 8)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(88) %1) unnamed_addr #7 personality ptr @rust_eh_personality {
   %3 = load i64, ptr %1, align 8, !range !189, !noundef !4
-  %.not = icmp samesign ult i64 %3, 2
-  br i1 %.not, label %4, label %5
-
-4:                                                ; preds = %2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(80) %1, i64 80, i1 false)
-  br label %6
+  %4 = icmp samesign ult i64 %3, 2
+  br i1 %4, label %5, label %6
 
 5:                                                ; preds = %2
-  store i64 2, ptr %0, align 8
-  br label %6
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(80) %1, i64 80, i1 false)
+  br label %7
 
-6:                                                ; preds = %5, %4
+6:                                                ; preds = %2
+  store i64 2, ptr %0, align 8
+  br label %7
+
+7:                                                ; preds = %6, %5
   ret void
 }
 
@@ -121828,17 +121828,17 @@ default.unreachable.i:                            ; preds = %3
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZN4core3ops8function6FnOnce9call_once17h381c716db271fae0E.llvm.2840939845381089846(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([80 x i8]) align 8 dereferenceable(80) initializes((0, 8)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(88) %1) unnamed_addr #12 personality ptr @rust_eh_personality {
   %.sroa.0.0.copyload = load i64, ptr %1, align 8
-  %.not.i = icmp samesign ult i64 %.sroa.0.0.copyload, 2
-  br i1 %.not.i, label %3, label %"_ZN14ordered_stream23PollResult$LT$T$C$D$GT$9into_data17h63b657cf2af8af31E.llvm.2840939845381089846.exit"
+  %3 = icmp samesign ult i64 %.sroa.0.0.copyload, 2
+  br i1 %3, label %4, label %"_ZN14ordered_stream23PollResult$LT$T$C$D$GT$9into_data17h63b657cf2af8af31E.llvm.2840939845381089846.exit"
 
-3:                                                ; preds = %2
+4:                                                ; preds = %2
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.3.0..sroa_idx2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.3.0..sroa_idx2, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.3.0..sroa_idx, i64 72, i1 false)
   br label %"_ZN14ordered_stream23PollResult$LT$T$C$D$GT$9into_data17h63b657cf2af8af31E.llvm.2840939845381089846.exit"
 
-"_ZN14ordered_stream23PollResult$LT$T$C$D$GT$9into_data17h63b657cf2af8af31E.llvm.2840939845381089846.exit": ; preds = %2, %3
-  %.sink = phi i64 [ %.sroa.0.0.copyload, %3 ], [ 2, %2 ]
+"_ZN14ordered_stream23PollResult$LT$T$C$D$GT$9into_data17h63b657cf2af8af31E.llvm.2840939845381089846.exit": ; preds = %2, %4
+  %.sink = phi i64 [ %.sroa.0.0.copyload, %4 ], [ 2, %2 ]
   store i64 %.sink, ptr %0, align 8, !alias.scope !25196
   ret void
 }
@@ -137833,31 +137833,31 @@ define hidden void @"_ZN88_$LT$ordered_stream..adapters..Next$LT$S$GT$$u20$as$u2
   call void @"_ZN89_$LT$ordered_stream..join..Join$LT$A$C$B$GT$$u20$as$u20$ordered_stream..OrderedStream$GT$16poll_next_before17h65a9c365d2f63b57E.llvm.2840939845381089846"(ptr noalias nocapture noundef nonnull sret([88 x i8]) align 8 dereferenceable(88) %4, ptr noalias noundef nonnull align 8 dereferenceable(600) %5, ptr noalias noundef nonnull align 8 dereferenceable(32) %2, ptr noalias noundef readonly align 8 dereferenceable_or_null(8) null)
   %6 = load i64, ptr %4, align 8, !range !3906, !noundef !4
   %7 = icmp eq i64 %6, 4
-  br i1 %7, label %10, label %8
+  br i1 %7, label %11, label %8
 
 8:                                                ; preds = %3
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %.sroa.4)
-  %.not.i.i = icmp samesign ult i64 %6, 2
-  br i1 %.not.i.i, label %9, label %_ZN4core3ops8function6FnOnce9call_once17h381c716db271fae0E.llvm.2840939845381089846.exit
+  %9 = icmp samesign ult i64 %6, 2
+  br i1 %9, label %10, label %_ZN4core3ops8function6FnOnce9call_once17h381c716db271fae0E.llvm.2840939845381089846.exit
 
-9:                                                ; preds = %8
+10:                                               ; preds = %8
   %.sroa.44.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.4, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.44.0..sroa_idx, i64 72, i1 false)
   br label %_ZN4core3ops8function6FnOnce9call_once17h381c716db271fae0E.llvm.2840939845381089846.exit
 
-_ZN4core3ops8function6FnOnce9call_once17h381c716db271fae0E.llvm.2840939845381089846.exit: ; preds = %8, %9
-  %.sink.i = phi i64 [ %6, %9 ], [ 2, %8 ]
+_ZN4core3ops8function6FnOnce9call_once17h381c716db271fae0E.llvm.2840939845381089846.exit: ; preds = %8, %10
+  %.sink.i = phi i64 [ %6, %10 ], [ 2, %8 ]
   store i64 %.sink.i, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.4, i64 72, i1 false)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %.sroa.4)
-  br label %11
+  br label %12
 
-10:                                               ; preds = %3
+11:                                               ; preds = %3
   store i64 3, ptr %0, align 8
-  br label %11
+  br label %12
 
-11:                                               ; preds = %10, %_ZN4core3ops8function6FnOnce9call_once17h381c716db271fae0E.llvm.2840939845381089846.exit
+12:                                               ; preds = %11, %_ZN4core3ops8function6FnOnce9call_once17h381c716db271fae0E.llvm.2840939845381089846.exit
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %4)
   ret void
 }

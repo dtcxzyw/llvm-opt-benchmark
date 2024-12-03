@@ -4411,8 +4411,7 @@ entry:
 entry.split:                                      ; preds = %entry
   %arrayidx.i = getelementptr inbounds i8, ptr %0, i64 -4
   %1 = load i32, ptr %arrayidx.i, align 4
-  %umax = tail call i32 @llvm.umax.i32(i32 %1, i32 1)
-  %2 = add i32 %umax, -1
+  %2 = tail call i32 @llvm.usub.sat.i32(i32 %1, i32 1)
   %wide.trip.count = zext i32 %2 to i64
   br label %for.cond
 
@@ -26409,6 +26408,9 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #24
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.usub.sat.i32(i32, i32) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #27

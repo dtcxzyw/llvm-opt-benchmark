@@ -23079,9 +23079,8 @@ if.end:                                           ; preds = %_ZN15RenderingEngin
 if.end9:                                          ; preds = %if.end
   %Size.i = getelementptr inbounds i8, ptr %call6, i64 12
   %dim.sroa.0.0.copyload = load i32, ptr %Size.i, align 4, !tbaa !37
-  %cmp = icmp ugt i32 %dim.sroa.0.0.copyload, 16
-  %div75 = lshr i32 %dim.sroa.0.0.copyload, 4
-  %step.0 = select i1 %cmp, i32 %div75, i32 1
+  %5 = call i32 @llvm.umax.i32(i32 %dim.sroa.0.0.copyload, i32 16)
+  %step.0 = lshr i32 %5, 4
   %cmp16111.not = icmp eq i32 %dim.sroa.0.0.copyload, 0
   br i1 %cmp16111.not, label %for.cond.cleanup, label %for.cond17.preheader
 
@@ -23102,8 +23101,8 @@ for.cond.cleanup:                                 ; preds = %for.cond.cleanup21,
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
   %add.ptr = getelementptr inbounds i8, ptr %call6, i64 %vbase.offset
   %ReferenceCounter.i = getelementptr inbounds i8, ptr %add.ptr, i64 16
-  %5 = load i32, ptr %ReferenceCounter.i, align 8, !tbaa !95
-  %dec.i = add nsw i32 %5, -1
+  %6 = load i32, ptr %ReferenceCounter.i, align 8, !tbaa !95
+  %dec.i = add nsw i32 %6, -1
   store i32 %dec.i, ptr %ReferenceCounter.i, align 8, !tbaa !95
   %tobool.not.i77 = icmp eq i32 %dec.i, 0
   br i1 %tobool.not.i77, label %delete.notnull.i, label %_ZNK3irr17IReferenceCounted4dropEv.exit
@@ -23111,8 +23110,8 @@ for.cond.cleanup:                                 ; preds = %for.cond.cleanup21,
 delete.notnull.i:                                 ; preds = %for.cond.cleanup
   %vtable.i78 = load ptr, ptr %add.ptr, align 8, !tbaa !4
   %vfn.i79 = getelementptr inbounds i8, ptr %vtable.i78, i64 8
-  %6 = load ptr, ptr %vfn.i79, align 8
-  call void %6(ptr noundef nonnull align 8 dereferenceable(20) %add.ptr) #15
+  %7 = load ptr, ptr %vfn.i79, align 8
+  call void %7(ptr noundef nonnull align 8 dereferenceable(20) %add.ptr) #15
   br label %_ZNK3irr17IReferenceCounted4dropEv.exit
 
 _ZNK3irr17IReferenceCounted4dropEv.exit:          ; preds = %delete.notnull.i, %for.cond.cleanup
@@ -23132,8 +23131,8 @@ for.body22:                                       ; preds = %for.inc, %for.cond1
   %col_acc.sroa.0.1107 = phi <2 x float> [ %col_acc.sroa.0.0112, %for.cond17.preheader ], [ %col_acc.sroa.0.2, %for.inc ]
   %vtable26 = load ptr, ptr %call6, align 8, !tbaa !4
   %vfn27 = getelementptr inbounds i8, ptr %vtable26, i64 16
-  %7 = load ptr, ptr %vfn27, align 8
-  %call28 = call i32 %7(ptr noundef nonnull align 8 dereferenceable(50) %call6, i32 noundef %conv14115, i32 noundef %conv18110)
+  %8 = load ptr, ptr %vfn27, align 8
+  %call28 = call i32 %8(ptr noundef nonnull align 8 dereferenceable(50) %call6, i32 noundef %conv14115, i32 noundef %conv18110)
   %cmp30.not = icmp ult i32 %call28, 16777216
   br i1 %cmp30.not, label %for.inc, label %if.then31
 
@@ -23156,7 +23155,7 @@ if.then31:                                        ; preds = %for.body22
 if.then.i.i:                                      ; preds = %if.then31
   %add.i.i = fadd nsz float %div.i.i, 0x3FAC28F5C0000000
   %div.i17.i = fdiv nsz float %add.i.i, 0x3FF0E147A0000000
-  %8 = call nsz float @llvm.pow.f32(float %div.i17.i, float 0x4003333340000000)
+  %9 = call nsz float @llvm.pow.f32(float %div.i17.i, float 0x4003333340000000)
   br label %_ZN12_GLOBAL__N_124srgb_to_linear_componentEf.exit.i
 
 if.end.i.i:                                       ; preds = %if.then31
@@ -23164,14 +23163,14 @@ if.end.i.i:                                       ; preds = %if.then31
   br label %_ZN12_GLOBAL__N_124srgb_to_linear_componentEf.exit.i
 
 _ZN12_GLOBAL__N_124srgb_to_linear_componentEf.exit.i: ; preds = %if.end.i.i, %if.then.i.i
-  %retval.0.i.i = phi float [ %8, %if.then.i.i ], [ %div1.i.i, %if.end.i.i ]
+  %retval.0.i.i = phi float [ %9, %if.then.i.i ], [ %div1.i.i, %if.end.i.i ]
   %cmp.i18.i = fcmp nsz ogt float %div2.i.i, 0x3FA4B5DCC0000000
   br i1 %cmp.i18.i, label %if.then.i22.i, label %if.end.i19.i
 
 if.then.i22.i:                                    ; preds = %_ZN12_GLOBAL__N_124srgb_to_linear_componentEf.exit.i
   %add.i23.i = fadd nsz float %div2.i.i, 0x3FAC28F5C0000000
   %div.i24.i = fdiv nsz float %add.i23.i, 0x3FF0E147A0000000
-  %9 = call nsz float @llvm.pow.f32(float %div.i24.i, float 0x4003333340000000)
+  %10 = call nsz float @llvm.pow.f32(float %div.i24.i, float 0x4003333340000000)
   br label %_ZN12_GLOBAL__N_124srgb_to_linear_componentEf.exit25.i
 
 if.end.i19.i:                                     ; preds = %_ZN12_GLOBAL__N_124srgb_to_linear_componentEf.exit.i
@@ -23179,14 +23178,14 @@ if.end.i19.i:                                     ; preds = %_ZN12_GLOBAL__N_124
   br label %_ZN12_GLOBAL__N_124srgb_to_linear_componentEf.exit25.i
 
 _ZN12_GLOBAL__N_124srgb_to_linear_componentEf.exit25.i: ; preds = %if.end.i19.i, %if.then.i22.i
-  %retval.0.i21.i = phi float [ %9, %if.then.i22.i ], [ %div1.i20.i, %if.end.i19.i ]
+  %retval.0.i21.i = phi float [ %10, %if.then.i22.i ], [ %div1.i20.i, %if.end.i19.i ]
   %cmp.i26.i = fcmp nsz ogt float %div3.i.i, 0x3FA4B5DCC0000000
   br i1 %cmp.i26.i, label %if.then.i30.i, label %if.end.i27.i
 
 if.then.i30.i:                                    ; preds = %_ZN12_GLOBAL__N_124srgb_to_linear_componentEf.exit25.i
   %add.i31.i = fadd nsz float %div3.i.i, 0x3FAC28F5C0000000
   %div.i32.i = fdiv nsz float %add.i31.i, 0x3FF0E147A0000000
-  %10 = call nsz float @llvm.pow.f32(float %div.i32.i, float 0x4003333340000000)
+  %11 = call nsz float @llvm.pow.f32(float %div.i32.i, float 0x4003333340000000)
   br label %_ZN12_GLOBAL__N_114srgb_to_linearEN3irr5video6SColorE.exit
 
 if.end.i27.i:                                     ; preds = %_ZN12_GLOBAL__N_124srgb_to_linear_componentEf.exit25.i
@@ -23194,15 +23193,15 @@ if.end.i27.i:                                     ; preds = %_ZN12_GLOBAL__N_124
   br label %_ZN12_GLOBAL__N_114srgb_to_linearEN3irr5video6SColorE.exit
 
 _ZN12_GLOBAL__N_114srgb_to_linearEN3irr5video6SColorE.exit: ; preds = %if.end.i27.i, %if.then.i30.i
-  %retval.0.i29.i = phi float [ %10, %if.then.i30.i ], [ %div1.i28.i, %if.end.i27.i ]
-  %11 = insertelement <2 x float> poison, float %retval.0.i.i, i64 0
-  %12 = insertelement <2 x float> %11, float %retval.0.i21.i, i64 1
-  %13 = fadd nsz <2 x float> %col_acc.sroa.0.1107, %12
+  %retval.0.i29.i = phi float [ %11, %if.then.i30.i ], [ %div1.i28.i, %if.end.i27.i ]
+  %12 = insertelement <2 x float> poison, float %retval.0.i.i, i64 0
+  %13 = insertelement <2 x float> %12, float %retval.0.i21.i, i64 1
+  %14 = fadd nsz <2 x float> %col_acc.sroa.0.1107, %13
   %add6.i = fadd nsz float %col_acc.sroa.13.1108, %retval.0.i29.i
   br label %for.inc
 
 for.inc:                                          ; preds = %_ZN12_GLOBAL__N_114srgb_to_linearEN3irr5video6SColorE.exit, %for.body22
-  %col_acc.sroa.0.2 = phi <2 x float> [ %col_acc.sroa.0.1107, %for.body22 ], [ %13, %_ZN12_GLOBAL__N_114srgb_to_linearEN3irr5video6SColorE.exit ]
+  %col_acc.sroa.0.2 = phi <2 x float> [ %col_acc.sroa.0.1107, %for.body22 ], [ %14, %_ZN12_GLOBAL__N_114srgb_to_linearEN3irr5video6SColorE.exit ]
   %col_acc.sroa.13.2 = phi float [ %col_acc.sroa.13.1108, %for.body22 ], [ %add6.i, %_ZN12_GLOBAL__N_114srgb_to_linearEN3irr5video6SColorE.exit ]
   %total.2 = phi i32 [ %total.1109, %for.body22 ], [ %inc, %_ZN12_GLOBAL__N_114srgb_to_linearEN3irr5video6SColorE.exit ]
   %add = add nuw nsw i32 %conv18110, %step.0
@@ -23221,8 +23220,8 @@ if.then49:                                        ; preds = %_ZNK3irr17IReferenc
   br i1 %cmp.i.i84, label %if.then.i.i87, label %if.end.i.i85
 
 if.then.i.i87:                                    ; preds = %if.then49
-  %14 = call nsz float @llvm.pow.f32(float %div.i, float 0x3FDAAAAAA0000000)
-  %15 = call nsz float @llvm.fmuladd.f32(float %14, float 0x3FF0E147A0000000, float 0xBFAC28F5C0000000)
+  %15 = call nsz float @llvm.pow.f32(float %div.i, float 0x3FDAAAAAA0000000)
+  %16 = call nsz float @llvm.fmuladd.f32(float %15, float 0x3FF0E147A0000000, float 0xBFAC28F5C0000000)
   br label %_ZN12_GLOBAL__N_124linear_to_srgb_componentEf.exit.i
 
 if.end.i.i85:                                     ; preds = %if.then49
@@ -23230,13 +23229,13 @@ if.end.i.i85:                                     ; preds = %if.then49
   br label %_ZN12_GLOBAL__N_124linear_to_srgb_componentEf.exit.i
 
 _ZN12_GLOBAL__N_124linear_to_srgb_componentEf.exit.i: ; preds = %if.end.i.i85, %if.then.i.i87
-  %retval.0.i.i86 = phi float [ %15, %if.then.i.i87 ], [ %mul.i.i, %if.end.i.i85 ]
+  %retval.0.i.i86 = phi float [ %16, %if.then.i.i87 ], [ %mul.i.i, %if.end.i.i85 ]
   %cmp.i27.i = fcmp nsz ogt float %div2.i, 0x3F69A5C380000000
   br i1 %cmp.i27.i, label %if.then.i31.i, label %if.end.i28.i
 
 if.then.i31.i:                                    ; preds = %_ZN12_GLOBAL__N_124linear_to_srgb_componentEf.exit.i
-  %16 = call nsz float @llvm.pow.f32(float %div2.i, float 0x3FDAAAAAA0000000)
-  %17 = call nsz float @llvm.fmuladd.f32(float %16, float 0x3FF0E147A0000000, float 0xBFAC28F5C0000000)
+  %17 = call nsz float @llvm.pow.f32(float %div2.i, float 0x3FDAAAAAA0000000)
+  %18 = call nsz float @llvm.fmuladd.f32(float %17, float 0x3FF0E147A0000000, float 0xBFAC28F5C0000000)
   br label %_ZN12_GLOBAL__N_124linear_to_srgb_componentEf.exit32.i
 
 if.end.i28.i:                                     ; preds = %_ZN12_GLOBAL__N_124linear_to_srgb_componentEf.exit.i
@@ -23244,13 +23243,13 @@ if.end.i28.i:                                     ; preds = %_ZN12_GLOBAL__N_124
   br label %_ZN12_GLOBAL__N_124linear_to_srgb_componentEf.exit32.i
 
 _ZN12_GLOBAL__N_124linear_to_srgb_componentEf.exit32.i: ; preds = %if.end.i28.i, %if.then.i31.i
-  %retval.0.i30.i = phi float [ %17, %if.then.i31.i ], [ %mul.i29.i, %if.end.i28.i ]
+  %retval.0.i30.i = phi float [ %18, %if.then.i31.i ], [ %mul.i29.i, %if.end.i28.i ]
   %cmp.i33.i = fcmp nsz ogt float %div3.i, 0x3F69A5C380000000
   br i1 %cmp.i33.i, label %if.then.i37.i, label %if.end.i34.i
 
 if.then.i37.i:                                    ; preds = %_ZN12_GLOBAL__N_124linear_to_srgb_componentEf.exit32.i
-  %18 = call nsz float @llvm.pow.f32(float %div3.i, float 0x3FDAAAAAA0000000)
-  %19 = call nsz float @llvm.fmuladd.f32(float %18, float 0x3FF0E147A0000000, float 0xBFAC28F5C0000000)
+  %19 = call nsz float @llvm.pow.f32(float %div3.i, float 0x3FDAAAAAA0000000)
+  %20 = call nsz float @llvm.fmuladd.f32(float %19, float 0x3FF0E147A0000000, float 0xBFAC28F5C0000000)
   br label %_ZN12_GLOBAL__N_114linear_to_srgbEN3irr4core8vector3dIfEE.exit
 
 if.end.i34.i:                                     ; preds = %_ZN12_GLOBAL__N_124linear_to_srgb_componentEf.exit32.i
@@ -23258,28 +23257,28 @@ if.end.i34.i:                                     ; preds = %_ZN12_GLOBAL__N_124
   br label %_ZN12_GLOBAL__N_114linear_to_srgbEN3irr4core8vector3dIfEE.exit
 
 _ZN12_GLOBAL__N_114linear_to_srgbEN3irr4core8vector3dIfEE.exit: ; preds = %if.end.i34.i, %if.then.i37.i
-  %retval.0.i36.i = phi float [ %19, %if.then.i37.i ], [ %mul.i35.i, %if.end.i34.i ]
-  %20 = insertelement <2 x float> poison, float %retval.0.i30.i, i64 0
-  %21 = insertelement <2 x float> %20, float %retval.0.i.i86, i64 1
-  %22 = fmul nsz <2 x float> %21, splat (float 2.550000e+02)
+  %retval.0.i36.i = phi float [ %20, %if.then.i37.i ], [ %mul.i35.i, %if.end.i34.i ]
+  %21 = insertelement <2 x float> poison, float %retval.0.i30.i, i64 0
+  %22 = insertelement <2 x float> %21, float %retval.0.i.i86, i64 1
+  %23 = fmul nsz <2 x float> %22, splat (float 2.550000e+02)
   %mul3.i.i = fmul nsz float %retval.0.i36.i, 2.550000e+02
   %cmp.i.i44.i = fcmp nsz olt float %mul3.i.i, 0.000000e+00
-  %23 = select i1 %cmp.i.i44.i, float 0.000000e+00, float %mul3.i.i
-  %cmp.i2.i45.i = fcmp nsz olt float %23, 2.550000e+02
-  %24 = select i1 %cmp.i2.i45.i, float %23, float 2.550000e+02
-  %cond.i53.i = fadd nsz float %24, 5.000000e-01
+  %24 = select i1 %cmp.i.i44.i, float 0.000000e+00, float %mul3.i.i
+  %cmp.i2.i45.i = fcmp nsz olt float %24, 2.550000e+02
+  %25 = select i1 %cmp.i2.i45.i, float %24, float 2.550000e+02
+  %cond.i53.i = fadd nsz float %25, 5.000000e-01
   %conv.i54.i = fptosi float %cond.i53.i to i32
-  %25 = fcmp nsz olt <2 x float> %22, zeroinitializer
-  %26 = select <2 x i1> %25, <2 x float> zeroinitializer, <2 x float> %22
-  %27 = fcmp nsz olt <2 x float> %26, splat (float 2.550000e+02)
-  %28 = select <2 x i1> %27, <2 x float> %26, <2 x float> splat (float 2.550000e+02)
-  %29 = fadd nsz <2 x float> %28, splat (float 5.000000e-01)
-  %30 = fptosi <2 x float> %29 to <2 x i32>
-  %31 = shl <2 x i32> %30, <i32 8, i32 16>
-  %32 = extractelement <2 x i32> %31, i64 0
-  %shl5.i.i = and i32 %32, 65280
-  %33 = extractelement <2 x i32> %31, i64 1
-  %or.i.i = or disjoint i32 %shl5.i.i, %33
+  %26 = fcmp nsz olt <2 x float> %23, zeroinitializer
+  %27 = select <2 x i1> %26, <2 x float> zeroinitializer, <2 x float> %23
+  %28 = fcmp nsz olt <2 x float> %27, splat (float 2.550000e+02)
+  %29 = select <2 x i1> %28, <2 x float> %27, <2 x float> splat (float 2.550000e+02)
+  %30 = fadd nsz <2 x float> %29, splat (float 5.000000e-01)
+  %31 = fptosi <2 x float> %30 to <2 x i32>
+  %32 = shl <2 x i32> %31, <i32 8, i32 16>
+  %33 = extractelement <2 x i32> %32, i64 0
+  %shl5.i.i = and i32 %33, 65280
+  %34 = extractelement <2 x i32> %32, i64 1
+  %or.i.i = or disjoint i32 %shl5.i.i, %34
   %and7.i.i = and i32 %conv.i54.i, 255
   %or6.i.i = or disjoint i32 %or.i.i, %and7.i.i
   br label %if.end56

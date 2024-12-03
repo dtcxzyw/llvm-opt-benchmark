@@ -1580,11 +1580,11 @@ sz_size2index_compute.exit:                       ; preds = %if.end2
   %sub13.i = add nsw i64 %shl.i, -1
   %2 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %sub13.i, i1 true)
   %3 = shl nuw nsw i64 %2, 2
-  %sub28.i = sub nuw nsw i64 60, %2
-  %shl31.i = shl nsw i64 -1, %sub28.i
+  %cond30.i = sub nuw nsw i64 60, %2
+  %shl31.i = shl nsw i64 -1, %cond30.i
   %sub32.i = add nsw i64 %bin_size, -1
   %and.i = and i64 %shl31.i, %sub32.i
-  %shr.i16 = lshr i64 %and.i, %sub28.i
+  %shr.i16 = lshr i64 %and.i, %cond30.i
   %conv35.i = and i64 %shr.i16, 3
   %reass.sub = sub nsw i64 %conv35.i, %3
   %add36.i = add nsw i64 %reass.sub, 229
@@ -2609,11 +2609,11 @@ if.end12.i.i:                                     ; preds = %if.end.i.i
   %sub13.i.i = add i64 %shl.i.i, -1
   %7 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %sub13.i.i, i1 true)
   %8 = trunc nuw nsw i64 %7 to i32
-  %sub28.i.i = sub nuw nsw i64 60, %7
-  %shl31.i.i = shl nsw i64 -1, %sub28.i.i
+  %cond30.i.i = sub nuw nsw i64 60, %7
+  %shl31.i.i = shl nsw i64 -1, %cond30.i.i
   %sub32.i.i = add nsw i64 %tcache_max, -1
   %and.i.i = and i64 %shl31.i.i, %sub32.i.i
-  %shr.i5.i = lshr i64 %and.i.i, %sub28.i.i
+  %shr.i5.i = lshr i64 %and.i.i, %cond30.i.i
   %9 = trunc i64 %shr.i5.i to i32
   %conv35.i.i = and i32 %9, 3
   %10 = shl nuw nsw i32 %8, 2
@@ -2692,15 +2692,15 @@ if.end12.i:                                       ; preds = %if.end.i
   %conv1.i.i.i12.i = xor i32 %4, 63
   %cond21.i = call i32 @llvm.usub.sat.i32(i32 %conv1.i.i.i12.i, i32 6)
   %shl22.i = shl nuw nsw i32 %cond21.i, 2
-  %cmp23.i = icmp samesign ult i32 %conv1.i.i.i12.i, 7
-  %sub28.i = sub nuw nsw i64 60, %3
-  %sh_prom.i = select i1 %cmp23.i, i64 4, i64 %sub28.i
+  %5 = call i32 @llvm.umax.i32(i32 %conv1.i.i.i12.i, i32 7)
+  %cond30.i = add nsw i32 %5, -3
+  %sh_prom.i = zext nneg i32 %cond30.i to i64
   %shl31.i = shl nsw i64 -1, %sh_prom.i
   %sub32.i = add nsw i64 %2, -1
   %and.i = and i64 %shl31.i, %sub32.i
   %shr.i = lshr i64 %and.i, %sh_prom.i
-  %5 = trunc i64 %shr.i to i32
-  %conv35.i = and i32 %5, 3
+  %6 = trunc i64 %shr.i to i32
+  %conv35.i = and i32 %6, 3
   %add.i = or disjoint i32 %shl22.i, 1
   %add36.i = add nuw nsw i32 %add.i, %conv35.i
   br label %if.end.i6
@@ -2708,73 +2708,73 @@ if.end12.i:                                       ; preds = %if.end.i
 if.end.i6:                                        ; preds = %if.end12.i, %if.end.i
   %retval.0.i = phi i32 [ %add36.i, %if.end12.i ], [ 0, %if.end.i ]
   %cmp6.i7 = icmp samesign ult i64 %1, 9
-  br i1 %cmp6.i7, label %sz_size2index_compute.exit25, label %if.end12.i8
+  br i1 %cmp6.i7, label %sz_size2index_compute.exit24, label %if.end12.i8
 
 if.end12.i8:                                      ; preds = %if.end.i6
   %shl.i9 = shl nuw nsw i64 %1, 1
   %sub13.i10 = add nsw i64 %shl.i9, -1
-  %6 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %sub13.i10, i1 true)
-  %7 = trunc nuw nsw i64 %6 to i32
-  %conv1.i.i.i12.i11 = xor i32 %7, 63
+  %7 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %sub13.i10, i1 true)
+  %8 = trunc nuw nsw i64 %7 to i32
+  %conv1.i.i.i12.i11 = xor i32 %8, 63
   %cond21.i12 = call i32 @llvm.usub.sat.i32(i32 %conv1.i.i.i12.i11, i32 6)
   %shl22.i13 = shl nuw nsw i32 %cond21.i12, 2
-  %cmp23.i14 = icmp samesign ult i32 %conv1.i.i.i12.i11, 7
-  %sub28.i15 = sub nuw nsw i64 60, %6
-  %sh_prom.i16 = select i1 %cmp23.i14, i64 4, i64 %sub28.i15
-  %shl31.i17 = shl nsw i64 -1, %sh_prom.i16
-  %sub32.i18 = add nsw i64 %1, -1
-  %and.i19 = and i64 %shl31.i17, %sub32.i18
-  %shr.i20 = lshr i64 %and.i19, %sh_prom.i16
-  %8 = trunc i64 %shr.i20 to i32
-  %conv35.i21 = and i32 %8, 3
-  %add.i22 = or disjoint i32 %shl22.i13, 1
-  %add36.i23 = add nuw nsw i32 %add.i22, %conv35.i21
-  br label %sz_size2index_compute.exit25
+  %9 = call i32 @llvm.umax.i32(i32 %conv1.i.i.i12.i11, i32 7)
+  %cond30.i14 = add nsw i32 %9, -3
+  %sh_prom.i15 = zext nneg i32 %cond30.i14 to i64
+  %shl31.i16 = shl nsw i64 -1, %sh_prom.i15
+  %sub32.i17 = add nsw i64 %1, -1
+  %and.i18 = and i64 %shl31.i16, %sub32.i17
+  %shr.i19 = lshr i64 %and.i18, %sh_prom.i15
+  %10 = trunc i64 %shr.i19 to i32
+  %conv35.i20 = and i32 %10, 3
+  %add.i21 = or disjoint i32 %shl22.i13, 1
+  %add36.i22 = add nuw nsw i32 %add.i21, %conv35.i20
+  br label %sz_size2index_compute.exit24
 
-sz_size2index_compute.exit25:                     ; preds = %if.end.i6, %if.end12.i8
-  %retval.0.i24 = phi i32 [ %add36.i23, %if.end12.i8 ], [ 0, %if.end.i6 ]
-  %9 = load i64, ptr %ncached_max, align 8
-  %cmp9 = icmp ugt i64 %9, 8191
+sz_size2index_compute.exit24:                     ; preds = %if.end.i6, %if.end12.i8
+  %retval.0.i23 = phi i32 [ %add36.i22, %if.end12.i8 ], [ 0, %if.end.i6 ]
+  %11 = load i64, ptr %ncached_max, align 8
+  %cmp9 = icmp ugt i64 %11, 8191
   br i1 %cmp9, label %if.then10, label %if.end11
 
-if.then10:                                        ; preds = %sz_size2index_compute.exit25
+if.then10:                                        ; preds = %sz_size2index_compute.exit24
   store i64 8191, ptr %ncached_max, align 8
   br label %if.end11
 
-if.end11:                                         ; preds = %if.then10, %sz_size2index_compute.exit25
-  %cmp12.not26 = icmp samesign ugt i32 %retval.0.i, %retval.0.i24
-  br i1 %cmp12.not26, label %do.cond, label %for.body.lr.ph
+if.end11:                                         ; preds = %if.then10, %sz_size2index_compute.exit24
+  %cmp12.not25 = icmp samesign ugt i32 %retval.0.i, %retval.0.i23
+  br i1 %cmp12.not25, label %do.cond, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end11
   br i1 %cmp13.not, label %for.body.us, label %for.body
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.body.us
-  %i.027.us = phi i32 [ %inc.us, %for.body.us ], [ %retval.0.i, %for.body.lr.ph ]
-  %idxprom.us = zext i32 %i.027.us to i64
+  %i.026.us = phi i32 [ %inc.us, %for.body.us ], [ %retval.0.i, %for.body.lr.ph ]
+  %idxprom.us = zext i32 %i.026.us to i64
   %arrayidx.us = getelementptr inbounds %struct.cache_bin_info_s, ptr %tcache_bin_info, i64 %idxprom.us
-  %10 = load i64, ptr %ncached_max, align 8
-  %conv.us = trunc i64 %10 to i16
+  %12 = load i64, ptr %ncached_max, align 8
+  %conv.us = trunc i64 %12 to i16
   call void @cache_bin_info_init(ptr noundef %arrayidx.us, i16 noundef zeroext %conv.us) #14
-  %inc.us = add i32 %i.027.us, 1
-  %cmp12.not.us = icmp ugt i32 %inc.us, %retval.0.i24
+  %inc.us = add i32 %i.026.us, 1
+  %cmp12.not.us = icmp ugt i32 %inc.us, %retval.0.i23
   br i1 %cmp12.not.us, label %do.cond, label %for.body.us, !llvm.loop !12
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
-  %i.027 = phi i32 [ %inc, %for.body ], [ %retval.0.i, %for.body.lr.ph ]
-  %idxprom = zext i32 %i.027 to i64
+  %i.026 = phi i32 [ %inc, %for.body ], [ %retval.0.i, %for.body.lr.ph ]
+  %idxprom = zext i32 %i.026 to i64
   %arrayidx = getelementptr inbounds %struct.cache_bin_info_s, ptr %tcache_bin_info, i64 %idxprom
-  %11 = load i64, ptr %ncached_max, align 8
-  %conv = trunc i64 %11 to i16
+  %13 = load i64, ptr %ncached_max, align 8
+  %conv = trunc i64 %13 to i16
   call void @cache_bin_info_init(ptr noundef %arrayidx, i16 noundef zeroext %conv) #14
   %arrayidx17 = getelementptr inbounds i8, ptr %bin_info_is_set, i64 %idxprom
   store i8 1, ptr %arrayidx17, align 1
-  %inc = add i32 %i.027, 1
-  %cmp12.not = icmp ugt i32 %inc, %retval.0.i24
+  %inc = add i32 %i.026, 1
+  %cmp12.not = icmp ugt i32 %inc, %retval.0.i23
   br i1 %cmp12.not, label %do.cond, label %for.body, !llvm.loop !12
 
 do.cond:                                          ; preds = %for.body, %for.body.us, %if.end11, %if.end2
-  %12 = load i64, ptr %len_left.addr, align 8
-  %cmp19.not = icmp eq i64 %12, 0
+  %14 = load i64, ptr %len_left.addr, align 8
+  %cmp19.not = icmp eq i64 %14, 0
   br i1 %cmp19.not, label %return, label %do.body, !llvm.loop !13
 
 return:                                           ; preds = %do.cond, %do.body
@@ -3437,11 +3437,11 @@ if.end12.i:                                       ; preds = %if.end.i
   %6 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %sub13.i, i1 true)
   %7 = trunc nuw nsw i64 %6 to i32
   %8 = shl nuw nsw i32 %7, 2
-  %sub28.i = sub nuw nsw i64 60, %6
-  %shl31.i = shl nsw i64 -1, %sub28.i
+  %cond30.i = sub nuw nsw i64 60, %6
+  %shl31.i = shl nsw i64 -1, %cond30.i
   %sub32.i = add nsw i64 %retval.i3.0, -1
   %and.i18 = and i64 %shl31.i, %sub32.i
-  %shr.i19 = lshr i64 %and.i18, %sub28.i
+  %shr.i19 = lshr i64 %and.i18, %cond30.i
   %9 = trunc i64 %shr.i19 to i32
   %conv35.i = and i32 %9, 3
   %reass.sub = sub nsw i32 %conv35.i, %8

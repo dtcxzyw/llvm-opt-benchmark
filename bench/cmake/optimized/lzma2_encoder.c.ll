@@ -102,60 +102,59 @@ declare i64 @lzma_lzma_encoder_memusage(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local noundef i32 @lzma_lzma2_props_encode(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 1)) %1) local_unnamed_addr #2 {
   %3 = load i32, ptr %0, align 8
-  %4 = icmp ugt i32 %3, 4096
-  %5 = add i32 %3, -1
-  %spec.select = select i1 %4, i32 %5, i32 4095
-  %6 = lshr i32 %spec.select, 2
-  %7 = or i32 %6, %spec.select
-  %8 = lshr i32 %7, 3
-  %9 = or i32 %8, %7
-  %10 = lshr i32 %9, 4
-  %11 = or i32 %10, %9
-  %12 = lshr i32 %11, 8
-  %13 = or i32 %12, %11
-  %14 = lshr i32 %13, 16
-  %15 = or i32 %14, %13
-  %16 = icmp eq i32 %15, -1
-  br i1 %16, label %39, label %17
+  %4 = tail call i32 @llvm.umax.i32(i32 %3, i32 4096)
+  %spec.select = add i32 %4, -1
+  %5 = lshr i32 %spec.select, 2
+  %6 = or i32 %5, %spec.select
+  %7 = lshr i32 %6, 3
+  %8 = or i32 %7, %6
+  %9 = lshr i32 %8, 4
+  %10 = or i32 %9, %8
+  %11 = lshr i32 %10, 8
+  %12 = or i32 %11, %10
+  %13 = lshr i32 %12, 16
+  %14 = or i32 %13, %12
+  %15 = icmp eq i32 %14, -1
+  br i1 %15, label %38, label %16
 
-17:                                               ; preds = %2
-  %18 = add nuw i32 %15, 1
-  %19 = icmp ult i32 %15, 8191
-  br i1 %19, label %20, label %24
+16:                                               ; preds = %2
+  %17 = add nuw i32 %14, 1
+  %18 = icmp ult i32 %14, 8191
+  br i1 %18, label %19, label %23
 
-20:                                               ; preds = %17
-  %21 = zext nneg i32 %18 to i64
-  %22 = getelementptr inbounds [8192 x i8], ptr @lzma_fastpos, i64 0, i64 %21
-  %23 = load i8, ptr %22, align 1
+19:                                               ; preds = %16
+  %20 = zext nneg i32 %17 to i64
+  %21 = getelementptr inbounds [8192 x i8], ptr @lzma_fastpos, i64 0, i64 %20
+  %22 = load i8, ptr %21, align 1
   br label %get_dist_slot.exit
 
-24:                                               ; preds = %17
-  %25 = icmp ult i32 %15, 33554431
-  br i1 %25, label %26, label %32
+23:                                               ; preds = %16
+  %24 = icmp ult i32 %14, 33554431
+  br i1 %24, label %25, label %31
 
-26:                                               ; preds = %24
-  %27 = lshr i32 %18, 12
-  %28 = zext nneg i32 %27 to i64
-  %29 = getelementptr inbounds [8192 x i8], ptr @lzma_fastpos, i64 0, i64 %28
-  %30 = load i8, ptr %29, align 1
-  %31 = add i8 %30, 24
+25:                                               ; preds = %23
+  %26 = lshr i32 %17, 12
+  %27 = zext nneg i32 %26 to i64
+  %28 = getelementptr inbounds [8192 x i8], ptr @lzma_fastpos, i64 0, i64 %27
+  %29 = load i8, ptr %28, align 1
+  %30 = add i8 %29, 24
   br label %get_dist_slot.exit
 
-32:                                               ; preds = %24
-  %33 = lshr i32 %18, 24
-  %34 = zext nneg i32 %33 to i64
-  %35 = getelementptr inbounds [8192 x i8], ptr @lzma_fastpos, i64 0, i64 %34
-  %36 = load i8, ptr %35, align 1
-  %37 = add i8 %36, 48
+31:                                               ; preds = %23
+  %32 = lshr i32 %17, 24
+  %33 = zext nneg i32 %32 to i64
+  %34 = getelementptr inbounds [8192 x i8], ptr @lzma_fastpos, i64 0, i64 %33
+  %35 = load i8, ptr %34, align 1
+  %36 = add i8 %35, 48
   br label %get_dist_slot.exit
 
-get_dist_slot.exit:                               ; preds = %20, %26, %32
-  %.0.i = phi i8 [ %23, %20 ], [ %31, %26 ], [ %37, %32 ]
-  %38 = add i8 %.0.i, -24
-  br label %39
+get_dist_slot.exit:                               ; preds = %19, %25, %31
+  %.0.i = phi i8 [ %22, %19 ], [ %30, %25 ], [ %36, %31 ]
+  %37 = add i8 %.0.i, -24
+  br label %38
 
-39:                                               ; preds = %2, %get_dist_slot.exit
-  %storemerge = phi i8 [ %38, %get_dist_slot.exit ], [ 40, %2 ]
+38:                                               ; preds = %2, %get_dist_slot.exit
+  %storemerge = phi i8 [ %37, %get_dist_slot.exit ], [ 40, %2 ]
   store i8 %storemerge, ptr %1, align 1
   ret i32 0
 }
@@ -548,6 +547,9 @@ declare i64 @llvm.umin.i64(i64, i64) #6
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

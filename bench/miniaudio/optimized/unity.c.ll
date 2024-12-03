@@ -83875,7 +83875,7 @@ ma_zero_memory_default.exit:                      ; preds = %entry, %if.then2.i
 ; Function Attrs: nounwind uwtable
 define i32 @ma_engine_init(ptr noundef readonly %pConfig, ptr noundef %pEngine) local_unnamed_addr #38 {
 entry:
-  %heapLayout.i.i183 = alloca %struct.ma_node_heap_layout, align 8
+  %heapLayout.i.i182 = alloca %struct.ma_node_heap_layout, align 8
   %heapLayout.i.i = alloca %struct.ma_node_heap_layout, align 8
   %baseConfig.i = alloca %struct.ma_node_config, align 8
   %endpointConfig.i = alloca %struct.ma_node_config, align 8
@@ -83894,9 +83894,9 @@ if.then2.i:                                       ; preds = %entry
   br i1 %cmp1.not, label %land.lhs.true7.i.thread, label %if.end3
 
 land.lhs.true7.i.thread:                          ; preds = %if.then2.i
-  %defaultVolumeSmoothTimeInPCMFrames5254 = getelementptr inbounds i8, ptr %pEngine, i64 1264
-  %allocationCallbacks257 = getelementptr inbounds i8, ptr %pEngine, i64 1208
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %defaultVolumeSmoothTimeInPCMFrames5254, i8 0, i64 24, i1 false)
+  %defaultVolumeSmoothTimeInPCMFrames5253 = getelementptr inbounds i8, ptr %pEngine, i64 1264
+  %allocationCallbacks256 = getelementptr inbounds i8, ptr %pEngine, i64 1208
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %defaultVolumeSmoothTimeInPCMFrames5253, i8 0, i64 24, i1 false)
   br label %if.then9.i
 
 if.end3:                                          ; preds = %if.then2.i
@@ -83972,25 +83972,25 @@ land.lhs.true5.i:                                 ; preds = %land.lhs.true.i
   br i1 %or.cond, label %if.then9.i, label %ma_allocation_callbacks_init_copy.exit
 
 if.then9.i:                                       ; preds = %land.lhs.true5.i, %land.lhs.true7.i.thread
-  %engineConfig.sroa.28.0262369391447 = phi i32 [ 0, %land.lhs.true7.i.thread ], [ %engineConfig.sroa.28.0.copyload, %land.lhs.true5.i ]
-  %engineConfig.sroa.27.0265368392446 = phi i32 [ 0, %land.lhs.true7.i.thread ], [ %engineConfig.sroa.27.0.copyload, %land.lhs.true5.i ]
-  %engineConfig.sroa.26.0268367393445 = phi i32 [ 0, %land.lhs.true7.i.thread ], [ %engineConfig.sroa.26.0.copyload, %land.lhs.true5.i ]
-  %engineConfig.sroa.24.0271366394444 = phi i32 [ 0, %land.lhs.true7.i.thread ], [ %engineConfig.sroa.24.0.copyload, %land.lhs.true5.i ]
-  %engineConfig.sroa.21.0274365395443 = phi i32 [ 0, %land.lhs.true7.i.thread ], [ %engineConfig.sroa.21.0.copyload, %land.lhs.true5.i ]
-  %engineConfig.sroa.16.0277364396442 = phi i32 [ 0, %land.lhs.true7.i.thread ], [ %engineConfig.sroa.16.0.copyload, %land.lhs.true5.i ]
-  %engineConfig.sroa.11.0280363397441 = phi i32 [ 1, %land.lhs.true7.i.thread ], [ %engineConfig.sroa.11.0.copyload, %land.lhs.true5.i ]
-  %engineConfig.sroa.9.0283362398440 = phi ptr [ null, %land.lhs.true7.i.thread ], [ %engineConfig.sroa.9.0.copyload, %land.lhs.true5.i ]
-  %engineConfig.sroa.8.0287361399439 = phi ptr [ null, %land.lhs.true7.i.thread ], [ %engineConfig.sroa.8.0.copyload, %land.lhs.true5.i ]
-  %engineConfig.sroa.7.0290360400438 = phi ptr [ null, %land.lhs.true7.i.thread ], [ %engineConfig.sroa.7.0.copyload, %land.lhs.true5.i ]
-  %engineConfig.sroa.6.0293359401437 = phi ptr [ null, %land.lhs.true7.i.thread ], [ %engineConfig.sroa.6.0.copyload, %land.lhs.true5.i ]
-  %engineConfig.sroa.5.0296358402436 = phi ptr [ null, %land.lhs.true7.i.thread ], [ %engineConfig.sroa.5.0.copyload, %land.lhs.true5.i ]
-  %engineConfig.sroa.4.0299357403435 = phi ptr [ null, %land.lhs.true7.i.thread ], [ %engineConfig.sroa.4.0.copyload, %land.lhs.true5.i ]
-  %engineConfig.sroa.0.0302356404434 = phi ptr [ null, %land.lhs.true7.i.thread ], [ %engineConfig.sroa.0.0.copyload, %land.lhs.true5.i ]
-  %engineConfig.sroa.37.0313353406433 = phi i32 [ 0, %land.lhs.true7.i.thread ], [ %engineConfig.sroa.37.0.copyload, %land.lhs.true5.i ]
-  %engineConfig.sroa.38.0316352407432 = phi i32 [ 0, %land.lhs.true7.i.thread ], [ %engineConfig.sroa.38.0.copyload, %land.lhs.true5.i ]
-  %engineConfig.sroa.42.0319351408431 = phi ptr [ null, %land.lhs.true7.i.thread ], [ %engineConfig.sroa.42.0.copyload, %land.lhs.true5.i ]
-  %allocationCallbacks322350409430 = phi ptr [ %allocationCallbacks257, %land.lhs.true7.i.thread ], [ %allocationCallbacks, %land.lhs.true5.i ]
-  store ptr null, ptr %allocationCallbacks322350409430, align 8
+  %engineConfig.sroa.28.0261368390446 = phi i32 [ 0, %land.lhs.true7.i.thread ], [ %engineConfig.sroa.28.0.copyload, %land.lhs.true5.i ]
+  %engineConfig.sroa.27.0264367391445 = phi i32 [ 0, %land.lhs.true7.i.thread ], [ %engineConfig.sroa.27.0.copyload, %land.lhs.true5.i ]
+  %engineConfig.sroa.26.0267366392444 = phi i32 [ 0, %land.lhs.true7.i.thread ], [ %engineConfig.sroa.26.0.copyload, %land.lhs.true5.i ]
+  %engineConfig.sroa.24.0270365393443 = phi i32 [ 0, %land.lhs.true7.i.thread ], [ %engineConfig.sroa.24.0.copyload, %land.lhs.true5.i ]
+  %engineConfig.sroa.21.0273364394442 = phi i32 [ 0, %land.lhs.true7.i.thread ], [ %engineConfig.sroa.21.0.copyload, %land.lhs.true5.i ]
+  %engineConfig.sroa.16.0276363395441 = phi i32 [ 0, %land.lhs.true7.i.thread ], [ %engineConfig.sroa.16.0.copyload, %land.lhs.true5.i ]
+  %engineConfig.sroa.11.0279362396440 = phi i32 [ 1, %land.lhs.true7.i.thread ], [ %engineConfig.sroa.11.0.copyload, %land.lhs.true5.i ]
+  %engineConfig.sroa.9.0282361397439 = phi ptr [ null, %land.lhs.true7.i.thread ], [ %engineConfig.sroa.9.0.copyload, %land.lhs.true5.i ]
+  %engineConfig.sroa.8.0286360398438 = phi ptr [ null, %land.lhs.true7.i.thread ], [ %engineConfig.sroa.8.0.copyload, %land.lhs.true5.i ]
+  %engineConfig.sroa.7.0289359399437 = phi ptr [ null, %land.lhs.true7.i.thread ], [ %engineConfig.sroa.7.0.copyload, %land.lhs.true5.i ]
+  %engineConfig.sroa.6.0292358400436 = phi ptr [ null, %land.lhs.true7.i.thread ], [ %engineConfig.sroa.6.0.copyload, %land.lhs.true5.i ]
+  %engineConfig.sroa.5.0295357401435 = phi ptr [ null, %land.lhs.true7.i.thread ], [ %engineConfig.sroa.5.0.copyload, %land.lhs.true5.i ]
+  %engineConfig.sroa.4.0298356402434 = phi ptr [ null, %land.lhs.true7.i.thread ], [ %engineConfig.sroa.4.0.copyload, %land.lhs.true5.i ]
+  %engineConfig.sroa.0.0301355403433 = phi ptr [ null, %land.lhs.true7.i.thread ], [ %engineConfig.sroa.0.0.copyload, %land.lhs.true5.i ]
+  %engineConfig.sroa.37.0312352405432 = phi i32 [ 0, %land.lhs.true7.i.thread ], [ %engineConfig.sroa.37.0.copyload, %land.lhs.true5.i ]
+  %engineConfig.sroa.38.0315351406431 = phi i32 [ 0, %land.lhs.true7.i.thread ], [ %engineConfig.sroa.38.0.copyload, %land.lhs.true5.i ]
+  %engineConfig.sroa.42.0318350407430 = phi ptr [ null, %land.lhs.true7.i.thread ], [ %engineConfig.sroa.42.0.copyload, %land.lhs.true5.i ]
+  %allocationCallbacks321349408429 = phi ptr [ %allocationCallbacks256, %land.lhs.true7.i.thread ], [ %allocationCallbacks, %land.lhs.true5.i ]
+  store ptr null, ptr %allocationCallbacks321349408429, align 8
   br label %ma_allocation_callbacks_init_copy.exit.sink.split
 
 if.else11.i:                                      ; preds = %if.end3
@@ -83999,8 +83999,8 @@ if.else11.i:                                      ; preds = %if.end3
 lor.lhs.false.i:                                  ; preds = %if.else11.i, %land.lhs.true.i
   %cmp15.i = icmp eq ptr %engineConfig.sroa.32.0.copyload, null
   %cmp18.i = icmp eq ptr %engineConfig.sroa.34.0.copyload, null
-  %or.cond461 = select i1 %cmp15.i, i1 %cmp18.i, i1 false
-  br i1 %or.cond461, label %ma_allocation_callbacks_init_copy.exit, label %if.else20.i
+  %or.cond460 = select i1 %cmp15.i, i1 %cmp18.i, i1 false
+  br i1 %or.cond460, label %ma_allocation_callbacks_init_copy.exit, label %if.else20.i
 
 if.else20.i:                                      ; preds = %lor.lhs.false.i
   store ptr %engineConfig.sroa.30.0.copyload, ptr %allocationCallbacks, align 8
@@ -84010,24 +84010,24 @@ ma_allocation_callbacks_init_copy.exit.sink.split: ; preds = %if.else20.i, %if.t
   %ma__malloc_default.sink = phi ptr [ @ma__malloc_default, %if.then9.i ], [ %engineConfig.sroa.32.0.copyload, %if.else20.i ]
   %ma__realloc_default.sink = phi ptr [ @ma__realloc_default, %if.then9.i ], [ %engineConfig.sroa.34.0.copyload, %if.else20.i ]
   %ma__free_default.sink = phi ptr [ @ma__free_default, %if.then9.i ], [ %engineConfig.sroa.36.0.copyload, %if.else20.i ]
-  %allocationCallbacks320.ph = phi ptr [ %allocationCallbacks322350409430, %if.then9.i ], [ %allocationCallbacks, %if.else20.i ]
-  %engineConfig.sroa.42.0317.ph = phi ptr [ %engineConfig.sroa.42.0319351408431, %if.then9.i ], [ %engineConfig.sroa.42.0.copyload, %if.else20.i ]
-  %engineConfig.sroa.38.0314.ph = phi i32 [ %engineConfig.sroa.38.0316352407432, %if.then9.i ], [ %engineConfig.sroa.38.0.copyload, %if.else20.i ]
-  %engineConfig.sroa.37.0311.ph = phi i32 [ %engineConfig.sroa.37.0313353406433, %if.then9.i ], [ %engineConfig.sroa.37.0.copyload, %if.else20.i ]
-  %engineConfig.sroa.0.0300.ph = phi ptr [ %engineConfig.sroa.0.0302356404434, %if.then9.i ], [ %engineConfig.sroa.0.0.copyload, %if.else20.i ]
-  %engineConfig.sroa.4.0297.ph = phi ptr [ %engineConfig.sroa.4.0299357403435, %if.then9.i ], [ %engineConfig.sroa.4.0.copyload, %if.else20.i ]
-  %engineConfig.sroa.5.0294.ph = phi ptr [ %engineConfig.sroa.5.0296358402436, %if.then9.i ], [ %engineConfig.sroa.5.0.copyload, %if.else20.i ]
-  %engineConfig.sroa.6.0291.ph = phi ptr [ %engineConfig.sroa.6.0293359401437, %if.then9.i ], [ %engineConfig.sroa.6.0.copyload, %if.else20.i ]
-  %engineConfig.sroa.7.0288.ph = phi ptr [ %engineConfig.sroa.7.0290360400438, %if.then9.i ], [ %engineConfig.sroa.7.0.copyload, %if.else20.i ]
-  %engineConfig.sroa.8.0285.ph = phi ptr [ %engineConfig.sroa.8.0287361399439, %if.then9.i ], [ %engineConfig.sroa.8.0.copyload, %if.else20.i ]
-  %engineConfig.sroa.9.0281.ph = phi ptr [ %engineConfig.sroa.9.0283362398440, %if.then9.i ], [ %engineConfig.sroa.9.0.copyload, %if.else20.i ]
-  %engineConfig.sroa.11.0278.ph = phi i32 [ %engineConfig.sroa.11.0280363397441, %if.then9.i ], [ %engineConfig.sroa.11.0.copyload, %if.else20.i ]
-  %engineConfig.sroa.16.0275.ph = phi i32 [ %engineConfig.sroa.16.0277364396442, %if.then9.i ], [ %engineConfig.sroa.16.0.copyload, %if.else20.i ]
-  %engineConfig.sroa.21.0272.ph = phi i32 [ %engineConfig.sroa.21.0274365395443, %if.then9.i ], [ %engineConfig.sroa.21.0.copyload, %if.else20.i ]
-  %engineConfig.sroa.24.0269.ph = phi i32 [ %engineConfig.sroa.24.0271366394444, %if.then9.i ], [ %engineConfig.sroa.24.0.copyload, %if.else20.i ]
-  %engineConfig.sroa.26.0266.ph = phi i32 [ %engineConfig.sroa.26.0268367393445, %if.then9.i ], [ %engineConfig.sroa.26.0.copyload, %if.else20.i ]
-  %engineConfig.sroa.27.0263.ph = phi i32 [ %engineConfig.sroa.27.0265368392446, %if.then9.i ], [ %engineConfig.sroa.27.0.copyload, %if.else20.i ]
-  %engineConfig.sroa.28.0260.ph = phi i32 [ %engineConfig.sroa.28.0262369391447, %if.then9.i ], [ %engineConfig.sroa.28.0.copyload, %if.else20.i ]
+  %allocationCallbacks319.ph = phi ptr [ %allocationCallbacks321349408429, %if.then9.i ], [ %allocationCallbacks, %if.else20.i ]
+  %engineConfig.sroa.42.0316.ph = phi ptr [ %engineConfig.sroa.42.0318350407430, %if.then9.i ], [ %engineConfig.sroa.42.0.copyload, %if.else20.i ]
+  %engineConfig.sroa.38.0313.ph = phi i32 [ %engineConfig.sroa.38.0315351406431, %if.then9.i ], [ %engineConfig.sroa.38.0.copyload, %if.else20.i ]
+  %engineConfig.sroa.37.0310.ph = phi i32 [ %engineConfig.sroa.37.0312352405432, %if.then9.i ], [ %engineConfig.sroa.37.0.copyload, %if.else20.i ]
+  %engineConfig.sroa.0.0299.ph = phi ptr [ %engineConfig.sroa.0.0301355403433, %if.then9.i ], [ %engineConfig.sroa.0.0.copyload, %if.else20.i ]
+  %engineConfig.sroa.4.0296.ph = phi ptr [ %engineConfig.sroa.4.0298356402434, %if.then9.i ], [ %engineConfig.sroa.4.0.copyload, %if.else20.i ]
+  %engineConfig.sroa.5.0293.ph = phi ptr [ %engineConfig.sroa.5.0295357401435, %if.then9.i ], [ %engineConfig.sroa.5.0.copyload, %if.else20.i ]
+  %engineConfig.sroa.6.0290.ph = phi ptr [ %engineConfig.sroa.6.0292358400436, %if.then9.i ], [ %engineConfig.sroa.6.0.copyload, %if.else20.i ]
+  %engineConfig.sroa.7.0287.ph = phi ptr [ %engineConfig.sroa.7.0289359399437, %if.then9.i ], [ %engineConfig.sroa.7.0.copyload, %if.else20.i ]
+  %engineConfig.sroa.8.0284.ph = phi ptr [ %engineConfig.sroa.8.0286360398438, %if.then9.i ], [ %engineConfig.sroa.8.0.copyload, %if.else20.i ]
+  %engineConfig.sroa.9.0280.ph = phi ptr [ %engineConfig.sroa.9.0282361397439, %if.then9.i ], [ %engineConfig.sroa.9.0.copyload, %if.else20.i ]
+  %engineConfig.sroa.11.0277.ph = phi i32 [ %engineConfig.sroa.11.0279362396440, %if.then9.i ], [ %engineConfig.sroa.11.0.copyload, %if.else20.i ]
+  %engineConfig.sroa.16.0274.ph = phi i32 [ %engineConfig.sroa.16.0276363395441, %if.then9.i ], [ %engineConfig.sroa.16.0.copyload, %if.else20.i ]
+  %engineConfig.sroa.21.0271.ph = phi i32 [ %engineConfig.sroa.21.0273364394442, %if.then9.i ], [ %engineConfig.sroa.21.0.copyload, %if.else20.i ]
+  %engineConfig.sroa.24.0268.ph = phi i32 [ %engineConfig.sroa.24.0270365393443, %if.then9.i ], [ %engineConfig.sroa.24.0.copyload, %if.else20.i ]
+  %engineConfig.sroa.26.0265.ph = phi i32 [ %engineConfig.sroa.26.0267366392444, %if.then9.i ], [ %engineConfig.sroa.26.0.copyload, %if.else20.i ]
+  %engineConfig.sroa.27.0262.ph = phi i32 [ %engineConfig.sroa.27.0264367391445, %if.then9.i ], [ %engineConfig.sroa.27.0.copyload, %if.else20.i ]
+  %engineConfig.sroa.28.0259.ph = phi i32 [ %engineConfig.sroa.28.0261368390446, %if.then9.i ], [ %engineConfig.sroa.28.0.copyload, %if.else20.i ]
   %tmp10.sroa.2.0.pDst.sroa_idx.i = getelementptr inbounds i8, ptr %pEngine, i64 1216
   store ptr %ma__malloc_default.sink, ptr %tmp10.sroa.2.0.pDst.sroa_idx.i, align 8
   %tmp10.sroa.3.0.pDst.sroa_idx.i = getelementptr inbounds i8, ptr %pEngine, i64 1224
@@ -84037,36 +84037,36 @@ ma_allocation_callbacks_init_copy.exit.sink.split: ; preds = %if.else20.i, %if.t
   br label %ma_allocation_callbacks_init_copy.exit
 
 ma_allocation_callbacks_init_copy.exit:           ; preds = %ma_allocation_callbacks_init_copy.exit.sink.split, %lor.lhs.false.i, %land.lhs.true5.i, %if.else11.i
-  %allocationCallbacks320 = phi ptr [ %allocationCallbacks, %land.lhs.true5.i ], [ %allocationCallbacks, %if.else11.i ], [ %allocationCallbacks, %lor.lhs.false.i ], [ %allocationCallbacks320.ph, %ma_allocation_callbacks_init_copy.exit.sink.split ]
-  %engineConfig.sroa.42.0317 = phi ptr [ %engineConfig.sroa.42.0.copyload, %land.lhs.true5.i ], [ %engineConfig.sroa.42.0.copyload, %if.else11.i ], [ %engineConfig.sroa.42.0.copyload, %lor.lhs.false.i ], [ %engineConfig.sroa.42.0317.ph, %ma_allocation_callbacks_init_copy.exit.sink.split ]
-  %engineConfig.sroa.38.0314 = phi i32 [ %engineConfig.sroa.38.0.copyload, %land.lhs.true5.i ], [ %engineConfig.sroa.38.0.copyload, %if.else11.i ], [ %engineConfig.sroa.38.0.copyload, %lor.lhs.false.i ], [ %engineConfig.sroa.38.0314.ph, %ma_allocation_callbacks_init_copy.exit.sink.split ]
-  %engineConfig.sroa.37.0311 = phi i32 [ %engineConfig.sroa.37.0.copyload, %land.lhs.true5.i ], [ %engineConfig.sroa.37.0.copyload, %if.else11.i ], [ %engineConfig.sroa.37.0.copyload, %lor.lhs.false.i ], [ %engineConfig.sroa.37.0311.ph, %ma_allocation_callbacks_init_copy.exit.sink.split ]
-  %engineConfig.sroa.0.0300 = phi ptr [ %engineConfig.sroa.0.0.copyload, %land.lhs.true5.i ], [ %engineConfig.sroa.0.0.copyload, %if.else11.i ], [ %engineConfig.sroa.0.0.copyload, %lor.lhs.false.i ], [ %engineConfig.sroa.0.0300.ph, %ma_allocation_callbacks_init_copy.exit.sink.split ]
-  %engineConfig.sroa.4.0297 = phi ptr [ %engineConfig.sroa.4.0.copyload, %land.lhs.true5.i ], [ %engineConfig.sroa.4.0.copyload, %if.else11.i ], [ %engineConfig.sroa.4.0.copyload, %lor.lhs.false.i ], [ %engineConfig.sroa.4.0297.ph, %ma_allocation_callbacks_init_copy.exit.sink.split ]
-  %engineConfig.sroa.5.0294 = phi ptr [ %engineConfig.sroa.5.0.copyload, %land.lhs.true5.i ], [ %engineConfig.sroa.5.0.copyload, %if.else11.i ], [ %engineConfig.sroa.5.0.copyload, %lor.lhs.false.i ], [ %engineConfig.sroa.5.0294.ph, %ma_allocation_callbacks_init_copy.exit.sink.split ]
-  %engineConfig.sroa.6.0291 = phi ptr [ %engineConfig.sroa.6.0.copyload, %land.lhs.true5.i ], [ %engineConfig.sroa.6.0.copyload, %if.else11.i ], [ %engineConfig.sroa.6.0.copyload, %lor.lhs.false.i ], [ %engineConfig.sroa.6.0291.ph, %ma_allocation_callbacks_init_copy.exit.sink.split ]
-  %engineConfig.sroa.7.0288 = phi ptr [ %engineConfig.sroa.7.0.copyload, %land.lhs.true5.i ], [ %engineConfig.sroa.7.0.copyload, %if.else11.i ], [ %engineConfig.sroa.7.0.copyload, %lor.lhs.false.i ], [ %engineConfig.sroa.7.0288.ph, %ma_allocation_callbacks_init_copy.exit.sink.split ]
-  %engineConfig.sroa.8.0285 = phi ptr [ %engineConfig.sroa.8.0.copyload, %land.lhs.true5.i ], [ %engineConfig.sroa.8.0.copyload, %if.else11.i ], [ %engineConfig.sroa.8.0.copyload, %lor.lhs.false.i ], [ %engineConfig.sroa.8.0285.ph, %ma_allocation_callbacks_init_copy.exit.sink.split ]
-  %engineConfig.sroa.9.0281 = phi ptr [ %engineConfig.sroa.9.0.copyload, %land.lhs.true5.i ], [ %engineConfig.sroa.9.0.copyload, %if.else11.i ], [ %engineConfig.sroa.9.0.copyload, %lor.lhs.false.i ], [ %engineConfig.sroa.9.0281.ph, %ma_allocation_callbacks_init_copy.exit.sink.split ]
-  %engineConfig.sroa.11.0278 = phi i32 [ %engineConfig.sroa.11.0.copyload, %land.lhs.true5.i ], [ %engineConfig.sroa.11.0.copyload, %if.else11.i ], [ %engineConfig.sroa.11.0.copyload, %lor.lhs.false.i ], [ %engineConfig.sroa.11.0278.ph, %ma_allocation_callbacks_init_copy.exit.sink.split ]
-  %engineConfig.sroa.16.0275 = phi i32 [ %engineConfig.sroa.16.0.copyload, %land.lhs.true5.i ], [ %engineConfig.sroa.16.0.copyload, %if.else11.i ], [ %engineConfig.sroa.16.0.copyload, %lor.lhs.false.i ], [ %engineConfig.sroa.16.0275.ph, %ma_allocation_callbacks_init_copy.exit.sink.split ]
-  %engineConfig.sroa.21.0272 = phi i32 [ %engineConfig.sroa.21.0.copyload, %land.lhs.true5.i ], [ %engineConfig.sroa.21.0.copyload, %if.else11.i ], [ %engineConfig.sroa.21.0.copyload, %lor.lhs.false.i ], [ %engineConfig.sroa.21.0272.ph, %ma_allocation_callbacks_init_copy.exit.sink.split ]
-  %engineConfig.sroa.24.0269 = phi i32 [ %engineConfig.sroa.24.0.copyload, %land.lhs.true5.i ], [ %engineConfig.sroa.24.0.copyload, %if.else11.i ], [ %engineConfig.sroa.24.0.copyload, %lor.lhs.false.i ], [ %engineConfig.sroa.24.0269.ph, %ma_allocation_callbacks_init_copy.exit.sink.split ]
-  %engineConfig.sroa.26.0266 = phi i32 [ %engineConfig.sroa.26.0.copyload, %land.lhs.true5.i ], [ %engineConfig.sroa.26.0.copyload, %if.else11.i ], [ %engineConfig.sroa.26.0.copyload, %lor.lhs.false.i ], [ %engineConfig.sroa.26.0266.ph, %ma_allocation_callbacks_init_copy.exit.sink.split ]
-  %engineConfig.sroa.27.0263 = phi i32 [ %engineConfig.sroa.27.0.copyload, %land.lhs.true5.i ], [ %engineConfig.sroa.27.0.copyload, %if.else11.i ], [ %engineConfig.sroa.27.0.copyload, %lor.lhs.false.i ], [ %engineConfig.sroa.27.0263.ph, %ma_allocation_callbacks_init_copy.exit.sink.split ]
-  %engineConfig.sroa.28.0260 = phi i32 [ %engineConfig.sroa.28.0.copyload, %land.lhs.true5.i ], [ %engineConfig.sroa.28.0.copyload, %if.else11.i ], [ %engineConfig.sroa.28.0.copyload, %lor.lhs.false.i ], [ %engineConfig.sroa.28.0260.ph, %ma_allocation_callbacks_init_copy.exit.sink.split ]
+  %allocationCallbacks319 = phi ptr [ %allocationCallbacks, %land.lhs.true5.i ], [ %allocationCallbacks, %if.else11.i ], [ %allocationCallbacks, %lor.lhs.false.i ], [ %allocationCallbacks319.ph, %ma_allocation_callbacks_init_copy.exit.sink.split ]
+  %engineConfig.sroa.42.0316 = phi ptr [ %engineConfig.sroa.42.0.copyload, %land.lhs.true5.i ], [ %engineConfig.sroa.42.0.copyload, %if.else11.i ], [ %engineConfig.sroa.42.0.copyload, %lor.lhs.false.i ], [ %engineConfig.sroa.42.0316.ph, %ma_allocation_callbacks_init_copy.exit.sink.split ]
+  %engineConfig.sroa.38.0313 = phi i32 [ %engineConfig.sroa.38.0.copyload, %land.lhs.true5.i ], [ %engineConfig.sroa.38.0.copyload, %if.else11.i ], [ %engineConfig.sroa.38.0.copyload, %lor.lhs.false.i ], [ %engineConfig.sroa.38.0313.ph, %ma_allocation_callbacks_init_copy.exit.sink.split ]
+  %engineConfig.sroa.37.0310 = phi i32 [ %engineConfig.sroa.37.0.copyload, %land.lhs.true5.i ], [ %engineConfig.sroa.37.0.copyload, %if.else11.i ], [ %engineConfig.sroa.37.0.copyload, %lor.lhs.false.i ], [ %engineConfig.sroa.37.0310.ph, %ma_allocation_callbacks_init_copy.exit.sink.split ]
+  %engineConfig.sroa.0.0299 = phi ptr [ %engineConfig.sroa.0.0.copyload, %land.lhs.true5.i ], [ %engineConfig.sroa.0.0.copyload, %if.else11.i ], [ %engineConfig.sroa.0.0.copyload, %lor.lhs.false.i ], [ %engineConfig.sroa.0.0299.ph, %ma_allocation_callbacks_init_copy.exit.sink.split ]
+  %engineConfig.sroa.4.0296 = phi ptr [ %engineConfig.sroa.4.0.copyload, %land.lhs.true5.i ], [ %engineConfig.sroa.4.0.copyload, %if.else11.i ], [ %engineConfig.sroa.4.0.copyload, %lor.lhs.false.i ], [ %engineConfig.sroa.4.0296.ph, %ma_allocation_callbacks_init_copy.exit.sink.split ]
+  %engineConfig.sroa.5.0293 = phi ptr [ %engineConfig.sroa.5.0.copyload, %land.lhs.true5.i ], [ %engineConfig.sroa.5.0.copyload, %if.else11.i ], [ %engineConfig.sroa.5.0.copyload, %lor.lhs.false.i ], [ %engineConfig.sroa.5.0293.ph, %ma_allocation_callbacks_init_copy.exit.sink.split ]
+  %engineConfig.sroa.6.0290 = phi ptr [ %engineConfig.sroa.6.0.copyload, %land.lhs.true5.i ], [ %engineConfig.sroa.6.0.copyload, %if.else11.i ], [ %engineConfig.sroa.6.0.copyload, %lor.lhs.false.i ], [ %engineConfig.sroa.6.0290.ph, %ma_allocation_callbacks_init_copy.exit.sink.split ]
+  %engineConfig.sroa.7.0287 = phi ptr [ %engineConfig.sroa.7.0.copyload, %land.lhs.true5.i ], [ %engineConfig.sroa.7.0.copyload, %if.else11.i ], [ %engineConfig.sroa.7.0.copyload, %lor.lhs.false.i ], [ %engineConfig.sroa.7.0287.ph, %ma_allocation_callbacks_init_copy.exit.sink.split ]
+  %engineConfig.sroa.8.0284 = phi ptr [ %engineConfig.sroa.8.0.copyload, %land.lhs.true5.i ], [ %engineConfig.sroa.8.0.copyload, %if.else11.i ], [ %engineConfig.sroa.8.0.copyload, %lor.lhs.false.i ], [ %engineConfig.sroa.8.0284.ph, %ma_allocation_callbacks_init_copy.exit.sink.split ]
+  %engineConfig.sroa.9.0280 = phi ptr [ %engineConfig.sroa.9.0.copyload, %land.lhs.true5.i ], [ %engineConfig.sroa.9.0.copyload, %if.else11.i ], [ %engineConfig.sroa.9.0.copyload, %lor.lhs.false.i ], [ %engineConfig.sroa.9.0280.ph, %ma_allocation_callbacks_init_copy.exit.sink.split ]
+  %engineConfig.sroa.11.0277 = phi i32 [ %engineConfig.sroa.11.0.copyload, %land.lhs.true5.i ], [ %engineConfig.sroa.11.0.copyload, %if.else11.i ], [ %engineConfig.sroa.11.0.copyload, %lor.lhs.false.i ], [ %engineConfig.sroa.11.0277.ph, %ma_allocation_callbacks_init_copy.exit.sink.split ]
+  %engineConfig.sroa.16.0274 = phi i32 [ %engineConfig.sroa.16.0.copyload, %land.lhs.true5.i ], [ %engineConfig.sroa.16.0.copyload, %if.else11.i ], [ %engineConfig.sroa.16.0.copyload, %lor.lhs.false.i ], [ %engineConfig.sroa.16.0274.ph, %ma_allocation_callbacks_init_copy.exit.sink.split ]
+  %engineConfig.sroa.21.0271 = phi i32 [ %engineConfig.sroa.21.0.copyload, %land.lhs.true5.i ], [ %engineConfig.sroa.21.0.copyload, %if.else11.i ], [ %engineConfig.sroa.21.0.copyload, %lor.lhs.false.i ], [ %engineConfig.sroa.21.0271.ph, %ma_allocation_callbacks_init_copy.exit.sink.split ]
+  %engineConfig.sroa.24.0268 = phi i32 [ %engineConfig.sroa.24.0.copyload, %land.lhs.true5.i ], [ %engineConfig.sroa.24.0.copyload, %if.else11.i ], [ %engineConfig.sroa.24.0.copyload, %lor.lhs.false.i ], [ %engineConfig.sroa.24.0268.ph, %ma_allocation_callbacks_init_copy.exit.sink.split ]
+  %engineConfig.sroa.26.0265 = phi i32 [ %engineConfig.sroa.26.0.copyload, %land.lhs.true5.i ], [ %engineConfig.sroa.26.0.copyload, %if.else11.i ], [ %engineConfig.sroa.26.0.copyload, %lor.lhs.false.i ], [ %engineConfig.sroa.26.0265.ph, %ma_allocation_callbacks_init_copy.exit.sink.split ]
+  %engineConfig.sroa.27.0262 = phi i32 [ %engineConfig.sroa.27.0.copyload, %land.lhs.true5.i ], [ %engineConfig.sroa.27.0.copyload, %if.else11.i ], [ %engineConfig.sroa.27.0.copyload, %lor.lhs.false.i ], [ %engineConfig.sroa.27.0262.ph, %ma_allocation_callbacks_init_copy.exit.sink.split ]
+  %engineConfig.sroa.28.0259 = phi i32 [ %engineConfig.sroa.28.0.copyload, %land.lhs.true5.i ], [ %engineConfig.sroa.28.0.copyload, %if.else11.i ], [ %engineConfig.sroa.28.0.copyload, %lor.lhs.false.i ], [ %engineConfig.sroa.28.0259.ph, %ma_allocation_callbacks_init_copy.exit.sink.split ]
   %pResourceManager9 = getelementptr inbounds i8, ptr %pEngine, i64 728
-  store ptr %engineConfig.sroa.0.0300, ptr %pResourceManager9, align 8
+  store ptr %engineConfig.sroa.0.0299, ptr %pResourceManager9, align 8
   %pDevice10 = getelementptr inbounds i8, ptr %pEngine, i64 736
-  store ptr %engineConfig.sroa.5.0294, ptr %pDevice10, align 8
-  %cmp12 = icmp eq ptr %engineConfig.sroa.5.0294, null
-  %cmp13 = icmp eq i32 %engineConfig.sroa.38.0314, 0
+  store ptr %engineConfig.sroa.5.0293, ptr %pDevice10, align 8
+  %cmp12 = icmp eq ptr %engineConfig.sroa.5.0293, null
+  %cmp13 = icmp eq i32 %engineConfig.sroa.38.0313, 0
   %or.cond1 = select i1 %cmp12, i1 %cmp13, i1 false
   br i1 %or.cond1, label %if.then14, label %if.end61
 
 if.then14:                                        ; preds = %ma_allocation_callbacks_init_copy.exit
-  %onMalloc.i88 = getelementptr inbounds i8, ptr %allocationCallbacks320, i64 8
-  %0 = load ptr, ptr %onMalloc.i88, align 8
+  %onMalloc.i87 = getelementptr inbounds i8, ptr %allocationCallbacks319, i64 8
+  %0 = load ptr, ptr %onMalloc.i87, align 8
   %cmp1.not.i = icmp eq ptr %0, null
   br i1 %cmp1.not.i, label %ma_malloc.exit.thread, label %ma_malloc.exit
 
@@ -84075,7 +84075,7 @@ ma_malloc.exit.thread:                            ; preds = %if.then14
   br label %return
 
 ma_malloc.exit:                                   ; preds = %if.then14
-  %1 = load ptr, ptr %allocationCallbacks320, align 8
+  %1 = load ptr, ptr %allocationCallbacks319, align 8
   %call.i = tail call ptr %0(i64 noundef 3776, ptr noundef %1) #64
   store ptr %call.i, ptr %pDevice10, align 8
   %cmp19 = icmp eq ptr %call.i, null
@@ -84095,43 +84095,43 @@ if.end21:                                         ; preds = %ma_malloc.exit
   store i32 4, ptr %tmp22.sroa.4.0.deviceConfig.sroa_idx, align 8
   %tmp22.sroa.5.0.deviceConfig.sroa_idx = getelementptr inbounds i8, ptr %deviceConfig, i64 108
   store i32 0, ptr %tmp22.sroa.5.0.deviceConfig.sroa_idx, align 4
-  store ptr %engineConfig.sroa.6.0291, ptr %tmp22.sroa.6.0.deviceConfig.sroa_idx, align 8
+  store ptr %engineConfig.sroa.6.0290, ptr %tmp22.sroa.6.0.deviceConfig.sroa_idx, align 8
   %format = getelementptr inbounds i8, ptr %deviceConfig, i64 120
   store i32 5, ptr %format, align 8
   %channels25 = getelementptr inbounds i8, ptr %deviceConfig, i64 124
-  store i32 %engineConfig.sroa.16.0275, ptr %channels25, align 4
-  store i32 %engineConfig.sroa.21.0272, ptr %tmp22.sroa.3.0.deviceConfig.sroa_idx, align 4
-  %cmp27.not = icmp eq ptr %engineConfig.sroa.7.0288, null
-  %cond = select i1 %cmp27.not, ptr @ma_engine_data_callback_internal, ptr %engineConfig.sroa.7.0288
+  store i32 %engineConfig.sroa.16.0274, ptr %channels25, align 4
+  store i32 %engineConfig.sroa.21.0271, ptr %tmp22.sroa.3.0.deviceConfig.sroa_idx, align 4
+  %cmp27.not = icmp eq ptr %engineConfig.sroa.7.0287, null
+  %cond = select i1 %cmp27.not, ptr @ma_engine_data_callback_internal, ptr %engineConfig.sroa.7.0287
   %dataCallback29 = getelementptr inbounds i8, ptr %deviceConfig, i64 32
   store ptr %cond, ptr %dataCallback29, align 8
   %pUserData = getelementptr inbounds i8, ptr %deviceConfig, i64 56
   store ptr %pEngine, ptr %pUserData, align 8
   %notificationCallback30 = getelementptr inbounds i8, ptr %deviceConfig, i64 40
-  store ptr %engineConfig.sroa.8.0285, ptr %notificationCallback30, align 8
+  store ptr %engineConfig.sroa.8.0284, ptr %notificationCallback30, align 8
   %periodSizeInFrames31 = getelementptr inbounds i8, ptr %deviceConfig, i64 8
-  store i32 %engineConfig.sroa.24.0269, ptr %periodSizeInFrames31, align 8
+  store i32 %engineConfig.sroa.24.0268, ptr %periodSizeInFrames31, align 8
   %periodSizeInMilliseconds32 = getelementptr inbounds i8, ptr %deviceConfig, i64 12
-  store i32 %engineConfig.sroa.26.0266, ptr %periodSizeInMilliseconds32, align 4
+  store i32 %engineConfig.sroa.26.0265, ptr %periodSizeInMilliseconds32, align 4
   %noPreSilencedOutputBuffer = getelementptr inbounds i8, ptr %deviceConfig, i64 24
   store i8 1, ptr %noPreSilencedOutputBuffer, align 8
   %noClip = getelementptr inbounds i8, ptr %deviceConfig, i64 25
   store i8 1, ptr %noClip, align 1
-  %cmp33 = icmp eq ptr %engineConfig.sroa.4.0297, null
+  %cmp33 = icmp eq ptr %engineConfig.sroa.4.0296, null
   br i1 %cmp33, label %if.then34, label %if.else50
 
 if.then34:                                        ; preds = %if.end21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %contextConfig, i8 0, i64 232, i1 false), !alias.scope !763
   %allocationCallbacks35 = getelementptr inbounds i8, ptr %contextConfig, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %allocationCallbacks35, ptr noundef nonnull align 8 dereferenceable(32) %allocationCallbacks320, i64 32, i1 false)
-  store ptr %engineConfig.sroa.9.0281, ptr %contextConfig, align 8
-  %cmp39 = icmp eq ptr %engineConfig.sroa.9.0281, null
-  %cmp42 = icmp ne ptr %engineConfig.sroa.0.0300, null
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %allocationCallbacks35, ptr noundef nonnull align 8 dereferenceable(32) %allocationCallbacks319, i64 32, i1 false)
+  store ptr %engineConfig.sroa.9.0280, ptr %contextConfig, align 8
+  %cmp39 = icmp eq ptr %engineConfig.sroa.9.0280, null
+  %cmp42 = icmp ne ptr %engineConfig.sroa.0.0299, null
   %or.cond2 = select i1 %cmp39, i1 %cmp42, i1 false
   br i1 %or.cond2, label %ma_resource_manager_get_log.exit, label %if.end47
 
 ma_resource_manager_get_log.exit:                 ; preds = %if.then34
-  %pLog.i = getelementptr inbounds i8, ptr %engineConfig.sroa.0.0300, i64 32
+  %pLog.i = getelementptr inbounds i8, ptr %engineConfig.sroa.0.0299, i64 32
   %3 = load ptr, ptr %pLog.i, align 8
   store ptr %3, ptr %contextConfig, align 8
   br label %if.end47
@@ -84141,7 +84141,7 @@ if.end47:                                         ; preds = %ma_resource_manager
   br label %if.end54
 
 if.else50:                                        ; preds = %if.end21
-  %call53 = call i32 @ma_device_init(ptr noundef nonnull %engineConfig.sroa.4.0297, ptr noundef nonnull %deviceConfig, ptr noundef nonnull %call.i)
+  %call53 = call i32 @ma_device_init(ptr noundef nonnull %engineConfig.sroa.4.0296, ptr noundef nonnull %deviceConfig, ptr noundef nonnull %call.i)
   br label %if.end54
 
 if.end54:                                         ; preds = %if.else50, %if.end47
@@ -84151,21 +84151,21 @@ if.end54:                                         ; preds = %if.else50, %if.end4
 
 if.then56:                                        ; preds = %if.end54
   %4 = load ptr, ptr %pDevice10, align 8
-  %cmp.i92 = icmp eq ptr %4, null
-  br i1 %cmp.i92, label %ma_free.exit, label %if.end.i93
+  %cmp.i91 = icmp eq ptr %4, null
+  br i1 %cmp.i91, label %ma_free.exit, label %if.end.i92
 
-if.end.i93:                                       ; preds = %if.then56
-  %onFree.i96 = getelementptr inbounds i8, ptr %allocationCallbacks320, i64 24
-  %5 = load ptr, ptr %onFree.i96, align 8
+if.end.i92:                                       ; preds = %if.then56
+  %onFree.i95 = getelementptr inbounds i8, ptr %allocationCallbacks319, i64 24
+  %5 = load ptr, ptr %onFree.i95, align 8
   %cmp3.not.i = icmp eq ptr %5, null
   br i1 %cmp3.not.i, label %ma_free.exit, label %if.then4.i
 
-if.then4.i:                                       ; preds = %if.end.i93
-  %6 = load ptr, ptr %allocationCallbacks320, align 8
+if.then4.i:                                       ; preds = %if.end.i92
+  %6 = load ptr, ptr %allocationCallbacks319, align 8
   call void %5(ptr noundef nonnull %4, ptr noundef %6) #64
   br label %ma_free.exit
 
-ma_free.exit:                                     ; preds = %if.then56, %if.end.i93, %if.then4.i
+ma_free.exit:                                     ; preds = %if.then56, %if.end.i92, %if.then4.i
   store ptr null, ptr %pDevice10, align 8
   br label %return
 
@@ -84176,7 +84176,7 @@ if.end60:                                         ; preds = %if.end54
   br label %if.end61
 
 if.end61:                                         ; preds = %if.end60, %ma_allocation_callbacks_init_copy.exit
-  %7 = phi ptr [ %.pr, %if.end60 ], [ %engineConfig.sroa.5.0294, %ma_allocation_callbacks_init_copy.exit ]
+  %7 = phi ptr [ %.pr, %if.end60 ], [ %engineConfig.sroa.5.0293, %ma_allocation_callbacks_init_copy.exit ]
   %cmp63.not = icmp eq ptr %7, null
   br i1 %cmp63.not, label %if.end72, label %if.then64
 
@@ -84188,8 +84188,8 @@ if.then64:                                        ; preds = %if.end61
   br label %if.end72
 
 if.end72:                                         ; preds = %if.then64, %if.end61
-  %engineConfig.sroa.21.1 = phi i32 [ %engineConfig.sroa.21.0272, %if.end61 ], [ %9, %if.then64 ]
-  %engineConfig.sroa.16.1 = phi i32 [ %engineConfig.sroa.16.0275, %if.end61 ], [ %8, %if.then64 ]
+  %engineConfig.sroa.21.1 = phi i32 [ %engineConfig.sroa.21.0271, %if.end61 ], [ %9, %if.then64 ]
+  %engineConfig.sroa.16.1 = phi i32 [ %engineConfig.sroa.16.0274, %if.end61 ], [ %8, %if.then64 ]
   %cmp74 = icmp eq i32 %engineConfig.sroa.16.1, 0
   %cmp76 = icmp eq i32 %engineConfig.sroa.21.1, 0
   %or.cond3 = select i1 %cmp74, i1 true, i1 %cmp76
@@ -84198,7 +84198,7 @@ if.end72:                                         ; preds = %if.then64, %if.end6
 if.end78:                                         ; preds = %if.end72
   %sampleRate80 = getelementptr inbounds i8, ptr %pEngine, i64 752
   store i32 %engineConfig.sroa.21.1, ptr %sampleRate80, align 8
-  %cmp82.not = icmp ne ptr %engineConfig.sroa.9.0281, null
+  %cmp82.not = icmp ne ptr %engineConfig.sroa.9.0280, null
   %brmerge = or i1 %cmp82.not, %cmp63.not
   br i1 %brmerge, label %if.then2.i.i, label %ma_device_get_context.exit.i
 
@@ -84213,22 +84213,22 @@ if.end.i2.i:                                      ; preds = %ma_device_get_conte
   br label %if.then2.i.i
 
 if.then2.i.i:                                     ; preds = %if.end78, %if.end.i2.i, %ma_device_get_context.exit.i
-  %engineConfig.sroa.9.0281.sink = phi ptr [ %engineConfig.sroa.9.0281, %if.end78 ], [ %11, %if.end.i2.i ], [ null, %ma_device_get_context.exit.i ]
+  %engineConfig.sroa.9.0280.sink = phi ptr [ %engineConfig.sroa.9.0280, %if.end78 ], [ %11, %if.end.i2.i ], [ null, %ma_device_get_context.exit.i ]
   %pLog85 = getelementptr inbounds i8, ptr %pEngine, i64 744
-  store ptr %engineConfig.sroa.9.0281.sink, ptr %pLog85, align 8
+  store ptr %engineConfig.sroa.9.0280.sink, ptr %pLog85, align 8
   %retval.sroa.0.0.insert.ext.i = zext i32 %engineConfig.sroa.16.1 to i64
   %retval.sroa.0.0.insert.insert.i = or disjoint i64 %retval.sroa.0.0.insert.ext.i, 2061584302080
   store i64 %retval.sroa.0.0.insert.insert.i, ptr %nodeGraphConfig, align 8
-  %conv10286 = call i32 @llvm.umin.i32(i32 %engineConfig.sroa.24.0269, i32 65535)
-  %conv102 = trunc nuw i32 %conv10286 to i16
+  %12 = call i32 @llvm.umin.i32(i32 %engineConfig.sroa.24.0268, i32 65535)
+  %conv102 = trunc nuw i32 %12 to i16
   %nodeCacheCapInFrames = getelementptr inbounds i8, ptr %nodeGraphConfig, i64 4
   store i16 %conv102, ptr %nodeCacheCapInFrames, align 4
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %baseConfig.i)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %endpointConfig.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(728) %pEngine, i8 0, i64 728, i1 false)
   %nodeCacheCapInFrames1.i = getelementptr inbounds i8, ptr %pEngine, i64 720
-  %cmp3.i98 = icmp eq i32 %engineConfig.sroa.24.0269, 0
-  %storemerge.i = select i1 %cmp3.i98, i16 480, i16 %conv102
+  %cmp3.i97 = icmp eq i32 %engineConfig.sroa.24.0268, 0
+  %storemerge.i = select i1 %cmp3.i97, i16 480, i16 %conv102
   store i16 %storemerge.i, ptr %nodeCacheCapInFrames1.i, align 8
   %tmp.sroa.5.0.baseConfig.sroa_idx.i = getelementptr inbounds i8, ptr %baseConfig.i, i64 20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %tmp.sroa.5.0.baseConfig.sroa_idx.i, i8 0, i64 12, i1 false)
@@ -84241,57 +84241,57 @@ if.then2.i.i:                                     ; preds = %if.end78, %if.end.i
   store ptr @g_node_graph_node_vtable, ptr %baseConfig.i, align 8
   %pOutputChannels.i = getelementptr inbounds i8, ptr %baseConfig.i, i64 32
   store ptr %nodeGraphConfig, ptr %pOutputChannels.i, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %heapLayout.i.i183)
-  %call.i.i184 = call fastcc i32 @ma_node_get_heap_layout(ptr noundef nonnull readonly %pEngine, ptr noundef nonnull %baseConfig.i, ptr noundef %heapLayout.i.i183)
-  %cmp1.not.i.i185 = icmp eq i32 %call.i.i184, 0
-  br i1 %cmp1.not.i.i185, label %if.end.i188, label %ma_node_get_heap_size.exit.i186
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %heapLayout.i.i182)
+  %call.i.i183 = call fastcc i32 @ma_node_get_heap_layout(ptr noundef nonnull readonly %pEngine, ptr noundef nonnull %baseConfig.i, ptr noundef %heapLayout.i.i182)
+  %cmp1.not.i.i184 = icmp eq i32 %call.i.i183, 0
+  br i1 %cmp1.not.i.i184, label %if.end.i187, label %ma_node_get_heap_size.exit.i185
 
-ma_node_get_heap_size.exit.i186:                  ; preds = %if.then2.i.i
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %heapLayout.i.i183)
+ma_node_get_heap_size.exit.i185:                  ; preds = %if.then2.i.i
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %heapLayout.i.i182)
   br label %ma_node_graph_init.exit.thread
 
-if.end.i188:                                      ; preds = %if.then2.i.i
-  %12 = load i64, ptr %heapLayout.i.i183, align 8
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %heapLayout.i.i183)
-  %cmp1.not.i189 = icmp eq i64 %12, 0
-  br i1 %cmp1.not.i189, label %if.end7.thread.i205, label %if.then2.i190
+if.end.i187:                                      ; preds = %if.then2.i.i
+  %13 = load i64, ptr %heapLayout.i.i182, align 8
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %heapLayout.i.i182)
+  %cmp1.not.i188 = icmp eq i64 %13, 0
+  br i1 %cmp1.not.i188, label %if.end7.thread.i204, label %if.then2.i189
 
-if.then2.i190:                                    ; preds = %if.end.i188
-  %onMalloc.i.i191 = getelementptr inbounds i8, ptr %allocationCallbacks320, i64 8
-  %13 = load ptr, ptr %onMalloc.i.i191, align 8
-  %cmp1.not.i10.i192 = icmp eq ptr %13, null
-  br i1 %cmp1.not.i10.i192, label %ma_node_graph_init.exit.thread, label %if.then2.i.i193
+if.then2.i189:                                    ; preds = %if.end.i187
+  %onMalloc.i.i190 = getelementptr inbounds i8, ptr %allocationCallbacks319, i64 8
+  %14 = load ptr, ptr %onMalloc.i.i190, align 8
+  %cmp1.not.i10.i191 = icmp eq ptr %14, null
+  br i1 %cmp1.not.i10.i191, label %ma_node_graph_init.exit.thread, label %if.then2.i.i192
 
-if.then2.i.i193:                                  ; preds = %if.then2.i190
-  %14 = load ptr, ptr %allocationCallbacks320, align 8
-  %call.i11.i194 = call ptr %13(i64 noundef %12, ptr noundef %14) #64
-  %cmp4.i195 = icmp eq ptr %call.i11.i194, null
-  br i1 %cmp4.i195, label %ma_node_graph_init.exit.thread, label %if.end7.i196
+if.then2.i.i192:                                  ; preds = %if.then2.i189
+  %15 = load ptr, ptr %allocationCallbacks319, align 8
+  %call.i11.i193 = call ptr %14(i64 noundef %13, ptr noundef %15) #64
+  %cmp4.i194 = icmp eq ptr %call.i11.i193, null
+  br i1 %cmp4.i194, label %ma_node_graph_init.exit.thread, label %if.end7.i195
 
-if.end7.i196:                                     ; preds = %if.then2.i.i193
-  %call8.i197 = call i32 @ma_node_init_preallocated(ptr noundef nonnull %pEngine, ptr noundef nonnull %baseConfig.i, ptr noundef nonnull %call.i11.i194, ptr noundef nonnull %pEngine)
-  %cmp9.not.i198 = icmp eq i32 %call8.i197, 0
-  br i1 %cmp9.not.i198, label %if.end11.i, label %if.end.i.i199
+if.end7.i195:                                     ; preds = %if.then2.i.i192
+  %call8.i196 = call i32 @ma_node_init_preallocated(ptr noundef nonnull %pEngine, ptr noundef nonnull %baseConfig.i, ptr noundef nonnull %call.i11.i193, ptr noundef nonnull %pEngine)
+  %cmp9.not.i197 = icmp eq i32 %call8.i196, 0
+  br i1 %cmp9.not.i197, label %if.end11.i, label %if.end.i.i198
 
-if.end7.thread.i205:                              ; preds = %if.end.i188
-  %call822.i206 = call i32 @ma_node_init_preallocated(ptr noundef nonnull %pEngine, ptr noundef nonnull %baseConfig.i, ptr noundef null, ptr noundef nonnull %pEngine)
-  %cmp9.not23.i207 = icmp eq i32 %call822.i206, 0
-  br i1 %cmp9.not23.i207, label %if.end11.i, label %ma_node_graph_init.exit.thread
+if.end7.thread.i204:                              ; preds = %if.end.i187
+  %call822.i205 = call i32 @ma_node_init_preallocated(ptr noundef nonnull %pEngine, ptr noundef nonnull %baseConfig.i, ptr noundef null, ptr noundef nonnull %pEngine)
+  %cmp9.not23.i206 = icmp eq i32 %call822.i205, 0
+  br i1 %cmp9.not23.i206, label %if.end11.i, label %ma_node_graph_init.exit.thread
 
-if.end.i.i199:                                    ; preds = %if.end7.i196
-  %onFree.i.i200 = getelementptr inbounds i8, ptr %allocationCallbacks320, i64 24
-  %15 = load ptr, ptr %onFree.i.i200, align 8
-  %cmp3.not.i.i201 = icmp eq ptr %15, null
-  br i1 %cmp3.not.i.i201, label %ma_node_graph_init.exit.thread, label %if.then4.i.i202
+if.end.i.i198:                                    ; preds = %if.end7.i195
+  %onFree.i.i199 = getelementptr inbounds i8, ptr %allocationCallbacks319, i64 24
+  %16 = load ptr, ptr %onFree.i.i199, align 8
+  %cmp3.not.i.i200 = icmp eq ptr %16, null
+  br i1 %cmp3.not.i.i200, label %ma_node_graph_init.exit.thread, label %if.then4.i.i201
 
-if.then4.i.i202:                                  ; preds = %if.end.i.i199
-  %16 = load ptr, ptr %allocationCallbacks320, align 8
-  call void %15(ptr noundef nonnull %call.i11.i194, ptr noundef %16) #64
+if.then4.i.i201:                                  ; preds = %if.end.i.i198
+  %17 = load ptr, ptr %allocationCallbacks319, align 8
+  call void %16(ptr noundef nonnull %call.i11.i193, ptr noundef %17) #64
   br label %ma_node_graph_init.exit.thread
 
-if.end11.i:                                       ; preds = %if.end7.thread.i205, %if.end7.i196
-  %_ownsHeap.i204 = getelementptr inbounds i8, ptr %pEngine, i64 352
-  store i32 1, ptr %_ownsHeap.i204, align 8
+if.end11.i:                                       ; preds = %if.end7.thread.i204, %if.end7.i195
+  %_ownsHeap.i203 = getelementptr inbounds i8, ptr %pEngine, i64 352
+  store i32 1, ptr %_ownsHeap.i203, align 8
   %tmp12.sroa.5.0.endpointConfig.sroa_idx.i = getelementptr inbounds i8, ptr %endpointConfig.i, i64 20
   store i32 0, ptr %tmp12.sroa.5.0.endpointConfig.sroa_idx.i, align 4
   %tmp12.sroa.2.0.endpointConfig.sroa_idx.i = getelementptr inbounds i8, ptr %endpointConfig.i, i64 8
@@ -84307,70 +84307,70 @@ if.end11.i:                                       ; preds = %if.end7.thread.i205
   store ptr %nodeGraphConfig, ptr %pOutputChannels16.i, align 8
   %endpoint.i = getelementptr inbounds i8, ptr %pEngine, i64 360
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %heapLayout.i.i)
-  %call.i.i164 = call fastcc i32 @ma_node_get_heap_layout(ptr noundef nonnull readonly %pEngine, ptr noundef nonnull %endpointConfig.i, ptr noundef %heapLayout.i.i)
-  %cmp1.not.i.i165 = icmp eq i32 %call.i.i164, 0
-  br i1 %cmp1.not.i.i165, label %if.end.i167, label %ma_node_get_heap_size.exit.i
+  %call.i.i163 = call fastcc i32 @ma_node_get_heap_layout(ptr noundef nonnull readonly %pEngine, ptr noundef nonnull %endpointConfig.i, ptr noundef %heapLayout.i.i)
+  %cmp1.not.i.i164 = icmp eq i32 %call.i.i163, 0
+  br i1 %cmp1.not.i.i164, label %if.end.i166, label %ma_node_get_heap_size.exit.i
 
 ma_node_get_heap_size.exit.i:                     ; preds = %if.end11.i
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %heapLayout.i.i)
   br label %if.then20.i
 
-if.end.i167:                                      ; preds = %if.end11.i
-  %17 = load i64, ptr %heapLayout.i.i, align 8
+if.end.i166:                                      ; preds = %if.end11.i
+  %18 = load i64, ptr %heapLayout.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %heapLayout.i.i)
-  %cmp1.not.i168 = icmp eq i64 %17, 0
-  br i1 %cmp1.not.i168, label %if.end7.thread.i182, label %if.then2.i169
+  %cmp1.not.i167 = icmp eq i64 %18, 0
+  br i1 %cmp1.not.i167, label %if.end7.thread.i181, label %if.then2.i168
 
-if.then2.i169:                                    ; preds = %if.end.i167
-  %onMalloc.i.i170 = getelementptr inbounds i8, ptr %allocationCallbacks320, i64 8
-  %18 = load ptr, ptr %onMalloc.i.i170, align 8
-  %cmp1.not.i10.i = icmp eq ptr %18, null
-  br i1 %cmp1.not.i10.i, label %if.then20.i, label %if.then2.i.i171
+if.then2.i168:                                    ; preds = %if.end.i166
+  %onMalloc.i.i169 = getelementptr inbounds i8, ptr %allocationCallbacks319, i64 8
+  %19 = load ptr, ptr %onMalloc.i.i169, align 8
+  %cmp1.not.i10.i = icmp eq ptr %19, null
+  br i1 %cmp1.not.i10.i, label %if.then20.i, label %if.then2.i.i170
 
-if.then2.i.i171:                                  ; preds = %if.then2.i169
-  %19 = load ptr, ptr %allocationCallbacks320, align 8
-  %call.i11.i = call ptr %18(i64 noundef %17, ptr noundef %19) #64
-  %cmp4.i172 = icmp eq ptr %call.i11.i, null
-  br i1 %cmp4.i172, label %if.then20.i, label %if.end7.i173
+if.then2.i.i170:                                  ; preds = %if.then2.i168
+  %20 = load ptr, ptr %allocationCallbacks319, align 8
+  %call.i11.i = call ptr %19(i64 noundef %18, ptr noundef %20) #64
+  %cmp4.i171 = icmp eq ptr %call.i11.i, null
+  br i1 %cmp4.i171, label %if.then20.i, label %if.end7.i172
 
-if.end7.i173:                                     ; preds = %if.then2.i.i171
-  %call8.i174 = call i32 @ma_node_init_preallocated(ptr noundef nonnull %pEngine, ptr noundef nonnull %endpointConfig.i, ptr noundef nonnull %call.i11.i, ptr noundef nonnull %endpoint.i)
-  %cmp9.not.i175 = icmp eq i32 %call8.i174, 0
-  br i1 %cmp9.not.i175, label %if.end108, label %if.end.i.i176
+if.end7.i172:                                     ; preds = %if.then2.i.i170
+  %call8.i173 = call i32 @ma_node_init_preallocated(ptr noundef nonnull %pEngine, ptr noundef nonnull %endpointConfig.i, ptr noundef nonnull %call.i11.i, ptr noundef nonnull %endpoint.i)
+  %cmp9.not.i174 = icmp eq i32 %call8.i173, 0
+  br i1 %cmp9.not.i174, label %if.end108, label %if.end.i.i175
 
-if.end7.thread.i182:                              ; preds = %if.end.i167
+if.end7.thread.i181:                              ; preds = %if.end.i166
   %call822.i = call i32 @ma_node_init_preallocated(ptr noundef nonnull %pEngine, ptr noundef nonnull %endpointConfig.i, ptr noundef null, ptr noundef nonnull %endpoint.i)
   %cmp9.not23.i = icmp eq i32 %call822.i, 0
   br i1 %cmp9.not23.i, label %if.end108, label %if.then20.i
 
-if.end.i.i176:                                    ; preds = %if.end7.i173
-  %onFree.i.i177 = getelementptr inbounds i8, ptr %allocationCallbacks320, i64 24
-  %20 = load ptr, ptr %onFree.i.i177, align 8
-  %cmp3.not.i.i178 = icmp eq ptr %20, null
-  br i1 %cmp3.not.i.i178, label %if.then20.i, label %if.then4.i.i179
+if.end.i.i175:                                    ; preds = %if.end7.i172
+  %onFree.i.i176 = getelementptr inbounds i8, ptr %allocationCallbacks319, i64 24
+  %21 = load ptr, ptr %onFree.i.i176, align 8
+  %cmp3.not.i.i177 = icmp eq ptr %21, null
+  br i1 %cmp3.not.i.i177, label %if.then20.i, label %if.then4.i.i178
 
-if.then4.i.i179:                                  ; preds = %if.end.i.i176
-  %21 = load ptr, ptr %allocationCallbacks320, align 8
-  call void %20(ptr noundef nonnull %call.i11.i, ptr noundef %21) #64
+if.then4.i.i178:                                  ; preds = %if.end.i.i175
+  %22 = load ptr, ptr %allocationCallbacks319, align 8
+  call void %21(ptr noundef nonnull %call.i11.i, ptr noundef %22) #64
   br label %if.then20.i
 
-if.then20.i:                                      ; preds = %ma_node_get_heap_size.exit.i, %if.then2.i.i171, %if.end.i.i176, %if.then4.i.i179, %if.then2.i169, %if.end7.thread.i182
-  %retval.0.i166.ph = phi i32 [ %call822.i, %if.end7.thread.i182 ], [ -4, %if.then2.i169 ], [ %call8.i174, %if.then4.i.i179 ], [ %call8.i174, %if.end.i.i176 ], [ -4, %if.then2.i.i171 ], [ %call.i.i164, %ma_node_get_heap_size.exit.i ]
-  call void @ma_node_uninit(ptr noundef nonnull %pEngine, ptr noundef nonnull %allocationCallbacks320)
+if.then20.i:                                      ; preds = %ma_node_get_heap_size.exit.i, %if.then2.i.i170, %if.end.i.i175, %if.then4.i.i178, %if.then2.i168, %if.end7.thread.i181
+  %retval.0.i165.ph = phi i32 [ %call822.i, %if.end7.thread.i181 ], [ -4, %if.then2.i168 ], [ %call8.i173, %if.then4.i.i178 ], [ %call8.i173, %if.end.i.i175 ], [ -4, %if.then2.i.i170 ], [ %call.i.i163, %ma_node_get_heap_size.exit.i ]
+  call void @ma_node_uninit(ptr noundef nonnull %pEngine, ptr noundef nonnull %allocationCallbacks319)
   br label %ma_node_graph_init.exit.thread
 
-ma_node_graph_init.exit.thread:                   ; preds = %if.then20.i, %ma_node_get_heap_size.exit.i186, %if.then2.i.i193, %if.end.i.i199, %if.then4.i.i202, %if.then2.i190, %if.end7.thread.i205
-  %retval.0.i100.ph = phi i32 [ %retval.0.i166.ph, %if.then20.i ], [ %call822.i206, %if.end7.thread.i205 ], [ -4, %if.then2.i190 ], [ %call8.i197, %if.then4.i.i202 ], [ %call8.i197, %if.end.i.i199 ], [ -4, %if.then2.i.i193 ], [ %call.i.i184, %ma_node_get_heap_size.exit.i186 ]
+ma_node_graph_init.exit.thread:                   ; preds = %if.then20.i, %ma_node_get_heap_size.exit.i185, %if.then2.i.i192, %if.end.i.i198, %if.then4.i.i201, %if.then2.i189, %if.end7.thread.i204
+  %retval.0.i99.ph = phi i32 [ %retval.0.i165.ph, %if.then20.i ], [ %call822.i205, %if.end7.thread.i204 ], [ -4, %if.then2.i189 ], [ %call8.i196, %if.then4.i.i201 ], [ %call8.i196, %if.end.i.i198 ], [ -4, %if.then2.i.i192 ], [ %call.i.i183, %ma_node_get_heap_size.exit.i185 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %baseConfig.i)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %endpointConfig.i)
   br label %on_error_1
 
-if.end108:                                        ; preds = %if.end7.i173, %if.end7.thread.i182
-  %_ownsHeap.i181 = getelementptr inbounds i8, ptr %pEngine, i64 712
-  store i32 1, ptr %_ownsHeap.i181, align 8
+if.end108:                                        ; preds = %if.end7.i172, %if.end7.thread.i181
+  %_ownsHeap.i180 = getelementptr inbounds i8, ptr %pEngine, i64 712
+  store i32 1, ptr %_ownsHeap.i180, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %baseConfig.i)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %endpointConfig.i)
-  %cmp115 = icmp ugt i32 %engineConfig.sroa.11.0278, 4
+  %cmp115 = icmp ugt i32 %engineConfig.sroa.11.0277, 4
   br i1 %cmp115, label %on_error_1, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.end108
@@ -84385,28 +84385,28 @@ for.cond.preheader:                               ; preds = %if.end108
   %tmp122.sroa.10.0.listenerConfig.sroa_idx = getelementptr inbounds i8, ptr %listenerConfig, i64 44
   %listeners = getelementptr inbounds i8, ptr %pEngine, i64 760
   %pOutputBuses.i.i = getelementptr inbounds i8, ptr %pEngine, i64 440
-  %onMalloc.i.i = getelementptr inbounds i8, ptr %allocationCallbacks320, i64 8
+  %onMalloc.i.i = getelementptr inbounds i8, ptr %allocationCallbacks319, i64 8
   %listenerCount136 = getelementptr inbounds i8, ptr %pEngine, i64 756
-  %umax = call i32 @llvm.umax.i32(i32 %engineConfig.sroa.11.0278, i32 1)
+  %umax = call i32 @llvm.umax.i32(i32 %engineConfig.sroa.11.0277, i32 1)
   %wide.trip.count = zext nneg i32 %umax to i64
-  br label %if.end.i102
+  br label %if.end.i101
 
-if.end.i102:                                      ; preds = %for.cond.preheader, %if.end135
+if.end.i101:                                      ; preds = %for.cond.preheader, %if.end135
   %indvars.iv = phi i64 [ 0, %for.cond.preheader ], [ %indvars.iv.next, %if.end135 ]
-  %22 = load i32, ptr %outputBusCount.i.i.i, align 4
-  %cmp1.not.i.not.i = icmp eq i32 %22, 0
+  %23 = load i32, ptr %outputBusCount.i.i.i, align 4
+  %cmp1.not.i.not.i = icmp eq i32 %23, 0
   br i1 %cmp1.not.i.not.i, label %ma_node_graph_get_channels.exit, label %if.end3.i.i
 
-if.end3.i.i:                                      ; preds = %if.end.i102
-  %23 = load ptr, ptr %pOutputBuses.i.i, align 8
-  %24 = getelementptr i8, ptr %23, i64 9
-  %arrayidx.val.i.i = load i8, ptr %24, align 1
-  %25 = zext i8 %arrayidx.val.i.i to i64
+if.end3.i.i:                                      ; preds = %if.end.i101
+  %24 = load ptr, ptr %pOutputBuses.i.i, align 8
+  %25 = getelementptr i8, ptr %24, i64 9
+  %arrayidx.val.i.i = load i8, ptr %25, align 1
+  %26 = zext i8 %arrayidx.val.i.i to i64
   br label %ma_node_graph_get_channels.exit
 
-ma_node_graph_get_channels.exit:                  ; preds = %if.end.i102, %if.end3.i.i
-  %retval.0.i103 = phi i64 [ %25, %if.end3.i.i ], [ 0, %if.end.i102 ]
-  store i64 %retval.0.i103, ptr %listenerConfig, align 8
+ma_node_graph_get_channels.exit:                  ; preds = %if.end.i101, %if.end3.i.i
+  %retval.0.i102 = phi i64 [ %26, %if.end3.i.i ], [ 0, %if.end.i101 ]
+  store i64 %retval.0.i102, ptr %listenerConfig, align 8
   store ptr null, ptr %tmp122.sroa.3.0.listenerConfig.sroa_idx, align 8
   store i32 0, ptr %tmp122.sroa.4.0.listenerConfig.sroa_idx, align 8
   store float 0x401921FB40000000, ptr %tmp122.sroa.5.0.listenerConfig.sroa_idx, align 4
@@ -84416,94 +84416,94 @@ ma_node_graph_get_channels.exit:                  ; preds = %if.end.i102, %if.en
   store <2 x float> <float 0.000000e+00, float 1.000000e+00>, ptr %tmp122.sroa.9.0.listenerConfig.sroa_idx, align 4
   store float 0.000000e+00, ptr %tmp122.sroa.10.0.listenerConfig.sroa_idx, align 4
   %arrayidx = getelementptr inbounds [4 x %struct.ma_spatializer_listener], ptr %listeners, i64 0, i64 %indvars.iv
-  %cmp1.i.i.i = icmp eq i64 %retval.0.i103, 0
-  br i1 %cmp1.i.i.i, label %on_error_2, label %if.end.i105
+  %cmp1.i.i.i = icmp eq i64 %retval.0.i102, 0
+  br i1 %cmp1.i.i.i, label %on_error_2, label %if.end.i104
 
-if.end.i105:                                      ; preds = %ma_node_graph_get_channels.exit
-  %add.i.i.i = add nuw nsw i64 %retval.0.i103, 7
+if.end.i104:                                      ; preds = %ma_node_graph_get_channels.exit
+  %add.i.i.i = add nuw nsw i64 %retval.0.i102, 7
   %and.i.i.i = and i64 %add.i.i.i, 504
-  %cmp1.not.i107 = icmp eq i64 %and.i.i.i, 0
-  br i1 %cmp1.not.i107, label %if.end7.thread.i, label %if.then2.i108
+  %cmp1.not.i106 = icmp eq i64 %and.i.i.i, 0
+  br i1 %cmp1.not.i106, label %if.end7.thread.i, label %if.then2.i107
 
-if.then2.i108:                                    ; preds = %if.end.i105
-  %26 = load ptr, ptr %onMalloc.i.i, align 8
-  %cmp1.not.i.i = icmp eq ptr %26, null
-  br i1 %cmp1.not.i.i, label %on_error_2, label %if.then2.i.i109
+if.then2.i107:                                    ; preds = %if.end.i104
+  %27 = load ptr, ptr %onMalloc.i.i, align 8
+  %cmp1.not.i.i = icmp eq ptr %27, null
+  br i1 %cmp1.not.i.i, label %on_error_2, label %if.then2.i.i108
 
-if.then2.i.i109:                                  ; preds = %if.then2.i108
-  %27 = load ptr, ptr %allocationCallbacks320, align 8
-  %call.i.i = call ptr %26(i64 noundef %and.i.i.i, ptr noundef %27) #64
-  %cmp4.i110 = icmp eq ptr %call.i.i, null
-  br i1 %cmp4.i110, label %on_error_2, label %if.end7.i
+if.then2.i.i108:                                  ; preds = %if.then2.i107
+  %28 = load ptr, ptr %allocationCallbacks319, align 8
+  %call.i.i = call ptr %27(i64 noundef %and.i.i.i, ptr noundef %28) #64
+  %cmp4.i109 = icmp eq ptr %call.i.i, null
+  br i1 %cmp4.i109, label %on_error_2, label %if.end7.i
 
-if.end7.i:                                        ; preds = %if.then2.i.i109
+if.end7.i:                                        ; preds = %if.then2.i.i108
   %call8.i = call i32 @ma_spatializer_listener_init_preallocated(ptr noundef nonnull %listenerConfig, ptr noundef nonnull %call.i.i, ptr noundef nonnull %arrayidx)
   %cmp9.not.i = icmp eq i32 %call8.i, 0
   br i1 %cmp9.not.i, label %if.end135, label %if.end.i.i
 
-if.end7.thread.i:                                 ; preds = %if.end.i105
+if.end7.thread.i:                                 ; preds = %if.end.i104
   %call818.i = call i32 @ma_spatializer_listener_init_preallocated(ptr noundef nonnull %listenerConfig, ptr noundef null, ptr noundef nonnull %arrayidx)
   %cmp9.not19.i = icmp eq i32 %call818.i, 0
   br i1 %cmp9.not19.i, label %if.end135, label %on_error_2
 
 if.end.i.i:                                       ; preds = %if.end7.i
-  %onFree.i.i = getelementptr inbounds i8, ptr %allocationCallbacks320, i64 24
-  %28 = load ptr, ptr %onFree.i.i, align 8
-  %cmp3.not.i.i = icmp eq ptr %28, null
+  %onFree.i.i = getelementptr inbounds i8, ptr %allocationCallbacks319, i64 24
+  %29 = load ptr, ptr %onFree.i.i, align 8
+  %cmp3.not.i.i = icmp eq ptr %29, null
   br i1 %cmp3.not.i.i, label %on_error_2, label %if.then4.i.i
 
 if.then4.i.i:                                     ; preds = %if.end.i.i
-  %29 = load ptr, ptr %allocationCallbacks320, align 8
-  call void %28(ptr noundef nonnull %call.i.i, ptr noundef %29) #64
+  %30 = load ptr, ptr %allocationCallbacks319, align 8
+  call void %29(ptr noundef nonnull %call.i.i, ptr noundef %30) #64
   br label %on_error_2
 
 if.end135:                                        ; preds = %if.end7.thread.i, %if.end7.i
   %_ownsHeap.i = getelementptr inbounds i8, ptr %arrayidx, i64 100
   store i32 1, ptr %_ownsHeap.i, align 4
-  %30 = load i32, ptr %listenerCount136, align 4
-  %add = add i32 %30, 1
+  %31 = load i32, ptr %listenerCount136, align 4
+  %add = add i32 %31, 1
   store i32 %add, ptr %listenerCount136, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end, label %if.end.i102, !llvm.loop !766
+  br i1 %exitcond.not, label %for.end, label %if.end.i101, !llvm.loop !766
 
 for.end:                                          ; preds = %if.end135
   %gainSmoothTimeInFrames138 = getelementptr inbounds i8, ptr %pEngine, i64 1260
-  store i32 %engineConfig.sroa.27.0263, ptr %gainSmoothTimeInFrames138, align 4
-  %cmp140 = icmp eq i32 %engineConfig.sroa.27.0263, 0
+  store i32 %engineConfig.sroa.27.0262, ptr %gainSmoothTimeInFrames138, align 4
+  %cmp140 = icmp eq i32 %engineConfig.sroa.27.0262, 0
   br i1 %cmp140, label %ma_engine_get_sample_rate.exit, label %if.end150
 
 ma_engine_get_sample_rate.exit:                   ; preds = %for.end
-  %cmp144 = icmp eq i32 %engineConfig.sroa.28.0260, 0
-  %spec.store.select = select i1 %cmp144, i32 8, i32 %engineConfig.sroa.28.0260
-  %31 = load i32, ptr %sampleRate80, align 8
-  %mul = mul i32 %31, %spec.store.select
+  %cmp144 = icmp eq i32 %engineConfig.sroa.28.0259, 0
+  %spec.store.select = select i1 %cmp144, i32 8, i32 %engineConfig.sroa.28.0259
+  %32 = load i32, ptr %sampleRate80, align 8
+  %mul = mul i32 %32, %spec.store.select
   %div = udiv i32 %mul, 1000
   store i32 %div, ptr %gainSmoothTimeInFrames138, align 4
   br label %if.end150
 
 if.end150:                                        ; preds = %ma_engine_get_sample_rate.exit, %for.end
-  %32 = load ptr, ptr %pResourceManager9, align 8
-  %cmp152 = icmp eq ptr %32, null
+  %33 = load ptr, ptr %pResourceManager9, align 8
+  %cmp152 = icmp eq ptr %33, null
   br i1 %cmp152, label %if.then154, label %if.end176
 
 if.then154:                                       ; preds = %if.end150
-  %33 = load ptr, ptr %onMalloc.i.i, align 8
-  %cmp1.not.i117 = icmp eq ptr %33, null
-  br i1 %cmp1.not.i117, label %ma_malloc.exit122.thread, label %ma_malloc.exit122
+  %34 = load ptr, ptr %onMalloc.i.i, align 8
+  %cmp1.not.i116 = icmp eq ptr %34, null
+  br i1 %cmp1.not.i116, label %ma_malloc.exit121.thread, label %ma_malloc.exit121
 
-ma_malloc.exit122.thread:                         ; preds = %if.then154
+ma_malloc.exit121.thread:                         ; preds = %if.then154
   store ptr null, ptr %pResourceManager9, align 8
   br label %on_error_2
 
-ma_malloc.exit122:                                ; preds = %if.then154
-  %34 = load ptr, ptr %allocationCallbacks320, align 8
-  %call.i119 = call ptr %33(i64 noundef 1096, ptr noundef %34) #64
-  store ptr %call.i119, ptr %pResourceManager9, align 8
-  %cmp159 = icmp eq ptr %call.i119, null
-  br i1 %cmp159, label %on_error_2, label %ma_engine_get_sample_rate.exit128
+ma_malloc.exit121:                                ; preds = %if.then154
+  %35 = load ptr, ptr %allocationCallbacks319, align 8
+  %call.i118 = call ptr %34(i64 noundef 1096, ptr noundef %35) #64
+  store ptr %call.i118, ptr %pResourceManager9, align 8
+  %cmp159 = icmp eq ptr %call.i118, null
+  br i1 %cmp159, label %on_error_2, label %ma_engine_get_sample_rate.exit127
 
-ma_engine_get_sample_rate.exit128:                ; preds = %ma_malloc.exit122
+ma_engine_get_sample_rate.exit127:                ; preds = %ma_malloc.exit121
   %tmp163.sroa.8.0.resourceManagerConfig.sroa_idx = getelementptr inbounds i8, ptr %resourceManagerConfig, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %tmp163.sroa.8.0.resourceManagerConfig.sroa_idx, i8 0, i64 32, i1 false)
   %tmp163.sroa.2.0.resourceManagerConfig.sroa_idx = getelementptr inbounds i8, ptr %resourceManagerConfig, i64 40
@@ -84514,25 +84514,25 @@ ma_engine_get_sample_rate.exit128:                ; preds = %ma_malloc.exit122
   store i32 1, ptr %tmp163.sroa.5.0.resourceManagerConfig.sroa_idx, align 4
   %tmp163.sroa.6.0.resourceManagerConfig.sroa_idx = getelementptr inbounds i8, ptr %resourceManagerConfig, i64 56
   store i64 0, ptr %tmp163.sroa.6.0.resourceManagerConfig.sroa_idx, align 8
-  %tmp163.sroa.6209.0.resourceManagerConfig.sroa_idx = getelementptr inbounds i8, ptr %resourceManagerConfig, i64 64
-  store i32 1024, ptr %tmp163.sroa.6209.0.resourceManagerConfig.sroa_idx, align 8
+  %tmp163.sroa.6208.0.resourceManagerConfig.sroa_idx = getelementptr inbounds i8, ptr %resourceManagerConfig, i64 64
+  store i32 1024, ptr %tmp163.sroa.6208.0.resourceManagerConfig.sroa_idx, align 8
   %tmp163.sroa.7.0.resourceManagerConfig.sroa_idx = getelementptr inbounds i8, ptr %resourceManagerConfig, i64 68
   store i32 0, ptr %tmp163.sroa.7.0.resourceManagerConfig.sroa_idx, align 4
   %pLog164 = getelementptr inbounds i8, ptr %pEngine, i64 744
-  %35 = load ptr, ptr %pLog164, align 8
+  %36 = load ptr, ptr %pLog164, align 8
   %pLog165 = getelementptr inbounds i8, ptr %resourceManagerConfig, i64 32
-  store ptr %35, ptr %pLog165, align 8
+  store ptr %36, ptr %pLog165, align 8
   store i32 5, ptr %tmp163.sroa.2.0.resourceManagerConfig.sroa_idx, align 8
   store i32 0, ptr %tmp163.sroa.3.0.resourceManagerConfig.sroa_idx, align 4
-  %36 = load i32, ptr %sampleRate80, align 8
-  store i32 %36, ptr %tmp163.sroa.4.0.resourceManagerConfig.sroa_idx, align 8
-  call fastcc void @ma_allocation_callbacks_init_copy(ptr noundef nonnull %resourceManagerConfig, ptr noundef nonnull %allocationCallbacks320)
-  store ptr %engineConfig.sroa.42.0317, ptr %tmp163.sroa.8.0.resourceManagerConfig.sroa_idx, align 8
-  %call171 = call i32 @ma_resource_manager_init(ptr noundef nonnull %resourceManagerConfig, ptr noundef nonnull %call.i119)
+  %37 = load i32, ptr %sampleRate80, align 8
+  store i32 %37, ptr %tmp163.sroa.4.0.resourceManagerConfig.sroa_idx, align 8
+  call fastcc void @ma_allocation_callbacks_init_copy(ptr noundef nonnull %resourceManagerConfig, ptr noundef nonnull %allocationCallbacks319)
+  store ptr %engineConfig.sroa.42.0316, ptr %tmp163.sroa.8.0.resourceManagerConfig.sroa_idx, align 8
+  %call171 = call i32 @ma_resource_manager_init(ptr noundef nonnull %resourceManagerConfig, ptr noundef nonnull %call.i118)
   %cmp172.not = icmp eq i32 %call171, 0
   br i1 %cmp172.not, label %if.end175, label %on_error_3
 
-if.end175:                                        ; preds = %ma_engine_get_sample_rate.exit128
+if.end175:                                        ; preds = %ma_engine_get_sample_rate.exit127
   %ownsResourceManager = getelementptr inbounds i8, ptr %pEngine, i64 1240
   store i8 1, ptr %ownsResourceManager, align 8
   br label %if.end176
@@ -84542,116 +84542,116 @@ if.end176:                                        ; preds = %if.end175, %if.end1
   store i32 0, ptr %inlinedSoundLock, align 4
   %pInlinedSoundHead = getelementptr inbounds i8, ptr %pEngine, i64 1248
   store ptr null, ptr %pInlinedSoundHead, align 8
-  %cmp177 = icmp eq i32 %engineConfig.sroa.37.0311, 0
+  %cmp177 = icmp eq i32 %engineConfig.sroa.37.0310, 0
   br i1 %cmp177, label %land.lhs.true179, label %return
 
 land.lhs.true179:                                 ; preds = %if.end176
-  %37 = load ptr, ptr %pDevice10, align 8
-  %cmp181.not = icmp eq ptr %37, null
+  %38 = load ptr, ptr %pDevice10, align 8
+  %cmp181.not = icmp eq ptr %38, null
   br i1 %cmp181.not, label %return, label %ma_engine_start.exit
 
 ma_engine_start.exit:                             ; preds = %land.lhs.true179
-  %call.i133 = call i32 @ma_device_start(ptr noundef nonnull %37)
-  %cmp185.not = icmp eq i32 %call.i133, 0
+  %call.i132 = call i32 @ma_device_start(ptr noundef nonnull %38)
+  %cmp185.not = icmp eq i32 %call.i132, 0
   br i1 %cmp185.not, label %return, label %on_error_3
 
-on_error_3:                                       ; preds = %ma_engine_start.exit, %ma_engine_get_sample_rate.exit128
-  %result.3 = phi i32 [ %call171, %ma_engine_get_sample_rate.exit128 ], [ %call.i133, %ma_engine_start.exit ]
+on_error_3:                                       ; preds = %ma_engine_start.exit, %ma_engine_get_sample_rate.exit127
+  %result.3 = phi i32 [ %call171, %ma_engine_get_sample_rate.exit127 ], [ %call.i132, %ma_engine_start.exit ]
   %ownsResourceManager190 = getelementptr inbounds i8, ptr %pEngine, i64 1240
-  %38 = load i8, ptr %ownsResourceManager190, align 8
-  %tobool.not = icmp eq i8 %38, 0
+  %39 = load i8, ptr %ownsResourceManager190, align 8
+  %tobool.not = icmp eq i8 %39, 0
   br i1 %tobool.not, label %on_error_2, label %if.then191
 
 if.then191:                                       ; preds = %on_error_3
-  %39 = load ptr, ptr %pResourceManager9, align 8
-  %cmp.i135 = icmp eq ptr %39, null
-  br i1 %cmp.i135, label %on_error_2, label %if.end.i136
+  %40 = load ptr, ptr %pResourceManager9, align 8
+  %cmp.i134 = icmp eq ptr %40, null
+  br i1 %cmp.i134, label %on_error_2, label %if.end.i135
 
-if.end.i136:                                      ; preds = %if.then191
-  %onFree.i139 = getelementptr inbounds i8, ptr %allocationCallbacks320, i64 24
-  %40 = load ptr, ptr %onFree.i139, align 8
-  %cmp3.not.i140 = icmp eq ptr %40, null
-  br i1 %cmp3.not.i140, label %on_error_2, label %if.then4.i141
+if.end.i135:                                      ; preds = %if.then191
+  %onFree.i138 = getelementptr inbounds i8, ptr %allocationCallbacks319, i64 24
+  %41 = load ptr, ptr %onFree.i138, align 8
+  %cmp3.not.i139 = icmp eq ptr %41, null
+  br i1 %cmp3.not.i139, label %on_error_2, label %if.then4.i140
 
-if.then4.i141:                                    ; preds = %if.end.i136
-  %41 = load ptr, ptr %allocationCallbacks320, align 8
-  call void %40(ptr noundef nonnull %39, ptr noundef %41) #64
+if.then4.i140:                                    ; preds = %if.end.i135
+  %42 = load ptr, ptr %allocationCallbacks319, align 8
+  call void %41(ptr noundef nonnull %40, ptr noundef %42) #64
   br label %on_error_2
 
-on_error_2:                                       ; preds = %if.end7.thread.i, %if.then2.i108, %ma_node_graph_get_channels.exit, %if.then2.i.i109, %if.then4.i.i, %if.end.i.i, %if.then4.i141, %if.end.i136, %if.then191, %ma_malloc.exit122.thread, %ma_malloc.exit122, %on_error_3
-  %result.2 = phi i32 [ %result.3, %on_error_3 ], [ -4, %ma_malloc.exit122 ], [ -4, %ma_malloc.exit122.thread ], [ %result.3, %if.then191 ], [ %result.3, %if.end.i136 ], [ %result.3, %if.then4.i141 ], [ %call8.i, %if.then4.i.i ], [ %call8.i, %if.end.i.i ], [ -4, %if.then2.i.i109 ], [ -2, %ma_node_graph_get_channels.exit ], [ -4, %if.then2.i108 ], [ %call818.i, %if.end7.thread.i ]
-  %42 = load i32, ptr %listenerCount136, align 4
-  %cmp197463.not = icmp eq i32 %42, 0
-  br i1 %cmp197463.not, label %ma_node_graph_uninit.exit, label %for.body199.lr.ph
+on_error_2:                                       ; preds = %if.end7.thread.i, %if.then2.i107, %ma_node_graph_get_channels.exit, %if.then2.i.i108, %if.then4.i.i, %if.end.i.i, %if.then4.i140, %if.end.i135, %if.then191, %ma_malloc.exit121.thread, %ma_malloc.exit121, %on_error_3
+  %result.2 = phi i32 [ %result.3, %on_error_3 ], [ -4, %ma_malloc.exit121 ], [ -4, %ma_malloc.exit121.thread ], [ %result.3, %if.then191 ], [ %result.3, %if.end.i135 ], [ %result.3, %if.then4.i140 ], [ %call8.i, %if.then4.i.i ], [ %call8.i, %if.end.i.i ], [ -4, %if.then2.i.i108 ], [ -2, %ma_node_graph_get_channels.exit ], [ -4, %if.then2.i107 ], [ %call818.i, %if.end7.thread.i ]
+  %43 = load i32, ptr %listenerCount136, align 4
+  %cmp197462.not = icmp eq i32 %43, 0
+  br i1 %cmp197462.not, label %ma_node_graph_uninit.exit, label %for.body199.lr.ph
 
 for.body199.lr.ph:                                ; preds = %on_error_2
-  %onFree.i.i150 = getelementptr inbounds i8, ptr %allocationCallbacks320, i64 24
+  %onFree.i.i149 = getelementptr inbounds i8, ptr %allocationCallbacks319, i64 24
   br label %for.body199
 
 for.body199:                                      ; preds = %for.body199.lr.ph, %ma_spatializer_listener_uninit.exit
-  %43 = phi i32 [ %42, %for.body199.lr.ph ], [ %48, %ma_spatializer_listener_uninit.exit ]
-  %indvars.iv466 = phi i64 [ 0, %for.body199.lr.ph ], [ %indvars.iv.next467, %ma_spatializer_listener_uninit.exit ]
-  %arrayidx202 = getelementptr inbounds [4 x %struct.ma_spatializer_listener], ptr %listeners, i64 0, i64 %indvars.iv466
-  %_ownsHeap.i145 = getelementptr inbounds i8, ptr %arrayidx202, i64 100
-  %44 = load i32, ptr %_ownsHeap.i145, align 4
-  %tobool.not.i = icmp eq i32 %44, 0
+  %44 = phi i32 [ %43, %for.body199.lr.ph ], [ %49, %ma_spatializer_listener_uninit.exit ]
+  %indvars.iv465 = phi i64 [ 0, %for.body199.lr.ph ], [ %indvars.iv.next466, %ma_spatializer_listener_uninit.exit ]
+  %arrayidx202 = getelementptr inbounds [4 x %struct.ma_spatializer_listener], ptr %listeners, i64 0, i64 %indvars.iv465
+  %_ownsHeap.i144 = getelementptr inbounds i8, ptr %arrayidx202, i64 100
+  %45 = load i32, ptr %_ownsHeap.i144, align 4
+  %tobool.not.i = icmp eq i32 %45, 0
   br i1 %tobool.not.i, label %ma_spatializer_listener_uninit.exit, label %if.then1.i
 
 if.then1.i:                                       ; preds = %for.body199
   %_pHeap.i = getelementptr inbounds i8, ptr %arrayidx202, i64 104
-  %45 = load ptr, ptr %_pHeap.i, align 8
-  %cmp.i.i146 = icmp eq ptr %45, null
-  br i1 %cmp.i.i146, label %ma_spatializer_listener_uninit.exit, label %if.end.i.i147
+  %46 = load ptr, ptr %_pHeap.i, align 8
+  %cmp.i.i145 = icmp eq ptr %46, null
+  br i1 %cmp.i.i145, label %ma_spatializer_listener_uninit.exit, label %if.end.i.i146
 
-if.end.i.i147:                                    ; preds = %if.then1.i
-  %46 = load ptr, ptr %onFree.i.i150, align 8
-  %cmp3.not.i.i151 = icmp eq ptr %46, null
-  br i1 %cmp3.not.i.i151, label %ma_spatializer_listener_uninit.exit, label %if.then4.i.i152
+if.end.i.i146:                                    ; preds = %if.then1.i
+  %47 = load ptr, ptr %onFree.i.i149, align 8
+  %cmp3.not.i.i150 = icmp eq ptr %47, null
+  br i1 %cmp3.not.i.i150, label %ma_spatializer_listener_uninit.exit, label %if.then4.i.i151
 
-if.then4.i.i152:                                  ; preds = %if.end.i.i147
-  %47 = load ptr, ptr %allocationCallbacks320, align 8
-  call void %46(ptr noundef nonnull %45, ptr noundef %47) #64
+if.then4.i.i151:                                  ; preds = %if.end.i.i146
+  %48 = load ptr, ptr %allocationCallbacks319, align 8
+  call void %47(ptr noundef nonnull %46, ptr noundef %48) #64
   %.pre = load i32, ptr %listenerCount136, align 4
   br label %ma_spatializer_listener_uninit.exit
 
-ma_spatializer_listener_uninit.exit:              ; preds = %for.body199, %if.then1.i, %if.end.i.i147, %if.then4.i.i152
-  %48 = phi i32 [ %43, %for.body199 ], [ %43, %if.then1.i ], [ %43, %if.end.i.i147 ], [ %.pre, %if.then4.i.i152 ]
-  %indvars.iv.next467 = add nuw nsw i64 %indvars.iv466, 1
-  %49 = zext i32 %48 to i64
-  %cmp197 = icmp samesign ult i64 %indvars.iv.next467, %49
+ma_spatializer_listener_uninit.exit:              ; preds = %for.body199, %if.then1.i, %if.end.i.i146, %if.then4.i.i151
+  %49 = phi i32 [ %44, %for.body199 ], [ %44, %if.then1.i ], [ %44, %if.end.i.i146 ], [ %.pre, %if.then4.i.i151 ]
+  %indvars.iv.next466 = add nuw nsw i64 %indvars.iv465, 1
+  %50 = zext i32 %49 to i64
+  %cmp197 = icmp samesign ult i64 %indvars.iv.next466, %50
   br i1 %cmp197, label %for.body199, label %ma_node_graph_uninit.exit, !llvm.loop !767
 
 ma_node_graph_uninit.exit:                        ; preds = %ma_spatializer_listener_uninit.exit, %on_error_2
-  call void @ma_node_uninit(ptr noundef nonnull %endpoint.i, ptr noundef nonnull %allocationCallbacks320)
+  call void @ma_node_uninit(ptr noundef nonnull %endpoint.i, ptr noundef nonnull %allocationCallbacks319)
   br label %on_error_1
 
 on_error_1:                                       ; preds = %ma_node_graph_init.exit.thread, %if.end108, %ma_node_graph_uninit.exit
-  %result.1 = phi i32 [ %result.2, %ma_node_graph_uninit.exit ], [ -2, %if.end108 ], [ %retval.0.i100.ph, %ma_node_graph_init.exit.thread ]
+  %result.1 = phi i32 [ %result.2, %ma_node_graph_uninit.exit ], [ -2, %if.end108 ], [ %retval.0.i99.ph, %ma_node_graph_init.exit.thread ]
   %ownsDevice209 = getelementptr inbounds i8, ptr %pEngine, i64 1241
-  %50 = load i8, ptr %ownsDevice209, align 1
-  %tobool210.not = icmp eq i8 %50, 0
+  %51 = load i8, ptr %ownsDevice209, align 1
+  %tobool210.not = icmp eq i8 %51, 0
   br i1 %tobool210.not, label %return, label %if.then211
 
 if.then211:                                       ; preds = %on_error_1
-  %51 = load ptr, ptr %pDevice10, align 8
-  call void @ma_device_uninit(ptr noundef %51)
   %52 = load ptr, ptr %pDevice10, align 8
-  %cmp.i156 = icmp eq ptr %52, null
-  br i1 %cmp.i156, label %return, label %if.end.i157
+  call void @ma_device_uninit(ptr noundef %52)
+  %53 = load ptr, ptr %pDevice10, align 8
+  %cmp.i155 = icmp eq ptr %53, null
+  br i1 %cmp.i155, label %return, label %if.end.i156
 
-if.end.i157:                                      ; preds = %if.then211
-  %onFree.i160 = getelementptr inbounds i8, ptr %allocationCallbacks320, i64 24
-  %53 = load ptr, ptr %onFree.i160, align 8
-  %cmp3.not.i161 = icmp eq ptr %53, null
-  br i1 %cmp3.not.i161, label %return, label %if.then4.i162
+if.end.i156:                                      ; preds = %if.then211
+  %onFree.i159 = getelementptr inbounds i8, ptr %allocationCallbacks319, i64 24
+  %54 = load ptr, ptr %onFree.i159, align 8
+  %cmp3.not.i160 = icmp eq ptr %54, null
+  br i1 %cmp3.not.i160, label %return, label %if.then4.i161
 
-if.then4.i162:                                    ; preds = %if.end.i157
-  %54 = load ptr, ptr %allocationCallbacks320, align 8
-  call void %53(ptr noundef nonnull %52, ptr noundef %54) #64
+if.then4.i161:                                    ; preds = %if.end.i156
+  %55 = load ptr, ptr %allocationCallbacks319, align 8
+  call void %54(ptr noundef nonnull %53, ptr noundef %55) #64
   br label %return
 
-return:                                           ; preds = %if.then4.i162, %if.end.i157, %if.then211, %ma_malloc.exit.thread, %on_error_1, %if.end176, %land.lhs.true179, %ma_engine_start.exit, %if.end72, %ma_malloc.exit, %entry, %ma_free.exit
-  %retval.0 = phi i32 [ %result.0, %ma_free.exit ], [ -2, %entry ], [ -4, %ma_malloc.exit ], [ -2, %if.end72 ], [ 0, %ma_engine_start.exit ], [ 0, %land.lhs.true179 ], [ 0, %if.end176 ], [ %result.1, %on_error_1 ], [ -4, %ma_malloc.exit.thread ], [ %result.1, %if.then211 ], [ %result.1, %if.end.i157 ], [ %result.1, %if.then4.i162 ]
+return:                                           ; preds = %if.then4.i161, %if.end.i156, %if.then211, %ma_malloc.exit.thread, %on_error_1, %if.end176, %land.lhs.true179, %ma_engine_start.exit, %if.end72, %ma_malloc.exit, %entry, %ma_free.exit
+  %retval.0 = phi i32 [ %result.0, %ma_free.exit ], [ -2, %entry ], [ -4, %ma_malloc.exit ], [ -2, %if.end72 ], [ 0, %ma_engine_start.exit ], [ 0, %land.lhs.true179 ], [ 0, %if.end176 ], [ %result.1, %on_error_1 ], [ -4, %ma_malloc.exit.thread ], [ %result.1, %if.then211 ], [ %result.1, %if.end.i156 ], [ %result.1, %if.then4.i161 ]
   ret i32 %retval.0
 }
 

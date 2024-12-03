@@ -4679,14 +4679,14 @@ define internal noalias noundef ptr @_srun_signal_mgr(ptr noundef %0) #0 {
 
 18:                                               ; preds = %14
   %19 = load i32, ptr %3, align 4
-  switch i32 %19, label %83 [
+  switch i32 %19, label %82 [
     i32 2, label %20
-    i32 3, label %58
-    i32 15, label %62
-    i32 1, label %62
-    i32 18, label %67
-    i32 13, label %71
-    i32 14, label %73
+    i32 3, label %57
+    i32 15, label %61
+    i32 1, label %61
+    i32 18, label %66
+    i32 13, label %70
+    i32 14, label %72
   ]
 
 20:                                               ; preds = %18
@@ -4699,148 +4699,147 @@ define internal noalias noundef ptr @_srun_signal_mgr(ptr noundef %0) #0 {
   %24 = call i32 @gettimeofday(ptr noundef nonnull %2, ptr noundef null) #16
   %25 = load i8, ptr getelementptr inbounds (i8, ptr @sropt, i64 184), align 8
   %26 = trunc i8 %25 to i1
-  br i1 %26, label %36, label %27
+  br i1 %26, label %35, label %27
 
 27:                                               ; preds = %23
   %.val.i = load i64, ptr %2, align 8
   %.val4.i = load i64, ptr %8, align 8
   %28 = load i64, ptr @_handle_intr.last_intr, align 8
   %29 = sub nsw i64 %.val.i, %28
-  %30 = icmp slt i64 %29, 10
-  %31 = mul nsw i64 %29, 1000000
-  %spec.select.i.i = select i1 %30, i64 %31, i64 10000000
-  %32 = load i64, ptr getelementptr inbounds (i8, ptr @_handle_intr.last_intr, i64 8), align 8
-  %33 = sub i64 %.val4.i, %32
-  %34 = add nsw i64 %33, %spec.select.i.i
-  %35 = icmp slt i64 %34, 1000000
-  br i1 %35, label %36, label %41
+  %30 = call i64 @llvm.smin.i64(i64 %29, i64 10)
+  %spec.select.i.i = mul i64 %30, 1000000
+  %31 = load i64, ptr getelementptr inbounds (i8, ptr @_handle_intr.last_intr, i64 8), align 8
+  %32 = sub i64 %.val4.i, %31
+  %33 = add nsw i64 %32, %spec.select.i.i
+  %34 = icmp slt i64 %33, 1000000
+  br i1 %34, label %35, label %40
 
-36:                                               ; preds = %27, %23
-  %37 = call i32 @get_log_level() #16
-  %38 = icmp sgt i32 %37, 2
-  br i1 %38, label %39, label %40
+35:                                               ; preds = %27, %23
+  %36 = call i32 @get_log_level() #16
+  %37 = icmp sgt i32 %36, 2
+  br i1 %37, label %38, label %39
 
-39:                                               ; preds = %36
+38:                                               ; preds = %35
   call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.123, ptr noundef %0) #16
-  br label %40
+  br label %39
 
-40:                                               ; preds = %39, %36
+39:                                               ; preds = %38, %35
   call void @launch_g_fwd_signal(i32 noundef 2) #16
   call void @job_force_termination(ptr noundef %0)
   br label %_handle_intr.exit
 
-41:                                               ; preds = %27
-  %42 = load i8, ptr getelementptr inbounds (i8, ptr @sropt, i64 69), align 1
-  %43 = trunc i8 %42 to i1
-  br i1 %43, label %44, label %49
+40:                                               ; preds = %27
+  %41 = load i8, ptr getelementptr inbounds (i8, ptr @sropt, i64 69), align 1
+  %42 = trunc i8 %41 to i1
+  br i1 %42, label %43, label %48
 
-44:                                               ; preds = %41
-  %45 = call i32 @get_log_level() #16
-  %46 = icmp sgt i32 %45, 2
-  br i1 %46, label %47, label %48
+43:                                               ; preds = %40
+  %44 = call i32 @get_log_level() #16
+  %45 = icmp sgt i32 %44, 2
+  br i1 %45, label %46, label %47
 
-47:                                               ; preds = %44
+46:                                               ; preds = %43
   call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.123, ptr noundef %0) #16
-  br label %48
+  br label %47
 
-48:                                               ; preds = %47, %44
+47:                                               ; preds = %46, %43
   call void @launch_g_fwd_signal(i32 noundef 2) #16
-  br label %57
-
-49:                                               ; preds = %41
-  %50 = load i32, ptr %9, align 4
-  %51 = icmp ult i32 %50, 4
-  br i1 %51, label %52, label %57
-
-52:                                               ; preds = %49
-  %53 = call i32 @get_log_level() #16
-  %54 = icmp sgt i32 %53, 2
-  br i1 %54, label %55, label %56
-
-55:                                               ; preds = %52
-  call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.124) #16
   br label %56
 
-56:                                               ; preds = %55, %52
-  call void @launch_g_print_status() #16
-  br label %57
+48:                                               ; preds = %40
+  %49 = load i32, ptr %9, align 4
+  %50 = icmp ult i32 %49, 4
+  br i1 %50, label %51, label %56
 
-57:                                               ; preds = %56, %49, %48
+51:                                               ; preds = %48
+  %52 = call i32 @get_log_level() #16
+  %53 = icmp sgt i32 %52, 2
+  br i1 %53, label %54, label %55
+
+54:                                               ; preds = %51
+  call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.124) #16
+  br label %55
+
+55:                                               ; preds = %54, %51
+  call void @launch_g_print_status() #16
+  br label %56
+
+56:                                               ; preds = %55, %48, %47
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) @_handle_intr.last_intr, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
   br label %_handle_intr.exit
 
-_handle_intr.exit:                                ; preds = %40, %57
+_handle_intr.exit:                                ; preds = %39, %56
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   br label %.backedge
 
-58:                                               ; preds = %18
-  %59 = call i32 @get_log_level() #16
-  %60 = icmp sgt i32 %59, 2
-  br i1 %60, label %61, label %62
+57:                                               ; preds = %18
+  %58 = call i32 @get_log_level() #16
+  %59 = icmp sgt i32 %58, 2
+  br i1 %59, label %60, label %61
 
-61:                                               ; preds = %58
+60:                                               ; preds = %57
   call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.120) #16
-  br label %62
+  br label %61
 
-62:                                               ; preds = %58, %61, %18, %18
-  %63 = call i32 @get_log_level() #16
-  %64 = icmp sgt i32 %63, 2
-  br i1 %64, label %65, label %66
+61:                                               ; preds = %57, %60, %18, %18
+  %62 = call i32 @get_log_level() #16
+  %63 = icmp sgt i32 %62, 2
+  br i1 %63, label %64, label %65
 
-65:                                               ; preds = %62
+64:                                               ; preds = %61
   call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.42) #16
-  br label %66
+  br label %65
 
-66:                                               ; preds = %65, %62
+65:                                               ; preds = %64, %61
   call void @launch_g_fwd_signal(i32 noundef 9) #16
   br label %.backedge
 
-67:                                               ; preds = %18
-  %68 = call i32 @get_log_level() #16
-  %69 = icmp sgt i32 %68, 2
-  br i1 %69, label %70, label %.backedge
+66:                                               ; preds = %18
+  %67 = call i32 @get_log_level() #16
+  %68 = icmp sgt i32 %67, 2
+  br i1 %68, label %69, label %.backedge
 
-70:                                               ; preds = %67
+69:                                               ; preds = %66
   call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.121) #16
   br label %.backedge
 
-71:                                               ; preds = %18
+70:                                               ; preds = %18
   %.b.i = load i1, ptr @_handle_pipe.ending, align 4
-  br i1 %.b.i, label %.backedge, label %72
+  br i1 %.b.i, label %.backedge, label %71
 
-72:                                               ; preds = %71
+71:                                               ; preds = %70
   store i1 true, ptr @_handle_pipe.ending, align 4
   call void @launch_g_fwd_signal(i32 noundef 9) #16
   br label %.backedge
 
-73:                                               ; preds = %18
-  %74 = load i8, ptr @srun_max_timer, align 1
-  %75 = trunc i8 %74 to i1
-  br i1 %75, label %76, label %.backedge
+72:                                               ; preds = %18
+  %73 = load i8, ptr @srun_max_timer, align 1
+  %74 = trunc i8 %73 to i1
+  br i1 %74, label %75, label %.backedge
 
-76:                                               ; preds = %73
-  %77 = call i32 @get_log_level() #16
-  %78 = icmp sgt i32 %77, 2
-  br i1 %78, label %79, label %81
+75:                                               ; preds = %72
+  %76 = call i32 @get_log_level() #16
+  %77 = icmp sgt i32 %76, 2
+  br i1 %77, label %78, label %80
 
-79:                                               ; preds = %76
-  %80 = load i32, ptr getelementptr inbounds (i8, ptr @sropt, i64 104), align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.122, i32 noundef %80) #16
-  br label %81
+78:                                               ; preds = %75
+  %79 = load i32, ptr getelementptr inbounds (i8, ptr @sropt, i64 104), align 8
+  call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.122, i32 noundef %79) #16
+  br label %80
 
-81:                                               ; preds = %79, %76
+80:                                               ; preds = %78, %75
   call void @launch_g_print_status() #16
-  %82 = call i32 @launch_g_step_terminate() #16
+  %81 = call i32 @launch_g_step_terminate() #16
   br label %.backedge
 
-83:                                               ; preds = %18
+82:                                               ; preds = %18
   call void @launch_g_fwd_signal(i32 noundef %19) #16
   br label %.backedge
 
-.backedge:                                        ; preds = %66, %83, %_handle_intr.exit, %20, %70, %67, %81, %73, %71, %72, %14
-  %84 = load i8, ptr @srun_shutdown, align 1
-  %85 = trunc i8 %84 to i1
-  br i1 %85, label %._crit_edge, label %14, !llvm.loop !45
+.backedge:                                        ; preds = %65, %82, %_handle_intr.exit, %20, %69, %66, %80, %72, %70, %71, %14
+  %83 = load i8, ptr @srun_shutdown, align 1
+  %84 = trunc i8 %83 to i1
+  br i1 %84, label %._crit_edge, label %14, !llvm.loop !45
 
 ._crit_edge:                                      ; preds = %.backedge, %.preheader
   ret ptr null
@@ -5514,6 +5513,9 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.usub.sat.i32(i32, i32) #14
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.smin.i64(i64, i64) #14
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

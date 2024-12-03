@@ -55,19 +55,19 @@ entry:
   %sub_bucket_half_count_magnitude = getelementptr inbounds i8, ptr %h, i64 24
   %0 = load i32, ptr %sub_bucket_half_count_magnitude, align 8
   %shr = ashr i32 %index, %0
-  %sub = add nsw i32 %shr, -1
   %sub_bucket_half_count = getelementptr inbounds i8, ptr %h, i64 28
   %1 = load i32, ptr %sub_bucket_half_count, align 4
   %sub1 = add nsw i32 %1, -1
   %and = and i32 %sub1, %index
-  %cmp = icmp slt i32 %shr, 1
-  %spec.select = select i1 %cmp, i32 0, i32 %sub
-  %add = select i1 %cmp, i32 0, i32 %1
+  %2 = tail call i32 @llvm.smax.i32(i32 %shr, i32 1)
+  %spec.select = add nsw i32 %2, -1
+  %cmp.inv = icmp sgt i32 %shr, 0
+  %add = select i1 %cmp.inv, i32 %1, i32 0
   %spec.select8 = add nsw i32 %and, %add
   %unit_magnitude = getelementptr inbounds i8, ptr %h, i64 16
-  %2 = load i32, ptr %unit_magnitude, align 8
+  %3 = load i32, ptr %unit_magnitude, align 8
   %conv.i = sext i32 %spec.select8 to i64
-  %add.i = add nsw i32 %spec.select, %2
+  %add.i = add nsw i32 %spec.select, %3
   %sh_prom.i = zext nneg i32 %add.i to i64
   %shl.i = shl i64 %conv.i, %sh_prom.i
   ret i64 %shl.i
@@ -166,8 +166,8 @@ define dso_local void @hdr_reset_internal_counters(ptr nocapture noundef %h) loc
 entry:
   %counts_len = getelementptr inbounds i8, ptr %h, i64 80
   %0 = load i32, ptr %counts_len, align 8
-  %cmp37 = icmp sgt i32 %0, 0
-  br i1 %cmp37, label %for.body.lr.ph, label %if.end12.thread
+  %cmp35 = icmp sgt i32 %0, 0
+  br i1 %cmp35, label %for.body.lr.ph, label %if.end12.thread
 
 if.end12.thread:                                  ; preds = %entry
   %1 = getelementptr inbounds i8, ptr %h, i64 56
@@ -182,27 +182,27 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %min_non_zero_index.041 = phi i32 [ -1, %for.body.lr.ph ], [ %min_non_zero_index.1, %for.inc ]
-  %max_index.040 = phi i32 [ -1, %for.body.lr.ph ], [ %max_index.1, %for.inc ]
-  %observed_total_count.038 = phi i64 [ 0, %for.body.lr.ph ], [ %observed_total_count.1, %for.inc ]
+  %min_non_zero_index.039 = phi i32 [ -1, %for.body.lr.ph ], [ %min_non_zero_index.1, %for.inc ]
+  %max_index.038 = phi i32 [ -1, %for.body.lr.ph ], [ %max_index.1, %for.inc ]
+  %observed_total_count.036 = phi i64 [ 0, %for.body.lr.ph ], [ %observed_total_count.1, %for.inc ]
   %arrayidx.i = getelementptr inbounds i64, ptr %h.val, i64 %indvars.iv
   %3 = load i64, ptr %arrayidx.i, align 8
   %cmp1 = icmp sgt i64 %3, 0
   br i1 %cmp1, label %if.then, label %for.inc
 
 if.then:                                          ; preds = %for.body
-  %add = add nuw nsw i64 %3, %observed_total_count.038
-  %cmp2 = icmp eq i32 %min_non_zero_index.041, -1
+  %add = add nuw nsw i64 %3, %observed_total_count.036
+  %cmp2 = icmp eq i32 %min_non_zero_index.039, -1
   %cmp3 = icmp ne i64 %indvars.iv, 0
   %or.cond = and i1 %cmp3, %cmp2
   %4 = trunc nuw nsw i64 %indvars.iv to i32
-  %spec.select = select i1 %or.cond, i32 %4, i32 %min_non_zero_index.041
+  %spec.select = select i1 %or.cond, i32 %4, i32 %min_non_zero_index.039
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then, %for.body
-  %observed_total_count.1 = phi i64 [ %observed_total_count.038, %for.body ], [ %add, %if.then ]
-  %max_index.1 = phi i32 [ %max_index.040, %for.body ], [ %4, %if.then ]
-  %min_non_zero_index.1 = phi i32 [ %min_non_zero_index.041, %for.body ], [ %spec.select, %if.then ]
+  %observed_total_count.1 = phi i64 [ %observed_total_count.036, %for.body ], [ %add, %if.then ]
+  %max_index.1 = phi i32 [ %max_index.038, %for.body ], [ %4, %if.then ]
+  %min_non_zero_index.1 = phi i32 [ %min_non_zero_index.039, %for.body ], [ %spec.select, %if.then ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body
@@ -215,28 +215,28 @@ if.else:                                          ; preds = %for.end
   %sub_bucket_half_count_magnitude.i = getelementptr inbounds i8, ptr %h, i64 24
   %5 = load i32, ptr %sub_bucket_half_count_magnitude.i, align 8
   %shr.i = ashr i32 %max_index.1, %5
-  %sub.i = add nsw i32 %shr.i, -1
   %sub_bucket_half_count.i = getelementptr inbounds i8, ptr %h, i64 28
   %6 = load i32, ptr %sub_bucket_half_count.i, align 4
   %sub1.i = add nsw i32 %6, -1
   %and.i = and i32 %sub1.i, %max_index.1
-  %cmp.i = icmp slt i32 %shr.i, 1
-  %spec.select.i = select i1 %cmp.i, i32 0, i32 %sub.i
-  %add.i = select i1 %cmp.i, i32 0, i32 %6
+  %7 = tail call i32 @llvm.smax.i32(i32 %shr.i, i32 1)
+  %spec.select.i = add nsw i32 %7, -1
+  %cmp.inv.i = icmp sgt i32 %shr.i, 0
+  %add.i = select i1 %cmp.inv.i, i32 %6, i32 0
   %spec.select8.i = add nsw i32 %and.i, %add.i
   %unit_magnitude.i = getelementptr inbounds i8, ptr %h, i64 16
-  %7 = load i32, ptr %unit_magnitude.i, align 8
+  %8 = load i32, ptr %unit_magnitude.i, align 8
   %conv.i.i = sext i32 %spec.select8.i to i64
-  %add.i.i = add nsw i32 %spec.select.i, %7
+  %add.i.i = add nsw i32 %spec.select.i, %8
   %sh_prom.i.i = zext nneg i32 %add.i.i to i64
   %shl.i.i = shl i64 %conv.i.i, %sh_prom.i.i
   %sub_bucket_mask.i.i.i.i = getelementptr inbounds i8, ptr %h, i64 32
-  %8 = load i64, ptr %sub_bucket_mask.i.i.i.i, align 8
-  %or.i.i.i.i = or i64 %shl.i.i, %8
-  %9 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i, i1 true)
-  %cast.i.i.i.i.i = trunc nuw nsw i64 %9 to i32
-  %10 = add i32 %5, %cast.i.i.i.i.i
-  %add.i.i.i.i = sub i32 63, %10
+  %9 = load i64, ptr %sub_bucket_mask.i.i.i.i, align 8
+  %or.i.i.i.i = or i64 %shl.i.i, %9
+  %10 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i, i1 true)
+  %cast.i.i.i.i.i = trunc nuw nsw i64 %10 to i32
+  %11 = add i32 %5, %cast.i.i.i.i.i
+  %add.i.i.i.i = sub i32 63, %11
   %sh_prom.i.i.i.i = zext nneg i32 %add.i.i.i.i to i64
   %shr.i.i.i.i = ashr i64 %shl.i.i, %sh_prom.i.i.i.i
   %sext.i.i.i = shl i64 %shr.i.i.i.i, 32
@@ -244,51 +244,51 @@ if.else:                                          ; preds = %for.end
   %shl.i.i.i.i = shl i64 %conv.i5.i.i.i, %sh_prom.i.i.i.i
   %conv.i.i.i.i = trunc i64 %shr.i.i.i.i to i32
   %sub_bucket_count.i.i.i = getelementptr inbounds i8, ptr %h, i64 40
-  %11 = load i32, ptr %sub_bucket_count.i.i.i, align 8
-  %cmp.not.i.i.i = icmp sle i32 %11, %conv.i.i.i.i
+  %12 = load i32, ptr %sub_bucket_count.i.i.i, align 8
+  %cmp.not.i.i.i = icmp sle i32 %12, %conv.i.i.i.i
   %add.i.i.i = zext i1 %cmp.not.i.i.i to i32
   %add3.i.i.i = add i32 %add.i.i.i.i, %add.i.i.i
   %sh_prom.i.i.i = zext nneg i32 %add3.i.i.i to i64
   %shl.i.i.i = shl nuw i64 1, %sh_prom.i.i.i
   %add.i.i19 = add i64 %shl.i.i.i.i, -1
-  %sub.i20 = add i64 %add.i.i19, %shl.i.i.i
+  %sub.i = add i64 %add.i.i19, %shl.i.i.i
   br label %if.end12
 
 if.end12:                                         ; preds = %for.end, %if.else
-  %sub.i20.sink = phi i64 [ %sub.i20, %if.else ], [ 0, %for.end ]
-  %12 = getelementptr inbounds i8, ptr %h, i64 56
-  store i64 %sub.i20.sink, ptr %12, align 8
+  %sub.i.sink = phi i64 [ %sub.i, %if.else ], [ 0, %for.end ]
+  %13 = getelementptr inbounds i8, ptr %h, i64 56
+  store i64 %sub.i.sink, ptr %13, align 8
   %cmp13 = icmp eq i32 %min_non_zero_index.1, -1
   br i1 %cmp13, label %if.end18, label %if.else15
 
 if.else15:                                        ; preds = %if.end12
-  %sub_bucket_half_count_magnitude.i21 = getelementptr inbounds i8, ptr %h, i64 24
-  %13 = load i32, ptr %sub_bucket_half_count_magnitude.i21, align 8
-  %shr.i22 = ashr i32 %min_non_zero_index.1, %13
-  %sub.i23 = add nsw i32 %shr.i22, -1
-  %sub_bucket_half_count.i24 = getelementptr inbounds i8, ptr %h, i64 28
-  %14 = load i32, ptr %sub_bucket_half_count.i24, align 4
-  %sub1.i25 = add nsw i32 %14, -1
-  %and.i26 = and i32 %sub1.i25, %min_non_zero_index.1
-  %cmp.i27 = icmp slt i32 %shr.i22, 1
-  %spec.select.i28 = select i1 %cmp.i27, i32 0, i32 %sub.i23
-  %add.i29 = select i1 %cmp.i27, i32 0, i32 %14
-  %spec.select8.i30 = add nsw i32 %and.i26, %add.i29
-  %unit_magnitude.i31 = getelementptr inbounds i8, ptr %h, i64 16
-  %15 = load i32, ptr %unit_magnitude.i31, align 8
-  %conv.i.i32 = sext i32 %spec.select8.i30 to i64
-  %add.i.i33 = add nsw i32 %spec.select.i28, %15
-  %sh_prom.i.i34 = zext nneg i32 %add.i.i33 to i64
-  %shl.i.i35 = shl i64 %conv.i.i32, %sh_prom.i.i34
+  %sub_bucket_half_count_magnitude.i20 = getelementptr inbounds i8, ptr %h, i64 24
+  %14 = load i32, ptr %sub_bucket_half_count_magnitude.i20, align 8
+  %shr.i21 = ashr i32 %min_non_zero_index.1, %14
+  %sub_bucket_half_count.i22 = getelementptr inbounds i8, ptr %h, i64 28
+  %15 = load i32, ptr %sub_bucket_half_count.i22, align 4
+  %sub1.i23 = add nsw i32 %15, -1
+  %and.i24 = and i32 %sub1.i23, %min_non_zero_index.1
+  %16 = tail call i32 @llvm.smax.i32(i32 %shr.i21, i32 1)
+  %spec.select.i25 = add nsw i32 %16, -1
+  %cmp.inv.i26 = icmp sgt i32 %shr.i21, 0
+  %add.i27 = select i1 %cmp.inv.i26, i32 %15, i32 0
+  %spec.select8.i28 = add nsw i32 %and.i24, %add.i27
+  %unit_magnitude.i29 = getelementptr inbounds i8, ptr %h, i64 16
+  %17 = load i32, ptr %unit_magnitude.i29, align 8
+  %conv.i.i30 = sext i32 %spec.select8.i28 to i64
+  %add.i.i31 = add nsw i32 %spec.select.i25, %17
+  %sh_prom.i.i32 = zext nneg i32 %add.i.i31 to i64
+  %shl.i.i33 = shl i64 %conv.i.i30, %sh_prom.i.i32
   br label %if.end18
 
 if.end18:                                         ; preds = %if.end12, %if.end12.thread, %if.else15
-  %observed_total_count.0.lcssa4957 = phi i64 [ %observed_total_count.1, %if.else15 ], [ 0, %if.end12.thread ], [ %observed_total_count.1, %if.end12 ]
-  %shl.i.i35.sink = phi i64 [ %shl.i.i35, %if.else15 ], [ 9223372036854775807, %if.end12.thread ], [ 9223372036854775807, %if.end12 ]
-  %16 = getelementptr inbounds i8, ptr %h, i64 48
-  store i64 %shl.i.i35.sink, ptr %16, align 8
+  %observed_total_count.0.lcssa4755 = phi i64 [ %observed_total_count.1, %if.else15 ], [ 0, %if.end12.thread ], [ %observed_total_count.1, %if.end12 ]
+  %shl.i.i33.sink = phi i64 [ %shl.i.i33, %if.else15 ], [ 9223372036854775807, %if.end12.thread ], [ 9223372036854775807, %if.end12 ]
+  %18 = getelementptr inbounds i8, ptr %h, i64 48
+  store i64 %shl.i.i33.sink, ptr %18, align 8
   %total_count = getelementptr inbounds i8, ptr %h, i64 88
-  store i64 %observed_total_count.0.lcssa4957, ptr %total_count, align 8
+  store i64 %observed_total_count.0.lcssa4755, ptr %total_count, align 8
   ret void
 }
 
@@ -1691,14 +1691,15 @@ if.then.i:                                        ; preds = %for.body.i
   %7 = load i32, ptr %sub_bucket_half_count.i.i, align 4
   %sub1.i.i = add i32 %7, 2147483647
   %and.i.i = and i32 %sub1.i.i, %5
-  %cmp.i.i = icmp eq i32 %shr.i.i, 0
-  %spec.select.i.i = tail call i32 @llvm.usub.sat.i32(i32 %shr.i.i, i32 1)
-  %add.i.i = select i1 %cmp.i.i, i32 0, i32 %7
+  %8 = tail call i32 @llvm.smax.i32(i32 %shr.i.i, i32 1)
+  %spec.select.i.i = add nsw i32 %8, -1
+  %cmp.inv.i.not.i = icmp eq i32 %shr.i.i, 0
+  %add.i.i = select i1 %cmp.inv.i.not.i, i32 0, i32 %7
   %spec.select8.i.i = add nsw i32 %and.i.i, %add.i.i
   %unit_magnitude.i.i = getelementptr inbounds i8, ptr %h, i64 16
-  %8 = load i32, ptr %unit_magnitude.i.i, align 8
+  %9 = load i32, ptr %unit_magnitude.i.i, align 8
   %conv.i.i.i = sext i32 %spec.select8.i.i to i64
-  %add.i.i.i = add nsw i32 %spec.select.i.i, %8
+  %add.i.i.i = add nsw i32 %spec.select.i.i, %9
   %sh_prom.i.i.i = zext nneg i32 %add.i.i.i to i64
   %shl.i.i.i = shl i64 %conv.i.i.i, %sh_prom.i.i.i
   br label %get_value_from_idx_up_to_count.exit
@@ -1712,14 +1713,14 @@ get_value_from_idx_up_to_count.exit:              ; preds = %for.inc.i, %entry, 
   %retval.0.i = phi i64 [ %shl.i.i.i, %if.then.i ], [ 0, %entry ], [ 0, %for.inc.i ]
   %cmp2 = fcmp oeq double %percentile, 0.000000e+00
   %sub_bucket_mask.i.i = getelementptr inbounds i8, ptr %h, i64 32
-  %9 = load i64, ptr %sub_bucket_mask.i.i, align 8
-  %or.i.i = or i64 %9, %retval.0.i
-  %10 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i, i1 true)
-  %cast.i.i.i = trunc nuw nsw i64 %10 to i32
+  %10 = load i64, ptr %sub_bucket_mask.i.i, align 8
+  %or.i.i = or i64 %10, %retval.0.i
+  %11 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i, i1 true)
+  %cast.i.i.i = trunc nuw nsw i64 %11 to i32
   %sub_bucket_half_count_magnitude.i.i7 = getelementptr inbounds i8, ptr %h, i64 24
-  %11 = load i32, ptr %sub_bucket_half_count_magnitude.i.i7, align 8
-  %12 = add i32 %11, %cast.i.i.i
-  %add.i.i8 = sub i32 63, %12
+  %12 = load i32, ptr %sub_bucket_half_count_magnitude.i.i7, align 8
+  %13 = add i32 %12, %cast.i.i.i
+  %add.i.i8 = sub i32 63, %13
   %sh_prom.i.i = zext nneg i32 %add.i.i8 to i64
   %shr.i.i9 = ashr i64 %retval.0.i, %sh_prom.i.i
   %sext.i = shl i64 %shr.i.i9, 32
@@ -1730,8 +1731,8 @@ get_value_from_idx_up_to_count.exit:              ; preds = %for.inc.i, %entry, 
 if.end:                                           ; preds = %get_value_from_idx_up_to_count.exit
   %conv.i.i.i.i = trunc i64 %shr.i.i9 to i32
   %sub_bucket_count.i.i.i = getelementptr inbounds i8, ptr %h, i64 40
-  %13 = load i32, ptr %sub_bucket_count.i.i.i, align 8
-  %cmp.not.i.i.i = icmp sle i32 %13, %conv.i.i.i.i
+  %14 = load i32, ptr %sub_bucket_count.i.i.i, align 8
+  %cmp.not.i.i.i = icmp sle i32 %14, %conv.i.i.i.i
   %add.i.i.i10 = zext i1 %cmp.not.i.i.i to i32
   %add3.i.i.i = add i32 %add.i.i8, %add.i.i.i10
   %sh_prom.i.i.i11 = zext nneg i32 %add3.i.i.i to i64
@@ -2018,12 +2019,12 @@ while.body.lr.ph.i:                               ; preds = %if.end.i.i.i, %if.e
   %9 = getelementptr i8, ptr %h, i64 40
   %.val27.i = load i32, ptr %9, align 8
   %cmp.not.i.i28 = icmp slt i32 %.val27.i, 1
-  %add.i38.i = zext i1 %cmp.not.i.i28 to i32
+  %add.i37.i = zext i1 %cmp.not.i.i28 to i32
   %10 = add i32 %6, %cast.i.i.i
-  %reass.sub38 = sub i32 %add.i38.i, %10
+  %reass.sub38 = sub i32 %add.i37.i, %10
   %add1.i.i = add i32 %reass.sub38, 63
-  %sh_prom.i39.i = zext nneg i32 %add1.i.i to i64
-  %shl.i.i29 = shl nuw i64 1, %sh_prom.i39.i
+  %sh_prom.i38.i = zext nneg i32 %add1.i.i to i64
+  %shl.i.i29 = shl nuw i64 1, %sh_prom.i38.i
   %lowest_equivalent_value.i = getelementptr inbounds i8, ptr %iter.i, i64 56
   store i64 0, ptr %lowest_equivalent_value.i, align 8
   %value15.i = getelementptr inbounds i8, ptr %iter.i, i64 40
@@ -2573,30 +2574,30 @@ next_value_greater_than_reporting_level_upper_bound.exit: ; preds = %lor.lhs.fal
   %sub_bucket_half_count_magnitude.i.i.i = getelementptr inbounds i8, ptr %iter.val17, i64 24
   %5 = load i32, ptr %sub_bucket_half_count_magnitude.i.i.i, align 8
   %shr.i.i.i = ashr i32 %add.i.i, %5
-  %sub.i.i.i = add nsw i32 %shr.i.i.i, -1
   %sub_bucket_half_count.i.i.i = getelementptr inbounds i8, ptr %iter.val17, i64 28
   %6 = load i32, ptr %sub_bucket_half_count.i.i.i, align 4
   %sub1.i.i.i = add nsw i32 %6, -1
   %and.i.i.i = and i32 %sub1.i.i.i, %add.i.i
-  %cmp.i.i.i = icmp slt i32 %shr.i.i.i, 1
-  %spec.select.i.i.i = select i1 %cmp.i.i.i, i32 0, i32 %sub.i.i.i
-  %add.i.i.i = select i1 %cmp.i.i.i, i32 0, i32 %6
+  %7 = tail call i32 @llvm.smax.i32(i32 %shr.i.i.i, i32 1)
+  %spec.select.i.i.i = add nsw i32 %7, -1
+  %cmp.inv.i.i.i = icmp sgt i32 %shr.i.i.i, 0
+  %add.i.i.i = select i1 %cmp.inv.i.i.i, i32 %6, i32 0
   %spec.select8.i.i.i = add nsw i32 %and.i.i.i, %add.i.i.i
   %unit_magnitude.i.i.i = getelementptr inbounds i8, ptr %iter.val17, i64 16
-  %7 = load i32, ptr %unit_magnitude.i.i.i, align 8
+  %8 = load i32, ptr %unit_magnitude.i.i.i, align 8
   %conv.i.i.i.i = sext i32 %spec.select8.i.i.i to i64
-  %add.i.i.i.i = add nsw i32 %spec.select.i.i.i, %7
+  %add.i.i.i.i = add nsw i32 %spec.select.i.i.i, %8
   %sh_prom.i.i.i.i = zext nneg i32 %add.i.i.i.i to i64
   %shl.i.i.i.i = shl i64 %conv.i.i.i.i, %sh_prom.i.i.i.i
   %cmp1.i = icmp sgt i64 %shl.i.i.i.i, %4
   br i1 %cmp1.i, label %if.then, label %return
 
 if.then:                                          ; preds = %entry.if.then_crit_edge, %next_value_greater_than_reporting_level_upper_bound.exit
-  %8 = phi i64 [ %.pre, %entry.if.then_crit_edge ], [ %4, %next_value_greater_than_reporting_level_upper_bound.exit ]
+  %9 = phi i64 [ %.pre, %entry.if.then_crit_edge ], [ %4, %next_value_greater_than_reporting_level_upper_bound.exit ]
   %value = getelementptr inbounds i8, ptr %iter, i64 40
   %next_value_reporting_level_lowest_equivalent2 = getelementptr inbounds i8, ptr %iter, i64 112
-  %9 = load i64, ptr %value, align 8
-  %cmp.not23 = icmp slt i64 %9, %8
+  %10 = load i64, ptr %value, align 8
+  %cmp.not23 = icmp slt i64 %10, %9
   br i1 %cmp.not23, label %if.end.lr.ph, label %if.then3
 
 if.end.lr.ph:                                     ; preds = %if.then
@@ -2605,25 +2606,25 @@ if.end.lr.ph:                                     ; preds = %if.then
 
 if.then3:                                         ; preds = %if.end10, %if.then
   %next_value_reporting_level = getelementptr inbounds i8, ptr %iter, i64 104
-  %10 = load i64, ptr %next_value_reporting_level, align 8
+  %11 = load i64, ptr %next_value_reporting_level, align 8
   %value_iterated_to.i = getelementptr inbounds i8, ptr %iter, i64 80
-  %11 = load i64, ptr %value_iterated_to.i, align 8
+  %12 = load i64, ptr %value_iterated_to.i, align 8
   %value_iterated_from.i = getelementptr inbounds i8, ptr %iter, i64 72
-  store i64 %11, ptr %value_iterated_from.i, align 8
-  store i64 %10, ptr %value_iterated_to.i, align 8
-  %12 = load i64, ptr %specifics, align 8
-  %add = add nsw i64 %12, %10
+  store i64 %12, ptr %value_iterated_from.i, align 8
+  store i64 %11, ptr %value_iterated_to.i, align 8
+  %13 = load i64, ptr %specifics, align 8
+  %add = add nsw i64 %13, %11
   store i64 %add, ptr %next_value_reporting_level, align 8
-  %13 = load ptr, ptr %iter, align 8
-  %sub_bucket_mask.i.i = getelementptr inbounds i8, ptr %13, i64 32
-  %14 = load i64, ptr %sub_bucket_mask.i.i, align 8
-  %or.i.i = or i64 %14, %add
-  %15 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i, i1 true)
-  %cast.i.i.i = trunc nuw nsw i64 %15 to i32
-  %sub_bucket_half_count_magnitude.i.i = getelementptr inbounds i8, ptr %13, i64 24
-  %16 = load i32, ptr %sub_bucket_half_count_magnitude.i.i, align 8
-  %17 = add i32 %16, %cast.i.i.i
-  %add.i.i19 = sub i32 63, %17
+  %14 = load ptr, ptr %iter, align 8
+  %sub_bucket_mask.i.i = getelementptr inbounds i8, ptr %14, i64 32
+  %15 = load i64, ptr %sub_bucket_mask.i.i, align 8
+  %or.i.i = or i64 %15, %add
+  %16 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i, i1 true)
+  %cast.i.i.i = trunc nuw nsw i64 %16 to i32
+  %sub_bucket_half_count_magnitude.i.i = getelementptr inbounds i8, ptr %14, i64 24
+  %17 = load i32, ptr %sub_bucket_half_count_magnitude.i.i, align 8
+  %18 = add i32 %17, %cast.i.i.i
+  %add.i.i19 = sub i32 63, %18
   %sh_prom.i.i = zext nneg i32 %add.i.i19 to i64
   %shr.i.i = ashr i64 %add, %sh_prom.i.i
   %sext.i = shl i64 %shr.i.i, 32
@@ -2637,13 +2638,13 @@ if.end:                                           ; preds = %if.end.lr.ph, %if.e
   br i1 %call8, label %if.end10, label %return
 
 if.end10:                                         ; preds = %if.end
-  %18 = load i64, ptr %count, align 8
-  %19 = load i64, ptr %count_added_in_this_iteration_step, align 8
-  %add12 = add nsw i64 %19, %18
+  %19 = load i64, ptr %count, align 8
+  %20 = load i64, ptr %count_added_in_this_iteration_step, align 8
+  %add12 = add nsw i64 %20, %19
   store i64 %add12, ptr %count_added_in_this_iteration_step, align 8
-  %20 = load i64, ptr %value, align 8
-  %21 = load i64, ptr %next_value_reporting_level_lowest_equivalent2, align 8
-  %cmp.not = icmp slt i64 %20, %21
+  %21 = load i64, ptr %value, align 8
+  %22 = load i64, ptr %next_value_reporting_level_lowest_equivalent2, align 8
+  %cmp.not = icmp slt i64 %21, %22
   br i1 %cmp.not, label %if.end, label %if.then3
 
 return:                                           ; preds = %if.end, %lor.lhs.false, %next_value_greater_than_reporting_level_upper_bound.exit, %if.then3
@@ -2735,30 +2736,30 @@ next_value_greater_than_reporting_level_upper_bound.exit: ; preds = %lor.lhs.fal
   %sub_bucket_half_count_magnitude.i.i.i = getelementptr inbounds i8, ptr %iter.val17, i64 24
   %5 = load i32, ptr %sub_bucket_half_count_magnitude.i.i.i, align 8
   %shr.i.i.i = ashr i32 %add.i.i, %5
-  %sub.i.i.i = add nsw i32 %shr.i.i.i, -1
   %sub_bucket_half_count.i.i.i = getelementptr inbounds i8, ptr %iter.val17, i64 28
   %6 = load i32, ptr %sub_bucket_half_count.i.i.i, align 4
   %sub1.i.i.i = add nsw i32 %6, -1
   %and.i.i.i = and i32 %sub1.i.i.i, %add.i.i
-  %cmp.i.i.i = icmp slt i32 %shr.i.i.i, 1
-  %spec.select.i.i.i = select i1 %cmp.i.i.i, i32 0, i32 %sub.i.i.i
-  %add.i.i.i = select i1 %cmp.i.i.i, i32 0, i32 %6
+  %7 = tail call i32 @llvm.smax.i32(i32 %shr.i.i.i, i32 1)
+  %spec.select.i.i.i = add nsw i32 %7, -1
+  %cmp.inv.i.i.i = icmp sgt i32 %shr.i.i.i, 0
+  %add.i.i.i = select i1 %cmp.inv.i.i.i, i32 %6, i32 0
   %spec.select8.i.i.i = add nsw i32 %and.i.i.i, %add.i.i.i
   %unit_magnitude.i.i.i = getelementptr inbounds i8, ptr %iter.val17, i64 16
-  %7 = load i32, ptr %unit_magnitude.i.i.i, align 8
+  %8 = load i32, ptr %unit_magnitude.i.i.i, align 8
   %conv.i.i.i.i = sext i32 %spec.select8.i.i.i to i64
-  %add.i.i.i.i = add nsw i32 %spec.select.i.i.i, %7
+  %add.i.i.i.i = add nsw i32 %spec.select.i.i.i, %8
   %sh_prom.i.i.i.i = zext nneg i32 %add.i.i.i.i to i64
   %shl.i.i.i.i = shl i64 %conv.i.i.i.i, %sh_prom.i.i.i.i
   %cmp1.i = icmp sgt i64 %shl.i.i.i.i, %4
   br i1 %cmp1.i, label %if.then, label %return
 
 if.then:                                          ; preds = %entry.if.then_crit_edge, %next_value_greater_than_reporting_level_upper_bound.exit
-  %8 = phi i64 [ %.pre, %entry.if.then_crit_edge ], [ %4, %next_value_greater_than_reporting_level_upper_bound.exit ]
+  %9 = phi i64 [ %.pre, %entry.if.then_crit_edge ], [ %4, %next_value_greater_than_reporting_level_upper_bound.exit ]
   %value = getelementptr inbounds i8, ptr %iter, i64 40
   %next_value_reporting_level_lowest_equivalent2 = getelementptr inbounds i8, ptr %iter, i64 112
-  %9 = load i64, ptr %value, align 8
-  %cmp.not23 = icmp slt i64 %9, %8
+  %10 = load i64, ptr %value, align 8
+  %cmp.not23 = icmp slt i64 %10, %9
   br i1 %cmp.not23, label %if.end.lr.ph, label %if.then3
 
 if.end.lr.ph:                                     ; preds = %if.then
@@ -2767,26 +2768,26 @@ if.end.lr.ph:                                     ; preds = %if.then
 
 if.then3:                                         ; preds = %if.end10, %if.then
   %next_value_reporting_level = getelementptr inbounds i8, ptr %iter, i64 104
-  %10 = load i64, ptr %next_value_reporting_level, align 8
+  %11 = load i64, ptr %next_value_reporting_level, align 8
   %value_iterated_to.i = getelementptr inbounds i8, ptr %iter, i64 80
-  %11 = load i64, ptr %value_iterated_to.i, align 8
+  %12 = load i64, ptr %value_iterated_to.i, align 8
   %value_iterated_from.i = getelementptr inbounds i8, ptr %iter, i64 72
-  store i64 %11, ptr %value_iterated_from.i, align 8
-  store i64 %10, ptr %value_iterated_to.i, align 8
-  %12 = load double, ptr %specifics, align 8
-  %conv = fptosi double %12 to i64
-  %mul = mul nsw i64 %10, %conv
+  store i64 %12, ptr %value_iterated_from.i, align 8
+  store i64 %11, ptr %value_iterated_to.i, align 8
+  %13 = load double, ptr %specifics, align 8
+  %conv = fptosi double %13 to i64
+  %mul = mul nsw i64 %11, %conv
   store i64 %mul, ptr %next_value_reporting_level, align 8
-  %13 = load ptr, ptr %iter, align 8
-  %sub_bucket_mask.i.i = getelementptr inbounds i8, ptr %13, i64 32
-  %14 = load i64, ptr %sub_bucket_mask.i.i, align 8
-  %or.i.i = or i64 %14, %mul
-  %15 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i, i1 true)
-  %cast.i.i.i = trunc nuw nsw i64 %15 to i32
-  %sub_bucket_half_count_magnitude.i.i = getelementptr inbounds i8, ptr %13, i64 24
-  %16 = load i32, ptr %sub_bucket_half_count_magnitude.i.i, align 8
-  %17 = add i32 %16, %cast.i.i.i
-  %add.i.i19 = sub i32 63, %17
+  %14 = load ptr, ptr %iter, align 8
+  %sub_bucket_mask.i.i = getelementptr inbounds i8, ptr %14, i64 32
+  %15 = load i64, ptr %sub_bucket_mask.i.i, align 8
+  %or.i.i = or i64 %15, %mul
+  %16 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i, i1 true)
+  %cast.i.i.i = trunc nuw nsw i64 %16 to i32
+  %sub_bucket_half_count_magnitude.i.i = getelementptr inbounds i8, ptr %14, i64 24
+  %17 = load i32, ptr %sub_bucket_half_count_magnitude.i.i, align 8
+  %18 = add i32 %17, %cast.i.i.i
+  %add.i.i19 = sub i32 63, %18
   %sh_prom.i.i = zext nneg i32 %add.i.i19 to i64
   %shr.i.i = ashr i64 %mul, %sh_prom.i.i
   %sext.i = shl i64 %shr.i.i, 32
@@ -2800,13 +2801,13 @@ if.end:                                           ; preds = %if.end.lr.ph, %if.e
   br i1 %call8, label %if.end10, label %return
 
 if.end10:                                         ; preds = %if.end
-  %18 = load i64, ptr %count, align 8
-  %19 = load i64, ptr %count_added_in_this_iteration_step, align 8
-  %add = add nsw i64 %19, %18
+  %19 = load i64, ptr %count, align 8
+  %20 = load i64, ptr %count_added_in_this_iteration_step, align 8
+  %add = add nsw i64 %20, %19
   store i64 %add, ptr %count_added_in_this_iteration_step, align 8
-  %20 = load i64, ptr %value, align 8
-  %21 = load i64, ptr %next_value_reporting_level_lowest_equivalent2, align 8
-  %cmp.not = icmp slt i64 %20, %21
+  %21 = load i64, ptr %value, align 8
+  %22 = load i64, ptr %next_value_reporting_level_lowest_equivalent2, align 8
+  %cmp.not = icmp slt i64 %21, %22
   br i1 %cmp.not, label %if.end, label %if.then3
 
 return:                                           ; preds = %if.end, %lor.lhs.false, %next_value_greater_than_reporting_level_upper_bound.exit, %if.then3
@@ -2943,12 +2944,12 @@ while.body.lr.ph.i:                               ; preds = %if.end.i.i.i, %if.e
   %15 = getelementptr i8, ptr %h, i64 40
   %.val27.i = load i32, ptr %15, align 8
   %cmp.not.i.i = icmp slt i32 %.val27.i, 1
-  %add.i38.i = zext i1 %cmp.not.i.i to i32
+  %add.i37.i = zext i1 %cmp.not.i.i to i32
   %16 = add i32 %12, %cast.i.i.i
-  %reass.sub46 = sub i32 %add.i38.i, %16
-  %add1.i.i = add i32 %reass.sub46, 63
-  %sh_prom.i39.i = zext nneg i32 %add1.i.i to i64
-  %shl.i.i = shl nuw i64 1, %sh_prom.i39.i
+  %reass.sub45 = sub i32 %add.i37.i, %16
+  %add1.i.i = add i32 %reass.sub45, 63
+  %sh_prom.i38.i = zext nneg i32 %add1.i.i to i64
+  %shl.i.i = shl nuw i64 1, %sh_prom.i38.i
   %lowest_equivalent_value.i = getelementptr inbounds i8, ptr %iter.i, i64 56
   store i64 0, ptr %lowest_equivalent_value.i, align 8
   %value15.i = getelementptr inbounds i8, ptr %iter.i, i64 40
@@ -3121,51 +3122,51 @@ counts_get_normalised.exit:                       ; preds = %if.end, %if.end.i.i
   %sub_bucket_half_count_magnitude.i = getelementptr inbounds i8, ptr %iter.val, i64 24
   %6 = load i32, ptr %sub_bucket_half_count_magnitude.i, align 8
   %shr.i = ashr i32 %inc, %6
-  %sub.i = add nsw i32 %shr.i, -1
   %sub_bucket_half_count.i = getelementptr inbounds i8, ptr %iter.val, i64 28
   %7 = load i32, ptr %sub_bucket_half_count.i, align 4
   %sub1.i = add nsw i32 %7, -1
   %and.i = and i32 %sub1.i, %inc
-  %cmp.i28 = icmp slt i32 %shr.i, 1
-  %spec.select.i = select i1 %cmp.i28, i32 0, i32 %sub.i
-  %add.i = select i1 %cmp.i28, i32 0, i32 %7
+  %8 = tail call i32 @llvm.smax.i32(i32 %shr.i, i32 1)
+  %spec.select.i = add nsw i32 %8, -1
+  %cmp.inv.i = icmp sgt i32 %shr.i, 0
+  %add.i = select i1 %cmp.inv.i, i32 %7, i32 0
   %spec.select8.i = add nsw i32 %and.i, %add.i
   %unit_magnitude.i = getelementptr inbounds i8, ptr %iter.val, i64 16
-  %8 = load i32, ptr %unit_magnitude.i, align 8
+  %9 = load i32, ptr %unit_magnitude.i, align 8
   %conv.i.i = sext i32 %spec.select8.i to i64
-  %add.i.i29 = add nsw i32 %spec.select.i, %8
-  %sh_prom.i.i = zext nneg i32 %add.i.i29 to i64
+  %add.i.i28 = add nsw i32 %spec.select.i, %9
+  %sh_prom.i.i = zext nneg i32 %add.i.i28 to i64
   %shl.i.i = shl i64 %conv.i.i, %sh_prom.i.i
   %sub_bucket_mask.i = getelementptr inbounds i8, ptr %iter.val, i64 32
-  %9 = load i64, ptr %sub_bucket_mask.i, align 8
-  %or.i = or i64 %shl.i.i, %9
-  %10 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i, i1 true)
-  %cast.i.i = trunc nuw nsw i64 %10 to i32
-  %11 = add i32 %6, %cast.i.i
-  %add.i32 = sub i32 63, %11
-  %sh_prom.i = zext nneg i32 %add.i32 to i64
-  %shr.i33 = ashr i64 %shl.i.i, %sh_prom.i
-  %conv.i = trunc i64 %shr.i33 to i32
-  %sext = shl i64 %shr.i33, 32
-  %conv.i.i34 = ashr exact i64 %sext, 32
-  %shl.i.i37 = shl i64 %conv.i.i34, %sh_prom.i
-  %12 = getelementptr i8, ptr %iter.val, i64 40
-  %.val27 = load i32, ptr %12, align 8
+  %10 = load i64, ptr %sub_bucket_mask.i, align 8
+  %or.i = or i64 %shl.i.i, %10
+  %11 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i, i1 true)
+  %cast.i.i = trunc nuw nsw i64 %11 to i32
+  %12 = add i32 %6, %cast.i.i
+  %add.i31 = sub i32 63, %12
+  %sh_prom.i = zext nneg i32 %add.i31 to i64
+  %shr.i32 = ashr i64 %shl.i.i, %sh_prom.i
+  %conv.i = trunc i64 %shr.i32 to i32
+  %sext = shl i64 %shr.i32, 32
+  %conv.i.i33 = ashr exact i64 %sext, 32
+  %shl.i.i36 = shl i64 %conv.i.i33, %sh_prom.i
+  %13 = getelementptr i8, ptr %iter.val, i64 40
+  %.val27 = load i32, ptr %13, align 8
   %cmp.not.i = icmp sle i32 %.val27, %conv.i
-  %add.i38 = zext i1 %cmp.not.i to i32
-  %add1.i = add i32 %add.i32, %add.i38
-  %sh_prom.i39 = zext nneg i32 %add1.i to i64
-  %shl.i = shl nuw i64 1, %sh_prom.i39
+  %add.i37 = zext i1 %cmp.not.i to i32
+  %add1.i = add i32 %add.i31, %add.i37
+  %sh_prom.i38 = zext nneg i32 %add1.i to i64
+  %shl.i = shl nuw i64 1, %sh_prom.i38
   %lowest_equivalent_value = getelementptr inbounds i8, ptr %iter, i64 56
-  store i64 %shl.i.i37, ptr %lowest_equivalent_value, align 8
+  store i64 %shl.i.i36, ptr %lowest_equivalent_value, align 8
   %value15 = getelementptr inbounds i8, ptr %iter, i64 40
   store i64 %shl.i.i, ptr %value15, align 8
-  %add16 = add i64 %shl.i.i37, -1
+  %add16 = add i64 %shl.i.i36, -1
   %sub = add i64 %add16, %shl.i
   %highest_equivalent_value = getelementptr inbounds i8, ptr %iter, i64 48
   store i64 %sub, ptr %highest_equivalent_value, align 8
   %shr = ashr i64 %shl.i, 1
-  %add17 = add nsw i64 %shr, %shl.i.i37
+  %add17 = add nsw i64 %shr, %shl.i.i36
   %median_equivalent_value = getelementptr inbounds i8, ptr %iter, i64 64
   store i64 %add17, ptr %median_equivalent_value, align 8
   br label %return
@@ -3190,9 +3191,6 @@ declare double @exp2(double) local_unnamed_addr
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #18
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.usub.sat.i32(i32, i32) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #20

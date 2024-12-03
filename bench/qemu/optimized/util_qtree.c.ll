@@ -1606,9 +1606,8 @@ if.end.i:                                         ; preds = %if.else.i, %if.then
   br i1 %cmp.i, label %if.then8.i, label %if.else22.i
 
 if.then8.i:                                       ; preds = %if.end.i
-  %cmp9.i = icmp sgt i8 %6, 0
-  %add.i = add i8 %6, -2
-  %storemerge27.v.i = select i1 %cmp9.i, i8 -1, i8 %add.i
+  %8 = tail call i8 @llvm.smin.i8(i8 %6, i8 1)
+  %storemerge27.v.i = add i8 %8, -2
   %storemerge27.i = add i8 %storemerge27.v.i, %7
   br label %q_tree_node_rotate_left.exit
 
@@ -1617,12 +1616,12 @@ if.else22.i:                                      ; preds = %if.end.i
   %sub30.i = add nsw i8 %7, -1
   %sub26.i = add i8 %6, -2
   %storemerge.i = select i1 %cmp23.not.i, i8 %sub30.i, i8 %sub26.i
-  %8 = xor i8 %7, -1
+  %9 = xor i8 %7, -1
   br label %q_tree_node_rotate_left.exit
 
 q_tree_node_rotate_left.exit:                     ; preds = %if.then8.i, %if.else22.i
   %storemerge.sink.i = phi i8 [ %storemerge27.i, %if.then8.i ], [ %storemerge.i, %if.else22.i ]
-  %.pn.i = phi i8 [ -1, %if.then8.i ], [ %8, %if.else22.i ]
+  %.pn.i = phi i8 [ -1, %if.then8.i ], [ %9, %if.else22.i ]
   store i8 %storemerge.sink.i, ptr %balance5.i, align 8
   %storemerge26.i = add i8 %.pn.i, %6
   store i8 %storemerge26.i, ptr %balance2, align 8
@@ -1630,50 +1629,50 @@ q_tree_node_rotate_left.exit:                     ; preds = %if.then8.i, %if.els
   br label %if.end
 
 if.end:                                           ; preds = %q_tree_node_rotate_left.exit, %if.then
-  %9 = phi ptr [ %3, %q_tree_node_rotate_left.exit ], [ %1, %if.then ]
-  %right_child.i11 = getelementptr inbounds i8, ptr %9, i64 34
-  %10 = load i8, ptr %right_child.i11, align 2
-  %tobool.not.i12 = icmp eq i8 %10, 0
-  br i1 %tobool.not.i12, label %if.else.i26, label %if.then.i13
+  %10 = phi ptr [ %3, %q_tree_node_rotate_left.exit ], [ %1, %if.then ]
+  %right_child.i11 = getelementptr inbounds i8, ptr %10, i64 34
+  %11 = load i8, ptr %right_child.i11, align 2
+  %tobool.not.i12 = icmp eq i8 %11, 0
+  br i1 %tobool.not.i12, label %if.else.i24, label %if.then.i13
 
 if.then.i13:                                      ; preds = %if.end
-  %right.i = getelementptr inbounds i8, ptr %9, i64 24
-  %11 = load ptr, ptr %right.i, align 8
-  store ptr %11, ptr %left, align 8
+  %right.i = getelementptr inbounds i8, ptr %10, i64 24
+  %12 = load ptr, ptr %right.i, align 8
+  store ptr %12, ptr %left, align 8
   br label %if.end.i14
 
-if.else.i26:                                      ; preds = %if.end
-  %left_child.i27 = getelementptr inbounds i8, ptr %node, i64 33
-  store i8 0, ptr %left_child.i27, align 1
+if.else.i24:                                      ; preds = %if.end
+  %left_child.i25 = getelementptr inbounds i8, ptr %node, i64 33
+  store i8 0, ptr %left_child.i25, align 1
   store i8 1, ptr %right_child.i11, align 2
   br label %if.end.i14
 
-if.end.i14:                                       ; preds = %if.else.i26, %if.then.i13
-  %right4.i = getelementptr inbounds i8, ptr %9, i64 24
+if.end.i14:                                       ; preds = %if.else.i24, %if.then.i13
+  %right4.i = getelementptr inbounds i8, ptr %10, i64 24
   store ptr %node, ptr %right4.i, align 8
-  %12 = load i8, ptr %balance, align 8
-  %balance5.i16 = getelementptr inbounds i8, ptr %9, i64 32
-  %13 = load i8, ptr %balance5.i16, align 8
-  %cmp.i17 = icmp slt i8 %13, 1
-  %add15.i = add i8 %12, 2
+  %13 = load i8, ptr %balance, align 8
+  %balance5.i16 = getelementptr inbounds i8, ptr %10, i64 32
+  %14 = load i8, ptr %balance5.i16, align 8
+  %cmp.i17 = icmp slt i8 %14, 1
   br i1 %cmp.i17, label %if.then8.i22, label %if.else22.i18
 
 if.then8.i22:                                     ; preds = %if.end.i14
-  %cmp9.i23 = icmp sgt i8 %13, %12
-  %add.i24 = add nsw i8 %13, 1
-  %storemerge27.i25 = select i1 %cmp9.i23, i8 %add.i24, i8 %add15.i
-  %sub.i = sub i8 %12, %13
+  %cmp9.i = icmp sgt i8 %14, %13
+  %add15.i = add i8 %13, 2
+  %add.i = add nsw i8 %14, 1
+  %storemerge27.i23 = select i1 %cmp9.i, i8 %add.i, i8 %add15.i
+  %sub.i = sub i8 %13, %14
   br label %q_tree_node_rotate_right.exit
 
 if.else22.i18:                                    ; preds = %if.end.i14
-  %cmp23.i = icmp slt i8 %12, 0
-  %storemerge.v.i = select i1 %cmp23.i, i8 1, i8 %add15.i
-  %storemerge.i19 = add i8 %storemerge.v.i, %13
+  %15 = tail call i8 @llvm.smax.i8(i8 %13, i8 -1)
+  %storemerge.v.i = add i8 %15, 2
+  %storemerge.i19 = add i8 %storemerge.v.i, %14
   br label %q_tree_node_rotate_right.exit
 
 q_tree_node_rotate_right.exit:                    ; preds = %if.then8.i22, %if.else22.i18
-  %storemerge.sink.i20 = phi i8 [ %storemerge27.i25, %if.then8.i22 ], [ %storemerge.i19, %if.else22.i18 ]
-  %storemerge26.in.i = phi i8 [ %sub.i, %if.then8.i22 ], [ %12, %if.else22.i18 ]
+  %storemerge.sink.i20 = phi i8 [ %storemerge27.i23, %if.then8.i22 ], [ %storemerge.i19, %if.else22.i18 ]
+  %storemerge26.in.i = phi i8 [ %sub.i, %if.then8.i22 ], [ %13, %if.else22.i18 ]
   store i8 %storemerge.sink.i20, ptr %balance5.i16, align 8
   %storemerge26.i21 = add i8 %storemerge26.in.i, 1
   br label %if.end26.sink.split
@@ -1684,118 +1683,117 @@ if.else:                                          ; preds = %entry
 
 if.then14:                                        ; preds = %if.else
   %right = getelementptr inbounds i8, ptr %node, i64 24
-  %14 = load ptr, ptr %right, align 8
-  %balance15 = getelementptr inbounds i8, ptr %14, i64 32
-  %15 = load i8, ptr %balance15, align 8
-  %cmp17 = icmp slt i8 %15, 0
+  %16 = load ptr, ptr %right, align 8
+  %balance15 = getelementptr inbounds i8, ptr %16, i64 32
+  %17 = load i8, ptr %balance15, align 8
+  %cmp17 = icmp slt i8 %17, 0
   br i1 %cmp17, label %if.then19, label %if.end23
 
 if.then19:                                        ; preds = %if.then14
-  %left1.i28 = getelementptr inbounds i8, ptr %14, i64 16
-  %16 = load ptr, ptr %left1.i28, align 8
-  %right_child.i29 = getelementptr inbounds i8, ptr %16, i64 34
-  %17 = load i8, ptr %right_child.i29, align 2
-  %tobool.not.i30 = icmp eq i8 %17, 0
-  br i1 %tobool.not.i30, label %if.else.i51, label %if.then.i31
+  %left1.i26 = getelementptr inbounds i8, ptr %16, i64 16
+  %18 = load ptr, ptr %left1.i26, align 8
+  %right_child.i27 = getelementptr inbounds i8, ptr %18, i64 34
+  %19 = load i8, ptr %right_child.i27, align 2
+  %tobool.not.i28 = icmp eq i8 %19, 0
+  br i1 %tobool.not.i28, label %if.else.i48, label %if.then.i29
 
-if.then.i31:                                      ; preds = %if.then19
-  %right.i32 = getelementptr inbounds i8, ptr %16, i64 24
-  %18 = load ptr, ptr %right.i32, align 8
-  store ptr %18, ptr %left1.i28, align 8
-  br label %if.end.i33
+if.then.i29:                                      ; preds = %if.then19
+  %right.i30 = getelementptr inbounds i8, ptr %18, i64 24
+  %20 = load ptr, ptr %right.i30, align 8
+  store ptr %20, ptr %left1.i26, align 8
+  br label %if.end.i31
 
-if.else.i51:                                      ; preds = %if.then19
-  %left_child.i52 = getelementptr inbounds i8, ptr %14, i64 33
-  store i8 0, ptr %left_child.i52, align 1
-  store i8 1, ptr %right_child.i29, align 2
-  br label %if.end.i33
+if.else.i48:                                      ; preds = %if.then19
+  %left_child.i49 = getelementptr inbounds i8, ptr %16, i64 33
+  store i8 0, ptr %left_child.i49, align 1
+  store i8 1, ptr %right_child.i27, align 2
+  br label %if.end.i31
 
-if.end.i33:                                       ; preds = %if.else.i51, %if.then.i31
-  %right4.i34 = getelementptr inbounds i8, ptr %16, i64 24
-  store ptr %14, ptr %right4.i34, align 8
-  %19 = load i8, ptr %balance15, align 8
-  %balance5.i36 = getelementptr inbounds i8, ptr %16, i64 32
-  %20 = load i8, ptr %balance5.i36, align 8
-  %cmp.i37 = icmp slt i8 %20, 1
-  %add15.i38 = add i8 %19, 2
-  br i1 %cmp.i37, label %if.then8.i46, label %if.else22.i39
+if.end.i31:                                       ; preds = %if.else.i48, %if.then.i29
+  %right4.i32 = getelementptr inbounds i8, ptr %18, i64 24
+  store ptr %16, ptr %right4.i32, align 8
+  %21 = load i8, ptr %balance15, align 8
+  %balance5.i34 = getelementptr inbounds i8, ptr %18, i64 32
+  %22 = load i8, ptr %balance5.i34, align 8
+  %cmp.i35 = icmp slt i8 %22, 1
+  br i1 %cmp.i35, label %if.then8.i42, label %if.else22.i36
 
-if.then8.i46:                                     ; preds = %if.end.i33
-  %cmp9.i47 = icmp sgt i8 %20, %19
-  %add.i48 = add nsw i8 %20, 1
-  %storemerge27.i49 = select i1 %cmp9.i47, i8 %add.i48, i8 %add15.i38
-  %sub.i50 = sub i8 %19, %20
-  br label %q_tree_node_rotate_right.exit53
+if.then8.i42:                                     ; preds = %if.end.i31
+  %cmp9.i43 = icmp sgt i8 %22, %21
+  %add15.i44 = add i8 %21, 2
+  %add.i45 = add nsw i8 %22, 1
+  %storemerge27.i46 = select i1 %cmp9.i43, i8 %add.i45, i8 %add15.i44
+  %sub.i47 = sub i8 %21, %22
+  br label %q_tree_node_rotate_right.exit50
 
-if.else22.i39:                                    ; preds = %if.end.i33
-  %cmp23.i40 = icmp slt i8 %19, 0
-  %storemerge.v.i41 = select i1 %cmp23.i40, i8 1, i8 %add15.i38
-  %storemerge.i42 = add i8 %storemerge.v.i41, %20
-  br label %q_tree_node_rotate_right.exit53
+if.else22.i36:                                    ; preds = %if.end.i31
+  %23 = tail call i8 @llvm.smax.i8(i8 %21, i8 -1)
+  %storemerge.v.i37 = add i8 %23, 2
+  %storemerge.i38 = add i8 %storemerge.v.i37, %22
+  br label %q_tree_node_rotate_right.exit50
 
-q_tree_node_rotate_right.exit53:                  ; preds = %if.then8.i46, %if.else22.i39
-  %storemerge.sink.i43 = phi i8 [ %storemerge27.i49, %if.then8.i46 ], [ %storemerge.i42, %if.else22.i39 ]
-  %storemerge26.in.i44 = phi i8 [ %sub.i50, %if.then8.i46 ], [ %19, %if.else22.i39 ]
-  store i8 %storemerge.sink.i43, ptr %balance5.i36, align 8
-  %storemerge26.i45 = add i8 %storemerge26.in.i44, 1
-  store i8 %storemerge26.i45, ptr %balance15, align 8
-  store ptr %16, ptr %right, align 8
+q_tree_node_rotate_right.exit50:                  ; preds = %if.then8.i42, %if.else22.i36
+  %storemerge.sink.i39 = phi i8 [ %storemerge27.i46, %if.then8.i42 ], [ %storemerge.i38, %if.else22.i36 ]
+  %storemerge26.in.i40 = phi i8 [ %sub.i47, %if.then8.i42 ], [ %21, %if.else22.i36 ]
+  store i8 %storemerge.sink.i39, ptr %balance5.i34, align 8
+  %storemerge26.i41 = add i8 %storemerge26.in.i40, 1
+  store i8 %storemerge26.i41, ptr %balance15, align 8
+  store ptr %18, ptr %right, align 8
   br label %if.end23
 
-if.end23:                                         ; preds = %q_tree_node_rotate_right.exit53, %if.then14
-  %21 = phi ptr [ %16, %q_tree_node_rotate_right.exit53 ], [ %14, %if.then14 ]
-  %left_child.i55 = getelementptr inbounds i8, ptr %21, i64 33
-  %22 = load i8, ptr %left_child.i55, align 1
-  %tobool.not.i56 = icmp eq i8 %22, 0
-  br i1 %tobool.not.i56, label %if.else.i77, label %if.then.i57
+if.end23:                                         ; preds = %q_tree_node_rotate_right.exit50, %if.then14
+  %24 = phi ptr [ %18, %q_tree_node_rotate_right.exit50 ], [ %16, %if.then14 ]
+  %left_child.i52 = getelementptr inbounds i8, ptr %24, i64 33
+  %25 = load i8, ptr %left_child.i52, align 1
+  %tobool.not.i53 = icmp eq i8 %25, 0
+  br i1 %tobool.not.i53, label %if.else.i72, label %if.then.i54
 
-if.then.i57:                                      ; preds = %if.end23
-  %left.i58 = getelementptr inbounds i8, ptr %21, i64 16
-  %23 = load ptr, ptr %left.i58, align 8
-  store ptr %23, ptr %right, align 8
-  br label %if.end.i59
+if.then.i54:                                      ; preds = %if.end23
+  %left.i55 = getelementptr inbounds i8, ptr %24, i64 16
+  %26 = load ptr, ptr %left.i55, align 8
+  store ptr %26, ptr %right, align 8
+  br label %if.end.i56
 
-if.else.i77:                                      ; preds = %if.end23
-  %right_child.i78 = getelementptr inbounds i8, ptr %node, i64 34
-  store i8 0, ptr %right_child.i78, align 2
-  store i8 1, ptr %left_child.i55, align 1
-  br label %if.end.i59
+if.else.i72:                                      ; preds = %if.end23
+  %right_child.i73 = getelementptr inbounds i8, ptr %node, i64 34
+  store i8 0, ptr %right_child.i73, align 2
+  store i8 1, ptr %left_child.i52, align 1
+  br label %if.end.i56
 
-if.end.i59:                                       ; preds = %if.else.i77, %if.then.i57
-  %left4.i60 = getelementptr inbounds i8, ptr %21, i64 16
-  store ptr %node, ptr %left4.i60, align 8
-  %24 = load i8, ptr %balance, align 8
-  %balance5.i62 = getelementptr inbounds i8, ptr %21, i64 32
-  %25 = load i8, ptr %balance5.i62, align 8
-  %cmp.i63 = icmp slt i8 %25, 1
-  br i1 %cmp.i63, label %if.then8.i72, label %if.else22.i64
+if.end.i56:                                       ; preds = %if.else.i72, %if.then.i54
+  %left4.i57 = getelementptr inbounds i8, ptr %24, i64 16
+  store ptr %node, ptr %left4.i57, align 8
+  %27 = load i8, ptr %balance, align 8
+  %balance5.i59 = getelementptr inbounds i8, ptr %24, i64 32
+  %28 = load i8, ptr %balance5.i59, align 8
+  %cmp.i60 = icmp slt i8 %28, 1
+  br i1 %cmp.i60, label %if.then8.i69, label %if.else22.i61
 
-if.then8.i72:                                     ; preds = %if.end.i59
-  %cmp9.i73 = icmp sgt i8 %24, 0
-  %add.i74 = add i8 %24, -2
-  %storemerge27.v.i75 = select i1 %cmp9.i73, i8 -1, i8 %add.i74
-  %storemerge27.i76 = add i8 %storemerge27.v.i75, %25
-  br label %q_tree_node_rotate_left.exit79
+if.then8.i69:                                     ; preds = %if.end.i56
+  %29 = tail call i8 @llvm.smin.i8(i8 %27, i8 1)
+  %storemerge27.v.i70 = add i8 %29, -2
+  %storemerge27.i71 = add i8 %storemerge27.v.i70, %28
+  br label %q_tree_node_rotate_left.exit74
 
-if.else22.i64:                                    ; preds = %if.end.i59
-  %cmp23.not.i65 = icmp sgt i8 %24, %25
-  %sub30.i66 = add nsw i8 %25, -1
-  %sub26.i67 = add i8 %24, -2
-  %storemerge.i68 = select i1 %cmp23.not.i65, i8 %sub30.i66, i8 %sub26.i67
-  %26 = xor i8 %25, -1
-  br label %q_tree_node_rotate_left.exit79
+if.else22.i61:                                    ; preds = %if.end.i56
+  %cmp23.not.i62 = icmp sgt i8 %27, %28
+  %sub30.i63 = add nsw i8 %28, -1
+  %sub26.i64 = add i8 %27, -2
+  %storemerge.i65 = select i1 %cmp23.not.i62, i8 %sub30.i63, i8 %sub26.i64
+  %30 = xor i8 %28, -1
+  br label %q_tree_node_rotate_left.exit74
 
-q_tree_node_rotate_left.exit79:                   ; preds = %if.then8.i72, %if.else22.i64
-  %storemerge.sink.i69 = phi i8 [ %storemerge27.i76, %if.then8.i72 ], [ %storemerge.i68, %if.else22.i64 ]
-  %.pn.i70 = phi i8 [ -1, %if.then8.i72 ], [ %26, %if.else22.i64 ]
-  store i8 %storemerge.sink.i69, ptr %balance5.i62, align 8
-  %storemerge26.i71 = add i8 %.pn.i70, %24
+q_tree_node_rotate_left.exit74:                   ; preds = %if.then8.i69, %if.else22.i61
+  %storemerge.sink.i66 = phi i8 [ %storemerge27.i71, %if.then8.i69 ], [ %storemerge.i65, %if.else22.i61 ]
+  %.pn.i67 = phi i8 [ -1, %if.then8.i69 ], [ %30, %if.else22.i61 ]
+  store i8 %storemerge.sink.i66, ptr %balance5.i59, align 8
+  %storemerge26.i68 = add i8 %.pn.i67, %27
   br label %if.end26.sink.split
 
-if.end26.sink.split:                              ; preds = %q_tree_node_rotate_right.exit, %q_tree_node_rotate_left.exit79
-  %storemerge26.i71.sink = phi i8 [ %storemerge26.i71, %q_tree_node_rotate_left.exit79 ], [ %storemerge26.i21, %q_tree_node_rotate_right.exit ]
-  %node.addr.0.ph = phi ptr [ %21, %q_tree_node_rotate_left.exit79 ], [ %9, %q_tree_node_rotate_right.exit ]
-  store i8 %storemerge26.i71.sink, ptr %balance, align 8
+if.end26.sink.split:                              ; preds = %q_tree_node_rotate_right.exit, %q_tree_node_rotate_left.exit74
+  %storemerge26.i68.sink = phi i8 [ %storemerge26.i68, %q_tree_node_rotate_left.exit74 ], [ %storemerge26.i21, %q_tree_node_rotate_right.exit ]
+  %node.addr.0.ph = phi ptr [ %24, %q_tree_node_rotate_left.exit74 ], [ %10, %q_tree_node_rotate_right.exit ]
+  store i8 %storemerge26.i68.sink, ptr %balance, align 8
   br label %if.end26
 
 if.end26:                                         ; preds = %if.end26.sink.split, %if.else
@@ -1808,6 +1806,9 @@ declare i8 @llvm.smax.i8(i8, i8) #5
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i8 @llvm.smin.i8(i8, i8) #5
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

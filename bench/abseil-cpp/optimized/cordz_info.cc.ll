@@ -46,7 +46,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4absl13cord_internal9CordzInfo9TrackCordERNS0_10InlineDataENS0_18CordzUpdateTracker16MethodIdentifierE(ptr nocapture noundef nonnull align 8 dereferenceable(16) %cord, i32 noundef %method) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
-  %call = tail call noalias noundef nonnull dereferenceable(1336) ptr @_Znwm(i64 noundef 1336) #17
+  %call = tail call noalias noundef nonnull dereferenceable(1336) ptr @_Znwm(i64 noundef 1336) #18
   %rep.i.i = getelementptr inbounds i8, ptr %cord, i64 8
   %0 = load ptr, ptr %rep.i.i, align 8
   invoke void @_ZN4absl13cord_internal11CordzHandleC2Eb(ptr noundef nonnull align 8 dereferenceable(1332) %call, i1 noundef zeroext false)
@@ -80,7 +80,7 @@ invoke.cont3.i:                                   ; preds = %.noexc
 lpad2.i:                                          ; preds = %invoke.cont3.i, %.noexc
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN4absl13cord_internal11CordzHandleD2Ev(ptr noundef nonnull align 8 dereferenceable(1332) %call) #18
+  tail call void @_ZN4absl13cord_internal11CordzHandleD2Ev(ptr noundef nonnull align 8 dereferenceable(1332) %call) #19
   br label %lpad.body
 
 invoke.cont2:                                     ; preds = %invoke.cont3.i
@@ -114,7 +114,7 @@ _ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i.i: ; preds = %invoke.co
   br i1 %8, label %_ZN4absl13base_internal14SpinLockHolderC2EPNS0_8SpinLockE.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i.i, %invoke.cont2
-  tail call void @_ZN4absl13base_internal8SpinLock8SlowLockEv(ptr noundef nonnull align 4 dereferenceable(4) %4) #19
+  tail call void @_ZN4absl13base_internal8SpinLock8SlowLockEv(ptr noundef nonnull align 4 dereferenceable(4) %4) #20
   br label %_ZN4absl13base_internal14SpinLockHolderC2EPNS0_8SpinLockE.exit.i
 
 _ZN4absl13base_internal14SpinLockHolderC2EPNS0_8SpinLockE.exit.i: ; preds = %if.then.i.i.i, %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i.i
@@ -143,14 +143,14 @@ if.end.i:                                         ; preds = %if.then.i, %_ZN4abs
   br i1 %cmp6.not.i.i.i, label %_ZN4absl13cord_internal9CordzInfo5TrackEv.exit, label %if.then7.i.i.i
 
 if.then7.i.i.i:                                   ; preds = %if.end.i
-  invoke void @_ZN4absl13base_internal8SpinLock10SlowUnlockEj(ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %13) #19
+  invoke void @_ZN4absl13base_internal8SpinLock10SlowUnlockEj(ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %13) #20
           to label %_ZN4absl13cord_internal9CordzInfo5TrackEv.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then7.i.i.i
   %14 = landingpad { ptr, i32 }
           catch ptr null
   %15 = extractvalue { ptr, i32 } %14, 0
-  tail call void @__clang_call_terminate(ptr %15) #20
+  tail call void @__clang_call_terminate(ptr %15) #21
   unreachable
 
 _ZN4absl13cord_internal9CordzInfo5TrackEv.exit:   ; preds = %if.end.i, %if.then7.i.i.i
@@ -163,7 +163,7 @@ lpad:                                             ; preds = %invoke.cont
 
 lpad.body:                                        ; preds = %lpad2.i, %lpad
   %eh.lpad-body = phi { ptr, i32 } [ %16, %lpad ], [ %1, %lpad2.i ]
-  tail call void @_ZdlPv(ptr noundef nonnull %call) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %call) #22
   resume { ptr, i32 } %eh.lpad-body
 }
 
@@ -194,7 +194,7 @@ _ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i: ; preds = %entry
   br i1 %4, label %_ZN4absl13base_internal14SpinLockHolderC2EPNS0_8SpinLockE.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i, %entry
-  tail call void @_ZN4absl13base_internal8SpinLock8SlowLockEv(ptr noundef nonnull align 4 dereferenceable(4) %0) #19
+  tail call void @_ZN4absl13base_internal8SpinLock8SlowLockEv(ptr noundef nonnull align 4 dereferenceable(4) %0) #20
   br label %_ZN4absl13base_internal14SpinLockHolderC2EPNS0_8SpinLockE.exit
 
 _ZN4absl13base_internal14SpinLockHolderC2EPNS0_8SpinLockE.exit: ; preds = %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i, %if.then.i.i
@@ -225,14 +225,14 @@ if.end:                                           ; preds = %_ZN4absl13base_inte
   br i1 %cmp6.not.i.i, label %_ZN4absl13base_internal14SpinLockHolderD2Ev.exit, label %if.then7.i.i
 
 if.then7.i.i:                                     ; preds = %if.end
-  invoke void @_ZN4absl13base_internal8SpinLock10SlowUnlockEj(ptr noundef nonnull align 4 dereferenceable(4) %0, i32 noundef %9) #19
+  invoke void @_ZN4absl13base_internal8SpinLock10SlowUnlockEj(ptr noundef nonnull align 4 dereferenceable(4) %0, i32 noundef %9) #20
           to label %_ZN4absl13base_internal14SpinLockHolderD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then7.i.i
   %10 = landingpad { ptr, i32 }
           catch ptr null
   %11 = extractvalue { ptr, i32 } %10, 0
-  tail call void @__clang_call_terminate(ptr %11) #20
+  tail call void @__clang_call_terminate(ptr %11) #21
   unreachable
 
 _ZN4absl13base_internal14SpinLockHolderD2Ev.exit: ; preds = %if.end, %if.then7.i.i
@@ -253,7 +253,7 @@ if.then:                                          ; preds = %entry
   br label %invoke.cont3
 
 invoke.cont3:                                     ; preds = %if.then, %entry
-  %call1 = tail call noalias noundef nonnull dereferenceable(1336) ptr @_Znwm(i64 noundef 1336) #17
+  %call1 = tail call noalias noundef nonnull dereferenceable(1336) ptr @_Znwm(i64 noundef 1336) #18
   %rep.i.i = getelementptr inbounds i8, ptr %cord, i64 8
   %2 = load ptr, ptr %rep.i.i, align 8
   %3 = load i64, ptr %src, align 8
@@ -282,7 +282,7 @@ _ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i.i: ; preds = %invoke.co
   br i1 %10, label %_ZN4absl13base_internal14SpinLockHolderC2EPNS0_8SpinLockE.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i.i, %invoke.cont5
-  tail call void @_ZN4absl13base_internal8SpinLock8SlowLockEv(ptr noundef nonnull align 4 dereferenceable(4) %6) #19
+  tail call void @_ZN4absl13base_internal8SpinLock8SlowLockEv(ptr noundef nonnull align 4 dereferenceable(4) %6) #20
   br label %_ZN4absl13base_internal14SpinLockHolderC2EPNS0_8SpinLockE.exit.i
 
 _ZN4absl13base_internal14SpinLockHolderC2EPNS0_8SpinLockE.exit.i: ; preds = %if.then.i.i.i, %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i.i
@@ -311,14 +311,14 @@ if.end.i:                                         ; preds = %if.then.i, %_ZN4abs
   br i1 %cmp6.not.i.i.i, label %_ZN4absl13cord_internal9CordzInfo5TrackEv.exit, label %if.then7.i.i.i
 
 if.then7.i.i.i:                                   ; preds = %if.end.i
-  invoke void @_ZN4absl13base_internal8SpinLock10SlowUnlockEj(ptr noundef nonnull align 4 dereferenceable(4) %6, i32 noundef %15) #19
+  invoke void @_ZN4absl13base_internal8SpinLock10SlowUnlockEj(ptr noundef nonnull align 4 dereferenceable(4) %6, i32 noundef %15) #20
           to label %_ZN4absl13cord_internal9CordzInfo5TrackEv.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then7.i.i.i
   %16 = landingpad { ptr, i32 }
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
-  tail call void @__clang_call_terminate(ptr %17) #20
+  tail call void @__clang_call_terminate(ptr %17) #21
   unreachable
 
 _ZN4absl13cord_internal9CordzInfo5TrackEv.exit:   ; preds = %if.end.i, %if.then7.i.i.i
@@ -327,7 +327,7 @@ _ZN4absl13cord_internal9CordzInfo5TrackEv.exit:   ; preds = %if.end.i, %if.then7
 lpad:                                             ; preds = %invoke.cont3
   %18 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %call1) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %call1) #22
   resume { ptr, i32 } %18
 }
 
@@ -350,7 +350,7 @@ _ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i: ; preds = %entry
   br i1 %4, label %_ZN4absl13base_internal14SpinLockHolderC2EPNS0_8SpinLockE.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i, %entry
-  tail call void @_ZN4absl13base_internal8SpinLock8SlowLockEv(ptr noundef nonnull align 4 dereferenceable(4) %0) #19
+  tail call void @_ZN4absl13base_internal8SpinLock8SlowLockEv(ptr noundef nonnull align 4 dereferenceable(4) %0) #20
   br label %_ZN4absl13base_internal14SpinLockHolderC2EPNS0_8SpinLockE.exit
 
 _ZN4absl13base_internal14SpinLockHolderC2EPNS0_8SpinLockE.exit: ; preds = %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i, %if.then.i.i
@@ -394,14 +394,14 @@ if.end12:                                         ; preds = %if.else, %if.then8
   br i1 %cmp6.not.i.i, label %_ZN4absl13base_internal14SpinLockHolderD2Ev.exit, label %if.then7.i.i
 
 if.then7.i.i:                                     ; preds = %if.end12
-  invoke void @_ZN4absl13base_internal8SpinLock10SlowUnlockEj(ptr noundef nonnull align 4 dereferenceable(4) %0, i32 noundef %11) #19
+  invoke void @_ZN4absl13base_internal8SpinLock10SlowUnlockEj(ptr noundef nonnull align 4 dereferenceable(4) %0, i32 noundef %11) #20
           to label %_ZN4absl13base_internal14SpinLockHolderD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then7.i.i
   %12 = landingpad { ptr, i32 }
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
-  tail call void @__clang_call_terminate(ptr %13) #20
+  tail call void @__clang_call_terminate(ptr %13) #21
   unreachable
 
 _ZN4absl13base_internal14SpinLockHolderD2Ev.exit: ; preds = %if.end12, %if.then7.i.i
@@ -414,7 +414,7 @@ if.then14:                                        ; preds = %_ZN4absl13base_inte
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %14 = load ptr, ptr %vfn, align 8
-  tail call void %14(ptr noundef nonnull align 8 dereferenceable(1332) %this) #18
+  tail call void %14(ptr noundef nonnull align 8 dereferenceable(1332) %this) #19
   br label %return
 
 if.end15:                                         ; preds = %_ZN4absl13base_internal14SpinLockHolderD2Ev.exit
@@ -438,7 +438,7 @@ terminate.lpad.i9:                                ; preds = %if.end20
   %17 = landingpad { ptr, i32 }
           catch ptr null
   %18 = extractvalue { ptr, i32 } %17, 0
-  tail call void @__clang_call_terminate(ptr %18) #20
+  tail call void @__clang_call_terminate(ptr %18) #21
   unreachable
 
 _ZN4absl9MutexLockD2Ev.exit10:                    ; preds = %if.end20
@@ -649,7 +649,7 @@ for.inc.i:                                        ; preds = %if.then.i, %for.bod
 lpad2:                                            ; preds = %_ZN4absl13cord_internal9CordzInfo15GetParentMethodEPKS1_.exit, %entry
   %7 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN4absl13cord_internal11CordzHandleD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #18
+  tail call void @_ZN4absl13cord_internal11CordzHandleD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #19
   resume { ptr, i32 } %7
 
 if.end:                                           ; preds = %for.inc.i, %invoke.cont7
@@ -683,21 +683,21 @@ if.then.i:                                        ; preds = %if.then
           to label %if.end unwind label %terminate.lpad
 
 if.end:                                           ; preds = %if.then, %if.then.i, %entry
-  tail call void @_ZN4absl13cord_internal11CordzHandleD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #18
+  tail call void @_ZN4absl13cord_internal11CordzHandleD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #19
   ret void
 
 terminate.lpad:                                   ; preds = %if.then.i
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  tail call void @__clang_call_terminate(ptr %3) #20
+  tail call void @__clang_call_terminate(ptr %3) #21
   unreachable
 }
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #11 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #18
-  tail call void @_ZSt9terminatev() #20
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #19
+  tail call void @_ZSt9terminatev() #21
   unreachable
 }
 
@@ -729,12 +729,12 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  tail call void @__clang_call_terminate(ptr %3) #20
+  tail call void @__clang_call_terminate(ptr %3) #21
   unreachable
 
 _ZN4absl13cord_internal9CordzInfoD2Ev.exit:       ; preds = %entry, %if.then.i, %if.then.i.i
-  tail call void @_ZN4absl13cord_internal11CordzHandleD2Ev(ptr noundef nonnull align 8 dereferenceable(1332) %this) #18
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #21
+  tail call void @_ZN4absl13cord_internal11CordzHandleD2Ev(ptr noundef nonnull align 8 dereferenceable(1332) %this) #19
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #22
   ret void
 }
 
@@ -848,7 +848,7 @@ terminate.lpad.i.i:                               ; preds = %cond.end.i
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  tail call void @__clang_call_terminate(ptr %6) #20
+  tail call void @__clang_call_terminate(ptr %6) #21
   unreachable
 
 _ZNK4absl13cord_internal9CordzInfo10RefCordRepEv.exit: ; preds = %cond.end.i
@@ -863,82 +863,81 @@ if.then:                                          ; preds = %_ZNK4absl13cord_int
   %refcount2.i = getelementptr inbounds i8, ptr %3, i64 8
   %8 = load atomic i32, ptr %refcount2.i acquire, align 4
   %shr.i.i = ashr i32 %8, 1
-  %cmp.i = icmp ugt i32 %shr.i.i, 1
-  %narrow.i = add nsw i32 %shr.i.i, -1
-  %narrow18.i = select i1 %cmp.i, i32 %narrow.i, i32 1
-  %cond.i = sext i32 %narrow18.i to i64
+  %9 = tail call i32 @llvm.umax.i32(i32 %shr.i.i, i32 2)
+  %10 = sext i32 %9 to i64
+  %cond.i = add nsw i64 %10, -1
   %tag.i.i = getelementptr inbounds i8, ptr %3, i64 12
-  %9 = load i8, ptr %tag.i.i, align 4
-  %cmp6.i = icmp eq i8 %9, 2
+  %11 = load i8, ptr %tag.i.i, align 4
+  %cmp6.i = icmp eq i8 %11, 2
   br i1 %cmp6.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.then
-  %10 = load ptr, ptr %analyzer, align 8
-  %node_count.i = getelementptr inbounds i8, ptr %10, i64 24
-  %11 = load i64, ptr %node_count.i, align 8
-  %inc.i = add i64 %11, 1
+  %12 = load ptr, ptr %analyzer, align 8
+  %node_count.i = getelementptr inbounds i8, ptr %12, i64 24
+  %13 = load i64, ptr %node_count.i, align 8
+  %inc.i = add i64 %13, 1
   store i64 %inc.i, ptr %node_count.i, align 8
-  %crc.i = getelementptr inbounds i8, ptr %10, i64 120
-  %12 = load i64, ptr %crc.i, align 8
-  %inc8.i = add i64 %12, 1
+  %crc.i = getelementptr inbounds i8, ptr %12, i64 120
+  %14 = load i64, ptr %crc.i, align 8
+  %inc8.i = add i64 %14, 1
   store i64 %inc8.i, ptr %crc.i, align 8
-  %13 = load i64, ptr %memory_usage_.i, align 8
-  %add.i.i = add i64 %13, 32
+  %15 = load i64, ptr %memory_usage_.i, align 8
+  %add.i.i = add i64 %15, 32
   store i64 %add.i.i, ptr %memory_usage_.i, align 8
   %conv2.i.i = uitofp i64 %cond.i to double
   %div.i.i = fdiv double 3.200000e+01, %conv2.i.i
   %fair_share.i.i = getelementptr inbounds i8, ptr %analyzer, i64 16
-  %14 = load double, ptr %fair_share.i.i, align 8
-  %add3.i.i = fadd double %div.i.i, %14
+  %16 = load double, ptr %fair_share.i.i, align 8
+  %add3.i.i = fadd double %div.i.i, %16
   store double %add3.i.i, ptr %fair_share.i.i, align 8
   %child.i = getelementptr inbounds i8, ptr %3, i64 16
-  %15 = load ptr, ptr %child.i, align 8
-  %cmp.i.i = icmp eq ptr %15, null
+  %17 = load ptr, ptr %child.i, align 8
+  %cmp.i.i = icmp eq ptr %17, null
   br i1 %cmp.i.i, label %if.end.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i
-  %refcount5.i.i = getelementptr inbounds i8, ptr %15, i64 8
-  %16 = load atomic i32, ptr %refcount5.i.i acquire, align 4
-  %shr.i.i.i = ashr i32 %16, 1
+  %refcount5.i.i = getelementptr inbounds i8, ptr %17, i64 8
+  %18 = load atomic i32, ptr %refcount5.i.i acquire, align 4
+  %shr.i.i.i = ashr i32 %18, 1
   %conv.i.i.i = sext i32 %shr.i.i.i to i64
-  %mul.i.i = mul nsw i64 %conv.i.i.i, %cond.i
+  %mul.i.i = mul nsw i64 %cond.i, %conv.i.i.i
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.end.i.i, %if.then.i, %if.then
   %repref.sroa.8.0.i = phi i64 [ %cond.i, %if.then ], [ %mul.i.i, %if.end.i.i ], [ 0, %if.then.i ]
-  %repref.sroa.0.0.i = phi ptr [ %3, %if.then ], [ %15, %if.end.i.i ], [ null, %if.then.i ]
+  %repref.sroa.0.0.i = phi ptr [ %3, %if.then ], [ %17, %if.end.i.i ], [ null, %if.then.i ]
   %call15.i = call fastcc { ptr, i64 } @_ZN4absl13cord_internal12_GLOBAL__N_115CordRepAnalyzer15CountLinearRepsENS2_6RepRefERNS2_11MemoryUsageE(ptr noundef nonnull align 8 dereferenceable(24) %analyzer, ptr %repref.sroa.0.0.i, i64 %repref.sroa.8.0.i, ptr noundef nonnull align 8 dereferenceable(16) %memory_usage_.i)
-  %17 = extractvalue { ptr, i64 } %call15.i, 0
-  %18 = extractvalue { ptr, i64 } %call15.i, 1
-  %tobool.not.i7.i = icmp eq ptr %17, null
+  %19 = extractvalue { ptr, i64 } %call15.i, 0
+  %20 = extractvalue { ptr, i64 } %call15.i, 1
+  %tobool.not.i7.i = icmp eq ptr %19, null
   br i1 %tobool.not.i7.i, label %_ZN4absl13cord_internal12_GLOBAL__N_115CordRepAnalyzer14AnalyzeCordRepEPKNS0_7CordRepE.exit, label %_ZNK4absl13cord_internal12_GLOBAL__N_115CordRepAnalyzer6RepRef3tagEv.exit12.i
 
 _ZNK4absl13cord_internal12_GLOBAL__N_115CordRepAnalyzer6RepRef3tagEv.exit12.i: ; preds = %if.end.i
-  %tag.i9.i = getelementptr inbounds i8, ptr %17, i64 12
-  %19 = load i8, ptr %tag.i9.i, align 4
-  %cond1.i = icmp eq i8 %19, 3
+  %tag.i9.i = getelementptr inbounds i8, ptr %19, i64 12
+  %21 = load i8, ptr %tag.i9.i, align 4
+  %cond1.i = icmp eq i8 %21, 3
   br i1 %cond1.i, label %sw.bb.i, label %_ZN4absl13cord_internal12_GLOBAL__N_115CordRepAnalyzer14AnalyzeCordRepEPKNS0_7CordRepE.exit
 
 sw.bb.i:                                          ; preds = %_ZNK4absl13cord_internal12_GLOBAL__N_115CordRepAnalyzer6RepRef3tagEv.exit12.i
-  call fastcc void @_ZN4absl13cord_internal12_GLOBAL__N_115CordRepAnalyzer12AnalyzeBtreeENS2_6RepRefE(ptr noundef nonnull align 8 dereferenceable(24) %analyzer, ptr nonnull %17, i64 %18)
+  call fastcc void @_ZN4absl13cord_internal12_GLOBAL__N_115CordRepAnalyzer12AnalyzeBtreeENS2_6RepRefE(ptr noundef nonnull align 8 dereferenceable(24) %analyzer, ptr nonnull %19, i64 %20)
   br label %_ZN4absl13cord_internal12_GLOBAL__N_115CordRepAnalyzer14AnalyzeCordRepEPKNS0_7CordRepE.exit
 
 _ZN4absl13cord_internal12_GLOBAL__N_115CordRepAnalyzer14AnalyzeCordRepEPKNS0_7CordRepE.exit: ; preds = %if.end.i, %_ZNK4absl13cord_internal12_GLOBAL__N_115CordRepAnalyzer6RepRef3tagEv.exit12.i, %sw.bb.i
-  %20 = load i64, ptr %memory_usage_.i, align 8
-  %21 = load ptr, ptr %analyzer, align 8
-  %estimated_memory_usage.i = getelementptr inbounds i8, ptr %21, i64 8
-  %22 = load i64, ptr %estimated_memory_usage.i, align 8
-  %add.i = add i64 %22, %20
+  %22 = load i64, ptr %memory_usage_.i, align 8
+  %23 = load ptr, ptr %analyzer, align 8
+  %estimated_memory_usage.i = getelementptr inbounds i8, ptr %23, i64 8
+  %24 = load i64, ptr %estimated_memory_usage.i, align 8
+  %add.i = add i64 %24, %22
   store i64 %add.i, ptr %estimated_memory_usage.i, align 8
   %fair_share.i = getelementptr inbounds i8, ptr %analyzer, i64 16
-  %23 = load double, ptr %fair_share.i, align 8
-  %conv.i = fptoui double %23 to i64
-  %estimated_fair_share_memory_usage.i = getelementptr inbounds i8, ptr %21, i64 16
-  %24 = load i64, ptr %estimated_fair_share_memory_usage.i, align 8
-  %add22.i = add i64 %24, %conv.i
+  %25 = load double, ptr %fair_share.i, align 8
+  %conv.i = fptoui double %25 to i64
+  %estimated_fair_share_memory_usage.i = getelementptr inbounds i8, ptr %23, i64 16
+  %26 = load i64, ptr %estimated_fair_share_memory_usage.i, align 8
+  %add22.i = add i64 %26, %conv.i
   store i64 %add22.i, ptr %estimated_fair_share_memory_usage.i, align 8
-  %25 = atomicrmw sub ptr %refcount2.i, i32 2 acq_rel, align 4
-  %cmp.i.not.i = icmp eq i32 %25, 2
+  %27 = atomicrmw sub ptr %refcount2.i, i32 2 acq_rel, align 4
+  %cmp.i.not.i = icmp eq i32 %27, 2
   br i1 %cmp.i.not.i, label %if.then.i6, label %if.end
 
 if.then.i6:                                       ; preds = %_ZN4absl13cord_internal12_GLOBAL__N_115CordRepAnalyzer14AnalyzeCordRepEPKNS0_7CordRepE.exit
@@ -1206,6 +1205,9 @@ if.end:                                           ; preds = %_ZNK4absl13cord_int
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #16
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #17
+
 attributes #0 = { mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1223,11 +1225,12 @@ attributes #13 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-p
 attributes #14 = { mustprogress nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { mustprogress nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #17 = { builtin allocsize(0) }
-attributes #18 = { nounwind }
-attributes #19 = { cold }
-attributes #20 = { noreturn nounwind }
-attributes #21 = { builtin nounwind }
+attributes #17 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #18 = { builtin allocsize(0) }
+attributes #19 = { nounwind }
+attributes #20 = { cold }
+attributes #21 = { noreturn nounwind }
+attributes #22 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

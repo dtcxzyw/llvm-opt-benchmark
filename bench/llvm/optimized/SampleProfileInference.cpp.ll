@@ -1049,9 +1049,8 @@ _ZN12_GLOBAL__N_114MinCostMaxFlow29computeAugmentingPathCapacityEv.exit.i.i: ; p
 
 .lr.ph310:                                        ; preds = %.lr.ph.preheader.i.i, %.lr.ph.i.i
   %.06207.i.i309 = phi i64 [ %.014.lcssa.i55.i.i, %.lr.ph.i.i ], [ %.014.lcssa.i222.i.i, %.lr.ph.preheader.i.i ]
-  %356 = lshr i64 %.06207.i.i309, 1
-  %.inv.i.not.i.i = icmp eq i64 %.06207.i.i309, 1
-  %.sroa.speculated.i13.i.i = select i1 %.inv.i.not.i.i, i64 1, i64 %356
+  %356 = tail call i64 @llvm.umax.i64(i64 range(i64 1, 0) %.06207.i.i309, i64 2)
+  %.sroa.speculated.i13.i.i = lshr i64 %356, 1
   %.val3446.i.i.i = load ptr, ptr %10, align 8
   %.val3547.i.i.i = load ptr, ptr %86, align 8
   %.not52.i.i.i = icmp eq ptr %.val3547.i.i.i, %.val3446.i.i.i

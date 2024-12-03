@@ -5961,14 +5961,14 @@ define linkonce_odr noundef nonnull align 16 dereferenceable(304) ptr @_ZN5Eigen
   br label %25
 
 25:                                               ; preds = %23, %80
-  %.05773 = phi i64 [ 0, %23 ], [ %81, %80 ]
-  %26 = icmp eq i64 %.05773, 1
+  %.05774 = phi i64 [ 0, %23 ], [ %81, %80 ]
+  %26 = icmp eq i64 %.05774, 1
   br i1 %26, label %._crit_edge, label %27
 
 27:                                               ; preds = %25
-  %28 = add nuw nsw i64 %.05773, 1
+  %28 = add nuw nsw i64 %.05774, 1
   %29 = getelementptr double, ptr %12, i64 %28
-  %.idx.i = shl nsw i64 %.05773, 4
+  %.idx.i = shl nsw i64 %.05774, 4
   %30 = getelementptr i8, ptr %29, i64 %.idx.i
   %31 = load double, ptr %30, align 8
   %32 = fcmp oeq double %31, 0.000000e+00
@@ -5976,10 +5976,10 @@ define linkonce_odr noundef nonnull align 16 dereferenceable(304) ptr @_ZN5Eigen
 
 ._crit_edge:                                      ; preds = %25, %27
   %.idx.i58.pre-phi = phi i64 [ %.idx.i, %27 ], [ 16, %25 ]
-  %33 = getelementptr double, ptr %12, i64 %.05773
+  %33 = getelementptr double, ptr %12, i64 %.05774
   %34 = getelementptr i8, ptr %33, i64 %.idx.i58.pre-phi
   %35 = load double, ptr %34, align 8
-  %36 = getelementptr inbounds %"class.std::complex", ptr %24, i64 %.05773
+  %36 = getelementptr inbounds %"class.std::complex", ptr %24, i64 %.05774
   %37 = getelementptr inbounds i8, ptr %36, i64 8
   store double %35, ptr %36, align 16
   store double 0.000000e+00, ptr %37, align 8
@@ -5996,7 +5996,7 @@ define linkonce_odr noundef nonnull align 16 dereferenceable(304) ptr @_ZN5Eigen
   br label %88
 
 43:                                               ; preds = %27
-  %44 = getelementptr double, ptr %12, i64 %.05773
+  %44 = getelementptr double, ptr %12, i64 %.05774
   %45 = getelementptr i8, ptr %44, i64 %.idx.i
   %46 = load double, ptr %45, align 8
   %.idx.i60 = shl i64 %28, 4
@@ -6022,7 +6022,7 @@ define linkonce_odr noundef nonnull align 16 dereferenceable(304) ptr @_ZN5Eigen
   %sqrt = tail call double @llvm.sqrt.f64(double %63)
   %64 = fmul double %.sroa.speculated69, %sqrt
   %65 = fadd double %48, %50
-  %66 = getelementptr inbounds %"class.std::complex", ptr %24, i64 %.05773
+  %66 = getelementptr inbounds %"class.std::complex", ptr %24, i64 %.05774
   store double %65, ptr %66, align 16
   %.sroa.267.0..sroa_idx = getelementptr inbounds i8, ptr %66, i64 8
   store double %64, ptr %.sroa.267.0..sroa_idx, align 8
@@ -6053,7 +6053,7 @@ define linkonce_odr noundef nonnull align 16 dereferenceable(304) ptr @_ZN5Eigen
 
 80:                                               ; preds = %43, %._crit_edge
   %.sink = phi i64 [ 1, %._crit_edge ], [ 2, %43 ]
-  %81 = add nuw nsw i64 %.05773, %.sink
+  %81 = add nuw nsw i64 %.05774, %.sink
   %82 = icmp samesign ult i64 %81, 2
   br i1 %82, label %25, label %83, !llvm.loop !216
 

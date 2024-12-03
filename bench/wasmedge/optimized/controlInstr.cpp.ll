@@ -2284,8 +2284,7 @@ define linkonce_odr hidden void @_ZNK8WasmEdge7Runtime8Instance13TableInstance10
   %24 = sub i64 %22, %23
   %25 = lshr exact i64 %24, 4
   %26 = trunc i64 %25 to i32
-  %.sroa.speculated.i = call i32 @llvm.umax.i32(i32 %26, i32 1)
-  %27 = add i32 %.sroa.speculated.i, -1
+  %27 = call noundef i32 @llvm.usub.sat.i32(i32 %26, i32 1)
   store i64 %8, ptr %7, align 8
   %28 = getelementptr inbounds i8, ptr %7, i64 8
   store i32 1, ptr %28, align 8
@@ -30984,7 +30983,7 @@ declare i64 @llvm.abs.i64(i64, i1 immarg) #15
 declare i32 @llvm.smin.i32(i32, i32) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #15
+declare i32 @llvm.usub.sat.i32(i32, i32) #15
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

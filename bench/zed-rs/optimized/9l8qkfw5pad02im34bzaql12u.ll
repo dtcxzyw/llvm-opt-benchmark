@@ -10604,7 +10604,7 @@ define hidden { ptr, ptr } @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A
   br label %19
 
 19:                                               ; preds = %.lr.ph, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hc06f37e9e7b5293bE.exit"
-  %.sroa.4.020 = phi ptr [ %2, %.lr.ph ], [ %72, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hc06f37e9e7b5293bE.exit" ]
+  %.sroa.4.020 = phi ptr [ %2, %.lr.ph ], [ %71, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hc06f37e9e7b5293bE.exit" ]
   %20 = phi ptr [ %.promoted, %.lr.ph ], [ %21, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hc06f37e9e7b5293bE.exit" ]
   %.sroa.011.0.copyload = load i64, ptr %20, align 8
   %.sroa.212.0..sroa_idx = getelementptr inbounds i8, ptr %20, i64 8
@@ -10644,75 +10644,74 @@ define hidden { ptr, ptr } @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A
   %30 = extractvalue { i32, i32 } %29, 0
   %31 = extractvalue { i32, i32 } %29, 1
   %32 = call noundef i32 @_ZN6editor11display_map8fold_map9FoldPoint3row17h5fd653b1bdaf96c3E(i32 noundef %30, i32 noundef %31), !noalias !2795
-  %33 = call i32 @llvm.umax.i32(i32 %32, i32 1)
-  %34 = add i32 %33, -1
-  %35 = call { i32, i32 } @_ZN6editor11display_map8fold_map12FoldSnapshot9max_point17h7f87aa0b28577ce5E(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %15), !noalias !2795
-  %36 = extractvalue { i32, i32 } %35, 0
-  %37 = extractvalue { i32, i32 } %35, 1
-  %38 = call noundef i32 @_ZN6editor11display_map8fold_map9FoldPoint3row17h5fd653b1bdaf96c3E(i32 noundef %36, i32 noundef %37), !noalias !2795
-  %.sroa.0.0.sroa.speculated.i1.i.i.i.i.i = call noundef i32 @llvm.umin.i32(i32 %34, i32 %38)
-  %39 = call { i32, i32 } @_ZN6editor11display_map8fold_map9FoldPoint3new17h8b7c6398ba98641aE(i32 noundef %.sroa.0.0.sroa.speculated.i1.i.i.i.i.i, i32 noundef 0), !noalias !2795
-  %40 = extractvalue { i32, i32 } %39, 0
-  %41 = extractvalue { i32, i32 } %39, 1
-  %42 = call { i32, i32 } @_ZN6editor11display_map8fold_map12FoldSnapshot10clip_point17h8fe7b6928abd41feE(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %15, i32 noundef %40, i32 noundef %41, i1 noundef zeroext true), !noalias !2795
-  %43 = extractvalue { i32, i32 } %42, 0
-  %44 = extractvalue { i32, i32 } %42, 1
-  %45 = call { i32, i32 } @_ZN6editor11display_map15DisplaySnapshot27fold_point_to_display_point17h9b10056d46d73c1bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(632) %.val.i, i32 noundef %43, i32 noundef %44), !noalias !2795
-  %46 = extractvalue { i32, i32 } %45, 0
-  %47 = extractvalue { i32, i32 } %45, 1
-  %48 = call { i32, i32 } @_ZN6editor11display_map15DisplaySnapshot10clip_point17h3e1b9b95434b0fe3E(ptr noalias noundef nonnull readonly align 8 dereferenceable(632) %.val.i, i32 noundef %46, i32 noundef %47, i1 noundef zeroext true), !noalias !2795
-  %49 = extractvalue { i32, i32 } %48, 0
-  %50 = extractvalue { i32, i32 } %48, 1
+  %33 = call i32 @llvm.usub.sat.i32(i32 %32, i32 1)
+  %34 = call { i32, i32 } @_ZN6editor11display_map8fold_map12FoldSnapshot9max_point17h7f87aa0b28577ce5E(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %15), !noalias !2795
+  %35 = extractvalue { i32, i32 } %34, 0
+  %36 = extractvalue { i32, i32 } %34, 1
+  %37 = call noundef i32 @_ZN6editor11display_map8fold_map9FoldPoint3row17h5fd653b1bdaf96c3E(i32 noundef %35, i32 noundef %36), !noalias !2795
+  %.sroa.0.0.sroa.speculated.i1.i.i.i.i.i = call noundef i32 @llvm.umin.i32(i32 %33, i32 %37)
+  %38 = call { i32, i32 } @_ZN6editor11display_map8fold_map9FoldPoint3new17h8b7c6398ba98641aE(i32 noundef %.sroa.0.0.sroa.speculated.i1.i.i.i.i.i, i32 noundef 0), !noalias !2795
+  %39 = extractvalue { i32, i32 } %38, 0
+  %40 = extractvalue { i32, i32 } %38, 1
+  %41 = call { i32, i32 } @_ZN6editor11display_map8fold_map12FoldSnapshot10clip_point17h8fe7b6928abd41feE(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %15, i32 noundef %39, i32 noundef %40, i1 noundef zeroext true), !noalias !2795
+  %42 = extractvalue { i32, i32 } %41, 0
+  %43 = extractvalue { i32, i32 } %41, 1
+  %44 = call { i32, i32 } @_ZN6editor11display_map15DisplaySnapshot27fold_point_to_display_point17h9b10056d46d73c1bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(632) %.val.i, i32 noundef %42, i32 noundef %43), !noalias !2795
+  %45 = extractvalue { i32, i32 } %44, 0
+  %46 = extractvalue { i32, i32 } %44, 1
+  %47 = call { i32, i32 } @_ZN6editor11display_map15DisplaySnapshot10clip_point17h3e1b9b95434b0fe3E(ptr noalias noundef nonnull readonly align 8 dereferenceable(632) %.val.i, i32 noundef %45, i32 noundef %46, i1 noundef zeroext true), !noalias !2795
+  %48 = extractvalue { i32, i32 } %47, 0
+  %49 = extractvalue { i32, i32 } %47, 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !2812
-  %51 = call { i32, i32 } @_ZN6editor11display_map12DisplayPoint8to_point17hd08e6c17e555abe1E(i32 noundef %49, i32 noundef %50, ptr noalias noundef nonnull readonly align 8 dereferenceable(632) %.val.i), !noalias !2795
-  %52 = extractvalue { i32, i32 } %51, 0
-  %53 = extractvalue { i32, i32 } %51, 1
-  call void @_ZN6editor11display_map15DisplaySnapshot18next_line_boundary17h6f00c0d53dd6e725E(ptr noalias nocapture noundef nonnull sret([16 x i8]) align 4 dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(632) %.val.i, i32 noundef %52, i32 noundef %53), !noalias !2795
-  %54 = load i32, ptr %16, align 4, !noalias !2812, !noundef !9
-  %55 = load i32, ptr %17, align 4, !noalias !2812, !noundef !9
-  %56 = call { i32, i32 } @_ZN6editor11display_map15DisplaySnapshot10clip_point17h3e1b9b95434b0fe3E(ptr noalias noundef nonnull readonly align 8 dereferenceable(632) %.val.i, i32 noundef %54, i32 noundef %55, i1 noundef zeroext false), !noalias !2795
+  %50 = call { i32, i32 } @_ZN6editor11display_map12DisplayPoint8to_point17hd08e6c17e555abe1E(i32 noundef %48, i32 noundef %49, ptr noalias noundef nonnull readonly align 8 dereferenceable(632) %.val.i), !noalias !2795
+  %51 = extractvalue { i32, i32 } %50, 0
+  %52 = extractvalue { i32, i32 } %50, 1
+  call void @_ZN6editor11display_map15DisplaySnapshot18next_line_boundary17h6f00c0d53dd6e725E(ptr noalias nocapture noundef nonnull sret([16 x i8]) align 4 dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(632) %.val.i, i32 noundef %51, i32 noundef %52), !noalias !2795
+  %53 = load i32, ptr %16, align 4, !noalias !2812, !noundef !9
+  %54 = load i32, ptr %17, align 4, !noalias !2812, !noundef !9
+  %55 = call { i32, i32 } @_ZN6editor11display_map15DisplaySnapshot10clip_point17h3e1b9b95434b0fe3E(ptr noalias noundef nonnull readonly align 8 dereferenceable(632) %.val.i, i32 noundef %53, i32 noundef %54, i1 noundef zeroext false), !noalias !2795
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !2812
-  %57 = extractvalue { i32, i32 } %56, 0
-  %58 = extractvalue { i32, i32 } %56, 1
-  %59 = call { i32, i32 } @_ZN6editor11display_map12DisplayPoint8to_point17hd08e6c17e555abe1E(i32 noundef %57, i32 noundef %58, ptr noalias noundef nonnull readonly align 8 dereferenceable(632) %.val.i), !noalias !2795
-  %60 = call { i32, i32 } @_ZN6editor11display_map12DisplayPoint8to_point17hd08e6c17e555abe1E(i32 noundef %57, i32 noundef %58, ptr noalias noundef nonnull readonly align 8 dereferenceable(632) %.val.i), !noalias !2795
-  %61 = extractvalue { i32, i32 } %59, 1
+  %56 = extractvalue { i32, i32 } %55, 0
+  %57 = extractvalue { i32, i32 } %55, 1
+  %58 = call { i32, i32 } @_ZN6editor11display_map12DisplayPoint8to_point17hd08e6c17e555abe1E(i32 noundef %56, i32 noundef %57, ptr noalias noundef nonnull readonly align 8 dereferenceable(632) %.val.i), !noalias !2795
+  %59 = call { i32, i32 } @_ZN6editor11display_map12DisplayPoint8to_point17hd08e6c17e555abe1E(i32 noundef %56, i32 noundef %57, ptr noalias noundef nonnull readonly align 8 dereferenceable(632) %.val.i), !noalias !2795
+  %60 = extractvalue { i32, i32 } %58, 1
+  %61 = extractvalue { i32, i32 } %58, 0
   %62 = extractvalue { i32, i32 } %59, 0
-  %63 = extractvalue { i32, i32 } %60, 0
-  %64 = extractvalue { i32, i32 } %60, 1
-  %65 = icmp eq i32 %.sroa.212.0.copyload, %62
-  %66 = icmp eq i32 %.sroa.313.0.copyload, %61
-  %.sroa.0.0.i.i.i.i = select i1 %65, i1 %66, i1 false
-  br i1 %.sroa.0.0.i.i.i.i, label %67, label %71
+  %63 = extractvalue { i32, i32 } %59, 1
+  %64 = icmp eq i32 %.sroa.212.0.copyload, %61
+  %65 = icmp eq i32 %.sroa.313.0.copyload, %60
+  %.sroa.0.0.i.i.i.i = select i1 %64, i1 %65, i1 false
+  br i1 %.sroa.0.0.i.i.i.i, label %66, label %70
 
-67:                                               ; preds = %19
-  %68 = icmp eq i32 %.sroa.414.0.copyload, %63
-  %69 = icmp eq i32 %.sroa.5.0.copyload, %64
-  %.sroa.0.0.i8.i.i.i = select i1 %68, i1 %69, i1 false
+66:                                               ; preds = %19
+  %67 = icmp eq i32 %.sroa.414.0.copyload, %62
+  %68 = icmp eq i32 %.sroa.5.0.copyload, %63
+  %.sroa.0.0.i8.i.i.i = select i1 %67, i1 %68, i1 false
   %.not.i.i.i = icmp eq i8 %.sroa.817.0.copyload, 0
   %or.cond.i.i = and i1 %.not.i.i.i, %.sroa.0.0.i8.i.i.i
-  %70 = icmp eq i32 %.sroa.615.0.copyload, 0
-  %or.cond20.i.i = select i1 %or.cond.i.i, i1 %70, i1 false
-  br i1 %or.cond20.i.i, label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hc06f37e9e7b5293bE.exit", label %71
+  %69 = icmp eq i32 %.sroa.615.0.copyload, 0
+  %or.cond20.i.i = select i1 %or.cond.i.i, i1 %69, i1 false
+  br i1 %or.cond20.i.i, label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hc06f37e9e7b5293bE.exit", label %70
 
-71:                                               ; preds = %67, %19
+70:                                               ; preds = %66, %19
   call void @llvm.assume(i1 %18)
   store i8 1, ptr %.val3.i, align 1, !noalias !2821
   br label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hc06f37e9e7b5293bE.exit"
 
-"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hc06f37e9e7b5293bE.exit": ; preds = %67, %71
+"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hc06f37e9e7b5293bE.exit": ; preds = %66, %70
   %.sroa.23.sroa.4.0.extract.shift.i.i = lshr i64 %.sroa.716.0.copyload, 32
   %.sroa.23.sroa.4.0.extract.trunc.i.i = trunc nuw i64 %.sroa.23.sroa.4.0.extract.shift.i.i to i32
   %.sroa.23.sroa.0.0.extract.trunc.i.i = trunc i64 %.sroa.716.0.copyload to i32
   store i64 %.sroa.011.0.copyload, ptr %.sroa.4.020, align 8, !noalias !2795
   %.sroa.4.sroa.4.0..sroa.42.8..sroa_idx.i = getelementptr inbounds i8, ptr %.sroa.4.020, i64 8
-  store i32 %62, ptr %.sroa.4.sroa.4.0..sroa.42.8..sroa_idx.i, align 8, !noalias !2795
+  store i32 %61, ptr %.sroa.4.sroa.4.0..sroa.42.8..sroa_idx.i, align 8, !noalias !2795
   %.sroa.4.sroa.5.0..sroa.42.8..sroa_idx.i = getelementptr inbounds i8, ptr %.sroa.4.020, i64 12
-  store i32 %61, ptr %.sroa.4.sroa.5.0..sroa.42.8..sroa_idx.i, align 4, !noalias !2795
+  store i32 %60, ptr %.sroa.4.sroa.5.0..sroa.42.8..sroa_idx.i, align 4, !noalias !2795
   %.sroa.4.sroa.6.0..sroa.42.8..sroa_idx.i = getelementptr inbounds i8, ptr %.sroa.4.020, i64 16
-  store i32 %63, ptr %.sroa.4.sroa.6.0..sroa.42.8..sroa_idx.i, align 8, !noalias !2795
+  store i32 %62, ptr %.sroa.4.sroa.6.0..sroa.42.8..sroa_idx.i, align 8, !noalias !2795
   %.sroa.4.sroa.7.0..sroa.42.8..sroa_idx.i = getelementptr inbounds i8, ptr %.sroa.4.020, i64 20
-  store i32 %64, ptr %.sroa.4.sroa.7.0..sroa.42.8..sroa_idx.i, align 4, !noalias !2795
+  store i32 %63, ptr %.sroa.4.sroa.7.0..sroa.42.8..sroa_idx.i, align 4, !noalias !2795
   %.sroa.4.sroa.8.0..sroa.42.8..sroa_idx.i = getelementptr inbounds i8, ptr %.sroa.4.020, i64 24
   store i32 0, ptr %.sroa.4.sroa.8.0..sroa.42.8..sroa_idx.i, align 8, !noalias !2795
   %.sroa.4.sroa.9.0..sroa.42.8..sroa_idx.i = getelementptr inbounds i8, ptr %.sroa.4.020, i64 28
@@ -10721,15 +10720,15 @@ define hidden { ptr, ptr } @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A
   store i32 %.sroa.23.sroa.4.0.extract.trunc.i.i, ptr %.sroa.4.sroa.10.0..sroa.42.8..sroa_idx.i, align 8, !noalias !2795
   %.sroa.4.sroa.11.0..sroa.42.8..sroa_idx.i = getelementptr inbounds i8, ptr %.sroa.4.020, i64 36
   store i8 0, ptr %.sroa.4.sroa.11.0..sroa.42.8..sroa_idx.i, align 4, !noalias !2795
-  %72 = getelementptr inbounds i8, ptr %.sroa.4.020, i64 40
+  %71 = getelementptr inbounds i8, ptr %.sroa.4.020, i64 40
   %.not = icmp eq ptr %21, %10
   br i1 %.not, label %._crit_edge, label %19
 
 ._crit_edge:                                      ; preds = %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hc06f37e9e7b5293bE.exit", %5
-  %.sroa.4.0.lcssa = phi ptr [ %2, %5 ], [ %72, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hc06f37e9e7b5293bE.exit" ]
-  %73 = insertvalue { ptr, ptr } poison, ptr %1, 0
-  %74 = insertvalue { ptr, ptr } %73, ptr %.sroa.4.0.lcssa, 1
-  ret { ptr, ptr } %74
+  %.sroa.4.0.lcssa = phi ptr [ %2, %5 ], [ %71, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hc06f37e9e7b5293bE.exit" ]
+  %72 = insertvalue { ptr, ptr } poison, ptr %1, 0
+  %73 = insertvalue { ptr, ptr } %72, ptr %.sroa.4.0.lcssa, 1
+  ret { ptr, ptr } %73
 }
 
 ; Function Attrs: nonlazybind uwtable

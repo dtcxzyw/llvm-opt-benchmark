@@ -1405,158 +1405,157 @@ define internal fastcc void @match(ptr noundef %0, i32 noundef %1, i32 noundef r
 
 get_dist_slot.exit:                               ; preds = %14, %21, %28
   %.0.i = phi i32 [ %18, %14 ], [ %27, %21 ], [ %34, %28 ]
-  %35 = icmp ult i32 %3, 6
-  %36 = add nsw i32 %3, -2
-  %37 = select i1 %35, i32 %36, i32 3
-  %38 = getelementptr inbounds i8, ptr %0, i64 28412
-  %39 = zext i32 %37 to i64
-  %40 = getelementptr inbounds [4 x [64 x i16]], ptr %38, i64 0, i64 %39
-  %41 = getelementptr inbounds i8, ptr %0, i64 40
-  %42 = getelementptr inbounds i8, ptr %0, i64 24
-  %43 = getelementptr inbounds i8, ptr %0, i64 272
-  %.pre.i = load i64, ptr %42, align 8
-  br label %44
+  %35 = tail call i32 @llvm.umin.i32(i32 %3, i32 5)
+  %36 = add nsw i32 %35, -2
+  %37 = getelementptr inbounds i8, ptr %0, i64 28412
+  %38 = zext i32 %36 to i64
+  %39 = getelementptr inbounds [4 x [64 x i16]], ptr %37, i64 0, i64 %38
+  %40 = getelementptr inbounds i8, ptr %0, i64 40
+  %41 = getelementptr inbounds i8, ptr %0, i64 24
+  %42 = getelementptr inbounds i8, ptr %0, i64 272
+  %.pre.i = load i64, ptr %41, align 8
+  br label %43
 
-44:                                               ; preds = %44, %get_dist_slot.exit
-  %45 = phi i64 [ %.pre.i, %get_dist_slot.exit ], [ %55, %44 ]
-  %.08.i = phi i32 [ 1, %get_dist_slot.exit ], [ %57, %44 ]
-  %.0.i42 = phi i32 [ 6, %get_dist_slot.exit ], [ %46, %44 ]
-  %46 = add nsw i32 %.0.i42, -1
-  %47 = lshr i32 %.0.i, %46
-  %48 = and i32 %47, 1
-  %49 = zext i32 %.08.i to i64
-  %50 = getelementptr inbounds i16, ptr %40, i64 %49
-  %51 = getelementptr inbounds [58 x i32], ptr %41, i64 0, i64 %45
-  store i32 %48, ptr %51, align 4
-  %52 = load i64, ptr %42, align 8
-  %53 = getelementptr inbounds [58 x ptr], ptr %43, i64 0, i64 %52
-  store ptr %50, ptr %53, align 8
-  %54 = load i64, ptr %42, align 8
-  %55 = add i64 %54, 1
-  store i64 %55, ptr %42, align 8
-  %56 = shl i32 %.08.i, 1
-  %57 = or disjoint i32 %48, %56
-  %.not.i = icmp eq i32 %46, 0
-  br i1 %.not.i, label %rc_bittree.exit, label %44, !llvm.loop !5
+43:                                               ; preds = %43, %get_dist_slot.exit
+  %44 = phi i64 [ %.pre.i, %get_dist_slot.exit ], [ %54, %43 ]
+  %.08.i = phi i32 [ 1, %get_dist_slot.exit ], [ %56, %43 ]
+  %.0.i42 = phi i32 [ 6, %get_dist_slot.exit ], [ %45, %43 ]
+  %45 = add nsw i32 %.0.i42, -1
+  %46 = lshr i32 %.0.i, %45
+  %47 = and i32 %46, 1
+  %48 = zext i32 %.08.i to i64
+  %49 = getelementptr inbounds i16, ptr %39, i64 %48
+  %50 = getelementptr inbounds [58 x i32], ptr %40, i64 0, i64 %44
+  store i32 %47, ptr %50, align 4
+  %51 = load i64, ptr %41, align 8
+  %52 = getelementptr inbounds [58 x ptr], ptr %42, i64 0, i64 %51
+  store ptr %49, ptr %52, align 8
+  %53 = load i64, ptr %41, align 8
+  %54 = add i64 %53, 1
+  store i64 %54, ptr %41, align 8
+  %55 = shl i32 %.08.i, 1
+  %56 = or disjoint i32 %47, %55
+  %.not.i = icmp eq i32 %45, 0
+  br i1 %.not.i, label %rc_bittree.exit, label %43, !llvm.loop !5
 
-rc_bittree.exit:                                  ; preds = %44
-  %58 = icmp samesign ugt i32 %.0.i, 3
-  br i1 %58, label %59, label %rc_bittree_reverse.exit
+rc_bittree.exit:                                  ; preds = %43
+  %57 = icmp samesign ugt i32 %.0.i, 3
+  br i1 %57, label %58, label %rc_bittree_reverse.exit
 
-59:                                               ; preds = %rc_bittree.exit
-  %60 = lshr i32 %.0.i, 1
-  %61 = add nsw i32 %60, -1
-  %62 = and i32 %.0.i, 1
-  %63 = or disjoint i32 %62, 2
-  %64 = shl i32 %63, %61
-  %65 = sub i32 %2, %64
-  %66 = icmp samesign ult i32 %.0.i, 14
-  br i1 %66, label %67, label %89
+58:                                               ; preds = %rc_bittree.exit
+  %59 = lshr i32 %.0.i, 1
+  %60 = add nsw i32 %59, -1
+  %61 = and i32 %.0.i, 1
+  %62 = or disjoint i32 %61, 2
+  %63 = shl i32 %62, %60
+  %64 = sub i32 %2, %63
+  %65 = icmp samesign ult i32 %.0.i, 14
+  br i1 %65, label %66, label %88
 
-67:                                               ; preds = %59
-  %68 = getelementptr inbounds i8, ptr %0, i64 28924
-  %69 = zext i32 %64 to i64
-  %70 = getelementptr inbounds i16, ptr %68, i64 %69
-  %71 = zext nneg i32 %.0.i to i64
-  %72 = sub nsw i64 0, %71
-  %73 = getelementptr inbounds i16, ptr %70, i64 %72
-  %74 = getelementptr inbounds i8, ptr %73, i64 -2
-  br label %75
+66:                                               ; preds = %58
+  %67 = getelementptr inbounds i8, ptr %0, i64 28924
+  %68 = zext i32 %63 to i64
+  %69 = getelementptr inbounds i16, ptr %67, i64 %68
+  %70 = zext nneg i32 %.0.i to i64
+  %71 = sub nsw i64 0, %70
+  %72 = getelementptr inbounds i16, ptr %69, i64 %71
+  %73 = getelementptr inbounds i8, ptr %72, i64 -2
+  br label %74
 
-75:                                               ; preds = %75, %67
-  %76 = phi i64 [ %55, %67 ], [ %85, %75 ]
-  %.09.i = phi i32 [ %65, %67 ], [ %78, %75 ]
-  %.08.i44 = phi i32 [ 1, %67 ], [ %87, %75 ]
-  %.0.i45 = phi i32 [ %61, %67 ], [ %88, %75 ]
-  %77 = and i32 %.09.i, 1
-  %78 = lshr i32 %.09.i, 1
-  %79 = zext i32 %.08.i44 to i64
-  %80 = getelementptr inbounds i16, ptr %74, i64 %79
-  %81 = getelementptr inbounds [58 x i32], ptr %41, i64 0, i64 %76
-  store i32 %77, ptr %81, align 4
-  %82 = load i64, ptr %42, align 8
-  %83 = getelementptr inbounds [58 x ptr], ptr %43, i64 0, i64 %82
-  store ptr %80, ptr %83, align 8
-  %84 = load i64, ptr %42, align 8
-  %85 = add i64 %84, 1
-  store i64 %85, ptr %42, align 8
-  %86 = shl i32 %.08.i44, 1
-  %87 = or disjoint i32 %86, %77
-  %88 = add nsw i32 %.0.i45, -1
-  %.not.i46 = icmp eq i32 %88, 0
-  br i1 %.not.i46, label %rc_bittree_reverse.exit, label %75, !llvm.loop !26
+74:                                               ; preds = %74, %66
+  %75 = phi i64 [ %54, %66 ], [ %84, %74 ]
+  %.09.i = phi i32 [ %64, %66 ], [ %77, %74 ]
+  %.08.i44 = phi i32 [ 1, %66 ], [ %86, %74 ]
+  %.0.i45 = phi i32 [ %60, %66 ], [ %87, %74 ]
+  %76 = and i32 %.09.i, 1
+  %77 = lshr i32 %.09.i, 1
+  %78 = zext i32 %.08.i44 to i64
+  %79 = getelementptr inbounds i16, ptr %73, i64 %78
+  %80 = getelementptr inbounds [58 x i32], ptr %40, i64 0, i64 %75
+  store i32 %76, ptr %80, align 4
+  %81 = load i64, ptr %41, align 8
+  %82 = getelementptr inbounds [58 x ptr], ptr %42, i64 0, i64 %81
+  store ptr %79, ptr %82, align 8
+  %83 = load i64, ptr %41, align 8
+  %84 = add i64 %83, 1
+  store i64 %84, ptr %41, align 8
+  %85 = shl i32 %.08.i44, 1
+  %86 = or disjoint i32 %85, %76
+  %87 = add nsw i32 %.0.i45, -1
+  %.not.i46 = icmp eq i32 %87, 0
+  br i1 %.not.i46, label %rc_bittree_reverse.exit, label %74, !llvm.loop !26
 
-89:                                               ; preds = %59
-  %90 = lshr i32 %65, 4
-  %91 = add nsw i32 %60, -5
-  br label %92
+88:                                               ; preds = %58
+  %89 = lshr i32 %64, 4
+  %90 = add nsw i32 %59, -5
+  br label %91
 
-92:                                               ; preds = %92, %89
-  %.0.i47 = phi i32 [ %91, %89 ], [ %93, %92 ]
-  %93 = add nsw i32 %.0.i47, -1
-  %94 = lshr i32 %90, %93
-  %95 = and i32 %94, 1
-  %96 = or disjoint i32 %95, 2
-  %97 = load i64, ptr %42, align 8
-  %98 = add i64 %97, 1
-  store i64 %98, ptr %42, align 8
-  %99 = getelementptr inbounds [58 x i32], ptr %41, i64 0, i64 %97
-  store i32 %96, ptr %99, align 4
-  %.not.i48 = icmp eq i32 %93, 0
-  br i1 %.not.i48, label %rc_direct.exit, label %92, !llvm.loop !27
+91:                                               ; preds = %91, %88
+  %.0.i47 = phi i32 [ %90, %88 ], [ %92, %91 ]
+  %92 = add nsw i32 %.0.i47, -1
+  %93 = lshr i32 %89, %92
+  %94 = and i32 %93, 1
+  %95 = or disjoint i32 %94, 2
+  %96 = load i64, ptr %41, align 8
+  %97 = add i64 %96, 1
+  store i64 %97, ptr %41, align 8
+  %98 = getelementptr inbounds [58 x i32], ptr %40, i64 0, i64 %96
+  store i32 %95, ptr %98, align 4
+  %.not.i48 = icmp eq i32 %92, 0
+  br i1 %.not.i48, label %rc_direct.exit, label %91, !llvm.loop !27
 
-rc_direct.exit:                                   ; preds = %92
-  %100 = getelementptr inbounds i8, ptr %0, i64 29152
-  %101 = and i32 %65, 15
-  %.pre.i49 = load i64, ptr %42, align 8
-  br label %102
+rc_direct.exit:                                   ; preds = %91
+  %99 = getelementptr inbounds i8, ptr %0, i64 29152
+  %100 = and i32 %64, 15
+  %.pre.i49 = load i64, ptr %41, align 8
+  br label %101
 
-102:                                              ; preds = %102, %rc_direct.exit
-  %103 = phi i64 [ %.pre.i49, %rc_direct.exit ], [ %112, %102 ]
-  %.09.i50 = phi i32 [ %101, %rc_direct.exit ], [ %105, %102 ]
-  %.08.i51 = phi i32 [ 1, %rc_direct.exit ], [ %114, %102 ]
-  %.0.i52 = phi i32 [ 4, %rc_direct.exit ], [ %115, %102 ]
-  %104 = and i32 %.09.i50, 1
-  %105 = lshr i32 %.09.i50, 1
-  %106 = zext i32 %.08.i51 to i64
-  %107 = getelementptr inbounds i16, ptr %100, i64 %106
-  %108 = getelementptr inbounds [58 x i32], ptr %41, i64 0, i64 %103
-  store i32 %104, ptr %108, align 4
-  %109 = load i64, ptr %42, align 8
-  %110 = getelementptr inbounds [58 x ptr], ptr %43, i64 0, i64 %109
-  store ptr %107, ptr %110, align 8
-  %111 = load i64, ptr %42, align 8
-  %112 = add i64 %111, 1
-  store i64 %112, ptr %42, align 8
-  %113 = shl i32 %.08.i51, 1
-  %114 = or disjoint i32 %113, %104
-  %115 = add nsw i32 %.0.i52, -1
-  %.not.i53 = icmp eq i32 %115, 0
-  br i1 %.not.i53, label %rc_bittree_reverse.exit54, label %102, !llvm.loop !26
+101:                                              ; preds = %101, %rc_direct.exit
+  %102 = phi i64 [ %.pre.i49, %rc_direct.exit ], [ %111, %101 ]
+  %.09.i50 = phi i32 [ %100, %rc_direct.exit ], [ %104, %101 ]
+  %.08.i51 = phi i32 [ 1, %rc_direct.exit ], [ %113, %101 ]
+  %.0.i52 = phi i32 [ 4, %rc_direct.exit ], [ %114, %101 ]
+  %103 = and i32 %.09.i50, 1
+  %104 = lshr i32 %.09.i50, 1
+  %105 = zext i32 %.08.i51 to i64
+  %106 = getelementptr inbounds i16, ptr %99, i64 %105
+  %107 = getelementptr inbounds [58 x i32], ptr %40, i64 0, i64 %102
+  store i32 %103, ptr %107, align 4
+  %108 = load i64, ptr %41, align 8
+  %109 = getelementptr inbounds [58 x ptr], ptr %42, i64 0, i64 %108
+  store ptr %106, ptr %109, align 8
+  %110 = load i64, ptr %41, align 8
+  %111 = add i64 %110, 1
+  store i64 %111, ptr %41, align 8
+  %112 = shl i32 %.08.i51, 1
+  %113 = or disjoint i32 %112, %103
+  %114 = add nsw i32 %.0.i52, -1
+  %.not.i53 = icmp eq i32 %114, 0
+  br i1 %.not.i53, label %rc_bittree_reverse.exit54, label %101, !llvm.loop !26
 
-rc_bittree_reverse.exit54:                        ; preds = %102
-  %116 = getelementptr inbounds i8, ptr %0, i64 69336
-  %117 = load i32, ptr %116, align 8
-  %118 = add i32 %117, 1
-  store i32 %118, ptr %116, align 8
+rc_bittree_reverse.exit54:                        ; preds = %101
+  %115 = getelementptr inbounds i8, ptr %0, i64 69336
+  %116 = load i32, ptr %115, align 8
+  %117 = add i32 %116, 1
+  store i32 %117, ptr %115, align 8
   br label %rc_bittree_reverse.exit
 
-rc_bittree_reverse.exit:                          ; preds = %75, %rc_bittree_reverse.exit54, %rc_bittree.exit
-  %119 = getelementptr inbounds i8, ptr %0, i64 740
-  %120 = getelementptr inbounds i8, ptr %0, i64 748
-  %121 = load i32, ptr %120, align 4
-  %122 = getelementptr inbounds i8, ptr %0, i64 752
-  store i32 %121, ptr %122, align 4
-  %123 = getelementptr inbounds i8, ptr %0, i64 744
-  %124 = load i32, ptr %123, align 4
-  store i32 %124, ptr %120, align 4
-  %125 = load i32, ptr %119, align 4
-  store i32 %125, ptr %123, align 4
-  store i32 %2, ptr %119, align 4
-  %126 = getelementptr inbounds i8, ptr %0, i64 69268
-  %127 = load i32, ptr %126, align 4
-  %128 = add i32 %127, 1
-  store i32 %128, ptr %126, align 4
+rc_bittree_reverse.exit:                          ; preds = %74, %rc_bittree_reverse.exit54, %rc_bittree.exit
+  %118 = getelementptr inbounds i8, ptr %0, i64 740
+  %119 = getelementptr inbounds i8, ptr %0, i64 748
+  %120 = load i32, ptr %119, align 4
+  %121 = getelementptr inbounds i8, ptr %0, i64 752
+  store i32 %120, ptr %121, align 4
+  %122 = getelementptr inbounds i8, ptr %0, i64 744
+  %123 = load i32, ptr %122, align 4
+  store i32 %123, ptr %119, align 4
+  %124 = load i32, ptr %118, align 4
+  store i32 %124, ptr %122, align 4
+  store i32 %2, ptr %118, align 4
+  %125 = getelementptr inbounds i8, ptr %0, i64 69268
+  %126 = load i32, ptr %125, align 4
+  %127 = add i32 %126, 1
+  store i32 %127, ptr %125, align 4
   ret void
 }
 
@@ -1899,11 +1898,11 @@ define internal range(i32 0, 9) i32 @lzma_encode(ptr noundef %0, ptr noalias nou
   ret i32 %.0
 }
 
-; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
-
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #7
+declare i32 @llvm.umin.i32(i32, i32) #6
+
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1911,8 +1910,8 @@ attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protect
 attributes #3 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #8 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}

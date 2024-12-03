@@ -10402,19 +10402,19 @@ define internal fastcc noundef float @_ZN5faiss12_GLOBAL__N_111QueryTables30prec
   br label %46
 
 46:                                               ; preds = %46, %.lr.ph82.i
-  %indvars.iv93.i = phi i64 [ 0, %.lr.ph82.i ], [ %indvars.iv.next94.i, %46 ]
+  %indvars.iv95.i = phi i64 [ 0, %.lr.ph82.i ], [ %indvars.iv.next96.i, %46 ]
   %.04280.i = phi ptr [ %44, %.lr.ph82.i ], [ %52, %46 ]
   %47 = load ptr, ptr %45, align 8
-  %48 = getelementptr inbounds ptr, ptr %47, i64 %indvars.iv93.i
+  %48 = getelementptr inbounds ptr, ptr %47, i64 %indvars.iv95.i
   store ptr %.04280.i, ptr %48, align 8
   %49 = load ptr, ptr %31, align 8
   %50 = getelementptr inbounds i8, ptr %49, i64 48
   %51 = load i64, ptr %50, align 8
   %52 = getelementptr inbounds float, ptr %.04280.i, i64 %51
-  %indvars.iv.next94.i = add nuw nsw i64 %indvars.iv93.i, 1
+  %indvars.iv.next96.i = add nuw nsw i64 %indvars.iv95.i, 1
   %53 = getelementptr inbounds i8, ptr %49, i64 24
   %54 = load i64, ptr %53, align 8
-  %55 = icmp ugt i64 %54, %indvars.iv.next94.i
+  %55 = icmp ugt i64 %54, %indvars.iv.next96.i
   br i1 %55, label %46, label %.loopexit.i, !llvm.loop !310
 
 56:                                               ; preds = %25
@@ -10481,8 +10481,8 @@ define internal fastcc noundef float @_ZN5faiss12_GLOBAL__N_111QueryTables30prec
   %87 = trunc i64 %86 to i32
   %88 = getelementptr inbounds i8, ptr %64, i64 72
   %89 = getelementptr inbounds i8, ptr %0, i64 104
-  %sext96.i = shl i64 %86, 32
-  %90 = ashr exact i64 %sext96.i, 32
+  %sext98.i = shl i64 %86, 32
+  %90 = ashr exact i64 %sext98.i, 32
   %91 = icmp sgt i32 %87, 0
   br i1 %91, label %.lr.ph.preheader.i.us.preheader, label %.loopexit.i
 
@@ -10496,11 +10496,11 @@ define internal fastcc noundef float @_ZN5faiss12_GLOBAL__N_111QueryTables30prec
 .lr.ph.preheader.i.us:                            ; preds = %.lr.ph.preheader.i.us.preheader, %._crit_edge.loopexit.i.us
   %94 = phi i64 [ %114, %._crit_edge.loopexit.i.us ], [ %.pre, %.lr.ph.preheader.i.us.preheader ]
   %95 = phi ptr [ %112, %._crit_edge.loopexit.i.us ], [ %81, %.lr.ph.preheader.i.us.preheader ]
+  %indvars.iv90.i.us = phi i64 [ %indvars.iv.next91.i.us, %._crit_edge.loopexit.i.us ], [ 0, %.lr.ph.preheader.i.us.preheader ]
   %indvars.iv88.i.us = phi i64 [ %indvars.iv.next89.i.us, %._crit_edge.loopexit.i.us ], [ 0, %.lr.ph.preheader.i.us.preheader ]
-  %indvars.iv.i.us = phi i64 [ %indvars.iv.next.i.us, %._crit_edge.loopexit.i.us ], [ 0, %.lr.ph.preheader.i.us.preheader ]
   %.04174.i.us = phi i64 [ %117, %._crit_edge.loopexit.i.us ], [ %93, %.lr.ph.preheader.i.us.preheader ]
   %96 = load i64, ptr %88, align 8
-  %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, %90
+  %indvars.iv.next91.i.us = add nuw nsw i64 %indvars.iv90.i.us, %90
   %97 = load ptr, ptr %0, align 8
   %98 = getelementptr inbounds i8, ptr %97, i64 504
   %99 = load ptr, ptr %98, align 8
@@ -10519,7 +10519,7 @@ define internal fastcc noundef float @_ZN5faiss12_GLOBAL__N_111QueryTables30prec
   br label %.lr.ph.i.us
 
 .lr.ph.i.us:                                      ; preds = %.lr.ph.i.us, %.lr.ph.preheader.i.us
-  %indvars.iv85.i.us = phi i64 [ %indvars.iv.i.us, %.lr.ph.preheader.i.us ], [ %indvars.iv.next86.i.us, %.lr.ph.i.us ]
+  %indvars.iv85.i.us = phi i64 [ %indvars.iv90.i.us, %.lr.ph.preheader.i.us ], [ %indvars.iv.next86.i.us, %.lr.ph.i.us ]
   %.03772.i.us = phi ptr [ %109, %.lr.ph.preheader.i.us ], [ %115, %.lr.ph.i.us ]
   %110 = load ptr, ptr %89, align 8
   %111 = getelementptr inbounds ptr, ptr %110, i64 %indvars.iv85.i.us
@@ -10529,7 +10529,7 @@ define internal fastcc noundef float @_ZN5faiss12_GLOBAL__N_111QueryTables30prec
   %114 = load i64, ptr %113, align 8
   %115 = getelementptr inbounds float, ptr %.03772.i.us, i64 %114
   %indvars.iv.next86.i.us = add nuw nsw i64 %indvars.iv85.i.us, 1
-  %116 = icmp slt i64 %indvars.iv.next86.i.us, %indvars.iv.next.i.us
+  %116 = icmp slt i64 %indvars.iv.next86.i.us, %indvars.iv.next91.i.us
   br i1 %116, label %.lr.ph.i.us, label %._crit_edge.loopexit.i.us, !llvm.loop !311
 
 ._crit_edge.loopexit.i.us:                        ; preds = %.lr.ph.i.us

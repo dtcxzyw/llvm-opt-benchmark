@@ -3770,8 +3770,7 @@ _ZN4absl7debian26c_fillINS0_4SpanIfEEiEEvRT_OT0_.exit: ; preds = %.lr.ph.i.i.i.i
   br i1 %16, label %.preheader.preheader, label %._crit_edge
 
 .preheader.preheader:                             ; preds = %.preheader17
-  %umax = tail call i64 @llvm.umax.i64(i64 %1, i64 1)
-  %17 = add i64 %umax, -1
+  %17 = tail call i64 @llvm.usub.sat.i64(i64 %1, i64 1)
   %wide.trip.count = and i64 %10, 2147483647
   br label %.preheader
 

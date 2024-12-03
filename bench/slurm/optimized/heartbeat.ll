@@ -193,163 +193,162 @@ define internal noalias noundef ptr @_heartbeat_thread(ptr nocapture readnone %0
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1242), align 2
-  %7 = icmp ult i16 %6, 120
-  %8 = lshr i16 %6, 2
-  %narrow = select i1 %7, i16 %8, i16 30
+  %7 = tail call i16 @llvm.umin.i16(i16 %6, i16 120)
+  %narrow = lshr i16 %7, 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
-  %9 = tail call i32 @get_log_level() #9
-  %10 = icmp sgt i32 %9, 4
-  br i1 %10, label %11, label %13
+  %8 = tail call i32 @get_log_level() #9
+  %9 = icmp sgt i32 %8, 4
+  br i1 %9, label %10, label %12
 
-11:                                               ; preds = %1
-  %12 = zext nneg i16 %narrow to i32
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.15, i32 noundef %12) #9
-  br label %13
+10:                                               ; preds = %1
+  %11 = zext nneg i16 %narrow to i32
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.15, i32 noundef %11) #9
+  br label %12
 
-13:                                               ; preds = %1, %11
-  %14 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @heartbeat_mutex) #9
-  %.not = icmp eq i32 %14, 0
-  br i1 %.not, label %.preheader, label %16
+12:                                               ; preds = %1, %10
+  %13 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @heartbeat_mutex) #9
+  %.not = icmp eq i32 %13, 0
+  br i1 %.not, label %.preheader, label %15
 
-.preheader:                                       ; preds = %13
+.preheader:                                       ; preds = %12
   %.b3036 = load i1, ptr @heart_beating, align 1
   br i1 %.b3036, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
-  %15 = zext nneg i16 %narrow to i64
-  br label %18
+  %14 = zext nneg i16 %narrow to i64
+  br label %17
 
-16:                                               ; preds = %13
-  %17 = tail call ptr @__errno_location() #10
-  store i32 %14, ptr %17, align 4
+15:                                               ; preds = %12
+  %16 = tail call ptr @__errno_location() #10
+  store i32 %13, ptr %16, align 4
   tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 88, ptr noundef nonnull @__func__._heartbeat_thread) #11
   unreachable
 
-18:                                               ; preds = %.lr.ph, %78
-  %19 = call i64 @time(ptr noundef null) #9
-  %20 = add nsw i64 %19, %15
-  store i64 %20, ptr %3, align 8
-  %21 = call i32 @get_log_level() #9
-  %22 = icmp sgt i32 %21, 6
-  br i1 %22, label %23, label %24
+17:                                               ; preds = %.lr.ph, %77
+  %18 = call i64 @time(ptr noundef null) #9
+  %19 = add nsw i64 %18, %14
+  store i64 %19, ptr %3, align 8
+  %20 = call i32 @get_log_level() #9
+  %21 = icmp sgt i32 %20, 6
+  br i1 %21, label %22, label %23
 
-23:                                               ; preds = %18
-  call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.16, i64 noundef %19) #9
-  br label %24
+22:                                               ; preds = %17
+  call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.16, i64 noundef %18) #9
+  br label %23
 
-24:                                               ; preds = %23, %18
-  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1336), align 8
-  %26 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.11, ptr noundef %25) #9
-  store ptr %26, ptr %4, align 8
-  %27 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.17, ptr noundef %26) #9
-  store ptr %27, ptr %5, align 8
-  %28 = call i32 (ptr, i32, ...) @open(ptr noundef %27, i32 noundef 524865, i32 noundef 384) #9
-  %29 = icmp slt i32 %28, 0
-  br i1 %29, label %30, label %33
+23:                                               ; preds = %22, %17
+  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1336), align 8
+  %25 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.11, ptr noundef %24) #9
+  store ptr %25, ptr %4, align 8
+  %26 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.17, ptr noundef %25) #9
+  store ptr %26, ptr %5, align 8
+  %27 = call i32 (ptr, i32, ...) @open(ptr noundef %26, i32 noundef 524865, i32 noundef 384) #9
+  %28 = icmp slt i32 %27, 0
+  br i1 %28, label %29, label %32
 
-30:                                               ; preds = %24
-  %31 = load ptr, ptr %5, align 8
-  %32 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__._heartbeat_thread, ptr noundef %31) #9
-  br label %73
+29:                                               ; preds = %23
+  %30 = load ptr, ptr %5, align 8
+  %31 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__._heartbeat_thread, ptr noundef %30) #9
+  br label %72
 
-33:                                               ; preds = %24
-  %34 = call i64 @llvm.bswap.i64(i64 %19)
-  store i64 %34, ptr %2, align 8
-  %35 = call i64 @write(i32 noundef %28, ptr noundef nonnull %2, i64 noundef 8) #9
-  %.not32 = icmp eq i64 %35, 8
-  br i1 %.not32, label %42, label %36
+32:                                               ; preds = %23
+  %33 = call i64 @llvm.bswap.i64(i64 %18)
+  store i64 %33, ptr %2, align 8
+  %34 = call i64 @write(i32 noundef %27, ptr noundef nonnull %2, i64 noundef 8) #9
+  %.not32 = icmp eq i64 %34, 8
+  br i1 %.not32, label %41, label %35
 
-36:                                               ; preds = %33
-  %37 = load ptr, ptr %5, align 8
-  %38 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.19, ptr noundef nonnull @__func__._heartbeat_thread, ptr noundef %37) #9
-  %39 = call i32 @close(i32 noundef %28) #9
-  %40 = load ptr, ptr %5, align 8
-  %41 = call i32 @unlink(ptr noundef %40) #9
-  br label %73
+35:                                               ; preds = %32
+  %36 = load ptr, ptr %5, align 8
+  %37 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.19, ptr noundef nonnull @__func__._heartbeat_thread, ptr noundef %36) #9
+  %38 = call i32 @close(i32 noundef %27) #9
+  %39 = load ptr, ptr %5, align 8
+  %40 = call i32 @unlink(ptr noundef %39) #9
+  br label %72
 
-42:                                               ; preds = %33
-  %43 = load i32, ptr @backup_inx, align 4
-  %44 = sext i32 %43 to i64
-  %45 = call i64 @llvm.bswap.i64(i64 %44)
-  store i64 %45, ptr %2, align 8
-  %46 = call i64 @write(i32 noundef %28, ptr noundef nonnull %2, i64 noundef 8) #9
-  %.not33 = icmp eq i64 %46, 8
-  br i1 %.not33, label %53, label %47
+41:                                               ; preds = %32
+  %42 = load i32, ptr @backup_inx, align 4
+  %43 = sext i32 %42 to i64
+  %44 = call i64 @llvm.bswap.i64(i64 %43)
+  store i64 %44, ptr %2, align 8
+  %45 = call i64 @write(i32 noundef %27, ptr noundef nonnull %2, i64 noundef 8) #9
+  %.not33 = icmp eq i64 %45, 8
+  br i1 %.not33, label %52, label %46
 
-47:                                               ; preds = %42
-  %48 = load ptr, ptr %5, align 8
-  %49 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.19, ptr noundef nonnull @__func__._heartbeat_thread, ptr noundef %48) #9
-  %50 = call i32 @close(i32 noundef %28) #9
-  %51 = load ptr, ptr %5, align 8
-  %52 = call i32 @unlink(ptr noundef %51) #9
-  br label %73
+46:                                               ; preds = %41
+  %47 = load ptr, ptr %5, align 8
+  %48 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.19, ptr noundef nonnull @__func__._heartbeat_thread, ptr noundef %47) #9
+  %49 = call i32 @close(i32 noundef %27) #9
+  %50 = load ptr, ptr %5, align 8
+  %51 = call i32 @unlink(ptr noundef %50) #9
+  br label %72
 
-53:                                               ; preds = %42
-  %54 = call i32 @fsync_and_close(i32 noundef %28, ptr noundef nonnull @.str.20) #9
-  %.not34 = icmp eq i32 %54, 0
-  br i1 %.not34, label %58, label %55
+52:                                               ; preds = %41
+  %53 = call i32 @fsync_and_close(i32 noundef %27, ptr noundef nonnull @.str.20) #9
+  %.not34 = icmp eq i32 %53, 0
+  br i1 %.not34, label %57, label %54
 
-55:                                               ; preds = %53
-  %56 = load ptr, ptr %5, align 8
-  %57 = call i32 @unlink(ptr noundef %56) #9
-  br label %73
+54:                                               ; preds = %52
+  %55 = load ptr, ptr %5, align 8
+  %56 = call i32 @unlink(ptr noundef %55) #9
+  br label %72
 
-58:                                               ; preds = %53
-  %59 = load ptr, ptr %4, align 8
-  %60 = call i32 @unlink(ptr noundef %59) #9
-  %61 = load ptr, ptr %5, align 8
-  %62 = load ptr, ptr %4, align 8
-  %63 = call i32 @link(ptr noundef %61, ptr noundef %62) #9
-  %.not35 = icmp eq i32 %63, 0
-  br i1 %.not35, label %70, label %64
+57:                                               ; preds = %52
+  %58 = load ptr, ptr %4, align 8
+  %59 = call i32 @unlink(ptr noundef %58) #9
+  %60 = load ptr, ptr %5, align 8
+  %61 = load ptr, ptr %4, align 8
+  %62 = call i32 @link(ptr noundef %60, ptr noundef %61) #9
+  %.not35 = icmp eq i32 %62, 0
+  br i1 %.not35, label %69, label %63
 
-64:                                               ; preds = %58
-  %65 = call i32 @get_log_level() #9
-  %66 = icmp sgt i32 %65, 4
-  br i1 %66, label %67, label %70
+63:                                               ; preds = %57
+  %64 = call i32 @get_log_level() #9
+  %65 = icmp sgt i32 %64, 4
+  br i1 %65, label %66, label %69
 
-67:                                               ; preds = %64
-  %68 = load ptr, ptr %5, align 8
-  %69 = load ptr, ptr %4, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.21, ptr noundef nonnull @__func__._heartbeat_thread, ptr noundef %68, ptr noundef %69) #9
-  br label %70
+66:                                               ; preds = %63
+  %67 = load ptr, ptr %5, align 8
+  %68 = load ptr, ptr %4, align 8
+  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.21, ptr noundef nonnull @__func__._heartbeat_thread, ptr noundef %67, ptr noundef %68) #9
+  br label %69
 
-70:                                               ; preds = %64, %67, %58
-  %71 = load ptr, ptr %5, align 8
-  %72 = call i32 @unlink(ptr noundef %71) #9
-  br label %73
+69:                                               ; preds = %63, %66, %57
+  %70 = load ptr, ptr %5, align 8
+  %71 = call i32 @unlink(ptr noundef %70) #9
+  br label %72
 
-73:                                               ; preds = %70, %55, %47, %36, %30
+72:                                               ; preds = %69, %54, %46, %35, %29
   call void @slurm_xfree(ptr noundef nonnull %4) #9
   call void @slurm_xfree(ptr noundef nonnull %5) #9
-  %74 = call i32 @pthread_cond_timedwait(ptr noundef nonnull @heartbeat_cond, ptr noundef nonnull @heartbeat_mutex, ptr noundef nonnull %3) #9
-  switch i32 %74, label %75 [
-    i32 110, label %78
-    i32 0, label %78
+  %73 = call i32 @pthread_cond_timedwait(ptr noundef nonnull @heartbeat_cond, ptr noundef nonnull @heartbeat_mutex, ptr noundef nonnull %3) #9
+  switch i32 %73, label %74 [
+    i32 110, label %77
+    i32 0, label %77
   ]
 
-75:                                               ; preds = %73
-  %76 = tail call ptr @__errno_location() #10
-  store i32 %74, ptr %76, align 4
-  %77 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.2, i32 noundef 142, ptr noundef nonnull @__func__._heartbeat_thread) #9
-  br label %78
+74:                                               ; preds = %72
+  %75 = tail call ptr @__errno_location() #10
+  store i32 %73, ptr %75, align 4
+  %76 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.2, i32 noundef 142, ptr noundef nonnull @__func__._heartbeat_thread) #9
+  br label %77
 
-78:                                               ; preds = %73, %73, %75
+77:                                               ; preds = %72, %72, %74
   %.b30 = load i1, ptr @heart_beating, align 1
-  br i1 %.b30, label %18, label %._crit_edge, !llvm.loop !7
+  br i1 %.b30, label %17, label %._crit_edge, !llvm.loop !7
 
-._crit_edge:                                      ; preds = %78, %.preheader
-  %79 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @heartbeat_mutex) #9
-  %.not31 = icmp eq i32 %79, 0
-  br i1 %.not31, label %82, label %80
+._crit_edge:                                      ; preds = %77, %.preheader
+  %78 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @heartbeat_mutex) #9
+  %.not31 = icmp eq i32 %78, 0
+  br i1 %.not31, label %81, label %79
 
-80:                                               ; preds = %._crit_edge
-  %81 = tail call ptr @__errno_location() #10
-  store i32 %79, ptr %81, align 4
+79:                                               ; preds = %._crit_edge
+  %80 = tail call ptr @__errno_location() #10
+  store i32 %78, ptr %80, align 4
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.2, i32 noundef 144, ptr noundef nonnull @__func__._heartbeat_thread) #11
   unreachable
 
-82:                                               ; preds = %._crit_edge
+81:                                               ; preds = %._crit_edge
   ret ptr null
 }
 
@@ -528,6 +527,9 @@ declare i32 @pthread_cond_timedwait(ptr noundef, ptr noundef, ptr noundef) local
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.bswap.i64(i64) #8
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i16 @llvm.umin.i16(i16, i16) #8
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

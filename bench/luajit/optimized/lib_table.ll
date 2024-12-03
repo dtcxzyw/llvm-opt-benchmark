@@ -19,20 +19,20 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i32 @luaopen_table(ptr noundef %L) local_unnamed_addr #0 {
 entry:
-  tail call void @lj_lib_register(ptr noundef %L, ptr noundef nonnull @.str, ptr noundef nonnull @lj_lib_init_table, ptr noundef nonnull @lj_lib_cf_table) #3
+  tail call void @lj_lib_register(ptr noundef %L, ptr noundef nonnull @.str, ptr noundef nonnull @lj_lib_init_table, ptr noundef nonnull @lj_lib_cf_table) #4
   %top = getelementptr inbounds i8, ptr %L, i64 40
   %0 = load ptr, ptr %top, align 8
   %add.ptr = getelementptr inbounds i8, ptr %0, i64 -8
   %1 = load i64, ptr %add.ptr, align 8
   %and = and i64 %1, 140737488355327
   %2 = inttoptr i64 %and to ptr
-  tail call void @lj_lib_prereg(ptr noundef %L, ptr noundef nonnull @.str.1, ptr noundef nonnull @luaopen_table_new, ptr noundef %2) #3
+  tail call void @lj_lib_prereg(ptr noundef %L, ptr noundef nonnull @.str.1, ptr noundef nonnull @luaopen_table_new, ptr noundef %2) #4
   %3 = load ptr, ptr %top, align 8
   %add.ptr2 = getelementptr inbounds i8, ptr %3, i64 -8
   %4 = load i64, ptr %add.ptr2, align 8
   %and4 = and i64 %4, 140737488355327
   %5 = inttoptr i64 %and4 to ptr
-  tail call void @lj_lib_prereg(ptr noundef %L, ptr noundef nonnull @.str.2, ptr noundef nonnull @luaopen_table_clear, ptr noundef %5) #3
+  tail call void @lj_lib_prereg(ptr noundef %L, ptr noundef nonnull @.str.2, ptr noundef nonnull @luaopen_table_clear, ptr noundef %5) #4
   ret i32 1
 }
 
@@ -43,21 +43,21 @@ declare hidden void @lj_lib_prereg(ptr noundef, ptr noundef, ptr noundef, ptr no
 ; Function Attrs: nounwind uwtable
 define internal i32 @luaopen_table_new(ptr noundef %L) #0 {
 entry:
-  %call = tail call i32 @lj_lib_postreg(ptr noundef %L, ptr noundef nonnull @lj_cf_table_new, i32 noundef 94, ptr noundef nonnull @.str.5) #3
+  %call = tail call i32 @lj_lib_postreg(ptr noundef %L, ptr noundef nonnull @lj_cf_table_new, i32 noundef 94, ptr noundef nonnull @.str.5) #4
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @luaopen_table_clear(ptr noundef %L) #0 {
 entry:
-  %call = tail call i32 @lj_lib_postreg(ptr noundef %L, ptr noundef nonnull @lj_cf_table_clear, i32 noundef 95, ptr noundef nonnull @.str.6) #3
+  %call = tail call i32 @lj_lib_postreg(ptr noundef %L, ptr noundef nonnull @lj_cf_table_clear, i32 noundef 95, ptr noundef nonnull @.str.6) #4
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @lj_cf_table_maxn(ptr noundef %L) #0 {
 entry:
-  %call = tail call ptr @lj_lib_checktab(ptr noundef %L, i32 noundef 1) #3
+  %call = tail call ptr @lj_lib_checktab(ptr noundef %L, i32 noundef 1) #4
   %array1 = getelementptr inbounds i8, ptr %call, i64 16
   %0 = load i64, ptr %array1, align 8
   %1 = inttoptr i64 %0 to ptr
@@ -130,8 +130,8 @@ for.end32:                                        ; preds = %for.inc30
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @lj_cf_table_insert(ptr noundef %L) #0 {
 entry:
-  %call = tail call ptr @lj_lib_checktab(ptr noundef %L, i32 noundef 1) #3
-  %call1 = tail call i32 @lj_tab_len(ptr noundef %call) #3
+  %call = tail call ptr @lj_lib_checktab(ptr noundef %L, i32 noundef 1) #4
+  %call1 = tail call i32 @lj_tab_len(ptr noundef %call) #4
   %add = add i32 %call1, 1
   %top = getelementptr inbounds i8, ptr %L, i64 40
   %0 = load ptr, ptr %top, align 8
@@ -147,11 +147,11 @@ entry:
   ]
 
 if.then7:                                         ; preds = %entry
-  tail call void @lj_err_caller(ptr noundef nonnull %L, i32 noundef 1385) #4
+  tail call void @lj_err_caller(ptr noundef nonnull %L, i32 noundef 1385) #5
   unreachable
 
 if.end:                                           ; preds = %entry
-  %call8 = tail call i32 @lj_lib_checkint(ptr noundef nonnull %L, i32 noundef 2) #3
+  %call8 = tail call i32 @lj_lib_checkint(ptr noundef nonnull %L, i32 noundef 2) #4
   %cmp943.not = icmp slt i32 %call1, %call8
   br i1 %cmp943.not, label %if.end30, label %for.body.lr.ph
 
@@ -176,7 +176,7 @@ cond.true:                                        ; preds = %for.body
   br label %cond.end
 
 cond.false:                                       ; preds = %for.body
-  %call13 = tail call ptr @lj_tab_setinth(ptr noundef %L, ptr noundef nonnull %call, i32 noundef %5) #3
+  %call13 = tail call ptr @lj_tab_setinth(ptr noundef %L, ptr noundef nonnull %call, i32 noundef %5) #4
   %.pre = load i32, ptr %asize, align 8
   br label %cond.end
 
@@ -195,7 +195,7 @@ cond.true17:                                      ; preds = %cond.end
   br label %cond.end26
 
 cond.false23:                                     ; preds = %cond.end
-  %call25 = tail call ptr @lj_tab_getinth(ptr noundef nonnull %call, i32 noundef %9) #3
+  %call25 = tail call ptr @lj_tab_getinth(ptr noundef nonnull %call, i32 noundef %9) #4
   br label %cond.end26
 
 cond.end26:                                       ; preds = %cond.false23, %cond.true17
@@ -229,7 +229,7 @@ cond.true35:                                      ; preds = %if.end30
   br label %cond.end42
 
 cond.false40:                                     ; preds = %if.end30
-  %call41 = tail call ptr @lj_tab_setinth(ptr noundef %L, ptr noundef nonnull %call, i32 noundef %i.0) #3
+  %call41 = tail call ptr @lj_tab_setinth(ptr noundef %L, ptr noundef nonnull %call, i32 noundef %i.0) #4
   br label %cond.end42
 
 cond.end42:                                       ; preds = %cond.false40, %cond.true35
@@ -281,9 +281,9 @@ if.end59:                                         ; preds = %if.then57, %land.lh
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @lj_cf_table_concat(ptr noundef %L) #0 {
 entry:
-  %call = tail call ptr @lj_lib_checktab(ptr noundef %L, i32 noundef 1) #3
-  %call1 = tail call ptr @lj_lib_optstr(ptr noundef %L, i32 noundef 2) #3
-  %call2 = tail call i32 @lj_lib_optint(ptr noundef %L, i32 noundef 3, i32 noundef 1) #3
+  %call = tail call ptr @lj_lib_checktab(ptr noundef %L, i32 noundef 1) #4
+  %call1 = tail call ptr @lj_lib_optstr(ptr noundef %L, i32 noundef 2) #4
+  %call2 = tail call i32 @lj_lib_optint(ptr noundef %L, i32 noundef 3, i32 noundef 1) #4
   %base = getelementptr inbounds i8, ptr %L, i64 32
   %0 = load ptr, ptr %base, align 8
   %add.ptr = getelementptr inbounds i8, ptr %0, i64 24
@@ -298,11 +298,11 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %cmp5, label %cond.false, label %cond.true
 
 cond.true:                                        ; preds = %land.lhs.true
-  %call6 = tail call i32 @lj_lib_checkint(ptr noundef nonnull %L, i32 noundef 4) #3
+  %call6 = tail call i32 @lj_lib_checkint(ptr noundef nonnull %L, i32 noundef 4) #4
   br label %cond.end
 
 cond.false:                                       ; preds = %land.lhs.true, %entry
-  %call7 = tail call i32 @lj_tab_len(ptr noundef %call) #3
+  %call7 = tail call i32 @lj_tab_len(ptr noundef %call) #4
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
@@ -317,7 +317,7 @@ cond.end:                                         ; preds = %cond.false, %cond.t
   %b.i58 = getelementptr inbounds i8, ptr %4, i64 216
   %6 = load ptr, ptr %b.i58, align 8
   store ptr %6, ptr %tmpbuf.i, align 8
-  %call9 = tail call ptr @lj_buf_puttab(ptr noundef nonnull %tmpbuf.i, ptr noundef %call, ptr noundef %call1, i32 noundef %call2, i32 noundef %cond) #3
+  %call9 = tail call ptr @lj_buf_puttab(ptr noundef nonnull %tmpbuf.i, ptr noundef %call, ptr noundef %call1, i32 noundef %call2, i32 noundef %cond) #4
   %tobool.not = icmp eq ptr %call9, null
   br i1 %tobool.not, label %if.then, label %if.end
 
@@ -340,7 +340,7 @@ cond.true16:                                      ; preds = %if.then
   br label %cond.end19
 
 cond.false17:                                     ; preds = %if.then
-  %call18 = tail call ptr @lj_tab_getinth(ptr noundef nonnull %call, i32 noundef %conv13) #3
+  %call18 = tail call ptr @lj_tab_getinth(ptr noundef nonnull %call, i32 noundef %conv13) #4
   br label %cond.end19
 
 cond.end19:                                       ; preds = %cond.false17, %cond.true16
@@ -351,43 +351,42 @@ cond.end19:                                       ; preds = %cond.false17, %cond
 cond.true22:                                      ; preds = %cond.end19
   %13 = load i64, ptr %cond20, align 8
   %shr = ashr i64 %13, 47
-  %cmp24 = icmp ult i64 %shr, -13
-  %not = xor i64 %shr, -1
-  %spec.select = select i1 %cmp24, i64 13, i64 %not
+  %14 = tail call i64 @llvm.umax.i64(i64 %shr, i64 -14)
+  %spec.select = xor i64 %14, -1
   br label %cond.end33
 
 cond.end33:                                       ; preds = %cond.true22, %cond.end19
   %cond34 = phi i64 [ 0, %cond.end19 ], [ %spec.select, %cond.true22 ]
   %arrayidx36 = getelementptr inbounds [14 x ptr], ptr @lj_obj_itypename, i64 0, i64 %cond34
-  %14 = load ptr, ptr %arrayidx36, align 8
-  tail call void (ptr, i32, ...) @lj_err_callerv(ptr noundef nonnull %L, i32 noundef 1423, ptr noundef %14, i32 noundef %conv13) #4
+  %15 = load ptr, ptr %arrayidx36, align 8
+  tail call void (ptr, i32, ...) @lj_err_callerv(ptr noundef nonnull %L, i32 noundef 1423, ptr noundef %15, i32 noundef %conv13) #5
   unreachable
 
 if.end:                                           ; preds = %cond.end
-  %15 = load ptr, ptr %top, align 8
-  %add.ptr38 = getelementptr inbounds i8, ptr %15, i64 -8
+  %16 = load ptr, ptr %top, align 8
+  %add.ptr38 = getelementptr inbounds i8, ptr %16, i64 -8
   %b.i = getelementptr inbounds i8, ptr %call9, i64 16
-  %16 = load ptr, ptr %b.i, align 8
-  %17 = load ptr, ptr %call9, align 8
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %17 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %16 to i64
+  %17 = load ptr, ptr %b.i, align 8
+  %18 = load ptr, ptr %call9, align 8
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %18 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %17 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %conv2.i = and i64 %sub.ptr.sub.i, 4294967295
-  %call.i = tail call ptr @lj_str_new(ptr noundef nonnull %L, ptr noundef %16, i64 noundef %conv2.i) #3
-  %18 = ptrtoint ptr %call.i to i64
-  %or.i = or i64 %18, -703687441776640
+  %call.i = tail call ptr @lj_str_new(ptr noundef nonnull %L, ptr noundef %17, i64 noundef %conv2.i) #4
+  %19 = ptrtoint ptr %call.i to i64
+  %or.i = or i64 %19, -703687441776640
   store i64 %or.i, ptr %add.ptr38, align 8
-  %19 = load i64, ptr %glref.i, align 8
-  %20 = inttoptr i64 %19 to ptr
-  %gc = getelementptr inbounds i8, ptr %20, i64 16
-  %21 = load i64, ptr %gc, align 8
-  %threshold = getelementptr inbounds i8, ptr %20, i64 24
-  %22 = load i64, ptr %threshold, align 8
-  %cmp44.not = icmp ult i64 %21, %22
+  %20 = load i64, ptr %glref.i, align 8
+  %21 = inttoptr i64 %20 to ptr
+  %gc = getelementptr inbounds i8, ptr %21, i64 16
+  %22 = load i64, ptr %gc, align 8
+  %threshold = getelementptr inbounds i8, ptr %21, i64 24
+  %23 = load i64, ptr %threshold, align 8
+  %cmp44.not = icmp ult i64 %22, %23
   br i1 %cmp44.not, label %if.end54, label %if.then52
 
 if.then52:                                        ; preds = %if.end
-  %call53 = tail call i32 @lj_gc_step(ptr noundef nonnull %L) #3
+  %call53 = tail call i32 @lj_gc_step(ptr noundef nonnull %L) #4
   br label %if.end54
 
 if.end54:                                         ; preds = %if.then52, %if.end
@@ -397,9 +396,9 @@ if.end54:                                         ; preds = %if.then52, %if.end
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @lj_cf_table_sort(ptr noundef %L) #0 {
 entry:
-  %call = tail call ptr @lj_lib_checktab(ptr noundef %L, i32 noundef 1) #3
-  %call1 = tail call i32 @lj_tab_len(ptr noundef %call) #3
-  tail call void @lua_settop(ptr noundef %L, i32 noundef 2) #3
+  %call = tail call ptr @lj_lib_checktab(ptr noundef %L, i32 noundef 1) #4
+  %call1 = tail call i32 @lj_tab_len(ptr noundef %call) #4
+  tail call void @lua_settop(ptr noundef %L, i32 noundef 2) #4
   %base = getelementptr inbounds i8, ptr %L, i64 32
   %0 = load ptr, ptr %base, align 8
   %add.ptr = getelementptr inbounds i8, ptr %0, i64 8
@@ -408,7 +407,7 @@ entry:
   br i1 %cmp, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call2 = tail call ptr @lj_lib_checkfunc(ptr noundef nonnull %L, i32 noundef 2) #3
+  %call2 = tail call ptr @lj_lib_checkfunc(ptr noundef nonnull %L, i32 noundef 2) #4
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -455,19 +454,19 @@ entry:
 while.body:                                       ; preds = %entry, %if.then37
   %u.addr.095 = phi i32 [ %u.addr.095.i.1.lcssa.lcssa105, %if.then37 ], [ %u, %entry ]
   %l.addr.094 = phi i32 [ %add46.l.addr.094, %if.then37 ], [ %l, %entry ]
-  tail call void @lua_rawgeti(ptr noundef %L, i32 noundef 1, i32 noundef %l.addr.094) #3
-  tail call void @lua_rawgeti(ptr noundef %L, i32 noundef 1, i32 noundef %u.addr.095) #3
+  tail call void @lua_rawgeti(ptr noundef %L, i32 noundef 1, i32 noundef %l.addr.094) #4
+  tail call void @lua_rawgeti(ptr noundef %L, i32 noundef 1, i32 noundef %u.addr.095) #4
   %call = tail call fastcc i32 @sort_comp(ptr noundef %L, i32 noundef -1, i32 noundef -2)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %while.body
-  tail call void @lua_rawseti(ptr noundef %L, i32 noundef 1, i32 noundef %l.addr.094) #3
-  tail call void @lua_rawseti(ptr noundef %L, i32 noundef 1, i32 noundef %u.addr.095) #3
+  tail call void @lua_rawseti(ptr noundef %L, i32 noundef 1, i32 noundef %l.addr.094) #4
+  tail call void @lua_rawseti(ptr noundef %L, i32 noundef 1, i32 noundef %u.addr.095) #4
   br label %if.end
 
 if.else:                                          ; preds = %while.body
-  tail call void @lua_settop(ptr noundef %L, i32 noundef -3) #3
+  tail call void @lua_settop(ptr noundef %L, i32 noundef -3) #4
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
@@ -478,31 +477,31 @@ if.end:                                           ; preds = %if.else, %if.then
 if.end3:                                          ; preds = %if.end
   %add = add nsw i32 %u.addr.095, %l.addr.094
   %div = sdiv i32 %add, 2
-  tail call void @lua_rawgeti(ptr noundef %L, i32 noundef 1, i32 noundef %div) #3
-  tail call void @lua_rawgeti(ptr noundef %L, i32 noundef 1, i32 noundef %l.addr.094) #3
+  tail call void @lua_rawgeti(ptr noundef %L, i32 noundef 1, i32 noundef %div) #4
+  tail call void @lua_rawgeti(ptr noundef %L, i32 noundef 1, i32 noundef %l.addr.094) #4
   %call4 = tail call fastcc i32 @sort_comp(ptr noundef %L, i32 noundef -2, i32 noundef -1)
   %tobool5.not = icmp eq i32 %call4, 0
   br i1 %tobool5.not, label %if.else7, label %if.then6
 
 if.then6:                                         ; preds = %if.end3
-  tail call void @lua_rawseti(ptr noundef %L, i32 noundef 1, i32 noundef %div) #3
-  tail call void @lua_rawseti(ptr noundef %L, i32 noundef 1, i32 noundef %l.addr.094) #3
+  tail call void @lua_rawseti(ptr noundef %L, i32 noundef 1, i32 noundef %div) #4
+  tail call void @lua_rawseti(ptr noundef %L, i32 noundef 1, i32 noundef %l.addr.094) #4
   br label %if.end13
 
 if.else7:                                         ; preds = %if.end3
-  tail call void @lua_settop(ptr noundef %L, i32 noundef -2) #3
-  tail call void @lua_rawgeti(ptr noundef %L, i32 noundef 1, i32 noundef %u.addr.095) #3
+  tail call void @lua_settop(ptr noundef %L, i32 noundef -2) #4
+  tail call void @lua_rawgeti(ptr noundef %L, i32 noundef 1, i32 noundef %u.addr.095) #4
   %call8 = tail call fastcc i32 @sort_comp(ptr noundef %L, i32 noundef -1, i32 noundef -2)
   %tobool9.not = icmp eq i32 %call8, 0
   br i1 %tobool9.not, label %if.else11, label %if.then10
 
 if.then10:                                        ; preds = %if.else7
-  tail call void @lua_rawseti(ptr noundef %L, i32 noundef 1, i32 noundef %div) #3
-  tail call void @lua_rawseti(ptr noundef %L, i32 noundef 1, i32 noundef %u.addr.095) #3
+  tail call void @lua_rawseti(ptr noundef %L, i32 noundef 1, i32 noundef %div) #4
+  tail call void @lua_rawseti(ptr noundef %L, i32 noundef 1, i32 noundef %u.addr.095) #4
   br label %if.end13
 
 if.else11:                                        ; preds = %if.else7
-  tail call void @lua_settop(ptr noundef %L, i32 noundef -3) #3
+  tail call void @lua_settop(ptr noundef %L, i32 noundef -3) #4
   br label %if.end13
 
 if.end13:                                         ; preds = %if.then10, %if.else11, %if.then6
@@ -510,39 +509,39 @@ if.end13:                                         ; preds = %if.then10, %if.else
   br i1 %cmp15, label %while.end51, label %if.end17
 
 if.end17:                                         ; preds = %if.end13
-  tail call void @lua_rawgeti(ptr noundef %L, i32 noundef 1, i32 noundef %div) #3
-  tail call void @lua_pushvalue(ptr noundef %L, i32 noundef -1) #3
+  tail call void @lua_rawgeti(ptr noundef %L, i32 noundef 1, i32 noundef %div) #4
+  tail call void @lua_pushvalue(ptr noundef %L, i32 noundef -1) #4
   %sub18 = add nsw i32 %u.addr.095, -1
-  tail call void @lua_rawgeti(ptr noundef %L, i32 noundef 1, i32 noundef %sub18) #3
+  tail call void @lua_rawgeti(ptr noundef %L, i32 noundef 1, i32 noundef %sub18) #4
   br label %for.cond
 
 for.cond:                                         ; preds = %while.end35, %if.end17
   %inc.lcssa.sink = phi i32 [ %div, %if.end17 ], [ %inc, %while.end35 ]
   %dec.lcssa.sink = phi i32 [ %sub18, %if.end17 ], [ %dec, %while.end35 ]
   %i.0 = phi i32 [ %l.addr.094, %if.end17 ], [ %inc, %while.end35 ]
-  tail call void @lua_rawseti(ptr noundef %L, i32 noundef 1, i32 noundef %inc.lcssa.sink) #3
-  tail call void @lua_rawseti(ptr noundef %L, i32 noundef 1, i32 noundef %dec.lcssa.sink) #3
+  tail call void @lua_rawseti(ptr noundef %L, i32 noundef 1, i32 noundef %inc.lcssa.sink) #4
+  tail call void @lua_rawseti(ptr noundef %L, i32 noundef 1, i32 noundef %dec.lcssa.sink) #4
   br label %while.cond21
 
 while.cond21:                                     ; preds = %if.end27, %for.cond
   %i.1 = phi i32 [ %i.0, %for.cond ], [ %inc, %if.end27 ]
   %inc = add nsw i32 %i.1, 1
-  tail call void @lua_rawgeti(ptr noundef %L, i32 noundef 1, i32 noundef %inc) #3
-  %call.i = tail call i32 @lua_type(ptr noundef %L, i32 noundef 2) #3
+  tail call void @lua_rawgeti(ptr noundef %L, i32 noundef 1, i32 noundef %inc) #4
+  %call.i = tail call i32 @lua_type(ptr noundef %L, i32 noundef 2) #4
   %cmp.i = icmp eq i32 %call.i, 0
   br i1 %cmp.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %while.cond21
-  tail call void @lua_pushvalue(ptr noundef %L, i32 noundef 2) #3
-  tail call void @lua_pushvalue(ptr noundef %L, i32 noundef -2) #3
-  tail call void @lua_pushvalue(ptr noundef %L, i32 noundef -4) #3
-  tail call void @lua_call(ptr noundef %L, i32 noundef 2, i32 noundef 1) #3
-  %call2.i = tail call i32 @lua_toboolean(ptr noundef %L, i32 noundef -1) #3
-  tail call void @lua_settop(ptr noundef %L, i32 noundef -2) #3
+  tail call void @lua_pushvalue(ptr noundef %L, i32 noundef 2) #4
+  tail call void @lua_pushvalue(ptr noundef %L, i32 noundef -2) #4
+  tail call void @lua_pushvalue(ptr noundef %L, i32 noundef -4) #4
+  tail call void @lua_call(ptr noundef %L, i32 noundef 2, i32 noundef 1) #4
+  %call2.i = tail call i32 @lua_toboolean(ptr noundef %L, i32 noundef -1) #4
+  tail call void @lua_settop(ptr noundef %L, i32 noundef -2) #4
   br label %sort_comp.exit
 
 if.else.i:                                        ; preds = %while.cond21
-  %call3.i = tail call i32 @lua_lessthan(ptr noundef %L, i32 noundef -1, i32 noundef -2) #3
+  %call3.i = tail call i32 @lua_lessthan(ptr noundef %L, i32 noundef -1, i32 noundef -2) #4
   br label %sort_comp.exit
 
 sort_comp.exit:                                   ; preds = %if.then.i, %if.else.i
@@ -555,32 +554,32 @@ while.body24:                                     ; preds = %sort_comp.exit
   br i1 %cmp25.not, label %if.end27, label %if.then26
 
 if.then26:                                        ; preds = %while.body24
-  tail call void @lj_err_caller(ptr noundef %L, i32 noundef 1476) #4
+  tail call void @lj_err_caller(ptr noundef %L, i32 noundef 1476) #5
   unreachable
 
 if.end27:                                         ; preds = %while.body24
-  tail call void @lua_settop(ptr noundef %L, i32 noundef -2) #3
+  tail call void @lua_settop(ptr noundef %L, i32 noundef -2) #4
   br label %while.cond21, !llvm.loop !8
 
 while.cond28:                                     ; preds = %sort_comp.exit, %if.end34
   %j.1 = phi i32 [ %dec, %if.end34 ], [ %dec.lcssa.sink, %sort_comp.exit ]
   %dec = add nsw i32 %j.1, -1
-  tail call void @lua_rawgeti(ptr noundef %L, i32 noundef 1, i32 noundef %dec) #3
-  %call.i79 = tail call i32 @lua_type(ptr noundef %L, i32 noundef 2) #3
+  tail call void @lua_rawgeti(ptr noundef %L, i32 noundef 1, i32 noundef %dec) #4
+  %call.i79 = tail call i32 @lua_type(ptr noundef %L, i32 noundef 2) #4
   %cmp.i80 = icmp eq i32 %call.i79, 0
   br i1 %cmp.i80, label %if.else.i84, label %if.then.i81
 
 if.then.i81:                                      ; preds = %while.cond28
-  tail call void @lua_pushvalue(ptr noundef %L, i32 noundef 2) #3
-  tail call void @lua_pushvalue(ptr noundef %L, i32 noundef -4) #3
-  tail call void @lua_pushvalue(ptr noundef %L, i32 noundef -3) #3
-  tail call void @lua_call(ptr noundef %L, i32 noundef 2, i32 noundef 1) #3
-  %call2.i82 = tail call i32 @lua_toboolean(ptr noundef %L, i32 noundef -1) #3
-  tail call void @lua_settop(ptr noundef %L, i32 noundef -2) #3
+  tail call void @lua_pushvalue(ptr noundef %L, i32 noundef 2) #4
+  tail call void @lua_pushvalue(ptr noundef %L, i32 noundef -4) #4
+  tail call void @lua_pushvalue(ptr noundef %L, i32 noundef -3) #4
+  tail call void @lua_call(ptr noundef %L, i32 noundef 2, i32 noundef 1) #4
+  %call2.i82 = tail call i32 @lua_toboolean(ptr noundef %L, i32 noundef -1) #4
+  tail call void @lua_settop(ptr noundef %L, i32 noundef -2) #4
   br label %sort_comp.exit86
 
 if.else.i84:                                      ; preds = %while.cond28
-  %call3.i85 = tail call i32 @lua_lessthan(ptr noundef %L, i32 noundef -3, i32 noundef -1) #3
+  %call3.i85 = tail call i32 @lua_lessthan(ptr noundef %L, i32 noundef -3, i32 noundef -1) #4
   br label %sort_comp.exit86
 
 sort_comp.exit86:                                 ; preds = %if.then.i81, %if.else.i84
@@ -593,11 +592,11 @@ while.body31:                                     ; preds = %sort_comp.exit86
   br i1 %cmp32.not, label %if.end34, label %if.then33
 
 if.then33:                                        ; preds = %while.body31
-  tail call void @lj_err_caller(ptr noundef %L, i32 noundef 1476) #4
+  tail call void @lj_err_caller(ptr noundef %L, i32 noundef 1476) #5
   unreachable
 
 if.end34:                                         ; preds = %while.body31
-  tail call void @lua_settop(ptr noundef %L, i32 noundef -2) #3
+  tail call void @lua_settop(ptr noundef %L, i32 noundef -2) #4
   br label %while.cond28, !llvm.loop !9
 
 while.end35:                                      ; preds = %sort_comp.exit86
@@ -605,11 +604,11 @@ while.end35:                                      ; preds = %sort_comp.exit86
   br i1 %cmp36.not, label %for.cond, label %if.then37
 
 if.then37:                                        ; preds = %while.end35
-  tail call void @lua_settop(ptr noundef %L, i32 noundef -4) #3
-  tail call void @lua_rawgeti(ptr noundef %L, i32 noundef 1, i32 noundef %sub18) #3
-  tail call void @lua_rawgeti(ptr noundef %L, i32 noundef 1, i32 noundef %inc) #3
-  tail call void @lua_rawseti(ptr noundef %L, i32 noundef 1, i32 noundef %sub18) #3
-  tail call void @lua_rawseti(ptr noundef %L, i32 noundef 1, i32 noundef %inc) #3
+  tail call void @lua_settop(ptr noundef %L, i32 noundef -4) #4
+  tail call void @lua_rawgeti(ptr noundef %L, i32 noundef 1, i32 noundef %sub18) #4
+  tail call void @lua_rawgeti(ptr noundef %L, i32 noundef 1, i32 noundef %inc) #4
+  tail call void @lua_rawseti(ptr noundef %L, i32 noundef 1, i32 noundef %sub18) #4
+  tail call void @lua_rawseti(ptr noundef %L, i32 noundef 1, i32 noundef %inc) #4
   %sub41 = sub nsw i32 %inc, %l.addr.094
   %sub42 = sub nsw i32 %u.addr.095, %inc
   %cmp43 = icmp slt i32 %sub41, %sub42
@@ -631,23 +630,23 @@ declare void @lua_rawgeti(ptr noundef, i32 noundef, i32 noundef) local_unnamed_a
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @sort_comp(ptr noundef %L, i32 noundef range(i32 -3, 0) %a, i32 noundef range(i32 -2, 0) %b) unnamed_addr #0 {
 entry:
-  %call = tail call i32 @lua_type(ptr noundef %L, i32 noundef 2) #3
+  %call = tail call i32 @lua_type(ptr noundef %L, i32 noundef 2) #4
   %cmp = icmp eq i32 %call, 0
   br i1 %cmp, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  tail call void @lua_pushvalue(ptr noundef %L, i32 noundef 2) #3
+  tail call void @lua_pushvalue(ptr noundef %L, i32 noundef 2) #4
   %sub = add nsw i32 %a, -1
-  tail call void @lua_pushvalue(ptr noundef %L, i32 noundef %sub) #3
+  tail call void @lua_pushvalue(ptr noundef %L, i32 noundef %sub) #4
   %sub1 = add nsw i32 %b, -2
-  tail call void @lua_pushvalue(ptr noundef %L, i32 noundef %sub1) #3
-  tail call void @lua_call(ptr noundef %L, i32 noundef 2, i32 noundef 1) #3
-  %call2 = tail call i32 @lua_toboolean(ptr noundef %L, i32 noundef -1) #3
-  tail call void @lua_settop(ptr noundef %L, i32 noundef -2) #3
+  tail call void @lua_pushvalue(ptr noundef %L, i32 noundef %sub1) #4
+  tail call void @lua_call(ptr noundef %L, i32 noundef 2, i32 noundef 1) #4
+  %call2 = tail call i32 @lua_toboolean(ptr noundef %L, i32 noundef -1) #4
+  tail call void @lua_settop(ptr noundef %L, i32 noundef -2) #4
   br label %return
 
 if.else:                                          ; preds = %entry
-  %call3 = tail call i32 @lua_lessthan(ptr noundef %L, i32 noundef %a, i32 noundef %b) #3
+  %call3 = tail call i32 @lua_lessthan(ptr noundef %L, i32 noundef %a, i32 noundef %b) #4
   br label %return
 
 return:                                           ; preds = %if.else, %if.then
@@ -672,9 +671,9 @@ declare hidden i32 @lj_lib_postreg(ptr noundef, ptr noundef, i32 noundef, ptr no
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @lj_cf_table_new(ptr noundef %L) #0 {
 entry:
-  %call = tail call i32 @lj_lib_checkint(ptr noundef %L, i32 noundef 1) #3
-  %call1 = tail call i32 @lj_lib_checkint(ptr noundef %L, i32 noundef 2) #3
-  tail call void @lua_createtable(ptr noundef %L, i32 noundef %call, i32 noundef %call1) #3
+  %call = tail call i32 @lj_lib_checkint(ptr noundef %L, i32 noundef 1) #4
+  %call1 = tail call i32 @lj_lib_checkint(ptr noundef %L, i32 noundef 2) #4
+  tail call void @lua_createtable(ptr noundef %L, i32 noundef %call, i32 noundef %call1) #4
   ret i32 1
 }
 
@@ -683,18 +682,22 @@ declare void @lua_createtable(ptr noundef, i32 noundef, i32 noundef) local_unnam
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @lj_cf_table_clear(ptr noundef %L) #0 {
 entry:
-  %call = tail call ptr @lj_lib_checktab(ptr noundef %L, i32 noundef 1) #3
-  tail call void @lj_tab_clear(ptr noundef %call) #3
+  %call = tail call ptr @lj_lib_checktab(ptr noundef %L, i32 noundef 1) #4
+  tail call void @lj_tab_clear(ptr noundef %call) #4
   ret i32 0
 }
 
 declare hidden void @lj_tab_clear(ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #3
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind }
-attributes #4 = { noreturn nounwind }
+attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #4 = { nounwind }
+attributes #5 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

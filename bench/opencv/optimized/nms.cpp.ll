@@ -1116,13 +1116,13 @@ define internal noundef float @_ZN2cv3dnn14dnn4_v20240521L11rectOverlapINS_5Rect
 40:                                               ; preds = %37, %._crit_edge.i.i
   %.sroa.speculated52.pre-phi.i.i = phi double [ %.pre64.i.i, %._crit_edge.i.i ], [ %.sroa.speculated49.i.i, %37 ]
   %.sroa.speculated47.i.i = select i1 %25, double %4, double %9
-  %41 = fsub double %27, %26
-  %42 = fsub double %.sroa.speculated47.i.i, %41
+  %41 = fsub double %26, %27
+  %42 = fadd double %.sroa.speculated47.i.i, %41
   %.sroa.speculated41.i.i = select i1 %25, double %9, double %4
   %43 = fcmp olt double %.sroa.speculated41.i.i, %42
   %.sroa.speculated55.i.i.i = select i1 %43, double %.sroa.speculated41.i.i, double %42
-  %44 = fsub double %.sroa.speculated52.pre-phi.i.i, %.sroa.speculated58.i.i
-  %45 = fsub double %.sroa.speculated36.i.i, %44
+  %44 = fsub double %.sroa.speculated58.i.i, %.sroa.speculated52.pre-phi.i.i
+  %45 = fadd double %.sroa.speculated36.i.i, %44
   %.sroa.speculated.i.i = select i1 %30, double %11, double %6
   %46 = fcmp olt double %.sroa.speculated.i.i, %45
   %.sroa.speculated.i.i.i = select i1 %46, double %.sroa.speculated.i.i, double %45

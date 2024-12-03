@@ -10,12 +10,11 @@ target triple = "x86_64-pc-linux-gnu"
 define void @Wlc_NtkCollectBoxes(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %1, i64 4
   %.val = load i32, ptr %3, align 4
-  %4 = add nsw i32 %.val, 1
-  %5 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #8
-  %or.cond.i = icmp ult i32 %.val, 15
-  %spec.store.select.i = select i1 %or.cond.i, i32 16, i32 %4
-  %6 = getelementptr inbounds i8, ptr %5, i64 4
-  store i32 %spec.store.select.i, ptr %5, align 8
+  %4 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #8
+  %5 = tail call i32 @llvm.umax.i32(i32 %.val, i32 15)
+  %spec.store.select.i = add i32 %5, 1
+  %6 = getelementptr inbounds i8, ptr %4, i64 4
+  store i32 %spec.store.select.i, ptr %4, align 8
   %.not.i = icmp eq i32 %spec.store.select.i, 0
   br i1 %.not.i, label %Vec_IntGrow.exit.i, label %.Vec_IntGrow.exit10_crit_edge.i
 
@@ -23,15 +22,15 @@ define void @Wlc_NtkCollectBoxes(ptr nocapture noundef readonly %0, ptr nocaptur
   %7 = sext i32 %spec.store.select.i to i64
   %8 = shl nsw i64 %7, 2
   %9 = tail call noalias ptr @malloc(i64 noundef %8) #8
-  %10 = getelementptr inbounds i8, ptr %5, i64 8
+  %10 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %9, ptr %10, align 8
   br label %Vec_IntPush.exit
 
 Vec_IntGrow.exit.i:                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %5, i64 8
+  %11 = getelementptr inbounds i8, ptr %4, i64 8
   %12 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #8
   store ptr %12, ptr %11, align 8
-  store i32 16, ptr %5, align 8
+  store i32 16, ptr %4, align 8
   br label %Vec_IntPush.exit
 
 Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10_crit_edge.i, %Vec_IntGrow.exit.i
@@ -57,7 +56,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %22 = getelementptr inbounds i32, ptr %.val15, i64 %21
   %23 = load i32, ptr %22, align 4
   %24 = load i32, ptr %6, align 4
-  %25 = load i32, ptr %5, align 8
+  %25 = load i32, ptr %4, align 8
   %26 = icmp eq i32 %24, %25
   br i1 %26, label %27, label %.Vec_IntGrow.exit10_crit_edge.i16
 
@@ -85,7 +84,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 Vec_IntGrow.exit.i21:                             ; preds = %33, %31
   %35 = phi ptr [ %32, %31 ], [ %34, %33 ]
   store ptr %35, ptr %13, align 8
-  store i32 16, ptr %5, align 8
+  store i32 16, ptr %4, align 8
   br label %Vec_IntPush.exit22
 
 36:                                               ; preds = %27
@@ -107,7 +106,7 @@ Vec_IntGrow.exit.i21:                             ; preds = %33, %31
 45:                                               ; preds = %43, %41
   %46 = phi ptr [ %42, %41 ], [ %44, %43 ]
   store ptr %46, ptr %13, align 8
-  store i32 %37, ptr %5, align 8
+  store i32 %37, ptr %4, align 8
   br label %Vec_IntPush.exit22
 
 Vec_IntPush.exit22:                               ; preds = %.Vec_IntGrow.exit10_crit_edge.i16, %Vec_IntGrow.exit.i21, %45
@@ -129,7 +128,7 @@ Vec_IntPush.exit22:                               ; preds = %.Vec_IntGrow.exit10
 
 .critedge:                                        ; preds = %.critedge.loopexit, %Vec_IntPush.exit
   %53 = phi ptr [ %.pre, %.critedge.loopexit ], [ %14, %Vec_IntPush.exit ]
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   tail call void @Abc_FrameSetBoxes(ptr noundef %53) #10
   %54 = load ptr, ptr %13, align 8
   %.not.i23 = icmp eq ptr %54, null
@@ -140,7 +139,7 @@ Vec_IntPush.exit22:                               ; preds = %.Vec_IntGrow.exit10
   br label %Vec_IntFree.exit
 
 Vec_IntFree.exit:                                 ; preds = %.critedge, %55
-  tail call void @free(ptr noundef nonnull %5) #10
+  tail call void @free(ptr noundef nonnull %4) #10
   ret void
 }
 
@@ -1968,6 +1967,9 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #7

@@ -1967,7 +1967,9 @@ if.then23.i.i:                                    ; preds = %land.lhs.true21.i.i
   %call.i1750 = tail call noundef float @_ZNK8facebook4yoga4Node30getInlineStartPaddingAndBorderENS0_13FlexDirectionENS0_9DirectionEf(ptr noundef nonnull align 8 dereferenceable(640) %178, i8 noundef zeroext %retval.0.i1770, i8 noundef zeroext 1, float noundef %call89.i)
   %call1.i1751 = tail call noundef float @_ZNK8facebook4yoga4Node28getInlineEndPaddingAndBorderENS0_13FlexDirectionENS0_9DirectionEf(ptr noundef nonnull align 8 dereferenceable(640) %178, i8 noundef zeroext %retval.0.i1770, i8 noundef zeroext 1, float noundef %call89.i)
   %add.i1752 = fadd float %call.i1750, %call1.i1751
-  %cmp.i2.sink.i.i1748 = fcmp olt float %retval.sroa.0.0.i1765, %add.i1752
+  %or.cond.i.i1745 = fcmp ord float %add.i1752, 0.000000e+00
+  %cmp.i.i.i1747 = fcmp olt float %retval.sroa.0.0.i1765, %add.i1752
+  %cmp.i2.sink.i.i1748 = select i1 %or.cond.i.i1745, i1 %cmp.i.i.i1747, i1 false
   %cond.i.i1749 = select i1 %cmp.i2.sink.i.i1748, float %add.i1752, float %retval.sroa.0.0.i1765
   br label %_ZN8facebook4yogaL24computeFlexBasisForChildEPKNS0_4NodeEPS1_fNS0_10SizingModeEfffS5_NS0_9DirectionERNS0_10LayoutDataEjj.exit.i.sink.split
 

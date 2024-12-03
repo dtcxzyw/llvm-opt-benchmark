@@ -5295,10 +5295,9 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN3nix13MixCom
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define internal void @"_ZNSt17_Function_handlerIFvvEZN3nix13MixCommonArgsC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_1E9_M_invokeERKSt9_Any_data"(ptr nocapture nonnull readnone align 8 %0) #15 align 2 {
   %2 = load i32, ptr @_ZN3nix9verbosityE, align 4
-  %3 = icmp sgt i32 %2, 0
-  %4 = add nsw i32 %2, -1
-  %5 = select i1 %3, i32 %4, i32 0
-  store i32 %5, ptr @_ZN3nix9verbosityE, align 4
+  %3 = tail call i32 @llvm.smax.i32(i32 %2, i32 1)
+  %4 = add nsw i32 %3, -1
+  store i32 %4, ptr @_ZN3nix9verbosityE, align 4
   ret void
 }
 
@@ -15556,6 +15555,9 @@ declare i32 @llvm.eh.typeid.for.p0(ptr) #24
 declare void @llvm.assume(i1 noundef) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #26
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -15566,9 +15568,6 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #27
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #27
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #26

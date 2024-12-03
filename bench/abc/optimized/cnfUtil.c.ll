@@ -1659,7 +1659,7 @@ define noalias noundef ptr @Cnf_DataReadFromFile(ptr noundef %0) local_unnamed_a
   %.058.ph167 = phi i32 [ -1, %.lr.ph.lr.ph ], [ %24, %Vec_IntAlloc.exit ]
   %.059.ph166 = phi i32 [ -1, %.lr.ph.lr.ph ], [ %22, %Vec_IntAlloc.exit ]
   %.0124.ph165 = phi ptr [ null, %.lr.ph.lr.ph ], [ %36, %Vec_IntAlloc.exit ]
-  %.0125.ph164 = phi ptr [ null, %.lr.ph.lr.ph ], [ %29, %Vec_IntAlloc.exit ]
+  %.0125.ph164 = phi ptr [ null, %.lr.ph.lr.ph ], [ %28, %Vec_IntAlloc.exit ]
   %10 = getelementptr i8, ptr %.0124.ph165, i64 4
   %11 = getelementptr inbounds i8, ptr %.0125.ph164, i64 4
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %.0125.ph164, i64 8
@@ -1701,17 +1701,16 @@ define noalias noundef ptr @Cnf_DataReadFromFile(ptr noundef %0) local_unnamed_a
   br label %.critedge
 
 Vec_IntAlloc.exit:                                ; preds = %20
-  %28 = add nuw nsw i32 %24, 1
-  %29 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #25
-  %or.cond.i = icmp samesign ult i32 %24, 15
-  %spec.store.select.i = select i1 %or.cond.i, i32 16, i32 %28
-  %30 = getelementptr inbounds i8, ptr %29, i64 4
+  %28 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #25
+  %29 = tail call i32 @llvm.umax.i32(i32 %24, i32 15)
+  %spec.store.select.i = add nuw i32 %29, 1
+  %30 = getelementptr inbounds i8, ptr %28, i64 4
   store i32 0, ptr %30, align 4
-  store i32 %spec.store.select.i, ptr %29, align 8
+  store i32 %spec.store.select.i, ptr %28, align 8
   %31 = zext nneg i32 %spec.store.select.i to i64
   %32 = shl nuw nsw i64 %31, 2
   %33 = tail call noalias ptr @malloc(i64 noundef %32) #25
-  %34 = getelementptr inbounds i8, ptr %29, i64 8
+  %34 = getelementptr inbounds i8, ptr %28, i64 8
   store ptr %33, ptr %34, align 8
   %35 = shl nsw i32 %24, 3
   %36 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #25
@@ -1908,7 +1907,7 @@ Vec_IntPush.exit93:                               ; preds = %.Vec_IntGrow.exit10
   br label %.critedge
 
 .outer._crit_edge:                                ; preds = %Vec_IntAlloc.exit, %.backedge, %6
-  %.0125.ph.lcssa150 = phi ptr [ null, %6 ], [ %.0125.ph164, %.backedge ], [ %29, %Vec_IntAlloc.exit ]
+  %.0125.ph.lcssa150 = phi ptr [ null, %6 ], [ %.0125.ph164, %.backedge ], [ %28, %Vec_IntAlloc.exit ]
   %.0124.ph.lcssa143 = phi ptr [ null, %6 ], [ %.0124.ph165, %.backedge ], [ %36, %Vec_IntAlloc.exit ]
   %.059.ph.lcssa139 = phi i32 [ -1, %6 ], [ %.059.ph166, %.backedge ], [ %22, %Vec_IntAlloc.exit ]
   %.058.ph.lcssa135 = phi i32 [ -1, %6 ], [ %.058.ph167, %.backedge ], [ %24, %Vec_IntAlloc.exit ]
@@ -3195,6 +3194,9 @@ declare i32 @llvm.smax.i32(i32, i32) #20
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #21
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.scmp.i32.i32(i32, i32) #20

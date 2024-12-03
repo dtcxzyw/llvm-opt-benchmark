@@ -525,9 +525,8 @@ land.lhs.true:                                    ; preds = %stackinuse.exit
   br i1 %cmp2, label %if.then, label %if.end
 
 if.then:                                          ; preds = %land.lhs.true
-  %cmp4 = icmp sgt i32 %conv.i, 499999
-  %mul8 = shl nuw nsw i32 %spec.store.select.i, 1
-  %cond10 = select i1 %cmp4, i32 1000000, i32 %mul8
+  %5 = tail call i32 @llvm.umin.i32(i32 %spec.store.select.i, i32 500000)
+  %cond10 = shl nuw nsw i32 %5, 1
   %call11 = tail call i32 @luaD_reallocstack(ptr noundef nonnull %L, i32 noundef %cond10, i32 noundef 0)
   br label %if.end
 
@@ -2350,9 +2349,8 @@ land.lhs.true.i:                                  ; preds = %stackinuse.exit.i
   br i1 %cmp2.i, label %if.then.i, label %luaD_shrinkstack.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  %cmp4.i = icmp sgt i32 %conv.i.i, 499999
-  %mul8.i = shl nuw nsw i32 %spec.store.select.i.i, 1
-  %cond10.i = select i1 %cmp4.i, i32 1000000, i32 %mul8.i
+  %20 = call i32 @llvm.umin.i32(i32 %spec.store.select.i.i, i32 500000)
+  %cond10.i = shl nuw nsw i32 %20, 1
   %call11.i = call i32 @luaD_reallocstack(ptr noundef nonnull %L, i32 noundef %cond10.i, i32 noundef 0)
   br label %luaD_shrinkstack.exit
 
@@ -2548,7 +2546,7 @@ while.body.lr.ph:                                 ; preds = %entry
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end
-  %1 = phi ptr [ %0, %while.body.lr.ph ], [ %33, %if.end ]
+  %1 = phi ptr [ %0, %while.body.lr.ph ], [ %34, %if.end ]
   %callstatus = getelementptr inbounds i8, ptr %1, i64 62
   %2 = load i16, ptr %callstatus, align 2
   %3 = and i16 %2, 2
@@ -2668,48 +2666,47 @@ land.lhs.true.i.i.i:                              ; preds = %stackinuse.exit.i.i
   br i1 %cmp2.i.i.i, label %if.then.i.i.i, label %luaD_shrinkstack.exit.i.i
 
 if.then.i.i.i:                                    ; preds = %land.lhs.true.i.i.i
-  %cmp4.i.i.i = icmp sgt i32 %conv.i.i.i.i, 499999
-  %mul8.i.i.i = shl nuw nsw i32 %spec.store.select.i.i.i.i, 1
-  %cond10.i.i.i = select i1 %cmp4.i.i.i, i32 1000000, i32 %mul8.i.i.i
+  %23 = tail call i32 @llvm.umin.i32(i32 %spec.store.select.i.i.i.i, i32 500000)
+  %cond10.i.i.i = shl nuw nsw i32 %23, 1
   %call11.i.i.i = tail call i32 @luaD_reallocstack(ptr noundef nonnull %L, i32 noundef %cond10.i.i.i, i32 noundef 0)
   br label %luaD_shrinkstack.exit.i.i
 
 luaD_shrinkstack.exit.i.i:                        ; preds = %if.then.i.i.i, %land.lhs.true.i.i.i, %stackinuse.exit.i.i.i
   tail call void @luaE_shrinkCI(ptr noundef nonnull %L) #12
-  %23 = load i16, ptr %callstatus, align 2
-  %24 = and i16 %23, -7169
+  %24 = load i16, ptr %callstatus, align 2
+  %25 = and i16 %24, -7169
   br label %finishpcallk.exit.i
 
 finishpcallk.exit.i:                              ; preds = %luaD_shrinkstack.exit.i.i, %if.then5.i
-  %25 = phi i16 [ %24, %luaD_shrinkstack.exit.i.i ], [ %2, %if.then5.i ]
+  %26 = phi i16 [ %25, %luaD_shrinkstack.exit.i.i ], [ %2, %if.then5.i ]
   %status.0.i.i = phi i32 [ %and.i.i, %luaD_shrinkstack.exit.i.i ], [ 1, %if.then5.i ]
-  %26 = and i16 %25, -17
-  store i16 %26, ptr %callstatus, align 2
+  %27 = and i16 %26, -17
+  store i16 %27, ptr %callstatus, align 2
   %old_errfunc.i.i = getelementptr inbounds i8, ptr %1, i64 40
-  %27 = load i64, ptr %old_errfunc.i.i, align 8
-  store i64 %27, ptr %errfunc.i.i, align 8
+  %28 = load i64, ptr %old_errfunc.i.i, align 8
+  store i64 %28, ptr %errfunc.i.i, align 8
   %.pre = load ptr, ptr %ci1, align 8
   br label %if.end.i
 
 if.end.i:                                         ; preds = %finishpcallk.exit.i, %if.else.i
-  %28 = phi ptr [ %.pre, %finishpcallk.exit.i ], [ %1, %if.else.i ]
+  %29 = phi ptr [ %.pre, %finishpcallk.exit.i ], [ %1, %if.else.i ]
   %status.0.i = phi i32 [ %status.0.i.i, %finishpcallk.exit.i ], [ 1, %if.else.i ]
-  %top.i = getelementptr inbounds i8, ptr %28, i64 8
-  %29 = load ptr, ptr %top.i, align 8
-  %30 = load ptr, ptr %top.i.i.i, align 8
-  %cmp.i = icmp ult ptr %29, %30
+  %top.i = getelementptr inbounds i8, ptr %29, i64 8
+  %30 = load ptr, ptr %top.i, align 8
+  %31 = load ptr, ptr %top.i.i.i, align 8
+  %cmp.i = icmp ult ptr %30, %31
   br i1 %cmp.i, label %if.then9.i, label %if.end13.i
 
 if.then9.i:                                       ; preds = %if.end.i
-  store ptr %30, ptr %top.i, align 8
+  store ptr %31, ptr %top.i, align 8
   br label %if.end13.i
 
 if.end13.i:                                       ; preds = %if.then9.i, %if.end.i
   %u.i = getelementptr inbounds i8, ptr %1, i64 32
-  %31 = load ptr, ptr %u.i, align 8
+  %32 = load ptr, ptr %u.i, align 8
   %ctx.i = getelementptr inbounds i8, ptr %1, i64 48
-  %32 = load i64, ptr %ctx.i, align 8
-  %call15.i = tail call i32 %31(ptr noundef nonnull %L, i32 noundef %status.0.i, i64 noundef %32) #12
+  %33 = load i64, ptr %ctx.i, align 8
+  %call15.i = tail call i32 %32(ptr noundef nonnull %L, i32 noundef %status.0.i, i64 noundef %33) #12
   br label %finishCcall.exit
 
 finishCcall.exit:                                 ; preds = %if.then.i, %if.end13.i
@@ -2723,8 +2720,8 @@ if.else:                                          ; preds = %while.body
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %finishCcall.exit
-  %33 = load ptr, ptr %ci1, align 8
-  %cmp.not = icmp eq ptr %33, %base_ci
+  %34 = load ptr, ptr %ci1, align 8
+  %cmp.not = icmp eq ptr %34, %base_ci
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !20
 
 while.end:                                        ; preds = %if.end, %entry
@@ -2751,6 +2748,9 @@ declare i32 @llvm.smin.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #9
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10

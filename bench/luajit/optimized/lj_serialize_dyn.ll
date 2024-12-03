@@ -1039,14 +1039,13 @@ badenc:                                           ; preds = %if.else27, %if.else
   %L344 = getelementptr inbounds i8, ptr %sbx, i64 24
   %89 = load i64, ptr %L344, align 8
   %shr347 = ashr i64 %88, 47
-  %cmp349 = icmp ult i64 %shr347, -13
-  %not355 = xor i64 %shr347, -1
-  %spec.select257 = select i1 %cmp349, i64 13, i64 %not355
+  %90 = tail call i64 @llvm.umax.i64(i64 %shr347, i64 -14)
+  %spec.select257 = xor i64 %90, -1
   %and346 = and i64 %89, -8
-  %90 = inttoptr i64 %and346 to ptr
+  %91 = inttoptr i64 %and346 to ptr
   %arrayidx359 = getelementptr inbounds [14 x ptr], ptr @lj_obj_itypename, i64 0, i64 %spec.select257
-  %91 = load ptr, ptr %arrayidx359, align 8
-  tail call void (ptr, i32, ...) @lj_err_callerv(ptr noundef %90, i32 noundef 3790, ptr noundef %91) #9
+  %92 = load ptr, ptr %arrayidx359, align 8
+  tail call void (ptr, i32, ...) @lj_err_callerv(ptr noundef %91, i32 noundef 3790, ptr noundef %92) #9
   unreachable
 
 if.end365:                                        ; preds = %serialize_more.exit485, %if.end263, %if.then335, %if.else338, %if.then328, %serialize_more.exit395, %serialize_more.exit380, %serialize_more.exit470, %serialize_wu124.exit572
@@ -1875,6 +1874,9 @@ declare hidden ptr @lj_mem_newgco(ptr noundef, i64 noundef) local_unnamed_addr #
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshl.i32(i32, i32, i32) #7
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #7

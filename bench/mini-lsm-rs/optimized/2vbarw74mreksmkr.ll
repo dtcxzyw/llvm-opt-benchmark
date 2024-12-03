@@ -8343,8 +8343,7 @@ define void @_ZN8mini_lsm7compact14simple_leveled33SimpleLeveledCompactionContro
   br i1 %31, label %.lr.ph65.split, label %.lr.ph65.split.us.preheader
 
 .lr.ph65.split.us.preheader:                      ; preds = %.lr.ph65
-  %umax = call i64 @llvm.umax.i64(i64 %.val25, i64 1)
-  %35 = add i64 %umax, -1
+  %35 = call i64 @llvm.usub.sat.i64(i64 %.val25, i64 1)
   br label %.lr.ph65.split.us
 
 .lr.ph65.split.us:                                ; preds = %.lr.ph65.split.us.preheader, %.backedge.us

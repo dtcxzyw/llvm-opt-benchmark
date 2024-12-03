@@ -296,7 +296,7 @@ define dso_local i32 @usb_interrupt_msg(ptr noundef %0, i32 noundef %1, ptr noun
   %24 = load i8, ptr %23, align 1
   %25 = and i8 %24, 3
   %26 = icmp eq i8 %25, 3
-  br i1 %26, label %27, label %54
+  br i1 %26, label %27, label %53
 
 27:                                               ; preds = %22
   %28 = and i32 %1, 1073741823
@@ -321,46 +321,45 @@ define dso_local i32 @usb_interrupt_msg(ptr noundef %0, i32 noundef %1, ptr noun
   %41 = icmp eq i32 %40, 3
   %42 = icmp ugt i32 %40, 4
   %43 = or i1 %41, %42
-  br i1 %43, label %44, label %50
+  br i1 %43, label %44, label %49
 
 44:                                               ; preds = %27
   %45 = icmp ugt i8 %31, 15
-  %46 = tail call i32 @llvm.umax.i32(i32 %32, i32 1)
-  %47 = add nsw i32 %46, -1
-  %48 = shl nuw nsw i32 1, %47
-  %49 = select i1 %45, i32 32768, i32 %48
-  br label %50
+  %46 = tail call i32 @llvm.usub.sat.i32(i32 %32, i32 1)
+  %47 = shl nuw nsw i32 1, %46
+  %48 = select i1 %45, i32 32768, i32 %47
+  br label %49
 
-50:                                               ; preds = %44, %27
-  %51 = phi i32 [ %49, %44 ], [ %32, %27 ]
-  %52 = getelementptr inbounds i8, ptr %20, i64 160
-  store i32 %51, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %20, i64 152
-  store i32 -1, ptr %53, align 8
-  br label %61
+49:                                               ; preds = %44, %27
+  %50 = phi i32 [ %48, %44 ], [ %32, %27 ]
+  %51 = getelementptr inbounds i8, ptr %20, i64 160
+  store i32 %50, ptr %51, align 8
+  %52 = getelementptr inbounds i8, ptr %20, i64 152
+  store i32 -1, ptr %52, align 8
+  br label %60
 
-54:                                               ; preds = %22
-  %55 = getelementptr inbounds i8, ptr %20, i64 64
-  store ptr %0, ptr %55, align 8
-  %56 = getelementptr inbounds i8, ptr %20, i64 80
-  store i32 %1, ptr %56, align 8
-  %57 = getelementptr inbounds i8, ptr %20, i64 96
-  store ptr %2, ptr %57, align 8
-  %58 = getelementptr inbounds i8, ptr %20, i64 128
-  store i32 %3, ptr %58, align 8
-  %59 = getelementptr inbounds i8, ptr %20, i64 176
-  store ptr @usb_api_blocking_completion, ptr %59, align 8
-  %60 = getelementptr inbounds i8, ptr %20, i64 168
-  store ptr null, ptr %60, align 8
-  br label %61
+53:                                               ; preds = %22
+  %54 = getelementptr inbounds i8, ptr %20, i64 64
+  store ptr %0, ptr %54, align 8
+  %55 = getelementptr inbounds i8, ptr %20, i64 80
+  store i32 %1, ptr %55, align 8
+  %56 = getelementptr inbounds i8, ptr %20, i64 96
+  store ptr %2, ptr %56, align 8
+  %57 = getelementptr inbounds i8, ptr %20, i64 128
+  store i32 %3, ptr %57, align 8
+  %58 = getelementptr inbounds i8, ptr %20, i64 176
+  store ptr @usb_api_blocking_completion, ptr %58, align 8
+  %59 = getelementptr inbounds i8, ptr %20, i64 168
+  store ptr null, ptr %59, align 8
+  br label %60
 
-61:                                               ; preds = %54, %50
-  %62 = tail call fastcc i32 @usb_start_wait_urb(ptr noundef nonnull %20, i32 noundef %5, ptr noundef %4)
+60:                                               ; preds = %53, %49
+  %61 = tail call fastcc i32 @usb_start_wait_urb(ptr noundef nonnull %20, i32 noundef %5, ptr noundef %4)
   br label %usb_bulk_msg.exit
 
-usb_bulk_msg.exit:                                ; preds = %6, %19, %61
-  %63 = phi i32 [ %62, %61 ], [ -22, %6 ], [ -12, %19 ]
-  ret i32 %63
+usb_bulk_msg.exit:                                ; preds = %6, %19, %60
+  %62 = phi i32 [ %61, %60 ], [ -22, %6 ], [ -12, %19 ]
+  ret i32 %62
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -377,19 +376,19 @@ define dso_local i32 @usb_bulk_msg(ptr noundef %0, i32 noundef %1, ptr noundef %
   %16 = icmp eq ptr %15, null
   %17 = icmp slt i32 %3, 0
   %18 = or i1 %17, %16
-  br i1 %18, label %63, label %19
+  br i1 %18, label %62, label %19
 
 19:                                               ; preds = %6
   %20 = tail call ptr @usb_alloc_urb(i32 noundef 0, i32 noundef 3264) #12
   %21 = icmp eq ptr %20, null
-  br i1 %21, label %63, label %22
+  br i1 %21, label %62, label %22
 
 22:                                               ; preds = %19
   %23 = getelementptr inbounds i8, ptr %15, i64 3
   %24 = load i8, ptr %23, align 1
   %25 = and i8 %24, 3
   %26 = icmp eq i8 %25, 3
-  br i1 %26, label %27, label %54
+  br i1 %26, label %27, label %53
 
 27:                                               ; preds = %22
   %28 = and i32 %1, 1073741823
@@ -414,46 +413,45 @@ define dso_local i32 @usb_bulk_msg(ptr noundef %0, i32 noundef %1, ptr noundef %
   %41 = icmp eq i32 %40, 3
   %42 = icmp ugt i32 %40, 4
   %43 = or i1 %41, %42
-  br i1 %43, label %44, label %50
+  br i1 %43, label %44, label %49
 
 44:                                               ; preds = %27
   %45 = icmp ugt i8 %31, 15
-  %46 = tail call i32 @llvm.umax.i32(i32 %32, i32 1)
-  %47 = add nsw i32 %46, -1
-  %48 = shl nuw nsw i32 1, %47
-  %49 = select i1 %45, i32 32768, i32 %48
-  br label %50
+  %46 = tail call i32 @llvm.usub.sat.i32(i32 %32, i32 1)
+  %47 = shl nuw nsw i32 1, %46
+  %48 = select i1 %45, i32 32768, i32 %47
+  br label %49
 
-50:                                               ; preds = %44, %27
-  %51 = phi i32 [ %49, %44 ], [ %32, %27 ]
-  %52 = getelementptr inbounds i8, ptr %20, i64 160
-  store i32 %51, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %20, i64 152
-  store i32 -1, ptr %53, align 8
-  br label %61
+49:                                               ; preds = %44, %27
+  %50 = phi i32 [ %48, %44 ], [ %32, %27 ]
+  %51 = getelementptr inbounds i8, ptr %20, i64 160
+  store i32 %50, ptr %51, align 8
+  %52 = getelementptr inbounds i8, ptr %20, i64 152
+  store i32 -1, ptr %52, align 8
+  br label %60
 
-54:                                               ; preds = %22
-  %55 = getelementptr inbounds i8, ptr %20, i64 64
-  store ptr %0, ptr %55, align 8
-  %56 = getelementptr inbounds i8, ptr %20, i64 80
-  store i32 %1, ptr %56, align 8
-  %57 = getelementptr inbounds i8, ptr %20, i64 96
-  store ptr %2, ptr %57, align 8
-  %58 = getelementptr inbounds i8, ptr %20, i64 128
-  store i32 %3, ptr %58, align 8
-  %59 = getelementptr inbounds i8, ptr %20, i64 176
-  store ptr @usb_api_blocking_completion, ptr %59, align 8
-  %60 = getelementptr inbounds i8, ptr %20, i64 168
-  store ptr null, ptr %60, align 8
-  br label %61
+53:                                               ; preds = %22
+  %54 = getelementptr inbounds i8, ptr %20, i64 64
+  store ptr %0, ptr %54, align 8
+  %55 = getelementptr inbounds i8, ptr %20, i64 80
+  store i32 %1, ptr %55, align 8
+  %56 = getelementptr inbounds i8, ptr %20, i64 96
+  store ptr %2, ptr %56, align 8
+  %57 = getelementptr inbounds i8, ptr %20, i64 128
+  store i32 %3, ptr %57, align 8
+  %58 = getelementptr inbounds i8, ptr %20, i64 176
+  store ptr @usb_api_blocking_completion, ptr %58, align 8
+  %59 = getelementptr inbounds i8, ptr %20, i64 168
+  store ptr null, ptr %59, align 8
+  br label %60
 
-61:                                               ; preds = %54, %50
-  %62 = tail call fastcc i32 @usb_start_wait_urb(ptr noundef nonnull %20, i32 noundef %5, ptr noundef %4)
-  br label %63
+60:                                               ; preds = %53, %49
+  %61 = tail call fastcc i32 @usb_start_wait_urb(ptr noundef nonnull %20, i32 noundef %5, ptr noundef %4)
+  br label %62
 
-63:                                               ; preds = %61, %19, %6
-  %64 = phi i32 [ %62, %61 ], [ -22, %6 ], [ -12, %19 ]
-  ret i32 %64
+62:                                               ; preds = %60, %19, %6
+  %63 = phi i32 [ %61, %60 ], [ -22, %6 ], [ -12, %19 ]
+  ret i32 %63
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -4415,7 +4413,7 @@ declare i64 @llvm.umin.i64(i64, i64) #9
 declare i32 @llvm.smin.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #10
+declare i32 @llvm.usub.sat.i32(i32, i32) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #10

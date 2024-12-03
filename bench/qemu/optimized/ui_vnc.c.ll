@@ -11943,15 +11943,14 @@ for.end:                                          ; preds = %vnc_update_client.e
 
 if.then12:                                        ; preds = %for.end
   %84 = load i64, ptr %dcl, align 8
-  %div18 = lshr i64 %84, 1
-  %cmp16 = icmp ult i64 %84, 60
-  %spec.store.select = select i1 %cmp16, i64 30, i64 %div18
+  %85 = tail call i64 @llvm.umax.i64(i64 %84, i64 60)
+  %spec.store.select = lshr i64 %85, 1
   store i64 %spec.store.select, ptr %dcl, align 8
   br label %if.end31
 
 if.else:                                          ; preds = %vnc_refresh_server_surface.exit, %for.end
-  %85 = load i64, ptr %dcl, align 8
-  %add23 = add i64 %85, 50
+  %86 = load i64, ptr %dcl, align 8
+  %add23 = add i64 %86, 50
   %spec.store.select19 = tail call i64 @llvm.umin.i64(i64 %add23, i64 3000)
   store i64 %spec.store.select19, ptr %dcl, align 8
   br label %if.end31

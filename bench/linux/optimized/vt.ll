@@ -5953,54 +5953,52 @@ define internal fastcc void @reset_terminal(ptr noundef initializes((464, 472), 
   %59 = load i16, ptr %8, align 8
   %60 = and i16 %59, 8
   %61 = icmp eq i16 %60, 0
-  br i1 %61, label %.thread, label %66
+  br i1 %61, label %.thread, label %65
 
 .thread:                                          ; preds = %50
   %62 = load i32, ptr %4, align 4
-  %63 = icmp sgt i32 %62, 0
-  %64 = add i32 %62, -1
-  %65 = select i1 %63, i32 0, i32 %64
-  br label %73
+  %63 = tail call i32 @llvm.smin.i32(i32 %62, i32 1)
+  %64 = add i32 %63, -1
+  br label %71
 
-66:                                               ; preds = %50
-  %67 = load i32, ptr %3, align 8
-  %.fr = freeze i32 %67
-  %68 = load i32, ptr %6, align 4
-  %69 = icmp sgt i32 %.fr, 0
-  %70 = icmp sgt i32 %68, 0
-  %71 = add i32 %68, -1
-  %72 = select i1 %70, i32 0, i32 %71
-  %spec.select = select i1 %69, i32 %.fr, i32 %72
-  br label %73
+65:                                               ; preds = %50
+  %66 = load i32, ptr %3, align 8
+  %.fr = freeze i32 %66
+  %67 = load i32, ptr %6, align 4
+  %68 = icmp sgt i32 %.fr, 0
+  %69 = tail call i32 @llvm.smin.i32(i32 %67, i32 1)
+  %70 = add i32 %69, -1
+  %spec.select = select i1 %68, i32 %.fr, i32 %70
+  br label %71
 
-73:                                               ; preds = %66, %.thread
-  %74 = phi i32 [ %65, %.thread ], [ %spec.select, %66 ]
-  %75 = getelementptr inbounds i8, ptr %0, i64 380
-  store i32 %74, ptr %75, align 4
-  %76 = getelementptr inbounds i8, ptr %0, i64 440
-  %77 = load i64, ptr %76, align 8
-  %78 = getelementptr inbounds i8, ptr %0, i64 428
-  %79 = load i32, ptr %78, align 4
-  %80 = mul i32 %79, %74
+71:                                               ; preds = %65, %.thread
+  %72 = phi i32 [ %64, %.thread ], [ %spec.select, %65 ]
+  %73 = getelementptr inbounds i8, ptr %0, i64 380
+  store i32 %72, ptr %73, align 4
+  %74 = getelementptr inbounds i8, ptr %0, i64 440
+  %75 = load i64, ptr %74, align 8
+  %76 = getelementptr inbounds i8, ptr %0, i64 428
+  %77 = load i32, ptr %76, align 4
+  %78 = mul i32 %77, %72
+  %79 = zext i32 %78 to i64
+  %80 = shl nsw i32 %58, 1
   %81 = zext i32 %80 to i64
-  %82 = shl nsw i32 %58, 1
-  %83 = zext i32 %82 to i64
-  %84 = add i64 %77, %83
-  %85 = add i64 %84, %81
-  %86 = getelementptr inbounds i8, ptr %0, i64 512
-  store i64 %85, ptr %86, align 8
-  %87 = and i16 %59, -1025
-  store i16 %87, ptr %8, align 8
-  %88 = getelementptr inbounds i8, ptr %0, i64 396
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(20) %88, ptr noundef align 8 dereferenceable(20) %57, i64 20, i1 false)
-  %89 = icmp eq i32 %1, 0
-  br i1 %89, label %91, label %90
+  %82 = add i64 %75, %81
+  %83 = add i64 %82, %79
+  %84 = getelementptr inbounds i8, ptr %0, i64 512
+  store i64 %83, ptr %84, align 8
+  %85 = and i16 %59, -1025
+  store i16 %85, ptr %8, align 8
+  %86 = getelementptr inbounds i8, ptr %0, i64 396
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(20) %86, ptr noundef align 8 dereferenceable(20) %57, i64 20, i1 false)
+  %87 = icmp eq i32 %1, 0
+  br i1 %87, label %89, label %88
 
-90:                                               ; preds = %73
+88:                                               ; preds = %71
   tail call fastcc void @csi_J(ptr noundef %0, i32 noundef 2)
-  br label %91
+  br label %89
 
-91:                                               ; preds = %90, %73
+89:                                               ; preds = %88, %71
   ret void
 }
 

@@ -4133,9 +4133,8 @@ define internal i32 @_v39_parse_CORE_SPEC(ptr nocapture noundef readonly %0, ptr
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @_v39_dump_THREAD_SPEC(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = load i16, ptr %1, align 2
-  %6 = and i16 %5, 32767
-  %.not.inv = icmp slt i16 %5, 0
-  %narrow = select i1 %.not.inv, i16 %6, i16 0
+  %6 = tail call i16 @llvm.smin.i16(i16 %5, i16 0)
+  %narrow = and i16 %6, 32767
   %.sink = zext nneg i16 %narrow to i64
   %7 = tail call ptr @data_set_int(ptr noundef %2, i64 noundef %.sink) #16
   ret i32 0
@@ -8266,6 +8265,9 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i16 @llvm.smin.i16(i16, i16) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.smax.i16(i16, i16) #15

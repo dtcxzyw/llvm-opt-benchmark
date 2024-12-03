@@ -1044,9 +1044,8 @@ pack_triplet.exit:                                ; preds = %126
 Ptngc_out8bits.exit.i.i:                          ; preds = %.lr.ph.i.i.i, %226
   %246 = phi i32 [ %231, %226 ], [ %244, %.lr.ph.i.i.i ]
   %.10 = phi ptr [ %.9, %226 ], [ %241, %.lr.ph.i.i.i ]
-  %247 = lshr i32 %.021.i.i, 1
-  %.inv.i.i = icmp ugt i32 %.021.i.i, 1
-  %spec.store.select.i.i = select i1 %.inv.i.i, i32 %247, i32 1
+  %247 = tail call i32 @llvm.umax.i32(i32 %.021.i.i, i32 2)
+  %spec.store.select.i.i = lshr i32 %247, 1
   br i1 %.not.i.i, label %pack_stopbits_item.exit, label %216, !llvm.loop !21
 
 pack_stopbits_item.exit:                          ; preds = %Ptngc_out8bits.exit.i.i

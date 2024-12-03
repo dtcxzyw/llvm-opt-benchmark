@@ -5316,65 +5316,64 @@ define internal fastcc void @_save_last_tag_used(ptr noundef %0, ptr nocapture n
   store ptr %5, ptr %3, align 8, !tbaa !94
   %6 = tail call i32 @dt_conf_get_int(ptr noundef nonnull @.str.87) #16
   %7 = icmp eq i32 %6, -1
-  %8 = icmp sgt i32 %6, 4
-  %9 = shl nuw nsw i32 %6, 1
-  %10 = select i1 %8, i32 %9, i32 10
-  br i1 %7, label %40, label %11
+  %8 = tail call i32 @llvm.smax.i32(i32 %6, i32 5)
+  %9 = shl nuw i32 %8, 1
+  br i1 %7, label %39, label %10
 
-11:                                               ; preds = %2
-  %12 = tail call ptr @dt_util_str_to_glist(ptr noundef nonnull @.str.3, ptr noundef %0) #16
-  %13 = icmp eq ptr %12, null
-  br i1 %13, label %40, label %14
+10:                                               ; preds = %2
+  %11 = tail call ptr @dt_util_str_to_glist(ptr noundef nonnull @.str.3, ptr noundef %0) #16
+  %12 = icmp eq ptr %11, null
+  br i1 %12, label %39, label %13
 
-14:                                               ; preds = %11
-  %15 = tail call ptr @dt_conf_get_string_const(ptr noundef nonnull @.str.84) #16
-  %16 = tail call ptr @dt_util_str_to_glist(ptr noundef nonnull @.str.85, ptr noundef %15) #16
-  br label %21
+13:                                               ; preds = %10
+  %14 = tail call ptr @dt_conf_get_string_const(ptr noundef nonnull @.str.84) #16
+  %15 = tail call ptr @dt_util_str_to_glist(ptr noundef nonnull @.str.85, ptr noundef %14) #16
+  br label %20
 
-17:                                               ; preds = %31
-  tail call void @g_list_free_full(ptr noundef nonnull %12, ptr noundef nonnull @g_free) #16
-  %18 = tail call ptr @dt_util_glist_to_str(ptr noundef nonnull @.str.85, ptr noundef %34) #16
-  tail call void @dt_conf_set_string(ptr noundef nonnull @.str.84, ptr noundef %18) #16
-  tail call void @g_free(ptr noundef %18) #16
-  %19 = tail call i32 @g_list_length(ptr noundef %34) #16
-  %20 = icmp ult i32 %10, %19
-  br i1 %20, label %38, label %39
+16:                                               ; preds = %30
+  tail call void @g_list_free_full(ptr noundef nonnull %11, ptr noundef nonnull @g_free) #16
+  %17 = tail call ptr @dt_util_glist_to_str(ptr noundef nonnull @.str.85, ptr noundef %33) #16
+  tail call void @dt_conf_set_string(ptr noundef nonnull @.str.84, ptr noundef %17) #16
+  tail call void @g_free(ptr noundef %17) #16
+  %18 = tail call i32 @g_list_length(ptr noundef %33) #16
+  %19 = icmp ult i32 %9, %18
+  br i1 %19, label %37, label %38
 
-21:                                               ; preds = %31, %14
-  %22 = phi ptr [ %16, %14 ], [ %34, %31 ]
-  %23 = phi ptr [ %12, %14 ], [ %36, %31 ]
-  %24 = load ptr, ptr %23, align 8, !tbaa !27
-  %25 = tail call ptr (ptr, ...) @sqlite3_mprintf(ptr noundef nonnull @.str.86, ptr noundef %24) #16
-  %26 = tail call ptr @g_list_find_custom(ptr noundef %22, ptr noundef %25, ptr noundef nonnull @g_strcmp0) #16
-  %27 = icmp eq ptr %26, null
-  br i1 %27, label %31, label %28
+20:                                               ; preds = %30, %13
+  %21 = phi ptr [ %15, %13 ], [ %33, %30 ]
+  %22 = phi ptr [ %11, %13 ], [ %35, %30 ]
+  %23 = load ptr, ptr %22, align 8, !tbaa !27
+  %24 = tail call ptr (ptr, ...) @sqlite3_mprintf(ptr noundef nonnull @.str.86, ptr noundef %23) #16
+  %25 = tail call ptr @g_list_find_custom(ptr noundef %21, ptr noundef %24, ptr noundef nonnull @g_strcmp0) #16
+  %26 = icmp eq ptr %25, null
+  br i1 %26, label %30, label %27
 
-28:                                               ; preds = %21
-  %29 = tail call ptr @g_list_remove_link(ptr noundef %22, ptr noundef nonnull %26) #16
-  %30 = load ptr, ptr %26, align 8, !tbaa !27
-  tail call void @g_free(ptr noundef %30) #16
-  tail call void @g_list_free(ptr noundef nonnull %26) #16
-  br label %31
+27:                                               ; preds = %20
+  %28 = tail call ptr @g_list_remove_link(ptr noundef %21, ptr noundef nonnull %25) #16
+  %29 = load ptr, ptr %25, align 8, !tbaa !27
+  tail call void @g_free(ptr noundef %29) #16
+  tail call void @g_list_free(ptr noundef nonnull %25) #16
+  br label %30
 
-31:                                               ; preds = %28, %21
-  %32 = phi ptr [ %29, %28 ], [ %22, %21 ]
-  %33 = tail call noalias ptr @g_strdup(ptr noundef %25) #16
-  %34 = tail call ptr @g_list_prepend(ptr noundef %32, ptr noundef %33) #16
-  tail call void @sqlite3_free(ptr noundef %25) #16
-  %35 = getelementptr inbounds i8, ptr %23, i64 8
-  %36 = load ptr, ptr %35, align 8, !tbaa !38
-  %37 = icmp eq ptr %36, null
-  br i1 %37, label %17, label %21
+30:                                               ; preds = %27, %20
+  %31 = phi ptr [ %28, %27 ], [ %21, %20 ]
+  %32 = tail call noalias ptr @g_strdup(ptr noundef %24) #16
+  %33 = tail call ptr @g_list_prepend(ptr noundef %31, ptr noundef %32) #16
+  tail call void @sqlite3_free(ptr noundef %24) #16
+  %34 = getelementptr inbounds i8, ptr %22, i64 8
+  %35 = load ptr, ptr %34, align 8, !tbaa !38
+  %36 = icmp eq ptr %35, null
+  br i1 %36, label %16, label %20
 
-38:                                               ; preds = %17
+37:                                               ; preds = %16
   tail call fastcc void @_size_recent_tags_list()
+  br label %38
+
+38:                                               ; preds = %37, %16
+  tail call void @g_list_free_full(ptr noundef %33, ptr noundef nonnull @g_free) #16
   br label %39
 
-39:                                               ; preds = %38, %17
-  tail call void @g_list_free_full(ptr noundef %34, ptr noundef nonnull @g_free) #16
-  br label %40
-
-40:                                               ; preds = %39, %11, %2
+39:                                               ; preds = %38, %10, %2
   ret void
 }
 
@@ -8489,70 +8488,69 @@ define internal fastcc void @_size_recent_tags_list() unnamed_addr #1 {
   %1 = tail call ptr @dt_conf_get_string_const(ptr noundef nonnull @.str.84) #16
   %2 = load i8, ptr %1, align 1, !tbaa !26
   %3 = icmp eq i8 %2, 0
-  br i1 %3, label %33, label %4
+  br i1 %3, label %32, label %4
 
 4:                                                ; preds = %0
   %5 = tail call i32 @dt_conf_get_int(ptr noundef nonnull @.str.87) #16
   %6 = icmp eq i32 %5, -1
-  %7 = icmp sgt i32 %5, 4
-  %8 = shl nuw nsw i32 %5, 1
-  %9 = select i1 %7, i32 %8, i32 10
-  %10 = select i1 %6, i32 -1, i32 %9
-  br i1 %6, label %11, label %.preheader4
+  %7 = tail call i32 @llvm.smax.i32(i32 %5, i32 5)
+  %8 = shl nuw i32 %7, 1
+  %9 = select i1 %6, i32 -1, i32 %8
+  br i1 %6, label %10, label %.preheader4
 
-11:                                               ; preds = %4
+10:                                               ; preds = %4
   tail call void @dt_conf_set_string(ptr noundef nonnull @.str.84, ptr noundef nonnull @.str.4) #16
-  br label %33
+  br label %32
 
-.preheader4:                                      ; preds = %4, %17
-  %12 = phi ptr [ %19, %17 ], [ %1, %4 ]
-  %13 = phi i32 [ %18, %17 ], [ 1, %4 ]
-  %14 = load i8, ptr %12, align 1, !tbaa !26
-  switch i8 %14, label %17 [
-    i8 0, label %20
-    i8 44, label %15
+.preheader4:                                      ; preds = %4, %16
+  %11 = phi ptr [ %18, %16 ], [ %1, %4 ]
+  %12 = phi i32 [ %17, %16 ], [ 1, %4 ]
+  %13 = load i8, ptr %11, align 1, !tbaa !26
+  switch i8 %13, label %16 [
+    i8 0, label %19
+    i8 44, label %14
   ]
 
-15:                                               ; preds = %.preheader4
-  %16 = add nsw i32 %13, 1
-  br label %17
+14:                                               ; preds = %.preheader4
+  %15 = add nsw i32 %12, 1
+  br label %16
 
-17:                                               ; preds = %15, %.preheader4
-  %18 = phi i32 [ %16, %15 ], [ %13, %.preheader4 ]
-  %19 = getelementptr inbounds i8, ptr %12, i64 1
+16:                                               ; preds = %14, %.preheader4
+  %17 = phi i32 [ %15, %14 ], [ %12, %.preheader4 ]
+  %18 = getelementptr inbounds i8, ptr %11, i64 1
   br label %.preheader4
 
-20:                                               ; preds = %.preheader4
-  %21 = icmp sgt i32 %13, %10
-  br i1 %21, label %22, label %33
+19:                                               ; preds = %.preheader4
+  %20 = icmp sgt i32 %12, %9
+  br i1 %20, label %21, label %32
 
-22:                                               ; preds = %20
-  %23 = sub nsw i32 %13, %10
-  %24 = tail call noalias ptr @g_strdup(ptr noundef nonnull %1) #16
-  %25 = icmp sgt i32 %23, 0
-  br i1 %25, label %.preheader, label %.loopexit
+21:                                               ; preds = %19
+  %22 = sub nsw i32 %12, %9
+  %23 = tail call noalias ptr @g_strdup(ptr noundef nonnull %1) #16
+  %24 = icmp sgt i32 %22, 0
+  br i1 %24, label %.preheader, label %.loopexit
 
-.preheader:                                       ; preds = %22, %30
-  %26 = phi i32 [ %31, %30 ], [ %23, %22 ]
-  %27 = tail call ptr @g_strrstr(ptr noundef %24, ptr noundef nonnull @.str.85) #16
-  %28 = icmp eq ptr %27, null
-  br i1 %28, label %30, label %29
+.preheader:                                       ; preds = %21, %29
+  %25 = phi i32 [ %30, %29 ], [ %22, %21 ]
+  %26 = tail call ptr @g_strrstr(ptr noundef %23, ptr noundef nonnull @.str.85) #16
+  %27 = icmp eq ptr %26, null
+  br i1 %27, label %29, label %28
 
-29:                                               ; preds = %.preheader
-  store i8 0, ptr %27, align 1, !tbaa !26
-  br label %30
+28:                                               ; preds = %.preheader
+  store i8 0, ptr %26, align 1, !tbaa !26
+  br label %29
 
-30:                                               ; preds = %29, %.preheader
-  %31 = add nsw i32 %26, -1
-  %32 = icmp sgt i32 %26, 1
-  br i1 %32, label %.preheader, label %.loopexit
+29:                                               ; preds = %28, %.preheader
+  %30 = add nsw i32 %25, -1
+  %31 = icmp sgt i32 %25, 1
+  br i1 %31, label %.preheader, label %.loopexit
 
-.loopexit:                                        ; preds = %30, %22
-  tail call void @dt_conf_set_string(ptr noundef nonnull @.str.84, ptr noundef %24) #16
-  tail call void @g_free(ptr noundef %24) #16
-  br label %33
+.loopexit:                                        ; preds = %29, %21
+  tail call void @dt_conf_set_string(ptr noundef nonnull @.str.84, ptr noundef %23) #16
+  tail call void @g_free(ptr noundef %23) #16
+  br label %32
 
-33:                                               ; preds = %.loopexit, %20, %11, %0
+32:                                               ; preds = %.loopexit, %19, %10, %0
   ret void
 }
 

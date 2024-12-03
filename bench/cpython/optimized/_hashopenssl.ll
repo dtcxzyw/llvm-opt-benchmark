@@ -3016,7 +3016,7 @@ if.then45:                                        ; preds = %if.then42
   %call46 = call ptr @PyEval_SaveThread() #9
   %14 = load i64, ptr %len, align 8
   %cmp7.i = icmp sgt i64 %14, 0
-  br i1 %cmp7.i, label %while.body.i.preheader, label %if.end54.thread61
+  br i1 %cmp7.i, label %while.body.i.preheader, label %if.end54.thread59
 
 while.body.i.preheader:                           ; preds = %if.then45
   %15 = load ptr, ptr %view, align 8
@@ -3025,47 +3025,43 @@ while.body.i.preheader:                           ; preds = %if.then45
 while.body.i:                                     ; preds = %while.body.i.preheader, %if.end5.i
   %cp.09.i = phi ptr [ %add.ptr.i, %if.end5.i ], [ %15, %while.body.i.preheader ]
   %len.addr.08.i = phi i64 [ %sub.i, %if.end5.i ], [ %14, %while.body.i.preheader ]
-  %cmp1.i = icmp samesign ugt i64 %len.addr.08.i, 2147483647
-  %16 = and i64 %len.addr.08.i, 4294967295
-  %process.0.i = select i1 %cmp1.i, i64 2147483647, i64 %16
+  %16 = call i64 @llvm.umin.i64(i64 %len.addr.08.i, i64 2147483647)
   %17 = load ptr, ptr %ctx.i, align 8
-  %call.i33 = call i32 @EVP_DigestUpdate(ptr noundef %17, ptr noundef %cp.09.i, i64 noundef %process.0.i) #9
+  %call.i33 = call i32 @EVP_DigestUpdate(ptr noundef %17, ptr noundef %cp.09.i, i64 noundef %16) #9
   %tobool.not.i = icmp eq i32 %call.i33, 0
   br i1 %tobool.not.i, label %if.end54, label %if.end5.i
 
 if.end5.i:                                        ; preds = %while.body.i
-  %sub.i = sub nsw i64 %len.addr.08.i, %process.0.i
-  %add.ptr.i = getelementptr i8, ptr %cp.09.i, i64 %process.0.i
+  %sub.i = sub nsw i64 %len.addr.08.i, %16
+  %add.ptr.i = getelementptr i8, ptr %cp.09.i, i64 %16
   %cmp.i34 = icmp sgt i64 %sub.i, 0
-  br i1 %cmp.i34, label %while.body.i, label %if.end54.thread61, !llvm.loop !6
+  br i1 %cmp.i34, label %while.body.i, label %if.end54.thread59, !llvm.loop !6
 
 if.else50:                                        ; preds = %if.then42
   %cmp7.i35 = icmp sgt i64 %13, 0
   br i1 %cmp7.i35, label %while.body.i39, label %exit
 
-while.body.i39:                                   ; preds = %if.else50, %if.end5.i46
-  %cp.09.i40 = phi ptr [ %add.ptr.i48, %if.end5.i46 ], [ %12, %if.else50 ]
-  %len.addr.08.i41 = phi i64 [ %sub.i47, %if.end5.i46 ], [ %13, %if.else50 ]
-  %cmp1.i42 = icmp samesign ugt i64 %len.addr.08.i41, 2147483647
-  %18 = and i64 %len.addr.08.i41, 4294967295
-  %process.0.i43 = select i1 %cmp1.i42, i64 2147483647, i64 %18
+while.body.i39:                                   ; preds = %if.else50, %if.end5.i44
+  %cp.09.i40 = phi ptr [ %add.ptr.i46, %if.end5.i44 ], [ %12, %if.else50 ]
+  %len.addr.08.i41 = phi i64 [ %sub.i45, %if.end5.i44 ], [ %13, %if.else50 ]
+  %18 = call i64 @llvm.umin.i64(i64 %len.addr.08.i41, i64 2147483647)
   %19 = load ptr, ptr %ctx.i, align 8
-  %call.i44 = call i32 @EVP_DigestUpdate(ptr noundef %19, ptr noundef %cp.09.i40, i64 noundef %process.0.i43) #9
-  %tobool.not.i45 = icmp eq i32 %call.i44, 0
-  br i1 %tobool.not.i45, label %if.end54.thread57, label %if.end5.i46
+  %call.i42 = call i32 @EVP_DigestUpdate(ptr noundef %19, ptr noundef %cp.09.i40, i64 noundef %18) #9
+  %tobool.not.i43 = icmp eq i32 %call.i42, 0
+  br i1 %tobool.not.i43, label %if.end54.thread55, label %if.end5.i44
 
-if.end54.thread57:                                ; preds = %while.body.i39
+if.end54.thread55:                                ; preds = %while.body.i39
   %20 = load ptr, ptr @PyExc_ValueError, align 8
   call void (ptr, ptr, ...) @_setException(ptr noundef %20, ptr noundef null)
   br label %if.then61
 
-if.end5.i46:                                      ; preds = %while.body.i39
-  %sub.i47 = sub nsw i64 %len.addr.08.i41, %process.0.i43
-  %add.ptr.i48 = getelementptr i8, ptr %cp.09.i40, i64 %process.0.i43
-  %cmp.i49 = icmp sgt i64 %sub.i47, 0
-  br i1 %cmp.i49, label %while.body.i39, label %exit, !llvm.loop !6
+if.end5.i44:                                      ; preds = %while.body.i39
+  %sub.i45 = sub nsw i64 %len.addr.08.i41, %18
+  %add.ptr.i46 = getelementptr i8, ptr %cp.09.i40, i64 %18
+  %cmp.i47 = icmp sgt i64 %sub.i45, 0
+  br i1 %cmp.i47, label %while.body.i39, label %exit, !llvm.loop !6
 
-if.end54.thread61:                                ; preds = %if.end5.i, %if.then45
+if.end54.thread59:                                ; preds = %if.end5.i, %if.then45
   call void @PyEval_RestoreThread(ptr noundef %call46) #9
   br label %exit
 
@@ -3075,7 +3071,7 @@ if.end54:                                         ; preds = %while.body.i
   call void @PyEval_RestoreThread(ptr noundef %call46) #9
   br label %if.then61
 
-if.then61:                                        ; preds = %if.end54, %if.end54.thread57
+if.then61:                                        ; preds = %if.end54, %if.end54.thread55
   %22 = load i64, ptr %call.i29, align 8
   %23 = and i64 %22, 2147483648
   %cmp.i85.not = icmp eq i64 %23, 0
@@ -3091,8 +3087,8 @@ if.then1.i:                                       ; preds = %if.end.i
   call void @_Py_Dealloc(ptr noundef nonnull %call.i29) #9
   br label %exit
 
-exit:                                             ; preds = %if.end5.i46, %if.else50, %if.end19, %Py_DECREF.exit.i, %if.end54.thread61, %if.end39, %if.end.i, %if.then1.i, %if.then61, %if.end.i75, %if.then1.i78, %if.then32, %if.end14
-  %self.0 = phi ptr [ null, %if.end14 ], [ null, %if.then61 ], [ null, %if.then1.i ], [ null, %if.end.i ], [ %call.i29, %if.end39 ], [ null, %if.then32 ], [ null, %if.then1.i78 ], [ null, %if.end.i75 ], [ %call.i29, %if.end54.thread61 ], [ null, %Py_DECREF.exit.i ], [ null, %if.end19 ], [ %call.i29, %if.else50 ], [ %call.i29, %if.end5.i46 ]
+exit:                                             ; preds = %if.end5.i44, %if.else50, %if.end19, %Py_DECREF.exit.i, %if.end54.thread59, %if.end39, %if.end.i, %if.then1.i, %if.then61, %if.end.i75, %if.then1.i78, %if.then32, %if.end14
+  %self.0 = phi ptr [ null, %if.end14 ], [ null, %if.then61 ], [ null, %if.then1.i ], [ null, %if.end.i ], [ %call.i29, %if.end39 ], [ null, %if.then32 ], [ null, %if.then1.i78 ], [ null, %if.end.i75 ], [ %call.i29, %if.end54.thread59 ], [ null, %Py_DECREF.exit.i ], [ null, %if.end19 ], [ %call.i29, %if.else50 ], [ %call.i29, %if.end5.i44 ]
   br i1 %cmp.not, label %if.end68, label %if.then67
 
 if.then67:                                        ; preds = %exit
@@ -3986,11 +3982,9 @@ while.body.lr.ph.i:                               ; preds = %PyMutex_Lock.exit
 while.body.i:                                     ; preds = %if.end5.i, %while.body.lr.ph.i
   %cp.09.i = phi ptr [ %12, %while.body.lr.ph.i ], [ %add.ptr.i, %if.end5.i ]
   %len.addr.08.i = phi i64 [ %11, %while.body.lr.ph.i ], [ %sub.i, %if.end5.i ]
-  %cmp1.i = icmp samesign ugt i64 %len.addr.08.i, 2147483647
-  %13 = and i64 %len.addr.08.i, 4294967295
-  %process.0.i = select i1 %cmp1.i, i64 2147483647, i64 %13
+  %13 = call i64 @llvm.umin.i64(i64 %len.addr.08.i, i64 2147483647)
   %14 = load ptr, ptr %ctx.i, align 8
-  %call.i = call i32 @EVP_DigestUpdate(ptr noundef %14, ptr noundef %cp.09.i, i64 noundef %process.0.i) #9
+  %call.i = call i32 @EVP_DigestUpdate(ptr noundef %14, ptr noundef %cp.09.i, i64 noundef %13) #9
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %if.then3.i, label %if.end5.i
 
@@ -4000,8 +3994,8 @@ if.then3.i:                                       ; preds = %while.body.i
   br label %EVP_hash.exit
 
 if.end5.i:                                        ; preds = %while.body.i
-  %sub.i = sub nsw i64 %len.addr.08.i, %process.0.i
-  %add.ptr.i = getelementptr i8, ptr %cp.09.i, i64 %process.0.i
+  %sub.i = sub nsw i64 %len.addr.08.i, %13
+  %add.ptr.i = getelementptr i8, ptr %cp.09.i, i64 %13
   %cmp.i9 = icmp sgt i64 %sub.i, 0
   br i1 %cmp.i9, label %while.body.i, label %EVP_hash.exit, !llvm.loop !6
 
@@ -4024,30 +4018,28 @@ while.body.lr.ph.i13:                             ; preds = %if.else
   %ctx.i14 = getelementptr inbounds i8, ptr %self, i64 16
   br label %while.body.i15
 
-while.body.i15:                                   ; preds = %if.end5.i22, %while.body.lr.ph.i13
-  %cp.09.i16 = phi ptr [ %18, %while.body.lr.ph.i13 ], [ %add.ptr.i24, %if.end5.i22 ]
-  %len.addr.08.i17 = phi i64 [ %8, %while.body.lr.ph.i13 ], [ %sub.i23, %if.end5.i22 ]
-  %cmp1.i18 = icmp samesign ugt i64 %len.addr.08.i17, 2147483647
-  %19 = and i64 %len.addr.08.i17, 4294967295
-  %process.0.i19 = select i1 %cmp1.i18, i64 2147483647, i64 %19
+while.body.i15:                                   ; preds = %if.end5.i20, %while.body.lr.ph.i13
+  %cp.09.i16 = phi ptr [ %18, %while.body.lr.ph.i13 ], [ %add.ptr.i22, %if.end5.i20 ]
+  %len.addr.08.i17 = phi i64 [ %8, %while.body.lr.ph.i13 ], [ %sub.i21, %if.end5.i20 ]
+  %19 = call i64 @llvm.umin.i64(i64 %len.addr.08.i17, i64 2147483647)
   %20 = load ptr, ptr %ctx.i14, align 8
-  %call.i20 = call i32 @EVP_DigestUpdate(ptr noundef %20, ptr noundef %cp.09.i16, i64 noundef %process.0.i19) #9
-  %tobool.not.i21 = icmp eq i32 %call.i20, 0
-  br i1 %tobool.not.i21, label %if.end27.thread31, label %if.end5.i22
+  %call.i18 = call i32 @EVP_DigestUpdate(ptr noundef %20, ptr noundef %cp.09.i16, i64 noundef %19) #9
+  %tobool.not.i19 = icmp eq i32 %call.i18, 0
+  br i1 %tobool.not.i19, label %if.end27.thread29, label %if.end5.i20
 
-if.end27.thread31:                                ; preds = %while.body.i15
+if.end27.thread29:                                ; preds = %while.body.i15
   %21 = load ptr, ptr @PyExc_ValueError, align 8
   call void (ptr, ptr, ...) @_setException(ptr noundef %21, ptr noundef null)
   call void @PyBuffer_Release(ptr noundef nonnull %view) #9
   br label %22
 
-if.end5.i22:                                      ; preds = %while.body.i15
-  %sub.i23 = sub nsw i64 %len.addr.08.i17, %process.0.i19
-  %add.ptr.i24 = getelementptr i8, ptr %cp.09.i16, i64 %process.0.i19
-  %cmp.i25 = icmp sgt i64 %sub.i23, 0
-  br i1 %cmp.i25, label %while.body.i15, label %if.end27.thread, !llvm.loop !6
+if.end5.i20:                                      ; preds = %while.body.i15
+  %sub.i21 = sub nsw i64 %len.addr.08.i17, %19
+  %add.ptr.i22 = getelementptr i8, ptr %cp.09.i16, i64 %19
+  %cmp.i23 = icmp sgt i64 %sub.i21, 0
+  br i1 %cmp.i23, label %while.body.i15, label %if.end27.thread, !llvm.loop !6
 
-if.end27.thread:                                  ; preds = %if.end5.i22, %if.else
+if.end27.thread:                                  ; preds = %if.end5.i20, %if.else
   call void @PyBuffer_Release(ptr noundef nonnull %view) #9
   br label %return
 
@@ -4056,7 +4048,7 @@ if.end27:                                         ; preds = %if.then.i10, %EVP_h
   call void @PyBuffer_Release(ptr noundef nonnull %view) #9
   br i1 %cmp28, label %22, label %return
 
-22:                                               ; preds = %if.end27.thread31, %if.end27
+22:                                               ; preds = %if.end27.thread29, %if.end27
   br label %return
 
 return:                                           ; preds = %22, %if.end27, %if.end27.thread, %if.end5, %if.then10, %if.then4, %if.then
@@ -4866,6 +4858,9 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

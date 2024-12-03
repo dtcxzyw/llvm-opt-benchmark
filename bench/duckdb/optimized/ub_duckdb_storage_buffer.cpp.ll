@@ -5982,10 +5982,9 @@ cond.true.i:                                      ; preds = %cond.true
   %shr5.2.i.i.i = lshr i64 %or6.1.i.i.i, 32
   %or6.2.i.i.i = or i64 %shr5.2.i.i.i, %or6.1.i.i.i
   %inc.i.i.i = add i64 %or6.2.i.i.i, 1
-  %cmp.i.i = icmp ugt i64 %inc.i.i.i, 33
-  %shr.i.i = lshr i64 %inc.i.i.i, 1
-  %spec.select.i.i = select i1 %cmp.i.i, i64 %shr.i.i, i64 16
-  %shl.i.i.i = shl nuw i64 %spec.select.i.i, 1
+  %11 = tail call i64 @llvm.umax.i64(i64 %inc.i.i.i, i64 33)
+  %spec.select.i.i = lshr i64 %11, 1
+  %shl.i.i.i = and i64 %11, -2
   store i64 %shl.i.i.i, ptr %pr_blockIndexSize.i.i, align 8, !tbaa !206
   %mul.i.i.i = shl i64 %spec.select.i.i, 5
   %add.i.i.i = add i64 %mul.i.i.i, 39
@@ -6001,8 +6000,8 @@ if.end15.i.i.i:                                   ; preds = %cond.true.i
   %pr_blockIndexRaw.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 128
   %pr_blockIndexEntries.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 120
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %call.i35.i.i.i, i64 32
-  %11 = ptrtoint ptr %add.ptr.i.i.i to i64
-  %sub.i.i.i.i = sub i64 0, %11
+  %12 = ptrtoint ptr %add.ptr.i.i.i to i64
+  %sub.i.i.i.i = sub i64 0, %12
   %rem1.i.i.i.i = and i64 %sub.i.i.i.i, 7
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %rem1.i.i.i.i
   store i64 %shl.i.i.i, ptr %call.i35.i.i.i, align 8, !tbaa !210
@@ -6015,8 +6014,8 @@ if.end15.i.i.i:                                   ; preds = %cond.true.i
   store i64 0, ptr %pr_blockIndexFront.i.i, align 8, !tbaa !214
   store ptr %add.ptr.i.i.i.i, ptr %pr_blockIndexEntries.i.i, align 8, !tbaa !215
   store ptr %call.i35.i.i.i, ptr %pr_blockIndexRaw.i.i, align 8, !tbaa !216
-  %12 = ptrtoint ptr %call.i35.i.i.i to i64
-  store atomic i64 %12, ptr %blockIndex.i.i release, align 8
+  %13 = ptrtoint ptr %call.i35.i.i.i to i64
+  store atomic i64 %13, ptr %blockIndex.i.i release, align 8
   br label %if.end.i
 
 cond.false:                                       ; preds = %for.end
@@ -6025,8 +6024,8 @@ cond.false:                                       ; preds = %for.end
   br i1 %cmp.not.i31, label %return, label %cond.true.i32
 
 cond.true.i32:                                    ; preds = %cond.false
-  %13 = getelementptr inbounds i8, ptr %call.i.i.i30, i64 8
-  store ptr null, ptr %13, align 8, !tbaa !141
+  %14 = getelementptr inbounds i8, ptr %call.i.i.i30, i64 8
+  store ptr null, ptr %14, align 8, !tbaa !141
   %inactive.i.i.i.i33 = getelementptr inbounds i8, ptr %call.i.i.i30, i64 16
   store i8 0, ptr %inactive.i.i.i.i33, align 1, !tbaa !189
   %token.i.i.i.i34 = getelementptr inbounds i8, ptr %call.i.i.i30, i64 24
@@ -6038,18 +6037,18 @@ cond.true.i32:                                    ; preds = %cond.false
   store i64 32, ptr %nextBlockIndexCapacity.i.i, align 8, !tbaa !217
   %blockIndex.i.i36 = getelementptr inbounds i8, ptr %call.i.i.i30, i64 96
   store ptr null, ptr %blockIndex.i.i36, align 8, !tbaa !221
-  %14 = load atomic i64, ptr %blockIndex.i.i36 monotonic, align 8
-  %atomic-temp.0.i.i.i.i.i = inttoptr i64 %14 to ptr
-  %cmp.i.i.i = icmp eq i64 %14, 0
+  %15 = load atomic i64, ptr %blockIndex.i.i36 monotonic, align 8
+  %atomic-temp.0.i.i.i.i.i = inttoptr i64 %15 to ptr
+  %cmp.i.i.i = icmp eq i64 %15, 0
   br i1 %cmp.i.i.i, label %cond.end.i.i.i, label %cond.false.i.i.i
 
 cond.false.i.i.i:                                 ; preds = %cond.true.i32
-  %15 = load i64, ptr %atomic-temp.0.i.i.i.i.i, align 8, !tbaa !204
+  %16 = load i64, ptr %atomic-temp.0.i.i.i.i.i, align 8, !tbaa !204
   br label %cond.end.i.i.i
 
 cond.end.i.i.i:                                   ; preds = %cond.false.i.i.i, %cond.true.i32
-  %cond6.i.i.i = phi i64 [ %15, %cond.false.i.i.i ], [ 32, %cond.true.i32 ]
-  %cond.i.i.i = phi i64 [ %15, %cond.false.i.i.i ], [ 0, %cond.true.i32 ]
+  %cond6.i.i.i = phi i64 [ %16, %cond.false.i.i.i ], [ 32, %cond.true.i32 ]
+  %cond.i.i.i = phi i64 [ %16, %cond.false.i.i.i ], [ 0, %cond.true.i32 ]
   %mul.i.i.i37 = shl i64 %cond6.i.i.i, 4
   %add10.i.i.i = add i64 %mul.i.i.i37, 310
   %call.i84.i.i.i = tail call noalias noundef ptr @malloc(i64 noundef %add10.i.i.i) #33
@@ -6058,37 +6057,37 @@ cond.end.i.i.i:                                   ; preds = %cond.false.i.i.i, %
 
 if.end.i.i.i:                                     ; preds = %cond.end.i.i.i
   %add.ptr.i.i.i38 = getelementptr inbounds i8, ptr %call.i84.i.i.i, i64 40
-  %16 = ptrtoint ptr %add.ptr.i.i.i38 to i64
-  %sub.i.i.i.i39 = sub i64 0, %16
+  %17 = ptrtoint ptr %add.ptr.i.i.i38 to i64
+  %sub.i.i.i.i39 = sub i64 0, %17
   %rem1.i.i.i.i40 = and i64 %sub.i.i.i.i39, 7
   %add.ptr.i.i.i.i41 = getelementptr inbounds i8, ptr %add.ptr.i.i.i38, i64 %rem1.i.i.i.i40
   %add.ptr15.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i41, i64 %mul.i.i.i37
-  %17 = ptrtoint ptr %add.ptr15.i.i.i to i64
-  %sub.i85.i.i.i = sub i64 0, %17
+  %18 = ptrtoint ptr %add.ptr15.i.i.i to i64
+  %sub.i85.i.i.i = sub i64 0, %18
   %rem1.i86.i.i.i = and i64 %sub.i85.i.i.i, 7
   %add.ptr.i87.i.i.i = getelementptr inbounds i8, ptr %add.ptr15.i.i.i, i64 %rem1.i86.i.i.i
   br i1 %cmp.i.i.i, label %if.end26.i.i.i, label %if.then18.i.i.i
 
 if.then18.i.i.i:                                  ; preds = %if.end.i.i.i
   %tail.i.i.i = getelementptr inbounds i8, ptr %atomic-temp.0.i.i.i.i.i, i64 8
-  %18 = load atomic i64, ptr %tail.i.i.i monotonic, align 8
-  %19 = load i64, ptr %atomic-temp.0.i.i.i.i.i, align 8, !tbaa !204
-  %sub22.i.i.i = add i64 %19, -1
+  %19 = load atomic i64, ptr %tail.i.i.i monotonic, align 8
+  %20 = load i64, ptr %atomic-temp.0.i.i.i.i.i, align 8, !tbaa !204
+  %sub22.i.i.i = add i64 %20, -1
   %index23.i.i.i = getelementptr inbounds i8, ptr %atomic-temp.0.i.i.i.i.i, i64 24
   %.pre.i.i.i = load ptr, ptr %index23.i.i.i, align 8, !tbaa !222
   br label %do.body.i.i.i
 
 do.body.i.i.i:                                    ; preds = %do.body.i.i.i, %if.then18.i.i.i
-  %prevPos.0.i.i.i = phi i64 [ %18, %if.then18.i.i.i ], [ %and.i.i.i, %do.body.i.i.i ]
+  %prevPos.0.i.i.i = phi i64 [ %19, %if.then18.i.i.i ], [ %and.i.i.i, %do.body.i.i.i ]
   %i.0.i.i.i = phi i64 [ 0, %if.then18.i.i.i ], [ %inc.i.i.i42, %do.body.i.i.i ]
   %add20.i.i.i = add i64 %prevPos.0.i.i.i, 1
   %and.i.i.i = and i64 %add20.i.i.i, %sub22.i.i.i
   %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %.pre.i.i.i, i64 %and.i.i.i
-  %20 = load ptr, ptr %arrayidx.i.i.i, align 8, !tbaa !8
+  %21 = load ptr, ptr %arrayidx.i.i.i, align 8, !tbaa !8
   %inc.i.i.i42 = add i64 %i.0.i.i.i, 1
   %arrayidx24.i.i.i = getelementptr inbounds ptr, ptr %add.ptr.i87.i.i.i, i64 %i.0.i.i.i
-  store ptr %20, ptr %arrayidx24.i.i.i, align 8, !tbaa !8
-  %cmp25.not.i.i.i = icmp eq i64 %and.i.i.i, %18
+  store ptr %21, ptr %arrayidx24.i.i.i, align 8, !tbaa !8
+  %cmp25.not.i.i.i = icmp eq i64 %and.i.i.i, %19
   br i1 %cmp25.not.i.i.i, label %if.end26.i.i.i, label %do.body.i.i.i, !llvm.loop !223
 
 if.end26.i.i.i:                                   ; preds = %do.body.i.i.i, %if.end.i.i.i
@@ -6096,10 +6095,10 @@ if.end26.i.i.i:                                   ; preds = %do.body.i.i.i, %if.
   br i1 %cmp28.not88.i.i.i, label %for.cond.cleanup.i.i.i, label %for.body.lr.ph.i.i.i
 
 for.body.lr.ph.i.i.i:                             ; preds = %if.end26.i.i.i
-  %21 = getelementptr ptr, ptr %add.ptr.i87.i.i.i, i64 %cond.i.i.i
+  %22 = getelementptr ptr, ptr %add.ptr.i87.i.i.i, i64 %cond.i.i.i
   %xtraiter = and i64 %cond6.i.i.i, 3
-  %22 = icmp ult i64 %cond6.i.i.i, 4
-  br i1 %22, label %for.cond.cleanup.i.i.i.loopexit.unr-lcssa, label %for.body.lr.ph.i.i.i.new
+  %23 = icmp ult i64 %cond6.i.i.i, 4
+  br i1 %23, label %for.cond.cleanup.i.i.i.loopexit.unr-lcssa, label %for.body.lr.ph.i.i.i.new
 
 for.body.lr.ph.i.i.i.new:                         ; preds = %for.body.lr.ph.i.i.i
   %unroll_iter = and i64 %cond6.i.i.i, -4
@@ -6115,7 +6114,7 @@ for.body.i.i.i.epil:                              ; preds = %for.cond.cleanup.i.
   %epil.iter = phi i64 [ %epil.iter.next, %for.body.i.i.i.epil ], [ 0, %for.cond.cleanup.i.i.i.loopexit.unr-lcssa ]
   %arrayidx30.i.i.i.epil = getelementptr inbounds %"struct.duckdb_moodycamel::ConcurrentQueue<duckdb::BufferEvictionNode>::ImplicitProducer::BlockIndexEntry", ptr %add.ptr.i.i.i.i41, i64 %i27.089.i.i.i.epil
   store atomic i64 1, ptr %arrayidx30.i.i.i.epil monotonic, align 8
-  %arrayidx33.i.i.i.epil = getelementptr ptr, ptr %21, i64 %i27.089.i.i.i.epil
+  %arrayidx33.i.i.i.epil = getelementptr ptr, ptr %22, i64 %i27.089.i.i.i.epil
   store ptr %arrayidx30.i.i.i.epil, ptr %arrayidx33.i.i.i.epil, align 8, !tbaa !8
   %inc34.i.i.i.epil = add nuw nsw i64 %i27.089.i.i.i.epil, 1
   %epil.iter.next = add nuw nsw i64 %epil.iter, 1
@@ -6134,8 +6133,8 @@ for.cond.cleanup.i.i.i:                           ; preds = %for.body.i.i.i.epil
   %sub41.i.i.i = add i64 %cond.i.i.i, 31
   %and44.i.i.i = and i64 %sub41.i.i.i, 31
   store atomic i64 %and44.i.i.i, ptr %tail40.i.i.i monotonic, align 8
-  %23 = ptrtoint ptr %call.i84.i.i.i to i64
-  store atomic i64 %23, ptr %blockIndex.i.i36 release, align 8
+  %24 = ptrtoint ptr %call.i84.i.i.i to i64
+  store atomic i64 %24, ptr %blockIndex.i.i36 release, align 8
   store i64 64, ptr %nextBlockIndexCapacity.i.i, align 8, !tbaa !217
   br label %if.end.i
 
@@ -6143,22 +6142,22 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %fo
   %i27.089.i.i.i = phi i64 [ 0, %for.body.lr.ph.i.i.i.new ], [ %inc34.i.i.i.3, %for.body.i.i.i ]
   %arrayidx30.i.i.i = getelementptr inbounds %"struct.duckdb_moodycamel::ConcurrentQueue<duckdb::BufferEvictionNode>::ImplicitProducer::BlockIndexEntry", ptr %add.ptr.i.i.i.i41, i64 %i27.089.i.i.i
   store atomic i64 1, ptr %arrayidx30.i.i.i monotonic, align 8
-  %arrayidx33.i.i.i = getelementptr ptr, ptr %21, i64 %i27.089.i.i.i
+  %arrayidx33.i.i.i = getelementptr ptr, ptr %22, i64 %i27.089.i.i.i
   store ptr %arrayidx30.i.i.i, ptr %arrayidx33.i.i.i, align 8, !tbaa !8
   %inc34.i.i.i = or disjoint i64 %i27.089.i.i.i, 1
   %arrayidx30.i.i.i.1 = getelementptr inbounds %"struct.duckdb_moodycamel::ConcurrentQueue<duckdb::BufferEvictionNode>::ImplicitProducer::BlockIndexEntry", ptr %add.ptr.i.i.i.i41, i64 %inc34.i.i.i
   store atomic i64 1, ptr %arrayidx30.i.i.i.1 monotonic, align 8
-  %arrayidx33.i.i.i.1 = getelementptr ptr, ptr %21, i64 %inc34.i.i.i
+  %arrayidx33.i.i.i.1 = getelementptr ptr, ptr %22, i64 %inc34.i.i.i
   store ptr %arrayidx30.i.i.i.1, ptr %arrayidx33.i.i.i.1, align 8, !tbaa !8
   %inc34.i.i.i.1 = or disjoint i64 %i27.089.i.i.i, 2
   %arrayidx30.i.i.i.2 = getelementptr inbounds %"struct.duckdb_moodycamel::ConcurrentQueue<duckdb::BufferEvictionNode>::ImplicitProducer::BlockIndexEntry", ptr %add.ptr.i.i.i.i41, i64 %inc34.i.i.i.1
   store atomic i64 1, ptr %arrayidx30.i.i.i.2 monotonic, align 8
-  %arrayidx33.i.i.i.2 = getelementptr ptr, ptr %21, i64 %inc34.i.i.i.1
+  %arrayidx33.i.i.i.2 = getelementptr ptr, ptr %22, i64 %inc34.i.i.i.1
   store ptr %arrayidx30.i.i.i.2, ptr %arrayidx33.i.i.i.2, align 8, !tbaa !8
   %inc34.i.i.i.2 = or disjoint i64 %i27.089.i.i.i, 3
   %arrayidx30.i.i.i.3 = getelementptr inbounds %"struct.duckdb_moodycamel::ConcurrentQueue<duckdb::BufferEvictionNode>::ImplicitProducer::BlockIndexEntry", ptr %add.ptr.i.i.i.i41, i64 %inc34.i.i.i.2
   store atomic i64 1, ptr %arrayidx30.i.i.i.3 monotonic, align 8
-  %arrayidx33.i.i.i.3 = getelementptr ptr, ptr %21, i64 %inc34.i.i.i.2
+  %arrayidx33.i.i.i.3 = getelementptr ptr, ptr %22, i64 %inc34.i.i.i.2
   store ptr %arrayidx30.i.i.i.3, ptr %arrayidx33.i.i.i.3, align 8, !tbaa !8
   %inc34.i.i.i.3 = add nuw i64 %i27.089.i.i.i, 4
   %niter.ncmp.3 = icmp eq i64 %inc34.i.i.i.3, %unroll_iter
@@ -6167,30 +6166,30 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %fo
 if.end.i:                                         ; preds = %for.cond.cleanup.i.i.i, %cond.end.i.i.i, %if.end15.i.i.i, %if.then.i.i.i
   %cond.ph = phi ptr [ %call.i.i.i30, %for.cond.cleanup.i.i.i ], [ %call.i.i.i30, %cond.end.i.i.i ], [ %call.i.i.i, %if.end15.i.i.i ], [ %call.i.i.i, %if.then.i.i.i ]
   %producerCount.i = getelementptr inbounds i8, ptr %this, i64 8
-  %24 = atomicrmw add ptr %producerCount.i, i32 1 monotonic, align 4
-  %25 = load atomic i64, ptr %this monotonic, align 8
+  %25 = atomicrmw add ptr %producerCount.i, i32 1 monotonic, align 4
+  %26 = load atomic i64, ptr %this monotonic, align 8
   %add.ptr3.i = getelementptr inbounds i8, ptr %cond.ph, i64 8
-  %26 = ptrtoint ptr %cond.ph to i64
-  %prevTail.011.i = inttoptr i64 %25 to ptr
-  %27 = icmp eq i64 %25, 0
+  %27 = ptrtoint ptr %cond.ph to i64
+  %prevTail.011.i = inttoptr i64 %26 to ptr
+  %28 = icmp eq i64 %26, 0
   %add.ptr12.i = getelementptr inbounds i8, ptr %prevTail.011.i, i64 8
-  %spec.select13.i = select i1 %27, ptr null, ptr %add.ptr12.i
+  %spec.select13.i = select i1 %28, ptr null, ptr %add.ptr12.i
   store ptr %spec.select13.i, ptr %add.ptr3.i, align 8, !tbaa !141
-  %28 = cmpxchg weak ptr %this, i64 %25, i64 %26 release monotonic, align 8
-  %29 = extractvalue { i64, i1 } %28, 1
-  br i1 %29, label %return, label %_ZNSt6atomicIPN17duckdb_moodycamel15ConcurrentQueueIN6duckdb18BufferEvictionNodeENS0_28ConcurrentQueueDefaultTraitsEE12ProducerBaseEE21compare_exchange_weakERS7_S7_St12memory_orderSA_.exit.i
+  %29 = cmpxchg weak ptr %this, i64 %26, i64 %27 release monotonic, align 8
+  %30 = extractvalue { i64, i1 } %29, 1
+  br i1 %30, label %return, label %_ZNSt6atomicIPN17duckdb_moodycamel15ConcurrentQueueIN6duckdb18BufferEvictionNodeENS0_28ConcurrentQueueDefaultTraitsEE12ProducerBaseEE21compare_exchange_weakERS7_S7_St12memory_orderSA_.exit.i
 
 _ZNSt6atomicIPN17duckdb_moodycamel15ConcurrentQueueIN6duckdb18BufferEvictionNodeENS0_28ConcurrentQueueDefaultTraitsEE12ProducerBaseEE21compare_exchange_weakERS7_S7_St12memory_orderSA_.exit.i: ; preds = %if.end.i, %_ZNSt6atomicIPN17duckdb_moodycamel15ConcurrentQueueIN6duckdb18BufferEvictionNodeENS0_28ConcurrentQueueDefaultTraitsEE12ProducerBaseEE21compare_exchange_weakERS7_S7_St12memory_orderSA_.exit.i
-  %30 = phi { i64, i1 } [ %33, %_ZNSt6atomicIPN17duckdb_moodycamel15ConcurrentQueueIN6duckdb18BufferEvictionNodeENS0_28ConcurrentQueueDefaultTraitsEE12ProducerBaseEE21compare_exchange_weakERS7_S7_St12memory_orderSA_.exit.i ], [ %28, %if.end.i ]
-  %31 = extractvalue { i64, i1 } %30, 0
-  %prevTail.0.i = inttoptr i64 %31 to ptr
-  %32 = icmp eq i64 %31, 0
+  %31 = phi { i64, i1 } [ %34, %_ZNSt6atomicIPN17duckdb_moodycamel15ConcurrentQueueIN6duckdb18BufferEvictionNodeENS0_28ConcurrentQueueDefaultTraitsEE12ProducerBaseEE21compare_exchange_weakERS7_S7_St12memory_orderSA_.exit.i ], [ %29, %if.end.i ]
+  %32 = extractvalue { i64, i1 } %31, 0
+  %prevTail.0.i = inttoptr i64 %32 to ptr
+  %33 = icmp eq i64 %32, 0
   %add.ptr.i43 = getelementptr inbounds i8, ptr %prevTail.0.i, i64 8
-  %spec.select.i = select i1 %32, ptr null, ptr %add.ptr.i43
+  %spec.select.i = select i1 %33, ptr null, ptr %add.ptr.i43
   store ptr %spec.select.i, ptr %add.ptr3.i, align 8, !tbaa !141
-  %33 = cmpxchg weak ptr %this, i64 %31, i64 %26 release monotonic, align 8
-  %34 = extractvalue { i64, i1 } %33, 1
-  br i1 %34, label %return, label %_ZNSt6atomicIPN17duckdb_moodycamel15ConcurrentQueueIN6duckdb18BufferEvictionNodeENS0_28ConcurrentQueueDefaultTraitsEE12ProducerBaseEE21compare_exchange_weakERS7_S7_St12memory_orderSA_.exit.i, !llvm.loop !228
+  %34 = cmpxchg weak ptr %this, i64 %32, i64 %27 release monotonic, align 8
+  %35 = extractvalue { i64, i1 } %34, 1
+  br i1 %35, label %return, label %_ZNSt6atomicIPN17duckdb_moodycamel15ConcurrentQueueIN6duckdb18BufferEvictionNodeENS0_28ConcurrentQueueDefaultTraitsEE12ProducerBaseEE21compare_exchange_weakERS7_S7_St12memory_orderSA_.exit.i, !llvm.loop !228
 
 return:                                           ; preds = %_ZNSt6atomicIPN17duckdb_moodycamel15ConcurrentQueueIN6duckdb18BufferEvictionNodeENS0_28ConcurrentQueueDefaultTraitsEE12ProducerBaseEE21compare_exchange_weakERS7_S7_St12memory_orderSA_.exit.i, %if.end.i, %cond.false, %cond.true, %cleanup13
   %retval.4 = phi ptr [ %ptr.059, %cleanup13 ], [ %cond.ph, %if.end.i ], [ null, %cond.true ], [ null, %cond.false ], [ %cond.ph, %_ZNSt6atomicIPN17duckdb_moodycamel15ConcurrentQueueIN6duckdb18BufferEvictionNodeENS0_28ConcurrentQueueDefaultTraitsEE12ProducerBaseEE21compare_exchange_weakERS7_S7_St12memory_orderSA_.exit.i ]

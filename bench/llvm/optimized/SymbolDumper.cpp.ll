@@ -9305,37 +9305,36 @@ define internal void @_ZN12_GLOBAL__N_118CVSymbolDumperImpl14visitSymbolEndERN4l
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load i32, ptr %22, align 8
-  %24 = icmp sgt i32 %23, 1
-  %25 = add nsw i32 %23, -1
-  %spec.select.i = select i1 %24, i32 %25, i32 0
+  %24 = tail call i32 @llvm.smax.i32(i32 %23, i32 1)
+  %spec.select.i = add nsw i32 %24, -1
   store i32 %spec.select.i, ptr %22, align 8
-  %26 = load ptr, ptr %20, align 8
-  %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 288
-  %29 = load ptr, ptr %28, align 8
-  %30 = tail call noundef nonnull align 8 dereferenceable(48) ptr %29(ptr noundef nonnull align 8 dereferenceable(44) %26) #18
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 24
-  %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds nuw i8, ptr %30, i64 32
-  %34 = load ptr, ptr %33, align 8
-  %35 = ptrtoint ptr %32 to i64
-  %36 = ptrtoint ptr %34 to i64
-  %37 = sub i64 %35, %36
-  %38 = icmp ult i64 %37, 2
-  br i1 %38, label %39, label %41
+  %25 = load ptr, ptr %20, align 8
+  %26 = load ptr, ptr %25, align 8
+  %27 = getelementptr inbounds i8, ptr %26, i64 288
+  %28 = load ptr, ptr %27, align 8
+  %29 = tail call noundef nonnull align 8 dereferenceable(48) ptr %28(ptr noundef nonnull align 8 dereferenceable(44) %25) #18
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 24
+  %31 = load ptr, ptr %30, align 8
+  %32 = getelementptr inbounds nuw i8, ptr %29, i64 32
+  %33 = load ptr, ptr %32, align 8
+  %34 = ptrtoint ptr %31 to i64
+  %35 = ptrtoint ptr %33 to i64
+  %36 = sub i64 %34, %35
+  %37 = icmp ult i64 %36, 2
+  br i1 %37, label %38, label %40
 
-39:                                               ; preds = %19
-  %40 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %30, ptr noundef nonnull @.str.62, i64 noundef 2) #18
+38:                                               ; preds = %19
+  %39 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %29, ptr noundef nonnull @.str.62, i64 noundef 2) #18
   br label %_ZN4llvm12ErrorSuccessD2Ev.exit
 
-41:                                               ; preds = %19
-  store i16 2685, ptr %34, align 1
-  %42 = load ptr, ptr %33, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 2
-  store ptr %43, ptr %33, align 8
+40:                                               ; preds = %19
+  store i16 2685, ptr %33, align 1
+  %41 = load ptr, ptr %32, align 8
+  %42 = getelementptr inbounds i8, ptr %41, i64 2
+  store ptr %42, ptr %32, align 8
   br label %_ZN4llvm12ErrorSuccessD2Ev.exit
 
-_ZN4llvm12ErrorSuccessD2Ev.exit:                  ; preds = %41, %39
+_ZN4llvm12ErrorSuccessD2Ev.exit:                  ; preds = %40, %38
   store ptr null, ptr %0, align 8
   ret void
 }
@@ -17658,6 +17657,9 @@ declare i64 @llvm.umin.i64(i64, i64) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #16
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #16
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

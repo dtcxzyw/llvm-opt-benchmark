@@ -37,11 +37,11 @@ define void @lv_draw_deinit() local_unnamed_addr #1 {
   br i1 %.not8, label %7, label %5
 
 5:                                                ; preds = %.lr.ph
-  %6 = tail call i32 %4(ptr noundef nonnull %.010) #9
+  %6 = tail call i32 %4(ptr noundef nonnull %.010) #10
   br label %7
 
 7:                                                ; preds = %5, %.lr.ph
-  tail call void @lv_free(ptr noundef nonnull %.010) #9
+  tail call void @lv_free(ptr noundef nonnull %.010) #10
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
 
@@ -60,7 +60,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
 
 ; Function Attrs: nounwind uwtable
 define noundef ptr @lv_draw_create_unit(i64 noundef %0) local_unnamed_addr #1 {
-  %2 = tail call ptr @lv_malloc_zeroed(i64 noundef %0) #9
+  %2 = tail call ptr @lv_malloc_zeroed(i64 noundef %0) #10
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 536), align 8, !tbaa !3
   store ptr %3, ptr %2, align 8, !tbaa !19
   store ptr %2, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 536), align 8, !tbaa !3
@@ -74,7 +74,7 @@ declare ptr @lv_malloc_zeroed(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define ptr @lv_draw_add_task(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
-  %3 = tail call ptr @lv_malloc_zeroed(i64 noundef 96) #9
+  %3 = tail call ptr @lv_malloc_zeroed(i64 noundef 96) #10
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 12
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !25
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 28
@@ -126,13 +126,13 @@ define void @lv_draw_finalize_task_creation(ptr noundef %0, ptr noundef %1) loca
   br i1 %.not35, label %15, label %10
 
 10:                                               ; preds = %8
-  %11 = tail call zeroext i1 @lv_obj_has_flag(ptr noundef nonnull %9, i32 noundef 524288) #9
+  %11 = tail call zeroext i1 @lv_obj_has_flag(ptr noundef nonnull %9, i32 noundef 524288) #10
   br i1 %11, label %12, label %15
 
 12:                                               ; preds = %10
   store i8 1, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 560), align 8, !tbaa !37
   %13 = load ptr, ptr %4, align 8, !tbaa !40
-  %14 = tail call i32 @lv_obj_send_event(ptr noundef %13, i32 noundef 34, ptr noundef nonnull %1) #9
+  %14 = tail call i32 @lv_obj_send_event(ptr noundef %13, i32 noundef 34, ptr noundef nonnull %1) #10
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 560), align 8, !tbaa !37
   br label %15
 
@@ -153,7 +153,7 @@ define void @lv_draw_finalize_task_creation(ptr noundef %0, ptr noundef %1) loca
   br i1 %.not37, label %22, label %20
 
 20:                                               ; preds = %.lr.ph45
-  %21 = tail call i32 %19(ptr noundef nonnull %.03044, ptr noundef %1) #9
+  %21 = tail call i32 %19(ptr noundef nonnull %.03044, ptr noundef %1) #10
   br label %22
 
 22:                                               ; preds = %20, %.lr.ph45
@@ -172,7 +172,7 @@ define void @lv_draw_finalize_task_creation(ptr noundef %0, ptr noundef %1) loca
   br label %lv_draw_dispatch.exit
 
 25:                                               ; preds = %._crit_edge
-  %26 = tail call ptr @lv_display_get_next(ptr noundef null) #9
+  %26 = tail call ptr @lv_display_get_next(ptr noundef null) #10
   %.not14.i = icmp eq ptr %26, null
   br i1 %.not14.i, label %lv_draw_dispatch.exit, label %.lr.ph18.i
 
@@ -203,7 +203,7 @@ define void @lv_draw_finalize_task_creation(ptr noundef %0, ptr noundef %1) loca
   br label %31
 
 31:                                               ; preds = %30, %._crit_edge.i
-  %32 = tail call ptr @lv_display_get_next(ptr noundef nonnull %.0716.i) #9
+  %32 = tail call ptr @lv_display_get_next(ptr noundef nonnull %.0716.i) #10
   %.not.i = icmp eq ptr %32, null
   br i1 %.not.i, label %lv_draw_dispatch.exit, label %.lr.ph18.i, !llvm.loop !48
 
@@ -224,7 +224,7 @@ define void @lv_draw_finalize_task_creation(ptr noundef %0, ptr noundef %1) loca
   br i1 %.not34, label %40, label %38
 
 38:                                               ; preds = %.lr.ph
-  %39 = tail call i32 %37(ptr noundef nonnull %.041, ptr noundef %1) #9
+  %39 = tail call i32 %37(ptr noundef nonnull %.041, ptr noundef %1) #10
   br label %40
 
 40:                                               ; preds = %38, %.lr.ph
@@ -242,7 +242,7 @@ declare i32 @lv_obj_send_event(ptr noundef, i32 noundef, ptr noundef) local_unna
 
 ; Function Attrs: nounwind uwtable
 define void @lv_draw_dispatch() local_unnamed_addr #1 {
-  %1 = tail call ptr @lv_display_get_next(ptr noundef null) #9
+  %1 = tail call ptr @lv_display_get_next(ptr noundef null) #10
   %.not14 = icmp eq ptr %1, null
   br i1 %.not14, label %._crit_edge19, label %.lr.ph18
 
@@ -273,7 +273,7 @@ define void @lv_draw_dispatch() local_unnamed_addr #1 {
   br label %6
 
 6:                                                ; preds = %5, %._crit_edge
-  %7 = tail call ptr @lv_display_get_next(ptr noundef nonnull %.0716) #9
+  %7 = tail call ptr @lv_display_get_next(ptr noundef nonnull %.0716) #10
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %._crit_edge19, label %.lr.ph18, !llvm.loop !48
 
@@ -301,14 +301,14 @@ define zeroext i1 @lv_draw_dispatch_layer(ptr noundef %0, ptr noundef %1) local_
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 768
   br label %7
 
-7:                                                ; preds = %.lr.ph, %65
-  %.091 = phi ptr [ null, %.lr.ph ], [ %.1, %65 ]
-  %.06290 = phi ptr [ %4, %.lr.ph ], [ %8, %65 ]
+7:                                                ; preds = %.lr.ph, %64
+  %.091 = phi ptr [ null, %.lr.ph ], [ %.1, %64 ]
+  %.06290 = phi ptr [ %4, %.lr.ph ], [ %8, %64 ]
   %8 = load ptr, ptr %.06290, align 8, !tbaa !32
   %9 = getelementptr inbounds nuw i8, ptr %.06290, i64 76
   %10 = load volatile i32, ptr %9, align 4, !tbaa !27
   %11 = icmp eq i32 %10, 3
-  br i1 %11, label %12, label %65
+  br i1 %11, label %12, label %64
 
 12:                                               ; preds = %7
   %.not77 = icmp eq ptr %.091, null
@@ -326,7 +326,7 @@ define zeroext i1 @lv_draw_dispatch_layer(ptr noundef %0, ptr noundef %1) local_
   %16 = getelementptr inbounds nuw i8, ptr %.06290, i64 8
   %17 = load i32, ptr %16, align 8, !tbaa !50
   %18 = icmp eq i32 %17, 6
-  br i1 %18, label %19, label %53
+  br i1 %18, label %19, label %52
 
 19:                                               ; preds = %15
   %20 = getelementptr inbounds nuw i8, ptr %.06290, i64 80
@@ -335,169 +335,168 @@ define zeroext i1 @lv_draw_dispatch_layer(ptr noundef %0, ptr noundef %1) local_
   %23 = load ptr, ptr %22, align 8, !tbaa !51
   %24 = load ptr, ptr %23, align 8, !tbaa !57
   %.not78 = icmp eq ptr %24, null
-  br i1 %.not78, label %38, label %25
+  br i1 %.not78, label %37, label %25
 
 25:                                               ; preds = %19
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  %27 = tail call i32 @lv_area_get_height(ptr noundef nonnull %26) #9
+  %27 = tail call i32 @lv_area_get_height(ptr noundef nonnull %26) #10
   %28 = load ptr, ptr %23, align 8, !tbaa !57
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load i32, ptr %29, align 8
   %31 = and i32 %30, 65535
   %32 = mul nsw i32 %31, %27
-  %33 = icmp ult i32 %32, 1024
-  %34 = lshr i32 %32, 10
-  %35 = select i1 %33, i32 1, i32 %34
-  %36 = load i32, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 548), align 4, !tbaa !58
-  %37 = sub i32 %36, %35
-  store i32 %37, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 548), align 4, !tbaa !58
-  tail call void @lv_draw_buf_destroy(ptr noundef %28) #9
+  %33 = tail call i32 @llvm.umax.i32(i32 %32, i32 1024)
+  %34 = lshr i32 %33, 10
+  %35 = load i32, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 548), align 4, !tbaa !58
+  %36 = sub i32 %35, %34
+  store i32 %36, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 548), align 4, !tbaa !58
+  tail call void @lv_draw_buf_destroy(ptr noundef %28) #10
   store ptr null, ptr %23, align 8, !tbaa !57
-  br label %38
+  br label %37
 
-38:                                               ; preds = %25, %19
-  br i1 %.not79, label %53, label %39
+37:                                               ; preds = %25, %19
+  br i1 %.not79, label %52, label %38
 
-39:                                               ; preds = %38
-  %40 = load ptr, ptr %5, align 8, !tbaa !59
-  br label %41
+38:                                               ; preds = %37
+  %39 = load ptr, ptr %5, align 8, !tbaa !59
+  br label %40
 
-41:                                               ; preds = %42, %39
-  %.066 = phi ptr [ %40, %39 ], [ %44, %42 ]
+40:                                               ; preds = %41, %38
+  %.066 = phi ptr [ %39, %38 ], [ %43, %41 ]
   %.not80 = icmp eq ptr %.066, null
-  br i1 %.not80, label %.loopexit87, label %42
+  br i1 %.not80, label %.loopexit87, label %41
 
-42:                                               ; preds = %41
-  %43 = getelementptr inbounds nuw i8, ptr %.066, i64 80
-  %44 = load ptr, ptr %43, align 8, !tbaa !64
-  %45 = icmp eq ptr %44, %23
-  br i1 %45, label %46, label %41, !llvm.loop !65
+41:                                               ; preds = %40
+  %42 = getelementptr inbounds nuw i8, ptr %.066, i64 80
+  %43 = load ptr, ptr %42, align 8, !tbaa !64
+  %44 = icmp eq ptr %43, %23
+  br i1 %44, label %45, label %40, !llvm.loop !65
 
-46:                                               ; preds = %42
-  %47 = getelementptr inbounds nuw i8, ptr %.066, i64 80
-  %48 = getelementptr inbounds nuw i8, ptr %23, i64 80
-  %49 = load ptr, ptr %48, align 8, !tbaa !64
-  store ptr %49, ptr %47, align 8, !tbaa !64
+45:                                               ; preds = %41
+  %46 = getelementptr inbounds nuw i8, ptr %.066, i64 80
+  %47 = getelementptr inbounds nuw i8, ptr %23, i64 80
+  %48 = load ptr, ptr %47, align 8, !tbaa !64
+  store ptr %48, ptr %46, align 8, !tbaa !64
   br label %.loopexit87
 
-.loopexit87:                                      ; preds = %41, %46
-  %50 = load ptr, ptr %6, align 8, !tbaa !66
-  %.not81 = icmp eq ptr %50, null
-  br i1 %.not81, label %52, label %51
+.loopexit87:                                      ; preds = %40, %45
+  %49 = load ptr, ptr %6, align 8, !tbaa !66
+  %.not81 = icmp eq ptr %49, null
+  br i1 %.not81, label %51, label %50
 
-51:                                               ; preds = %.loopexit87
-  tail call void %50(ptr noundef nonnull %0, ptr noundef nonnull %23) #9
+50:                                               ; preds = %.loopexit87
+  tail call void %49(ptr noundef nonnull %0, ptr noundef nonnull %23) #10
+  br label %51
+
+51:                                               ; preds = %50, %.loopexit87
+  tail call void @lv_free(ptr noundef nonnull %23) #10
   br label %52
 
-52:                                               ; preds = %51, %.loopexit87
-  tail call void @lv_free(ptr noundef nonnull %23) #9
-  br label %53
+52:                                               ; preds = %37, %51, %15
+  %53 = tail call ptr @lv_draw_task_get_label_dsc(ptr noundef nonnull %.06290) #10
+  %.not82 = icmp eq ptr %53, null
+  br i1 %.not82, label %61, label %54
 
-53:                                               ; preds = %38, %52, %15
-  %54 = tail call ptr @lv_draw_task_get_label_dsc(ptr noundef nonnull %.06290) #9
-  %.not82 = icmp eq ptr %54, null
-  br i1 %.not82, label %62, label %55
+54:                                               ; preds = %52
+  %55 = getelementptr inbounds nuw i8, ptr %53, i64 116
+  %56 = load i8, ptr %55, align 4
+  %57 = and i8 %56, 64
+  %.not83 = icmp eq i8 %57, 0
+  br i1 %.not83, label %61, label %58
 
-55:                                               ; preds = %53
-  %56 = getelementptr inbounds nuw i8, ptr %54, i64 116
-  %57 = load i8, ptr %56, align 4
-  %58 = and i8 %57, 64
-  %.not83 = icmp eq i8 %58, 0
-  br i1 %.not83, label %62, label %59
+58:                                               ; preds = %54
+  %59 = getelementptr inbounds nuw i8, ptr %53, i64 48
+  %60 = load ptr, ptr %59, align 8, !tbaa !67
+  tail call void @lv_free(ptr noundef %60) #10
+  store ptr null, ptr %59, align 8, !tbaa !67
+  br label %61
 
-59:                                               ; preds = %55
-  %60 = getelementptr inbounds nuw i8, ptr %54, i64 48
-  %61 = load ptr, ptr %60, align 8, !tbaa !67
-  tail call void @lv_free(ptr noundef %61) #9
-  store ptr null, ptr %60, align 8, !tbaa !67
-  br label %62
+61:                                               ; preds = %58, %54, %52
+  %62 = getelementptr inbounds nuw i8, ptr %.06290, i64 80
+  %63 = load ptr, ptr %62, align 8, !tbaa !34
+  tail call void @lv_free(ptr noundef %63) #10
+  tail call void @lv_free(ptr noundef nonnull %.06290) #10
+  br label %64
 
-62:                                               ; preds = %59, %55, %53
-  %63 = getelementptr inbounds nuw i8, ptr %.06290, i64 80
-  %64 = load ptr, ptr %63, align 8, !tbaa !34
-  tail call void @lv_free(ptr noundef %64) #9
-  tail call void @lv_free(ptr noundef nonnull %.06290) #9
-  br label %65
-
-65:                                               ; preds = %7, %62
-  %.1 = phi ptr [ %.091, %62 ], [ %.06290, %7 ]
+64:                                               ; preds = %7, %61
+  %.1 = phi ptr [ %.091, %61 ], [ %.06290, %7 ]
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %._crit_edge, label %7, !llvm.loop !69
 
-._crit_edge:                                      ; preds = %65, %2
-  %66 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %67 = load ptr, ptr %66, align 8, !tbaa !70
-  %.not73 = icmp eq ptr %67, null
-  br i1 %.not73, label %92, label %68
+._crit_edge:                                      ; preds = %64, %2
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %66 = load ptr, ptr %65, align 8, !tbaa !70
+  %.not73 = icmp eq ptr %66, null
+  br i1 %.not73, label %91, label %67
 
-68:                                               ; preds = %._crit_edge
-  %69 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %70 = load i8, ptr %69, align 8, !tbaa !71, !range !38, !noundef !39
-  %71 = trunc nuw i8 %70 to i1
-  br i1 %71, label %72, label %92
+67:                                               ; preds = %._crit_edge
+  %68 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %69 = load i8, ptr %68, align 8, !tbaa !71, !range !38, !noundef !39
+  %70 = trunc nuw i8 %69 to i1
+  br i1 %70, label %71, label %91
 
-72:                                               ; preds = %68
-  %73 = load ptr, ptr %3, align 8, !tbaa !30
-  %74 = icmp eq ptr %73, null
-  br i1 %74, label %75, label %92
+71:                                               ; preds = %67
+  %72 = load ptr, ptr %3, align 8, !tbaa !30
+  %73 = icmp eq ptr %72, null
+  br i1 %73, label %74, label %91
 
-75:                                               ; preds = %72
-  %76 = getelementptr inbounds nuw i8, ptr %67, i64 64
-  %.06392 = load ptr, ptr %76, align 8, !tbaa !43
+74:                                               ; preds = %71
+  %75 = getelementptr inbounds nuw i8, ptr %66, i64 64
+  %.06392 = load ptr, ptr %75, align 8, !tbaa !43
   %.not7693 = icmp eq ptr %.06392, null
   br i1 %.not7693, label %.loopexit, label %.lr.ph96
 
-.lr.ph96:                                         ; preds = %75, %.thread
-  %.06394 = phi ptr [ %.063, %.thread ], [ %.06392, %75 ]
-  %77 = getelementptr inbounds nuw i8, ptr %.06394, i64 8
-  %78 = load i32, ptr %77, align 8, !tbaa !50
-  %79 = icmp eq i32 %78, 6
-  br i1 %79, label %80, label %.thread
+.lr.ph96:                                         ; preds = %74, %.thread
+  %.06394 = phi ptr [ %.063, %.thread ], [ %.06392, %74 ]
+  %76 = getelementptr inbounds nuw i8, ptr %.06394, i64 8
+  %77 = load i32, ptr %76, align 8, !tbaa !50
+  %78 = icmp eq i32 %77, 6
+  br i1 %78, label %79, label %.thread
 
-80:                                               ; preds = %.lr.ph96
-  %81 = getelementptr inbounds nuw i8, ptr %.06394, i64 76
-  %82 = load volatile i32, ptr %81, align 4, !tbaa !27
-  %83 = icmp eq i32 %82, 0
-  br i1 %83, label %84, label %.thread
+79:                                               ; preds = %.lr.ph96
+  %80 = getelementptr inbounds nuw i8, ptr %.06394, i64 76
+  %81 = load volatile i32, ptr %80, align 4, !tbaa !27
+  %82 = icmp eq i32 %81, 0
+  br i1 %82, label %83, label %.thread
 
-84:                                               ; preds = %80
-  %85 = getelementptr inbounds nuw i8, ptr %.06394, i64 80
-  %86 = load ptr, ptr %85, align 8, !tbaa !34
-  %87 = getelementptr inbounds nuw i8, ptr %86, i64 48
-  %88 = load ptr, ptr %87, align 8, !tbaa !51
-  %89 = icmp eq ptr %88, %1
-  br i1 %89, label %90, label %.thread
+83:                                               ; preds = %79
+  %84 = getelementptr inbounds nuw i8, ptr %.06394, i64 80
+  %85 = load ptr, ptr %84, align 8, !tbaa !34
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 48
+  %87 = load ptr, ptr %86, align 8, !tbaa !51
+  %88 = icmp eq ptr %87, %1
+  br i1 %88, label %89, label %.thread
 
-90:                                               ; preds = %84
-  %91 = getelementptr inbounds nuw i8, ptr %.06394, i64 76
-  store volatile i32 1, ptr %91, align 4, !tbaa !27
+89:                                               ; preds = %83
+  %90 = getelementptr inbounds nuw i8, ptr %.06394, i64 76
+  store volatile i32 1, ptr %90, align 4, !tbaa !27
   store volatile i32 1, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 552), align 8, !tbaa !47
   br label %.loopexit
 
-.thread:                                          ; preds = %84, %80, %.lr.ph96
+.thread:                                          ; preds = %83, %79, %.lr.ph96
   %.063 = load ptr, ptr %.06394, align 8, !tbaa !43
   %.not76 = icmp eq ptr %.063, null
   br i1 %.not76, label %.loopexit, label %.lr.ph96, !llvm.loop !72
 
-92:                                               ; preds = %72, %68, %._crit_edge
+91:                                               ; preds = %71, %67, %._crit_edge
   %.06097 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 536), align 8, !tbaa !43
   %.not7498 = icmp eq ptr %.06097, null
   br i1 %.not7498, label %.loopexit, label %.lr.ph102
 
-.lr.ph102:                                        ; preds = %92, %.lr.ph102
-  %.060100 = phi ptr [ %.060, %.lr.ph102 ], [ %.06097, %92 ]
-  %.16599 = phi i1 [ %spec.select, %.lr.ph102 ], [ false, %92 ]
-  %93 = getelementptr inbounds nuw i8, ptr %.060100, i64 32
-  %94 = load ptr, ptr %93, align 8, !tbaa !73
-  %95 = tail call i32 %94(ptr noundef nonnull %.060100, ptr noundef %1) #9
-  %.not75 = icmp ne i32 %95, -1
+.lr.ph102:                                        ; preds = %91, %.lr.ph102
+  %.060100 = phi ptr [ %.060, %.lr.ph102 ], [ %.06097, %91 ]
+  %.16599 = phi i1 [ %spec.select, %.lr.ph102 ], [ false, %91 ]
+  %92 = getelementptr inbounds nuw i8, ptr %.060100, i64 32
+  %93 = load ptr, ptr %92, align 8, !tbaa !73
+  %94 = tail call i32 %93(ptr noundef nonnull %.060100, ptr noundef %1) #10
+  %.not75 = icmp ne i32 %94, -1
   %spec.select = select i1 %.not75, i1 true, i1 %.16599
   %.060 = load ptr, ptr %.060100, align 8, !tbaa !43
   %.not74 = icmp eq ptr %.060, null
   br i1 %.not74, label %.loopexit, label %.lr.ph102, !llvm.loop !74
 
-.loopexit:                                        ; preds = %.thread, %.lr.ph102, %75, %92, %90
-  %.064 = phi i1 [ false, %90 ], [ false, %92 ], [ false, %75 ], [ %spec.select, %.lr.ph102 ], [ false, %.thread ]
+.loopexit:                                        ; preds = %.thread, %.lr.ph102, %74, %91, %89
+  %.064 = phi i1 [ false, %89 ], [ false, %91 ], [ false, %74 ], [ %spec.select, %.lr.ph102 ], [ false, %.thread ]
   ret i1 %.064
 }
 
@@ -557,10 +556,10 @@ define ptr @lv_draw_get_next_available_task(ptr nocapture noundef readonly %0, p
   br i1 %.not37, label %.thread, label %14
 
 14:                                               ; preds = %13
-  %15 = tail call ptr @lv_refr_get_disp_refreshing() #9
-  %16 = tail call i32 @lv_display_get_horizontal_resolution(ptr noundef %15) #9
-  %17 = tail call ptr @lv_refr_get_disp_refreshing() #9
-  %18 = tail call i32 @lv_display_get_vertical_resolution(ptr noundef %17) #9
+  %15 = tail call ptr @lv_refr_get_disp_refreshing() #10
+  %16 = tail call i32 @lv_display_get_horizontal_resolution(ptr noundef %15) #10
+  %17 = tail call ptr @lv_refr_get_disp_refreshing() #10
+  %18 = tail call i32 @lv_display_get_vertical_resolution(ptr noundef %17) #10
   %19 = load ptr, ptr %7, align 8, !tbaa !30
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 76
   %21 = load volatile i32, ptr %20, align 4, !tbaa !27
@@ -634,10 +633,10 @@ define ptr @lv_draw_get_next_available_task(ptr nocapture noundef readonly %0, p
   br i1 %.not.i, label %56, label %53
 
 53:                                               ; preds = %50
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #10
   %54 = getelementptr inbounds nuw i8, ptr %.0917.i, i64 28
-  %55 = call zeroext i1 @lv_area_intersect(ptr noundef nonnull %4, ptr noundef nonnull %54, ptr noundef nonnull %49) #9
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #9
+  %55 = call zeroext i1 @lv_area_intersect(ptr noundef nonnull %4, ptr noundef nonnull %54, ptr noundef nonnull %49) #10
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #10
   br i1 %55, label %is_independent.exit, label %56
 
 56:                                               ; preds = %53, %50
@@ -692,7 +691,7 @@ define i32 @lv_draw_get_dependent_count(ptr noundef %0) local_unnamed_addr #1 {
 
 14:                                               ; preds = %11, %7
   %15 = getelementptr inbounds nuw i8, ptr %.016, i64 12
-  %16 = tail call zeroext i1 @lv_area_is_on(ptr noundef nonnull %6, ptr noundef nonnull %15) #9
+  %16 = tail call zeroext i1 @lv_area_is_on(ptr noundef nonnull %6, ptr noundef nonnull %15) #10
   %17 = zext i1 %16 to i32
   %spec.select = add i32 %.01115, %17
   br label %18
@@ -712,7 +711,7 @@ declare zeroext i1 @lv_area_is_on(ptr noundef, ptr noundef) local_unnamed_addr #
 
 ; Function Attrs: nounwind uwtable
 define nonnull ptr @lv_draw_layer_create(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #1 {
-  %4 = tail call ptr @lv_malloc_zeroed(i64 noundef 104) #9
+  %4 = tail call ptr @lv_malloc_zeroed(i64 noundef 104) #10
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %.preheader, label %5
 
@@ -720,8 +719,8 @@ define nonnull ptr @lv_draw_layer_create(ptr noundef %0, i32 noundef %1, ptr noc
   br label %.preheader
 
 5:                                                ; preds = %3
-  tail call void @lv_memset(ptr noundef nonnull %4, i8 noundef zeroext 0, i64 noundef 104) #9
-  %6 = tail call ptr @lv_refr_get_disp_refreshing() #9
+  tail call void @lv_memset(ptr noundef nonnull %4, i8 noundef zeroext 0, i64 noundef 104) #10
+  %6 = tail call ptr @lv_refr_get_disp_refreshing() #10
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr %0, ptr %7, align 8, !tbaa !70
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 28
@@ -738,7 +737,7 @@ define nonnull ptr @lv_draw_layer_create(ptr noundef %0, i32 noundef %1, ptr noc
   br i1 %.not27.i, label %15, label %14
 
 14:                                               ; preds = %5
-  tail call void %13(ptr noundef nonnull %6, ptr noundef nonnull %4) #9
+  tail call void %13(ptr noundef nonnull %6, ptr noundef nonnull %4) #10
   br label %15
 
 15:                                               ; preds = %14, %5
@@ -776,8 +775,8 @@ define void @lv_draw_layer_init(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
   br label %.preheader
 
 5:                                                ; preds = %4
-  tail call void @lv_memset(ptr noundef nonnull %0, i8 noundef zeroext 0, i64 noundef 104) #9
-  %6 = tail call ptr @lv_refr_get_disp_refreshing() #9
+  tail call void @lv_memset(ptr noundef nonnull %0, i8 noundef zeroext 0, i64 noundef 104) #10
+  %6 = tail call ptr @lv_refr_get_disp_refreshing() #10
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %1, ptr %7, align 8, !tbaa !70
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -794,7 +793,7 @@ define void @lv_draw_layer_init(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
   br i1 %.not27, label %15, label %14
 
 14:                                               ; preds = %5
-  tail call void %13(ptr noundef nonnull %6, ptr noundef nonnull %0) #9
+  tail call void %13(ptr noundef nonnull %6, ptr noundef nonnull %0) #10
   br label %15
 
 15:                                               ; preds = %14, %5
@@ -831,46 +830,45 @@ define ptr @lv_draw_layer_alloc_buf(ptr noundef %0) local_unnamed_addr #1 {
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = tail call i32 @lv_area_get_width(ptr noundef nonnull %4) #9
-  %6 = tail call i32 @lv_area_get_height(ptr noundef nonnull %4) #9
+  %5 = tail call i32 @lv_area_get_width(ptr noundef nonnull %4) #10
+  %6 = tail call i32 @lv_area_get_height(ptr noundef nonnull %4) #10
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load i32, ptr %7, align 8, !tbaa !83
-  %9 = tail call i32 @lv_draw_buf_width_to_stride(i32 noundef %5, i32 noundef %8) #9
+  %9 = tail call i32 @lv_draw_buf_width_to_stride(i32 noundef %5, i32 noundef %8) #10
   %10 = load i32, ptr %7, align 8, !tbaa !83
-  %11 = tail call ptr @lv_draw_buf_create(i32 noundef %5, i32 noundef %6, i32 noundef %10, i32 noundef 0) #9
+  %11 = tail call ptr @lv_draw_buf_create(i32 noundef %5, i32 noundef %6, i32 noundef %10, i32 noundef 0) #10
   store ptr %11, ptr %0, align 8, !tbaa !57
   %12 = icmp eq ptr %11, null
-  br i1 %12, label %28, label %13
+  br i1 %12, label %27, label %13
 
 13:                                               ; preds = %3
   %14 = mul i32 %9, %6
-  %15 = icmp ult i32 %14, 1024
-  %16 = lshr i32 %14, 10
-  %17 = select i1 %15, i32 1, i32 %16
-  %18 = load i32, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 548), align 4, !tbaa !58
-  %19 = add i32 %18, %17
-  store i32 %19, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 548), align 4, !tbaa !58
-  %20 = load i32, ptr %7, align 8, !tbaa !83
-  %21 = tail call zeroext i1 @lv_color_format_has_alpha(i32 noundef %20) #9
-  br i1 %21, label %22, label %24
+  %15 = tail call i32 @llvm.umax.i32(i32 %14, i32 1024)
+  %16 = lshr i32 %15, 10
+  %17 = load i32, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 548), align 4, !tbaa !58
+  %18 = add i32 %17, %16
+  store i32 %18, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 548), align 4, !tbaa !58
+  %19 = load i32, ptr %7, align 8, !tbaa !83
+  %20 = tail call zeroext i1 @lv_color_format_has_alpha(i32 noundef %19) #10
+  br i1 %20, label %21, label %23
 
-22:                                               ; preds = %13
-  %23 = load ptr, ptr %0, align 8, !tbaa !57
-  tail call void @lv_draw_buf_clear(ptr noundef %23, ptr noundef null) #9
-  br label %24
+21:                                               ; preds = %13
+  %22 = load ptr, ptr %0, align 8, !tbaa !57
+  tail call void @lv_draw_buf_clear(ptr noundef %22, ptr noundef null) #10
+  br label %23
 
-24:                                               ; preds = %22, %13
-  %25 = load ptr, ptr %0, align 8, !tbaa !57
+23:                                               ; preds = %21, %13
+  %24 = load ptr, ptr %0, align 8, !tbaa !57
   br label %.sink.split
 
-.sink.split:                                      ; preds = %1, %24
-  %.sink17 = phi ptr [ %25, %24 ], [ %2, %1 ]
-  %26 = getelementptr inbounds nuw i8, ptr %.sink17, i64 16
-  %27 = load ptr, ptr %26, align 8, !tbaa !86
-  br label %28
+.sink.split:                                      ; preds = %1, %23
+  %.sink17 = phi ptr [ %24, %23 ], [ %2, %1 ]
+  %25 = getelementptr inbounds nuw i8, ptr %.sink17, i64 16
+  %26 = load ptr, ptr %25, align 8, !tbaa !86
+  br label %27
 
-28:                                               ; preds = %.sink.split, %3
-  %.0 = phi ptr [ null, %3 ], [ %27, %.sink.split ]
+27:                                               ; preds = %.sink.split, %3
+  %.0 = phi ptr [ null, %3 ], [ %26, %.sink.split ]
   ret ptr %.0
 }
 
@@ -887,7 +885,7 @@ declare void @lv_draw_buf_clear(ptr noundef, ptr noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define ptr @lv_draw_layer_go_to_xy(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = load ptr, ptr %0, align 8, !tbaa !57
-  %5 = tail call ptr @lv_draw_buf_goto_xy(ptr noundef %4, i32 noundef %1, i32 noundef %2) #9
+  %5 = tail call ptr @lv_draw_buf_goto_xy(ptr noundef %4, i32 noundef %1, i32 noundef %2) #10
   ret ptr %5
 }
 
@@ -918,6 +916,9 @@ declare void @lv_memset(ptr noundef, i8 noundef zeroext, i64 noundef) local_unna
 
 declare zeroext i1 @lv_area_intersect(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #9
+
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
@@ -927,7 +928,8 @@ attributes #5 = { nofree norecurse nounwind memory(readwrite, argmem: none) uwta
 attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nounwind }
+attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

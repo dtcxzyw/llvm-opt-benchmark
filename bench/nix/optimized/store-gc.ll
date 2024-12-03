@@ -15326,10 +15326,10 @@ declare void @llvm.assume(i1 noundef) #23
 declare i64 @llvm.umax.i64(i64, i64) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #24
+declare i64 @llvm.umin.i64(i64, i64) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #24
+declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #25

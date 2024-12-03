@@ -270,12 +270,11 @@ define internal noundef i32 @dd_init_hctx(ptr nocapture noundef readonly %0, i32
   %12 = getelementptr inbounds i8, ptr %10, i64 20
   %13 = load i32, ptr %12, align 4
   %14 = shl i32 3, %13
-  %15 = lshr i32 %14, 2
-  %16 = icmp ult i32 %14, 4
-  %17 = select i1 %16, i32 1, i32 %15
-  %18 = getelementptr inbounds i8, ptr %8, i64 320
-  store i32 %17, ptr %18, align 8
-  tail call void @sbitmap_queue_min_shallow_depth(ptr noundef %11, i32 noundef %17) #12
+  %15 = tail call i32 @llvm.umax.i32(i32 %14, i32 4)
+  %16 = lshr i32 %15, 2
+  %17 = getelementptr inbounds i8, ptr %8, i64 320
+  store i32 %16, ptr %17, align 8
+  tail call void @sbitmap_queue_min_shallow_depth(ptr noundef %11, i32 noundef %16) #12
   ret i32 0
 }
 
@@ -293,12 +292,11 @@ define internal void @dd_depth_updated(ptr nocapture noundef readonly %0) #2 ali
   %11 = getelementptr inbounds i8, ptr %9, i64 20
   %12 = load i32, ptr %11, align 4
   %13 = shl i32 3, %12
-  %14 = lshr i32 %13, 2
-  %15 = icmp ult i32 %13, 4
-  %16 = select i1 %15, i32 1, i32 %14
-  %17 = getelementptr inbounds i8, ptr %7, i64 320
-  store i32 %16, ptr %17, align 8
-  tail call void @sbitmap_queue_min_shallow_depth(ptr noundef %10, i32 noundef %16) #12
+  %14 = tail call i32 @llvm.umax.i32(i32 %13, i32 4)
+  %15 = lshr i32 %14, 2
+  %16 = getelementptr inbounds i8, ptr %7, i64 320
+  store i32 %15, ptr %16, align 8
+  tail call void @sbitmap_queue_min_shallow_depth(ptr noundef %10, i32 noundef %15) #12
   ret void
 }
 
@@ -2384,6 +2382,9 @@ define internal ptr @deadline_dispatch2_next(ptr nocapture noundef readonly %0, 
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @elv_register(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #11

@@ -4264,12 +4264,11 @@ define ptr @Abc_NtkPartStartHop(ptr noundef %0) local_unnamed_addr #2 {
   %.val55 = load ptr, ptr %3, align 8
   %4 = getelementptr i8, ptr %.val55, i64 4
   %.val55.val = load i32, ptr %4, align 4
-  %5 = add nsw i32 %.val55.val, 1
-  %6 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #22
-  %or.cond.i = icmp ult i32 %.val55.val, 7
-  %spec.store.select.i = select i1 %or.cond.i, i32 8, i32 %5
-  %7 = getelementptr inbounds i8, ptr %6, i64 4
-  store i32 %spec.store.select.i, ptr %6, align 8
+  %5 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #22
+  %6 = tail call i32 @llvm.umax.i32(i32 %.val55.val, i32 7)
+  %spec.store.select.i = add i32 %6, 1
+  %7 = getelementptr inbounds i8, ptr %5, i64 4
+  store i32 %spec.store.select.i, ptr %5, align 8
   %.not.i = icmp eq i32 %spec.store.select.i, 0
   br i1 %.not.i, label %Vec_PtrGrow.exit.i, label %.Vec_PtrGrow.exit11_crit_edge.i
 
@@ -4277,23 +4276,23 @@ define ptr @Abc_NtkPartStartHop(ptr noundef %0) local_unnamed_addr #2 {
   %8 = sext i32 %spec.store.select.i to i64
   %9 = shl nsw i64 %8, 3
   %10 = tail call noalias ptr @malloc(i64 noundef %9) #22
-  %11 = getelementptr inbounds i8, ptr %6, i64 8
+  %11 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %10, ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %2, i64 16
-  store ptr %6, ptr %12, align 8
+  store ptr %5, ptr %12, align 8
   %13 = getelementptr i8, ptr %2, i64 24
   %.val62 = load ptr, ptr %13, align 8
   br label %Vec_PtrPush.exit
 
 Vec_PtrGrow.exit.i:                               ; preds = %1
-  %14 = getelementptr inbounds i8, ptr %6, i64 8
+  %14 = getelementptr inbounds i8, ptr %5, i64 8
   %15 = getelementptr inbounds i8, ptr %2, i64 16
-  store ptr %6, ptr %15, align 8
+  store ptr %5, ptr %15, align 8
   %16 = getelementptr i8, ptr %2, i64 24
   %.val62108 = load ptr, ptr %16, align 8
   %17 = tail call noalias dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #22
   store ptr %17, ptr %14, align 8
-  store i32 16, ptr %6, align 8
+  store i32 16, ptr %5, align 8
   br label %Vec_PtrPush.exit
 
 Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11_crit_edge.i, %Vec_PtrGrow.exit.i
@@ -5622,6 +5621,9 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #21
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #20
 
 attributes #0 = { mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

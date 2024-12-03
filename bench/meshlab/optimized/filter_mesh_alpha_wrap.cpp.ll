@@ -214145,6 +214145,9 @@ declare i32 @llvm.eh.typeid.for.p0(ptr) #34
 declare void @llvm.assume(i1 noundef) #35
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #36
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare <2 x double> @llvm.fabs.v2f64(<2 x double>) #36
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -214161,9 +214164,6 @@ declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #38
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #36
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #36
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i9 @llvm.bitreverse.i9(i9) #36

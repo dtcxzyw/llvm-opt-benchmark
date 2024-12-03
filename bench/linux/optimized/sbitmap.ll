@@ -140,7 +140,7 @@ define dso_local noundef range(i32 -22, 1) i32 @sbitmap_init_node(ptr nocapture 
   br i1 %6, label %30, label %58
 
 30:                                               ; preds = %29
-  %31 = tail call noalias dereferenceable_or_null(4) ptr @__alloc_percpu_gfp(i64 noundef 4, i64 noundef 4, i32 noundef %3) #8
+  %31 = tail call noalias dereferenceable_or_null(4) ptr @__alloc_percpu_gfp(i64 noundef 4, i64 noundef 4, i32 noundef %3) #9
   %32 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %31, ptr %32, align 8
   %33 = icmp eq ptr %31, null
@@ -160,13 +160,13 @@ define dso_local noundef range(i32 -22, 1) i32 @sbitmap_init_node(ptr nocapture 
   br i1 %41, label %.thread5, label %42
 
 42:                                               ; preds = %.preheader
-  %43 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %40) #9, !srcloc !10
+  %43 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %40) #10, !srcloc !10
   %44 = and i64 %43, 4294967232
   %45 = icmp eq i64 %44, 0
   br i1 %45, label %46, label %.thread5
 
 46:                                               ; preds = %42
-  %47 = tail call i32 @__get_random_u32_below(i32 noundef %1) #10
+  %47 = tail call i32 @__get_random_u32_below(i32 noundef %1) #11
   %48 = load ptr, ptr %32, align 8
   %49 = ptrtoint ptr %48 to i64
   %50 = and i64 %43, 63
@@ -190,7 +190,7 @@ define dso_local noundef range(i32 -22, 1) i32 @sbitmap_init_node(ptr nocapture 
   %61 = zext i32 %60 to i64
   %62 = shl nuw nsw i64 %61, 7
   %63 = or i32 %3, 256
-  %64 = tail call noalias ptr @kvmalloc_node(i64 noundef %62, i32 noundef %63, i32 noundef %4) #8
+  %64 = tail call noalias ptr @kvmalloc_node(i64 noundef %62, i32 noundef %63, i32 noundef %4) #9
   %65 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %64, ptr %65, align 8
   %66 = icmp eq ptr %64, null
@@ -199,7 +199,7 @@ define dso_local noundef range(i32 -22, 1) i32 @sbitmap_init_node(ptr nocapture 
 67:                                               ; preds = %.thread5
   %68 = getelementptr inbounds i8, ptr %0, i64 24
   %69 = load ptr, ptr %68, align 8
-  tail call void @free_percpu(ptr noundef %69) #10
+  tail call void @free_percpu(ptr noundef %69) #11
   br label %70
 
 70:                                               ; preds = %67, %.thread5, %30, %27, %.loopexit
@@ -234,9 +234,9 @@ define dso_local void @sbitmap_resize(ptr nocapture noundef %0, i32 noundef %1) 
   br i1 %17, label %21, label %18
 
 18:                                               ; preds = %10
-  %19 = tail call i64 asm sideeffect "xchgq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %15, i64 0, ptr elementtype(i64) %15) #10, !srcloc !13
+  %19 = tail call i64 asm sideeffect "xchgq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %15, i64 0, ptr elementtype(i64) %15) #11, !srcloc !13
   %20 = xor i64 %19, -1
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andq $1,$0", "=*m,er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %14, i64 %20, ptr elementtype(i64) %14) #10, !srcloc !14
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andq $1,$0", "=*m,er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %14, i64 %20, ptr elementtype(i64) %14) #11, !srcloc !14
   %.pre = load i32, ptr %5, align 8
   br label %21
 
@@ -265,14 +265,14 @@ define dso_local i32 @sbitmap_get(ptr noundef %0) #0 align 16 {
   br i1 %4, label %5, label %6, !prof !16
 
 5:                                                ; preds = %1
-  tail call void asm sideeffect "298: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 298b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 298) #10, !srcloc !17
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 244, i32 2307, i64 12) #10, !srcloc !18
-  tail call void asm sideeffect "299: nop\0A\09.pushsection .discard.instr_end\0A\09.long 299b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 299) #10, !srcloc !19
+  tail call void asm sideeffect "298: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 298b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 298) #11, !srcloc !17
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 244, i32 2307, i64 12) #11, !srcloc !18
+  tail call void asm sideeffect "299: nop\0A\09.pushsection .discard.instr_end\0A\09.long 299b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 299) #11, !srcloc !19
   br label %44
 
 6:                                                ; preds = %1
   %7 = load volatile i32, ptr %0, align 8
-  %8 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %3) #10, !srcloc !20
+  %8 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %3) #11, !srcloc !20
   %9 = icmp ult i32 %8, %7
   br i1 %9, label %17, label %10, !prof !21
 
@@ -281,13 +281,13 @@ define dso_local i32 @sbitmap_get(ptr noundef %0) #0 align 16 {
   br i1 %11, label %14, label %12
 
 12:                                               ; preds = %10
-  %13 = tail call i32 @__get_random_u32_below(i32 noundef %7) #10
+  %13 = tail call i32 @__get_random_u32_below(i32 noundef %7) #11
   br label %14
 
 14:                                               ; preds = %12, %10
   %15 = phi i32 [ 0, %10 ], [ %13, %12 ]
   %16 = load ptr, ptr %2, align 8
-  tail call void asm sideeffect "movl $1, %gs:$0", "=*m,ri,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %16, i32 %15, ptr elementtype(i32) %16) #10, !srcloc !22
+  tail call void asm sideeffect "movl $1, %gs:$0", "=*m,ri,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %16, i32 %15, ptr elementtype(i32) %16) #11, !srcloc !22
   br label %17
 
 17:                                               ; preds = %14, %6
@@ -308,7 +308,7 @@ define dso_local i32 @sbitmap_get(ptr noundef %0) #0 align 16 {
 
 31:                                               ; preds = %17
   %32 = load ptr, ptr %2, align 8
-  tail call void asm sideeffect "movl $1, %gs:$0", "=*m,ri,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %32, i32 0, ptr elementtype(i32) %32) #10, !srcloc !23
+  tail call void asm sideeffect "movl $1, %gs:$0", "=*m,ri,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %32, i32 0, ptr elementtype(i32) %32) #11, !srcloc !23
   br label %44
 
 33:                                               ; preds = %17
@@ -326,7 +326,7 @@ define dso_local i32 @sbitmap_get(ptr noundef %0) #0 align 16 {
   %41 = icmp ult i32 %39, %40
   %42 = select i1 %41, i32 %39, i32 0
   %43 = load ptr, ptr %2, align 8
-  tail call void asm sideeffect "movl $1, %gs:$0", "=*m,ri,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %43, i32 %42, ptr elementtype(i32) %43) #10, !srcloc !24
+  tail call void asm sideeffect "movl $1, %gs:$0", "=*m,ri,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %43, i32 %42, ptr elementtype(i32) %43) #11, !srcloc !24
   br label %44
 
 44:                                               ; preds = %38, %35, %31, %5
@@ -342,14 +342,14 @@ define dso_local i32 @sbitmap_get_shallow(ptr noundef %0, i64 noundef %1) #0 ali
   br i1 %5, label %6, label %7, !prof !16
 
 6:                                                ; preds = %2
-  tail call void asm sideeffect "302: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 302b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 302) #10, !srcloc !25
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 273, i32 2307, i64 12) #10, !srcloc !26
-  tail call void asm sideeffect "303: nop\0A\09.pushsection .discard.instr_end\0A\09.long 303b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 303) #10, !srcloc !27
+  tail call void asm sideeffect "302: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 302b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 302) #11, !srcloc !25
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 273, i32 2307, i64 12) #11, !srcloc !26
+  tail call void asm sideeffect "303: nop\0A\09.pushsection .discard.instr_end\0A\09.long 303b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 303) #11, !srcloc !27
   br label %43
 
 7:                                                ; preds = %2
   %8 = load volatile i32, ptr %0, align 8
-  %9 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %4) #10, !srcloc !20
+  %9 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %4) #11, !srcloc !20
   %10 = icmp ult i32 %9, %8
   br i1 %10, label %18, label %11, !prof !21
 
@@ -358,13 +358,13 @@ define dso_local i32 @sbitmap_get_shallow(ptr noundef %0, i64 noundef %1) #0 ali
   br i1 %12, label %15, label %13
 
 13:                                               ; preds = %11
-  %14 = tail call i32 @__get_random_u32_below(i32 noundef %8) #10
+  %14 = tail call i32 @__get_random_u32_below(i32 noundef %8) #11
   br label %15
 
 15:                                               ; preds = %13, %11
   %16 = phi i32 [ 0, %11 ], [ %14, %13 ]
   %17 = load ptr, ptr %3, align 8
-  tail call void asm sideeffect "movl $1, %gs:$0", "=*m,ri,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %17, i32 %16, ptr elementtype(i32) %17) #10, !srcloc !22
+  tail call void asm sideeffect "movl $1, %gs:$0", "=*m,ri,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %17, i32 %16, ptr elementtype(i32) %17) #11, !srcloc !22
   br label %18
 
 18:                                               ; preds = %15, %7
@@ -382,7 +382,7 @@ define dso_local i32 @sbitmap_get_shallow(ptr noundef %0, i64 noundef %1) #0 ali
 
 29:                                               ; preds = %18
   %30 = load ptr, ptr %3, align 8
-  tail call void asm sideeffect "movl $1, %gs:$0", "=*m,ri,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %30, i32 0, ptr elementtype(i32) %30) #10, !srcloc !23
+  tail call void asm sideeffect "movl $1, %gs:$0", "=*m,ri,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %30, i32 0, ptr elementtype(i32) %30) #11, !srcloc !23
   br label %43
 
 31:                                               ; preds = %18
@@ -401,7 +401,7 @@ define dso_local i32 @sbitmap_get_shallow(ptr noundef %0, i64 noundef %1) #0 ali
   %40 = icmp ult i32 %38, %39
   %41 = select i1 %40, i32 %38, i32 0
   %42 = load ptr, ptr %3, align 8
-  tail call void asm sideeffect "movl $1, %gs:$0", "=*m,ri,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %42, i32 %41, ptr elementtype(i32) %42) #10, !srcloc !24
+  tail call void asm sideeffect "movl $1, %gs:$0", "=*m,ri,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %42, i32 %41, ptr elementtype(i32) %42) #11, !srcloc !24
   br label %43
 
 43:                                               ; preds = %37, %33, %29, %6
@@ -499,7 +499,7 @@ define dso_local i32 @sbitmap_weight(ptr nocapture noundef readonly %0) #0 align
 
 26:                                               ; preds = %23, %17
   %27 = phi i32 [ %22, %17 ], [ %25, %23 ]
-  %28 = tail call i32 @__bitmap_weight(ptr noundef %13, i32 noundef %27) #10
+  %28 = tail call i32 @__bitmap_weight(ptr noundef %13, i32 noundef %27) #11
   %29 = add i32 %28, %11
   %30 = add nuw nsw i64 %9, 1
   %31 = load i32, ptr %2, align 8
@@ -537,7 +537,7 @@ define dso_local i32 @sbitmap_weight(ptr nocapture noundef readonly %0) #0 align
 52:                                               ; preds = %49, %43
   %53 = phi i32 [ %48, %43 ], [ %51, %49 ]
   %54 = getelementptr %struct.sbitmap_word, ptr %39, i64 %36, i32 2
-  %55 = tail call i32 @__bitmap_weight(ptr noundef %54, i32 noundef %53) #10
+  %55 = tail call i32 @__bitmap_weight(ptr noundef %54, i32 noundef %53) #11
   %56 = add i32 %55, %38
   %57 = add nuw nsw i64 %36, 1
   %58 = load i32, ptr %2, align 8
@@ -555,7 +555,7 @@ define dso_local i32 @sbitmap_weight(ptr nocapture noundef readonly %0) #0 align
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @sbitmap_show(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
   %3 = load i32, ptr %0, align 8
-  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %1, ptr noundef nonnull @.str.1, i32 noundef %3) #10
+  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %1, ptr noundef nonnull @.str.1, i32 noundef %3) #11
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %5, 0
@@ -592,7 +592,7 @@ define dso_local void @sbitmap_show(ptr nocapture noundef readonly %0, ptr nound
 
 28:                                               ; preds = %25, %19
   %29 = phi i32 [ %24, %19 ], [ %27, %25 ]
-  %30 = tail call i32 @__bitmap_weight(ptr noundef %15, i32 noundef %29) #10
+  %30 = tail call i32 @__bitmap_weight(ptr noundef %15, i32 noundef %29) #11
   %31 = add i32 %30, %13
   %32 = add nuw nsw i64 %11, 1
   %33 = load i32, ptr %4, align 8
@@ -630,7 +630,7 @@ define dso_local void @sbitmap_show(ptr nocapture noundef readonly %0, ptr nound
 54:                                               ; preds = %51, %45
   %55 = phi i32 [ %50, %45 ], [ %53, %51 ]
   %56 = getelementptr %struct.sbitmap_word, ptr %41, i64 %38, i32 2
-  %57 = tail call i32 @__bitmap_weight(ptr noundef %56, i32 noundef %55) #10
+  %57 = tail call i32 @__bitmap_weight(ptr noundef %56, i32 noundef %55) #11
   %58 = add i32 %57, %40
   %59 = add nuw nsw i64 %38, 1
   %60 = load i32, ptr %4, align 8
@@ -642,7 +642,7 @@ sbitmap_weight.exit:                              ; preds = %54, %2, %36
   %63 = phi i32 [ %31, %36 ], [ 0, %2 ], [ %31, %54 ]
   %64 = phi i32 [ 0, %36 ], [ 0, %2 ], [ %58, %54 ]
   %65 = sub i32 %63, %64
-  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %1, ptr noundef nonnull @.str.2, i32 noundef %65) #10
+  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %1, ptr noundef nonnull @.str.2, i32 noundef %65) #11
   %66 = load i32, ptr %4, align 8
   %67 = icmp eq i32 %66, 0
   br i1 %67, label %.loopexit, label %68
@@ -678,7 +678,7 @@ sbitmap_weight.exit:                              ; preds = %54, %2, %36
 88:                                               ; preds = %85, %79
   %89 = phi i32 [ %84, %79 ], [ %87, %85 ]
   %90 = getelementptr %struct.sbitmap_word, ptr %75, i64 %72, i32 2
-  %91 = tail call i32 @__bitmap_weight(ptr noundef %90, i32 noundef %89) #10
+  %91 = tail call i32 @__bitmap_weight(ptr noundef %90, i32 noundef %89) #11
   %92 = add i32 %91, %74
   %93 = add nuw nsw i64 %72, 1
   %94 = load i32, ptr %4, align 8
@@ -688,13 +688,13 @@ sbitmap_weight.exit:                              ; preds = %54, %2, %36
 
 .loopexit:                                        ; preds = %88, %sbitmap_weight.exit
   %97 = phi i32 [ 0, %sbitmap_weight.exit ], [ %92, %88 ]
-  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %1, ptr noundef nonnull @.str.3, i32 noundef %97) #10
+  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %1, ptr noundef nonnull @.str.3, i32 noundef %97) #11
   %98 = getelementptr inbounds i8, ptr %0, i64 4
   %99 = load i32, ptr %98, align 4
   %100 = shl nuw i32 1, %99
-  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %1, ptr noundef nonnull @.str.4, i32 noundef %100) #10
+  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %1, ptr noundef nonnull @.str.4, i32 noundef %100) #11
   %101 = load i32, ptr %4, align 8
-  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %1, ptr noundef nonnull @.str.5, i32 noundef %101) #10
+  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %1, ptr noundef nonnull @.str.5, i32 noundef %101) #11
   ret void
 }
 
@@ -778,11 +778,11 @@ define dso_local void @sbitmap_bitmap_show(ptr nocapture noundef readonly %0, pt
   br i1 %57, label %59, label %58
 
 58:                                               ; preds = %56
-  tail call void @seq_putc(ptr noundef %1, i8 noundef zeroext 10) #10
+  tail call void @seq_putc(ptr noundef %1, i8 noundef zeroext 10) #11
   br label %59
 
 59:                                               ; preds = %58, %56
-  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %1, ptr noundef nonnull @.str.20, i32 noundef %38) #10
+  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %1, ptr noundef nonnull @.str.20, i32 noundef %38) #11
   br label %60
 
 60:                                               ; preds = %59, %53
@@ -791,12 +791,12 @@ define dso_local void @sbitmap_bitmap_show(ptr nocapture noundef readonly %0, pt
   br i1 %62, label %63, label %64
 
 63:                                               ; preds = %60
-  tail call void @seq_putc(ptr noundef %1, i8 noundef zeroext 32) #10
+  tail call void @seq_putc(ptr noundef %1, i8 noundef zeroext 32) #11
   br label %64
 
 64:                                               ; preds = %63, %60
   %65 = zext i8 %50 to i32
-  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %1, ptr noundef nonnull @.str.21, i32 noundef %65) #10
+  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %1, ptr noundef nonnull @.str.21, i32 noundef %65) #11
   %66 = add i32 %38, 1
   br label %67
 
@@ -837,11 +837,11 @@ define dso_local void @sbitmap_bitmap_show(ptr nocapture noundef readonly %0, pt
   br i1 %87, label %89, label %88
 
 88:                                               ; preds = %86
-  tail call void @seq_putc(ptr noundef %1, i8 noundef zeroext 10) #10
+  tail call void @seq_putc(ptr noundef %1, i8 noundef zeroext 10) #11
   br label %89
 
 89:                                               ; preds = %88, %86
-  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %1, ptr noundef nonnull @.str.20, i32 noundef %75) #10
+  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %1, ptr noundef nonnull @.str.20, i32 noundef %75) #11
   br label %90
 
 90:                                               ; preds = %89, %83
@@ -850,11 +850,11 @@ define dso_local void @sbitmap_bitmap_show(ptr nocapture noundef readonly %0, pt
   br i1 %92, label %93, label %94
 
 93:                                               ; preds = %90
-  tail call void @seq_putc(ptr noundef %1, i8 noundef zeroext 32) #10
+  tail call void @seq_putc(ptr noundef %1, i8 noundef zeroext 32) #11
   br label %94
 
 94:                                               ; preds = %93, %90
-  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %1, ptr noundef nonnull @.str.21, i32 noundef %82) #10
+  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %1, ptr noundef nonnull @.str.21, i32 noundef %82) #11
   %95 = add i32 %75, 1
   br label %96
 
@@ -864,7 +864,7 @@ define dso_local void @sbitmap_bitmap_show(ptr nocapture noundef readonly %0, pt
   br i1 %98, label %.thread8, label %99
 
 99:                                               ; preds = %96
-  tail call void @seq_putc(ptr noundef %1, i8 noundef zeroext 10) #10
+  tail call void @seq_putc(ptr noundef %1, i8 noundef zeroext 10) #11
   br label %.thread8
 
 .thread8:                                         ; preds = %2, %99, %96
@@ -893,63 +893,62 @@ define dso_local noundef range(i32 -22, 1) i32 @sbitmap_queue_init_node(ptr noun
   %18 = tail call i32 @llvm.umin.i32(i32 %17, i32 %13)
   %19 = add i32 %18, %15
   %20 = icmp ugt i32 %19, 63
-  %21 = lshr i32 %19, 3
-  %22 = icmp ult i32 %19, 16
-  %23 = select i1 %22, i32 1, i32 %21
-  %24 = select i1 %20, i32 8, i32 %23
-  %25 = getelementptr inbounds i8, ptr %0, i64 32
-  store i32 %24, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 36
+  %21 = tail call i32 @llvm.umax.i32(i32 %19, i32 15)
+  %22 = lshr i32 %21, 3
+  %23 = select i1 %20, i32 8, i32 %22
+  %24 = getelementptr inbounds i8, ptr %0, i64 32
+  store i32 %23, ptr %24, align 8
+  %25 = getelementptr inbounds i8, ptr %0, i64 36
+  store volatile i32 0, ptr %25, align 4
+  %26 = getelementptr inbounds i8, ptr %0, i64 48
   store volatile i32 0, ptr %26, align 4
-  %27 = getelementptr inbounds i8, ptr %0, i64 48
+  %27 = getelementptr inbounds i8, ptr %0, i64 56
   store volatile i32 0, ptr %27, align 4
-  %28 = getelementptr inbounds i8, ptr %0, i64 56
+  %28 = getelementptr inbounds i8, ptr %0, i64 60
   store volatile i32 0, ptr %28, align 4
-  %29 = getelementptr inbounds i8, ptr %0, i64 60
-  store volatile i32 0, ptr %29, align 4
-  %30 = and i32 %4, 17
-  %31 = icmp eq i32 %30, 0
-  br i1 %31, label %36, label %32, !prof !21
+  %29 = and i32 %4, 17
+  %30 = icmp eq i32 %29, 0
+  br i1 %30, label %35, label %31, !prof !21
 
-32:                                               ; preds = %9
-  %33 = and i32 %4, 1
-  %34 = icmp eq i32 %33, 0
-  %35 = select i1 %34, i64 1, i64 2
-  br label %36
+31:                                               ; preds = %9
+  %32 = and i32 %4, 1
+  %33 = icmp eq i32 %32, 0
+  %34 = select i1 %33, i64 1, i64 2
+  br label %35
 
-36:                                               ; preds = %32, %9
-  %37 = phi i64 [ 0, %9 ], [ %35, %32 ]
-  %38 = or i32 %4, 256
-  %39 = getelementptr [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 %37, i64 9
-  %40 = load ptr, ptr %39, align 8
-  %41 = tail call noalias noundef align 8 dereferenceable_or_null(512) ptr @kmalloc_node_trace(ptr noundef %40, i32 noundef %38, i32 noundef %5, i64 noundef 512) #11
-  %42 = getelementptr inbounds i8, ptr %0, i64 40
-  store ptr %41, ptr %42, align 8
-  %43 = icmp eq ptr %41, null
-  br i1 %43, label %44, label %.preheader
+35:                                               ; preds = %31, %9
+  %36 = phi i64 [ 0, %9 ], [ %34, %31 ]
+  %37 = or i32 %4, 256
+  %38 = getelementptr [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 %36, i64 9
+  %39 = load ptr, ptr %38, align 8
+  %40 = tail call noalias noundef align 8 dereferenceable_or_null(512) ptr @kmalloc_node_trace(ptr noundef %39, i32 noundef %37, i32 noundef %5, i64 noundef 512) #12
+  %41 = getelementptr inbounds i8, ptr %0, i64 40
+  store ptr %40, ptr %41, align 8
+  %42 = icmp eq ptr %40, null
+  br i1 %42, label %43, label %.preheader
 
-44:                                               ; preds = %36
-  %45 = getelementptr inbounds i8, ptr %0, i64 24
-  %46 = load ptr, ptr %45, align 8
-  tail call void @free_percpu(ptr noundef %46) #10
-  %47 = getelementptr inbounds i8, ptr %0, i64 16
-  %48 = load ptr, ptr %47, align 8
-  tail call void @kvfree(ptr noundef %48) #10
-  store ptr null, ptr %47, align 8
+43:                                               ; preds = %35
+  %44 = getelementptr inbounds i8, ptr %0, i64 24
+  %45 = load ptr, ptr %44, align 8
+  tail call void @free_percpu(ptr noundef %45) #11
+  %46 = getelementptr inbounds i8, ptr %0, i64 16
+  %47 = load ptr, ptr %46, align 8
+  tail call void @kvfree(ptr noundef %47) #11
+  store ptr null, ptr %46, align 8
   br label %.loopexit
 
-.preheader:                                       ; preds = %36, %.preheader
-  %49 = phi i64 [ %52, %.preheader ], [ 0, %36 ]
-  %50 = load ptr, ptr %42, align 8
-  %51 = getelementptr %struct.sbq_wait_state, ptr %50, i64 %49
-  tail call void @__init_waitqueue_head(ptr noundef %51, ptr noundef nonnull @.str.6, ptr noundef nonnull @sbitmap_queue_init_node.__key) #10
-  %52 = add nuw nsw i64 %49, 1
-  %53 = icmp eq i64 %52, 8
-  br i1 %53, label %.loopexit, label %.preheader, !llvm.loop !33
+.preheader:                                       ; preds = %35, %.preheader
+  %48 = phi i64 [ %51, %.preheader ], [ 0, %35 ]
+  %49 = load ptr, ptr %41, align 8
+  %50 = getelementptr %struct.sbq_wait_state, ptr %49, i64 %48
+  tail call void @__init_waitqueue_head(ptr noundef %50, ptr noundef nonnull @.str.6, ptr noundef nonnull @sbitmap_queue_init_node.__key) #11
+  %51 = add nuw nsw i64 %48, 1
+  %52 = icmp eq i64 %51, 8
+  br i1 %52, label %.loopexit, label %.preheader, !llvm.loop !33
 
-.loopexit:                                        ; preds = %.preheader, %44, %6
-  %54 = phi i32 [ -12, %44 ], [ %7, %6 ], [ 0, %.preheader ]
-  ret i32 %54
+.loopexit:                                        ; preds = %.preheader, %43, %6
+  %53 = phi i32 [ -12, %43 ], [ %7, %6 ], [ 0, %.preheader ]
+  ret i32 %53
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -962,12 +961,11 @@ define dso_local void @sbitmap_queue_recalculate_wake_batch(ptr noundef %0, i32 
   %5 = add i32 %4, %3
   %6 = udiv i32 %5, %1
   %7 = icmp ugt i32 %6, 63
-  %8 = lshr i32 %6, 3
-  %9 = icmp ult i32 %6, 16
-  %10 = select i1 %9, i32 1, i32 %8
-  %11 = select i1 %7, i32 8, i32 %10
-  %12 = getelementptr inbounds i8, ptr %0, i64 32
-  store volatile i32 %11, ptr %12, align 8
+  %8 = tail call i32 @llvm.umax.i32(i32 %6, i32 15)
+  %9 = lshr i32 %8, 3
+  %10 = select i1 %7, i32 8, i32 %9
+  %11 = getelementptr inbounds i8, ptr %0, i64 32
+  store volatile i32 %10, ptr %11, align 8
   ret void
 }
 
@@ -986,58 +984,57 @@ define dso_local void @sbitmap_queue_resize(ptr noundef %0, i32 noundef %1) #0 a
   %13 = tail call i32 @llvm.umin.i32(i32 %12, i32 %8)
   %14 = add i32 %13, %10
   %15 = icmp ugt i32 %14, 63
-  %16 = lshr i32 %14, 3
-  %17 = icmp ult i32 %14, 16
-  %18 = select i1 %17, i32 1, i32 %16
-  %19 = select i1 %15, i32 8, i32 %18
-  %20 = getelementptr inbounds i8, ptr %0, i64 32
-  %21 = load i32, ptr %20, align 8
-  %22 = icmp eq i32 %21, %19
-  br i1 %22, label %24, label %23
+  %16 = tail call i32 @llvm.umax.i32(i32 %14, i32 15)
+  %17 = lshr i32 %16, 3
+  %18 = select i1 %15, i32 8, i32 %17
+  %19 = getelementptr inbounds i8, ptr %0, i64 32
+  %20 = load i32, ptr %19, align 8
+  %21 = icmp eq i32 %20, %18
+  br i1 %21, label %23, label %22
 
-23:                                               ; preds = %2
-  store volatile i32 %19, ptr %20, align 8
-  br label %24
+22:                                               ; preds = %2
+  store volatile i32 %18, ptr %19, align 8
+  br label %23
 
-24:                                               ; preds = %23, %2
-  %25 = getelementptr inbounds i8, ptr %0, i64 8
-  %26 = load i32, ptr %25, align 8
-  %27 = icmp eq i32 %26, 0
-  br i1 %27, label %.loopexit, label %28
+23:                                               ; preds = %22, %2
+  %24 = getelementptr inbounds i8, ptr %0, i64 8
+  %25 = load i32, ptr %24, align 8
+  %26 = icmp eq i32 %25, 0
+  br i1 %26, label %.loopexit, label %27
 
-28:                                               ; preds = %24
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
-  br label %30
+27:                                               ; preds = %23
+  %28 = getelementptr inbounds i8, ptr %0, i64 16
+  br label %29
 
-30:                                               ; preds = %41, %28
-  %31 = phi i32 [ %26, %28 ], [ %42, %41 ]
-  %32 = phi i64 [ 0, %28 ], [ %43, %41 ]
-  %33 = load ptr, ptr %29, align 8
-  %34 = getelementptr %struct.sbitmap_word, ptr %33, i64 %32
-  %35 = getelementptr inbounds i8, ptr %34, i64 64
-  %36 = load volatile i64, ptr %35, align 64
-  %37 = icmp eq i64 %36, 0
-  br i1 %37, label %41, label %38
+29:                                               ; preds = %40, %27
+  %30 = phi i32 [ %25, %27 ], [ %41, %40 ]
+  %31 = phi i64 [ 0, %27 ], [ %42, %40 ]
+  %32 = load ptr, ptr %28, align 8
+  %33 = getelementptr %struct.sbitmap_word, ptr %32, i64 %31
+  %34 = getelementptr inbounds i8, ptr %33, i64 64
+  %35 = load volatile i64, ptr %34, align 64
+  %36 = icmp eq i64 %35, 0
+  br i1 %36, label %40, label %37
 
-38:                                               ; preds = %30
-  %39 = tail call i64 asm sideeffect "xchgq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %35, i64 0, ptr elementtype(i64) %35) #10, !srcloc !13
-  %40 = xor i64 %39, -1
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andq $1,$0", "=*m,er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %34, i64 %40, ptr elementtype(i64) %34) #10, !srcloc !14
-  %.pre = load i32, ptr %25, align 8
-  br label %41
+37:                                               ; preds = %29
+  %38 = tail call i64 asm sideeffect "xchgq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %34, i64 0, ptr elementtype(i64) %34) #11, !srcloc !13
+  %39 = xor i64 %38, -1
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andq $1,$0", "=*m,er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %33, i64 %39, ptr elementtype(i64) %33) #11, !srcloc !14
+  %.pre = load i32, ptr %24, align 8
+  br label %40
 
-41:                                               ; preds = %38, %30
-  %42 = phi i32 [ %.pre, %38 ], [ %31, %30 ]
-  %43 = add nuw nsw i64 %32, 1
-  %44 = zext i32 %42 to i64
-  %45 = icmp samesign ult i64 %43, %44
-  br i1 %45, label %30, label %.loopexit, !llvm.loop !15
+40:                                               ; preds = %37, %29
+  %41 = phi i32 [ %.pre, %37 ], [ %30, %29 ]
+  %42 = add nuw nsw i64 %31, 1
+  %43 = zext i32 %41 to i64
+  %44 = icmp samesign ult i64 %42, %43
+  br i1 %44, label %29, label %.loopexit, !llvm.loop !15
 
-.loopexit:                                        ; preds = %41, %24
+.loopexit:                                        ; preds = %40, %23
   store i32 %1, ptr %0, align 8
-  %46 = add i32 %11, %1
-  %47 = lshr i32 %46, %4
-  store i32 %47, ptr %25, align 8
+  %45 = add i32 %11, %1
+  %46 = lshr i32 %45, %4
+  store i32 %46, ptr %24, align 8
   ret void
 }
 
@@ -1058,7 +1055,7 @@ define dso_local i64 @__sbitmap_queue_get_batch(ptr noundef %0, i32 noundef %1, 
   %8 = load volatile i32, ptr %0, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
-  %11 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %10) #10, !srcloc !20
+  %11 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %10) #11, !srcloc !20
   %12 = icmp ult i32 %11, %8
   br i1 %12, label %20, label %13, !prof !21
 
@@ -1067,13 +1064,13 @@ define dso_local i64 @__sbitmap_queue_get_batch(ptr noundef %0, i32 noundef %1, 
   br i1 %14, label %17, label %15
 
 15:                                               ; preds = %13
-  %16 = tail call i32 @__get_random_u32_below(i32 noundef %8) #10
+  %16 = tail call i32 @__get_random_u32_below(i32 noundef %8) #11
   br label %17
 
 17:                                               ; preds = %15, %13
   %18 = phi i32 [ 0, %13 ], [ %16, %15 ]
   %19 = load ptr, ptr %9, align 8
-  tail call void asm sideeffect "movl $1, %gs:$0", "=*m,ri,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %19, i32 %18, ptr elementtype(i32) %19) #10, !srcloc !22
+  tail call void asm sideeffect "movl $1, %gs:$0", "=*m,ri,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %19, i32 %18, ptr elementtype(i32) %19) #11, !srcloc !22
   br label %20
 
 20:                                               ; preds = %17, %7
@@ -1137,9 +1134,9 @@ define dso_local i64 @__sbitmap_queue_get_batch(ptr noundef %0, i32 noundef %1, 
   br i1 %65, label %69, label %66
 
 66:                                               ; preds = %61
-  %67 = tail call i64 asm sideeffect "xchgq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %63, i64 0, ptr elementtype(i64) %63) #10, !srcloc !13
+  %67 = tail call i64 asm sideeffect "xchgq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %63, i64 0, ptr elementtype(i64) %63) #11, !srcloc !13
   %68 = xor i64 %67, -1
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andq $1,$0", "=*m,er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %49, i64 %68, ptr elementtype(i64) %49) #10, !srcloc !14
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andq $1,$0", "=*m,er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %49, i64 %68, ptr elementtype(i64) %49) #11, !srcloc !14
   br label %69
 
 69:                                               ; preds = %66, %61
@@ -1153,7 +1150,7 @@ define dso_local i64 @__sbitmap_queue_get_batch(ptr noundef %0, i32 noundef %1, 
 
 76:                                               ; preds = %69
   %77 = zext i32 %62 to i64
-  %78 = tail call i64 @_find_first_zero_bit(ptr noundef %49, i64 noundef %77) #10
+  %78 = tail call i64 @_find_first_zero_bit(ptr noundef %49, i64 noundef %77) #11
   %79 = add i64 %78, %31
   %80 = icmp ugt i64 %79, %77
   br i1 %80, label %36, label %81
@@ -1162,7 +1159,7 @@ define dso_local i64 @__sbitmap_queue_get_batch(ptr noundef %0, i32 noundef %1, 
   %82 = shl i64 %34, %78
   %83 = load volatile i64, ptr %49, align 64
   %84 = or i64 %83, %82
-  %85 = tail call { i8, i64 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgq $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %49, i64 %84, ptr elementtype(i64) %49, i64 %83) #10, !srcloc !35
+  %85 = tail call { i8, i64 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgq $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %49, i64 %84, ptr elementtype(i64) %49, i64 %83) #11, !srcloc !35
   %86 = extractvalue { i8, i64 } %85, 0
   %87 = icmp ult i8 %86, 2
   tail call void @llvm.assume(i1 %87)
@@ -1173,7 +1170,7 @@ define dso_local i64 @__sbitmap_queue_get_batch(ptr noundef %0, i32 noundef %1, 
   %89 = phi { i8, i64 } [ %92, %.lr.ph ], [ %85, %81 ]
   %90 = extractvalue { i8, i64 } %89, 1
   %91 = or i64 %90, %82
-  %92 = tail call { i8, i64 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgq $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %49, i64 %91, ptr elementtype(i64) %49, i64 %90) #10, !srcloc !35
+  %92 = tail call { i8, i64 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgq $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %49, i64 %91, ptr elementtype(i64) %49, i64 %90) #11, !srcloc !35
   %93 = extractvalue { i8, i64 } %92, 0
   %94 = icmp ult i8 %93, 2
   tail call void @llvm.assume(i1 %94)
@@ -1201,7 +1198,7 @@ define dso_local i64 @__sbitmap_queue_get_batch(ptr noundef %0, i32 noundef %1, 
 
 108:                                              ; preds = %100
   %109 = load ptr, ptr %9, align 8
-  tail call void asm sideeffect "movl $1, %gs:$0", "=*m,ri,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %109, i32 0, ptr elementtype(i32) %109) #10, !srcloc !23
+  tail call void asm sideeffect "movl $1, %gs:$0", "=*m,ri,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %109, i32 0, ptr elementtype(i32) %109) #11, !srcloc !23
   br label %.loopexit
 
 110:                                              ; preds = %100
@@ -1218,7 +1215,7 @@ define dso_local i64 @__sbitmap_queue_get_batch(ptr noundef %0, i32 noundef %1, 
   %117 = icmp ult i32 %106, %35
   %118 = select i1 %117, i32 %106, i32 0
   %119 = load ptr, ptr %9, align 8
-  tail call void asm sideeffect "movl $1, %gs:$0", "=*m,ri,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %119, i32 %118, ptr elementtype(i32) %119) #10, !srcloc !24
+  tail call void asm sideeffect "movl $1, %gs:$0", "=*m,ri,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %119, i32 %118, ptr elementtype(i32) %119) #11, !srcloc !24
   br label %.loopexit
 
 .loopexit:                                        ; preds = %36, %108, %113, %116, %20, %3
@@ -1234,9 +1231,9 @@ define dso_local i32 @sbitmap_queue_get_shallow(ptr noundef %0, i32 noundef %1) 
   br i1 %5, label %6, label %7, !prof !16
 
 6:                                                ; preds = %2
-  tail call void asm sideeffect "332: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 332b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 332) #10, !srcloc !38
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 532, i32 2307, i64 12) #10, !srcloc !39
-  tail call void asm sideeffect "333: nop\0A\09.pushsection .discard.instr_end\0A\09.long 333b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 333) #10, !srcloc !40
+  tail call void asm sideeffect "332: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 332b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 332) #11, !srcloc !38
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 532, i32 2307, i64 12) #11, !srcloc !39
+  tail call void asm sideeffect "333: nop\0A\09.pushsection .discard.instr_end\0A\09.long 333b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 333) #11, !srcloc !40
   br label %7
 
 7:                                                ; preds = %6, %2
@@ -1261,20 +1258,19 @@ define dso_local void @sbitmap_queue_min_shallow_depth(ptr noundef initializes((
   %13 = tail call i32 @llvm.umin.i32(i32 %12, i32 %8)
   %14 = add i32 %13, %10
   %15 = icmp ugt i32 %14, 63
-  %16 = lshr i32 %14, 3
-  %17 = icmp ult i32 %14, 16
-  %18 = select i1 %17, i32 1, i32 %16
-  %19 = select i1 %15, i32 8, i32 %18
-  %20 = getelementptr inbounds i8, ptr %0, i64 32
-  %21 = load i32, ptr %20, align 8
-  %22 = icmp eq i32 %21, %19
-  br i1 %22, label %24, label %23
+  %16 = tail call i32 @llvm.umax.i32(i32 %14, i32 15)
+  %17 = lshr i32 %16, 3
+  %18 = select i1 %15, i32 8, i32 %17
+  %19 = getelementptr inbounds i8, ptr %0, i64 32
+  %20 = load i32, ptr %19, align 8
+  %21 = icmp eq i32 %20, %18
+  br i1 %21, label %23, label %22
 
-23:                                               ; preds = %2
-  store volatile i32 %19, ptr %20, align 8
-  br label %24
+22:                                               ; preds = %2
+  store volatile i32 %18, ptr %19, align 8
+  br label %23
 
-24:                                               ; preds = %23, %2
+23:                                               ; preds = %22, %2
   ret void
 }
 
@@ -1289,7 +1285,7 @@ define dso_local void @sbitmap_queue_wake_up(ptr noundef %0, i32 noundef %1) #0 
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds i8, ptr %0, i64 56
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; addl $1,$0", "=*m,ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %9, i32 %1, ptr elementtype(i32) %9) #10, !srcloc !41
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; addl $1,$0", "=*m,ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %9, i32 %1, ptr elementtype(i32) %9) #11, !srcloc !41
   %10 = getelementptr inbounds i8, ptr %0, i64 60
   %11 = load volatile i32, ptr %10, align 4
   %12 = load volatile i32, ptr %9, align 4
@@ -1300,7 +1296,7 @@ define dso_local void @sbitmap_queue_wake_up(ptr noundef %0, i32 noundef %1) #0 
 .lr.ph:                                           ; preds = %8, %21
   %15 = phi i32 [ %22, %21 ], [ %11, %8 ]
   %16 = add i32 %15, %4
-  %17 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %10, i32 %16, ptr elementtype(i32) %10, i32 %15) #10, !srcloc !42
+  %17 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %10, i32 %16, ptr elementtype(i32) %10, i32 %15) #11, !srcloc !42
   %18 = extractvalue { i8, i32 } %17, 0
   %19 = icmp ult i8 %18, 2
   tail call void @llvm.assume(i1 %19)
@@ -1340,7 +1336,7 @@ define dso_local void @sbitmap_queue_wake_up(ptr noundef %0, i32 noundef %1) #0 
   br i1 %44, label %50, label %45
 
 45:                                               ; preds = %33
-  %46 = tail call i32 @__wake_up(ptr noundef %39, i32 noundef 3, i32 noundef %36, ptr noundef null) #10
+  %46 = tail call i32 @__wake_up(ptr noundef %39, i32 noundef 3, i32 noundef %36, ptr noundef null) #11
   %47 = icmp eq i32 %46, %36
   %48 = select i1 %47, i32 0, i32 %46
   %49 = sub i32 %36, %48
@@ -1400,7 +1396,7 @@ define dso_local void @sbitmap_queue_clear_batch(ptr noundef %0, i32 noundef %1,
 
 25:                                               ; preds = %23
   %26 = xor i64 %14, -1
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andq $1,$0", "=*m,er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %13, i64 %26, ptr nonnull elementtype(i64) %13) #10, !srcloc !14
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andq $1,$0", "=*m,er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %13, i64 %26, ptr nonnull elementtype(i64) %13) #11, !srcloc !14
   %.pre8 = load i32, ptr %8, align 4
   br label %27
 
@@ -1420,12 +1416,12 @@ define dso_local void @sbitmap_queue_clear_batch(ptr noundef %0, i32 noundef %1,
 
 39:                                               ; preds = %27
   %40 = xor i64 %36, -1
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andq $1,$0", "=*m,er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %30, i64 %40, ptr elementtype(i64) %30) #10, !srcloc !14
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andq $1,$0", "=*m,er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %30, i64 %40, ptr elementtype(i64) %30) #11, !srcloc !14
   br label %.thread
 
 .thread:                                          ; preds = %4, %39
   tail call void @sbitmap_queue_wake_up(ptr noundef %0, i32 noundef %3)
-  %41 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #10, !srcloc !46
+  %41 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #11, !srcloc !46
   %42 = add i32 %3, -1
   %43 = sext i32 %42 to i64
   %44 = getelementptr i32, ptr %2, i64 %43
@@ -1470,7 +1466,7 @@ define dso_local void @sbitmap_queue_clear(ptr noundef %0, i32 noundef %1, i32 n
   %12 = lshr i32 %1, %5
   %13 = zext i32 %12 to i64
   %14 = getelementptr %struct.sbitmap_word, ptr %11, i64 %13, i32 2
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %14, i64 %9) #10, !srcloc !47
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %14, i64 %9) #11, !srcloc !47
   tail call void @sbitmap_queue_wake_up(ptr noundef %0, i32 noundef 1)
   %15 = getelementptr inbounds i8, ptr %0, i64 12
   %16 = load i8, ptr %15, align 4, !range !8, !noundef !9
@@ -1500,7 +1496,7 @@ define dso_local void @sbitmap_queue_clear(ptr noundef %0, i32 noundef %1, i32 n
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @sbitmap_queue_wake_all(ptr noundef %0) #0 align 16 {
-  tail call void asm sideeffect "lock; addl $$0,-4(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !48
+  tail call void asm sideeffect "lock; addl $$0,-4(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !48
   %2 = getelementptr inbounds i8, ptr %0, i64 36
   %3 = load volatile i32, ptr %2, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 40
@@ -1518,7 +1514,7 @@ define dso_local void @sbitmap_queue_wake_all(ptr noundef %0) #0 align 16 {
   br i1 %13, label %16, label %14
 
 14:                                               ; preds = %5
-  %15 = tail call i32 @__wake_up(ptr noundef %10, i32 noundef 3, i32 noundef 1, ptr noundef null) #10
+  %15 = tail call i32 @__wake_up(ptr noundef %10, i32 noundef 3, i32 noundef 1, ptr noundef null) #11
   br label %16
 
 16:                                               ; preds = %14, %5
@@ -1538,7 +1534,7 @@ declare dso_local i32 @__wake_up(ptr noundef, i32 noundef, i32 noundef, ptr noun
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @sbitmap_queue_show(ptr noundef %0, ptr noundef %1) #0 align 16 {
   tail call void @sbitmap_show(ptr noundef %0, ptr noundef %1)
-  tail call void @seq_puts(ptr noundef %1, ptr noundef nonnull @.str.7) #10
+  tail call void @seq_puts(ptr noundef %1, ptr noundef nonnull @.str.7) #11
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   br label %4
 
@@ -1552,7 +1548,7 @@ define dso_local void @sbitmap_queue_show(ptr noundef %0, ptr noundef %1) #0 ali
   br i1 %10, label %.thread, label %11
 
 11:                                               ; preds = %4
-  %12 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %9) #9, !srcloc !10
+  %12 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %9) #10, !srcloc !10
   %13 = and i64 %12, 4294967232
   %14 = icmp eq i64 %13, 0
   br i1 %14, label %15, label %.thread
@@ -1561,7 +1557,7 @@ define dso_local void @sbitmap_queue_show(ptr noundef %0, ptr noundef %1) #0 ali
   br i1 %6, label %17, label %16
 
 16:                                               ; preds = %15
-  tail call void @seq_puts(ptr noundef %1, ptr noundef nonnull @.str.8) #10
+  tail call void @seq_puts(ptr noundef %1, ptr noundef nonnull @.str.8) #11
   br label %17
 
 17:                                               ; preds = %16, %15
@@ -1573,24 +1569,24 @@ define dso_local void @sbitmap_queue_show(ptr noundef %0, ptr noundef %1) #0 ali
   %23 = add i64 %22, %19
   %24 = inttoptr i64 %23 to ptr
   %25 = load i32, ptr %24, align 4
-  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %1, ptr noundef nonnull @.str.9, i32 noundef %25) #10
+  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %1, ptr noundef nonnull @.str.9, i32 noundef %25) #11
   %26 = add nuw nsw i64 %12, 1
   %27 = and i64 %26, 127
   %28 = icmp samesign ugt i64 %27, 63
   br i1 %28, label %.thread, label %4, !prof !11, !llvm.loop !50
 
 .thread:                                          ; preds = %4, %17, %11
-  tail call void @seq_puts(ptr noundef %1, ptr noundef nonnull @.str.10) #10
+  tail call void @seq_puts(ptr noundef %1, ptr noundef nonnull @.str.10) #11
   %29 = getelementptr inbounds i8, ptr %0, i64 32
   %30 = load i32, ptr %29, align 8
-  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %1, ptr noundef nonnull @.str.11, i32 noundef %30) #10
+  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %1, ptr noundef nonnull @.str.11, i32 noundef %30) #11
   %31 = getelementptr inbounds i8, ptr %0, i64 36
   %32 = load volatile i32, ptr %31, align 4
-  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %1, ptr noundef nonnull @.str.12, i32 noundef %32) #10
+  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %1, ptr noundef nonnull @.str.12, i32 noundef %32) #11
   %33 = getelementptr inbounds i8, ptr %0, i64 48
   %34 = load volatile i32, ptr %33, align 4
-  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %1, ptr noundef nonnull @.str.13, i32 noundef %34) #10
-  tail call void @seq_puts(ptr noundef %1, ptr noundef nonnull @.str.14) #10
+  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %1, ptr noundef nonnull @.str.13, i32 noundef %34) #11
+  tail call void @seq_puts(ptr noundef %1, ptr noundef nonnull @.str.14) #11
   %35 = getelementptr inbounds i8, ptr %0, i64 40
   br label %36
 
@@ -1601,20 +1597,20 @@ define dso_local void @sbitmap_queue_show(ptr noundef %0, ptr noundef %1) #0 ali
   %40 = load volatile ptr, ptr %39, align 8
   %41 = icmp eq ptr %40, %39
   %42 = select i1 %41, ptr @.str.17, ptr @.str.16
-  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %1, ptr noundef nonnull @.str.15, ptr noundef nonnull %42) #10
+  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %1, ptr noundef nonnull @.str.15, ptr noundef nonnull %42) #11
   %43 = add nuw nsw i64 %37, 1
   %44 = icmp eq i64 %43, 8
   br i1 %44, label %45, label %36, !llvm.loop !51
 
 45:                                               ; preds = %36
-  tail call void @seq_puts(ptr noundef %1, ptr noundef nonnull @.str.10) #10
+  tail call void @seq_puts(ptr noundef %1, ptr noundef nonnull @.str.10) #11
   %46 = getelementptr inbounds i8, ptr %0, i64 12
   %47 = load i8, ptr %46, align 4, !range !8, !noundef !9
   %48 = zext nneg i8 %47 to i32
-  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %1, ptr noundef nonnull @.str.18, i32 noundef %48) #10
+  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %1, ptr noundef nonnull @.str.18, i32 noundef %48) #11
   %49 = getelementptr inbounds i8, ptr %0, i64 52
   %50 = load i32, ptr %49, align 4
-  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %1, ptr noundef nonnull @.str.19, i32 noundef %50) #10
+  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %1, ptr noundef nonnull @.str.19, i32 noundef %50) #11
   ret void
 }
 
@@ -1630,9 +1626,9 @@ define dso_local void @sbitmap_add_wait_queue(ptr noundef %0, ptr noundef %1, pt
 6:                                                ; preds = %3
   store ptr %0, ptr %2, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 48
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %7, ptr elementtype(i32) %7) #10, !srcloc !52
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %7, ptr elementtype(i32) %7) #11, !srcloc !52
   %8 = getelementptr inbounds i8, ptr %2, i64 8
-  tail call void @add_wait_queue(ptr noundef %1, ptr noundef %8) #10
+  tail call void @add_wait_queue(ptr noundef %1, ptr noundef %8) #11
   br label %9
 
 9:                                                ; preds = %6, %3
@@ -1659,7 +1655,7 @@ define dso_local void @sbitmap_del_wait_queue(ptr noundef %0) #0 align 16 {
 
 9:                                                ; preds = %1
   %10 = getelementptr inbounds i8, ptr %7, i64 48
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %10, ptr elementtype(i32) %10) #10, !srcloc !53
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %10, ptr elementtype(i32) %10) #11, !srcloc !53
   store ptr null, ptr %0, align 8
   br label %11
 
@@ -1675,13 +1671,13 @@ define dso_local void @sbitmap_prepare_to_wait(ptr noundef %0, ptr noundef %1, p
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds i8, ptr %0, i64 48
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %8, ptr elementtype(i32) %8) #10, !srcloc !52
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %8, ptr elementtype(i32) %8) #11, !srcloc !52
   store ptr %0, ptr %2, align 8
   br label %9
 
 9:                                                ; preds = %7, %4
   %10 = getelementptr inbounds i8, ptr %2, i64 8
-  %11 = tail call zeroext i1 @prepare_to_wait_exclusive(ptr noundef %1, ptr noundef %10, i32 noundef %3) #10
+  %11 = tail call zeroext i1 @prepare_to_wait_exclusive(ptr noundef %1, ptr noundef %10, i32 noundef %3) #11
   ret void
 }
 
@@ -1691,14 +1687,14 @@ declare dso_local zeroext i1 @prepare_to_wait_exclusive(ptr noundef, ptr noundef
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @sbitmap_finish_wait(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %2, i64 8
-  tail call void @finish_wait(ptr noundef %1, ptr noundef %4) #10
+  tail call void @finish_wait(ptr noundef %1, ptr noundef %4) #11
   %5 = load ptr, ptr %2, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %9, label %7
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds i8, ptr %0, i64 48
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %8, ptr elementtype(i32) %8) #10, !srcloc !53
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %8, ptr elementtype(i32) %8) #11, !srcloc !53
   store ptr null, ptr %2, align 8
   br label %9
 
@@ -1767,7 +1763,7 @@ define internal fastcc i32 @sbitmap_find_bit(ptr nocapture noundef readonly %0, 
 .split.us:                                        ; preds = %30, %.split.us.backedge
   %38 = phi i32 [ %.be39, %.split.us.backedge ], [ %15, %30 ]
   %39 = zext i32 %38 to i64
-  %40 = tail call i64 @_find_next_zero_bit(ptr noundef %19, i64 noundef %34, i64 noundef %39) #10
+  %40 = tail call i64 @_find_next_zero_bit(ptr noundef %19, i64 noundef %34, i64 noundef %39) #11
   %41 = trunc i64 %40 to i32
   %42 = shl i64 %40, 32
   %43 = ashr exact i64 %42, 32
@@ -1775,7 +1771,7 @@ define internal fastcc i32 @sbitmap_find_bit(ptr nocapture noundef readonly %0, 
   br i1 %44, label %45, label %.thread.us, !prof !21
 
 45:                                               ; preds = %.split.us
-  %46 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %19, i64 %43, ptr elementtype(i64) %19) #10, !srcloc !54
+  %46 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %19, i64 %43, ptr elementtype(i64) %19) #11, !srcloc !54
   %47 = icmp ult i8 %46, 2
   tail call void @llvm.assume(i1 %47)
   %48 = icmp eq i8 %46, 0
@@ -1798,9 +1794,9 @@ define internal fastcc i32 @sbitmap_find_bit(ptr nocapture noundef readonly %0, 
   br i1 %57, label %.split12.us, label %58
 
 58:                                               ; preds = %.thread.us
-  %59 = tail call i64 asm sideeffect "xchgq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %33, i64 0, ptr elementtype(i64) %33) #10, !srcloc !13
+  %59 = tail call i64 asm sideeffect "xchgq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %33, i64 0, ptr elementtype(i64) %33) #11, !srcloc !13
   %60 = xor i64 %59, -1
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andq $1,$0", "=*m,er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %19, i64 %60, ptr elementtype(i64) %19) #10, !srcloc !14
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andq $1,$0", "=*m,er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %19, i64 %60, ptr elementtype(i64) %19) #11, !srcloc !14
   br label %.split.us.backedge
 
 .split.us.backedge:                               ; preds = %58, %49
@@ -1810,7 +1806,7 @@ define internal fastcc i32 @sbitmap_find_bit(ptr nocapture noundef readonly %0, 
 .split:                                           ; preds = %30, %.split.backedge
   %61 = phi i32 [ %.be, %.split.backedge ], [ %15, %30 ]
   %62 = zext i32 %61 to i64
-  %63 = tail call i64 @_find_next_zero_bit(ptr noundef %19, i64 noundef %34, i64 noundef %62) #10
+  %63 = tail call i64 @_find_next_zero_bit(ptr noundef %19, i64 noundef %34, i64 noundef %62) #11
   %64 = trunc i64 %63 to i32
   %65 = shl i64 %63, 32
   %66 = ashr exact i64 %65, 32
@@ -1822,7 +1818,7 @@ define internal fastcc i32 @sbitmap_find_bit(ptr nocapture noundef readonly %0, 
   br i1 %.not, label %.thread, label %.split.backedge
 
 69:                                               ; preds = %.split
-  %70 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %19, i64 %66, ptr elementtype(i64) %19) #10, !srcloc !54
+  %70 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %19, i64 %66, ptr elementtype(i64) %19) #11, !srcloc !54
   %71 = icmp ult i8 %70, 2
   tail call void @llvm.assume(i1 %71)
   %72 = icmp eq i8 %70, 0
@@ -1845,9 +1841,9 @@ define internal fastcc i32 @sbitmap_find_bit(ptr nocapture noundef readonly %0, 
   br i1 %81, label %.split12.us, label %82
 
 82:                                               ; preds = %.thread
-  %83 = tail call i64 asm sideeffect "xchgq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %33, i64 0, ptr elementtype(i64) %33) #10, !srcloc !13
+  %83 = tail call i64 asm sideeffect "xchgq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %33, i64 0, ptr elementtype(i64) %33) #11, !srcloc !13
   %84 = xor i64 %83, -1
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andq $1,$0", "=*m,er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %19, i64 %84, ptr elementtype(i64) %19) #10, !srcloc !14
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andq $1,$0", "=*m,er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %19, i64 %84, ptr elementtype(i64) %19) #11, !srcloc !14
   br label %.split.backedge
 
 .split.backedge:                                  ; preds = %82, %73, %68
@@ -1896,6 +1892,9 @@ declare dso_local i64 @_find_first_zero_bit(ptr noundef, i64 noundef) local_unna
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #7
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #8
+
 attributes #0 = { fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #2 = { fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
@@ -1904,10 +1903,11 @@ attributes #4 = { null_pointer_is_valid allocsize(0) "no-trapping-math"="true" "
 attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #6 = { null_pointer_is_valid allocsize(3) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { nounwind allocsize(0) }
-attributes #9 = { nounwind memory(read) }
-attributes #10 = { nounwind }
-attributes #11 = { nounwind allocsize(3) }
+attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nounwind allocsize(0) }
+attributes #10 = { nounwind memory(read) }
+attributes #11 = { nounwind }
+attributes #12 = { nounwind allocsize(3) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

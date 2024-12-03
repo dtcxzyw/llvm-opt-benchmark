@@ -2114,8 +2114,8 @@ _ZN9softposit4p8e04P8E017separate_bits_tmp17h7142056595c711ecE.exit: ; preds = %
   %24 = icmp slt i8 %13, 0
   br i1 %24, label %35, label %26
 
-25:                                               ; preds = %46, %3
-  %.0 = phi i32 [ %5, %3 ], [ %.0.i, %46 ]
+25:                                               ; preds = %45, %3
+  %.0 = phi i32 [ %5, %3 ], [ %.0.i, %45 ]
   ret i32 %.0
 
 26:                                               ; preds = %_ZN9softposit4p8e04P8E017separate_bits_tmp17h7142056595c711ecE.exit.thread, %_ZN9softposit4p8e04P8E017separate_bits_tmp17h7142056595c711ecE.exit
@@ -2128,7 +2128,7 @@ _ZN9softposit4p8e04P8E017separate_bits_tmp17h7142056595c711ecE.exit: ; preds = %
   %32 = zext nneg i8 %31 to i32
   %33 = lshr i32 2147483647, %32
   %34 = xor i32 %33, 2147483647
-  br label %46
+  br label %45
 
 35:                                               ; preds = %_ZN9softposit4p8e04P8E017separate_bits_tmp17h7142056595c711ecE.exit.thread31, %_ZN9softposit4p8e04P8E017separate_bits_tmp17h7142056595c711ecE.exit
   %36 = phi i32 [ %12, %_ZN9softposit4p8e04P8E017separate_bits_tmp17h7142056595c711ecE.exit.thread31 ], [ %23, %_ZN9softposit4p8e04P8E017separate_bits_tmp17h7142056595c711ecE.exit ]
@@ -2138,28 +2138,28 @@ _ZN9softposit4p8e04P8E017separate_bits_tmp17h7142056595c711ecE.exit: ; preds = %
   %39 = and i8 %38, 2
   %40 = or disjoint i8 %39, %37
   %41 = sub i8 3, %.09.lcssa.i34
-  %42 = ashr i8 %41, 2
-  %43 = and i8 %42, 31
-  %44 = zext nneg i8 %43 to i32
-  %45 = lshr i32 1073741824, %44
-  br label %46
+  %spec.store.select2 = ashr i8 %41, 2
+  %42 = and i8 %spec.store.select2, 31
+  %43 = zext nneg i8 %42 to i32
+  %44 = lshr i32 1073741824, %43
+  br label %45
 
-46:                                               ; preds = %35, %26
-  %47 = phi i32 [ %36, %35 ], [ %27, %26 ]
+45:                                               ; preds = %35, %26
+  %46 = phi i32 [ %36, %35 ], [ %27, %26 ]
   %.pn.in.in = phi i8 [ %40, %35 ], [ %28, %26 ]
-  %.024 = phi i32 [ %45, %35 ], [ %34, %26 ]
-  %.023 = phi i8 [ %42, %35 ], [ %30, %26 ]
+  %.024 = phi i32 [ %44, %35 ], [ %34, %26 ]
+  %.023 = phi i8 [ %spec.store.select2, %35 ], [ %30, %26 ]
   %.pn.in = zext nneg i8 %.pn.in.in to i32
   %.pn = shl nuw nsw i32 %.pn.in, 29
-  %.025 = or i32 %.pn, %47
-  %48 = add nsw i8 %.023, 1
-  %49 = and i8 %48, 31
-  %50 = zext nneg i8 %49 to i32
-  %51 = lshr i32 %.025, %50
-  %52 = add nuw i32 %51, %.024
-  %53 = sub i32 0, %52
+  %.025 = or i32 %.pn, %46
+  %47 = add nsw i8 %.023, 1
+  %48 = and i8 %47, 31
+  %49 = zext nneg i8 %48 to i32
+  %50 = lshr i32 %.025, %49
+  %51 = add nuw i32 %50, %.024
+  %52 = sub i32 0, %51
   %.not41 = icmp slt i8 %0, 0
-  %.0.i = select i1 %.not41, i32 %53, i32 %52
+  %.0.i = select i1 %.not41, i32 %52, i32 %51
   br label %25
 }
 

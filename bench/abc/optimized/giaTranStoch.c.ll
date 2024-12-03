@@ -192,12 +192,12 @@ define ptr @Gia_ManTranStochOpt1(ptr nocapture noundef %0, ptr noundef %1) local
   %.val3.i.pre = load i32, ptr %.phi.trans.insert57, align 4
   br label %16
 
-16:                                               ; preds = %64, %2
-  %.val3.i = phi i32 [ %.val3.i.pre, %2 ], [ %.val3.i49, %64 ]
-  %.val.i = phi i32 [ %.val.i.pre, %2 ], [ %.val.i48, %64 ]
-  %17 = phi i32 [ %.pre, %2 ], [ %67, %64 ]
-  %.036 = phi i32 [ 0, %2 ], [ %65, %64 ]
-  %.0 = phi ptr [ %4, %2 ], [ %.1, %64 ]
+16:                                               ; preds = %63, %2
+  %.val3.i = phi i32 [ %.val3.i.pre, %2 ], [ %.val3.i49, %63 ]
+  %.val.i = phi i32 [ %.val.i.pre, %2 ], [ %.val.i48, %63 ]
+  %17 = phi i32 [ %.pre, %2 ], [ %66, %63 ]
+  %.036 = phi i32 [ 0, %2 ], [ %64, %63 ]
+  %.0 = phi ptr [ %4, %2 ], [ %.1, %63 ]
   %18 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %18, 0
   %19 = load i32, ptr %6, align 4
@@ -210,104 +210,103 @@ define ptr @Gia_ManTranStochOpt1(ptr nocapture noundef %0, ptr noundef %1) local
   %24 = load ptr, ptr %9, align 8
   %25 = load i32, ptr %10, align 8
   %26 = load i32, ptr %11, align 8
-  %27 = icmp sgt i32 %26, 0
-  %28 = add nsw i32 %26, -1
-  %spec.select44 = select i1 %27, i32 %28, i32 0
-  br i1 %.not, label %31, label %29
+  %27 = call i32 @llvm.smax.i32(i32 %26, i32 1)
+  %spec.select44 = add nsw i32 %27, -1
+  br i1 %.not, label %30, label %28
 
-29:                                               ; preds = %16
-  %30 = call ptr @Gia_ManTransductionTt(ptr noundef nonnull %.0, i32 noundef %20, i32 noundef %21, i32 noundef %22, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef %24, i32 noundef %25, i32 noundef %spec.select44) #12
-  br label %33
+28:                                               ; preds = %16
+  %29 = call ptr @Gia_ManTransductionTt(ptr noundef nonnull %.0, i32 noundef %20, i32 noundef %21, i32 noundef %22, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef %24, i32 noundef %25, i32 noundef %spec.select44) #12
+  br label %32
 
-31:                                               ; preds = %16
-  %32 = call ptr @Gia_ManTransductionBdd(ptr noundef nonnull %.0, i32 noundef %20, i32 noundef %21, i32 noundef %22, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef %24, i32 noundef %25, i32 noundef %spec.select44) #12
-  br label %33
+30:                                               ; preds = %16
+  %31 = call ptr @Gia_ManTransductionBdd(ptr noundef nonnull %.0, i32 noundef %20, i32 noundef %21, i32 noundef %22, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef %24, i32 noundef %25, i32 noundef %spec.select44) #12
+  br label %32
 
-33:                                               ; preds = %31, %29
-  %.037 = phi ptr [ %30, %29 ], [ %32, %31 ]
+32:                                               ; preds = %30, %28
+  %.037 = phi ptr [ %29, %28 ], [ %31, %30 ]
   call void @Gia_ManStop(ptr noundef nonnull %.0) #12
-  %34 = load i32, ptr %12, align 8
-  %.not42 = icmp eq i32 %34, 0
-  br i1 %.not42, label %40, label %35
+  %33 = load i32, ptr %12, align 8
+  %.not42 = icmp eq i32 %33, 0
+  br i1 %.not42, label %39, label %34
 
-35:                                               ; preds = %33
+34:                                               ; preds = %32
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   call void @Dar_ManDefaultRefParams(ptr noundef nonnull %3) #12
   store i32 1, ptr %13, align 4
-  %36 = call ptr @Gia_ManToAig(ptr noundef %.037, i32 noundef 0) #12
-  %37 = call i32 @Dar_ManRefactor(ptr noundef %36, ptr noundef nonnull %3) #12
-  %38 = call ptr @Aig_ManDupDfs(ptr noundef %36) #12
-  call void @Aig_ManStop(ptr noundef %36) #12
-  %39 = call ptr @Gia_ManFromAig(ptr noundef %38) #12
-  call void @Aig_ManStop(ptr noundef %38) #12
+  %35 = call ptr @Gia_ManToAig(ptr noundef %.037, i32 noundef 0) #12
+  %36 = call i32 @Dar_ManRefactor(ptr noundef %35, ptr noundef nonnull %3) #12
+  %37 = call ptr @Aig_ManDupDfs(ptr noundef %35) #12
+  call void @Aig_ManStop(ptr noundef %35) #12
+  %38 = call ptr @Gia_ManFromAig(ptr noundef %37) #12
+  call void @Aig_ManStop(ptr noundef %37) #12
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   br label %Gia_ManTranStochUnlock.exit
 
-40:                                               ; preds = %33
-  %41 = load i32, ptr %14, align 8
-  %.not.i = icmp eq i32 %41, 0
-  br i1 %.not.i, label %Gia_ManTranStochLock.exit, label %42
+39:                                               ; preds = %32
+  %40 = load i32, ptr %14, align 8
+  %.not.i = icmp eq i32 %40, 0
+  br i1 %.not.i, label %Gia_ManTranStochLock.exit, label %41
 
-42:                                               ; preds = %40
-  %43 = load ptr, ptr %15, align 8
-  %44 = call i32 @pthread_mutex_lock(ptr noundef %43) #12
+41:                                               ; preds = %39
+  %42 = load ptr, ptr %15, align 8
+  %43 = call i32 @pthread_mutex_lock(ptr noundef %42) #12
   br label %Gia_ManTranStochLock.exit
 
-Gia_ManTranStochLock.exit:                        ; preds = %40, %42
-  %45 = call ptr @Gia_ManCompress2(ptr noundef %.037, i32 noundef 1, i32 noundef 0) #12
-  %46 = load i32, ptr %14, align 8
-  %.not.i45 = icmp eq i32 %46, 0
-  br i1 %.not.i45, label %Gia_ManTranStochUnlock.exit, label %47
+Gia_ManTranStochLock.exit:                        ; preds = %39, %41
+  %44 = call ptr @Gia_ManCompress2(ptr noundef %.037, i32 noundef 1, i32 noundef 0) #12
+  %45 = load i32, ptr %14, align 8
+  %.not.i45 = icmp eq i32 %45, 0
+  br i1 %.not.i45, label %Gia_ManTranStochUnlock.exit, label %46
 
-47:                                               ; preds = %Gia_ManTranStochLock.exit
-  %48 = load ptr, ptr %15, align 8
-  %49 = call i32 @pthread_mutex_unlock(ptr noundef %48) #12
+46:                                               ; preds = %Gia_ManTranStochLock.exit
+  %47 = load ptr, ptr %15, align 8
+  %48 = call i32 @pthread_mutex_unlock(ptr noundef %47) #12
   br label %Gia_ManTranStochUnlock.exit
 
-Gia_ManTranStochUnlock.exit:                      ; preds = %47, %Gia_ManTranStochLock.exit, %35
-  %.1 = phi ptr [ %39, %35 ], [ %45, %Gia_ManTranStochLock.exit ], [ %45, %47 ]
+Gia_ManTranStochUnlock.exit:                      ; preds = %46, %Gia_ManTranStochLock.exit, %34
+  %.1 = phi ptr [ %38, %34 ], [ %44, %Gia_ManTranStochLock.exit ], [ %44, %46 ]
   call void @Gia_ManStop(ptr noundef %.037) #12
-  %50 = load i32, ptr %11, align 8
-  %.not43 = icmp eq i32 %50, 0
-  br i1 %.not43, label %64, label %51
+  %49 = load i32, ptr %11, align 8
+  %.not43 = icmp eq i32 %49, 0
+  br i1 %.not43, label %63, label %50
 
-51:                                               ; preds = %Gia_ManTranStochUnlock.exit
-  %52 = getelementptr inbounds i8, ptr %.1, i64 24
-  %53 = load i32, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %.1, i64 64
-  %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr i8, ptr %55, i64 4
-  %.val.i46 = load i32, ptr %56, align 4
-  %57 = getelementptr inbounds i8, ptr %.1, i64 72
-  %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr i8, ptr %58, i64 4
-  %.val3.i47 = load i32, ptr %59, align 4
-  %60 = add i32 %.val3.i47, %.val.i46
-  %61 = xor i32 %60, -1
-  %62 = add i32 %53, %61
-  %63 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %.036, i32 noundef %62)
-  br label %64
+50:                                               ; preds = %Gia_ManTranStochUnlock.exit
+  %51 = getelementptr inbounds i8, ptr %.1, i64 24
+  %52 = load i32, ptr %51, align 8
+  %53 = getelementptr inbounds i8, ptr %.1, i64 64
+  %54 = load ptr, ptr %53, align 8
+  %55 = getelementptr i8, ptr %54, i64 4
+  %.val.i46 = load i32, ptr %55, align 4
+  %56 = getelementptr inbounds i8, ptr %.1, i64 72
+  %57 = load ptr, ptr %56, align 8
+  %58 = getelementptr i8, ptr %57, i64 4
+  %.val3.i47 = load i32, ptr %58, align 4
+  %59 = add i32 %.val3.i47, %.val.i46
+  %60 = xor i32 %59, -1
+  %61 = add i32 %52, %60
+  %62 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %.036, i32 noundef %61)
+  br label %63
 
-64:                                               ; preds = %51, %Gia_ManTranStochUnlock.exit
-  %65 = add nuw nsw i32 %.036, 1
-  %66 = getelementptr inbounds i8, ptr %.1, i64 24
-  %67 = load i32, ptr %66, align 8
-  %68 = getelementptr inbounds i8, ptr %.1, i64 64
-  %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr i8, ptr %69, i64 4
-  %.val.i48 = load i32, ptr %70, align 4
-  %71 = getelementptr inbounds i8, ptr %.1, i64 72
-  %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr i8, ptr %72, i64 4
-  %.val3.i49 = load i32, ptr %73, align 4
-  %74 = sub i32 %.val.i, %17
-  %75 = add i32 %74, %.val3.i
-  %76 = sub i32 %.val.i48, %67
-  %77 = add i32 %76, %.val3.i49
-  %78 = icmp slt i32 %75, %77
-  br i1 %78, label %16, label %79, !llvm.loop !4
+63:                                               ; preds = %50, %Gia_ManTranStochUnlock.exit
+  %64 = add nuw nsw i32 %.036, 1
+  %65 = getelementptr inbounds i8, ptr %.1, i64 24
+  %66 = load i32, ptr %65, align 8
+  %67 = getelementptr inbounds i8, ptr %.1, i64 64
+  %68 = load ptr, ptr %67, align 8
+  %69 = getelementptr i8, ptr %68, i64 4
+  %.val.i48 = load i32, ptr %69, align 4
+  %70 = getelementptr inbounds i8, ptr %.1, i64 72
+  %71 = load ptr, ptr %70, align 8
+  %72 = getelementptr i8, ptr %71, i64 4
+  %.val3.i49 = load i32, ptr %72, align 4
+  %73 = sub i32 %.val.i, %17
+  %74 = add i32 %73, %.val3.i
+  %75 = sub i32 %.val.i48, %66
+  %76 = add i32 %75, %.val3.i49
+  %77 = icmp slt i32 %74, %76
+  br i1 %77, label %16, label %78, !llvm.loop !4
 
-79:                                               ; preds = %64
+78:                                               ; preds = %63
   ret ptr %.1
 }
 
@@ -1494,6 +1493,9 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #11

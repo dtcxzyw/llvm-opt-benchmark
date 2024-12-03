@@ -55,7 +55,7 @@ define internal noundef i32 @_ZL7os_dateP9lua_State(ptr noundef %0) #0 {
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %1
-  %11 = tail call i64 @time(ptr noundef null) #6
+  %11 = tail call i64 @time(ptr noundef null) #7
   br label %15
 
 12:                                               ; preds = %1
@@ -71,7 +71,7 @@ define internal noundef i32 @_ZL7os_dateP9lua_State(ptr noundef %0) #0 {
   br i1 %18, label %19, label %22
 
 19:                                               ; preds = %15
-  %20 = call ptr @gmtime_r(ptr noundef nonnull %2, ptr noundef nonnull %3) #6
+  %20 = call ptr @gmtime_r(ptr noundef nonnull %2, ptr noundef nonnull %3) #7
   %21 = getelementptr inbounds i8, ptr %7, i64 1
   br label %26
 
@@ -80,7 +80,7 @@ define internal noundef i32 @_ZL7os_dateP9lua_State(ptr noundef %0) #0 {
   br i1 %23, label %.thread, label %24
 
 24:                                               ; preds = %22
-  %25 = call ptr @localtime_r(ptr noundef nonnull %2, ptr noundef nonnull %3) #6
+  %25 = call ptr @localtime_r(ptr noundef nonnull %2, ptr noundef nonnull %3) #7
   br label %26
 
 26:                                               ; preds = %24, %19
@@ -207,12 +207,12 @@ sub_1:                                            ; preds = %sub_0
   br i1 %79, label %80, label %81
 
 80:                                               ; preds = %77
-  call void @_Z14luaL_argerrorLP9lua_StateiPKc(ptr noundef %0, i32 noundef 1, ptr noundef nonnull @.str.17) #7
+  call void @_Z14luaL_argerrorLP9lua_StateiPKc(ptr noundef %0, i32 noundef 1, ptr noundef nonnull @.str.17) #8
   unreachable
 
 81:                                               ; preds = %77
   store i8 %65, ptr %59, align 1
-  %82 = call i64 @strftime(ptr noundef nonnull %6, i64 noundef 200, ptr noundef nonnull %4, ptr noundef nonnull %.037) #6
+  %82 = call i64 @strftime(ptr noundef nonnull %6, i64 noundef 200, ptr noundef nonnull %4, ptr noundef nonnull %.037) #7
   call void @_Z15luaL_addlstringP11luaL_StrbufPKcm(ptr noundef nonnull %5, ptr noundef nonnull %6, i64 noundef %82)
   br label %83
 
@@ -235,7 +235,7 @@ define internal noundef i32 @_ZL11os_difftimeP9lua_State(ptr noundef %0) #0 {
   %3 = fptosi double %2 to i64
   %4 = tail call noundef double @_Z14luaL_optnumberP9lua_Stateid(ptr noundef %0, i32 noundef 2, double noundef 0.000000e+00)
   %5 = fptosi double %4 to i64
-  %6 = tail call double @difftime(i64 noundef %3, i64 noundef %5) #8
+  %6 = tail call double @difftime(i64 noundef %3, i64 noundef %5) #9
   tail call void @_Z14lua_pushnumberP9lua_Stated(ptr noundef %0, double noundef %6)
   ret i32 1
 }
@@ -244,151 +244,154 @@ define internal noundef i32 @_ZL11os_difftimeP9lua_State(ptr noundef %0) #0 {
 define internal noundef i32 @_ZL7os_timeP9lua_State(ptr noundef %0) #0 {
   %2 = tail call noundef i32 @_Z8lua_typeP9lua_Statei(ptr noundef %0, i32 noundef 1)
   %3 = icmp slt i32 %2, 1
-  br i1 %3, label %_ZL9os_timegmP2tm.exit, label %4
+  br i1 %3, label %4, label %6
 
 4:                                                ; preds = %1
+  %5 = tail call i64 @time(ptr noundef null) #7
+  br label %_ZL9os_timegmP2tm.exit
+
+6:                                                ; preds = %1
   tail call void @_Z14luaL_checktypeP9lua_Stateii(ptr noundef %0, i32 noundef 1, i32 noundef 6)
   tail call void @_Z10lua_settopP9lua_Statei(ptr noundef %0, i32 noundef 1)
-  %5 = tail call noundef i32 @_Z15lua_rawgetfieldP9lua_StateiPKc(ptr noundef %0, i32 noundef -1, ptr noundef nonnull @.str.7)
-  %6 = tail call noundef i32 @_Z12lua_isnumberP9lua_Statei(ptr noundef %0, i32 noundef -1)
-  %.not.i = icmp eq i32 %6, 0
-  br i1 %.not.i, label %_ZL8getfieldP9lua_StatePKci.exit, label %7
+  %7 = tail call noundef i32 @_Z15lua_rawgetfieldP9lua_StateiPKc(ptr noundef %0, i32 noundef -1, ptr noundef nonnull @.str.7)
+  %8 = tail call noundef i32 @_Z12lua_isnumberP9lua_Statei(ptr noundef %0, i32 noundef -1)
+  %.not.i = icmp eq i32 %8, 0
+  br i1 %.not.i, label %_ZL8getfieldP9lua_StatePKci.exit, label %9
 
-7:                                                ; preds = %4
-  %8 = tail call noundef i32 @_Z14lua_tointegerxP9lua_StateiPi(ptr noundef %0, i32 noundef -1, ptr noundef null)
-  %9 = sext i32 %8 to i64
+9:                                                ; preds = %6
+  %10 = tail call noundef i32 @_Z14lua_tointegerxP9lua_StateiPi(ptr noundef %0, i32 noundef -1, ptr noundef null)
+  %11 = sext i32 %10 to i64
   br label %_ZL8getfieldP9lua_StatePKci.exit
 
-_ZL8getfieldP9lua_StatePKci.exit:                 ; preds = %4, %7
-  %.0.i = phi i64 [ %9, %7 ], [ 0, %4 ]
+_ZL8getfieldP9lua_StatePKci.exit:                 ; preds = %6, %9
+  %.0.i = phi i64 [ %11, %9 ], [ 0, %6 ]
   tail call void @_Z10lua_settopP9lua_Statei(ptr noundef %0, i32 noundef -2)
-  %10 = tail call noundef i32 @_Z15lua_rawgetfieldP9lua_StateiPKc(ptr noundef %0, i32 noundef -1, ptr noundef nonnull @.str.8)
-  %11 = tail call noundef i32 @_Z12lua_isnumberP9lua_Statei(ptr noundef %0, i32 noundef -1)
-  %.not.i13 = icmp eq i32 %11, 0
-  br i1 %.not.i13, label %_ZL8getfieldP9lua_StatePKci.exit15, label %12
+  %12 = tail call noundef i32 @_Z15lua_rawgetfieldP9lua_StateiPKc(ptr noundef %0, i32 noundef -1, ptr noundef nonnull @.str.8)
+  %13 = tail call noundef i32 @_Z12lua_isnumberP9lua_Statei(ptr noundef %0, i32 noundef -1)
+  %.not.i13 = icmp eq i32 %13, 0
+  br i1 %.not.i13, label %_ZL8getfieldP9lua_StatePKci.exit15, label %14
 
-12:                                               ; preds = %_ZL8getfieldP9lua_StatePKci.exit
-  %13 = tail call noundef i32 @_Z14lua_tointegerxP9lua_StateiPi(ptr noundef %0, i32 noundef -1, ptr noundef null)
-  %14 = sext i32 %13 to i64
-  %15 = mul nsw i64 %14, 60
+14:                                               ; preds = %_ZL8getfieldP9lua_StatePKci.exit
+  %15 = tail call noundef i32 @_Z14lua_tointegerxP9lua_StateiPi(ptr noundef %0, i32 noundef -1, ptr noundef null)
+  %16 = sext i32 %15 to i64
+  %17 = mul nsw i64 %16, 60
   br label %_ZL8getfieldP9lua_StatePKci.exit15
 
-_ZL8getfieldP9lua_StatePKci.exit15:               ; preds = %_ZL8getfieldP9lua_StatePKci.exit, %12
-  %.0.i14 = phi i64 [ %15, %12 ], [ 0, %_ZL8getfieldP9lua_StatePKci.exit ]
+_ZL8getfieldP9lua_StatePKci.exit15:               ; preds = %_ZL8getfieldP9lua_StatePKci.exit, %14
+  %.0.i14 = phi i64 [ %17, %14 ], [ 0, %_ZL8getfieldP9lua_StatePKci.exit ]
   tail call void @_Z10lua_settopP9lua_Statei(ptr noundef %0, i32 noundef -2)
-  %16 = tail call noundef i32 @_Z15lua_rawgetfieldP9lua_StateiPKc(ptr noundef %0, i32 noundef -1, ptr noundef nonnull @.str.9)
-  %17 = tail call noundef i32 @_Z12lua_isnumberP9lua_Statei(ptr noundef %0, i32 noundef -1)
-  %.not.i16 = icmp eq i32 %17, 0
-  br i1 %.not.i16, label %_ZL8getfieldP9lua_StatePKci.exit18, label %18
+  %18 = tail call noundef i32 @_Z15lua_rawgetfieldP9lua_StateiPKc(ptr noundef %0, i32 noundef -1, ptr noundef nonnull @.str.9)
+  %19 = tail call noundef i32 @_Z12lua_isnumberP9lua_Statei(ptr noundef %0, i32 noundef -1)
+  %.not.i16 = icmp eq i32 %19, 0
+  br i1 %.not.i16, label %_ZL8getfieldP9lua_StatePKci.exit18, label %20
 
-18:                                               ; preds = %_ZL8getfieldP9lua_StatePKci.exit15
-  %19 = tail call noundef i32 @_Z14lua_tointegerxP9lua_StateiPi(ptr noundef %0, i32 noundef -1, ptr noundef null)
-  %20 = sext i32 %19 to i64
-  %21 = mul nsw i64 %20, 3600
+20:                                               ; preds = %_ZL8getfieldP9lua_StatePKci.exit15
+  %21 = tail call noundef i32 @_Z14lua_tointegerxP9lua_StateiPi(ptr noundef %0, i32 noundef -1, ptr noundef null)
+  %22 = sext i32 %21 to i64
+  %23 = mul nsw i64 %22, 3600
   br label %_ZL8getfieldP9lua_StatePKci.exit18
 
-_ZL8getfieldP9lua_StatePKci.exit18:               ; preds = %_ZL8getfieldP9lua_StatePKci.exit15, %18
-  %.0.i17 = phi i64 [ %21, %18 ], [ 43200, %_ZL8getfieldP9lua_StatePKci.exit15 ]
+_ZL8getfieldP9lua_StatePKci.exit18:               ; preds = %_ZL8getfieldP9lua_StatePKci.exit15, %20
+  %.0.i17 = phi i64 [ %23, %20 ], [ 43200, %_ZL8getfieldP9lua_StatePKci.exit15 ]
   tail call void @_Z10lua_settopP9lua_Statei(ptr noundef %0, i32 noundef -2)
-  %22 = tail call noundef i32 @_Z15lua_rawgetfieldP9lua_StateiPKc(ptr noundef %0, i32 noundef -1, ptr noundef nonnull @.str.10)
-  %23 = tail call noundef i32 @_Z12lua_isnumberP9lua_Statei(ptr noundef %0, i32 noundef -1)
-  %.not.i19 = icmp eq i32 %23, 0
-  br i1 %.not.i19, label %24, label %_ZL8getfieldP9lua_StatePKci.exit21
+  %24 = tail call noundef i32 @_Z15lua_rawgetfieldP9lua_StateiPKc(ptr noundef %0, i32 noundef -1, ptr noundef nonnull @.str.10)
+  %25 = tail call noundef i32 @_Z12lua_isnumberP9lua_Statei(ptr noundef %0, i32 noundef -1)
+  %.not.i19 = icmp eq i32 %25, 0
+  br i1 %.not.i19, label %26, label %_ZL8getfieldP9lua_StatePKci.exit21
 
-24:                                               ; preds = %_ZL8getfieldP9lua_StatePKci.exit18
-  tail call void (ptr, ptr, ...) @_Z11luaL_errorLP9lua_StatePKcz(ptr noundef %0, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.10) #7
+26:                                               ; preds = %_ZL8getfieldP9lua_StatePKci.exit18
+  tail call void (ptr, ptr, ...) @_Z11luaL_errorLP9lua_StatePKcz(ptr noundef %0, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.10) #8
   unreachable
 
 _ZL8getfieldP9lua_StatePKci.exit21:               ; preds = %_ZL8getfieldP9lua_StatePKci.exit18
-  %25 = tail call noundef i32 @_Z14lua_tointegerxP9lua_StateiPi(ptr noundef %0, i32 noundef -1, ptr noundef null)
+  %27 = tail call noundef i32 @_Z14lua_tointegerxP9lua_StateiPi(ptr noundef %0, i32 noundef -1, ptr noundef null)
   tail call void @_Z10lua_settopP9lua_Statei(ptr noundef %0, i32 noundef -2)
-  %26 = tail call noundef i32 @_Z15lua_rawgetfieldP9lua_StateiPKc(ptr noundef %0, i32 noundef -1, ptr noundef nonnull @.str.11)
-  %27 = tail call noundef i32 @_Z12lua_isnumberP9lua_Statei(ptr noundef %0, i32 noundef -1)
-  %.not.i22 = icmp eq i32 %27, 0
-  br i1 %.not.i22, label %28, label %_ZL8getfieldP9lua_StatePKci.exit24
+  %28 = tail call noundef i32 @_Z15lua_rawgetfieldP9lua_StateiPKc(ptr noundef %0, i32 noundef -1, ptr noundef nonnull @.str.11)
+  %29 = tail call noundef i32 @_Z12lua_isnumberP9lua_Statei(ptr noundef %0, i32 noundef -1)
+  %.not.i22 = icmp eq i32 %29, 0
+  br i1 %.not.i22, label %30, label %_ZL8getfieldP9lua_StatePKci.exit24
 
-28:                                               ; preds = %_ZL8getfieldP9lua_StatePKci.exit21
-  tail call void (ptr, ptr, ...) @_Z11luaL_errorLP9lua_StatePKcz(ptr noundef %0, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.11) #7
+30:                                               ; preds = %_ZL8getfieldP9lua_StatePKci.exit21
+  tail call void (ptr, ptr, ...) @_Z11luaL_errorLP9lua_StatePKcz(ptr noundef %0, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.11) #8
   unreachable
 
 _ZL8getfieldP9lua_StatePKci.exit24:               ; preds = %_ZL8getfieldP9lua_StatePKci.exit21
-  %29 = tail call noundef i32 @_Z14lua_tointegerxP9lua_StateiPi(ptr noundef %0, i32 noundef -1, ptr noundef null)
+  %31 = tail call noundef i32 @_Z14lua_tointegerxP9lua_StateiPi(ptr noundef %0, i32 noundef -1, ptr noundef null)
   tail call void @_Z10lua_settopP9lua_Statei(ptr noundef %0, i32 noundef -2)
-  %30 = add nsw i32 %29, -1
-  %31 = tail call noundef i32 @_Z15lua_rawgetfieldP9lua_StateiPKc(ptr noundef %0, i32 noundef -1, ptr noundef nonnull @.str.12)
-  %32 = tail call noundef i32 @_Z12lua_isnumberP9lua_Statei(ptr noundef %0, i32 noundef -1)
-  %.not.i25 = icmp eq i32 %32, 0
-  br i1 %.not.i25, label %33, label %_ZL8getfieldP9lua_StatePKci.exit27
+  %32 = add nsw i32 %31, -1
+  %33 = tail call noundef i32 @_Z15lua_rawgetfieldP9lua_StateiPKc(ptr noundef %0, i32 noundef -1, ptr noundef nonnull @.str.12)
+  %34 = tail call noundef i32 @_Z12lua_isnumberP9lua_Statei(ptr noundef %0, i32 noundef -1)
+  %.not.i25 = icmp eq i32 %34, 0
+  br i1 %.not.i25, label %35, label %_ZL8getfieldP9lua_StatePKci.exit27
 
-33:                                               ; preds = %_ZL8getfieldP9lua_StatePKci.exit24
-  tail call void (ptr, ptr, ...) @_Z11luaL_errorLP9lua_StatePKcz(ptr noundef %0, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.12) #7
+35:                                               ; preds = %_ZL8getfieldP9lua_StatePKci.exit24
+  tail call void (ptr, ptr, ...) @_Z11luaL_errorLP9lua_StatePKcz(ptr noundef %0, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.12) #8
   unreachable
 
 _ZL8getfieldP9lua_StatePKci.exit27:               ; preds = %_ZL8getfieldP9lua_StatePKci.exit24
-  %34 = tail call noundef i32 @_Z14lua_tointegerxP9lua_StateiPi(ptr noundef %0, i32 noundef -1, ptr noundef null)
+  %36 = tail call noundef i32 @_Z14lua_tointegerxP9lua_StateiPi(ptr noundef %0, i32 noundef -1, ptr noundef null)
   tail call void @_Z10lua_settopP9lua_Statei(ptr noundef %0, i32 noundef -2)
-  %35 = tail call noundef i32 @_Z15lua_rawgetfieldP9lua_StateiPKc(ptr noundef %0, i32 noundef -1, ptr noundef nonnull @.str.15)
-  %36 = tail call noundef i32 @_Z8lua_typeP9lua_Statei(ptr noundef %0, i32 noundef -1)
-  %37 = icmp eq i32 %36, 0
-  br i1 %37, label %_ZL12getboolfieldP9lua_StatePKc.exit, label %38
+  %37 = tail call noundef i32 @_Z15lua_rawgetfieldP9lua_StateiPKc(ptr noundef %0, i32 noundef -1, ptr noundef nonnull @.str.15)
+  %38 = tail call noundef i32 @_Z8lua_typeP9lua_Statei(ptr noundef %0, i32 noundef -1)
+  %39 = icmp eq i32 %38, 0
+  br i1 %39, label %_ZL12getboolfieldP9lua_StatePKc.exit, label %40
 
-38:                                               ; preds = %_ZL8getfieldP9lua_StatePKci.exit27
-  %39 = tail call noundef i32 @_Z13lua_tobooleanP9lua_Statei(ptr noundef %0, i32 noundef -1)
+40:                                               ; preds = %_ZL8getfieldP9lua_StatePKci.exit27
+  %41 = tail call noundef i32 @_Z13lua_tobooleanP9lua_Statei(ptr noundef %0, i32 noundef -1)
   br label %_ZL12getboolfieldP9lua_StatePKc.exit
 
-_ZL12getboolfieldP9lua_StatePKc.exit:             ; preds = %_ZL8getfieldP9lua_StatePKci.exit27, %38
+_ZL12getboolfieldP9lua_StatePKc.exit:             ; preds = %_ZL8getfieldP9lua_StatePKci.exit27, %40
   tail call void @_Z10lua_settopP9lua_Statei(ptr noundef %0, i32 noundef -2)
-  %40 = srem i32 %30, 12
-  %41 = icmp slt i32 %40, 2
-  %42 = zext i1 %41 to i32
-  %.neg.i = sdiv i32 %30, -12
-  %43 = add nsw i32 %.neg.i, %42
-  %reass.sub = sub i32 %34, %43
-  %44 = add i32 %reass.sub, 4800
-  %45 = mul nsw i32 %43, 12
-  %46 = add nsw i32 %45, %29
-  %47 = mul i32 %46, 153
-  %48 = add i32 %47, -457
-  %49 = sdiv i32 %48, 5
-  %50 = mul nsw i32 %44, 365
-  %51 = sdiv i32 %44, 4
-  %.neg27.i = sdiv i32 %44, -100
-  %52 = sdiv i32 %44, 400
-  %53 = add i32 %49, %25
-  %54 = add i32 %53, %50
-  %55 = add i32 %54, %51
-  %56 = add i32 %55, %.neg27.i
-  %57 = add i32 %56, %52
-  %58 = icmp slt i32 %57, 2472633
-  br i1 %58, label %_ZL9os_timegmP2tm.exit.thread, label %59
+  %42 = srem i32 %32, 12
+  %43 = icmp slt i32 %42, 2
+  %44 = zext i1 %43 to i32
+  %.neg.i = sdiv i32 %32, -12
+  %45 = add nsw i32 %.neg.i, %44
+  %reass.sub = sub i32 %36, %45
+  %46 = add i32 %reass.sub, 4800
+  %47 = mul nsw i32 %45, 12
+  %48 = add nsw i32 %47, %31
+  %49 = mul i32 %48, 153
+  %50 = add i32 %49, -457
+  %51 = sdiv i32 %50, 5
+  %52 = mul nsw i32 %46, 365
+  %53 = sdiv i32 %46, 4
+  %.neg27.i = sdiv i32 %46, -100
+  %54 = sdiv i32 %46, 400
+  %55 = add i32 %51, %27
+  %56 = add i32 %55, %52
+  %57 = add i32 %56, %53
+  %58 = add i32 %57, %.neg27.i
+  %59 = add i32 %58, %54
+  %60 = icmp slt i32 %59, 2472633
+  br i1 %60, label %_ZL9os_timegmP2tm.exit.thread, label %61
 
-59:                                               ; preds = %_ZL12getboolfieldP9lua_StatePKc.exit
-  %60 = add nsw i32 %57, -32045
-  %61 = zext nneg i32 %60 to i64
-  %62 = mul nuw nsw i64 %61, 86400
-  %63 = add nsw i64 %.0.i14, %.0.i
-  %64 = add nsw i64 %63, %.0.i17
-  %65 = add nsw i64 %64, %62
-  %66 = icmp slt i64 %65, 210866803200
-  %67 = add nsw i64 %65, -210866803200
-  br i1 %66, label %_ZL9os_timegmP2tm.exit.thread, label %_ZL9os_timegmP2tm.exit.thread30
+61:                                               ; preds = %_ZL12getboolfieldP9lua_StatePKc.exit
+  %62 = add nsw i32 %59, -32045
+  %63 = zext nneg i32 %62 to i64
+  %64 = mul nuw nsw i64 %63, 86400
+  %65 = add nsw i64 %.0.i14, %.0.i
+  %66 = add nsw i64 %65, %.0.i17
+  %67 = add nsw i64 %66, %64
+  %68 = tail call i64 @llvm.smax.i64(i64 %67, i64 210866803199)
+  %spec.select.i = add nsw i64 %68, -210866803200
+  br label %_ZL9os_timegmP2tm.exit
 
-_ZL9os_timegmP2tm.exit:                           ; preds = %1
-  %68 = tail call i64 @time(ptr noundef null) #6
-  %69 = icmp eq i64 %68, -1
-  br i1 %69, label %_ZL9os_timegmP2tm.exit.thread, label %_ZL9os_timegmP2tm.exit.thread30
+_ZL9os_timegmP2tm.exit:                           ; preds = %61, %4
+  %.0 = phi i64 [ %5, %4 ], [ %spec.select.i, %61 ]
+  %69 = icmp eq i64 %.0, -1
+  br i1 %69, label %_ZL9os_timegmP2tm.exit.thread, label %70
 
-_ZL9os_timegmP2tm.exit.thread:                    ; preds = %59, %_ZL12getboolfieldP9lua_StatePKc.exit, %_ZL9os_timegmP2tm.exit
+_ZL9os_timegmP2tm.exit.thread:                    ; preds = %_ZL12getboolfieldP9lua_StatePKc.exit, %_ZL9os_timegmP2tm.exit
   tail call void @_Z11lua_pushnilP9lua_State(ptr noundef %0)
-  br label %71
+  br label %72
 
-_ZL9os_timegmP2tm.exit.thread30:                  ; preds = %59, %_ZL9os_timegmP2tm.exit
-  %.032 = phi i64 [ %68, %_ZL9os_timegmP2tm.exit ], [ %67, %59 ]
-  %70 = sitofp i64 %.032 to double
-  tail call void @_Z14lua_pushnumberP9lua_Stated(ptr noundef %0, double noundef %70)
-  br label %71
+70:                                               ; preds = %_ZL9os_timegmP2tm.exit
+  %71 = sitofp i64 %.0 to double
+  tail call void @_Z14lua_pushnumberP9lua_Stated(ptr noundef %0, double noundef %71)
+  br label %72
 
-71:                                               ; preds = %_ZL9os_timegmP2tm.exit.thread30, %_ZL9os_timegmP2tm.exit.thread
+72:                                               ; preds = %70, %_ZL9os_timegmP2tm.exit.thread
   ret i32 1
 }
 
@@ -458,15 +461,19 @@ declare noundef i32 @_Z13lua_tobooleanP9lua_Statei(ptr noundef, i32 noundef) loc
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
 declare ptr @memchr(ptr, i32, i64) local_unnamed_addr #5
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.smax.i64(i64, i64) #6
+
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #6 = { nounwind }
-attributes #7 = { noreturn }
-attributes #8 = { nounwind willreturn memory(none) }
+attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nounwind }
+attributes #8 = { noreturn }
+attributes #9 = { nounwind willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

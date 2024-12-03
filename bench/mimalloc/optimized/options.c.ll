@@ -513,9 +513,8 @@ entry:
 define range(i64 0, -1023) i64 @mi_option_get_size(i32 noundef %option) local_unnamed_addr #1 {
 entry:
   %call = tail call i64 @mi_option_get(i32 noundef %option) #18
-  %cmp = icmp slt i64 %call, 0
-  %mul = shl i64 %call, 10
-  %cond = select i1 %cmp, i64 0, i64 %mul
+  %0 = tail call i64 @llvm.smax.i64(i64 %call, i64 0)
+  %cond = shl i64 %0, 10
   ret i64 %cond
 }
 
@@ -1339,6 +1338,9 @@ declare void @llvm.va_end.p0(ptr) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #15
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.smax.i64(i64, i64) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #15

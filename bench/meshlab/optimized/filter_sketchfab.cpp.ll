@@ -10892,349 +10892,348 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL30mz_zip_reader_read_cent
   br i1 %7, label %_ZL28mz_zip_array_ensure_capacityP18mz_zip_archive_tagP12mz_zip_arraymj.exit191, label %8
 
 8:                                                ; preds = %2
-  %9 = icmp sgt i64 %6, 4096
-  %10 = add nsw i64 %6, -4096
-  %spec.select = select i1 %9, i64 %10, i64 0
-  %11 = getelementptr inbounds i8, ptr %0, i64 64
-  %12 = getelementptr inbounds i8, ptr %0, i64 80
-  %13 = sub i64 %6, %spec.select
-  %spec.select179201209 = tail call i64 @llvm.umin.i64(i64 %13, i64 4096)
+  %9 = tail call i64 @llvm.smax.i64(i64 %6, i64 4096)
+  %spec.select = add nsw i64 %9, -4096
+  %10 = getelementptr inbounds i8, ptr %0, i64 64
+  %11 = getelementptr inbounds i8, ptr %0, i64 80
+  %12 = sub i64 %6, %spec.select
+  %spec.select179201209 = tail call i64 @llvm.umin.i64(i64 %12, i64 4096)
+  %13 = load ptr, ptr %10, align 8
   %14 = load ptr, ptr %11, align 8
-  %15 = load ptr, ptr %12, align 8
-  %16 = call noundef i64 %14(ptr noundef %15, i64 noundef %spec.select, ptr noundef nonnull %3, i64 noundef %spec.select179201209)
-  %.not210 = icmp eq i64 %16, %spec.select179201209
+  %15 = call noundef i64 %13(ptr noundef %14, i64 noundef %spec.select, ptr noundef nonnull %3, i64 noundef %spec.select179201209)
+  %.not210 = icmp eq i64 %15, %spec.select179201209
   br i1 %.not210, label %.lr.ph213, label %_ZL28mz_zip_array_ensure_capacityP18mz_zip_archive_tagP12mz_zip_arraymj.exit191
 
-.lr.ph213:                                        ; preds = %8, %36
-  %spec.select179201212 = phi i64 [ %spec.select179201, %36 ], [ %spec.select179201209, %8 ]
-  %.0148211 = phi i64 [ %37, %36 ], [ %spec.select, %8 ]
-  %17 = icmp samesign ugt i64 %spec.select179201212, 3
-  br i1 %17, label %.lr.ph.preheader, label %.critedge
+.lr.ph213:                                        ; preds = %8, %35
+  %spec.select179201212 = phi i64 [ %spec.select179201, %35 ], [ %spec.select179201209, %8 ]
+  %.0148211 = phi i64 [ %36, %35 ], [ %spec.select, %8 ]
+  %16 = icmp samesign ugt i64 %spec.select179201212, 3
+  br i1 %16, label %.lr.ph.preheader, label %.critedge
 
 .lr.ph.preheader:                                 ; preds = %.lr.ph213
   %spec.select179 = trunc nuw nsw i64 %spec.select179201212 to i32
-  %18 = add nsw i32 %spec.select179, -4
+  %17 = add nsw i32 %spec.select179, -4
   br label %.lr.ph
 
-19:                                               ; preds = %.lr.ph
-  %20 = add nsw i32 %.0149208, -1
-  %21 = icmp sgt i32 %.0149208, 0
-  br i1 %21, label %.lr.ph, label %.critedge, !llvm.loop !174
+18:                                               ; preds = %.lr.ph
+  %19 = add nsw i32 %.0149208, -1
+  %20 = icmp sgt i32 %.0149208, 0
+  br i1 %20, label %.lr.ph, label %.critedge, !llvm.loop !174
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %19
-  %.0149208 = phi i32 [ %20, %19 ], [ %18, %.lr.ph.preheader ]
-  %22 = zext nneg i32 %.0149208 to i64
-  %23 = getelementptr inbounds i8, ptr %3, i64 %22
-  %24 = load i32, ptr %23, align 4
-  %25 = icmp eq i32 %24, 101010256
-  br i1 %25, label %26, label %19
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %18
+  %.0149208 = phi i32 [ %19, %18 ], [ %17, %.lr.ph.preheader ]
+  %21 = zext nneg i32 %.0149208 to i64
+  %22 = getelementptr inbounds i8, ptr %3, i64 %21
+  %23 = load i32, ptr %22, align 4
+  %24 = icmp eq i32 %23, 101010256
+  br i1 %24, label %25, label %18
 
-26:                                               ; preds = %.lr.ph
-  %27 = add nsw i64 %.0148211, %22
+25:                                               ; preds = %.lr.ph
+  %26 = add nsw i64 %.0148211, %21
+  %27 = load ptr, ptr %10, align 8
   %28 = load ptr, ptr %11, align 8
-  %29 = load ptr, ptr %12, align 8
-  %30 = call noundef i64 %28(ptr noundef %29, i64 noundef %27, ptr noundef nonnull %3, i64 noundef 22)
-  %.not161 = icmp eq i64 %30, 22
-  %31 = load i32, ptr %3, align 16
-  %.not162 = icmp eq i32 %31, 101010256
+  %29 = call noundef i64 %27(ptr noundef %28, i64 noundef %26, ptr noundef nonnull %3, i64 noundef 22)
+  %.not161 = icmp eq i64 %29, 22
+  %30 = load i32, ptr %3, align 16
+  %.not162 = icmp eq i32 %30, 101010256
   %or.cond187 = select i1 %.not161, i1 %.not162, i1 false
-  br i1 %or.cond187, label %42, label %_ZL28mz_zip_array_ensure_capacityP18mz_zip_archive_tagP12mz_zip_arraymj.exit191
+  br i1 %or.cond187, label %41, label %_ZL28mz_zip_array_ensure_capacityP18mz_zip_archive_tagP12mz_zip_arraymj.exit191
 
-.critedge:                                        ; preds = %19, %.lr.ph213
+.critedge:                                        ; preds = %18, %.lr.ph213
   %.not160 = icmp eq i64 %.0148211, 0
-  br i1 %.not160, label %_ZL28mz_zip_array_ensure_capacityP18mz_zip_archive_tagP12mz_zip_arraymj.exit191, label %32
+  br i1 %.not160, label %_ZL28mz_zip_array_ensure_capacityP18mz_zip_archive_tagP12mz_zip_arraymj.exit191, label %31
 
-32:                                               ; preds = %.critedge
-  %33 = load i64, ptr %0, align 8
-  %34 = sub i64 %33, %.0148211
-  %35 = icmp ugt i64 %34, 65556
-  br i1 %35, label %_ZL28mz_zip_array_ensure_capacityP18mz_zip_archive_tagP12mz_zip_arraymj.exit191, label %36
+31:                                               ; preds = %.critedge
+  %32 = load i64, ptr %0, align 8
+  %33 = sub i64 %32, %.0148211
+  %34 = icmp ugt i64 %33, 65556
+  br i1 %34, label %_ZL28mz_zip_array_ensure_capacityP18mz_zip_archive_tagP12mz_zip_arraymj.exit191, label %35
 
-36:                                               ; preds = %32
-  %37 = add i64 %.0148211, -4093
-  %38 = sub i64 %33, %37
-  %spec.select179201 = call i64 @llvm.umin.i64(i64 %38, i64 4096)
+35:                                               ; preds = %31
+  %36 = add i64 %.0148211, -4093
+  %37 = sub i64 %32, %36
+  %spec.select179201 = call i64 @llvm.umin.i64(i64 %37, i64 4096)
+  %38 = load ptr, ptr %10, align 8
   %39 = load ptr, ptr %11, align 8
-  %40 = load ptr, ptr %12, align 8
-  %41 = call noundef i64 %39(ptr noundef %40, i64 noundef %37, ptr noundef nonnull %3, i64 noundef %spec.select179201)
-  %.not = icmp eq i64 %41, %spec.select179201
+  %40 = call noundef i64 %38(ptr noundef %39, i64 noundef %36, ptr noundef nonnull %3, i64 noundef %spec.select179201)
+  %.not = icmp eq i64 %40, %spec.select179201
   br i1 %.not, label %.lr.ph213, label %_ZL28mz_zip_array_ensure_capacityP18mz_zip_archive_tagP12mz_zip_arraymj.exit191, !llvm.loop !175
 
-42:                                               ; preds = %26
-  %43 = getelementptr inbounds i8, ptr %3, i64 10
-  %44 = load i16, ptr %43, align 2
-  %45 = zext i16 %44 to i32
-  %46 = getelementptr inbounds i8, ptr %0, i64 16
-  store i32 %45, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %3, i64 8
-  %48 = load i16, ptr %47, align 8
-  %.not163 = icmp eq i16 %44, %48
-  br i1 %.not163, label %49, label %_ZL28mz_zip_array_ensure_capacityP18mz_zip_archive_tagP12mz_zip_arraymj.exit191
+41:                                               ; preds = %25
+  %42 = getelementptr inbounds i8, ptr %3, i64 10
+  %43 = load i16, ptr %42, align 2
+  %44 = zext i16 %43 to i32
+  %45 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 %44, ptr %45, align 8
+  %46 = getelementptr inbounds i8, ptr %3, i64 8
+  %47 = load i16, ptr %46, align 8
+  %.not163 = icmp eq i16 %43, %47
+  br i1 %.not163, label %48, label %_ZL28mz_zip_array_ensure_capacityP18mz_zip_archive_tagP12mz_zip_arraymj.exit191
 
-49:                                               ; preds = %42
-  %50 = getelementptr inbounds i8, ptr %3, i64 4
-  %51 = load i16, ptr %50, align 4
-  %52 = getelementptr inbounds i8, ptr %3, i64 6
-  %53 = load i16, ptr %52, align 2
-  %54 = or i16 %53, %51
-  %.not164 = icmp eq i16 %54, 0
-  br i1 %.not164, label %58, label %55
+48:                                               ; preds = %41
+  %49 = getelementptr inbounds i8, ptr %3, i64 4
+  %50 = load i16, ptr %49, align 4
+  %51 = getelementptr inbounds i8, ptr %3, i64 6
+  %52 = load i16, ptr %51, align 2
+  %53 = or i16 %52, %50
+  %.not164 = icmp eq i16 %53, 0
+  br i1 %.not164, label %57, label %54
 
-55:                                               ; preds = %49
-  %56 = icmp ne i16 %51, 1
-  %57 = icmp ne i16 %53, 1
-  %or.cond = or i1 %56, %57
-  br i1 %or.cond, label %_ZL28mz_zip_array_ensure_capacityP18mz_zip_archive_tagP12mz_zip_arraymj.exit191, label %58
+54:                                               ; preds = %48
+  %55 = icmp ne i16 %50, 1
+  %56 = icmp ne i16 %52, 1
+  %or.cond = or i1 %55, %56
+  br i1 %or.cond, label %_ZL28mz_zip_array_ensure_capacityP18mz_zip_archive_tagP12mz_zip_arraymj.exit191, label %57
 
-58:                                               ; preds = %55, %49
-  %59 = getelementptr inbounds i8, ptr %3, i64 12
-  %60 = load i32, ptr %59, align 4
-  %61 = mul nuw nsw i32 %45, 46
-  %62 = icmp ult i32 %60, %61
-  br i1 %62, label %_ZL28mz_zip_array_ensure_capacityP18mz_zip_archive_tagP12mz_zip_arraymj.exit191, label %63
+57:                                               ; preds = %54, %48
+  %58 = getelementptr inbounds i8, ptr %3, i64 12
+  %59 = load i32, ptr %58, align 4
+  %60 = mul nuw nsw i32 %44, 46
+  %61 = icmp ult i32 %59, %60
+  br i1 %61, label %_ZL28mz_zip_array_ensure_capacityP18mz_zip_archive_tagP12mz_zip_arraymj.exit191, label %62
 
-63:                                               ; preds = %58
-  %64 = getelementptr inbounds i8, ptr %3, i64 16
-  %65 = load i32, ptr %64, align 16
-  %66 = zext i32 %65 to i64
-  %67 = zext i32 %60 to i64
-  %68 = add nuw nsw i64 %66, %67
-  %69 = load i64, ptr %0, align 8
-  %70 = icmp ugt i64 %68, %69
-  br i1 %70, label %_ZL28mz_zip_array_ensure_capacityP18mz_zip_archive_tagP12mz_zip_arraymj.exit191, label %71
+62:                                               ; preds = %57
+  %63 = getelementptr inbounds i8, ptr %3, i64 16
+  %64 = load i32, ptr %63, align 16
+  %65 = zext i32 %64 to i64
+  %66 = zext i32 %59 to i64
+  %67 = add nuw nsw i64 %65, %66
+  %68 = load i64, ptr %0, align 8
+  %69 = icmp ugt i64 %67, %68
+  br i1 %69, label %_ZL28mz_zip_array_ensure_capacityP18mz_zip_archive_tagP12mz_zip_arraymj.exit191, label %70
 
-71:                                               ; preds = %63
-  %72 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %66, ptr %72, align 8
-  %.not165 = icmp eq i16 %44, 0
-  br i1 %.not165, label %.loopexit, label %73
+70:                                               ; preds = %62
+  %71 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %65, ptr %71, align 8
+  %.not165 = icmp eq i16 %43, 0
+  br i1 %.not165, label %.loopexit, label %72
 
-73:                                               ; preds = %71
-  %74 = getelementptr inbounds i8, ptr %0, i64 88
-  %75 = load ptr, ptr %74, align 8
-  %76 = getelementptr inbounds i8, ptr %75, i64 16
-  %77 = load i64, ptr %76, align 8
-  %78 = icmp ult i64 %77, %67
-  br i1 %78, label %79, label %.critedge181
+72:                                               ; preds = %70
+  %73 = getelementptr inbounds i8, ptr %0, i64 88
+  %74 = load ptr, ptr %73, align 8
+  %75 = getelementptr inbounds i8, ptr %74, i64 16
+  %76 = load i64, ptr %75, align 8
+  %77 = icmp ult i64 %76, %66
+  br i1 %77, label %78, label %.critedge181
 
-79:                                               ; preds = %73
-  %80 = getelementptr inbounds i8, ptr %0, i64 48
-  %81 = load ptr, ptr %80, align 8
-  %82 = getelementptr inbounds i8, ptr %0, i64 56
-  %83 = load ptr, ptr %82, align 8
-  %84 = load ptr, ptr %75, align 8
-  %85 = getelementptr inbounds i8, ptr %75, i64 24
-  %86 = load i32, ptr %85, align 8
-  %87 = zext i32 %86 to i64
-  %88 = call noundef ptr %81(ptr noundef %83, ptr noundef %84, i64 noundef %87, i64 noundef %67)
-  %89 = icmp eq ptr %88, null
-  br i1 %89, label %_ZL28mz_zip_array_ensure_capacityP18mz_zip_archive_tagP12mz_zip_arraymj.exit191, label %_ZL28mz_zip_array_ensure_capacityP18mz_zip_archive_tagP12mz_zip_arraymj.exit
+78:                                               ; preds = %72
+  %79 = getelementptr inbounds i8, ptr %0, i64 48
+  %80 = load ptr, ptr %79, align 8
+  %81 = getelementptr inbounds i8, ptr %0, i64 56
+  %82 = load ptr, ptr %81, align 8
+  %83 = load ptr, ptr %74, align 8
+  %84 = getelementptr inbounds i8, ptr %74, i64 24
+  %85 = load i32, ptr %84, align 8
+  %86 = zext i32 %85 to i64
+  %87 = call noundef ptr %80(ptr noundef %82, ptr noundef %83, i64 noundef %86, i64 noundef %66)
+  %88 = icmp eq ptr %87, null
+  br i1 %88, label %_ZL28mz_zip_array_ensure_capacityP18mz_zip_archive_tagP12mz_zip_arraymj.exit191, label %_ZL28mz_zip_array_ensure_capacityP18mz_zip_archive_tagP12mz_zip_arraymj.exit
 
-_ZL28mz_zip_array_ensure_capacityP18mz_zip_archive_tagP12mz_zip_arraymj.exit: ; preds = %79
-  store ptr %88, ptr %75, align 8
-  store i64 %67, ptr %76, align 8
+_ZL28mz_zip_array_ensure_capacityP18mz_zip_archive_tagP12mz_zip_arraymj.exit: ; preds = %78
+  store ptr %87, ptr %74, align 8
+  store i64 %66, ptr %75, align 8
   br label %.critedge181
 
-.critedge181:                                     ; preds = %_ZL28mz_zip_array_ensure_capacityP18mz_zip_archive_tagP12mz_zip_arraymj.exit, %73
-  %90 = getelementptr inbounds i8, ptr %75, i64 8
-  store i64 %67, ptr %90, align 8
-  %91 = load ptr, ptr %74, align 8
-  %92 = load i32, ptr %46, align 8
-  %93 = zext i32 %92 to i64
-  %94 = getelementptr inbounds i8, ptr %91, i64 48
-  %95 = load i64, ptr %94, align 8
-  %96 = icmp ult i64 %95, %93
-  br i1 %96, label %97, label %.critedge183
+.critedge181:                                     ; preds = %_ZL28mz_zip_array_ensure_capacityP18mz_zip_archive_tagP12mz_zip_arraymj.exit, %72
+  %89 = getelementptr inbounds i8, ptr %74, i64 8
+  store i64 %66, ptr %89, align 8
+  %90 = load ptr, ptr %73, align 8
+  %91 = load i32, ptr %45, align 8
+  %92 = zext i32 %91 to i64
+  %93 = getelementptr inbounds i8, ptr %90, i64 48
+  %94 = load i64, ptr %93, align 8
+  %95 = icmp ult i64 %94, %92
+  br i1 %95, label %96, label %.critedge183
 
-97:                                               ; preds = %.critedge181
-  %98 = getelementptr inbounds i8, ptr %91, i64 32
-  %99 = getelementptr inbounds i8, ptr %0, i64 48
-  %100 = load ptr, ptr %99, align 8
-  %101 = getelementptr inbounds i8, ptr %0, i64 56
-  %102 = load ptr, ptr %101, align 8
-  %103 = load ptr, ptr %98, align 8
-  %104 = getelementptr inbounds i8, ptr %91, i64 56
-  %105 = load i32, ptr %104, align 8
-  %106 = zext i32 %105 to i64
-  %107 = call noundef ptr %100(ptr noundef %102, ptr noundef %103, i64 noundef %106, i64 noundef %93)
-  %108 = icmp eq ptr %107, null
-  br i1 %108, label %_ZL28mz_zip_array_ensure_capacityP18mz_zip_archive_tagP12mz_zip_arraymj.exit191, label %109
+96:                                               ; preds = %.critedge181
+  %97 = getelementptr inbounds i8, ptr %90, i64 32
+  %98 = getelementptr inbounds i8, ptr %0, i64 48
+  %99 = load ptr, ptr %98, align 8
+  %100 = getelementptr inbounds i8, ptr %0, i64 56
+  %101 = load ptr, ptr %100, align 8
+  %102 = load ptr, ptr %97, align 8
+  %103 = getelementptr inbounds i8, ptr %90, i64 56
+  %104 = load i32, ptr %103, align 8
+  %105 = zext i32 %104 to i64
+  %106 = call noundef ptr %99(ptr noundef %101, ptr noundef %102, i64 noundef %105, i64 noundef %92)
+  %107 = icmp eq ptr %106, null
+  br i1 %107, label %_ZL28mz_zip_array_ensure_capacityP18mz_zip_archive_tagP12mz_zip_arraymj.exit191, label %108
 
-109:                                              ; preds = %97
-  store ptr %107, ptr %98, align 8
-  store i64 %93, ptr %94, align 8
+108:                                              ; preds = %96
+  store ptr %106, ptr %97, align 8
+  store i64 %92, ptr %93, align 8
   br label %.critedge183
 
-.critedge183:                                     ; preds = %109, %.critedge181
-  %110 = getelementptr inbounds i8, ptr %91, i64 40
-  store i64 %93, ptr %110, align 8
-  br i1 %5, label %111, label %132
+.critedge183:                                     ; preds = %108, %.critedge181
+  %109 = getelementptr inbounds i8, ptr %90, i64 40
+  store i64 %92, ptr %109, align 8
+  br i1 %5, label %110, label %131
 
-111:                                              ; preds = %.critedge183
-  %112 = load ptr, ptr %74, align 8
-  %113 = load i32, ptr %46, align 8
-  %114 = zext i32 %113 to i64
-  %115 = getelementptr inbounds i8, ptr %112, i64 80
-  %116 = load i64, ptr %115, align 8
-  %117 = icmp ult i64 %116, %114
-  br i1 %117, label %118, label %.critedge185
+110:                                              ; preds = %.critedge183
+  %111 = load ptr, ptr %73, align 8
+  %112 = load i32, ptr %45, align 8
+  %113 = zext i32 %112 to i64
+  %114 = getelementptr inbounds i8, ptr %111, i64 80
+  %115 = load i64, ptr %114, align 8
+  %116 = icmp ult i64 %115, %113
+  br i1 %116, label %117, label %.critedge185
 
-118:                                              ; preds = %111
-  %119 = getelementptr inbounds i8, ptr %112, i64 64
-  %120 = getelementptr inbounds i8, ptr %0, i64 48
-  %121 = load ptr, ptr %120, align 8
-  %122 = getelementptr inbounds i8, ptr %0, i64 56
-  %123 = load ptr, ptr %122, align 8
-  %124 = load ptr, ptr %119, align 8
-  %125 = getelementptr inbounds i8, ptr %112, i64 88
-  %126 = load i32, ptr %125, align 8
-  %127 = zext i32 %126 to i64
-  %128 = call noundef ptr %121(ptr noundef %123, ptr noundef %124, i64 noundef %127, i64 noundef %114)
-  %129 = icmp eq ptr %128, null
-  br i1 %129, label %_ZL28mz_zip_array_ensure_capacityP18mz_zip_archive_tagP12mz_zip_arraymj.exit191, label %130
+117:                                              ; preds = %110
+  %118 = getelementptr inbounds i8, ptr %111, i64 64
+  %119 = getelementptr inbounds i8, ptr %0, i64 48
+  %120 = load ptr, ptr %119, align 8
+  %121 = getelementptr inbounds i8, ptr %0, i64 56
+  %122 = load ptr, ptr %121, align 8
+  %123 = load ptr, ptr %118, align 8
+  %124 = getelementptr inbounds i8, ptr %111, i64 88
+  %125 = load i32, ptr %124, align 8
+  %126 = zext i32 %125 to i64
+  %127 = call noundef ptr %120(ptr noundef %122, ptr noundef %123, i64 noundef %126, i64 noundef %113)
+  %128 = icmp eq ptr %127, null
+  br i1 %128, label %_ZL28mz_zip_array_ensure_capacityP18mz_zip_archive_tagP12mz_zip_arraymj.exit191, label %129
 
-130:                                              ; preds = %118
-  store ptr %128, ptr %119, align 8
-  store i64 %114, ptr %115, align 8
+129:                                              ; preds = %117
+  store ptr %127, ptr %118, align 8
+  store i64 %113, ptr %114, align 8
   br label %.critedge185
 
-.critedge185:                                     ; preds = %130, %111
-  %131 = getelementptr inbounds i8, ptr %112, i64 72
-  store i64 %114, ptr %131, align 8
-  br label %132
+.critedge185:                                     ; preds = %129, %110
+  %130 = getelementptr inbounds i8, ptr %111, i64 72
+  store i64 %113, ptr %130, align 8
+  br label %131
 
-132:                                              ; preds = %.critedge185, %.critedge183
+131:                                              ; preds = %.critedge185, %.critedge183
+  %132 = load ptr, ptr %10, align 8
   %133 = load ptr, ptr %11, align 8
-  %134 = load ptr, ptr %12, align 8
-  %135 = load ptr, ptr %74, align 8
-  %136 = load ptr, ptr %135, align 8
-  %137 = call noundef i64 %133(ptr noundef %134, i64 noundef %66, ptr noundef %136, i64 noundef %67)
-  %.not172 = icmp eq i64 %137, %67
-  br i1 %.not172, label %138, label %_ZL28mz_zip_array_ensure_capacityP18mz_zip_archive_tagP12mz_zip_arraymj.exit191
+  %134 = load ptr, ptr %73, align 8
+  %135 = load ptr, ptr %134, align 8
+  %136 = call noundef i64 %132(ptr noundef %133, i64 noundef %65, ptr noundef %135, i64 noundef %66)
+  %.not172 = icmp eq i64 %136, %66
+  br i1 %.not172, label %137, label %_ZL28mz_zip_array_ensure_capacityP18mz_zip_archive_tagP12mz_zip_arraymj.exit191
 
-138:                                              ; preds = %132
-  %139 = load i32, ptr %46, align 8
-  %.not219 = icmp eq i32 %139, 0
+137:                                              ; preds = %131
+  %138 = load i32, ptr %45, align 8
+  %.not219 = icmp eq i32 %138, 0
   br i1 %.not219, label %.loopexit, label %.lr.ph218.preheader
 
-.lr.ph218.preheader:                              ; preds = %138
-  %140 = load ptr, ptr %74, align 8
-  %141 = load ptr, ptr %140, align 8
+.lr.ph218.preheader:                              ; preds = %137
+  %139 = load ptr, ptr %73, align 8
+  %140 = load ptr, ptr %139, align 8
   br label %.lr.ph218
 
-.lr.ph218:                                        ; preds = %.lr.ph218.preheader, %201
-  %indvars.iv = phi i64 [ 0, %.lr.ph218.preheader ], [ %indvars.iv.next, %201 ]
-  %.0146217 = phi i32 [ %60, %.lr.ph218.preheader ], [ %202, %201 ]
-  %.0150215 = phi ptr [ %141, %.lr.ph218.preheader ], [ %204, %201 ]
-  %142 = icmp ult i32 %.0146217, 46
-  br i1 %142, label %_ZL28mz_zip_array_ensure_capacityP18mz_zip_archive_tagP12mz_zip_arraymj.exit191, label %143
+.lr.ph218:                                        ; preds = %.lr.ph218.preheader, %200
+  %indvars.iv = phi i64 [ 0, %.lr.ph218.preheader ], [ %indvars.iv.next, %200 ]
+  %.0146217 = phi i32 [ %59, %.lr.ph218.preheader ], [ %201, %200 ]
+  %.0150215 = phi ptr [ %140, %.lr.ph218.preheader ], [ %203, %200 ]
+  %141 = icmp ult i32 %.0146217, 46
+  br i1 %141, label %_ZL28mz_zip_array_ensure_capacityP18mz_zip_archive_tagP12mz_zip_arraymj.exit191, label %142
 
-143:                                              ; preds = %.lr.ph218
-  %144 = load i32, ptr %.0150215, align 4
-  %.not173 = icmp eq i32 %144, 33639248
-  br i1 %.not173, label %145, label %_ZL28mz_zip_array_ensure_capacityP18mz_zip_archive_tagP12mz_zip_arraymj.exit191
+142:                                              ; preds = %.lr.ph218
+  %143 = load i32, ptr %.0150215, align 4
+  %.not173 = icmp eq i32 %143, 33639248
+  br i1 %.not173, label %144, label %_ZL28mz_zip_array_ensure_capacityP18mz_zip_archive_tagP12mz_zip_arraymj.exit191
 
-145:                                              ; preds = %143
-  %146 = load ptr, ptr %74, align 8
-  %147 = load ptr, ptr %146, align 8
-  %148 = ptrtoint ptr %.0150215 to i64
-  %149 = ptrtoint ptr %147 to i64
-  %150 = sub i64 %148, %149
-  %151 = trunc i64 %150 to i32
-  %152 = getelementptr inbounds i8, ptr %146, i64 32
-  %153 = load ptr, ptr %152, align 8
-  %154 = getelementptr inbounds i32, ptr %153, i64 %indvars.iv
-  store i32 %151, ptr %154, align 4
-  br i1 %5, label %155, label %161
+144:                                              ; preds = %142
+  %145 = load ptr, ptr %73, align 8
+  %146 = load ptr, ptr %145, align 8
+  %147 = ptrtoint ptr %.0150215 to i64
+  %148 = ptrtoint ptr %146 to i64
+  %149 = sub i64 %147, %148
+  %150 = trunc i64 %149 to i32
+  %151 = getelementptr inbounds i8, ptr %145, i64 32
+  %152 = load ptr, ptr %151, align 8
+  %153 = getelementptr inbounds i32, ptr %152, i64 %indvars.iv
+  store i32 %150, ptr %153, align 4
+  br i1 %5, label %154, label %160
 
-155:                                              ; preds = %145
-  %156 = load ptr, ptr %74, align 8
-  %157 = getelementptr inbounds i8, ptr %156, i64 64
-  %158 = load ptr, ptr %157, align 8
-  %159 = getelementptr inbounds i32, ptr %158, i64 %indvars.iv
-  %160 = trunc nuw i64 %indvars.iv to i32
-  store i32 %160, ptr %159, align 4
-  br label %161
+154:                                              ; preds = %144
+  %155 = load ptr, ptr %73, align 8
+  %156 = getelementptr inbounds i8, ptr %155, i64 64
+  %157 = load ptr, ptr %156, align 8
+  %158 = getelementptr inbounds i32, ptr %157, i64 %indvars.iv
+  %159 = trunc nuw i64 %indvars.iv to i32
+  store i32 %159, ptr %158, align 4
+  br label %160
 
-161:                                              ; preds = %155, %145
-  %162 = getelementptr inbounds i8, ptr %.0150215, i64 20
-  %163 = load i32, ptr %162, align 4
-  %164 = getelementptr inbounds i8, ptr %.0150215, i64 24
-  %165 = load i32, ptr %164, align 4
-  %166 = getelementptr inbounds i8, ptr %.0150215, i64 10
-  %167 = load i32, ptr %166, align 4
-  %.not174 = icmp ne i32 %167, 0
-  %.not175 = icmp eq i32 %165, %163
+160:                                              ; preds = %154, %144
+  %161 = getelementptr inbounds i8, ptr %.0150215, i64 20
+  %162 = load i32, ptr %161, align 4
+  %163 = getelementptr inbounds i8, ptr %.0150215, i64 24
+  %164 = load i32, ptr %163, align 4
+  %165 = getelementptr inbounds i8, ptr %.0150215, i64 10
+  %166 = load i32, ptr %165, align 4
+  %.not174 = icmp ne i32 %166, 0
+  %.not175 = icmp eq i32 %164, %162
   %or.cond186 = select i1 %.not174, i1 true, i1 %.not175
-  br i1 %or.cond186, label %168, label %_ZL28mz_zip_array_ensure_capacityP18mz_zip_archive_tagP12mz_zip_arraymj.exit191
+  br i1 %or.cond186, label %167, label %_ZL28mz_zip_array_ensure_capacityP18mz_zip_archive_tagP12mz_zip_arraymj.exit191
 
-168:                                              ; preds = %161
-  %169 = icmp ne i32 %165, 0
-  %170 = icmp eq i32 %163, 0
-  %or.cond3.not178 = select i1 %169, i1 %170, i1 false
-  %171 = icmp eq i32 %165, -1
-  %or.cond5 = or i1 %171, %or.cond3.not178
-  %172 = icmp eq i32 %163, -1
-  %or.cond7 = select i1 %or.cond5, i1 true, i1 %172
-  br i1 %or.cond7, label %_ZL28mz_zip_array_ensure_capacityP18mz_zip_archive_tagP12mz_zip_arraymj.exit191, label %173
+167:                                              ; preds = %160
+  %168 = icmp ne i32 %164, 0
+  %169 = icmp eq i32 %162, 0
+  %or.cond3.not178 = select i1 %168, i1 %169, i1 false
+  %170 = icmp eq i32 %164, -1
+  %or.cond5 = or i1 %170, %or.cond3.not178
+  %171 = icmp eq i32 %162, -1
+  %or.cond7 = select i1 %or.cond5, i1 true, i1 %171
+  br i1 %or.cond7, label %_ZL28mz_zip_array_ensure_capacityP18mz_zip_archive_tagP12mz_zip_arraymj.exit191, label %172
 
-173:                                              ; preds = %168
-  %174 = getelementptr inbounds i8, ptr %.0150215, i64 34
-  %175 = load i16, ptr %174, align 2
-  %176 = icmp ne i16 %175, %51
-  %177 = icmp ne i16 %175, 1
-  %or.cond9 = and i1 %176, %177
-  br i1 %or.cond9, label %_ZL28mz_zip_array_ensure_capacityP18mz_zip_archive_tagP12mz_zip_arraymj.exit191, label %178
+172:                                              ; preds = %167
+  %173 = getelementptr inbounds i8, ptr %.0150215, i64 34
+  %174 = load i16, ptr %173, align 2
+  %175 = icmp ne i16 %174, %50
+  %176 = icmp ne i16 %174, 1
+  %or.cond9 = and i1 %175, %176
+  br i1 %or.cond9, label %_ZL28mz_zip_array_ensure_capacityP18mz_zip_archive_tagP12mz_zip_arraymj.exit191, label %177
 
-178:                                              ; preds = %173
-  %179 = getelementptr inbounds i8, ptr %.0150215, i64 42
-  %180 = load i32, ptr %179, align 4
-  %181 = zext i32 %180 to i64
-  %182 = zext i32 %163 to i64
-  %183 = add nuw nsw i64 %182, 30
-  %184 = add nuw nsw i64 %183, %181
-  %185 = load i64, ptr %0, align 8
-  %186 = icmp ugt i64 %184, %185
-  br i1 %186, label %_ZL28mz_zip_array_ensure_capacityP18mz_zip_archive_tagP12mz_zip_arraymj.exit191, label %187
+177:                                              ; preds = %172
+  %178 = getelementptr inbounds i8, ptr %.0150215, i64 42
+  %179 = load i32, ptr %178, align 4
+  %180 = zext i32 %179 to i64
+  %181 = zext i32 %162 to i64
+  %182 = add nuw nsw i64 %181, 30
+  %183 = add nuw nsw i64 %182, %180
+  %184 = load i64, ptr %0, align 8
+  %185 = icmp ugt i64 %183, %184
+  br i1 %185, label %_ZL28mz_zip_array_ensure_capacityP18mz_zip_archive_tagP12mz_zip_arraymj.exit191, label %186
 
-187:                                              ; preds = %178
-  %188 = getelementptr inbounds i8, ptr %.0150215, i64 28
-  %189 = load i16, ptr %188, align 2
-  %190 = zext i16 %189 to i32
-  %191 = add nuw nsw i32 %190, 46
-  %192 = getelementptr inbounds i8, ptr %.0150215, i64 30
-  %193 = load i16, ptr %192, align 2
-  %194 = zext i16 %193 to i32
-  %195 = add nuw nsw i32 %191, %194
-  %196 = getelementptr inbounds i8, ptr %.0150215, i64 32
-  %197 = load i16, ptr %196, align 2
-  %198 = zext i16 %197 to i32
-  %199 = add nuw nsw i32 %195, %198
-  %200 = icmp ugt i32 %199, %.0146217
-  br i1 %200, label %_ZL28mz_zip_array_ensure_capacityP18mz_zip_archive_tagP12mz_zip_arraymj.exit191, label %201
+186:                                              ; preds = %177
+  %187 = getelementptr inbounds i8, ptr %.0150215, i64 28
+  %188 = load i16, ptr %187, align 2
+  %189 = zext i16 %188 to i32
+  %190 = add nuw nsw i32 %189, 46
+  %191 = getelementptr inbounds i8, ptr %.0150215, i64 30
+  %192 = load i16, ptr %191, align 2
+  %193 = zext i16 %192 to i32
+  %194 = add nuw nsw i32 %190, %193
+  %195 = getelementptr inbounds i8, ptr %.0150215, i64 32
+  %196 = load i16, ptr %195, align 2
+  %197 = zext i16 %196 to i32
+  %198 = add nuw nsw i32 %194, %197
+  %199 = icmp ugt i32 %198, %.0146217
+  br i1 %199, label %_ZL28mz_zip_array_ensure_capacityP18mz_zip_archive_tagP12mz_zip_arraymj.exit191, label %200
 
-201:                                              ; preds = %187
-  %202 = sub nuw i32 %.0146217, %199
-  %203 = zext nneg i32 %199 to i64
-  %204 = getelementptr inbounds i8, ptr %.0150215, i64 %203
+200:                                              ; preds = %186
+  %201 = sub nuw i32 %.0146217, %198
+  %202 = zext nneg i32 %198 to i64
+  %203 = getelementptr inbounds i8, ptr %.0150215, i64 %202
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %205 = load i32, ptr %46, align 8
-  %206 = zext i32 %205 to i64
-  %207 = icmp samesign ult i64 %indvars.iv.next, %206
-  br i1 %207, label %.lr.ph218, label %.loopexit, !llvm.loop !176
+  %204 = load i32, ptr %45, align 8
+  %205 = zext i32 %204 to i64
+  %206 = icmp samesign ult i64 %indvars.iv.next, %205
+  br i1 %206, label %.lr.ph218, label %.loopexit, !llvm.loop !176
 
-.loopexit:                                        ; preds = %201, %138, %71
-  %.val = phi i32 [ 0, %138 ], [ 0, %71 ], [ %205, %201 ]
-  br i1 %5, label %208, label %_ZL28mz_zip_array_ensure_capacityP18mz_zip_archive_tagP12mz_zip_arraymj.exit191
+.loopexit:                                        ; preds = %200, %137, %70
+  %.val = phi i32 [ 0, %137 ], [ 0, %70 ], [ %204, %200 ]
+  br i1 %5, label %207, label %_ZL28mz_zip_array_ensure_capacityP18mz_zip_archive_tagP12mz_zip_arraymj.exit191
 
-208:                                              ; preds = %.loopexit
-  %209 = getelementptr i8, ptr %0, i64 88
-  %.val188 = load ptr, ptr %209, align 8
+207:                                              ; preds = %.loopexit
+  %208 = getelementptr i8, ptr %0, i64 88
+  %.val188 = load ptr, ptr %208, align 8
   call fastcc void @_ZL50mz_zip_reader_sort_central_dir_offsets_by_filenameP18mz_zip_archive_tag(i32 %.val, ptr %.val188)
   br label %_ZL28mz_zip_array_ensure_capacityP18mz_zip_archive_tagP12mz_zip_arraymj.exit191
 
-_ZL28mz_zip_array_ensure_capacityP18mz_zip_archive_tagP12mz_zip_arraymj.exit191: ; preds = %36, %32, %.critedge, %187, %178, %173, %168, %161, %.lr.ph218, %143, %8, %79, %118, %97, %.loopexit, %208, %132, %63, %58, %55, %42, %26, %2
-  %.0145 = phi i32 [ 0, %2 ], [ 0, %26 ], [ 0, %42 ], [ 0, %55 ], [ 0, %58 ], [ 0, %63 ], [ 0, %132 ], [ 1, %208 ], [ 1, %.loopexit ], [ 0, %97 ], [ 0, %118 ], [ 0, %79 ], [ 0, %8 ], [ 0, %143 ], [ 0, %.lr.ph218 ], [ 0, %161 ], [ 0, %168 ], [ 0, %173 ], [ 0, %178 ], [ 0, %187 ], [ 0, %.critedge ], [ 0, %32 ], [ 0, %36 ]
+_ZL28mz_zip_array_ensure_capacityP18mz_zip_archive_tagP12mz_zip_arraymj.exit191: ; preds = %35, %31, %.critedge, %186, %177, %172, %167, %160, %.lr.ph218, %142, %8, %78, %117, %96, %.loopexit, %207, %131, %62, %57, %54, %41, %25, %2
+  %.0145 = phi i32 [ 0, %2 ], [ 0, %25 ], [ 0, %41 ], [ 0, %54 ], [ 0, %57 ], [ 0, %62 ], [ 0, %131 ], [ 1, %207 ], [ 1, %.loopexit ], [ 0, %96 ], [ 0, %117 ], [ 0, %78 ], [ 0, %8 ], [ 0, %142 ], [ 0, %.lr.ph218 ], [ 0, %160 ], [ 0, %167 ], [ 0, %172 ], [ 0, %177 ], [ 0, %186 ], [ 0, %.critedge ], [ 0, %31 ], [ 0, %35 ]
   ret i32 %.0145
 }
 
@@ -32059,6 +32058,9 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #39
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #38
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.smax.i64(i64, i64) #38
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #40

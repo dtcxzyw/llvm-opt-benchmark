@@ -2068,12 +2068,12 @@ _ZN7nanogui7TextBox9spin_areaERKNS_5ArrayIiLm2EEE.exit264: ; preds = %404, %399,
 429:                                              ; preds = %364, %_ZN7nanogui7TextBox9spin_areaERKNS_5ArrayIiLm2EEE.exit
   %430 = landingpad { ptr, i32 }
           cleanup
-  br label %599
+  br label %598
 
 431:                                              ; preds = %412, %_ZN7nanogui7TextBox9spin_areaERKNS_5ArrayIiLm2EEE.exit264
   %432 = landingpad { ptr, i32 }
           cleanup
-  br label %599
+  br label %598
 
 433:                                              ; preds = %426, %311, %307
   %.0141 = phi float [ 0.000000e+00, %311 ], [ 1.400000e+01, %426 ], [ 0.000000e+00, %307 ]
@@ -2184,7 +2184,7 @@ _ZN7nanogui7TextBox9spin_areaERKNS_5ArrayIiLm2EEE.exit264: ; preds = %404, %399,
   %.sink339 = select i1 %502, ptr %503, ptr %501
   %504 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %.sink339) #29
   %505 = call float @nvgText(ptr noundef %1, float noundef %498, float noundef %499, ptr noundef %504, ptr noundef null)
-  br label %598
+  br label %597
 
 506:                                              ; preds = %469
   %507 = getelementptr inbounds i8, ptr %0, i64 328
@@ -2202,152 +2202,151 @@ _ZN7nanogui7TextBox9spin_areaERKNS_5ArrayIiLm2EEE.exit264: ; preds = %404, %399,
   call void @_ZN7nanogui7TextBox13update_cursorEP10NVGcontextfPK16NVGglyphPositioni(ptr noundef nonnull align 8 dereferenceable(440) %0, ptr poison, float noundef %518, ptr noundef nonnull %38, i32 noundef %516)
   %519 = getelementptr inbounds i8, ptr %0, i64 392
   %520 = load i32, ptr %519, align 8
-  %521 = icmp sgt i32 %520, 0
-  %522 = add nsw i32 %520, -1
-  %spec.select = select i1 %521, i32 %522, i32 0
-  %523 = icmp slt i32 %520, %516
-  %524 = add nsw i32 %520, 1
-  %525 = select i1 %523, i32 %524, i32 %516
-  %526 = icmp eq i32 %spec.select, %516
-  br i1 %526, label %_ZN7nanogui7TextBox24cursor_index_to_positionEifPK16NVGglyphPositioni.exit, label %527
+  %521 = call i32 @llvm.smax.i32(i32 %520, i32 1)
+  %spec.select = add nsw i32 %521, -1
+  %522 = icmp slt i32 %520, %516
+  %523 = add nsw i32 %520, 1
+  %524 = select i1 %522, i32 %523, i32 %516
+  %525 = icmp eq i32 %spec.select, %516
+  br i1 %525, label %_ZN7nanogui7TextBox24cursor_index_to_positionEifPK16NVGglyphPositioni.exit, label %526
 
-527:                                              ; preds = %506
-  %528 = sext i32 %spec.select to i64
-  %529 = getelementptr inbounds %struct.NVGglyphPosition, ptr %38, i64 %528, i32 1
-  %530 = load float, ptr %529, align 8
+526:                                              ; preds = %506
+  %527 = zext nneg i32 %spec.select to i64
+  %528 = getelementptr inbounds %struct.NVGglyphPosition, ptr %38, i64 %527, i32 1
+  %529 = load float, ptr %528, align 8
   br label %_ZN7nanogui7TextBox24cursor_index_to_positionEifPK16NVGglyphPositioni.exit
 
-_ZN7nanogui7TextBox24cursor_index_to_positionEifPK16NVGglyphPositioni.exit: ; preds = %506, %527
-  %.0.i265 = phi float [ %530, %527 ], [ %518, %506 ]
-  %531 = icmp eq i32 %525, %516
-  br i1 %531, label %_ZN7nanogui7TextBox24cursor_index_to_positionEifPK16NVGglyphPositioni.exit267, label %532
+_ZN7nanogui7TextBox24cursor_index_to_positionEifPK16NVGglyphPositioni.exit: ; preds = %506, %526
+  %.0.i265 = phi float [ %529, %526 ], [ %518, %506 ]
+  %530 = icmp eq i32 %524, %516
+  br i1 %530, label %_ZN7nanogui7TextBox24cursor_index_to_positionEifPK16NVGglyphPositioni.exit267, label %531
 
-532:                                              ; preds = %_ZN7nanogui7TextBox24cursor_index_to_positionEifPK16NVGglyphPositioni.exit
-  %533 = sext i32 %525 to i64
-  %534 = getelementptr inbounds %struct.NVGglyphPosition, ptr %38, i64 %533, i32 1
-  %535 = load float, ptr %534, align 8
+531:                                              ; preds = %_ZN7nanogui7TextBox24cursor_index_to_positionEifPK16NVGglyphPositioni.exit
+  %532 = sext i32 %524 to i64
+  %533 = getelementptr inbounds %struct.NVGglyphPosition, ptr %38, i64 %532, i32 1
+  %534 = load float, ptr %533, align 8
   br label %_ZN7nanogui7TextBox24cursor_index_to_positionEifPK16NVGglyphPositioni.exit267
 
-_ZN7nanogui7TextBox24cursor_index_to_positionEifPK16NVGglyphPositioni.exit267: ; preds = %_ZN7nanogui7TextBox24cursor_index_to_positionEifPK16NVGglyphPositioni.exit, %532
-  %.0.i266 = phi float [ %535, %532 ], [ %518, %_ZN7nanogui7TextBox24cursor_index_to_positionEifPK16NVGglyphPositioni.exit ]
-  %536 = fadd float %477, %486
-  %537 = fcmp ogt float %.0.i266, %536
+_ZN7nanogui7TextBox24cursor_index_to_positionEifPK16NVGglyphPositioni.exit267: ; preds = %_ZN7nanogui7TextBox24cursor_index_to_positionEifPK16NVGglyphPositioni.exit, %531
+  %.0.i266 = phi float [ %534, %531 ], [ %518, %_ZN7nanogui7TextBox24cursor_index_to_positionEifPK16NVGglyphPositioni.exit ]
+  %535 = fadd float %477, %486
+  %536 = fcmp ogt float %.0.i266, %535
   %.pre333.pre = load float, ptr %490, align 4
-  br i1 %537, label %538, label %542
+  br i1 %536, label %537, label %541
 
-538:                                              ; preds = %_ZN7nanogui7TextBox24cursor_index_to_positionEifPK16NVGglyphPositioni.exit267
-  %539 = fsub float %.0.i266, %536
-  %540 = fadd float %539, 1.000000e+00
-  %541 = fsub float %.pre333.pre, %540
-  store float %541, ptr %490, align 4
-  br label %542
+537:                                              ; preds = %_ZN7nanogui7TextBox24cursor_index_to_positionEifPK16NVGglyphPositioni.exit267
+  %538 = fsub float %.0.i266, %535
+  %539 = fadd float %538, 1.000000e+00
+  %540 = fsub float %.pre333.pre, %539
+  store float %540, ptr %490, align 4
+  br label %541
 
-542:                                              ; preds = %538, %_ZN7nanogui7TextBox24cursor_index_to_positionEifPK16NVGglyphPositioni.exit267
-  %.pre333 = phi float [ %541, %538 ], [ %.pre333.pre, %_ZN7nanogui7TextBox24cursor_index_to_positionEifPK16NVGglyphPositioni.exit267 ]
-  %543 = fcmp olt float %.0.i265, %477
-  br i1 %543, label %544, label %548
+541:                                              ; preds = %537, %_ZN7nanogui7TextBox24cursor_index_to_positionEifPK16NVGglyphPositioni.exit267
+  %.pre333 = phi float [ %540, %537 ], [ %.pre333.pre, %_ZN7nanogui7TextBox24cursor_index_to_positionEifPK16NVGglyphPositioni.exit267 ]
+  %542 = fcmp olt float %.0.i265, %477
+  br i1 %542, label %543, label %547
 
-544:                                              ; preds = %542
-  %545 = fsub float %477, %.0.i265
-  %546 = fadd float %545, 1.000000e+00
-  %547 = fadd float %546, %.pre333
-  store float %547, ptr %490, align 4
-  br label %548
+543:                                              ; preds = %541
+  %544 = fsub float %477, %.0.i265
+  %545 = fadd float %544, 1.000000e+00
+  %546 = fadd float %545, %.pre333
+  store float %546, ptr %490, align 4
+  br label %547
 
-548:                                              ; preds = %544, %542
-  %549 = phi float [ %547, %544 ], [ %.pre333, %542 ]
-  %550 = fadd float %549, %492
-  %551 = fptosi float %550 to i32
-  %552 = sitofp i32 %551 to float
-  %553 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %507) #29
-  %554 = call float @nvgText(ptr noundef %1, float noundef %552, float noundef %499, ptr noundef %553, ptr noundef null)
-  %555 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %507) #29
-  %556 = call float @nvgTextBounds(ptr noundef %1, float noundef %552, float noundef %499, ptr noundef %555, ptr noundef null, ptr noundef nonnull %39)
-  %557 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %507) #29
-  %558 = call i32 @nvgTextGlyphPositions(ptr noundef %1, float noundef %552, float noundef %499, ptr noundef %557, ptr noundef null, ptr noundef nonnull %38, i32 noundef 1024)
-  %559 = load i32, ptr %519, align 8
-  %560 = icmp sgt i32 %559, -1
-  br i1 %560, label %561, label %598
+547:                                              ; preds = %543, %541
+  %548 = phi float [ %546, %543 ], [ %.pre333, %541 ]
+  %549 = fadd float %548, %492
+  %550 = fptosi float %549 to i32
+  %551 = sitofp i32 %550 to float
+  %552 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %507) #29
+  %553 = call float @nvgText(ptr noundef %1, float noundef %551, float noundef %499, ptr noundef %552, ptr noundef null)
+  %554 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %507) #29
+  %555 = call float @nvgTextBounds(ptr noundef %1, float noundef %551, float noundef %499, ptr noundef %554, ptr noundef null, ptr noundef nonnull %39)
+  %556 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %507) #29
+  %557 = call i32 @nvgTextGlyphPositions(ptr noundef %1, float noundef %551, float noundef %499, ptr noundef %556, ptr noundef null, ptr noundef nonnull %38, i32 noundef 1024)
+  %558 = load i32, ptr %519, align 8
+  %559 = icmp sgt i32 %558, -1
+  br i1 %559, label %560, label %597
 
-561:                                              ; preds = %548
-  %562 = getelementptr inbounds i8, ptr %0, i64 396
-  %563 = load i32, ptr %562, align 4
-  %564 = icmp sgt i32 %563, -1
-  br i1 %564, label %565, label %584
+560:                                              ; preds = %547
+  %561 = getelementptr inbounds i8, ptr %0, i64 396
+  %562 = load i32, ptr %561, align 4
+  %563 = icmp sgt i32 %562, -1
+  br i1 %563, label %564, label %583
 
-565:                                              ; preds = %561
-  %566 = load float, ptr %517, align 8
-  %567 = icmp eq i32 %559, %558
-  br i1 %567, label %_ZN7nanogui7TextBox24cursor_index_to_positionEifPK16NVGglyphPositioni.exit269, label %568
+564:                                              ; preds = %560
+  %565 = load float, ptr %517, align 8
+  %566 = icmp eq i32 %558, %557
+  br i1 %566, label %_ZN7nanogui7TextBox24cursor_index_to_positionEifPK16NVGglyphPositioni.exit269, label %567
 
-568:                                              ; preds = %565
-  %569 = zext nneg i32 %559 to i64
-  %570 = getelementptr inbounds %struct.NVGglyphPosition, ptr %38, i64 %569, i32 1
-  %571 = load float, ptr %570, align 8
+567:                                              ; preds = %564
+  %568 = zext nneg i32 %558 to i64
+  %569 = getelementptr inbounds %struct.NVGglyphPosition, ptr %38, i64 %568, i32 1
+  %570 = load float, ptr %569, align 8
   br label %_ZN7nanogui7TextBox24cursor_index_to_positionEifPK16NVGglyphPositioni.exit269
 
-_ZN7nanogui7TextBox24cursor_index_to_positionEifPK16NVGglyphPositioni.exit269: ; preds = %565, %568
-  %.0.i268 = phi float [ %571, %568 ], [ %566, %565 ]
-  %572 = icmp eq i32 %563, %558
-  br i1 %572, label %_ZN7nanogui7TextBox24cursor_index_to_positionEifPK16NVGglyphPositioni.exit271, label %573
+_ZN7nanogui7TextBox24cursor_index_to_positionEifPK16NVGglyphPositioni.exit269: ; preds = %564, %567
+  %.0.i268 = phi float [ %570, %567 ], [ %565, %564 ]
+  %571 = icmp eq i32 %562, %557
+  br i1 %571, label %_ZN7nanogui7TextBox24cursor_index_to_positionEifPK16NVGglyphPositioni.exit271, label %572
 
-573:                                              ; preds = %_ZN7nanogui7TextBox24cursor_index_to_positionEifPK16NVGglyphPositioni.exit269
-  %574 = zext nneg i32 %563 to i64
-  %575 = getelementptr inbounds %struct.NVGglyphPosition, ptr %38, i64 %574, i32 1
-  %576 = load float, ptr %575, align 8
+572:                                              ; preds = %_ZN7nanogui7TextBox24cursor_index_to_positionEifPK16NVGglyphPositioni.exit269
+  %573 = zext nneg i32 %562 to i64
+  %574 = getelementptr inbounds %struct.NVGglyphPosition, ptr %38, i64 %573, i32 1
+  %575 = load float, ptr %574, align 8
   br label %_ZN7nanogui7TextBox24cursor_index_to_positionEifPK16NVGglyphPositioni.exit271
 
-_ZN7nanogui7TextBox24cursor_index_to_positionEifPK16NVGglyphPositioni.exit271: ; preds = %_ZN7nanogui7TextBox24cursor_index_to_positionEifPK16NVGglyphPositioni.exit269, %573
-  %.0.i270 = phi float [ %576, %573 ], [ %566, %_ZN7nanogui7TextBox24cursor_index_to_positionEifPK16NVGglyphPositioni.exit269 ]
-  %577 = fcmp ogt float %.0.i268, %.0.i270
-  %.0328 = select i1 %577, float %.0.i270, float %.0.i268
-  %.0327 = select i1 %577, float %.0.i268, float %.0.i270
+_ZN7nanogui7TextBox24cursor_index_to_positionEifPK16NVGglyphPositioni.exit271: ; preds = %_ZN7nanogui7TextBox24cursor_index_to_positionEifPK16NVGglyphPositioni.exit269, %572
+  %.0.i270 = phi float [ %575, %572 ], [ %565, %_ZN7nanogui7TextBox24cursor_index_to_positionEifPK16NVGglyphPositioni.exit269 ]
+  %576 = fcmp ogt float %.0.i268, %.0.i270
+  %.0328 = select i1 %576, float %.0.i270, float %.0.i268
+  %.0327 = select i1 %576, float %.0.i268, float %.0.i270
   call void @nvgBeginPath(ptr noundef %1)
-  %578 = call { <2 x float>, <2 x float> } @nvgRGBA(i8 noundef zeroext -1, i8 noundef zeroext -1, i8 noundef zeroext -1, i8 noundef zeroext 80)
-  %579 = extractvalue { <2 x float>, <2 x float> } %578, 0
-  %580 = extractvalue { <2 x float>, <2 x float> } %578, 1
-  call void @nvgFillColor(ptr noundef %1, <2 x float> %579, <2 x float> %580)
-  %581 = fneg float %514
-  %582 = call float @llvm.fmuladd.f32(float %581, float 5.000000e-01, float %499)
-  %583 = fsub float %.0327, %.0328
-  call void @nvgRect(ptr noundef %1, float noundef %.0328, float noundef %582, float noundef %583, float noundef %514)
+  %577 = call { <2 x float>, <2 x float> } @nvgRGBA(i8 noundef zeroext -1, i8 noundef zeroext -1, i8 noundef zeroext -1, i8 noundef zeroext 80)
+  %578 = extractvalue { <2 x float>, <2 x float> } %577, 0
+  %579 = extractvalue { <2 x float>, <2 x float> } %577, 1
+  call void @nvgFillColor(ptr noundef %1, <2 x float> %578, <2 x float> %579)
+  %580 = fneg float %514
+  %581 = call float @llvm.fmuladd.f32(float %580, float 5.000000e-01, float %499)
+  %582 = fsub float %.0327, %.0328
+  call void @nvgRect(ptr noundef %1, float noundef %.0328, float noundef %581, float noundef %582, float noundef %514)
   call void @nvgFill(ptr noundef %1)
   %.pre334 = load i32, ptr %519, align 8
-  br label %584
+  br label %583
 
-584:                                              ; preds = %_ZN7nanogui7TextBox24cursor_index_to_positionEifPK16NVGglyphPositioni.exit271, %561
-  %585 = phi i32 [ %.pre334, %_ZN7nanogui7TextBox24cursor_index_to_positionEifPK16NVGglyphPositioni.exit271 ], [ %559, %561 ]
-  %586 = load float, ptr %517, align 8
-  %587 = icmp eq i32 %585, %558
-  br i1 %587, label %_ZN7nanogui7TextBox24cursor_index_to_positionEifPK16NVGglyphPositioni.exit273, label %588
+583:                                              ; preds = %_ZN7nanogui7TextBox24cursor_index_to_positionEifPK16NVGglyphPositioni.exit271, %560
+  %584 = phi i32 [ %.pre334, %_ZN7nanogui7TextBox24cursor_index_to_positionEifPK16NVGglyphPositioni.exit271 ], [ %558, %560 ]
+  %585 = load float, ptr %517, align 8
+  %586 = icmp eq i32 %584, %557
+  br i1 %586, label %_ZN7nanogui7TextBox24cursor_index_to_positionEifPK16NVGglyphPositioni.exit273, label %587
 
-588:                                              ; preds = %584
-  %589 = sext i32 %585 to i64
-  %590 = getelementptr inbounds %struct.NVGglyphPosition, ptr %38, i64 %589, i32 1
-  %591 = load float, ptr %590, align 8
+587:                                              ; preds = %583
+  %588 = sext i32 %584 to i64
+  %589 = getelementptr inbounds %struct.NVGglyphPosition, ptr %38, i64 %588, i32 1
+  %590 = load float, ptr %589, align 8
   br label %_ZN7nanogui7TextBox24cursor_index_to_positionEifPK16NVGglyphPositioni.exit273
 
-_ZN7nanogui7TextBox24cursor_index_to_positionEifPK16NVGglyphPositioni.exit273: ; preds = %584, %588
-  %.0.i272 = phi float [ %591, %588 ], [ %586, %584 ]
+_ZN7nanogui7TextBox24cursor_index_to_positionEifPK16NVGglyphPositioni.exit273: ; preds = %583, %587
+  %.0.i272 = phi float [ %590, %587 ], [ %585, %583 ]
   call void @nvgBeginPath(ptr noundef %1)
-  %592 = fneg float %514
-  %593 = call float @llvm.fmuladd.f32(float %592, float 5.000000e-01, float %499)
-  call void @nvgMoveTo(ptr noundef %1, float noundef %.0.i272, float noundef %593)
-  %594 = call float @llvm.fmuladd.f32(float %514, float 5.000000e-01, float %499)
-  call void @nvgLineTo(ptr noundef %1, float noundef %.0.i272, float noundef %594)
-  %595 = call { <2 x float>, <2 x float> } @nvgRGBA(i8 noundef zeroext -1, i8 noundef zeroext -64, i8 noundef zeroext 0, i8 noundef zeroext -1)
-  %596 = extractvalue { <2 x float>, <2 x float> } %595, 0
-  %597 = extractvalue { <2 x float>, <2 x float> } %595, 1
-  call void @nvgStrokeColor(ptr noundef %1, <2 x float> %596, <2 x float> %597)
+  %591 = fneg float %514
+  %592 = call float @llvm.fmuladd.f32(float %591, float 5.000000e-01, float %499)
+  call void @nvgMoveTo(ptr noundef %1, float noundef %.0.i272, float noundef %592)
+  %593 = call float @llvm.fmuladd.f32(float %514, float 5.000000e-01, float %499)
+  call void @nvgLineTo(ptr noundef %1, float noundef %.0.i272, float noundef %593)
+  %594 = call { <2 x float>, <2 x float> } @nvgRGBA(i8 noundef zeroext -1, i8 noundef zeroext -64, i8 noundef zeroext 0, i8 noundef zeroext -1)
+  %595 = extractvalue { <2 x float>, <2 x float> } %594, 0
+  %596 = extractvalue { <2 x float>, <2 x float> } %594, 1
+  call void @nvgStrokeColor(ptr noundef %1, <2 x float> %595, <2 x float> %596)
   call void @nvgStrokeWidth(ptr noundef %1, float noundef 1.000000e+00)
   call void @nvgStroke(ptr noundef %1)
-  br label %598
+  br label %597
 
-598:                                              ; preds = %548, %_ZN7nanogui7TextBox24cursor_index_to_positionEifPK16NVGglyphPositioni.exit273, %500
+597:                                              ; preds = %547, %_ZN7nanogui7TextBox24cursor_index_to_positionEifPK16NVGglyphPositioni.exit273, %500
   call void @nvgRestore(ptr noundef %1)
   ret void
 
-599:                                              ; preds = %431, %429
+598:                                              ; preds = %431, %429
   %.sink340 = phi ptr [ %37, %431 ], [ %36, %429 ]
   %.pn = phi { ptr, i32 } [ %432, %431 ], [ %430, %429 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink340) #29

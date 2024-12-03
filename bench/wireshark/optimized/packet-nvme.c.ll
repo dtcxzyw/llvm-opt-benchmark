@@ -3457,11 +3457,11 @@ define hidden void @dissect_nvme_data_response(ptr noundef %0, ptr nocapture nou
 44:                                               ; preds = %29
   %45 = call ptr @val_to_str_const(i32 noundef %41, ptr noundef nonnull @aq_opc_tbl, ptr noundef nonnull @.str.7) #10
   %46 = load i8, ptr %39, align 8
-  switch i8 %46, label %805 [
+  switch i8 %46, label %803 [
     i8 6, label %47
-    i8 2, label %703
-    i8 9, label %704
-    i8 10, label %704
+    i8 2, label %701
+    i8 9, label %702
+    i8 10, label %702
   ]
 
 47:                                               ; preds = %44
@@ -3469,8 +3469,8 @@ define hidden void @dissect_nvme_data_response(ptr noundef %0, ptr nocapture nou
   %.val = load i16, ptr %48, align 8
   switch i16 %.val, label %dissect_nvme_identify_resp.exit [
     i16 0, label %49
-    i16 1, label %101
-    i16 2, label %687
+    i16 1, label %99
+    i16 2, label %685
   ]
 
 49:                                               ; preds = %47
@@ -3539,1451 +3539,1449 @@ dissect_nvme_identify_ns_resp.exit.i:             ; preds = %dissect_nvme_identi
   %95 = load i32, ptr @hf_nvme_identify_ns_vs, align 4
   %96 = sub i32 %5, %.0.i.i
   %97 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %95, ptr noundef %0, i32 noundef %.0.i.i, i32 noundef %96, i32 noundef 0) #10
-  %98 = icmp ult i32 %30, 385
-  %99 = add i32 %30, -384
-  %100 = select i1 %98, i32 0, i32 %99
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %97, ptr noundef nonnull @.str.1771, i32 noundef %100) #10
+  %98 = call i32 @llvm.usub.sat.i32(i32 %30, i32 384)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %97, ptr noundef nonnull @.str.1771, i32 noundef %98) #10
   br label %dissect_nvme_identify_resp.exit
 
-101:                                              ; preds = %47
+99:                                               ; preds = %47
   %.not.i12.i = icmp eq i32 %30, 0
-  br i1 %.not.i12.i, label %102, label %106
+  br i1 %.not.i12.i, label %100, label %104
 
-102:                                              ; preds = %101
-  %103 = icmp ult i32 %5, 2
-  br i1 %103, label %dissect_nvme_identify_resp.exit, label %.thread.i.i
+100:                                              ; preds = %99
+  %101 = icmp ult i32 %5, 2
+  br i1 %101, label %dissect_nvme_identify_resp.exit, label %.thread.i.i
 
-.thread.i.i:                                      ; preds = %102
-  %104 = load i32, ptr @hf_nvme_identify_ctrl_vid, align 4
-  %105 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %104, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef -2147483648) #10
-  br label %108
+.thread.i.i:                                      ; preds = %100
+  %102 = load i32, ptr @hf_nvme_identify_ctrl_vid, align 4
+  %103 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %102, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef -2147483648) #10
+  br label %106
 
-106:                                              ; preds = %101
-  %107 = icmp ult i32 %30, 3
-  br i1 %107, label %108, label %114
+104:                                              ; preds = %99
+  %105 = icmp ult i32 %30, 3
+  br i1 %105, label %106, label %112
 
-108:                                              ; preds = %106, %.thread.i.i
-  %109 = sub nuw nsw i32 4, %30
-  %110 = icmp ugt i32 %109, %5
-  br i1 %110, label %dissect_nvme_identify_resp.exit, label %.thread490.i.i
+106:                                              ; preds = %104, %.thread.i.i
+  %107 = sub nuw nsw i32 4, %30
+  %108 = icmp ugt i32 %107, %5
+  br i1 %108, label %dissect_nvme_identify_resp.exit, label %.thread490.i.i
 
-.thread490.i.i:                                   ; preds = %108
-  %111 = sub nuw nsw i32 2, %30
-  %112 = load i32, ptr @hf_nvme_identify_ctrl_ssvid, align 4
-  %113 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %112, ptr noundef %0, i32 noundef %111, i32 noundef 2, i32 noundef -2147483648) #10
-  br label %116
+.thread490.i.i:                                   ; preds = %106
+  %109 = sub nuw nsw i32 2, %30
+  %110 = load i32, ptr @hf_nvme_identify_ctrl_ssvid, align 4
+  %111 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %110, ptr noundef %0, i32 noundef %109, i32 noundef 2, i32 noundef -2147483648) #10
+  br label %114
 
-114:                                              ; preds = %106
-  %115 = icmp ult i32 %30, 5
-  br i1 %115, label %116, label %122
+112:                                              ; preds = %104
+  %113 = icmp ult i32 %30, 5
+  br i1 %113, label %114, label %120
 
-116:                                              ; preds = %114, %.thread490.i.i
-  %117 = sub nuw nsw i32 24, %30
-  %118 = icmp ugt i32 %117, %5
-  br i1 %118, label %dissect_nvme_identify_resp.exit, label %.thread491.i.i
+114:                                              ; preds = %112, %.thread490.i.i
+  %115 = sub nuw nsw i32 24, %30
+  %116 = icmp ugt i32 %115, %5
+  br i1 %116, label %dissect_nvme_identify_resp.exit, label %.thread491.i.i
 
-.thread491.i.i:                                   ; preds = %116
-  %119 = sub nuw nsw i32 4, %30
-  %120 = load i32, ptr @hf_nvme_identify_ctrl_sn, align 4
-  %121 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %120, ptr noundef %0, i32 noundef %119, i32 noundef 20, i32 noundef 0) #10
-  br label %124
+.thread491.i.i:                                   ; preds = %114
+  %117 = sub nuw nsw i32 4, %30
+  %118 = load i32, ptr @hf_nvme_identify_ctrl_sn, align 4
+  %119 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %118, ptr noundef %0, i32 noundef %117, i32 noundef 20, i32 noundef 0) #10
+  br label %122
 
-122:                                              ; preds = %114
-  %123 = icmp ult i32 %30, 25
-  br i1 %123, label %124, label %130
+120:                                              ; preds = %112
+  %121 = icmp ult i32 %30, 25
+  br i1 %121, label %122, label %128
 
-124:                                              ; preds = %122, %.thread491.i.i
-  %125 = sub nuw nsw i32 64, %30
-  %126 = icmp ugt i32 %125, %5
-  br i1 %126, label %dissect_nvme_identify_resp.exit, label %.thread492.i.i
+122:                                              ; preds = %120, %.thread491.i.i
+  %123 = sub nuw nsw i32 64, %30
+  %124 = icmp ugt i32 %123, %5
+  br i1 %124, label %dissect_nvme_identify_resp.exit, label %.thread492.i.i
 
-.thread492.i.i:                                   ; preds = %124
-  %127 = sub nuw nsw i32 24, %30
-  %128 = load i32, ptr @hf_nvme_identify_ctrl_mn, align 4
-  %129 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %128, ptr noundef %0, i32 noundef %127, i32 noundef 40, i32 noundef 0) #10
-  br label %132
+.thread492.i.i:                                   ; preds = %122
+  %125 = sub nuw nsw i32 24, %30
+  %126 = load i32, ptr @hf_nvme_identify_ctrl_mn, align 4
+  %127 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %126, ptr noundef %0, i32 noundef %125, i32 noundef 40, i32 noundef 0) #10
+  br label %130
 
-130:                                              ; preds = %122
-  %131 = icmp ult i32 %30, 65
-  br i1 %131, label %132, label %138
+128:                                              ; preds = %120
+  %129 = icmp ult i32 %30, 65
+  br i1 %129, label %130, label %136
 
-132:                                              ; preds = %130, %.thread492.i.i
-  %133 = sub nuw nsw i32 72, %30
-  %134 = icmp ugt i32 %133, %5
-  br i1 %134, label %dissect_nvme_identify_resp.exit, label %.thread493.i.i
+130:                                              ; preds = %128, %.thread492.i.i
+  %131 = sub nuw nsw i32 72, %30
+  %132 = icmp ugt i32 %131, %5
+  br i1 %132, label %dissect_nvme_identify_resp.exit, label %.thread493.i.i
 
-.thread493.i.i:                                   ; preds = %132
-  %135 = sub nuw nsw i32 64, %30
-  %136 = load i32, ptr @hf_nvme_identify_ctrl_fr, align 4
-  %137 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %136, ptr noundef %0, i32 noundef %135, i32 noundef 8, i32 noundef 0) #10
-  br label %140
+.thread493.i.i:                                   ; preds = %130
+  %133 = sub nuw nsw i32 64, %30
+  %134 = load i32, ptr @hf_nvme_identify_ctrl_fr, align 4
+  %135 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %134, ptr noundef %0, i32 noundef %133, i32 noundef 8, i32 noundef 0) #10
+  br label %138
 
-138:                                              ; preds = %130
-  %139 = icmp ult i32 %30, 73
-  br i1 %139, label %140, label %146
+136:                                              ; preds = %128
+  %137 = icmp ult i32 %30, 73
+  br i1 %137, label %138, label %144
 
-140:                                              ; preds = %138, %.thread493.i.i
-  %141 = sub nuw nsw i32 73, %30
-  %142 = icmp ugt i32 %141, %5
-  br i1 %142, label %dissect_nvme_identify_resp.exit, label %.thread494.i.i
+138:                                              ; preds = %136, %.thread493.i.i
+  %139 = sub nuw nsw i32 73, %30
+  %140 = icmp ugt i32 %139, %5
+  br i1 %140, label %dissect_nvme_identify_resp.exit, label %.thread494.i.i
 
-.thread494.i.i:                                   ; preds = %140
-  %143 = sub nuw nsw i32 72, %30
-  %144 = load i32, ptr @hf_nvme_identify_ctrl_rab, align 4
-  %145 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %144, ptr noundef %0, i32 noundef %143, i32 noundef 1, i32 noundef -2147483648) #10
-  br label %148
+.thread494.i.i:                                   ; preds = %138
+  %141 = sub nuw nsw i32 72, %30
+  %142 = load i32, ptr @hf_nvme_identify_ctrl_rab, align 4
+  %143 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %142, ptr noundef %0, i32 noundef %141, i32 noundef 1, i32 noundef -2147483648) #10
+  br label %146
 
-146:                                              ; preds = %138
-  %147 = icmp eq i32 %30, 73
-  br i1 %147, label %148, label %154
+144:                                              ; preds = %136
+  %145 = icmp eq i32 %30, 73
+  br i1 %145, label %146, label %152
 
-148:                                              ; preds = %146, %.thread494.i.i
-  %149 = sub nuw nsw i32 76, %30
-  %150 = icmp ugt i32 %149, %5
-  br i1 %150, label %dissect_nvme_identify_resp.exit, label %.thread495.i.i
+146:                                              ; preds = %144, %.thread494.i.i
+  %147 = sub nuw nsw i32 76, %30
+  %148 = icmp ugt i32 %147, %5
+  br i1 %148, label %dissect_nvme_identify_resp.exit, label %.thread495.i.i
 
-.thread495.i.i:                                   ; preds = %148
-  %151 = sub nuw nsw i32 73, %30
-  %152 = load i32, ptr @hf_nvme_identify_ctrl_ieee, align 4
-  %153 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %152, ptr noundef %0, i32 noundef %151, i32 noundef 3, i32 noundef -2147483648) #10
-  br label %156
+.thread495.i.i:                                   ; preds = %146
+  %149 = sub nuw nsw i32 73, %30
+  %150 = load i32, ptr @hf_nvme_identify_ctrl_ieee, align 4
+  %151 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %150, ptr noundef %0, i32 noundef %149, i32 noundef 3, i32 noundef -2147483648) #10
+  br label %154
 
-154:                                              ; preds = %146
-  %155 = icmp ult i32 %30, 77
-  br i1 %155, label %156, label %add_group_mask_entry.exit.i.i
+152:                                              ; preds = %144
+  %153 = icmp ult i32 %30, 77
+  br i1 %153, label %154, label %add_group_mask_entry.exit.i.i
 
-156:                                              ; preds = %154, %.thread495.i.i
-  %157 = sub nuw nsw i32 77, %30
-  %158 = icmp ugt i32 %157, %5
-  br i1 %158, label %dissect_nvme_identify_resp.exit, label %159
+154:                                              ; preds = %152, %.thread495.i.i
+  %155 = sub nuw nsw i32 77, %30
+  %156 = icmp ugt i32 %155, %5
+  br i1 %156, label %dissect_nvme_identify_resp.exit, label %157
 
-159:                                              ; preds = %156
-  %160 = sub nuw nsw i32 76, %30
-  %161 = load i32, ptr @hf_nvme_identify_ctrl_cmic, align 16
-  %162 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %161, ptr noundef %0, i32 noundef %160, i32 noundef 1, i32 noundef -2147483648) #10
-  %163 = load i32, ptr @ett_data, align 4
-  %164 = call ptr @proto_item_add_subtree(ptr noundef %162, i32 noundef %163) #10
-  br label %165
+157:                                              ; preds = %154
+  %158 = sub nuw nsw i32 76, %30
+  %159 = load i32, ptr @hf_nvme_identify_ctrl_cmic, align 16
+  %160 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %159, ptr noundef %0, i32 noundef %158, i32 noundef 1, i32 noundef -2147483648) #10
+  %161 = load i32, ptr @ett_data, align 4
+  %162 = call ptr @proto_item_add_subtree(ptr noundef %160, i32 noundef %161) #10
+  br label %163
 
-165:                                              ; preds = %165, %159
-  %indvars.iv.i.i.i = phi i64 [ 1, %159 ], [ %indvars.iv.next.i.i.i, %165 ]
-  %166 = getelementptr i32, ptr @hf_nvme_identify_ctrl_cmic, i64 %indvars.iv.i.i.i
-  %167 = load i32, ptr %166, align 4
-  %168 = call ptr @proto_tree_add_item(ptr noundef %164, i32 noundef %167, ptr noundef %0, i32 noundef %160, i32 noundef 1, i32 noundef -2147483648) #10
+163:                                              ; preds = %163, %157
+  %indvars.iv.i.i.i = phi i64 [ 1, %157 ], [ %indvars.iv.next.i.i.i, %163 ]
+  %164 = getelementptr i32, ptr @hf_nvme_identify_ctrl_cmic, i64 %indvars.iv.i.i.i
+  %165 = load i32, ptr %164, align 4
+  %166 = call ptr @proto_tree_add_item(ptr noundef %162, i32 noundef %165, ptr noundef %0, i32 noundef %158, i32 noundef 1, i32 noundef -2147483648) #10
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i13.i = icmp eq i64 %indvars.iv.next.i.i.i, 6
-  br i1 %exitcond.not.i.i13.i, label %add_group_mask_entry.exit.i.i, label %165, !llvm.loop !6
+  br i1 %exitcond.not.i.i13.i, label %add_group_mask_entry.exit.i.i, label %163, !llvm.loop !6
 
-add_group_mask_entry.exit.i.i:                    ; preds = %165, %154
-  %169 = icmp ult i32 %30, 78
-  br i1 %169, label %170, label %176
+add_group_mask_entry.exit.i.i:                    ; preds = %163, %152
+  %167 = icmp ult i32 %30, 78
+  br i1 %167, label %168, label %174
 
-170:                                              ; preds = %add_group_mask_entry.exit.i.i
-  %171 = sub nuw nsw i32 78, %30
-  %172 = icmp ugt i32 %171, %5
-  br i1 %172, label %dissect_nvme_identify_resp.exit, label %.thread496.i.i
+168:                                              ; preds = %add_group_mask_entry.exit.i.i
+  %169 = sub nuw nsw i32 78, %30
+  %170 = icmp ugt i32 %169, %5
+  br i1 %170, label %dissect_nvme_identify_resp.exit, label %.thread496.i.i
 
-.thread496.i.i:                                   ; preds = %170
-  %173 = sub nuw nsw i32 77, %30
-  %174 = load i32, ptr @hf_nvme_identify_ctrl_mdts, align 4
-  %175 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %174, ptr noundef %0, i32 noundef %173, i32 noundef 1, i32 noundef -2147483648) #10
-  br label %178
+.thread496.i.i:                                   ; preds = %168
+  %171 = sub nuw nsw i32 77, %30
+  %172 = load i32, ptr @hf_nvme_identify_ctrl_mdts, align 4
+  %173 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %172, ptr noundef %0, i32 noundef %171, i32 noundef 1, i32 noundef -2147483648) #10
+  br label %176
 
-176:                                              ; preds = %add_group_mask_entry.exit.i.i
-  %177 = icmp eq i32 %30, 78
-  br i1 %177, label %178, label %184
+174:                                              ; preds = %add_group_mask_entry.exit.i.i
+  %175 = icmp eq i32 %30, 78
+  br i1 %175, label %176, label %182
 
-178:                                              ; preds = %176, %.thread496.i.i
-  %179 = sub nuw nsw i32 80, %30
-  %180 = icmp ugt i32 %179, %5
-  br i1 %180, label %dissect_nvme_identify_resp.exit, label %.thread497.i.i
+176:                                              ; preds = %174, %.thread496.i.i
+  %177 = sub nuw nsw i32 80, %30
+  %178 = icmp ugt i32 %177, %5
+  br i1 %178, label %dissect_nvme_identify_resp.exit, label %.thread497.i.i
 
-.thread497.i.i:                                   ; preds = %178
-  %181 = sub nuw nsw i32 78, %30
-  %182 = load i32, ptr @hf_nvme_identify_ctrl_cntlid, align 4
-  %183 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %182, ptr noundef %0, i32 noundef %181, i32 noundef 2, i32 noundef -2147483648) #10
-  br label %186
+.thread497.i.i:                                   ; preds = %176
+  %179 = sub nuw nsw i32 78, %30
+  %180 = load i32, ptr @hf_nvme_identify_ctrl_cntlid, align 4
+  %181 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %180, ptr noundef %0, i32 noundef %179, i32 noundef 2, i32 noundef -2147483648) #10
+  br label %184
 
-184:                                              ; preds = %176
-  %185 = icmp ult i32 %30, 81
-  br i1 %185, label %186, label %189
+182:                                              ; preds = %174
+  %183 = icmp ult i32 %30, 81
+  br i1 %183, label %184, label %187
 
-186:                                              ; preds = %184, %.thread497.i.i
-  %187 = sub nuw nsw i32 84, %30
-  %188 = icmp ugt i32 %187, %5
-  br i1 %188, label %dissect_nvme_identify_resp.exit, label %.thread498.i.i
+184:                                              ; preds = %182, %.thread497.i.i
+  %185 = sub nuw nsw i32 84, %30
+  %186 = icmp ugt i32 %185, %5
+  br i1 %186, label %dissect_nvme_identify_resp.exit, label %.thread498.i.i
 
-.thread498.i.i:                                   ; preds = %186
+.thread498.i.i:                                   ; preds = %184
   call fastcc void @dissect_nvme_identify_ctrl_resp_ver(ptr noundef %0, ptr noundef %36, i32 noundef %30)
-  br label %191
+  br label %189
 
-189:                                              ; preds = %184
-  %190 = icmp ult i32 %30, 85
-  br i1 %190, label %191, label %197
+187:                                              ; preds = %182
+  %188 = icmp ult i32 %30, 85
+  br i1 %188, label %189, label %195
 
-191:                                              ; preds = %189, %.thread498.i.i
-  %192 = sub nuw nsw i32 88, %30
-  %193 = icmp ugt i32 %192, %5
-  br i1 %193, label %dissect_nvme_identify_resp.exit, label %.thread499.i.i
+189:                                              ; preds = %187, %.thread498.i.i
+  %190 = sub nuw nsw i32 88, %30
+  %191 = icmp ugt i32 %190, %5
+  br i1 %191, label %dissect_nvme_identify_resp.exit, label %.thread499.i.i
 
-.thread499.i.i:                                   ; preds = %191
-  %194 = sub nuw nsw i32 84, %30
-  %195 = load i32, ptr @hf_nvme_identify_ctrl_rtd3r, align 4
-  %196 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %195, ptr noundef %0, i32 noundef %194, i32 noundef 4, i32 noundef -2147483648) #10
-  br label %199
+.thread499.i.i:                                   ; preds = %189
+  %192 = sub nuw nsw i32 84, %30
+  %193 = load i32, ptr @hf_nvme_identify_ctrl_rtd3r, align 4
+  %194 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %193, ptr noundef %0, i32 noundef %192, i32 noundef 4, i32 noundef -2147483648) #10
+  br label %197
 
-197:                                              ; preds = %189
-  %198 = icmp ult i32 %30, 89
-  br i1 %198, label %199, label %205
+195:                                              ; preds = %187
+  %196 = icmp ult i32 %30, 89
+  br i1 %196, label %197, label %203
 
-199:                                              ; preds = %197, %.thread499.i.i
-  %200 = sub nuw nsw i32 92, %30
-  %201 = icmp ugt i32 %200, %5
-  br i1 %201, label %dissect_nvme_identify_resp.exit, label %.thread500.i.i
+197:                                              ; preds = %195, %.thread499.i.i
+  %198 = sub nuw nsw i32 92, %30
+  %199 = icmp ugt i32 %198, %5
+  br i1 %199, label %dissect_nvme_identify_resp.exit, label %.thread500.i.i
 
-.thread500.i.i:                                   ; preds = %199
-  %202 = sub nuw nsw i32 88, %30
-  %203 = load i32, ptr @hf_nvme_identify_ctrl_rtd3e, align 4
-  %204 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %203, ptr noundef %0, i32 noundef %202, i32 noundef 4, i32 noundef -2147483648) #10
-  br label %207
+.thread500.i.i:                                   ; preds = %197
+  %200 = sub nuw nsw i32 88, %30
+  %201 = load i32, ptr @hf_nvme_identify_ctrl_rtd3e, align 4
+  %202 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %201, ptr noundef %0, i32 noundef %200, i32 noundef 4, i32 noundef -2147483648) #10
+  br label %205
 
-205:                                              ; preds = %197
-  %206 = icmp ult i32 %30, 93
-  br i1 %206, label %207, label %211
+203:                                              ; preds = %195
+  %204 = icmp ult i32 %30, 93
+  br i1 %204, label %205, label %209
 
-207:                                              ; preds = %205, %.thread500.i.i
-  %208 = sub nuw nsw i32 96, %30
-  %209 = icmp ugt i32 %208, %5
-  br i1 %209, label %dissect_nvme_identify_resp.exit, label %.thread501.i.i
+205:                                              ; preds = %203, %.thread500.i.i
+  %206 = sub nuw nsw i32 96, %30
+  %207 = icmp ugt i32 %206, %5
+  br i1 %207, label %dissect_nvme_identify_resp.exit, label %.thread501.i.i
 
-.thread501.i.i:                                   ; preds = %207
-  %210 = sub nuw nsw i32 92, %30
-  call fastcc void @add_group_mask_entry(ptr noundef %0, ptr noundef %36, i32 noundef %210, i32 noundef 4, ptr noundef nonnull @hf_nvme_identify_ctrl_oaes, i32 noundef 10)
-  br label %213
+.thread501.i.i:                                   ; preds = %205
+  %208 = sub nuw nsw i32 92, %30
+  call fastcc void @add_group_mask_entry(ptr noundef %0, ptr noundef %36, i32 noundef %208, i32 noundef 4, ptr noundef nonnull @hf_nvme_identify_ctrl_oaes, i32 noundef 10)
+  br label %211
 
-211:                                              ; preds = %205
-  %212 = icmp ult i32 %30, 97
-  br i1 %212, label %213, label %217
+209:                                              ; preds = %203
+  %210 = icmp ult i32 %30, 97
+  br i1 %210, label %211, label %215
 
-213:                                              ; preds = %211, %.thread501.i.i
-  %214 = sub nuw nsw i32 100, %30
-  %215 = icmp ugt i32 %214, %5
-  br i1 %215, label %dissect_nvme_identify_resp.exit, label %.thread502.i.i
+211:                                              ; preds = %209, %.thread501.i.i
+  %212 = sub nuw nsw i32 100, %30
+  %213 = icmp ugt i32 %212, %5
+  br i1 %213, label %dissect_nvme_identify_resp.exit, label %.thread502.i.i
 
-.thread502.i.i:                                   ; preds = %213
-  %216 = sub nuw nsw i32 96, %30
-  call fastcc void @add_group_mask_entry(ptr noundef %0, ptr noundef %36, i32 noundef %216, i32 noundef 4, ptr noundef nonnull @hf_nvme_identify_ctrl_ctratt, i32 noundef 12)
-  br label %219
+.thread502.i.i:                                   ; preds = %211
+  %214 = sub nuw nsw i32 96, %30
+  call fastcc void @add_group_mask_entry(ptr noundef %0, ptr noundef %36, i32 noundef %214, i32 noundef 4, ptr noundef nonnull @hf_nvme_identify_ctrl_ctratt, i32 noundef 12)
+  br label %217
 
-217:                                              ; preds = %211
-  %218 = icmp ult i32 %30, 101
-  br i1 %218, label %219, label %223
+215:                                              ; preds = %209
+  %216 = icmp ult i32 %30, 101
+  br i1 %216, label %217, label %221
 
-219:                                              ; preds = %217, %.thread502.i.i
-  %220 = sub nuw nsw i32 102, %30
-  %221 = icmp ugt i32 %220, %5
-  br i1 %221, label %dissect_nvme_identify_resp.exit, label %.thread503.i.i
+217:                                              ; preds = %215, %.thread502.i.i
+  %218 = sub nuw nsw i32 102, %30
+  %219 = icmp ugt i32 %218, %5
+  br i1 %219, label %dissect_nvme_identify_resp.exit, label %.thread503.i.i
 
-.thread503.i.i:                                   ; preds = %219
-  %222 = sub nuw nsw i32 100, %30
-  call fastcc void @add_group_mask_entry(ptr noundef %0, ptr noundef %36, i32 noundef %222, i32 noundef 2, ptr noundef nonnull @hf_nvme_identify_ctrl_rrls, i32 noundef 17)
-  br label %225
+.thread503.i.i:                                   ; preds = %217
+  %220 = sub nuw nsw i32 100, %30
+  call fastcc void @add_group_mask_entry(ptr noundef %0, ptr noundef %36, i32 noundef %220, i32 noundef 2, ptr noundef nonnull @hf_nvme_identify_ctrl_rrls, i32 noundef 17)
+  br label %223
 
-223:                                              ; preds = %217
-  %224 = icmp ult i32 %30, 103
-  br i1 %224, label %225, label %231
+221:                                              ; preds = %215
+  %222 = icmp ult i32 %30, 103
+  br i1 %222, label %223, label %229
 
-225:                                              ; preds = %223, %.thread503.i.i
-  %226 = sub nuw nsw i32 111, %30
-  %227 = icmp ugt i32 %226, %5
-  br i1 %227, label %dissect_nvme_identify_resp.exit, label %.thread504.i.i
+223:                                              ; preds = %221, %.thread503.i.i
+  %224 = sub nuw nsw i32 111, %30
+  %225 = icmp ugt i32 %224, %5
+  br i1 %225, label %dissect_nvme_identify_resp.exit, label %.thread504.i.i
 
-.thread504.i.i:                                   ; preds = %225
-  %228 = sub nuw nsw i32 102, %30
-  %229 = load i32, ptr @hf_nvme_identify_ctrl_rsvd0, align 4
-  %230 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %229, ptr noundef %0, i32 noundef %228, i32 noundef 9, i32 noundef 0) #10
-  br label %233
+.thread504.i.i:                                   ; preds = %223
+  %226 = sub nuw nsw i32 102, %30
+  %227 = load i32, ptr @hf_nvme_identify_ctrl_rsvd0, align 4
+  %228 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %227, ptr noundef %0, i32 noundef %226, i32 noundef 9, i32 noundef 0) #10
+  br label %231
 
-231:                                              ; preds = %223
-  %232 = icmp ult i32 %30, 112
-  br i1 %232, label %233, label %239
+229:                                              ; preds = %221
+  %230 = icmp ult i32 %30, 112
+  br i1 %230, label %231, label %237
 
-233:                                              ; preds = %231, %.thread504.i.i
-  %234 = sub nuw nsw i32 112, %30
-  %235 = icmp ugt i32 %234, %5
-  br i1 %235, label %dissect_nvme_identify_resp.exit, label %.thread505.i.i
+231:                                              ; preds = %229, %.thread504.i.i
+  %232 = sub nuw nsw i32 112, %30
+  %233 = icmp ugt i32 %232, %5
+  br i1 %233, label %dissect_nvme_identify_resp.exit, label %.thread505.i.i
 
-.thread505.i.i:                                   ; preds = %233
-  %236 = sub nuw nsw i32 111, %30
-  %237 = load i32, ptr @hf_nvme_identify_ctrl_cntrltype, align 4
-  %238 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %237, ptr noundef %0, i32 noundef %236, i32 noundef 1, i32 noundef -2147483648) #10
-  br label %241
+.thread505.i.i:                                   ; preds = %231
+  %234 = sub nuw nsw i32 111, %30
+  %235 = load i32, ptr @hf_nvme_identify_ctrl_cntrltype, align 4
+  %236 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %235, ptr noundef %0, i32 noundef %234, i32 noundef 1, i32 noundef -2147483648) #10
+  br label %239
 
-239:                                              ; preds = %231
-  %240 = icmp eq i32 %30, 112
-  br i1 %240, label %241, label %244
+237:                                              ; preds = %229
+  %238 = icmp eq i32 %30, 112
+  br i1 %238, label %239, label %242
 
-241:                                              ; preds = %239, %.thread505.i.i
-  %242 = sub nuw nsw i32 128, %30
-  %243 = icmp ugt i32 %242, %5
-  br i1 %243, label %dissect_nvme_identify_resp.exit, label %.thread506.i.i
+239:                                              ; preds = %237, %.thread505.i.i
+  %240 = sub nuw nsw i32 128, %30
+  %241 = icmp ugt i32 %240, %5
+  br i1 %241, label %dissect_nvme_identify_resp.exit, label %.thread506.i.i
 
-.thread506.i.i:                                   ; preds = %241
+.thread506.i.i:                                   ; preds = %239
   call fastcc void @dissect_nvme_identify_ctrl_resp_fguid(ptr noundef %0, ptr noundef %36, i32 noundef %30)
-  br label %246
+  br label %244
 
-244:                                              ; preds = %239
-  %245 = icmp ult i32 %30, 129
-  br i1 %245, label %246, label %252
+242:                                              ; preds = %237
+  %243 = icmp ult i32 %30, 129
+  br i1 %243, label %244, label %250
 
-246:                                              ; preds = %244, %.thread506.i.i
-  %247 = sub nuw nsw i32 130, %30
-  %248 = icmp ugt i32 %247, %5
-  br i1 %248, label %dissect_nvme_identify_resp.exit, label %.thread507.i.i
+244:                                              ; preds = %242, %.thread506.i.i
+  %245 = sub nuw nsw i32 130, %30
+  %246 = icmp ugt i32 %245, %5
+  br i1 %246, label %dissect_nvme_identify_resp.exit, label %.thread507.i.i
 
-.thread507.i.i:                                   ; preds = %246
-  %249 = sub nuw nsw i32 128, %30
-  %250 = load i32, ptr @hf_nvme_identify_ctrl_crdt1, align 4
-  %251 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %250, ptr noundef %0, i32 noundef %249, i32 noundef 2, i32 noundef -2147483648) #10
-  br label %254
+.thread507.i.i:                                   ; preds = %244
+  %247 = sub nuw nsw i32 128, %30
+  %248 = load i32, ptr @hf_nvme_identify_ctrl_crdt1, align 4
+  %249 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %248, ptr noundef %0, i32 noundef %247, i32 noundef 2, i32 noundef -2147483648) #10
+  br label %252
 
-252:                                              ; preds = %244
-  %253 = icmp ult i32 %30, 131
-  br i1 %253, label %254, label %260
+250:                                              ; preds = %242
+  %251 = icmp ult i32 %30, 131
+  br i1 %251, label %252, label %258
 
-254:                                              ; preds = %252, %.thread507.i.i
-  %255 = sub nuw nsw i32 132, %30
-  %256 = icmp ugt i32 %255, %5
-  br i1 %256, label %dissect_nvme_identify_resp.exit, label %.thread508.i.i
+252:                                              ; preds = %250, %.thread507.i.i
+  %253 = sub nuw nsw i32 132, %30
+  %254 = icmp ugt i32 %253, %5
+  br i1 %254, label %dissect_nvme_identify_resp.exit, label %.thread508.i.i
 
-.thread508.i.i:                                   ; preds = %254
-  %257 = sub nuw nsw i32 130, %30
-  %258 = load i32, ptr @hf_nvme_identify_ctrl_crdt2, align 4
-  %259 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %258, ptr noundef %0, i32 noundef %257, i32 noundef 2, i32 noundef -2147483648) #10
-  br label %262
+.thread508.i.i:                                   ; preds = %252
+  %255 = sub nuw nsw i32 130, %30
+  %256 = load i32, ptr @hf_nvme_identify_ctrl_crdt2, align 4
+  %257 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %256, ptr noundef %0, i32 noundef %255, i32 noundef 2, i32 noundef -2147483648) #10
+  br label %260
 
-260:                                              ; preds = %252
-  %261 = icmp ult i32 %30, 133
-  br i1 %261, label %262, label %.critedge.i.i
+258:                                              ; preds = %250
+  %259 = icmp ult i32 %30, 133
+  br i1 %259, label %260, label %.critedge.i.i
 
-262:                                              ; preds = %260, %.thread508.i.i
-  %263 = sub nuw nsw i32 134, %30
-  %264 = icmp ugt i32 %263, %5
-  br i1 %264, label %dissect_nvme_identify_resp.exit, label %265
+260:                                              ; preds = %258, %.thread508.i.i
+  %261 = sub nuw nsw i32 134, %30
+  %262 = icmp ugt i32 %261, %5
+  br i1 %262, label %dissect_nvme_identify_resp.exit, label %263
 
-265:                                              ; preds = %262
-  %266 = sub nuw nsw i32 132, %30
-  %267 = load i32, ptr @hf_nvme_identify_ctrl_crdt3, align 4
-  %268 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %267, ptr noundef %0, i32 noundef %266, i32 noundef 2, i32 noundef -2147483648) #10
-  %269 = sub nuw nsw i32 136, %30
-  %270 = icmp ugt i32 %269, %5
-  br i1 %270, label %dissect_nvme_identify_resp.exit, label %.critedge.thread.i.i
+263:                                              ; preds = %260
+  %264 = sub nuw nsw i32 132, %30
+  %265 = load i32, ptr @hf_nvme_identify_ctrl_crdt3, align 4
+  %266 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %265, ptr noundef %0, i32 noundef %264, i32 noundef 2, i32 noundef -2147483648) #10
+  %267 = sub nuw nsw i32 136, %30
+  %268 = icmp ugt i32 %267, %5
+  br i1 %268, label %dissect_nvme_identify_resp.exit, label %.critedge.thread.i.i
 
-.critedge.thread.i.i:                             ; preds = %265
-  %271 = load i32, ptr @hf_nvme_identify_ctrl_rsvd1, align 4
-  %272 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %271, ptr noundef %0, i32 noundef %263, i32 noundef 106, i32 noundef 0) #10
-  br label %274
+.critedge.thread.i.i:                             ; preds = %263
+  %269 = load i32, ptr @hf_nvme_identify_ctrl_rsvd1, align 4
+  %270 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %269, ptr noundef %0, i32 noundef %261, i32 noundef 106, i32 noundef 0) #10
+  br label %272
 
-.critedge.i.i:                                    ; preds = %260
-  %273 = icmp ult i32 %30, 241
-  br i1 %273, label %274, label %277
+.critedge.i.i:                                    ; preds = %258
+  %271 = icmp ult i32 %30, 241
+  br i1 %271, label %272, label %275
 
-274:                                              ; preds = %.critedge.i.i, %.critedge.thread.i.i
-  %275 = sub nuw nsw i32 256, %30
-  %276 = icmp ugt i32 %275, %5
-  br i1 %276, label %dissect_nvme_identify_resp.exit, label %.thread509.i.i
+272:                                              ; preds = %.critedge.i.i, %.critedge.thread.i.i
+  %273 = sub nuw nsw i32 256, %30
+  %274 = icmp ugt i32 %273, %5
+  br i1 %274, label %dissect_nvme_identify_resp.exit, label %.thread509.i.i
 
-.thread509.i.i:                                   ; preds = %274
+.thread509.i.i:                                   ; preds = %272
   call fastcc void @dissect_nvme_identify_ctrl_resp_mi(ptr noundef %0, ptr noundef %36, i32 noundef %30)
-  br label %279
+  br label %277
 
-277:                                              ; preds = %.critedge.i.i
-  %278 = icmp ult i32 %30, 257
-  br i1 %278, label %279, label %283
+275:                                              ; preds = %.critedge.i.i
+  %276 = icmp ult i32 %30, 257
+  br i1 %276, label %277, label %281
 
-279:                                              ; preds = %277, %.thread509.i.i
-  %280 = sub nuw nsw i32 258, %30
-  %281 = icmp ugt i32 %280, %5
-  br i1 %281, label %dissect_nvme_identify_resp.exit, label %.thread510.i.i
+277:                                              ; preds = %275, %.thread509.i.i
+  %278 = sub nuw nsw i32 258, %30
+  %279 = icmp ugt i32 %278, %5
+  br i1 %279, label %dissect_nvme_identify_resp.exit, label %.thread510.i.i
 
-.thread510.i.i:                                   ; preds = %279
-  %282 = sub nuw nsw i32 256, %30
-  call fastcc void @add_group_mask_entry(ptr noundef %0, ptr noundef %36, i32 noundef %282, i32 noundef 2, ptr noundef nonnull @hf_nvme_identify_ctrl_oacs, i32 noundef 12)
-  br label %285
+.thread510.i.i:                                   ; preds = %277
+  %280 = sub nuw nsw i32 256, %30
+  call fastcc void @add_group_mask_entry(ptr noundef %0, ptr noundef %36, i32 noundef %280, i32 noundef 2, ptr noundef nonnull @hf_nvme_identify_ctrl_oacs, i32 noundef 12)
+  br label %283
 
-283:                                              ; preds = %277
-  %284 = icmp ult i32 %30, 259
-  br i1 %284, label %285, label %291
+281:                                              ; preds = %275
+  %282 = icmp ult i32 %30, 259
+  br i1 %282, label %283, label %289
 
-285:                                              ; preds = %283, %.thread510.i.i
-  %286 = sub nuw nsw i32 259, %30
-  %287 = icmp ugt i32 %286, %5
-  br i1 %287, label %dissect_nvme_identify_resp.exit, label %.thread511.i.i
+283:                                              ; preds = %281, %.thread510.i.i
+  %284 = sub nuw nsw i32 259, %30
+  %285 = icmp ugt i32 %284, %5
+  br i1 %285, label %dissect_nvme_identify_resp.exit, label %.thread511.i.i
 
-.thread511.i.i:                                   ; preds = %285
-  %288 = sub nuw nsw i32 258, %30
-  %289 = load i32, ptr @hf_nvme_identify_ctrl_acl, align 4
-  %290 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %289, ptr noundef %0, i32 noundef %288, i32 noundef 1, i32 noundef -2147483648) #10
-  br label %293
+.thread511.i.i:                                   ; preds = %283
+  %286 = sub nuw nsw i32 258, %30
+  %287 = load i32, ptr @hf_nvme_identify_ctrl_acl, align 4
+  %288 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %287, ptr noundef %0, i32 noundef %286, i32 noundef 1, i32 noundef -2147483648) #10
+  br label %291
 
-291:                                              ; preds = %283
-  %292 = icmp eq i32 %30, 259
-  br i1 %292, label %293, label %299
+289:                                              ; preds = %281
+  %290 = icmp eq i32 %30, 259
+  br i1 %290, label %291, label %297
 
-293:                                              ; preds = %291, %.thread511.i.i
-  %294 = sub nuw nsw i32 260, %30
-  %295 = icmp ugt i32 %294, %5
-  br i1 %295, label %dissect_nvme_identify_resp.exit, label %.thread512.i.i
+291:                                              ; preds = %289, %.thread511.i.i
+  %292 = sub nuw nsw i32 260, %30
+  %293 = icmp ugt i32 %292, %5
+  br i1 %293, label %dissect_nvme_identify_resp.exit, label %.thread512.i.i
 
-.thread512.i.i:                                   ; preds = %293
-  %296 = sub nuw nsw i32 259, %30
-  %297 = load i32, ptr @hf_nvme_identify_ctrl_aerl, align 4
-  %298 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %297, ptr noundef %0, i32 noundef %296, i32 noundef 1, i32 noundef -2147483648) #10
-  br label %301
+.thread512.i.i:                                   ; preds = %291
+  %294 = sub nuw nsw i32 259, %30
+  %295 = load i32, ptr @hf_nvme_identify_ctrl_aerl, align 4
+  %296 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %295, ptr noundef %0, i32 noundef %294, i32 noundef 1, i32 noundef -2147483648) #10
+  br label %299
 
-299:                                              ; preds = %291
-  %300 = icmp ult i32 %30, 261
-  br i1 %300, label %301, label %304
+297:                                              ; preds = %289
+  %298 = icmp ult i32 %30, 261
+  br i1 %298, label %299, label %302
 
-301:                                              ; preds = %299, %.thread512.i.i
-  %302 = sub nuw nsw i32 261, %30
-  %303 = icmp ugt i32 %302, %5
-  br i1 %303, label %dissect_nvme_identify_resp.exit, label %.thread513.i.i
+299:                                              ; preds = %297, %.thread512.i.i
+  %300 = sub nuw nsw i32 261, %30
+  %301 = icmp ugt i32 %300, %5
+  br i1 %301, label %dissect_nvme_identify_resp.exit, label %.thread513.i.i
 
-.thread513.i.i:                                   ; preds = %301
+.thread513.i.i:                                   ; preds = %299
   call fastcc void @add_group_mask_entry(ptr noundef %0, ptr noundef %36, i32 noundef 260, i32 noundef 1, ptr noundef nonnull @hf_nvme_identify_ctrl_frmw, i32 noundef 5)
-  br label %306
-
-304:                                              ; preds = %299
-  %305 = icmp eq i32 %30, 261
-  br i1 %305, label %306, label %310
-
-306:                                              ; preds = %304, %.thread513.i.i
-  %307 = sub nuw nsw i32 262, %30
-  %308 = icmp ugt i32 %307, %5
-  br i1 %308, label %dissect_nvme_identify_resp.exit, label %.thread514.i.i
-
-.thread514.i.i:                                   ; preds = %306
-  %309 = sub nuw nsw i32 261, %30
-  call fastcc void @add_group_mask_entry(ptr noundef %0, ptr noundef %36, i32 noundef %309, i32 noundef 1, ptr noundef nonnull @hf_nvme_identify_ctrl_lpa, i32 noundef 7)
-  br label %312
-
-310:                                              ; preds = %304
-  %311 = icmp ult i32 %30, 263
-  br i1 %311, label %312, label %318
-
-312:                                              ; preds = %310, %.thread514.i.i
-  %313 = sub nuw nsw i32 263, %30
-  %314 = icmp ugt i32 %313, %5
-  br i1 %314, label %dissect_nvme_identify_resp.exit, label %.thread515.i.i
-
-.thread515.i.i:                                   ; preds = %312
-  %315 = sub nuw nsw i32 262, %30
-  %316 = load i32, ptr @hf_nvme_identify_ctrl_elpe, align 4
-  %317 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %316, ptr noundef %0, i32 noundef %315, i32 noundef 1, i32 noundef -2147483648) #10
-  br label %320
-
-318:                                              ; preds = %310
-  %319 = icmp eq i32 %30, 263
-  br i1 %319, label %320, label %326
-
-320:                                              ; preds = %318, %.thread515.i.i
-  %321 = sub nuw nsw i32 264, %30
-  %322 = icmp ugt i32 %321, %5
-  br i1 %322, label %dissect_nvme_identify_resp.exit, label %.thread516.i.i
-
-.thread516.i.i:                                   ; preds = %320
-  %323 = sub nuw nsw i32 263, %30
-  %324 = load i32, ptr @hf_nvme_identify_ctrl_npss, align 4
-  %325 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %324, ptr noundef %0, i32 noundef %323, i32 noundef 1, i32 noundef -2147483648) #10
-  br label %328
-
-326:                                              ; preds = %318
-  %327 = icmp ult i32 %30, 265
-  br i1 %327, label %328, label %332
-
-328:                                              ; preds = %326, %.thread516.i.i
-  %329 = sub nuw nsw i32 265, %30
-  %330 = icmp ugt i32 %329, %5
-  br i1 %330, label %dissect_nvme_identify_resp.exit, label %.thread517.i.i
-
-.thread517.i.i:                                   ; preds = %328
-  %331 = sub nuw nsw i32 264, %30
-  call fastcc void @add_group_mask_entry(ptr noundef %0, ptr noundef %36, i32 noundef %331, i32 noundef 1, ptr noundef nonnull @hf_nvme_identify_ctrl_avscc, i32 noundef 3)
-  br label %334
-
-332:                                              ; preds = %326
-  %333 = icmp eq i32 %30, 265
-  br i1 %333, label %334, label %338
-
-334:                                              ; preds = %332, %.thread517.i.i
-  %335 = sub nuw nsw i32 266, %30
-  %336 = icmp ugt i32 %335, %5
-  br i1 %336, label %dissect_nvme_identify_resp.exit, label %.thread518.i.i
-
-.thread518.i.i:                                   ; preds = %334
-  %337 = sub nuw nsw i32 265, %30
-  call fastcc void @add_group_mask_entry(ptr noundef %0, ptr noundef %36, i32 noundef %337, i32 noundef 1, ptr noundef nonnull @hf_nvme_identify_ctrl_apsta, i32 noundef 3)
-  br label %340
-
-338:                                              ; preds = %332
-  %339 = icmp ult i32 %30, 267
-  br i1 %339, label %340, label %346
-
-340:                                              ; preds = %338, %.thread518.i.i
-  %341 = sub nuw nsw i32 267, %30
-  %342 = icmp ugt i32 %341, %5
-  br i1 %342, label %dissect_nvme_identify_resp.exit, label %.thread519.i.i
-
-.thread519.i.i:                                   ; preds = %340
-  %343 = sub nuw nsw i32 266, %30
-  %344 = load i32, ptr @hf_nvme_identify_ctrl_wctemp, align 4
-  %345 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %344, ptr noundef %0, i32 noundef %343, i32 noundef 2, i32 noundef -2147483648) #10
-  br label %348
-
-346:                                              ; preds = %338
-  %347 = icmp ult i32 %30, 269
-  br i1 %347, label %348, label %354
-
-348:                                              ; preds = %346, %.thread519.i.i
-  %349 = sub nuw nsw i32 270, %30
-  %350 = icmp ugt i32 %349, %5
-  br i1 %350, label %dissect_nvme_identify_resp.exit, label %.thread520.i.i
-
-.thread520.i.i:                                   ; preds = %348
-  %351 = sub nuw nsw i32 268, %30
-  %352 = load i32, ptr @hf_nvme_identify_ctrl_cctemp, align 4
-  %353 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %352, ptr noundef %0, i32 noundef %351, i32 noundef 2, i32 noundef -2147483648) #10
-  br label %356
-
-354:                                              ; preds = %346
-  %355 = icmp ult i32 %30, 271
-  br i1 %355, label %356, label %362
-
-356:                                              ; preds = %354, %.thread520.i.i
-  %357 = sub nuw nsw i32 272, %30
-  %358 = icmp ugt i32 %357, %5
-  br i1 %358, label %dissect_nvme_identify_resp.exit, label %.thread521.i.i
-
-.thread521.i.i:                                   ; preds = %356
-  %359 = sub nuw nsw i32 270, %30
-  %360 = load i32, ptr @hf_nvme_identify_ctrl_mtfa, align 4
-  %361 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %360, ptr noundef %0, i32 noundef %359, i32 noundef 2, i32 noundef -2147483648) #10
-  br label %364
-
-362:                                              ; preds = %354
-  %363 = icmp ult i32 %30, 273
-  br i1 %363, label %364, label %370
-
-364:                                              ; preds = %362, %.thread521.i.i
-  %365 = sub nuw nsw i32 276, %30
-  %366 = icmp ugt i32 %365, %5
-  br i1 %366, label %dissect_nvme_identify_resp.exit, label %.thread522.i.i
-
-.thread522.i.i:                                   ; preds = %364
-  %367 = sub nuw nsw i32 272, %30
-  %368 = load i32, ptr @hf_nvme_identify_ctrl_hmpre, align 4
-  %369 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %368, ptr noundef %0, i32 noundef %367, i32 noundef 4, i32 noundef -2147483648) #10
-  br label %372
-
-370:                                              ; preds = %362
-  %371 = icmp ult i32 %30, 277
-  br i1 %371, label %372, label %378
-
-372:                                              ; preds = %370, %.thread522.i.i
-  %373 = sub nuw nsw i32 280, %30
-  %374 = icmp ugt i32 %373, %5
-  br i1 %374, label %dissect_nvme_identify_resp.exit, label %.thread523.i.i
-
-.thread523.i.i:                                   ; preds = %372
-  %375 = sub nuw nsw i32 276, %30
-  %376 = load i32, ptr @hf_nvme_identify_ctrl_hmmin, align 4
-  %377 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %376, ptr noundef %0, i32 noundef %375, i32 noundef 4, i32 noundef -2147483648) #10
-  br label %380
-
-378:                                              ; preds = %370
-  %379 = icmp ult i32 %30, 281
-  br i1 %379, label %380, label %386
-
-380:                                              ; preds = %378, %.thread523.i.i
-  %381 = sub nuw nsw i32 296, %30
-  %382 = icmp ugt i32 %381, %5
-  br i1 %382, label %dissect_nvme_identify_resp.exit, label %.thread524.i.i
-
-.thread524.i.i:                                   ; preds = %380
-  %383 = sub nuw nsw i32 280, %30
-  %384 = load i32, ptr @hf_nvme_identify_ctrl_tnvmcap, align 4
-  %385 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %384, ptr noundef %0, i32 noundef %383, i32 noundef 16, i32 noundef 0) #10
-  call fastcc void @post_add_bytes_from_16bytes(ptr noundef %385, ptr noundef %0, i32 noundef %383, i8 noundef zeroext 0)
-  br label %388
-
-386:                                              ; preds = %378
-  %387 = icmp ult i32 %30, 297
-  br i1 %387, label %388, label %394
-
-388:                                              ; preds = %386, %.thread524.i.i
-  %389 = sub nuw nsw i32 312, %30
-  %390 = icmp ugt i32 %389, %5
-  br i1 %390, label %dissect_nvme_identify_resp.exit, label %.thread525.i.i
-
-.thread525.i.i:                                   ; preds = %388
-  %391 = sub nuw nsw i32 296, %30
-  %392 = load i32, ptr @hf_nvme_identify_ctrl_unvmcap, align 4
-  %393 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %392, ptr noundef %0, i32 noundef %391, i32 noundef 16, i32 noundef 0) #10
-  call fastcc void @post_add_bytes_from_16bytes(ptr noundef %393, ptr noundef %0, i32 noundef %391, i8 noundef zeroext 0)
-  br label %396
-
-394:                                              ; preds = %386
-  %395 = icmp ult i32 %30, 313
-  br i1 %395, label %396, label %400
-
-396:                                              ; preds = %394, %.thread525.i.i
-  %397 = sub nuw nsw i32 316, %30
-  %398 = icmp ugt i32 %397, %5
-  br i1 %398, label %dissect_nvme_identify_resp.exit, label %.thread526.i.i
-
-.thread526.i.i:                                   ; preds = %396
-  %399 = sub nuw nsw i32 312, %30
-  call fastcc void @add_group_mask_entry(ptr noundef %0, ptr noundef %36, i32 noundef %399, i32 noundef 4, ptr noundef nonnull @hf_nvme_identify_ctrl_rpmbs, i32 noundef 6)
-  br label %402
-
-400:                                              ; preds = %394
-  %401 = icmp ult i32 %30, 317
-  br i1 %401, label %402, label %408
-
-402:                                              ; preds = %400, %.thread526.i.i
-  %403 = sub nuw nsw i32 318, %30
-  %404 = icmp ugt i32 %403, %5
-  br i1 %404, label %dissect_nvme_identify_resp.exit, label %.thread527.i.i
-
-.thread527.i.i:                                   ; preds = %402
-  %405 = sub nuw nsw i32 316, %30
-  %406 = load i32, ptr @hf_nvme_identify_ctrl_edstt, align 4
-  %407 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %406, ptr noundef %0, i32 noundef %405, i32 noundef 2, i32 noundef -2147483648) #10
-  br label %410
-
-408:                                              ; preds = %400
-  %409 = icmp ult i32 %30, 319
-  br i1 %409, label %410, label %414
-
-410:                                              ; preds = %408, %.thread527.i.i
-  %411 = sub nuw nsw i32 319, %30
-  %412 = icmp ugt i32 %411, %5
-  br i1 %412, label %dissect_nvme_identify_resp.exit, label %.thread528.i.i
-
-.thread528.i.i:                                   ; preds = %410
-  %413 = sub nuw nsw i32 318, %30
-  call fastcc void @add_group_mask_entry(ptr noundef %0, ptr noundef %36, i32 noundef %413, i32 noundef 1, ptr noundef nonnull @hf_nvme_identify_ctrl_dsto, i32 noundef 3)
-  br label %416
-
-414:                                              ; preds = %408
-  %415 = icmp eq i32 %30, 319
-  br i1 %415, label %416, label %422
-
-416:                                              ; preds = %414, %.thread528.i.i
-  %417 = sub nuw nsw i32 320, %30
-  %418 = icmp ugt i32 %417, %5
-  br i1 %418, label %dissect_nvme_identify_resp.exit, label %.thread529.i.i
-
-.thread529.i.i:                                   ; preds = %416
-  %419 = sub nuw nsw i32 319, %30
-  %420 = load i32, ptr @hf_nvme_identify_ctrl_fwug, align 4
-  %421 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %420, ptr noundef %0, i32 noundef %419, i32 noundef 1, i32 noundef -2147483648) #10
-  br label %424
-
-422:                                              ; preds = %414
-  %423 = icmp ult i32 %30, 321
-  br i1 %423, label %424, label %430
-
-424:                                              ; preds = %422, %.thread529.i.i
-  %425 = sub nuw nsw i32 322, %30
-  %426 = icmp ugt i32 %425, %5
-  br i1 %426, label %dissect_nvme_identify_resp.exit, label %.thread530.i.i
-
-.thread530.i.i:                                   ; preds = %424
-  %427 = sub nuw nsw i32 320, %30
-  %428 = load i32, ptr @hf_nvme_identify_ctrl_kas, align 4
-  %429 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %428, ptr noundef %0, i32 noundef %427, i32 noundef 2, i32 noundef -2147483648) #10
-  br label %432
-
-430:                                              ; preds = %422
-  %431 = icmp ult i32 %30, 323
-  br i1 %431, label %432, label %436
-
-432:                                              ; preds = %430, %.thread530.i.i
-  %433 = sub nuw nsw i32 324, %30
-  %434 = icmp ugt i32 %433, %5
-  br i1 %434, label %dissect_nvme_identify_resp.exit, label %.thread531.i.i
-
-.thread531.i.i:                                   ; preds = %432
-  %435 = sub nuw nsw i32 322, %30
-  call fastcc void @add_group_mask_entry(ptr noundef %0, ptr noundef %36, i32 noundef %435, i32 noundef 2, ptr noundef nonnull @hf_nvme_identify_ctrl_hctma, i32 noundef 3)
-  br label %438
-
-436:                                              ; preds = %430
-  %437 = icmp ult i32 %30, 325
-  br i1 %437, label %438, label %444
-
-438:                                              ; preds = %436, %.thread531.i.i
-  %439 = sub nuw nsw i32 326, %30
-  %440 = icmp ugt i32 %439, %5
-  br i1 %440, label %dissect_nvme_identify_resp.exit, label %.thread532.i.i
-
-.thread532.i.i:                                   ; preds = %438
-  %441 = sub nuw nsw i32 324, %30
-  %442 = load i32, ptr @hf_nvme_identify_ctrl_mntmt, align 4
-  %443 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %442, ptr noundef %0, i32 noundef %441, i32 noundef 2, i32 noundef -2147483648) #10
-  br label %446
-
-444:                                              ; preds = %436
-  %445 = icmp ult i32 %30, 327
-  br i1 %445, label %446, label %452
-
-446:                                              ; preds = %444, %.thread532.i.i
-  %447 = sub nuw nsw i32 328, %30
-  %448 = icmp ugt i32 %447, %5
-  br i1 %448, label %dissect_nvme_identify_resp.exit, label %.thread533.i.i
-
-.thread533.i.i:                                   ; preds = %446
-  %449 = sub nuw nsw i32 326, %30
-  %450 = load i32, ptr @hf_nvme_identify_ctrl_mxtmt, align 4
-  %451 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %450, ptr noundef %0, i32 noundef %449, i32 noundef 2, i32 noundef -2147483648) #10
-  br label %454
-
-452:                                              ; preds = %444
-  %453 = icmp ult i32 %30, 329
-  br i1 %453, label %454, label %458
-
-454:                                              ; preds = %452, %.thread533.i.i
-  %455 = sub nuw nsw i32 330, %30
-  %456 = icmp ugt i32 %455, %5
-  br i1 %456, label %dissect_nvme_identify_resp.exit, label %.thread534.i.i
-
-.thread534.i.i:                                   ; preds = %454
-  %457 = sub nuw nsw i32 328, %30
-  call fastcc void @add_group_mask_entry(ptr noundef %0, ptr noundef %36, i32 noundef %457, i32 noundef 2, ptr noundef nonnull @hf_nvme_identify_ctrl_sanicap, i32 noundef 7)
-  br label %460
-
-458:                                              ; preds = %452
-  %459 = icmp ult i32 %30, 333
-  br i1 %459, label %460, label %466
-
-460:                                              ; preds = %458, %.thread534.i.i
-  %461 = sub nuw nsw i32 336, %30
-  %462 = icmp ugt i32 %461, %5
-  br i1 %462, label %dissect_nvme_identify_resp.exit, label %.thread535.i.i
-
-.thread535.i.i:                                   ; preds = %460
-  %463 = sub nuw nsw i32 332, %30
-  %464 = load i32, ptr @hf_nvme_identify_ctrl_hmmminds, align 4
-  %465 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %464, ptr noundef %0, i32 noundef %463, i32 noundef 4, i32 noundef -2147483648) #10
-  br label %468
-
-466:                                              ; preds = %458
-  %467 = icmp ult i32 %30, 337
-  br i1 %467, label %468, label %474
-
-468:                                              ; preds = %466, %.thread535.i.i
-  %469 = sub nuw nsw i32 338, %30
-  %470 = icmp ugt i32 %469, %5
-  br i1 %470, label %dissect_nvme_identify_resp.exit, label %.thread536.i.i
-
-.thread536.i.i:                                   ; preds = %468
-  %471 = sub nuw nsw i32 336, %30
-  %472 = load i32, ptr @hf_nvme_identify_ctrl_hmmaxd, align 4
-  %473 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %472, ptr noundef %0, i32 noundef %471, i32 noundef 2, i32 noundef -2147483648) #10
-  br label %476
-
-474:                                              ; preds = %466
-  %475 = icmp ult i32 %30, 339
-  br i1 %475, label %476, label %482
-
-476:                                              ; preds = %474, %.thread536.i.i
-  %477 = sub nuw nsw i32 340, %30
-  %478 = icmp ugt i32 %477, %5
-  br i1 %478, label %dissect_nvme_identify_resp.exit, label %.thread537.i.i
-
-.thread537.i.i:                                   ; preds = %476
-  %479 = sub nuw nsw i32 338, %30
-  %480 = load i32, ptr @hf_nvme_identify_ctrl_nsetidmax, align 4
-  %481 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %480, ptr noundef %0, i32 noundef %479, i32 noundef 2, i32 noundef -2147483648) #10
-  br label %484
-
-482:                                              ; preds = %474
-  %483 = icmp ult i32 %30, 341
-  br i1 %483, label %484, label %490
-
-484:                                              ; preds = %482, %.thread537.i.i
-  %485 = sub nuw nsw i32 342, %30
-  %486 = icmp ugt i32 %485, %5
-  br i1 %486, label %dissect_nvme_identify_resp.exit, label %.thread538.i.i
-
-.thread538.i.i:                                   ; preds = %484
-  %487 = sub nuw nsw i32 340, %30
-  %488 = load i32, ptr @hf_nvme_identify_ctrl_endgidmax, align 4
-  %489 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %488, ptr noundef %0, i32 noundef %487, i32 noundef 2, i32 noundef -2147483648) #10
-  br label %492
-
-490:                                              ; preds = %482
-  %491 = icmp ult i32 %30, 343
-  br i1 %491, label %492, label %498
-
-492:                                              ; preds = %490, %.thread538.i.i
-  %493 = sub nuw nsw i32 344, %30
-  %494 = icmp ugt i32 %493, %5
-  br i1 %494, label %dissect_nvme_identify_resp.exit, label %.thread539.i.i
-
-.thread539.i.i:                                   ; preds = %492
-  %495 = sub nuw nsw i32 342, %30
-  %496 = load i32, ptr @hf_nvme_identify_ctrl_anatt, align 4
-  %497 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %496, ptr noundef %0, i32 noundef %495, i32 noundef 1, i32 noundef -2147483648) #10
+  br label %304
+
+302:                                              ; preds = %297
+  %303 = icmp eq i32 %30, 261
+  br i1 %303, label %304, label %308
+
+304:                                              ; preds = %302, %.thread513.i.i
+  %305 = sub nuw nsw i32 262, %30
+  %306 = icmp ugt i32 %305, %5
+  br i1 %306, label %dissect_nvme_identify_resp.exit, label %.thread514.i.i
+
+.thread514.i.i:                                   ; preds = %304
+  %307 = sub nuw nsw i32 261, %30
+  call fastcc void @add_group_mask_entry(ptr noundef %0, ptr noundef %36, i32 noundef %307, i32 noundef 1, ptr noundef nonnull @hf_nvme_identify_ctrl_lpa, i32 noundef 7)
+  br label %310
+
+308:                                              ; preds = %302
+  %309 = icmp ult i32 %30, 263
+  br i1 %309, label %310, label %316
+
+310:                                              ; preds = %308, %.thread514.i.i
+  %311 = sub nuw nsw i32 263, %30
+  %312 = icmp ugt i32 %311, %5
+  br i1 %312, label %dissect_nvme_identify_resp.exit, label %.thread515.i.i
+
+.thread515.i.i:                                   ; preds = %310
+  %313 = sub nuw nsw i32 262, %30
+  %314 = load i32, ptr @hf_nvme_identify_ctrl_elpe, align 4
+  %315 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %314, ptr noundef %0, i32 noundef %313, i32 noundef 1, i32 noundef -2147483648) #10
+  br label %318
+
+316:                                              ; preds = %308
+  %317 = icmp eq i32 %30, 263
+  br i1 %317, label %318, label %324
+
+318:                                              ; preds = %316, %.thread515.i.i
+  %319 = sub nuw nsw i32 264, %30
+  %320 = icmp ugt i32 %319, %5
+  br i1 %320, label %dissect_nvme_identify_resp.exit, label %.thread516.i.i
+
+.thread516.i.i:                                   ; preds = %318
+  %321 = sub nuw nsw i32 263, %30
+  %322 = load i32, ptr @hf_nvme_identify_ctrl_npss, align 4
+  %323 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %322, ptr noundef %0, i32 noundef %321, i32 noundef 1, i32 noundef -2147483648) #10
+  br label %326
+
+324:                                              ; preds = %316
+  %325 = icmp ult i32 %30, 265
+  br i1 %325, label %326, label %330
+
+326:                                              ; preds = %324, %.thread516.i.i
+  %327 = sub nuw nsw i32 265, %30
+  %328 = icmp ugt i32 %327, %5
+  br i1 %328, label %dissect_nvme_identify_resp.exit, label %.thread517.i.i
+
+.thread517.i.i:                                   ; preds = %326
+  %329 = sub nuw nsw i32 264, %30
+  call fastcc void @add_group_mask_entry(ptr noundef %0, ptr noundef %36, i32 noundef %329, i32 noundef 1, ptr noundef nonnull @hf_nvme_identify_ctrl_avscc, i32 noundef 3)
+  br label %332
+
+330:                                              ; preds = %324
+  %331 = icmp eq i32 %30, 265
+  br i1 %331, label %332, label %336
+
+332:                                              ; preds = %330, %.thread517.i.i
+  %333 = sub nuw nsw i32 266, %30
+  %334 = icmp ugt i32 %333, %5
+  br i1 %334, label %dissect_nvme_identify_resp.exit, label %.thread518.i.i
+
+.thread518.i.i:                                   ; preds = %332
+  %335 = sub nuw nsw i32 265, %30
+  call fastcc void @add_group_mask_entry(ptr noundef %0, ptr noundef %36, i32 noundef %335, i32 noundef 1, ptr noundef nonnull @hf_nvme_identify_ctrl_apsta, i32 noundef 3)
+  br label %338
+
+336:                                              ; preds = %330
+  %337 = icmp ult i32 %30, 267
+  br i1 %337, label %338, label %344
+
+338:                                              ; preds = %336, %.thread518.i.i
+  %339 = sub nuw nsw i32 267, %30
+  %340 = icmp ugt i32 %339, %5
+  br i1 %340, label %dissect_nvme_identify_resp.exit, label %.thread519.i.i
+
+.thread519.i.i:                                   ; preds = %338
+  %341 = sub nuw nsw i32 266, %30
+  %342 = load i32, ptr @hf_nvme_identify_ctrl_wctemp, align 4
+  %343 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %342, ptr noundef %0, i32 noundef %341, i32 noundef 2, i32 noundef -2147483648) #10
+  br label %346
+
+344:                                              ; preds = %336
+  %345 = icmp ult i32 %30, 269
+  br i1 %345, label %346, label %352
+
+346:                                              ; preds = %344, %.thread519.i.i
+  %347 = sub nuw nsw i32 270, %30
+  %348 = icmp ugt i32 %347, %5
+  br i1 %348, label %dissect_nvme_identify_resp.exit, label %.thread520.i.i
+
+.thread520.i.i:                                   ; preds = %346
+  %349 = sub nuw nsw i32 268, %30
+  %350 = load i32, ptr @hf_nvme_identify_ctrl_cctemp, align 4
+  %351 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %350, ptr noundef %0, i32 noundef %349, i32 noundef 2, i32 noundef -2147483648) #10
+  br label %354
+
+352:                                              ; preds = %344
+  %353 = icmp ult i32 %30, 271
+  br i1 %353, label %354, label %360
+
+354:                                              ; preds = %352, %.thread520.i.i
+  %355 = sub nuw nsw i32 272, %30
+  %356 = icmp ugt i32 %355, %5
+  br i1 %356, label %dissect_nvme_identify_resp.exit, label %.thread521.i.i
+
+.thread521.i.i:                                   ; preds = %354
+  %357 = sub nuw nsw i32 270, %30
+  %358 = load i32, ptr @hf_nvme_identify_ctrl_mtfa, align 4
+  %359 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %358, ptr noundef %0, i32 noundef %357, i32 noundef 2, i32 noundef -2147483648) #10
+  br label %362
+
+360:                                              ; preds = %352
+  %361 = icmp ult i32 %30, 273
+  br i1 %361, label %362, label %368
+
+362:                                              ; preds = %360, %.thread521.i.i
+  %363 = sub nuw nsw i32 276, %30
+  %364 = icmp ugt i32 %363, %5
+  br i1 %364, label %dissect_nvme_identify_resp.exit, label %.thread522.i.i
+
+.thread522.i.i:                                   ; preds = %362
+  %365 = sub nuw nsw i32 272, %30
+  %366 = load i32, ptr @hf_nvme_identify_ctrl_hmpre, align 4
+  %367 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %366, ptr noundef %0, i32 noundef %365, i32 noundef 4, i32 noundef -2147483648) #10
+  br label %370
+
+368:                                              ; preds = %360
+  %369 = icmp ult i32 %30, 277
+  br i1 %369, label %370, label %376
+
+370:                                              ; preds = %368, %.thread522.i.i
+  %371 = sub nuw nsw i32 280, %30
+  %372 = icmp ugt i32 %371, %5
+  br i1 %372, label %dissect_nvme_identify_resp.exit, label %.thread523.i.i
+
+.thread523.i.i:                                   ; preds = %370
+  %373 = sub nuw nsw i32 276, %30
+  %374 = load i32, ptr @hf_nvme_identify_ctrl_hmmin, align 4
+  %375 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %374, ptr noundef %0, i32 noundef %373, i32 noundef 4, i32 noundef -2147483648) #10
+  br label %378
+
+376:                                              ; preds = %368
+  %377 = icmp ult i32 %30, 281
+  br i1 %377, label %378, label %384
+
+378:                                              ; preds = %376, %.thread523.i.i
+  %379 = sub nuw nsw i32 296, %30
+  %380 = icmp ugt i32 %379, %5
+  br i1 %380, label %dissect_nvme_identify_resp.exit, label %.thread524.i.i
+
+.thread524.i.i:                                   ; preds = %378
+  %381 = sub nuw nsw i32 280, %30
+  %382 = load i32, ptr @hf_nvme_identify_ctrl_tnvmcap, align 4
+  %383 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %382, ptr noundef %0, i32 noundef %381, i32 noundef 16, i32 noundef 0) #10
+  call fastcc void @post_add_bytes_from_16bytes(ptr noundef %383, ptr noundef %0, i32 noundef %381, i8 noundef zeroext 0)
+  br label %386
+
+384:                                              ; preds = %376
+  %385 = icmp ult i32 %30, 297
+  br i1 %385, label %386, label %392
+
+386:                                              ; preds = %384, %.thread524.i.i
+  %387 = sub nuw nsw i32 312, %30
+  %388 = icmp ugt i32 %387, %5
+  br i1 %388, label %dissect_nvme_identify_resp.exit, label %.thread525.i.i
+
+.thread525.i.i:                                   ; preds = %386
+  %389 = sub nuw nsw i32 296, %30
+  %390 = load i32, ptr @hf_nvme_identify_ctrl_unvmcap, align 4
+  %391 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %390, ptr noundef %0, i32 noundef %389, i32 noundef 16, i32 noundef 0) #10
+  call fastcc void @post_add_bytes_from_16bytes(ptr noundef %391, ptr noundef %0, i32 noundef %389, i8 noundef zeroext 0)
+  br label %394
+
+392:                                              ; preds = %384
+  %393 = icmp ult i32 %30, 313
+  br i1 %393, label %394, label %398
+
+394:                                              ; preds = %392, %.thread525.i.i
+  %395 = sub nuw nsw i32 316, %30
+  %396 = icmp ugt i32 %395, %5
+  br i1 %396, label %dissect_nvme_identify_resp.exit, label %.thread526.i.i
+
+.thread526.i.i:                                   ; preds = %394
+  %397 = sub nuw nsw i32 312, %30
+  call fastcc void @add_group_mask_entry(ptr noundef %0, ptr noundef %36, i32 noundef %397, i32 noundef 4, ptr noundef nonnull @hf_nvme_identify_ctrl_rpmbs, i32 noundef 6)
+  br label %400
+
+398:                                              ; preds = %392
+  %399 = icmp ult i32 %30, 317
+  br i1 %399, label %400, label %406
+
+400:                                              ; preds = %398, %.thread526.i.i
+  %401 = sub nuw nsw i32 318, %30
+  %402 = icmp ugt i32 %401, %5
+  br i1 %402, label %dissect_nvme_identify_resp.exit, label %.thread527.i.i
+
+.thread527.i.i:                                   ; preds = %400
+  %403 = sub nuw nsw i32 316, %30
+  %404 = load i32, ptr @hf_nvme_identify_ctrl_edstt, align 4
+  %405 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %404, ptr noundef %0, i32 noundef %403, i32 noundef 2, i32 noundef -2147483648) #10
+  br label %408
+
+406:                                              ; preds = %398
+  %407 = icmp ult i32 %30, 319
+  br i1 %407, label %408, label %412
+
+408:                                              ; preds = %406, %.thread527.i.i
+  %409 = sub nuw nsw i32 319, %30
+  %410 = icmp ugt i32 %409, %5
+  br i1 %410, label %dissect_nvme_identify_resp.exit, label %.thread528.i.i
+
+.thread528.i.i:                                   ; preds = %408
+  %411 = sub nuw nsw i32 318, %30
+  call fastcc void @add_group_mask_entry(ptr noundef %0, ptr noundef %36, i32 noundef %411, i32 noundef 1, ptr noundef nonnull @hf_nvme_identify_ctrl_dsto, i32 noundef 3)
+  br label %414
+
+412:                                              ; preds = %406
+  %413 = icmp eq i32 %30, 319
+  br i1 %413, label %414, label %420
+
+414:                                              ; preds = %412, %.thread528.i.i
+  %415 = sub nuw nsw i32 320, %30
+  %416 = icmp ugt i32 %415, %5
+  br i1 %416, label %dissect_nvme_identify_resp.exit, label %.thread529.i.i
+
+.thread529.i.i:                                   ; preds = %414
+  %417 = sub nuw nsw i32 319, %30
+  %418 = load i32, ptr @hf_nvme_identify_ctrl_fwug, align 4
+  %419 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %418, ptr noundef %0, i32 noundef %417, i32 noundef 1, i32 noundef -2147483648) #10
+  br label %422
+
+420:                                              ; preds = %412
+  %421 = icmp ult i32 %30, 321
+  br i1 %421, label %422, label %428
+
+422:                                              ; preds = %420, %.thread529.i.i
+  %423 = sub nuw nsw i32 322, %30
+  %424 = icmp ugt i32 %423, %5
+  br i1 %424, label %dissect_nvme_identify_resp.exit, label %.thread530.i.i
+
+.thread530.i.i:                                   ; preds = %422
+  %425 = sub nuw nsw i32 320, %30
+  %426 = load i32, ptr @hf_nvme_identify_ctrl_kas, align 4
+  %427 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %426, ptr noundef %0, i32 noundef %425, i32 noundef 2, i32 noundef -2147483648) #10
+  br label %430
+
+428:                                              ; preds = %420
+  %429 = icmp ult i32 %30, 323
+  br i1 %429, label %430, label %434
+
+430:                                              ; preds = %428, %.thread530.i.i
+  %431 = sub nuw nsw i32 324, %30
+  %432 = icmp ugt i32 %431, %5
+  br i1 %432, label %dissect_nvme_identify_resp.exit, label %.thread531.i.i
+
+.thread531.i.i:                                   ; preds = %430
+  %433 = sub nuw nsw i32 322, %30
+  call fastcc void @add_group_mask_entry(ptr noundef %0, ptr noundef %36, i32 noundef %433, i32 noundef 2, ptr noundef nonnull @hf_nvme_identify_ctrl_hctma, i32 noundef 3)
+  br label %436
+
+434:                                              ; preds = %428
+  %435 = icmp ult i32 %30, 325
+  br i1 %435, label %436, label %442
+
+436:                                              ; preds = %434, %.thread531.i.i
+  %437 = sub nuw nsw i32 326, %30
+  %438 = icmp ugt i32 %437, %5
+  br i1 %438, label %dissect_nvme_identify_resp.exit, label %.thread532.i.i
+
+.thread532.i.i:                                   ; preds = %436
+  %439 = sub nuw nsw i32 324, %30
+  %440 = load i32, ptr @hf_nvme_identify_ctrl_mntmt, align 4
+  %441 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %440, ptr noundef %0, i32 noundef %439, i32 noundef 2, i32 noundef -2147483648) #10
+  br label %444
+
+442:                                              ; preds = %434
+  %443 = icmp ult i32 %30, 327
+  br i1 %443, label %444, label %450
+
+444:                                              ; preds = %442, %.thread532.i.i
+  %445 = sub nuw nsw i32 328, %30
+  %446 = icmp ugt i32 %445, %5
+  br i1 %446, label %dissect_nvme_identify_resp.exit, label %.thread533.i.i
+
+.thread533.i.i:                                   ; preds = %444
+  %447 = sub nuw nsw i32 326, %30
+  %448 = load i32, ptr @hf_nvme_identify_ctrl_mxtmt, align 4
+  %449 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %448, ptr noundef %0, i32 noundef %447, i32 noundef 2, i32 noundef -2147483648) #10
+  br label %452
+
+450:                                              ; preds = %442
+  %451 = icmp ult i32 %30, 329
+  br i1 %451, label %452, label %456
+
+452:                                              ; preds = %450, %.thread533.i.i
+  %453 = sub nuw nsw i32 330, %30
+  %454 = icmp ugt i32 %453, %5
+  br i1 %454, label %dissect_nvme_identify_resp.exit, label %.thread534.i.i
+
+.thread534.i.i:                                   ; preds = %452
+  %455 = sub nuw nsw i32 328, %30
+  call fastcc void @add_group_mask_entry(ptr noundef %0, ptr noundef %36, i32 noundef %455, i32 noundef 2, ptr noundef nonnull @hf_nvme_identify_ctrl_sanicap, i32 noundef 7)
+  br label %458
+
+456:                                              ; preds = %450
+  %457 = icmp ult i32 %30, 333
+  br i1 %457, label %458, label %464
+
+458:                                              ; preds = %456, %.thread534.i.i
+  %459 = sub nuw nsw i32 336, %30
+  %460 = icmp ugt i32 %459, %5
+  br i1 %460, label %dissect_nvme_identify_resp.exit, label %.thread535.i.i
+
+.thread535.i.i:                                   ; preds = %458
+  %461 = sub nuw nsw i32 332, %30
+  %462 = load i32, ptr @hf_nvme_identify_ctrl_hmmminds, align 4
+  %463 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %462, ptr noundef %0, i32 noundef %461, i32 noundef 4, i32 noundef -2147483648) #10
+  br label %466
+
+464:                                              ; preds = %456
+  %465 = icmp ult i32 %30, 337
+  br i1 %465, label %466, label %472
+
+466:                                              ; preds = %464, %.thread535.i.i
+  %467 = sub nuw nsw i32 338, %30
+  %468 = icmp ugt i32 %467, %5
+  br i1 %468, label %dissect_nvme_identify_resp.exit, label %.thread536.i.i
+
+.thread536.i.i:                                   ; preds = %466
+  %469 = sub nuw nsw i32 336, %30
+  %470 = load i32, ptr @hf_nvme_identify_ctrl_hmmaxd, align 4
+  %471 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %470, ptr noundef %0, i32 noundef %469, i32 noundef 2, i32 noundef -2147483648) #10
+  br label %474
+
+472:                                              ; preds = %464
+  %473 = icmp ult i32 %30, 339
+  br i1 %473, label %474, label %480
+
+474:                                              ; preds = %472, %.thread536.i.i
+  %475 = sub nuw nsw i32 340, %30
+  %476 = icmp ugt i32 %475, %5
+  br i1 %476, label %dissect_nvme_identify_resp.exit, label %.thread537.i.i
+
+.thread537.i.i:                                   ; preds = %474
+  %477 = sub nuw nsw i32 338, %30
+  %478 = load i32, ptr @hf_nvme_identify_ctrl_nsetidmax, align 4
+  %479 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %478, ptr noundef %0, i32 noundef %477, i32 noundef 2, i32 noundef -2147483648) #10
+  br label %482
+
+480:                                              ; preds = %472
+  %481 = icmp ult i32 %30, 341
+  br i1 %481, label %482, label %488
+
+482:                                              ; preds = %480, %.thread537.i.i
+  %483 = sub nuw nsw i32 342, %30
+  %484 = icmp ugt i32 %483, %5
+  br i1 %484, label %dissect_nvme_identify_resp.exit, label %.thread538.i.i
+
+.thread538.i.i:                                   ; preds = %482
+  %485 = sub nuw nsw i32 340, %30
+  %486 = load i32, ptr @hf_nvme_identify_ctrl_endgidmax, align 4
+  %487 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %486, ptr noundef %0, i32 noundef %485, i32 noundef 2, i32 noundef -2147483648) #10
+  br label %490
+
+488:                                              ; preds = %480
+  %489 = icmp ult i32 %30, 343
+  br i1 %489, label %490, label %496
+
+490:                                              ; preds = %488, %.thread538.i.i
+  %491 = sub nuw nsw i32 344, %30
+  %492 = icmp ugt i32 %491, %5
+  br i1 %492, label %dissect_nvme_identify_resp.exit, label %.thread539.i.i
+
+.thread539.i.i:                                   ; preds = %490
+  %493 = sub nuw nsw i32 342, %30
+  %494 = load i32, ptr @hf_nvme_identify_ctrl_anatt, align 4
+  %495 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %494, ptr noundef %0, i32 noundef %493, i32 noundef 1, i32 noundef -2147483648) #10
   br label %._crit_edge.i.i
 
-498:                                              ; preds = %490
-  %499 = icmp eq i32 %30, 343
-  br i1 %499, label %._crit_edge.i.i, label %502
+496:                                              ; preds = %488
+  %497 = icmp eq i32 %30, 343
+  br i1 %497, label %._crit_edge.i.i, label %500
 
-._crit_edge.i.i:                                  ; preds = %498, %.thread539.i.i
-  %.pre-phi.i.i = phi i32 [ %493, %.thread539.i.i ], [ 1, %498 ]
-  %500 = icmp ugt i32 %.pre-phi.i.i, %5
-  br i1 %500, label %dissect_nvme_identify_resp.exit, label %.thread540.i.i
+._crit_edge.i.i:                                  ; preds = %496, %.thread539.i.i
+  %.pre-phi.i.i = phi i32 [ %491, %.thread539.i.i ], [ 1, %496 ]
+  %498 = icmp ugt i32 %.pre-phi.i.i, %5
+  br i1 %498, label %dissect_nvme_identify_resp.exit, label %.thread540.i.i
 
 .thread540.i.i:                                   ; preds = %._crit_edge.i.i
-  %501 = sub nuw nsw i32 343, %30
-  call fastcc void @add_group_mask_entry(ptr noundef %0, ptr noundef %36, i32 noundef %501, i32 noundef 1, ptr noundef nonnull @hf_nvme_identify_ctrl_anacap, i32 noundef 9)
-  br label %504
-
-502:                                              ; preds = %498
-  %503 = icmp ult i32 %30, 345
-  br i1 %503, label %504, label %510
-
-504:                                              ; preds = %502, %.thread540.i.i
-  %505 = sub nuw nsw i32 348, %30
-  %506 = icmp ugt i32 %505, %5
-  br i1 %506, label %dissect_nvme_identify_resp.exit, label %.thread541.i.i
-
-.thread541.i.i:                                   ; preds = %504
-  %507 = sub nuw nsw i32 344, %30
-  %508 = load i32, ptr @hf_nvme_identify_ctrl_anagrpmax, align 4
-  %509 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %508, ptr noundef %0, i32 noundef %507, i32 noundef 4, i32 noundef -2147483648) #10
-  br label %512
-
-510:                                              ; preds = %502
-  %511 = icmp ult i32 %30, 349
-  br i1 %511, label %512, label %518
-
-512:                                              ; preds = %510, %.thread541.i.i
-  %513 = sub nuw nsw i32 352, %30
-  %514 = icmp ugt i32 %513, %5
-  br i1 %514, label %dissect_nvme_identify_resp.exit, label %.thread542.i.i
-
-.thread542.i.i:                                   ; preds = %512
-  %515 = sub nuw nsw i32 348, %30
-  %516 = load i32, ptr @hf_nvme_identify_ctrl_nanagrpid, align 4
-  %517 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %516, ptr noundef %0, i32 noundef %515, i32 noundef 4, i32 noundef -2147483648) #10
-  br label %520
-
-518:                                              ; preds = %510
-  %519 = icmp ult i32 %30, 353
-  br i1 %519, label %520, label %526
-
-520:                                              ; preds = %518, %.thread542.i.i
-  %521 = sub nuw nsw i32 356, %30
-  %522 = icmp ugt i32 %521, %5
-  br i1 %522, label %dissect_nvme_identify_resp.exit, label %.thread543.i.i
-
-.thread543.i.i:                                   ; preds = %520
-  %523 = sub nuw nsw i32 352, %30
-  %524 = load i32, ptr @hf_nvme_identify_ctrl_pels, align 4
-  %525 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %524, ptr noundef %0, i32 noundef %523, i32 noundef 4, i32 noundef -2147483648) #10
-  br label %528
-
-526:                                              ; preds = %518
-  %527 = icmp ult i32 %30, 357
-  br i1 %527, label %528, label %534
-
-528:                                              ; preds = %526, %.thread543.i.i
-  %529 = sub nuw nsw i32 512, %30
-  %530 = icmp ugt i32 %529, %5
-  br i1 %530, label %dissect_nvme_identify_resp.exit, label %.thread544.i.i
-
-.thread544.i.i:                                   ; preds = %528
-  %531 = sub nuw nsw i32 356, %30
-  %532 = load i32, ptr @hf_nvme_identify_ctrl_rsvd2, align 4
-  %533 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %532, ptr noundef %0, i32 noundef %531, i32 noundef 156, i32 noundef 0) #10
-  br label %536
-
-534:                                              ; preds = %526
-  %535 = icmp ult i32 %30, 513
-  br i1 %535, label %536, label %540
-
-536:                                              ; preds = %534, %.thread544.i.i
-  %537 = sub nuw nsw i32 513, %30
-  %538 = icmp ugt i32 %537, %5
-  br i1 %538, label %dissect_nvme_identify_resp.exit, label %.thread545.i.i
-
-.thread545.i.i:                                   ; preds = %536
-  %539 = sub nuw nsw i32 512, %30
-  call fastcc void @add_group_mask_entry(ptr noundef %0, ptr noundef %36, i32 noundef %539, i32 noundef 1, ptr noundef nonnull @hf_nvme_identify_ctrl_sqes, i32 noundef 3)
-  br label %542
-
-540:                                              ; preds = %534
-  %541 = icmp eq i32 %30, 513
-  br i1 %541, label %542, label %546
-
-542:                                              ; preds = %540, %.thread545.i.i
-  %543 = sub nuw nsw i32 514, %30
-  %544 = icmp ugt i32 %543, %5
-  br i1 %544, label %dissect_nvme_identify_resp.exit, label %.thread546.i.i
-
-.thread546.i.i:                                   ; preds = %542
-  %545 = sub nuw nsw i32 513, %30
-  call fastcc void @add_group_mask_entry(ptr noundef %0, ptr noundef %36, i32 noundef %545, i32 noundef 1, ptr noundef nonnull @hf_nvme_identify_ctrl_cqes, i32 noundef 3)
-  br label %548
-
-546:                                              ; preds = %540
-  %547 = icmp ult i32 %30, 515
-  br i1 %547, label %548, label %554
-
-548:                                              ; preds = %546, %.thread546.i.i
-  %549 = sub nuw nsw i32 516, %30
-  %550 = icmp ugt i32 %549, %5
-  br i1 %550, label %dissect_nvme_identify_resp.exit, label %.thread547.i.i
-
-.thread547.i.i:                                   ; preds = %548
-  %551 = sub nuw nsw i32 514, %30
-  %552 = load i32, ptr @hf_nvme_identify_ctrl_maxcmd, align 4
-  %553 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %552, ptr noundef %0, i32 noundef %551, i32 noundef 2, i32 noundef -2147483648) #10
-  br label %556
-
-554:                                              ; preds = %546
-  %555 = icmp ult i32 %30, 517
-  br i1 %555, label %556, label %562
-
-556:                                              ; preds = %554, %.thread547.i.i
-  %557 = sub nuw nsw i32 520, %30
-  %558 = icmp ugt i32 %557, %5
-  br i1 %558, label %dissect_nvme_identify_resp.exit, label %.thread548.i.i
-
-.thread548.i.i:                                   ; preds = %556
-  %559 = sub nuw nsw i32 516, %30
-  %560 = load i32, ptr @hf_nvme_identify_ctrl_nn, align 4
-  %561 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %560, ptr noundef %0, i32 noundef %559, i32 noundef 4, i32 noundef -2147483648) #10
-  br label %564
-
-562:                                              ; preds = %554
-  %563 = icmp ult i32 %30, 521
-  br i1 %563, label %564, label %568
-
-564:                                              ; preds = %562, %.thread548.i.i
-  %565 = sub nuw nsw i32 522, %30
-  %566 = icmp ugt i32 %565, %5
-  br i1 %566, label %dissect_nvme_identify_resp.exit, label %.thread549.i.i
-
-.thread549.i.i:                                   ; preds = %564
-  %567 = sub nuw nsw i32 520, %30
-  call fastcc void @add_group_mask_entry(ptr noundef %0, ptr noundef %36, i32 noundef %567, i32 noundef 2, ptr noundef nonnull @hf_nvme_identify_ctrl_oncs, i32 noundef 10)
-  br label %570
-
-568:                                              ; preds = %562
-  %569 = icmp ult i32 %30, 523
-  br i1 %569, label %570, label %574
-
-570:                                              ; preds = %568, %.thread549.i.i
-  %571 = sub nuw nsw i32 524, %30
-  %572 = icmp ugt i32 %571, %5
-  br i1 %572, label %dissect_nvme_identify_resp.exit, label %.thread550.i.i
-
-.thread550.i.i:                                   ; preds = %570
-  %573 = sub nuw nsw i32 522, %30
-  call fastcc void @add_group_mask_entry(ptr noundef %0, ptr noundef %36, i32 noundef %573, i32 noundef 2, ptr noundef nonnull @hf_nvme_identify_ctrl_fuses, i32 noundef 3)
-  br label %576
-
-574:                                              ; preds = %568
-  %575 = icmp ult i32 %30, 525
-  br i1 %575, label %576, label %580
-
-576:                                              ; preds = %574, %.thread550.i.i
-  %577 = sub nuw nsw i32 525, %30
-  %578 = icmp ugt i32 %577, %5
-  br i1 %578, label %dissect_nvme_identify_resp.exit, label %.thread551.i.i
-
-.thread551.i.i:                                   ; preds = %576
-  %579 = sub nuw nsw i32 524, %30
-  call fastcc void @add_group_mask_entry(ptr noundef %0, ptr noundef %36, i32 noundef %579, i32 noundef 1, ptr noundef nonnull @hf_nvme_identify_ctrl_fna, i32 noundef 5)
-  br label %582
-
-580:                                              ; preds = %574
-  %581 = icmp eq i32 %30, 525
-  br i1 %581, label %582, label %586
-
-582:                                              ; preds = %580, %.thread551.i.i
-  %583 = sub nuw nsw i32 526, %30
-  %584 = icmp ugt i32 %583, %5
-  br i1 %584, label %dissect_nvme_identify_resp.exit, label %.thread552.i.i
-
-.thread552.i.i:                                   ; preds = %582
-  %585 = sub nuw nsw i32 525, %30
-  call fastcc void @add_group_mask_entry(ptr noundef %0, ptr noundef %36, i32 noundef %585, i32 noundef 1, ptr noundef nonnull @hf_nvme_identify_ctrl_vwc, i32 noundef 4)
-  br label %588
-
-586:                                              ; preds = %580
-  %587 = icmp ult i32 %30, 527
-  br i1 %587, label %588, label %594
-
-588:                                              ; preds = %586, %.thread552.i.i
-  %589 = sub nuw nsw i32 528, %30
-  %590 = icmp ugt i32 %589, %5
-  br i1 %590, label %dissect_nvme_identify_resp.exit, label %.thread553.i.i
-
-.thread553.i.i:                                   ; preds = %588
-  %591 = sub nuw nsw i32 526, %30
-  %592 = load i32, ptr @hf_nvme_identify_ctrl_awun, align 4
-  %593 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %592, ptr noundef %0, i32 noundef %591, i32 noundef 2, i32 noundef -2147483648) #10
-  br label %596
-
-594:                                              ; preds = %586
-  %595 = icmp ult i32 %30, 529
-  br i1 %595, label %596, label %602
-
-596:                                              ; preds = %594, %.thread553.i.i
-  %597 = sub nuw nsw i32 530, %30
-  %598 = icmp ugt i32 %597, %5
-  br i1 %598, label %dissect_nvme_identify_resp.exit, label %.thread554.i.i
-
-.thread554.i.i:                                   ; preds = %596
-  %599 = sub nuw nsw i32 528, %30
-  %600 = load i32, ptr @hf_nvme_identify_ctrl_awupf, align 4
-  %601 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %600, ptr noundef %0, i32 noundef %599, i32 noundef 2, i32 noundef -2147483648) #10
-  br label %604
-
-602:                                              ; preds = %594
-  %603 = icmp ult i32 %30, 531
-  br i1 %603, label %604, label %608
-
-604:                                              ; preds = %602, %.thread554.i.i
-  %605 = sub nuw nsw i32 531, %30
-  %606 = icmp ugt i32 %605, %5
-  br i1 %606, label %dissect_nvme_identify_resp.exit, label %.thread555.i.i
-
-.thread555.i.i:                                   ; preds = %604
-  %607 = sub nuw nsw i32 530, %30
-  call fastcc void @add_group_mask_entry(ptr noundef %0, ptr noundef %36, i32 noundef %607, i32 noundef 1, ptr noundef nonnull @hf_nvme_identify_ctrl_nvscc, i32 noundef 3)
-  br label %610
-
-608:                                              ; preds = %602
-  %609 = icmp eq i32 %30, 531
-  br i1 %609, label %610, label %614
-
-610:                                              ; preds = %608, %.thread555.i.i
-  %611 = sub nuw nsw i32 532, %30
-  %612 = icmp ugt i32 %611, %5
-  br i1 %612, label %dissect_nvme_identify_resp.exit, label %.thread556.i.i
-
-.thread556.i.i:                                   ; preds = %610
-  %613 = sub nuw nsw i32 531, %30
-  call fastcc void @add_group_mask_entry(ptr noundef %0, ptr noundef %36, i32 noundef %613, i32 noundef 1, ptr noundef nonnull @hf_nvme_identify_ctrl_nwpc, i32 noundef 5)
-  br label %616
-
-614:                                              ; preds = %608
-  %615 = icmp ult i32 %30, 533
-  br i1 %615, label %616, label %622
-
-616:                                              ; preds = %614, %.thread556.i.i
-  %617 = sub nuw nsw i32 535, %30
-  %618 = icmp ugt i32 %617, %5
-  br i1 %618, label %dissect_nvme_identify_resp.exit, label %.thread557.i.i
-
-.thread557.i.i:                                   ; preds = %616
-  %619 = sub nuw nsw i32 532, %30
-  %620 = load i32, ptr @hf_nvme_identify_ctrl_acwu, align 4
-  %621 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %620, ptr noundef %0, i32 noundef %619, i32 noundef 2, i32 noundef -2147483648) #10
-  br label %624
-
-622:                                              ; preds = %614
-  %623 = icmp ult i32 %30, 535
-  br i1 %623, label %624, label %630
-
-624:                                              ; preds = %622, %.thread557.i.i
-  %625 = sub nuw nsw i32 536, %30
-  %626 = icmp ugt i32 %625, %5
-  br i1 %626, label %dissect_nvme_identify_resp.exit, label %.thread558.i.i
-
-.thread558.i.i:                                   ; preds = %624
-  %627 = sub nuw nsw i32 534, %30
-  %628 = load i32, ptr @hf_nvme_identify_ctrl_rsvd3, align 4
-  %629 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %628, ptr noundef %0, i32 noundef %627, i32 noundef 2, i32 noundef 0) #10
-  br label %632
-
-630:                                              ; preds = %622
-  %631 = icmp ult i32 %30, 537
-  br i1 %631, label %632, label %636
-
-632:                                              ; preds = %630, %.thread558.i.i
-  %633 = sub nuw nsw i32 540, %30
-  %634 = icmp ugt i32 %633, %5
-  br i1 %634, label %dissect_nvme_identify_resp.exit, label %.thread559.i.i
-
-.thread559.i.i:                                   ; preds = %632
-  %635 = sub nuw nsw i32 536, %30
-  call fastcc void @add_group_mask_entry(ptr noundef %0, ptr noundef %36, i32 noundef %635, i32 noundef 4, ptr noundef nonnull @hf_nvme_identify_ctrl_sgls, i32 noundef 11)
-  br label %638
-
-636:                                              ; preds = %630
-  %637 = icmp ult i32 %30, 541
-  br i1 %637, label %638, label %644
-
-638:                                              ; preds = %636, %.thread559.i.i
-  %639 = sub nuw nsw i32 544, %30
-  %640 = icmp ugt i32 %639, %5
-  br i1 %640, label %dissect_nvme_identify_resp.exit, label %.thread560.i.i
-
-.thread560.i.i:                                   ; preds = %638
-  %641 = sub nuw nsw i32 540, %30
-  %642 = load i32, ptr @hf_nvme_identify_ctrl_mnan, align 4
-  %643 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %642, ptr noundef %0, i32 noundef %641, i32 noundef 4, i32 noundef -2147483648) #10
-  br label %646
-
-644:                                              ; preds = %636
-  %645 = icmp ult i32 %30, 545
-  br i1 %645, label %646, label %652
-
-646:                                              ; preds = %644, %.thread560.i.i
-  %647 = sub nuw nsw i32 768, %30
-  %648 = icmp ugt i32 %647, %5
-  br i1 %648, label %dissect_nvme_identify_resp.exit, label %.thread561.i.i
-
-.thread561.i.i:                                   ; preds = %646
-  %649 = sub nuw nsw i32 544, %30
-  %650 = load i32, ptr @hf_nvme_identify_ctrl_rsvd4, align 4
-  %651 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %650, ptr noundef %0, i32 noundef %649, i32 noundef 224, i32 noundef 0) #10
-  br label %654
-
-652:                                              ; preds = %644
-  %653 = icmp ult i32 %30, 769
-  br i1 %653, label %654, label %660
-
-654:                                              ; preds = %652, %.thread561.i.i
-  %655 = sub nuw nsw i32 1024, %30
-  %656 = icmp ugt i32 %655, %5
-  br i1 %656, label %dissect_nvme_identify_resp.exit, label %.thread562.i.i
-
-.thread562.i.i:                                   ; preds = %654
-  %657 = sub nuw nsw i32 768, %30
-  %658 = load i32, ptr @hf_nvme_identify_ctrl_subnqn, align 4
-  %659 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %658, ptr noundef %0, i32 noundef %657, i32 noundef 256, i32 noundef 0) #10
-  br label %662
-
-660:                                              ; preds = %652
-  %661 = icmp ult i32 %30, 1025
-  br i1 %661, label %662, label %668
-
-662:                                              ; preds = %660, %.thread562.i.i
-  %663 = sub nuw nsw i32 1792, %30
-  %664 = icmp ugt i32 %663, %5
-  br i1 %664, label %dissect_nvme_identify_resp.exit, label %.thread563.i.i
-
-.thread563.i.i:                                   ; preds = %662
-  %665 = sub nuw nsw i32 1024, %30
-  %666 = load i32, ptr @hf_nvme_identify_ctrl_rsvd5, align 4
-  %667 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %666, ptr noundef %0, i32 noundef %665, i32 noundef 768, i32 noundef 0) #10
-  br label %670
-
-668:                                              ; preds = %660
-  %669 = icmp ult i32 %30, 1793
-  br i1 %669, label %670, label %673
-
-670:                                              ; preds = %668, %.thread563.i.i
-  %671 = sub nuw nsw i32 2048, %30
-  %672 = icmp ugt i32 %671, %5
-  br i1 %672, label %dissect_nvme_identify_resp.exit, label %.thread564.i.i
-
-.thread564.i.i:                                   ; preds = %670
+  %499 = sub nuw nsw i32 343, %30
+  call fastcc void @add_group_mask_entry(ptr noundef %0, ptr noundef %36, i32 noundef %499, i32 noundef 1, ptr noundef nonnull @hf_nvme_identify_ctrl_anacap, i32 noundef 9)
+  br label %502
+
+500:                                              ; preds = %496
+  %501 = icmp ult i32 %30, 345
+  br i1 %501, label %502, label %508
+
+502:                                              ; preds = %500, %.thread540.i.i
+  %503 = sub nuw nsw i32 348, %30
+  %504 = icmp ugt i32 %503, %5
+  br i1 %504, label %dissect_nvme_identify_resp.exit, label %.thread541.i.i
+
+.thread541.i.i:                                   ; preds = %502
+  %505 = sub nuw nsw i32 344, %30
+  %506 = load i32, ptr @hf_nvme_identify_ctrl_anagrpmax, align 4
+  %507 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %506, ptr noundef %0, i32 noundef %505, i32 noundef 4, i32 noundef -2147483648) #10
+  br label %510
+
+508:                                              ; preds = %500
+  %509 = icmp ult i32 %30, 349
+  br i1 %509, label %510, label %516
+
+510:                                              ; preds = %508, %.thread541.i.i
+  %511 = sub nuw nsw i32 352, %30
+  %512 = icmp ugt i32 %511, %5
+  br i1 %512, label %dissect_nvme_identify_resp.exit, label %.thread542.i.i
+
+.thread542.i.i:                                   ; preds = %510
+  %513 = sub nuw nsw i32 348, %30
+  %514 = load i32, ptr @hf_nvme_identify_ctrl_nanagrpid, align 4
+  %515 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %514, ptr noundef %0, i32 noundef %513, i32 noundef 4, i32 noundef -2147483648) #10
+  br label %518
+
+516:                                              ; preds = %508
+  %517 = icmp ult i32 %30, 353
+  br i1 %517, label %518, label %524
+
+518:                                              ; preds = %516, %.thread542.i.i
+  %519 = sub nuw nsw i32 356, %30
+  %520 = icmp ugt i32 %519, %5
+  br i1 %520, label %dissect_nvme_identify_resp.exit, label %.thread543.i.i
+
+.thread543.i.i:                                   ; preds = %518
+  %521 = sub nuw nsw i32 352, %30
+  %522 = load i32, ptr @hf_nvme_identify_ctrl_pels, align 4
+  %523 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %522, ptr noundef %0, i32 noundef %521, i32 noundef 4, i32 noundef -2147483648) #10
+  br label %526
+
+524:                                              ; preds = %516
+  %525 = icmp ult i32 %30, 357
+  br i1 %525, label %526, label %532
+
+526:                                              ; preds = %524, %.thread543.i.i
+  %527 = sub nuw nsw i32 512, %30
+  %528 = icmp ugt i32 %527, %5
+  br i1 %528, label %dissect_nvme_identify_resp.exit, label %.thread544.i.i
+
+.thread544.i.i:                                   ; preds = %526
+  %529 = sub nuw nsw i32 356, %30
+  %530 = load i32, ptr @hf_nvme_identify_ctrl_rsvd2, align 4
+  %531 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %530, ptr noundef %0, i32 noundef %529, i32 noundef 156, i32 noundef 0) #10
+  br label %534
+
+532:                                              ; preds = %524
+  %533 = icmp ult i32 %30, 513
+  br i1 %533, label %534, label %538
+
+534:                                              ; preds = %532, %.thread544.i.i
+  %535 = sub nuw nsw i32 513, %30
+  %536 = icmp ugt i32 %535, %5
+  br i1 %536, label %dissect_nvme_identify_resp.exit, label %.thread545.i.i
+
+.thread545.i.i:                                   ; preds = %534
+  %537 = sub nuw nsw i32 512, %30
+  call fastcc void @add_group_mask_entry(ptr noundef %0, ptr noundef %36, i32 noundef %537, i32 noundef 1, ptr noundef nonnull @hf_nvme_identify_ctrl_sqes, i32 noundef 3)
+  br label %540
+
+538:                                              ; preds = %532
+  %539 = icmp eq i32 %30, 513
+  br i1 %539, label %540, label %544
+
+540:                                              ; preds = %538, %.thread545.i.i
+  %541 = sub nuw nsw i32 514, %30
+  %542 = icmp ugt i32 %541, %5
+  br i1 %542, label %dissect_nvme_identify_resp.exit, label %.thread546.i.i
+
+.thread546.i.i:                                   ; preds = %540
+  %543 = sub nuw nsw i32 513, %30
+  call fastcc void @add_group_mask_entry(ptr noundef %0, ptr noundef %36, i32 noundef %543, i32 noundef 1, ptr noundef nonnull @hf_nvme_identify_ctrl_cqes, i32 noundef 3)
+  br label %546
+
+544:                                              ; preds = %538
+  %545 = icmp ult i32 %30, 515
+  br i1 %545, label %546, label %552
+
+546:                                              ; preds = %544, %.thread546.i.i
+  %547 = sub nuw nsw i32 516, %30
+  %548 = icmp ugt i32 %547, %5
+  br i1 %548, label %dissect_nvme_identify_resp.exit, label %.thread547.i.i
+
+.thread547.i.i:                                   ; preds = %546
+  %549 = sub nuw nsw i32 514, %30
+  %550 = load i32, ptr @hf_nvme_identify_ctrl_maxcmd, align 4
+  %551 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %550, ptr noundef %0, i32 noundef %549, i32 noundef 2, i32 noundef -2147483648) #10
+  br label %554
+
+552:                                              ; preds = %544
+  %553 = icmp ult i32 %30, 517
+  br i1 %553, label %554, label %560
+
+554:                                              ; preds = %552, %.thread547.i.i
+  %555 = sub nuw nsw i32 520, %30
+  %556 = icmp ugt i32 %555, %5
+  br i1 %556, label %dissect_nvme_identify_resp.exit, label %.thread548.i.i
+
+.thread548.i.i:                                   ; preds = %554
+  %557 = sub nuw nsw i32 516, %30
+  %558 = load i32, ptr @hf_nvme_identify_ctrl_nn, align 4
+  %559 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %558, ptr noundef %0, i32 noundef %557, i32 noundef 4, i32 noundef -2147483648) #10
+  br label %562
+
+560:                                              ; preds = %552
+  %561 = icmp ult i32 %30, 521
+  br i1 %561, label %562, label %566
+
+562:                                              ; preds = %560, %.thread548.i.i
+  %563 = sub nuw nsw i32 522, %30
+  %564 = icmp ugt i32 %563, %5
+  br i1 %564, label %dissect_nvme_identify_resp.exit, label %.thread549.i.i
+
+.thread549.i.i:                                   ; preds = %562
+  %565 = sub nuw nsw i32 520, %30
+  call fastcc void @add_group_mask_entry(ptr noundef %0, ptr noundef %36, i32 noundef %565, i32 noundef 2, ptr noundef nonnull @hf_nvme_identify_ctrl_oncs, i32 noundef 10)
+  br label %568
+
+566:                                              ; preds = %560
+  %567 = icmp ult i32 %30, 523
+  br i1 %567, label %568, label %572
+
+568:                                              ; preds = %566, %.thread549.i.i
+  %569 = sub nuw nsw i32 524, %30
+  %570 = icmp ugt i32 %569, %5
+  br i1 %570, label %dissect_nvme_identify_resp.exit, label %.thread550.i.i
+
+.thread550.i.i:                                   ; preds = %568
+  %571 = sub nuw nsw i32 522, %30
+  call fastcc void @add_group_mask_entry(ptr noundef %0, ptr noundef %36, i32 noundef %571, i32 noundef 2, ptr noundef nonnull @hf_nvme_identify_ctrl_fuses, i32 noundef 3)
+  br label %574
+
+572:                                              ; preds = %566
+  %573 = icmp ult i32 %30, 525
+  br i1 %573, label %574, label %578
+
+574:                                              ; preds = %572, %.thread550.i.i
+  %575 = sub nuw nsw i32 525, %30
+  %576 = icmp ugt i32 %575, %5
+  br i1 %576, label %dissect_nvme_identify_resp.exit, label %.thread551.i.i
+
+.thread551.i.i:                                   ; preds = %574
+  %577 = sub nuw nsw i32 524, %30
+  call fastcc void @add_group_mask_entry(ptr noundef %0, ptr noundef %36, i32 noundef %577, i32 noundef 1, ptr noundef nonnull @hf_nvme_identify_ctrl_fna, i32 noundef 5)
+  br label %580
+
+578:                                              ; preds = %572
+  %579 = icmp eq i32 %30, 525
+  br i1 %579, label %580, label %584
+
+580:                                              ; preds = %578, %.thread551.i.i
+  %581 = sub nuw nsw i32 526, %30
+  %582 = icmp ugt i32 %581, %5
+  br i1 %582, label %dissect_nvme_identify_resp.exit, label %.thread552.i.i
+
+.thread552.i.i:                                   ; preds = %580
+  %583 = sub nuw nsw i32 525, %30
+  call fastcc void @add_group_mask_entry(ptr noundef %0, ptr noundef %36, i32 noundef %583, i32 noundef 1, ptr noundef nonnull @hf_nvme_identify_ctrl_vwc, i32 noundef 4)
+  br label %586
+
+584:                                              ; preds = %578
+  %585 = icmp ult i32 %30, 527
+  br i1 %585, label %586, label %592
+
+586:                                              ; preds = %584, %.thread552.i.i
+  %587 = sub nuw nsw i32 528, %30
+  %588 = icmp ugt i32 %587, %5
+  br i1 %588, label %dissect_nvme_identify_resp.exit, label %.thread553.i.i
+
+.thread553.i.i:                                   ; preds = %586
+  %589 = sub nuw nsw i32 526, %30
+  %590 = load i32, ptr @hf_nvme_identify_ctrl_awun, align 4
+  %591 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %590, ptr noundef %0, i32 noundef %589, i32 noundef 2, i32 noundef -2147483648) #10
+  br label %594
+
+592:                                              ; preds = %584
+  %593 = icmp ult i32 %30, 529
+  br i1 %593, label %594, label %600
+
+594:                                              ; preds = %592, %.thread553.i.i
+  %595 = sub nuw nsw i32 530, %30
+  %596 = icmp ugt i32 %595, %5
+  br i1 %596, label %dissect_nvme_identify_resp.exit, label %.thread554.i.i
+
+.thread554.i.i:                                   ; preds = %594
+  %597 = sub nuw nsw i32 528, %30
+  %598 = load i32, ptr @hf_nvme_identify_ctrl_awupf, align 4
+  %599 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %598, ptr noundef %0, i32 noundef %597, i32 noundef 2, i32 noundef -2147483648) #10
+  br label %602
+
+600:                                              ; preds = %592
+  %601 = icmp ult i32 %30, 531
+  br i1 %601, label %602, label %606
+
+602:                                              ; preds = %600, %.thread554.i.i
+  %603 = sub nuw nsw i32 531, %30
+  %604 = icmp ugt i32 %603, %5
+  br i1 %604, label %dissect_nvme_identify_resp.exit, label %.thread555.i.i
+
+.thread555.i.i:                                   ; preds = %602
+  %605 = sub nuw nsw i32 530, %30
+  call fastcc void @add_group_mask_entry(ptr noundef %0, ptr noundef %36, i32 noundef %605, i32 noundef 1, ptr noundef nonnull @hf_nvme_identify_ctrl_nvscc, i32 noundef 3)
+  br label %608
+
+606:                                              ; preds = %600
+  %607 = icmp eq i32 %30, 531
+  br i1 %607, label %608, label %612
+
+608:                                              ; preds = %606, %.thread555.i.i
+  %609 = sub nuw nsw i32 532, %30
+  %610 = icmp ugt i32 %609, %5
+  br i1 %610, label %dissect_nvme_identify_resp.exit, label %.thread556.i.i
+
+.thread556.i.i:                                   ; preds = %608
+  %611 = sub nuw nsw i32 531, %30
+  call fastcc void @add_group_mask_entry(ptr noundef %0, ptr noundef %36, i32 noundef %611, i32 noundef 1, ptr noundef nonnull @hf_nvme_identify_ctrl_nwpc, i32 noundef 5)
+  br label %614
+
+612:                                              ; preds = %606
+  %613 = icmp ult i32 %30, 533
+  br i1 %613, label %614, label %620
+
+614:                                              ; preds = %612, %.thread556.i.i
+  %615 = sub nuw nsw i32 535, %30
+  %616 = icmp ugt i32 %615, %5
+  br i1 %616, label %dissect_nvme_identify_resp.exit, label %.thread557.i.i
+
+.thread557.i.i:                                   ; preds = %614
+  %617 = sub nuw nsw i32 532, %30
+  %618 = load i32, ptr @hf_nvme_identify_ctrl_acwu, align 4
+  %619 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %618, ptr noundef %0, i32 noundef %617, i32 noundef 2, i32 noundef -2147483648) #10
+  br label %622
+
+620:                                              ; preds = %612
+  %621 = icmp ult i32 %30, 535
+  br i1 %621, label %622, label %628
+
+622:                                              ; preds = %620, %.thread557.i.i
+  %623 = sub nuw nsw i32 536, %30
+  %624 = icmp ugt i32 %623, %5
+  br i1 %624, label %dissect_nvme_identify_resp.exit, label %.thread558.i.i
+
+.thread558.i.i:                                   ; preds = %622
+  %625 = sub nuw nsw i32 534, %30
+  %626 = load i32, ptr @hf_nvme_identify_ctrl_rsvd3, align 4
+  %627 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %626, ptr noundef %0, i32 noundef %625, i32 noundef 2, i32 noundef 0) #10
+  br label %630
+
+628:                                              ; preds = %620
+  %629 = icmp ult i32 %30, 537
+  br i1 %629, label %630, label %634
+
+630:                                              ; preds = %628, %.thread558.i.i
+  %631 = sub nuw nsw i32 540, %30
+  %632 = icmp ugt i32 %631, %5
+  br i1 %632, label %dissect_nvme_identify_resp.exit, label %.thread559.i.i
+
+.thread559.i.i:                                   ; preds = %630
+  %633 = sub nuw nsw i32 536, %30
+  call fastcc void @add_group_mask_entry(ptr noundef %0, ptr noundef %36, i32 noundef %633, i32 noundef 4, ptr noundef nonnull @hf_nvme_identify_ctrl_sgls, i32 noundef 11)
+  br label %636
+
+634:                                              ; preds = %628
+  %635 = icmp ult i32 %30, 541
+  br i1 %635, label %636, label %642
+
+636:                                              ; preds = %634, %.thread559.i.i
+  %637 = sub nuw nsw i32 544, %30
+  %638 = icmp ugt i32 %637, %5
+  br i1 %638, label %dissect_nvme_identify_resp.exit, label %.thread560.i.i
+
+.thread560.i.i:                                   ; preds = %636
+  %639 = sub nuw nsw i32 540, %30
+  %640 = load i32, ptr @hf_nvme_identify_ctrl_mnan, align 4
+  %641 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %640, ptr noundef %0, i32 noundef %639, i32 noundef 4, i32 noundef -2147483648) #10
+  br label %644
+
+642:                                              ; preds = %634
+  %643 = icmp ult i32 %30, 545
+  br i1 %643, label %644, label %650
+
+644:                                              ; preds = %642, %.thread560.i.i
+  %645 = sub nuw nsw i32 768, %30
+  %646 = icmp ugt i32 %645, %5
+  br i1 %646, label %dissect_nvme_identify_resp.exit, label %.thread561.i.i
+
+.thread561.i.i:                                   ; preds = %644
+  %647 = sub nuw nsw i32 544, %30
+  %648 = load i32, ptr @hf_nvme_identify_ctrl_rsvd4, align 4
+  %649 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %648, ptr noundef %0, i32 noundef %647, i32 noundef 224, i32 noundef 0) #10
+  br label %652
+
+650:                                              ; preds = %642
+  %651 = icmp ult i32 %30, 769
+  br i1 %651, label %652, label %658
+
+652:                                              ; preds = %650, %.thread561.i.i
+  %653 = sub nuw nsw i32 1024, %30
+  %654 = icmp ugt i32 %653, %5
+  br i1 %654, label %dissect_nvme_identify_resp.exit, label %.thread562.i.i
+
+.thread562.i.i:                                   ; preds = %652
+  %655 = sub nuw nsw i32 768, %30
+  %656 = load i32, ptr @hf_nvme_identify_ctrl_subnqn, align 4
+  %657 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %656, ptr noundef %0, i32 noundef %655, i32 noundef 256, i32 noundef 0) #10
+  br label %660
+
+658:                                              ; preds = %650
+  %659 = icmp ult i32 %30, 1025
+  br i1 %659, label %660, label %666
+
+660:                                              ; preds = %658, %.thread562.i.i
+  %661 = sub nuw nsw i32 1792, %30
+  %662 = icmp ugt i32 %661, %5
+  br i1 %662, label %dissect_nvme_identify_resp.exit, label %.thread563.i.i
+
+.thread563.i.i:                                   ; preds = %660
+  %663 = sub nuw nsw i32 1024, %30
+  %664 = load i32, ptr @hf_nvme_identify_ctrl_rsvd5, align 4
+  %665 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %664, ptr noundef %0, i32 noundef %663, i32 noundef 768, i32 noundef 0) #10
+  br label %668
+
+666:                                              ; preds = %658
+  %667 = icmp ult i32 %30, 1793
+  br i1 %667, label %668, label %671
+
+668:                                              ; preds = %666, %.thread563.i.i
+  %669 = sub nuw nsw i32 2048, %30
+  %670 = icmp ugt i32 %669, %5
+  br i1 %670, label %dissect_nvme_identify_resp.exit, label %.thread564.i.i
+
+.thread564.i.i:                                   ; preds = %668
   call fastcc void @dissect_nvme_identify_ctrl_resp_nvmeof(ptr noundef %0, ptr noundef %36, i32 noundef %30)
-  br label %675
+  br label %673
 
-673:                                              ; preds = %668
-  %674 = icmp ult i32 %30, 2049
-  br i1 %674, label %675, label %679
+671:                                              ; preds = %666
+  %672 = icmp ult i32 %30, 2049
+  br i1 %672, label %673, label %677
 
-675:                                              ; preds = %673, %.thread564.i.i
-  %676 = sub nuw nsw i32 3072, %30
-  %677 = icmp ugt i32 %676, %5
-  br i1 %677, label %dissect_nvme_identify_resp.exit, label %678
+673:                                              ; preds = %671, %.thread564.i.i
+  %674 = sub nuw nsw i32 3072, %30
+  %675 = icmp ugt i32 %674, %5
+  br i1 %675, label %dissect_nvme_identify_resp.exit, label %676
 
-678:                                              ; preds = %675
+676:                                              ; preds = %673
   call fastcc void @dissect_nvme_identify_ctrl_resp_power_state_descriptors(ptr noundef %0, ptr noundef %36, i32 noundef %30)
-  br label %679
+  br label %677
 
-679:                                              ; preds = %678, %673
-  %680 = icmp ugt i32 %30, 3072
-  %681 = sub nuw nsw i32 4096, %30
-  %682 = icmp ugt i32 %681, %5
-  %or.cond.i.i = select i1 %680, i1 true, i1 %682
-  br i1 %or.cond.i.i, label %dissect_nvme_identify_resp.exit, label %683
+677:                                              ; preds = %676, %671
+  %678 = icmp ugt i32 %30, 3072
+  %679 = sub nuw nsw i32 4096, %30
+  %680 = icmp ugt i32 %679, %5
+  %or.cond.i.i = select i1 %678, i1 true, i1 %680
+  br i1 %or.cond.i.i, label %dissect_nvme_identify_resp.exit, label %681
 
-683:                                              ; preds = %679
-  %684 = sub nuw nsw i32 3072, %30
-  %685 = load i32, ptr @hf_nvme_identify_ctrl_vs, align 4
-  %686 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %685, ptr noundef %0, i32 noundef %684, i32 noundef 1024, i32 noundef 0) #10
+681:                                              ; preds = %677
+  %682 = sub nuw nsw i32 3072, %30
+  %683 = load i32, ptr @hf_nvme_identify_ctrl_vs, align 4
+  %684 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %683, ptr noundef %0, i32 noundef %682, i32 noundef 1024, i32 noundef 0) #10
   br label %dissect_nvme_identify_resp.exit
 
-687:                                              ; preds = %47
-  %688 = icmp ult i32 %30, 4096
-  %689 = icmp ugt i32 %5, 3
-  %690 = and i1 %689, %688
-  br i1 %690, label %.lr.ph.i.i, label %dissect_nvme_identify_resp.exit
+685:                                              ; preds = %47
+  %686 = icmp ult i32 %30, 4096
+  %687 = icmp ugt i32 %5, 3
+  %688 = and i1 %687, %686
+  br i1 %688, label %.lr.ph.i.i, label %dissect_nvme_identify_resp.exit
 
-.lr.ph.i.i:                                       ; preds = %687, %694
-  %691 = phi i32 [ %700, %694 ], [ 4, %687 ]
-  %.017.i.i = phi i32 [ %691, %694 ], [ 0, %687 ]
-  %.01316.i.i = phi i32 [ %698, %694 ], [ %30, %687 ]
-  %692 = call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %.017.i.i, i32 noundef -2147483648) #10
-  %693 = icmp eq i32 %692, 0
-  br i1 %693, label %dissect_nvme_identify_resp.exit, label %694
+.lr.ph.i.i:                                       ; preds = %685, %692
+  %689 = phi i32 [ %698, %692 ], [ 4, %685 ]
+  %.017.i.i = phi i32 [ %689, %692 ], [ 0, %685 ]
+  %.01316.i.i = phi i32 [ %696, %692 ], [ %30, %685 ]
+  %690 = call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %.017.i.i, i32 noundef -2147483648) #10
+  %691 = icmp eq i32 %690, 0
+  br i1 %691, label %dissect_nvme_identify_resp.exit, label %692
 
-694:                                              ; preds = %.lr.ph.i.i
-  %695 = load i32, ptr @hf_nvme_identify_nslist_nsid, align 4
-  %696 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %695, ptr noundef %0, i32 noundef %.017.i.i, i32 noundef 4, i32 noundef -2147483648) #10
-  %697 = lshr i32 %.01316.i.i, 2
-  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %696, ptr noundef nonnull @.str.1782, i32 noundef %697, i32 noundef %692) #10
-  %698 = add nuw nsw i32 %.01316.i.i, 4
-  %699 = icmp ult i32 %.01316.i.i, 4092
-  %700 = add nuw nsw i32 %691, 4
-  %701 = icmp ule i32 %700, %5
-  %702 = select i1 %699, i1 %701, i1 false
-  br i1 %702, label %.lr.ph.i.i, label %dissect_nvme_identify_resp.exit, !llvm.loop !7
+692:                                              ; preds = %.lr.ph.i.i
+  %693 = load i32, ptr @hf_nvme_identify_nslist_nsid, align 4
+  %694 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %693, ptr noundef %0, i32 noundef %.017.i.i, i32 noundef 4, i32 noundef -2147483648) #10
+  %695 = lshr i32 %.01316.i.i, 2
+  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %694, ptr noundef nonnull @.str.1782, i32 noundef %695, i32 noundef %690) #10
+  %696 = add nuw nsw i32 %.01316.i.i, 4
+  %697 = icmp ult i32 %.01316.i.i, 4092
+  %698 = add nuw nsw i32 %689, 4
+  %699 = icmp ule i32 %698, %5
+  %700 = select i1 %697, i1 %699, i1 false
+  br i1 %700, label %.lr.ph.i.i, label %dissect_nvme_identify_resp.exit, !llvm.loop !7
 
-703:                                              ; preds = %44
+701:                                              ; preds = %44
   call fastcc void @dissect_nvme_get_logpage_resp(ptr noundef %0, ptr noundef %36, ptr noundef nonnull %4, i32 noundef %30, i32 noundef %5)
   br label %dissect_nvme_identify_resp.exit
 
-704:                                              ; preds = %44, %44
-  %705 = getelementptr inbounds i8, ptr %4, i64 120
-  %706 = load i8, ptr %705, align 8
-  switch i8 %706, label %800 [
-    i8 3, label %707
-    i8 12, label %744
-    i8 14, label %757
-    i8 19, label %766
-    i8 22, label %790
+702:                                              ; preds = %44, %44
+  %703 = getelementptr inbounds i8, ptr %4, i64 120
+  %704 = load i8, ptr %703, align 8
+  switch i8 %704, label %798 [
+    i8 3, label %705
+    i8 12, label %742
+    i8 14, label %755
+    i8 19, label %764
+    i8 22, label %788
   ]
 
-707:                                              ; preds = %704
-  %708 = icmp ugt i32 %5, 63
-  br i1 %708, label %.lr.ph.i.i50, label %dissect_nvme_identify_resp.exit
+705:                                              ; preds = %702
+  %706 = icmp ugt i32 %5, 63
+  br i1 %706, label %.lr.ph.i.i50, label %dissect_nvme_identify_resp.exit
 
-.lr.ph.i.i50:                                     ; preds = %707, %add_group_mask_entry.exit.i.i54
-  %.030.i.i = phi i32 [ %742, %add_group_mask_entry.exit.i.i54 ], [ 0, %707 ]
-  %.02829.i.i = phi i32 [ %741, %add_group_mask_entry.exit.i.i54 ], [ %5, %707 ]
-  %709 = load i32, ptr @hf_nvme_set_features_tr_lbart, align 4
-  %710 = add i32 %.030.i.i, %30
-  %711 = lshr i32 %710, 6
-  %712 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format_value(ptr noundef %36, i32 noundef %709, ptr noundef %0, i32 noundef 0, i32 noundef 64, ptr noundef null, ptr noundef nonnull @.str.1797, i32 noundef %711) #10
-  %713 = load i32, ptr @ett_data, align 4
-  %714 = call ptr @proto_item_add_subtree(ptr noundef %712, i32 noundef %713) #10
-  %715 = load i32, ptr @hf_nvme_set_features_tr_lbart_type, align 4
-  %716 = call ptr @proto_tree_add_item(ptr noundef %714, i32 noundef %715, ptr noundef %0, i32 noundef %.030.i.i, i32 noundef 1, i32 noundef -2147483648) #10
-  %717 = or disjoint i32 %.030.i.i, 1
-  %718 = load i32, ptr @hf_nvme_set_features_tr_lbart_attr, align 16
-  %719 = call ptr @proto_tree_add_item(ptr noundef %714, i32 noundef %718, ptr noundef %0, i32 noundef %717, i32 noundef 1, i32 noundef -2147483648) #10
-  %720 = load i32, ptr @ett_data, align 4
-  %721 = call ptr @proto_item_add_subtree(ptr noundef %719, i32 noundef %720) #10
-  br label %722
+.lr.ph.i.i50:                                     ; preds = %705, %add_group_mask_entry.exit.i.i54
+  %.030.i.i = phi i32 [ %740, %add_group_mask_entry.exit.i.i54 ], [ 0, %705 ]
+  %.02829.i.i = phi i32 [ %739, %add_group_mask_entry.exit.i.i54 ], [ %5, %705 ]
+  %707 = load i32, ptr @hf_nvme_set_features_tr_lbart, align 4
+  %708 = add i32 %.030.i.i, %30
+  %709 = lshr i32 %708, 6
+  %710 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format_value(ptr noundef %36, i32 noundef %707, ptr noundef %0, i32 noundef 0, i32 noundef 64, ptr noundef null, ptr noundef nonnull @.str.1797, i32 noundef %709) #10
+  %711 = load i32, ptr @ett_data, align 4
+  %712 = call ptr @proto_item_add_subtree(ptr noundef %710, i32 noundef %711) #10
+  %713 = load i32, ptr @hf_nvme_set_features_tr_lbart_type, align 4
+  %714 = call ptr @proto_tree_add_item(ptr noundef %712, i32 noundef %713, ptr noundef %0, i32 noundef %.030.i.i, i32 noundef 1, i32 noundef -2147483648) #10
+  %715 = or disjoint i32 %.030.i.i, 1
+  %716 = load i32, ptr @hf_nvme_set_features_tr_lbart_attr, align 16
+  %717 = call ptr @proto_tree_add_item(ptr noundef %712, i32 noundef %716, ptr noundef %0, i32 noundef %715, i32 noundef 1, i32 noundef -2147483648) #10
+  %718 = load i32, ptr @ett_data, align 4
+  %719 = call ptr @proto_item_add_subtree(ptr noundef %717, i32 noundef %718) #10
+  br label %720
 
-722:                                              ; preds = %722, %.lr.ph.i.i50
-  %indvars.iv.i.i.i51 = phi i64 [ 1, %.lr.ph.i.i50 ], [ %indvars.iv.next.i.i.i52, %722 ]
-  %723 = getelementptr i32, ptr @hf_nvme_set_features_tr_lbart_attr, i64 %indvars.iv.i.i.i51
-  %724 = load i32, ptr %723, align 4
-  %725 = call ptr @proto_tree_add_item(ptr noundef %721, i32 noundef %724, ptr noundef %0, i32 noundef %717, i32 noundef 1, i32 noundef -2147483648) #10
+720:                                              ; preds = %720, %.lr.ph.i.i50
+  %indvars.iv.i.i.i51 = phi i64 [ 1, %.lr.ph.i.i50 ], [ %indvars.iv.next.i.i.i52, %720 ]
+  %721 = getelementptr i32, ptr @hf_nvme_set_features_tr_lbart_attr, i64 %indvars.iv.i.i.i51
+  %722 = load i32, ptr %721, align 4
+  %723 = call ptr @proto_tree_add_item(ptr noundef %719, i32 noundef %722, ptr noundef %0, i32 noundef %715, i32 noundef 1, i32 noundef -2147483648) #10
   %indvars.iv.next.i.i.i52 = add nuw nsw i64 %indvars.iv.i.i.i51, 1
   %exitcond.not.i.i.i53 = icmp eq i64 %indvars.iv.next.i.i.i52, 4
-  br i1 %exitcond.not.i.i.i53, label %add_group_mask_entry.exit.i.i54, label %722, !llvm.loop !6
+  br i1 %exitcond.not.i.i.i53, label %add_group_mask_entry.exit.i.i54, label %720, !llvm.loop !6
 
-add_group_mask_entry.exit.i.i54:                  ; preds = %722
-  %726 = load i32, ptr @hf_nvme_set_features_tr_lbart_rsvd0, align 4
-  %727 = or disjoint i32 %.030.i.i, 2
-  %728 = call ptr @proto_tree_add_item(ptr noundef %714, i32 noundef %726, ptr noundef %0, i32 noundef %727, i32 noundef 14, i32 noundef 0) #10
-  %729 = load i32, ptr @hf_nvme_set_features_tr_lbart_slba, align 4
-  %730 = or disjoint i32 %.030.i.i, 16
-  %731 = call ptr @proto_tree_add_item(ptr noundef %714, i32 noundef %729, ptr noundef %0, i32 noundef %730, i32 noundef 8, i32 noundef -2147483648) #10
-  %732 = load i32, ptr @hf_nvme_set_features_tr_lbart_nlb, align 4
-  %733 = or disjoint i32 %.030.i.i, 24
-  %734 = call ptr @proto_tree_add_item(ptr noundef %714, i32 noundef %732, ptr noundef %0, i32 noundef %733, i32 noundef 8, i32 noundef -2147483648) #10
-  %735 = load i32, ptr @hf_nvme_set_features_tr_lbart_guid, align 4
-  %736 = or disjoint i32 %.030.i.i, 32
-  %737 = call ptr @proto_tree_add_item(ptr noundef %714, i32 noundef %735, ptr noundef %0, i32 noundef %736, i32 noundef 16, i32 noundef 0) #10
-  %738 = load i32, ptr @hf_nvme_set_features_tr_lbart_rsvd1, align 4
-  %739 = or disjoint i32 %.030.i.i, 48
-  %740 = call ptr @proto_tree_add_item(ptr noundef %714, i32 noundef %738, ptr noundef %0, i32 noundef %739, i32 noundef 16, i32 noundef 0) #10
-  %741 = add i32 %.02829.i.i, -64
-  %742 = add i32 %.030.i.i, 64
-  %743 = icmp ugt i32 %741, 63
-  br i1 %743, label %.lr.ph.i.i50, label %dissect_nvme_identify_resp.exit, !llvm.loop !8
+add_group_mask_entry.exit.i.i54:                  ; preds = %720
+  %724 = load i32, ptr @hf_nvme_set_features_tr_lbart_rsvd0, align 4
+  %725 = or disjoint i32 %.030.i.i, 2
+  %726 = call ptr @proto_tree_add_item(ptr noundef %712, i32 noundef %724, ptr noundef %0, i32 noundef %725, i32 noundef 14, i32 noundef 0) #10
+  %727 = load i32, ptr @hf_nvme_set_features_tr_lbart_slba, align 4
+  %728 = or disjoint i32 %.030.i.i, 16
+  %729 = call ptr @proto_tree_add_item(ptr noundef %712, i32 noundef %727, ptr noundef %0, i32 noundef %728, i32 noundef 8, i32 noundef -2147483648) #10
+  %730 = load i32, ptr @hf_nvme_set_features_tr_lbart_nlb, align 4
+  %731 = or disjoint i32 %.030.i.i, 24
+  %732 = call ptr @proto_tree_add_item(ptr noundef %712, i32 noundef %730, ptr noundef %0, i32 noundef %731, i32 noundef 8, i32 noundef -2147483648) #10
+  %733 = load i32, ptr @hf_nvme_set_features_tr_lbart_guid, align 4
+  %734 = or disjoint i32 %.030.i.i, 32
+  %735 = call ptr @proto_tree_add_item(ptr noundef %712, i32 noundef %733, ptr noundef %0, i32 noundef %734, i32 noundef 16, i32 noundef 0) #10
+  %736 = load i32, ptr @hf_nvme_set_features_tr_lbart_rsvd1, align 4
+  %737 = or disjoint i32 %.030.i.i, 48
+  %738 = call ptr @proto_tree_add_item(ptr noundef %712, i32 noundef %736, ptr noundef %0, i32 noundef %737, i32 noundef 16, i32 noundef 0) #10
+  %739 = add i32 %.02829.i.i, -64
+  %740 = add i32 %.030.i.i, 64
+  %741 = icmp ugt i32 %739, 63
+  br i1 %741, label %.lr.ph.i.i50, label %dissect_nvme_identify_resp.exit, !llvm.loop !8
 
-744:                                              ; preds = %704
-  %745 = icmp ugt i32 %5, 7
-  br i1 %745, label %.lr.ph.i19.i, label %dissect_nvme_identify_resp.exit
+742:                                              ; preds = %702
+  %743 = icmp ugt i32 %5, 7
+  br i1 %743, label %.lr.ph.i19.i, label %dissect_nvme_identify_resp.exit
 
-.lr.ph.i19.i:                                     ; preds = %744, %add_group_mask_entry.exit.i23.i
-  %.07.i.i = phi i32 [ %755, %add_group_mask_entry.exit.i23.i ], [ 0, %744 ]
-  %.056.i.i = phi i32 [ %754, %add_group_mask_entry.exit.i23.i ], [ %5, %744 ]
-  %746 = load i32, ptr @hf_nvme_set_features_tr_apst, align 16
-  %747 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %746, ptr noundef %0, i32 noundef %.07.i.i, i32 noundef 8, i32 noundef -2147483648) #10
-  %748 = load i32, ptr @ett_data, align 4
-  %749 = call ptr @proto_item_add_subtree(ptr noundef %747, i32 noundef %748) #10
-  br label %750
+.lr.ph.i19.i:                                     ; preds = %742, %add_group_mask_entry.exit.i23.i
+  %.07.i.i = phi i32 [ %753, %add_group_mask_entry.exit.i23.i ], [ 0, %742 ]
+  %.056.i.i = phi i32 [ %752, %add_group_mask_entry.exit.i23.i ], [ %5, %742 ]
+  %744 = load i32, ptr @hf_nvme_set_features_tr_apst, align 16
+  %745 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %744, ptr noundef %0, i32 noundef %.07.i.i, i32 noundef 8, i32 noundef -2147483648) #10
+  %746 = load i32, ptr @ett_data, align 4
+  %747 = call ptr @proto_item_add_subtree(ptr noundef %745, i32 noundef %746) #10
+  br label %748
 
-750:                                              ; preds = %750, %.lr.ph.i19.i
-  %indvars.iv.i.i20.i = phi i64 [ 1, %.lr.ph.i19.i ], [ %indvars.iv.next.i.i21.i, %750 ]
-  %751 = getelementptr i32, ptr @hf_nvme_set_features_tr_apst, i64 %indvars.iv.i.i20.i
-  %752 = load i32, ptr %751, align 4
-  %753 = call ptr @proto_tree_add_item(ptr noundef %749, i32 noundef %752, ptr noundef %0, i32 noundef %.07.i.i, i32 noundef 8, i32 noundef -2147483648) #10
+748:                                              ; preds = %748, %.lr.ph.i19.i
+  %indvars.iv.i.i20.i = phi i64 [ 1, %.lr.ph.i19.i ], [ %indvars.iv.next.i.i21.i, %748 ]
+  %749 = getelementptr i32, ptr @hf_nvme_set_features_tr_apst, i64 %indvars.iv.i.i20.i
+  %750 = load i32, ptr %749, align 4
+  %751 = call ptr @proto_tree_add_item(ptr noundef %747, i32 noundef %750, ptr noundef %0, i32 noundef %.07.i.i, i32 noundef 8, i32 noundef -2147483648) #10
   %indvars.iv.next.i.i21.i = add nuw nsw i64 %indvars.iv.i.i20.i, 1
   %exitcond.not.i.i22.i = icmp eq i64 %indvars.iv.next.i.i21.i, 5
-  br i1 %exitcond.not.i.i22.i, label %add_group_mask_entry.exit.i23.i, label %750, !llvm.loop !6
+  br i1 %exitcond.not.i.i22.i, label %add_group_mask_entry.exit.i23.i, label %748, !llvm.loop !6
 
-add_group_mask_entry.exit.i23.i:                  ; preds = %750
-  %754 = add i32 %.056.i.i, -8
-  %755 = add i32 %.07.i.i, 8
-  %756 = icmp ugt i32 %754, 7
-  br i1 %756, label %.lr.ph.i19.i, label %dissect_nvme_identify_resp.exit, !llvm.loop !9
+add_group_mask_entry.exit.i23.i:                  ; preds = %748
+  %752 = add i32 %.056.i.i, -8
+  %753 = add i32 %.07.i.i, 8
+  %754 = icmp ugt i32 %752, 7
+  br i1 %754, label %.lr.ph.i19.i, label %dissect_nvme_identify_resp.exit, !llvm.loop !9
 
-757:                                              ; preds = %704
-  %758 = load i32, ptr @hf_nvme_set_features_tr_tst, align 4
-  %759 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %758, ptr noundef %0, i32 noundef 0, i32 noundef 8, i32 noundef -2147483648) #10
-  %760 = load i32, ptr @ett_data, align 4
-  %761 = call ptr @proto_item_add_subtree(ptr noundef %759, i32 noundef %760) #10
-  br label %762
+755:                                              ; preds = %702
+  %756 = load i32, ptr @hf_nvme_set_features_tr_tst, align 4
+  %757 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %756, ptr noundef %0, i32 noundef 0, i32 noundef 8, i32 noundef -2147483648) #10
+  %758 = load i32, ptr @ett_data, align 4
+  %759 = call ptr @proto_item_add_subtree(ptr noundef %757, i32 noundef %758) #10
+  br label %760
 
-762:                                              ; preds = %762, %757
-  %indvars.iv.i.i24.i = phi i64 [ 1, %757 ], [ %indvars.iv.next.i.i25.i, %762 ]
-  %763 = getelementptr i32, ptr @hf_nvme_set_features_tr_tst, i64 %indvars.iv.i.i24.i
-  %764 = load i32, ptr %763, align 4
-  %765 = call ptr @proto_tree_add_item(ptr noundef %761, i32 noundef %764, ptr noundef %0, i32 noundef 0, i32 noundef 8, i32 noundef -2147483648) #10
+760:                                              ; preds = %760, %755
+  %indvars.iv.i.i24.i = phi i64 [ 1, %755 ], [ %indvars.iv.next.i.i25.i, %760 ]
+  %761 = getelementptr i32, ptr @hf_nvme_set_features_tr_tst, i64 %indvars.iv.i.i24.i
+  %762 = load i32, ptr %761, align 4
+  %763 = call ptr @proto_tree_add_item(ptr noundef %759, i32 noundef %762, ptr noundef %0, i32 noundef 0, i32 noundef 8, i32 noundef -2147483648) #10
   %indvars.iv.next.i.i25.i = add nuw nsw i64 %indvars.iv.i.i24.i, 1
   %exitcond.not.i.i26.i = icmp eq i64 %indvars.iv.next.i.i25.i, 3
-  br i1 %exitcond.not.i.i26.i, label %dissect_nvme_identify_resp.exit, label %762, !llvm.loop !6
+  br i1 %exitcond.not.i.i26.i, label %dissect_nvme_identify_resp.exit, label %760, !llvm.loop !6
 
-766:                                              ; preds = %704
-  %767 = load i32, ptr @hf_nvme_set_features_tr_plmc, align 4
-  %768 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %767, ptr noundef %0, i32 noundef 0, i32 noundef %5, i32 noundef 0) #10
-  %769 = load i32, ptr @ett_data, align 4
-  %770 = call ptr @proto_item_add_subtree(ptr noundef %768, i32 noundef %769) #10
-  %771 = load i32, ptr @hf_nvme_set_features_tr_plmc_ee, align 16
-  %772 = call ptr @proto_tree_add_item(ptr noundef %770, i32 noundef %771, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef -2147483648) #10
-  %773 = load i32, ptr @ett_data, align 4
-  %774 = call ptr @proto_item_add_subtree(ptr noundef %772, i32 noundef %773) #10
-  br label %775
+764:                                              ; preds = %702
+  %765 = load i32, ptr @hf_nvme_set_features_tr_plmc, align 4
+  %766 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %765, ptr noundef %0, i32 noundef 0, i32 noundef %5, i32 noundef 0) #10
+  %767 = load i32, ptr @ett_data, align 4
+  %768 = call ptr @proto_item_add_subtree(ptr noundef %766, i32 noundef %767) #10
+  %769 = load i32, ptr @hf_nvme_set_features_tr_plmc_ee, align 16
+  %770 = call ptr @proto_tree_add_item(ptr noundef %768, i32 noundef %769, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef -2147483648) #10
+  %771 = load i32, ptr @ett_data, align 4
+  %772 = call ptr @proto_item_add_subtree(ptr noundef %770, i32 noundef %771) #10
+  br label %773
 
-775:                                              ; preds = %775, %766
-  %indvars.iv.i.i28.i = phi i64 [ 1, %766 ], [ %indvars.iv.next.i.i29.i, %775 ]
-  %776 = getelementptr i32, ptr @hf_nvme_set_features_tr_plmc_ee, i64 %indvars.iv.i.i28.i
-  %777 = load i32, ptr %776, align 4
-  %778 = call ptr @proto_tree_add_item(ptr noundef %774, i32 noundef %777, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef -2147483648) #10
+773:                                              ; preds = %773, %764
+  %indvars.iv.i.i28.i = phi i64 [ 1, %764 ], [ %indvars.iv.next.i.i29.i, %773 ]
+  %774 = getelementptr i32, ptr @hf_nvme_set_features_tr_plmc_ee, i64 %indvars.iv.i.i28.i
+  %775 = load i32, ptr %774, align 4
+  %776 = call ptr @proto_tree_add_item(ptr noundef %772, i32 noundef %775, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef -2147483648) #10
   %indvars.iv.next.i.i29.i = add nuw nsw i64 %indvars.iv.i.i28.i, 1
   %exitcond.not.i.i30.i = icmp eq i64 %indvars.iv.next.i.i29.i, 7
-  br i1 %exitcond.not.i.i30.i, label %dissect_nvme_set_features_transfer_plmc.exit.i, label %775, !llvm.loop !6
+  br i1 %exitcond.not.i.i30.i, label %dissect_nvme_set_features_transfer_plmc.exit.i, label %773, !llvm.loop !6
 
-dissect_nvme_set_features_transfer_plmc.exit.i:   ; preds = %775
-  %779 = load i32, ptr @hf_nvme_set_features_tr_plmc_rsvd0, align 4
-  %780 = call ptr @proto_tree_add_item(ptr noundef %770, i32 noundef %779, ptr noundef %0, i32 noundef 2, i32 noundef 30, i32 noundef 0) #10
-  %781 = load i32, ptr @hf_nvme_set_features_tr_plmc_dtwinrt, align 4
-  %782 = call ptr @proto_tree_add_item(ptr noundef %770, i32 noundef %781, ptr noundef %0, i32 noundef 32, i32 noundef 8, i32 noundef -2147483648) #10
-  %783 = load i32, ptr @hf_nvme_set_features_tr_plmc_dtwinwt, align 4
-  %784 = call ptr @proto_tree_add_item(ptr noundef %770, i32 noundef %783, ptr noundef %0, i32 noundef 40, i32 noundef 8, i32 noundef -2147483648) #10
-  %785 = load i32, ptr @hf_nvme_set_features_tr_plmc_dtwintt, align 4
-  %786 = call ptr @proto_tree_add_item(ptr noundef %770, i32 noundef %785, ptr noundef %0, i32 noundef 48, i32 noundef 8, i32 noundef -2147483648) #10
-  %787 = load i32, ptr @hf_nvme_set_features_tr_plmc_rsvd1, align 4
-  %788 = add i32 %5, -56
-  %789 = call ptr @proto_tree_add_item(ptr noundef %770, i32 noundef %787, ptr noundef %0, i32 noundef 56, i32 noundef %788, i32 noundef 0) #10
+dissect_nvme_set_features_transfer_plmc.exit.i:   ; preds = %773
+  %777 = load i32, ptr @hf_nvme_set_features_tr_plmc_rsvd0, align 4
+  %778 = call ptr @proto_tree_add_item(ptr noundef %768, i32 noundef %777, ptr noundef %0, i32 noundef 2, i32 noundef 30, i32 noundef 0) #10
+  %779 = load i32, ptr @hf_nvme_set_features_tr_plmc_dtwinrt, align 4
+  %780 = call ptr @proto_tree_add_item(ptr noundef %768, i32 noundef %779, ptr noundef %0, i32 noundef 32, i32 noundef 8, i32 noundef -2147483648) #10
+  %781 = load i32, ptr @hf_nvme_set_features_tr_plmc_dtwinwt, align 4
+  %782 = call ptr @proto_tree_add_item(ptr noundef %768, i32 noundef %781, ptr noundef %0, i32 noundef 40, i32 noundef 8, i32 noundef -2147483648) #10
+  %783 = load i32, ptr @hf_nvme_set_features_tr_plmc_dtwintt, align 4
+  %784 = call ptr @proto_tree_add_item(ptr noundef %768, i32 noundef %783, ptr noundef %0, i32 noundef 48, i32 noundef 8, i32 noundef -2147483648) #10
+  %785 = load i32, ptr @hf_nvme_set_features_tr_plmc_rsvd1, align 4
+  %786 = add i32 %5, -56
+  %787 = call ptr @proto_tree_add_item(ptr noundef %768, i32 noundef %785, ptr noundef %0, i32 noundef 56, i32 noundef %786, i32 noundef 0) #10
   br label %dissect_nvme_identify_resp.exit
 
-790:                                              ; preds = %704
-  %791 = load i32, ptr @hf_nvme_set_features_tr_hbs, align 4
-  %792 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %791, ptr noundef %0, i32 noundef 0, i32 noundef %5, i32 noundef 0) #10
-  %793 = load i32, ptr @ett_data, align 4
-  %794 = call ptr @proto_item_add_subtree(ptr noundef %792, i32 noundef %793) #10
-  %795 = load i32, ptr @hf_nvme_set_features_tr_hbs_acre, align 4
-  %796 = call ptr @proto_tree_add_item(ptr noundef %794, i32 noundef %795, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #10
-  %797 = load i32, ptr @hf_nvme_set_features_tr_hbs_rsvd, align 4
-  %798 = add i32 %5, -1
-  %799 = call ptr @proto_tree_add_item(ptr noundef %794, i32 noundef %797, ptr noundef %0, i32 noundef 1, i32 noundef %798, i32 noundef 0) #10
+788:                                              ; preds = %702
+  %789 = load i32, ptr @hf_nvme_set_features_tr_hbs, align 4
+  %790 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %789, ptr noundef %0, i32 noundef 0, i32 noundef %5, i32 noundef 0) #10
+  %791 = load i32, ptr @ett_data, align 4
+  %792 = call ptr @proto_item_add_subtree(ptr noundef %790, i32 noundef %791) #10
+  %793 = load i32, ptr @hf_nvme_set_features_tr_hbs_acre, align 4
+  %794 = call ptr @proto_tree_add_item(ptr noundef %792, i32 noundef %793, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #10
+  %795 = load i32, ptr @hf_nvme_set_features_tr_hbs_rsvd, align 4
+  %796 = add i32 %5, -1
+  %797 = call ptr @proto_tree_add_item(ptr noundef %792, i32 noundef %795, ptr noundef %0, i32 noundef 1, i32 noundef %796, i32 noundef 0) #10
   br label %dissect_nvme_identify_resp.exit
 
-800:                                              ; preds = %704
-  %801 = load i32, ptr @hf_nvme_gen_data, align 4
-  %802 = icmp eq i8 %46, 9
-  %803 = select i1 %802, ptr @.str.1795, ptr @.str.1796
-  %804 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format_value(ptr noundef %36, i32 noundef %801, ptr noundef %0, i32 noundef 0, i32 noundef %5, ptr noundef null, ptr noundef nonnull %803) #10
+798:                                              ; preds = %702
+  %799 = load i32, ptr @hf_nvme_gen_data, align 4
+  %800 = icmp eq i8 %46, 9
+  %801 = select i1 %800, ptr @.str.1795, ptr @.str.1796
+  %802 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format_value(ptr noundef %36, i32 noundef %799, ptr noundef %0, i32 noundef 0, i32 noundef %5, ptr noundef null, ptr noundef nonnull %801) #10
   br label %dissect_nvme_identify_resp.exit
 
-805:                                              ; preds = %44
-  %806 = load i32, ptr @hf_nvme_gen_data, align 4
-  %807 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format_value(ptr noundef %36, i32 noundef %806, ptr noundef %0, i32 noundef 0, i32 noundef %5, ptr noundef null, ptr noundef nonnull @.str.12, ptr noundef %45, i32 noundef %30) #10
+803:                                              ; preds = %44
+  %804 = load i32, ptr @hf_nvme_gen_data, align 4
+  %805 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format_value(ptr noundef %36, i32 noundef %804, ptr noundef %0, i32 noundef 0, i32 noundef %5, ptr noundef null, ptr noundef nonnull @.str.12, ptr noundef %45, i32 noundef %30) #10
   br label %dissect_nvme_identify_resp.exit
 
-dissect_nvme_identify_resp.exit:                  ; preds = %762, %add_group_mask_entry.exit.i23.i, %add_group_mask_entry.exit.i.i54, %694, %.lr.ph.i.i, %800, %790, %dissect_nvme_set_features_transfer_plmc.exit.i, %744, %707, %687, %683, %679, %675, %670, %662, %654, %646, %638, %632, %624, %616, %610, %604, %596, %588, %582, %576, %570, %564, %556, %548, %542, %536, %528, %520, %512, %504, %._crit_edge.i.i, %492, %484, %476, %468, %460, %454, %446, %438, %432, %424, %416, %410, %402, %396, %388, %380, %372, %364, %356, %348, %340, %334, %328, %320, %312, %306, %301, %293, %285, %279, %274, %265, %262, %254, %246, %241, %233, %225, %219, %213, %207, %199, %191, %186, %178, %170, %156, %148, %140, %132, %124, %116, %108, %102, %dissect_nvme_identify_ns_resp.exit.i, %47, %703, %805, %42
-  %.0 = phi ptr [ %43, %42 ], [ %45, %805 ], [ %45, %703 ], [ %45, %47 ], [ %45, %dissect_nvme_identify_ns_resp.exit.i ], [ %45, %102 ], [ %45, %108 ], [ %45, %116 ], [ %45, %124 ], [ %45, %132 ], [ %45, %140 ], [ %45, %148 ], [ %45, %156 ], [ %45, %170 ], [ %45, %178 ], [ %45, %186 ], [ %45, %191 ], [ %45, %199 ], [ %45, %207 ], [ %45, %213 ], [ %45, %219 ], [ %45, %225 ], [ %45, %233 ], [ %45, %241 ], [ %45, %246 ], [ %45, %254 ], [ %45, %262 ], [ %45, %265 ], [ %45, %274 ], [ %45, %279 ], [ %45, %285 ], [ %45, %293 ], [ %45, %301 ], [ %45, %306 ], [ %45, %312 ], [ %45, %320 ], [ %45, %328 ], [ %45, %334 ], [ %45, %340 ], [ %45, %348 ], [ %45, %356 ], [ %45, %364 ], [ %45, %372 ], [ %45, %380 ], [ %45, %388 ], [ %45, %396 ], [ %45, %402 ], [ %45, %410 ], [ %45, %416 ], [ %45, %424 ], [ %45, %432 ], [ %45, %438 ], [ %45, %446 ], [ %45, %454 ], [ %45, %460 ], [ %45, %468 ], [ %45, %476 ], [ %45, %484 ], [ %45, %492 ], [ %45, %._crit_edge.i.i ], [ %45, %504 ], [ %45, %512 ], [ %45, %520 ], [ %45, %528 ], [ %45, %536 ], [ %45, %542 ], [ %45, %548 ], [ %45, %556 ], [ %45, %564 ], [ %45, %570 ], [ %45, %576 ], [ %45, %582 ], [ %45, %588 ], [ %45, %596 ], [ %45, %604 ], [ %45, %610 ], [ %45, %616 ], [ %45, %624 ], [ %45, %632 ], [ %45, %638 ], [ %45, %646 ], [ %45, %654 ], [ %45, %662 ], [ %45, %670 ], [ %45, %675 ], [ %45, %679 ], [ %45, %683 ], [ %45, %687 ], [ %45, %707 ], [ %45, %744 ], [ %45, %dissect_nvme_set_features_transfer_plmc.exit.i ], [ %45, %790 ], [ %45, %800 ], [ %45, %.lr.ph.i.i ], [ %45, %694 ], [ %45, %add_group_mask_entry.exit.i.i54 ], [ %45, %add_group_mask_entry.exit.i23.i ], [ %45, %762 ]
+dissect_nvme_identify_resp.exit:                  ; preds = %760, %add_group_mask_entry.exit.i23.i, %add_group_mask_entry.exit.i.i54, %692, %.lr.ph.i.i, %798, %788, %dissect_nvme_set_features_transfer_plmc.exit.i, %742, %705, %685, %681, %677, %673, %668, %660, %652, %644, %636, %630, %622, %614, %608, %602, %594, %586, %580, %574, %568, %562, %554, %546, %540, %534, %526, %518, %510, %502, %._crit_edge.i.i, %490, %482, %474, %466, %458, %452, %444, %436, %430, %422, %414, %408, %400, %394, %386, %378, %370, %362, %354, %346, %338, %332, %326, %318, %310, %304, %299, %291, %283, %277, %272, %263, %260, %252, %244, %239, %231, %223, %217, %211, %205, %197, %189, %184, %176, %168, %154, %146, %138, %130, %122, %114, %106, %100, %dissect_nvme_identify_ns_resp.exit.i, %47, %701, %803, %42
+  %.0 = phi ptr [ %43, %42 ], [ %45, %803 ], [ %45, %701 ], [ %45, %47 ], [ %45, %dissect_nvme_identify_ns_resp.exit.i ], [ %45, %100 ], [ %45, %106 ], [ %45, %114 ], [ %45, %122 ], [ %45, %130 ], [ %45, %138 ], [ %45, %146 ], [ %45, %154 ], [ %45, %168 ], [ %45, %176 ], [ %45, %184 ], [ %45, %189 ], [ %45, %197 ], [ %45, %205 ], [ %45, %211 ], [ %45, %217 ], [ %45, %223 ], [ %45, %231 ], [ %45, %239 ], [ %45, %244 ], [ %45, %252 ], [ %45, %260 ], [ %45, %263 ], [ %45, %272 ], [ %45, %277 ], [ %45, %283 ], [ %45, %291 ], [ %45, %299 ], [ %45, %304 ], [ %45, %310 ], [ %45, %318 ], [ %45, %326 ], [ %45, %332 ], [ %45, %338 ], [ %45, %346 ], [ %45, %354 ], [ %45, %362 ], [ %45, %370 ], [ %45, %378 ], [ %45, %386 ], [ %45, %394 ], [ %45, %400 ], [ %45, %408 ], [ %45, %414 ], [ %45, %422 ], [ %45, %430 ], [ %45, %436 ], [ %45, %444 ], [ %45, %452 ], [ %45, %458 ], [ %45, %466 ], [ %45, %474 ], [ %45, %482 ], [ %45, %490 ], [ %45, %._crit_edge.i.i ], [ %45, %502 ], [ %45, %510 ], [ %45, %518 ], [ %45, %526 ], [ %45, %534 ], [ %45, %540 ], [ %45, %546 ], [ %45, %554 ], [ %45, %562 ], [ %45, %568 ], [ %45, %574 ], [ %45, %580 ], [ %45, %586 ], [ %45, %594 ], [ %45, %602 ], [ %45, %608 ], [ %45, %614 ], [ %45, %622 ], [ %45, %630 ], [ %45, %636 ], [ %45, %644 ], [ %45, %652 ], [ %45, %660 ], [ %45, %668 ], [ %45, %673 ], [ %45, %677 ], [ %45, %681 ], [ %45, %685 ], [ %45, %705 ], [ %45, %742 ], [ %45, %dissect_nvme_set_features_transfer_plmc.exit.i ], [ %45, %788 ], [ %45, %798 ], [ %45, %.lr.ph.i.i ], [ %45, %692 ], [ %45, %add_group_mask_entry.exit.i.i54 ], [ %45, %add_group_mask_entry.exit.i23.i ], [ %45, %760 ]
   %.not48 = icmp eq i32 %6, 0
-  br i1 %.not48, label %808, label %833
+  br i1 %.not48, label %806, label %831
 
-808:                                              ; preds = %dissect_nvme_identify_resp.exit
-  %809 = load ptr, ptr %31, align 8
-  call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %809, i32 noundef 25, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.13, ptr noundef %.0) #10
-  %810 = load i16, ptr %37, align 8
-  %.not49 = icmp eq i16 %810, 0
-  br i1 %.not49, label %811, label %831
+806:                                              ; preds = %dissect_nvme_identify_resp.exit
+  %807 = load ptr, ptr %31, align 8
+  call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %807, i32 noundef 25, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.13, ptr noundef %.0) #10
+  %808 = load i16, ptr %37, align 8
+  %.not49 = icmp eq i16 %808, 0
+  br i1 %.not49, label %809, label %829
 
-811:                                              ; preds = %808
-  %812 = getelementptr inbounds i8, ptr %4, i64 160
-  %813 = load i8, ptr %812, align 8
-  switch i8 %813, label %833 [
-    i8 6, label %814
-    i8 2, label %820
+809:                                              ; preds = %806
+  %810 = getelementptr inbounds i8, ptr %4, i64 160
+  %811 = load i8, ptr %810, align 8
+  switch i8 %811, label %831 [
+    i8 6, label %812
+    i8 2, label %818
   ]
 
-814:                                              ; preds = %811
-  %815 = load ptr, ptr %31, align 8
-  %816 = getelementptr inbounds i8, ptr %4, i64 120
-  %817 = load i16, ptr %816, align 8
-  %818 = zext i16 %817 to i32
-  %819 = call ptr @val_to_str_const(i32 noundef %818, ptr noundef nonnull @cns_table, ptr noundef nonnull @.str.10) #10
-  call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %815, i32 noundef 25, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.12, ptr noundef %819, i32 noundef %30) #10
-  br label %833
+812:                                              ; preds = %809
+  %813 = load ptr, ptr %31, align 8
+  %814 = getelementptr inbounds i8, ptr %4, i64 120
+  %815 = load i16, ptr %814, align 8
+  %816 = zext i16 %815 to i32
+  %817 = call ptr @val_to_str_const(i32 noundef %816, ptr noundef nonnull @cns_table, ptr noundef nonnull @.str.10) #10
+  call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %813, i32 noundef 25, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.12, ptr noundef %817, i32 noundef %30) #10
+  br label %831
 
-820:                                              ; preds = %811
-  %821 = load ptr, ptr %31, align 8
-  %822 = getelementptr inbounds i8, ptr %4, i64 138
-  %823 = load i8, ptr %822, align 2
-  %824 = zext i8 %823 to i32
-  %or.cond.i = icmp sgt i8 %823, 112
-  br i1 %or.cond.i, label %get_logpage_name.exit, label %825
+818:                                              ; preds = %809
+  %819 = load ptr, ptr %31, align 8
+  %820 = getelementptr inbounds i8, ptr %4, i64 138
+  %821 = load i8, ptr %820, align 2
+  %822 = zext i8 %821 to i32
+  %or.cond.i = icmp sgt i8 %821, 112
+  br i1 %or.cond.i, label %get_logpage_name.exit, label %823
 
-825:                                              ; preds = %820
-  %826 = add i8 %823, 126
-  %or.cond3.i = icmp ult i8 %826, 62
-  br i1 %or.cond3.i, label %get_logpage_name.exit, label %827
+823:                                              ; preds = %818
+  %824 = add i8 %821, 126
+  %or.cond3.i = icmp ult i8 %824, 62
+  br i1 %or.cond3.i, label %get_logpage_name.exit, label %825
+
+825:                                              ; preds = %823
+  %826 = icmp ugt i8 %821, -65
+  br i1 %826, label %get_logpage_name.exit, label %827
 
 827:                                              ; preds = %825
-  %828 = icmp ugt i8 %823, -65
-  br i1 %828, label %get_logpage_name.exit, label %829
-
-829:                                              ; preds = %827
-  %830 = call ptr @val_to_str_const(i32 noundef %824, ptr noundef nonnull @logpage_tbl, ptr noundef nonnull @.str.1740) #10
+  %828 = call ptr @val_to_str_const(i32 noundef %822, ptr noundef nonnull @logpage_tbl, ptr noundef nonnull @.str.1740) #10
   br label %get_logpage_name.exit
 
-get_logpage_name.exit:                            ; preds = %820, %825, %827, %829
-  %.0.i = phi ptr [ %830, %829 ], [ @.str.1737, %820 ], [ @.str.1738, %825 ], [ @.str.1739, %827 ]
-  call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %821, i32 noundef 25, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.12, ptr noundef %.0.i, i32 noundef %30) #10
-  br label %833
+get_logpage_name.exit:                            ; preds = %818, %823, %825, %827
+  %.0.i = phi ptr [ %828, %827 ], [ @.str.1737, %818 ], [ @.str.1738, %823 ], [ @.str.1739, %825 ]
+  call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %819, i32 noundef 25, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.12, ptr noundef %.0.i, i32 noundef %30) #10
+  br label %831
 
-831:                                              ; preds = %808
-  %832 = load ptr, ptr %31, align 8
-  call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %832, i32 noundef 25, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, i32 noundef %30) #10
-  br label %833
+829:                                              ; preds = %806
+  %830 = load ptr, ptr %31, align 8
+  call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %830, i32 noundef 25, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, i32 noundef %30) #10
+  br label %831
 
-833:                                              ; preds = %811, %814, %get_logpage_name.exit, %dissect_nvme_identify_resp.exit, %831
+831:                                              ; preds = %809, %812, %get_logpage_name.exit, %dissect_nvme_identify_resp.exit, %829
   ret void
 }
 
@@ -10804,16 +10802,16 @@ declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 nound
 declare i32 @llvm.fshl.i32(i32, i32, i32) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.fshl.i64(i64, i64, i64) #8
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #8
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.usub.sat.i32(i32, i32) #8
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.fshl.i64(i64, i64, i64) #8
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9

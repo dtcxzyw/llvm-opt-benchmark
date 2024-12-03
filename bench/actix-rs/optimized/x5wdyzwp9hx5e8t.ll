@@ -10986,29 +10986,27 @@ define hidden void @"_ZN4core3ptr264drop_in_place$LT$futures_util..future..join_
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr264drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..scope..ScopeFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha76c9c2fabb87bfcE.llvm.11632439649900387884"(ptr noundef nonnull align 8 %0) unnamed_addr #0 {
   %2 = load i64, ptr %0, align 8, !range !1134, !noundef !5
-  %.not = icmp samesign ult i64 %2, 2
-  %3 = add nsw i64 %2, -1
-  %4 = select i1 %.not, i64 0, i64 %3
-  switch i64 %4, label %"_ZN4core3ptr634drop_in_place$LT$core..result..Result$LT$$LP$actix_router..resource..ResourceDef$C$alloc..vec..Vec$LT$alloc..boxed..Box$LT$dyn$u20$actix_web..guard..Guard$GT$$GT$$C$alloc..boxed..Box$LT$dyn$u20$actix_service..Service$LT$actix_web..service..ServiceRequest$GT$$u2b$Error$u20$$u3d$$u20$actix_web..error..error..Error$u2b$Response$u20$$u3d$$u20$actix_web..service..ServiceResponse$u2b$Future$u20$$u3d$$u20$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$actix_web..service..ServiceResponse$C$actix_web..error..error..Error$GT$$GT$$GT$$GT$$RP$$C$$LP$$RP$$GT$$GT$17h4ec9760b08ac9fd6E.llvm.11632439649900387884.exit" [
-    i64 0, label %5
-    i64 1, label %6
+  %3 = tail call i64 @llvm.usub.sat.i64(i64 %2, i64 1)
+  switch i64 %3, label %"_ZN4core3ptr634drop_in_place$LT$core..result..Result$LT$$LP$actix_router..resource..ResourceDef$C$alloc..vec..Vec$LT$alloc..boxed..Box$LT$dyn$u20$actix_web..guard..Guard$GT$$GT$$C$alloc..boxed..Box$LT$dyn$u20$actix_service..Service$LT$actix_web..service..ServiceRequest$GT$$u2b$Error$u20$$u3d$$u20$actix_web..error..error..Error$u2b$Response$u20$$u3d$$u20$actix_web..service..ServiceResponse$u2b$Future$u20$$u3d$$u20$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$actix_web..service..ServiceResponse$C$actix_web..error..error..Error$GT$$GT$$GT$$GT$$RP$$C$$LP$$RP$$GT$$GT$17h4ec9760b08ac9fd6E.llvm.11632439649900387884.exit" [
+    i64 0, label %4
+    i64 1, label %5
   ]
 
-"_ZN4core3ptr634drop_in_place$LT$core..result..Result$LT$$LP$actix_router..resource..ResourceDef$C$alloc..vec..Vec$LT$alloc..boxed..Box$LT$dyn$u20$actix_web..guard..Guard$GT$$GT$$C$alloc..boxed..Box$LT$dyn$u20$actix_service..Service$LT$actix_web..service..ServiceRequest$GT$$u2b$Error$u20$$u3d$$u20$actix_web..error..error..Error$u2b$Response$u20$$u3d$$u20$actix_web..service..ServiceResponse$u2b$Future$u20$$u3d$$u20$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$actix_web..service..ServiceResponse$C$actix_web..error..error..Error$GT$$GT$$GT$$GT$$RP$$C$$LP$$RP$$GT$$GT$17h4ec9760b08ac9fd6E.llvm.11632439649900387884.exit": ; preds = %9, %6, %5, %1
+"_ZN4core3ptr634drop_in_place$LT$core..result..Result$LT$$LP$actix_router..resource..ResourceDef$C$alloc..vec..Vec$LT$alloc..boxed..Box$LT$dyn$u20$actix_web..guard..Guard$GT$$GT$$C$alloc..boxed..Box$LT$dyn$u20$actix_service..Service$LT$actix_web..service..ServiceRequest$GT$$u2b$Error$u20$$u3d$$u20$actix_web..error..error..Error$u2b$Response$u20$$u3d$$u20$actix_web..service..ServiceResponse$u2b$Future$u20$$u3d$$u20$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$actix_web..service..ServiceResponse$C$actix_web..error..error..Error$GT$$GT$$GT$$GT$$RP$$C$$LP$$RP$$GT$$GT$17h4ec9760b08ac9fd6E.llvm.11632439649900387884.exit": ; preds = %8, %5, %4, %1
   ret void
 
-5:                                                ; preds = %1
+4:                                                ; preds = %1
   tail call void @"_ZN4core3ptr213drop_in_place$LT$$LT$actix_web..scope..ScopeFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h1708c7e7a0e07bf2E.llvm.11632439649900387884"(ptr noundef nonnull align 8 %0)
   br label %"_ZN4core3ptr634drop_in_place$LT$core..result..Result$LT$$LP$actix_router..resource..ResourceDef$C$alloc..vec..Vec$LT$alloc..boxed..Box$LT$dyn$u20$actix_web..guard..Guard$GT$$GT$$C$alloc..boxed..Box$LT$dyn$u20$actix_service..Service$LT$actix_web..service..ServiceRequest$GT$$u2b$Error$u20$$u3d$$u20$actix_web..error..error..Error$u2b$Response$u20$$u3d$$u20$actix_web..service..ServiceResponse$u2b$Future$u20$$u3d$$u20$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$actix_web..service..ServiceResponse$C$actix_web..error..error..Error$GT$$GT$$GT$$GT$$RP$$C$$LP$$RP$$GT$$GT$17h4ec9760b08ac9fd6E.llvm.11632439649900387884.exit"
 
-6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
-  %8 = load i64, ptr %7, align 8, !range !4, !alias.scope !3560, !noundef !5
-  %.not.i = icmp eq i64 %8, 2
-  br i1 %.not.i, label %"_ZN4core3ptr634drop_in_place$LT$core..result..Result$LT$$LP$actix_router..resource..ResourceDef$C$alloc..vec..Vec$LT$alloc..boxed..Box$LT$dyn$u20$actix_web..guard..Guard$GT$$GT$$C$alloc..boxed..Box$LT$dyn$u20$actix_service..Service$LT$actix_web..service..ServiceRequest$GT$$u2b$Error$u20$$u3d$$u20$actix_web..error..error..Error$u2b$Response$u20$$u3d$$u20$actix_web..service..ServiceResponse$u2b$Future$u20$$u3d$$u20$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$actix_web..service..ServiceResponse$C$actix_web..error..error..Error$GT$$GT$$GT$$GT$$RP$$C$$LP$$RP$$GT$$GT$17h4ec9760b08ac9fd6E.llvm.11632439649900387884.exit", label %9
+5:                                                ; preds = %1
+  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = load i64, ptr %6, align 8, !range !4, !alias.scope !3560, !noundef !5
+  %.not.i = icmp eq i64 %7, 2
+  br i1 %.not.i, label %"_ZN4core3ptr634drop_in_place$LT$core..result..Result$LT$$LP$actix_router..resource..ResourceDef$C$alloc..vec..Vec$LT$alloc..boxed..Box$LT$dyn$u20$actix_web..guard..Guard$GT$$GT$$C$alloc..boxed..Box$LT$dyn$u20$actix_service..Service$LT$actix_web..service..ServiceRequest$GT$$u2b$Error$u20$$u3d$$u20$actix_web..error..error..Error$u2b$Response$u20$$u3d$$u20$actix_web..service..ServiceResponse$u2b$Future$u20$$u3d$$u20$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$actix_web..service..ServiceResponse$C$actix_web..error..error..Error$GT$$GT$$GT$$GT$$RP$$C$$LP$$RP$$GT$$GT$17h4ec9760b08ac9fd6E.llvm.11632439649900387884.exit", label %8
 
-9:                                                ; preds = %6
-  tail call void @"_ZN4core3ptr595drop_in_place$LT$$LP$actix_router..resource..ResourceDef$C$alloc..vec..Vec$LT$alloc..boxed..Box$LT$dyn$u20$actix_web..guard..Guard$GT$$GT$$C$alloc..boxed..Box$LT$dyn$u20$actix_service..Service$LT$actix_web..service..ServiceRequest$GT$$u2b$Error$u20$$u3d$$u20$actix_web..error..error..Error$u2b$Response$u20$$u3d$$u20$actix_web..service..ServiceResponse$u2b$Future$u20$$u3d$$u20$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$actix_web..service..ServiceResponse$C$actix_web..error..error..Error$GT$$GT$$GT$$GT$$RP$$GT$17hf4c647f4c3923346E.llvm.11632439649900387884"(ptr noalias noundef nonnull align 8 dereferenceable(192) %7)
+8:                                                ; preds = %5
+  tail call void @"_ZN4core3ptr595drop_in_place$LT$$LP$actix_router..resource..ResourceDef$C$alloc..vec..Vec$LT$alloc..boxed..Box$LT$dyn$u20$actix_web..guard..Guard$GT$$GT$$C$alloc..boxed..Box$LT$dyn$u20$actix_service..Service$LT$actix_web..service..ServiceRequest$GT$$u2b$Error$u20$$u3d$$u20$actix_web..error..error..Error$u2b$Response$u20$$u3d$$u20$actix_web..service..ServiceResponse$u2b$Future$u20$$u3d$$u20$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$actix_web..service..ServiceResponse$C$actix_web..error..error..Error$GT$$GT$$GT$$GT$$RP$$GT$17hf4c647f4c3923346E.llvm.11632439649900387884"(ptr noalias noundef nonnull align 8 dereferenceable(192) %6)
   br label %"_ZN4core3ptr634drop_in_place$LT$core..result..Result$LT$$LP$actix_router..resource..ResourceDef$C$alloc..vec..Vec$LT$alloc..boxed..Box$LT$dyn$u20$actix_web..guard..Guard$GT$$GT$$C$alloc..boxed..Box$LT$dyn$u20$actix_service..Service$LT$actix_web..service..ServiceRequest$GT$$u2b$Error$u20$$u3d$$u20$actix_web..error..error..Error$u2b$Response$u20$$u3d$$u20$actix_web..service..ServiceResponse$u2b$Future$u20$$u3d$$u20$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$actix_web..service..ServiceResponse$C$actix_web..error..error..Error$GT$$GT$$GT$$GT$$RP$$C$$LP$$RP$$GT$$GT$17h4ec9760b08ac9fd6E.llvm.11632439649900387884.exit"
 }
 
@@ -11217,56 +11215,54 @@ define hidden void @"_ZN4core3ptr274drop_in_place$LT$$u5b$futures_util..future..
   %4 = getelementptr inbounds [0 x { i64, [26 x i64] }], ptr %0, i64 0, i64 %.08
   %5 = add nuw i64 %.08, 1
   %6 = load i64, ptr %4, align 8, !range !1134, !noundef !5
-  %.not.i = icmp samesign ult i64 %6, 2
-  %7 = add nsw i64 %6, -1
-  %8 = select i1 %.not.i, i64 0, i64 %7
-  switch i64 %8, label %"_ZN4core3ptr264drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..scope..ScopeFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha76c9c2fabb87bfcE.llvm.11632439649900387884.exit" [
-    i64 0, label %9
-    i64 1, label %10
+  %7 = tail call i64 @llvm.usub.sat.i64(i64 %6, i64 1)
+  switch i64 %7, label %"_ZN4core3ptr264drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..scope..ScopeFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha76c9c2fabb87bfcE.llvm.11632439649900387884.exit" [
+    i64 0, label %8
+    i64 1, label %9
   ]
 
-9:                                                ; preds = %.lr.ph
+8:                                                ; preds = %.lr.ph
   invoke void @"_ZN4core3ptr213drop_in_place$LT$$LT$actix_web..scope..ScopeFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h1708c7e7a0e07bf2E.llvm.11632439649900387884"(ptr noundef nonnull align 8 %4)
-          to label %"_ZN4core3ptr264drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..scope..ScopeFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha76c9c2fabb87bfcE.llvm.11632439649900387884.exit" unwind label %17
+          to label %"_ZN4core3ptr264drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..scope..ScopeFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha76c9c2fabb87bfcE.llvm.11632439649900387884.exit" unwind label %16
 
-10:                                               ; preds = %.lr.ph
-  %11 = getelementptr inbounds i8, ptr %4, i64 8
-  %12 = load i64, ptr %11, align 8, !range !4, !alias.scope !3612, !noundef !5
-  %.not.i.i = icmp eq i64 %12, 2
-  br i1 %.not.i.i, label %"_ZN4core3ptr264drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..scope..ScopeFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha76c9c2fabb87bfcE.llvm.11632439649900387884.exit", label %13
+9:                                                ; preds = %.lr.ph
+  %10 = getelementptr inbounds i8, ptr %4, i64 8
+  %11 = load i64, ptr %10, align 8, !range !4, !alias.scope !3612, !noundef !5
+  %.not.i.i = icmp eq i64 %11, 2
+  br i1 %.not.i.i, label %"_ZN4core3ptr264drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..scope..ScopeFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha76c9c2fabb87bfcE.llvm.11632439649900387884.exit", label %12
 
-13:                                               ; preds = %10
-  invoke void @"_ZN4core3ptr595drop_in_place$LT$$LP$actix_router..resource..ResourceDef$C$alloc..vec..Vec$LT$alloc..boxed..Box$LT$dyn$u20$actix_web..guard..Guard$GT$$GT$$C$alloc..boxed..Box$LT$dyn$u20$actix_service..Service$LT$actix_web..service..ServiceRequest$GT$$u2b$Error$u20$$u3d$$u20$actix_web..error..error..Error$u2b$Response$u20$$u3d$$u20$actix_web..service..ServiceResponse$u2b$Future$u20$$u3d$$u20$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$actix_web..service..ServiceResponse$C$actix_web..error..error..Error$GT$$GT$$GT$$GT$$RP$$GT$17hf4c647f4c3923346E.llvm.11632439649900387884"(ptr noalias noundef nonnull align 8 dereferenceable(192) %11)
-          to label %"_ZN4core3ptr264drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..scope..ScopeFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha76c9c2fabb87bfcE.llvm.11632439649900387884.exit" unwind label %17
+12:                                               ; preds = %9
+  invoke void @"_ZN4core3ptr595drop_in_place$LT$$LP$actix_router..resource..ResourceDef$C$alloc..vec..Vec$LT$alloc..boxed..Box$LT$dyn$u20$actix_web..guard..Guard$GT$$GT$$C$alloc..boxed..Box$LT$dyn$u20$actix_service..Service$LT$actix_web..service..ServiceRequest$GT$$u2b$Error$u20$$u3d$$u20$actix_web..error..error..Error$u2b$Response$u20$$u3d$$u20$actix_web..service..ServiceResponse$u2b$Future$u20$$u3d$$u20$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$actix_web..service..ServiceResponse$C$actix_web..error..error..Error$GT$$GT$$GT$$GT$$RP$$GT$17hf4c647f4c3923346E.llvm.11632439649900387884"(ptr noalias noundef nonnull align 8 dereferenceable(192) %10)
+          to label %"_ZN4core3ptr264drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..scope..ScopeFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha76c9c2fabb87bfcE.llvm.11632439649900387884.exit" unwind label %16
 
-"_ZN4core3ptr264drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..scope..ScopeFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha76c9c2fabb87bfcE.llvm.11632439649900387884.exit": ; preds = %13, %9, %.lr.ph, %10
-  %14 = icmp eq i64 %5, %1
-  br i1 %14, label %._crit_edge, label %.lr.ph
+"_ZN4core3ptr264drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..scope..ScopeFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha76c9c2fabb87bfcE.llvm.11632439649900387884.exit": ; preds = %12, %8, %.lr.ph, %9
+  %13 = icmp eq i64 %5, %1
+  br i1 %13, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %"_ZN4core3ptr264drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..scope..ScopeFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha76c9c2fabb87bfcE.llvm.11632439649900387884.exit", %2
   ret void
 
-15:                                               ; preds = %19, %17
-  %.1 = phi i64 [ %5, %17 ], [ %21, %19 ]
-  %16 = icmp eq i64 %.1, %1
-  br i1 %16, label %22, label %19
+14:                                               ; preds = %18, %16
+  %.1 = phi i64 [ %5, %16 ], [ %20, %18 ]
+  %15 = icmp eq i64 %.1, %1
+  br i1 %15, label %21, label %18
 
-17:                                               ; preds = %13, %9
-  %18 = landingpad { ptr, i32 }
+16:                                               ; preds = %12, %8
+  %17 = landingpad { ptr, i32 }
           cleanup
-  br label %15
+  br label %14
 
-19:                                               ; preds = %15
-  %20 = getelementptr inbounds [0 x { i64, [26 x i64] }], ptr %0, i64 0, i64 %.1
-  %21 = add i64 %.1, 1
-  invoke void @"_ZN4core3ptr264drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..scope..ScopeFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha76c9c2fabb87bfcE.llvm.11632439649900387884"(ptr noundef nonnull align 8 %20) #32
-          to label %15 unwind label %23
+18:                                               ; preds = %14
+  %19 = getelementptr inbounds [0 x { i64, [26 x i64] }], ptr %0, i64 0, i64 %.1
+  %20 = add i64 %.1, 1
+  invoke void @"_ZN4core3ptr264drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..scope..ScopeFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha76c9c2fabb87bfcE.llvm.11632439649900387884"(ptr noundef nonnull align 8 %19) #32
+          to label %14 unwind label %22
 
-22:                                               ; preds = %15
-  resume { ptr, i32 } %18
+21:                                               ; preds = %14
+  resume { ptr, i32 } %17
 
-23:                                               ; preds = %19
-  %24 = landingpad { ptr, i32 }
+22:                                               ; preds = %18
+  %23 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #33
   unreachable
@@ -11379,29 +11375,27 @@ define hidden void @"_ZN4core3ptr275drop_in_place$LT$futures_util..future..join_
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr275drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..app_service..AppRoutingFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hebb9e28e3f451376E.llvm.11632439649900387884"(ptr noundef nonnull align 8 %0) unnamed_addr #0 {
   %2 = load i64, ptr %0, align 8, !range !1134, !noundef !5
-  %.not = icmp samesign ult i64 %2, 2
-  %3 = add nsw i64 %2, -1
-  %4 = select i1 %.not, i64 0, i64 %3
-  switch i64 %4, label %"_ZN4core3ptr634drop_in_place$LT$core..result..Result$LT$$LP$actix_router..resource..ResourceDef$C$alloc..vec..Vec$LT$alloc..boxed..Box$LT$dyn$u20$actix_web..guard..Guard$GT$$GT$$C$alloc..boxed..Box$LT$dyn$u20$actix_service..Service$LT$actix_web..service..ServiceRequest$GT$$u2b$Error$u20$$u3d$$u20$actix_web..error..error..Error$u2b$Response$u20$$u3d$$u20$actix_web..service..ServiceResponse$u2b$Future$u20$$u3d$$u20$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$actix_web..service..ServiceResponse$C$actix_web..error..error..Error$GT$$GT$$GT$$GT$$RP$$C$$LP$$RP$$GT$$GT$17h4ec9760b08ac9fd6E.llvm.11632439649900387884.exit" [
-    i64 0, label %5
-    i64 1, label %6
+  %3 = tail call i64 @llvm.usub.sat.i64(i64 %2, i64 1)
+  switch i64 %3, label %"_ZN4core3ptr634drop_in_place$LT$core..result..Result$LT$$LP$actix_router..resource..ResourceDef$C$alloc..vec..Vec$LT$alloc..boxed..Box$LT$dyn$u20$actix_web..guard..Guard$GT$$GT$$C$alloc..boxed..Box$LT$dyn$u20$actix_service..Service$LT$actix_web..service..ServiceRequest$GT$$u2b$Error$u20$$u3d$$u20$actix_web..error..error..Error$u2b$Response$u20$$u3d$$u20$actix_web..service..ServiceResponse$u2b$Future$u20$$u3d$$u20$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$actix_web..service..ServiceResponse$C$actix_web..error..error..Error$GT$$GT$$GT$$GT$$RP$$C$$LP$$RP$$GT$$GT$17h4ec9760b08ac9fd6E.llvm.11632439649900387884.exit" [
+    i64 0, label %4
+    i64 1, label %5
   ]
 
-"_ZN4core3ptr634drop_in_place$LT$core..result..Result$LT$$LP$actix_router..resource..ResourceDef$C$alloc..vec..Vec$LT$alloc..boxed..Box$LT$dyn$u20$actix_web..guard..Guard$GT$$GT$$C$alloc..boxed..Box$LT$dyn$u20$actix_service..Service$LT$actix_web..service..ServiceRequest$GT$$u2b$Error$u20$$u3d$$u20$actix_web..error..error..Error$u2b$Response$u20$$u3d$$u20$actix_web..service..ServiceResponse$u2b$Future$u20$$u3d$$u20$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$actix_web..service..ServiceResponse$C$actix_web..error..error..Error$GT$$GT$$GT$$GT$$RP$$C$$LP$$RP$$GT$$GT$17h4ec9760b08ac9fd6E.llvm.11632439649900387884.exit": ; preds = %9, %6, %5, %1
+"_ZN4core3ptr634drop_in_place$LT$core..result..Result$LT$$LP$actix_router..resource..ResourceDef$C$alloc..vec..Vec$LT$alloc..boxed..Box$LT$dyn$u20$actix_web..guard..Guard$GT$$GT$$C$alloc..boxed..Box$LT$dyn$u20$actix_service..Service$LT$actix_web..service..ServiceRequest$GT$$u2b$Error$u20$$u3d$$u20$actix_web..error..error..Error$u2b$Response$u20$$u3d$$u20$actix_web..service..ServiceResponse$u2b$Future$u20$$u3d$$u20$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$actix_web..service..ServiceResponse$C$actix_web..error..error..Error$GT$$GT$$GT$$GT$$RP$$C$$LP$$RP$$GT$$GT$17h4ec9760b08ac9fd6E.llvm.11632439649900387884.exit": ; preds = %8, %5, %4, %1
   ret void
 
-5:                                                ; preds = %1
+4:                                                ; preds = %1
   tail call void @"_ZN4core3ptr224drop_in_place$LT$$LT$actix_web..app_service..AppRoutingFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h2d2543e957ed41d4E.llvm.11632439649900387884"(ptr noundef nonnull align 8 %0)
   br label %"_ZN4core3ptr634drop_in_place$LT$core..result..Result$LT$$LP$actix_router..resource..ResourceDef$C$alloc..vec..Vec$LT$alloc..boxed..Box$LT$dyn$u20$actix_web..guard..Guard$GT$$GT$$C$alloc..boxed..Box$LT$dyn$u20$actix_service..Service$LT$actix_web..service..ServiceRequest$GT$$u2b$Error$u20$$u3d$$u20$actix_web..error..error..Error$u2b$Response$u20$$u3d$$u20$actix_web..service..ServiceResponse$u2b$Future$u20$$u3d$$u20$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$actix_web..service..ServiceResponse$C$actix_web..error..error..Error$GT$$GT$$GT$$GT$$RP$$C$$LP$$RP$$GT$$GT$17h4ec9760b08ac9fd6E.llvm.11632439649900387884.exit"
 
-6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
-  %8 = load i64, ptr %7, align 8, !range !4, !alias.scope !3633, !noundef !5
-  %.not.i = icmp eq i64 %8, 2
-  br i1 %.not.i, label %"_ZN4core3ptr634drop_in_place$LT$core..result..Result$LT$$LP$actix_router..resource..ResourceDef$C$alloc..vec..Vec$LT$alloc..boxed..Box$LT$dyn$u20$actix_web..guard..Guard$GT$$GT$$C$alloc..boxed..Box$LT$dyn$u20$actix_service..Service$LT$actix_web..service..ServiceRequest$GT$$u2b$Error$u20$$u3d$$u20$actix_web..error..error..Error$u2b$Response$u20$$u3d$$u20$actix_web..service..ServiceResponse$u2b$Future$u20$$u3d$$u20$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$actix_web..service..ServiceResponse$C$actix_web..error..error..Error$GT$$GT$$GT$$GT$$RP$$C$$LP$$RP$$GT$$GT$17h4ec9760b08ac9fd6E.llvm.11632439649900387884.exit", label %9
+5:                                                ; preds = %1
+  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = load i64, ptr %6, align 8, !range !4, !alias.scope !3633, !noundef !5
+  %.not.i = icmp eq i64 %7, 2
+  br i1 %.not.i, label %"_ZN4core3ptr634drop_in_place$LT$core..result..Result$LT$$LP$actix_router..resource..ResourceDef$C$alloc..vec..Vec$LT$alloc..boxed..Box$LT$dyn$u20$actix_web..guard..Guard$GT$$GT$$C$alloc..boxed..Box$LT$dyn$u20$actix_service..Service$LT$actix_web..service..ServiceRequest$GT$$u2b$Error$u20$$u3d$$u20$actix_web..error..error..Error$u2b$Response$u20$$u3d$$u20$actix_web..service..ServiceResponse$u2b$Future$u20$$u3d$$u20$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$actix_web..service..ServiceResponse$C$actix_web..error..error..Error$GT$$GT$$GT$$GT$$RP$$C$$LP$$RP$$GT$$GT$17h4ec9760b08ac9fd6E.llvm.11632439649900387884.exit", label %8
 
-9:                                                ; preds = %6
-  tail call void @"_ZN4core3ptr595drop_in_place$LT$$LP$actix_router..resource..ResourceDef$C$alloc..vec..Vec$LT$alloc..boxed..Box$LT$dyn$u20$actix_web..guard..Guard$GT$$GT$$C$alloc..boxed..Box$LT$dyn$u20$actix_service..Service$LT$actix_web..service..ServiceRequest$GT$$u2b$Error$u20$$u3d$$u20$actix_web..error..error..Error$u2b$Response$u20$$u3d$$u20$actix_web..service..ServiceResponse$u2b$Future$u20$$u3d$$u20$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$actix_web..service..ServiceResponse$C$actix_web..error..error..Error$GT$$GT$$GT$$GT$$RP$$GT$17hf4c647f4c3923346E.llvm.11632439649900387884"(ptr noalias noundef nonnull align 8 dereferenceable(192) %7)
+8:                                                ; preds = %5
+  tail call void @"_ZN4core3ptr595drop_in_place$LT$$LP$actix_router..resource..ResourceDef$C$alloc..vec..Vec$LT$alloc..boxed..Box$LT$dyn$u20$actix_web..guard..Guard$GT$$GT$$C$alloc..boxed..Box$LT$dyn$u20$actix_service..Service$LT$actix_web..service..ServiceRequest$GT$$u2b$Error$u20$$u3d$$u20$actix_web..error..error..Error$u2b$Response$u20$$u3d$$u20$actix_web..service..ServiceResponse$u2b$Future$u20$$u3d$$u20$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$actix_web..service..ServiceResponse$C$actix_web..error..error..Error$GT$$GT$$GT$$GT$$RP$$GT$17hf4c647f4c3923346E.llvm.11632439649900387884"(ptr noalias noundef nonnull align 8 dereferenceable(192) %6)
   br label %"_ZN4core3ptr634drop_in_place$LT$core..result..Result$LT$$LP$actix_router..resource..ResourceDef$C$alloc..vec..Vec$LT$alloc..boxed..Box$LT$dyn$u20$actix_web..guard..Guard$GT$$GT$$C$alloc..boxed..Box$LT$dyn$u20$actix_service..Service$LT$actix_web..service..ServiceRequest$GT$$u2b$Error$u20$$u3d$$u20$actix_web..error..error..Error$u2b$Response$u20$$u3d$$u20$actix_web..service..ServiceResponse$u2b$Future$u20$$u3d$$u20$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$actix_web..service..ServiceResponse$C$actix_web..error..error..Error$GT$$GT$$GT$$GT$$RP$$C$$LP$$RP$$GT$$GT$17h4ec9760b08ac9fd6E.llvm.11632439649900387884.exit"
 }
 
@@ -11445,56 +11439,54 @@ define hidden void @"_ZN4core3ptr285drop_in_place$LT$$u5b$futures_util..future..
   %4 = getelementptr inbounds [0 x { i64, [26 x i64] }], ptr %0, i64 0, i64 %.08
   %5 = add nuw i64 %.08, 1
   %6 = load i64, ptr %4, align 8, !range !1134, !noundef !5
-  %.not.i = icmp samesign ult i64 %6, 2
-  %7 = add nsw i64 %6, -1
-  %8 = select i1 %.not.i, i64 0, i64 %7
-  switch i64 %8, label %"_ZN4core3ptr275drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..app_service..AppRoutingFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hebb9e28e3f451376E.llvm.11632439649900387884.exit" [
-    i64 0, label %9
-    i64 1, label %10
+  %7 = tail call i64 @llvm.usub.sat.i64(i64 %6, i64 1)
+  switch i64 %7, label %"_ZN4core3ptr275drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..app_service..AppRoutingFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hebb9e28e3f451376E.llvm.11632439649900387884.exit" [
+    i64 0, label %8
+    i64 1, label %9
   ]
 
-9:                                                ; preds = %.lr.ph
+8:                                                ; preds = %.lr.ph
   invoke void @"_ZN4core3ptr224drop_in_place$LT$$LT$actix_web..app_service..AppRoutingFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h2d2543e957ed41d4E.llvm.11632439649900387884"(ptr noundef nonnull align 8 %4)
-          to label %"_ZN4core3ptr275drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..app_service..AppRoutingFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hebb9e28e3f451376E.llvm.11632439649900387884.exit" unwind label %17
+          to label %"_ZN4core3ptr275drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..app_service..AppRoutingFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hebb9e28e3f451376E.llvm.11632439649900387884.exit" unwind label %16
 
-10:                                               ; preds = %.lr.ph
-  %11 = getelementptr inbounds i8, ptr %4, i64 8
-  %12 = load i64, ptr %11, align 8, !range !4, !alias.scope !3644, !noundef !5
-  %.not.i.i = icmp eq i64 %12, 2
-  br i1 %.not.i.i, label %"_ZN4core3ptr275drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..app_service..AppRoutingFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hebb9e28e3f451376E.llvm.11632439649900387884.exit", label %13
+9:                                                ; preds = %.lr.ph
+  %10 = getelementptr inbounds i8, ptr %4, i64 8
+  %11 = load i64, ptr %10, align 8, !range !4, !alias.scope !3644, !noundef !5
+  %.not.i.i = icmp eq i64 %11, 2
+  br i1 %.not.i.i, label %"_ZN4core3ptr275drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..app_service..AppRoutingFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hebb9e28e3f451376E.llvm.11632439649900387884.exit", label %12
 
-13:                                               ; preds = %10
-  invoke void @"_ZN4core3ptr595drop_in_place$LT$$LP$actix_router..resource..ResourceDef$C$alloc..vec..Vec$LT$alloc..boxed..Box$LT$dyn$u20$actix_web..guard..Guard$GT$$GT$$C$alloc..boxed..Box$LT$dyn$u20$actix_service..Service$LT$actix_web..service..ServiceRequest$GT$$u2b$Error$u20$$u3d$$u20$actix_web..error..error..Error$u2b$Response$u20$$u3d$$u20$actix_web..service..ServiceResponse$u2b$Future$u20$$u3d$$u20$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$actix_web..service..ServiceResponse$C$actix_web..error..error..Error$GT$$GT$$GT$$GT$$RP$$GT$17hf4c647f4c3923346E.llvm.11632439649900387884"(ptr noalias noundef nonnull align 8 dereferenceable(192) %11)
-          to label %"_ZN4core3ptr275drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..app_service..AppRoutingFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hebb9e28e3f451376E.llvm.11632439649900387884.exit" unwind label %17
+12:                                               ; preds = %9
+  invoke void @"_ZN4core3ptr595drop_in_place$LT$$LP$actix_router..resource..ResourceDef$C$alloc..vec..Vec$LT$alloc..boxed..Box$LT$dyn$u20$actix_web..guard..Guard$GT$$GT$$C$alloc..boxed..Box$LT$dyn$u20$actix_service..Service$LT$actix_web..service..ServiceRequest$GT$$u2b$Error$u20$$u3d$$u20$actix_web..error..error..Error$u2b$Response$u20$$u3d$$u20$actix_web..service..ServiceResponse$u2b$Future$u20$$u3d$$u20$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$actix_web..service..ServiceResponse$C$actix_web..error..error..Error$GT$$GT$$GT$$GT$$RP$$GT$17hf4c647f4c3923346E.llvm.11632439649900387884"(ptr noalias noundef nonnull align 8 dereferenceable(192) %10)
+          to label %"_ZN4core3ptr275drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..app_service..AppRoutingFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hebb9e28e3f451376E.llvm.11632439649900387884.exit" unwind label %16
 
-"_ZN4core3ptr275drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..app_service..AppRoutingFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hebb9e28e3f451376E.llvm.11632439649900387884.exit": ; preds = %13, %9, %.lr.ph, %10
-  %14 = icmp eq i64 %5, %1
-  br i1 %14, label %._crit_edge, label %.lr.ph
+"_ZN4core3ptr275drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..app_service..AppRoutingFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hebb9e28e3f451376E.llvm.11632439649900387884.exit": ; preds = %12, %8, %.lr.ph, %9
+  %13 = icmp eq i64 %5, %1
+  br i1 %13, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %"_ZN4core3ptr275drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..app_service..AppRoutingFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hebb9e28e3f451376E.llvm.11632439649900387884.exit", %2
   ret void
 
-15:                                               ; preds = %19, %17
-  %.1 = phi i64 [ %5, %17 ], [ %21, %19 ]
-  %16 = icmp eq i64 %.1, %1
-  br i1 %16, label %22, label %19
+14:                                               ; preds = %18, %16
+  %.1 = phi i64 [ %5, %16 ], [ %20, %18 ]
+  %15 = icmp eq i64 %.1, %1
+  br i1 %15, label %21, label %18
 
-17:                                               ; preds = %13, %9
-  %18 = landingpad { ptr, i32 }
+16:                                               ; preds = %12, %8
+  %17 = landingpad { ptr, i32 }
           cleanup
-  br label %15
+  br label %14
 
-19:                                               ; preds = %15
-  %20 = getelementptr inbounds [0 x { i64, [26 x i64] }], ptr %0, i64 0, i64 %.1
-  %21 = add i64 %.1, 1
-  invoke void @"_ZN4core3ptr275drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..app_service..AppRoutingFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hebb9e28e3f451376E.llvm.11632439649900387884"(ptr noundef nonnull align 8 %20) #32
-          to label %15 unwind label %23
+18:                                               ; preds = %14
+  %19 = getelementptr inbounds [0 x { i64, [26 x i64] }], ptr %0, i64 0, i64 %.1
+  %20 = add i64 %.1, 1
+  invoke void @"_ZN4core3ptr275drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..app_service..AppRoutingFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hebb9e28e3f451376E.llvm.11632439649900387884"(ptr noundef nonnull align 8 %19) #32
+          to label %14 unwind label %22
 
-22:                                               ; preds = %15
-  resume { ptr, i32 } %18
+21:                                               ; preds = %14
+  resume { ptr, i32 } %17
 
-23:                                               ; preds = %19
-  %24 = landingpad { ptr, i32 }
+22:                                               ; preds = %18
+  %23 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #33
   unreachable
@@ -11689,81 +11681,79 @@ define hidden void @"_ZN4core3ptr287drop_in_place$LT$alloc..vec..Vec$LT$futures_
   %7 = getelementptr inbounds [0 x { i64, [26 x i64] }], ptr %3, i64 0, i64 %.08.i.i
   %8 = add nuw i64 %.08.i.i, 1
   %9 = load i64, ptr %7, align 8, !range !1134, !noundef !5
-  %.not.i.i.i = icmp samesign ult i64 %9, 2
-  %10 = add nsw i64 %9, -1
-  %11 = select i1 %.not.i.i.i, i64 0, i64 %10
-  switch i64 %11, label %"_ZN4core3ptr264drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..scope..ScopeFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha76c9c2fabb87bfcE.llvm.11632439649900387884.exit.i.i" [
-    i64 0, label %12
-    i64 1, label %13
+  %10 = tail call i64 @llvm.usub.sat.i64(i64 %9, i64 1)
+  switch i64 %10, label %"_ZN4core3ptr264drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..scope..ScopeFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha76c9c2fabb87bfcE.llvm.11632439649900387884.exit.i.i" [
+    i64 0, label %11
+    i64 1, label %12
   ]
 
-12:                                               ; preds = %.lr.ph.i.i
+11:                                               ; preds = %.lr.ph.i.i
   invoke void @"_ZN4core3ptr213drop_in_place$LT$$LT$actix_web..scope..ScopeFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h1708c7e7a0e07bf2E.llvm.11632439649900387884"(ptr noundef nonnull align 8 %7)
-          to label %"_ZN4core3ptr264drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..scope..ScopeFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha76c9c2fabb87bfcE.llvm.11632439649900387884.exit.i.i" unwind label %20
+          to label %"_ZN4core3ptr264drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..scope..ScopeFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha76c9c2fabb87bfcE.llvm.11632439649900387884.exit.i.i" unwind label %19
 
-13:                                               ; preds = %.lr.ph.i.i
-  %14 = getelementptr inbounds i8, ptr %7, i64 8
-  %15 = load i64, ptr %14, align 8, !range !4, !alias.scope !3690, !noundef !5
-  %.not.i.i.i.i = icmp eq i64 %15, 2
-  br i1 %.not.i.i.i.i, label %"_ZN4core3ptr264drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..scope..ScopeFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha76c9c2fabb87bfcE.llvm.11632439649900387884.exit.i.i", label %16
+12:                                               ; preds = %.lr.ph.i.i
+  %13 = getelementptr inbounds i8, ptr %7, i64 8
+  %14 = load i64, ptr %13, align 8, !range !4, !alias.scope !3690, !noundef !5
+  %.not.i.i.i.i = icmp eq i64 %14, 2
+  br i1 %.not.i.i.i.i, label %"_ZN4core3ptr264drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..scope..ScopeFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha76c9c2fabb87bfcE.llvm.11632439649900387884.exit.i.i", label %15
 
-16:                                               ; preds = %13
-  invoke void @"_ZN4core3ptr595drop_in_place$LT$$LP$actix_router..resource..ResourceDef$C$alloc..vec..Vec$LT$alloc..boxed..Box$LT$dyn$u20$actix_web..guard..Guard$GT$$GT$$C$alloc..boxed..Box$LT$dyn$u20$actix_service..Service$LT$actix_web..service..ServiceRequest$GT$$u2b$Error$u20$$u3d$$u20$actix_web..error..error..Error$u2b$Response$u20$$u3d$$u20$actix_web..service..ServiceResponse$u2b$Future$u20$$u3d$$u20$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$actix_web..service..ServiceResponse$C$actix_web..error..error..Error$GT$$GT$$GT$$GT$$RP$$GT$17hf4c647f4c3923346E.llvm.11632439649900387884"(ptr noalias noundef nonnull align 8 dereferenceable(192) %14)
-          to label %"_ZN4core3ptr264drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..scope..ScopeFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha76c9c2fabb87bfcE.llvm.11632439649900387884.exit.i.i" unwind label %20
+15:                                               ; preds = %12
+  invoke void @"_ZN4core3ptr595drop_in_place$LT$$LP$actix_router..resource..ResourceDef$C$alloc..vec..Vec$LT$alloc..boxed..Box$LT$dyn$u20$actix_web..guard..Guard$GT$$GT$$C$alloc..boxed..Box$LT$dyn$u20$actix_service..Service$LT$actix_web..service..ServiceRequest$GT$$u2b$Error$u20$$u3d$$u20$actix_web..error..error..Error$u2b$Response$u20$$u3d$$u20$actix_web..service..ServiceResponse$u2b$Future$u20$$u3d$$u20$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$actix_web..service..ServiceResponse$C$actix_web..error..error..Error$GT$$GT$$GT$$GT$$RP$$GT$17hf4c647f4c3923346E.llvm.11632439649900387884"(ptr noalias noundef nonnull align 8 dereferenceable(192) %13)
+          to label %"_ZN4core3ptr264drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..scope..ScopeFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha76c9c2fabb87bfcE.llvm.11632439649900387884.exit.i.i" unwind label %19
 
-"_ZN4core3ptr264drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..scope..ScopeFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha76c9c2fabb87bfcE.llvm.11632439649900387884.exit.i.i": ; preds = %16, %13, %12, %.lr.ph.i.i
-  %17 = icmp eq i64 %8, %5
-  br i1 %17, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2f7ba5996d9a470dE.llvm.11632439649900387884.exit", label %.lr.ph.i.i
+"_ZN4core3ptr264drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..scope..ScopeFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha76c9c2fabb87bfcE.llvm.11632439649900387884.exit.i.i": ; preds = %15, %12, %11, %.lr.ph.i.i
+  %16 = icmp eq i64 %8, %5
+  br i1 %16, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2f7ba5996d9a470dE.llvm.11632439649900387884.exit", label %.lr.ph.i.i
 
-18:                                               ; preds = %22, %20
-  %.1.i.i = phi i64 [ %8, %20 ], [ %24, %22 ]
-  %19 = icmp eq i64 %.1.i.i, %5
-  br i1 %19, label %.body, label %22
+17:                                               ; preds = %21, %19
+  %.1.i.i = phi i64 [ %8, %19 ], [ %23, %21 ]
+  %18 = icmp eq i64 %.1.i.i, %5
+  br i1 %18, label %.body, label %21
 
-20:                                               ; preds = %16, %12
-  %21 = landingpad { ptr, i32 }
+19:                                               ; preds = %15, %11
+  %20 = landingpad { ptr, i32 }
           cleanup
-  br label %18
+  br label %17
 
-22:                                               ; preds = %18
-  %23 = getelementptr inbounds [0 x { i64, [26 x i64] }], ptr %3, i64 0, i64 %.1.i.i
-  %24 = add i64 %.1.i.i, 1
-  invoke void @"_ZN4core3ptr264drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..scope..ScopeFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha76c9c2fabb87bfcE.llvm.11632439649900387884"(ptr noundef nonnull align 8 %23) #32
-          to label %18 unwind label %25
+21:                                               ; preds = %17
+  %22 = getelementptr inbounds [0 x { i64, [26 x i64] }], ptr %3, i64 0, i64 %.1.i.i
+  %23 = add i64 %.1.i.i, 1
+  invoke void @"_ZN4core3ptr264drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..scope..ScopeFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha76c9c2fabb87bfcE.llvm.11632439649900387884"(ptr noundef nonnull align 8 %22) #32
+          to label %17 unwind label %24
 
-25:                                               ; preds = %22
-  %26 = landingpad { ptr, i32 }
+24:                                               ; preds = %21
+  %25 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #33
   unreachable
 
-.body:                                            ; preds = %18
-  %27 = load i64, ptr %0, align 8, !alias.scope !3693, !noalias !3696, !noundef !5
-  %28 = icmp eq i64 %27, 0
-  br i1 %28, label %"_ZN4core3ptr294drop_in_place$LT$alloc..raw_vec..RawVec$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..scope..ScopeFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb03d3233b6d08611E.llvm.11632439649900387884.exit", label %29
+.body:                                            ; preds = %17
+  %26 = load i64, ptr %0, align 8, !alias.scope !3693, !noalias !3696, !noundef !5
+  %27 = icmp eq i64 %26, 0
+  br i1 %27, label %"_ZN4core3ptr294drop_in_place$LT$alloc..raw_vec..RawVec$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..scope..ScopeFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb03d3233b6d08611E.llvm.11632439649900387884.exit", label %28
 
-29:                                               ; preds = %.body
-  %30 = mul nuw i64 %27, 216
-  %31 = load ptr, ptr %2, align 8, !alias.scope !3693, !noalias !3696, !nonnull !5, !noundef !5
-  tail call void @__rust_dealloc(ptr noundef nonnull %31, i64 noundef %30, i64 noundef 8) #31
+28:                                               ; preds = %.body
+  %29 = mul nuw i64 %26, 216
+  %30 = load ptr, ptr %2, align 8, !alias.scope !3693, !noalias !3696, !nonnull !5, !noundef !5
+  tail call void @__rust_dealloc(ptr noundef nonnull %30, i64 noundef %29, i64 noundef 8) #31
   br label %"_ZN4core3ptr294drop_in_place$LT$alloc..raw_vec..RawVec$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..scope..ScopeFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb03d3233b6d08611E.llvm.11632439649900387884.exit"
 
 "_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2f7ba5996d9a470dE.llvm.11632439649900387884.exit": ; preds = %"_ZN4core3ptr264drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..scope..ScopeFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha76c9c2fabb87bfcE.llvm.11632439649900387884.exit.i.i", %1
-  %32 = load i64, ptr %0, align 8, !alias.scope !3698, !noalias !3701, !noundef !5
-  %33 = icmp eq i64 %32, 0
-  br i1 %33, label %"_ZN4core3ptr294drop_in_place$LT$alloc..raw_vec..RawVec$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..scope..ScopeFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb03d3233b6d08611E.llvm.11632439649900387884.exit1", label %34
+  %31 = load i64, ptr %0, align 8, !alias.scope !3698, !noalias !3701, !noundef !5
+  %32 = icmp eq i64 %31, 0
+  br i1 %32, label %"_ZN4core3ptr294drop_in_place$LT$alloc..raw_vec..RawVec$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..scope..ScopeFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb03d3233b6d08611E.llvm.11632439649900387884.exit1", label %33
 
-34:                                               ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2f7ba5996d9a470dE.llvm.11632439649900387884.exit"
-  %35 = mul nuw i64 %32, 216
-  %36 = load ptr, ptr %2, align 8, !alias.scope !3698, !noalias !3701, !nonnull !5, !noundef !5
-  tail call void @__rust_dealloc(ptr noundef nonnull %36, i64 noundef %35, i64 noundef 8) #31
+33:                                               ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2f7ba5996d9a470dE.llvm.11632439649900387884.exit"
+  %34 = mul nuw i64 %31, 216
+  %35 = load ptr, ptr %2, align 8, !alias.scope !3698, !noalias !3701, !nonnull !5, !noundef !5
+  tail call void @__rust_dealloc(ptr noundef nonnull %35, i64 noundef %34, i64 noundef 8) #31
   br label %"_ZN4core3ptr294drop_in_place$LT$alloc..raw_vec..RawVec$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..scope..ScopeFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb03d3233b6d08611E.llvm.11632439649900387884.exit1"
 
-"_ZN4core3ptr294drop_in_place$LT$alloc..raw_vec..RawVec$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..scope..ScopeFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb03d3233b6d08611E.llvm.11632439649900387884.exit1": ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2f7ba5996d9a470dE.llvm.11632439649900387884.exit", %34
+"_ZN4core3ptr294drop_in_place$LT$alloc..raw_vec..RawVec$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..scope..ScopeFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb03d3233b6d08611E.llvm.11632439649900387884.exit1": ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2f7ba5996d9a470dE.llvm.11632439649900387884.exit", %33
   ret void
 
-"_ZN4core3ptr294drop_in_place$LT$alloc..raw_vec..RawVec$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..scope..ScopeFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb03d3233b6d08611E.llvm.11632439649900387884.exit": ; preds = %29, %.body
-  resume { ptr, i32 } %21
+"_ZN4core3ptr294drop_in_place$LT$alloc..raw_vec..RawVec$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..scope..ScopeFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb03d3233b6d08611E.llvm.11632439649900387884.exit": ; preds = %28, %.body
+  resume { ptr, i32 } %20
 }
 
 ; Function Attrs: nounwind nonlazybind uwtable
@@ -11960,81 +11950,79 @@ define hidden void @"_ZN4core3ptr298drop_in_place$LT$alloc..vec..Vec$LT$futures_
   %7 = getelementptr inbounds [0 x { i64, [26 x i64] }], ptr %3, i64 0, i64 %.08.i.i
   %8 = add nuw i64 %.08.i.i, 1
   %9 = load i64, ptr %7, align 8, !range !1134, !noundef !5
-  %.not.i.i.i = icmp samesign ult i64 %9, 2
-  %10 = add nsw i64 %9, -1
-  %11 = select i1 %.not.i.i.i, i64 0, i64 %10
-  switch i64 %11, label %"_ZN4core3ptr275drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..app_service..AppRoutingFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hebb9e28e3f451376E.llvm.11632439649900387884.exit.i.i" [
-    i64 0, label %12
-    i64 1, label %13
+  %10 = tail call i64 @llvm.usub.sat.i64(i64 %9, i64 1)
+  switch i64 %10, label %"_ZN4core3ptr275drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..app_service..AppRoutingFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hebb9e28e3f451376E.llvm.11632439649900387884.exit.i.i" [
+    i64 0, label %11
+    i64 1, label %12
   ]
 
-12:                                               ; preds = %.lr.ph.i.i
+11:                                               ; preds = %.lr.ph.i.i
   invoke void @"_ZN4core3ptr224drop_in_place$LT$$LT$actix_web..app_service..AppRoutingFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h2d2543e957ed41d4E.llvm.11632439649900387884"(ptr noundef nonnull align 8 %7)
-          to label %"_ZN4core3ptr275drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..app_service..AppRoutingFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hebb9e28e3f451376E.llvm.11632439649900387884.exit.i.i" unwind label %20
+          to label %"_ZN4core3ptr275drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..app_service..AppRoutingFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hebb9e28e3f451376E.llvm.11632439649900387884.exit.i.i" unwind label %19
 
-13:                                               ; preds = %.lr.ph.i.i
-  %14 = getelementptr inbounds i8, ptr %7, i64 8
-  %15 = load i64, ptr %14, align 8, !range !4, !alias.scope !3746, !noundef !5
-  %.not.i.i.i.i = icmp eq i64 %15, 2
-  br i1 %.not.i.i.i.i, label %"_ZN4core3ptr275drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..app_service..AppRoutingFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hebb9e28e3f451376E.llvm.11632439649900387884.exit.i.i", label %16
+12:                                               ; preds = %.lr.ph.i.i
+  %13 = getelementptr inbounds i8, ptr %7, i64 8
+  %14 = load i64, ptr %13, align 8, !range !4, !alias.scope !3746, !noundef !5
+  %.not.i.i.i.i = icmp eq i64 %14, 2
+  br i1 %.not.i.i.i.i, label %"_ZN4core3ptr275drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..app_service..AppRoutingFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hebb9e28e3f451376E.llvm.11632439649900387884.exit.i.i", label %15
 
-16:                                               ; preds = %13
-  invoke void @"_ZN4core3ptr595drop_in_place$LT$$LP$actix_router..resource..ResourceDef$C$alloc..vec..Vec$LT$alloc..boxed..Box$LT$dyn$u20$actix_web..guard..Guard$GT$$GT$$C$alloc..boxed..Box$LT$dyn$u20$actix_service..Service$LT$actix_web..service..ServiceRequest$GT$$u2b$Error$u20$$u3d$$u20$actix_web..error..error..Error$u2b$Response$u20$$u3d$$u20$actix_web..service..ServiceResponse$u2b$Future$u20$$u3d$$u20$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$actix_web..service..ServiceResponse$C$actix_web..error..error..Error$GT$$GT$$GT$$GT$$RP$$GT$17hf4c647f4c3923346E.llvm.11632439649900387884"(ptr noalias noundef nonnull align 8 dereferenceable(192) %14)
-          to label %"_ZN4core3ptr275drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..app_service..AppRoutingFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hebb9e28e3f451376E.llvm.11632439649900387884.exit.i.i" unwind label %20
+15:                                               ; preds = %12
+  invoke void @"_ZN4core3ptr595drop_in_place$LT$$LP$actix_router..resource..ResourceDef$C$alloc..vec..Vec$LT$alloc..boxed..Box$LT$dyn$u20$actix_web..guard..Guard$GT$$GT$$C$alloc..boxed..Box$LT$dyn$u20$actix_service..Service$LT$actix_web..service..ServiceRequest$GT$$u2b$Error$u20$$u3d$$u20$actix_web..error..error..Error$u2b$Response$u20$$u3d$$u20$actix_web..service..ServiceResponse$u2b$Future$u20$$u3d$$u20$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$actix_web..service..ServiceResponse$C$actix_web..error..error..Error$GT$$GT$$GT$$GT$$RP$$GT$17hf4c647f4c3923346E.llvm.11632439649900387884"(ptr noalias noundef nonnull align 8 dereferenceable(192) %13)
+          to label %"_ZN4core3ptr275drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..app_service..AppRoutingFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hebb9e28e3f451376E.llvm.11632439649900387884.exit.i.i" unwind label %19
 
-"_ZN4core3ptr275drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..app_service..AppRoutingFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hebb9e28e3f451376E.llvm.11632439649900387884.exit.i.i": ; preds = %16, %13, %12, %.lr.ph.i.i
-  %17 = icmp eq i64 %8, %5
-  br i1 %17, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h1328b22844c5741aE.llvm.11632439649900387884.exit", label %.lr.ph.i.i
+"_ZN4core3ptr275drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..app_service..AppRoutingFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hebb9e28e3f451376E.llvm.11632439649900387884.exit.i.i": ; preds = %15, %12, %11, %.lr.ph.i.i
+  %16 = icmp eq i64 %8, %5
+  br i1 %16, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h1328b22844c5741aE.llvm.11632439649900387884.exit", label %.lr.ph.i.i
 
-18:                                               ; preds = %22, %20
-  %.1.i.i = phi i64 [ %8, %20 ], [ %24, %22 ]
-  %19 = icmp eq i64 %.1.i.i, %5
-  br i1 %19, label %.body, label %22
+17:                                               ; preds = %21, %19
+  %.1.i.i = phi i64 [ %8, %19 ], [ %23, %21 ]
+  %18 = icmp eq i64 %.1.i.i, %5
+  br i1 %18, label %.body, label %21
 
-20:                                               ; preds = %16, %12
-  %21 = landingpad { ptr, i32 }
+19:                                               ; preds = %15, %11
+  %20 = landingpad { ptr, i32 }
           cleanup
-  br label %18
+  br label %17
 
-22:                                               ; preds = %18
-  %23 = getelementptr inbounds [0 x { i64, [26 x i64] }], ptr %3, i64 0, i64 %.1.i.i
-  %24 = add i64 %.1.i.i, 1
-  invoke void @"_ZN4core3ptr275drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..app_service..AppRoutingFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hebb9e28e3f451376E.llvm.11632439649900387884"(ptr noundef nonnull align 8 %23) #32
-          to label %18 unwind label %25
+21:                                               ; preds = %17
+  %22 = getelementptr inbounds [0 x { i64, [26 x i64] }], ptr %3, i64 0, i64 %.1.i.i
+  %23 = add i64 %.1.i.i, 1
+  invoke void @"_ZN4core3ptr275drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..app_service..AppRoutingFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hebb9e28e3f451376E.llvm.11632439649900387884"(ptr noundef nonnull align 8 %22) #32
+          to label %17 unwind label %24
 
-25:                                               ; preds = %22
-  %26 = landingpad { ptr, i32 }
+24:                                               ; preds = %21
+  %25 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #33
   unreachable
 
-.body:                                            ; preds = %18
-  %27 = load i64, ptr %0, align 8, !alias.scope !3749, !noalias !3752, !noundef !5
-  %28 = icmp eq i64 %27, 0
-  br i1 %28, label %"_ZN4core3ptr305drop_in_place$LT$alloc..raw_vec..RawVec$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..app_service..AppRoutingFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h4bcf174d181bd8cfE.llvm.11632439649900387884.exit", label %29
+.body:                                            ; preds = %17
+  %26 = load i64, ptr %0, align 8, !alias.scope !3749, !noalias !3752, !noundef !5
+  %27 = icmp eq i64 %26, 0
+  br i1 %27, label %"_ZN4core3ptr305drop_in_place$LT$alloc..raw_vec..RawVec$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..app_service..AppRoutingFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h4bcf174d181bd8cfE.llvm.11632439649900387884.exit", label %28
 
-29:                                               ; preds = %.body
-  %30 = mul nuw i64 %27, 216
-  %31 = load ptr, ptr %2, align 8, !alias.scope !3749, !noalias !3752, !nonnull !5, !noundef !5
-  tail call void @__rust_dealloc(ptr noundef nonnull %31, i64 noundef %30, i64 noundef 8) #31
+28:                                               ; preds = %.body
+  %29 = mul nuw i64 %26, 216
+  %30 = load ptr, ptr %2, align 8, !alias.scope !3749, !noalias !3752, !nonnull !5, !noundef !5
+  tail call void @__rust_dealloc(ptr noundef nonnull %30, i64 noundef %29, i64 noundef 8) #31
   br label %"_ZN4core3ptr305drop_in_place$LT$alloc..raw_vec..RawVec$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..app_service..AppRoutingFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h4bcf174d181bd8cfE.llvm.11632439649900387884.exit"
 
 "_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h1328b22844c5741aE.llvm.11632439649900387884.exit": ; preds = %"_ZN4core3ptr275drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..app_service..AppRoutingFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hebb9e28e3f451376E.llvm.11632439649900387884.exit.i.i", %1
-  %32 = load i64, ptr %0, align 8, !alias.scope !3754, !noalias !3757, !noundef !5
-  %33 = icmp eq i64 %32, 0
-  br i1 %33, label %"_ZN4core3ptr305drop_in_place$LT$alloc..raw_vec..RawVec$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..app_service..AppRoutingFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h4bcf174d181bd8cfE.llvm.11632439649900387884.exit1", label %34
+  %31 = load i64, ptr %0, align 8, !alias.scope !3754, !noalias !3757, !noundef !5
+  %32 = icmp eq i64 %31, 0
+  br i1 %32, label %"_ZN4core3ptr305drop_in_place$LT$alloc..raw_vec..RawVec$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..app_service..AppRoutingFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h4bcf174d181bd8cfE.llvm.11632439649900387884.exit1", label %33
 
-34:                                               ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h1328b22844c5741aE.llvm.11632439649900387884.exit"
-  %35 = mul nuw i64 %32, 216
-  %36 = load ptr, ptr %2, align 8, !alias.scope !3754, !noalias !3757, !nonnull !5, !noundef !5
-  tail call void @__rust_dealloc(ptr noundef nonnull %36, i64 noundef %35, i64 noundef 8) #31
+33:                                               ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h1328b22844c5741aE.llvm.11632439649900387884.exit"
+  %34 = mul nuw i64 %31, 216
+  %35 = load ptr, ptr %2, align 8, !alias.scope !3754, !noalias !3757, !nonnull !5, !noundef !5
+  tail call void @__rust_dealloc(ptr noundef nonnull %35, i64 noundef %34, i64 noundef 8) #31
   br label %"_ZN4core3ptr305drop_in_place$LT$alloc..raw_vec..RawVec$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..app_service..AppRoutingFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h4bcf174d181bd8cfE.llvm.11632439649900387884.exit1"
 
-"_ZN4core3ptr305drop_in_place$LT$alloc..raw_vec..RawVec$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..app_service..AppRoutingFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h4bcf174d181bd8cfE.llvm.11632439649900387884.exit1": ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h1328b22844c5741aE.llvm.11632439649900387884.exit", %34
+"_ZN4core3ptr305drop_in_place$LT$alloc..raw_vec..RawVec$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..app_service..AppRoutingFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h4bcf174d181bd8cfE.llvm.11632439649900387884.exit1": ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h1328b22844c5741aE.llvm.11632439649900387884.exit", %33
   ret void
 
-"_ZN4core3ptr305drop_in_place$LT$alloc..raw_vec..RawVec$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..app_service..AppRoutingFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h4bcf174d181bd8cfE.llvm.11632439649900387884.exit": ; preds = %29, %.body
-  resume { ptr, i32 } %21
+"_ZN4core3ptr305drop_in_place$LT$alloc..raw_vec..RawVec$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..app_service..AppRoutingFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h4bcf174d181bd8cfE.llvm.11632439649900387884.exit": ; preds = %28, %.body
+  resume { ptr, i32 } %20
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -12050,66 +12038,64 @@ define hidden void @"_ZN4core3ptr299drop_in_place$LT$alloc..boxed..Box$LT$$u5b$f
   %6 = getelementptr inbounds [0 x { i64, [26 x i64] }], ptr %2, i64 0, i64 %.08.i
   %7 = add nuw i64 %.08.i, 1
   %8 = load i64, ptr %6, align 8, !range !1134, !noundef !5
-  %.not.i.i = icmp samesign ult i64 %8, 2
-  %9 = add nsw i64 %8, -1
-  %10 = select i1 %.not.i.i, i64 0, i64 %9
-  switch i64 %10, label %"_ZN4core3ptr264drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..scope..ScopeFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha76c9c2fabb87bfcE.llvm.11632439649900387884.exit.i" [
-    i64 0, label %11
-    i64 1, label %12
+  %9 = tail call i64 @llvm.usub.sat.i64(i64 %8, i64 1)
+  switch i64 %9, label %"_ZN4core3ptr264drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..scope..ScopeFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha76c9c2fabb87bfcE.llvm.11632439649900387884.exit.i" [
+    i64 0, label %10
+    i64 1, label %11
   ]
 
-11:                                               ; preds = %.lr.ph.i
+10:                                               ; preds = %.lr.ph.i
   invoke void @"_ZN4core3ptr213drop_in_place$LT$$LT$actix_web..scope..ScopeFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h1708c7e7a0e07bf2E.llvm.11632439649900387884"(ptr noundef nonnull align 8 %6)
-          to label %"_ZN4core3ptr264drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..scope..ScopeFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha76c9c2fabb87bfcE.llvm.11632439649900387884.exit.i" unwind label %19
+          to label %"_ZN4core3ptr264drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..scope..ScopeFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha76c9c2fabb87bfcE.llvm.11632439649900387884.exit.i" unwind label %18
 
-12:                                               ; preds = %.lr.ph.i
-  %13 = getelementptr inbounds i8, ptr %6, i64 8
-  %14 = load i64, ptr %13, align 8, !range !4, !alias.scope !3759, !noundef !5
-  %.not.i.i.i = icmp eq i64 %14, 2
-  br i1 %.not.i.i.i, label %"_ZN4core3ptr264drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..scope..ScopeFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha76c9c2fabb87bfcE.llvm.11632439649900387884.exit.i", label %15
+11:                                               ; preds = %.lr.ph.i
+  %12 = getelementptr inbounds i8, ptr %6, i64 8
+  %13 = load i64, ptr %12, align 8, !range !4, !alias.scope !3759, !noundef !5
+  %.not.i.i.i = icmp eq i64 %13, 2
+  br i1 %.not.i.i.i, label %"_ZN4core3ptr264drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..scope..ScopeFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha76c9c2fabb87bfcE.llvm.11632439649900387884.exit.i", label %14
 
-15:                                               ; preds = %12
-  invoke void @"_ZN4core3ptr595drop_in_place$LT$$LP$actix_router..resource..ResourceDef$C$alloc..vec..Vec$LT$alloc..boxed..Box$LT$dyn$u20$actix_web..guard..Guard$GT$$GT$$C$alloc..boxed..Box$LT$dyn$u20$actix_service..Service$LT$actix_web..service..ServiceRequest$GT$$u2b$Error$u20$$u3d$$u20$actix_web..error..error..Error$u2b$Response$u20$$u3d$$u20$actix_web..service..ServiceResponse$u2b$Future$u20$$u3d$$u20$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$actix_web..service..ServiceResponse$C$actix_web..error..error..Error$GT$$GT$$GT$$GT$$RP$$GT$17hf4c647f4c3923346E.llvm.11632439649900387884"(ptr noalias noundef nonnull align 8 dereferenceable(192) %13)
-          to label %"_ZN4core3ptr264drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..scope..ScopeFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha76c9c2fabb87bfcE.llvm.11632439649900387884.exit.i" unwind label %19
+14:                                               ; preds = %11
+  invoke void @"_ZN4core3ptr595drop_in_place$LT$$LP$actix_router..resource..ResourceDef$C$alloc..vec..Vec$LT$alloc..boxed..Box$LT$dyn$u20$actix_web..guard..Guard$GT$$GT$$C$alloc..boxed..Box$LT$dyn$u20$actix_service..Service$LT$actix_web..service..ServiceRequest$GT$$u2b$Error$u20$$u3d$$u20$actix_web..error..error..Error$u2b$Response$u20$$u3d$$u20$actix_web..service..ServiceResponse$u2b$Future$u20$$u3d$$u20$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$actix_web..service..ServiceResponse$C$actix_web..error..error..Error$GT$$GT$$GT$$GT$$RP$$GT$17hf4c647f4c3923346E.llvm.11632439649900387884"(ptr noalias noundef nonnull align 8 dereferenceable(192) %12)
+          to label %"_ZN4core3ptr264drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..scope..ScopeFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha76c9c2fabb87bfcE.llvm.11632439649900387884.exit.i" unwind label %18
 
-"_ZN4core3ptr264drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..scope..ScopeFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha76c9c2fabb87bfcE.llvm.11632439649900387884.exit.i": ; preds = %15, %12, %11, %.lr.ph.i
-  %16 = icmp eq i64 %7, %4
-  br i1 %16, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.11632439649900387884.exit.i1", label %.lr.ph.i
+"_ZN4core3ptr264drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..scope..ScopeFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha76c9c2fabb87bfcE.llvm.11632439649900387884.exit.i": ; preds = %14, %11, %10, %.lr.ph.i
+  %15 = icmp eq i64 %7, %4
+  br i1 %15, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.11632439649900387884.exit.i1", label %.lr.ph.i
 
-17:                                               ; preds = %21, %19
-  %.1.i = phi i64 [ %7, %19 ], [ %23, %21 ]
-  %18 = icmp eq i64 %.1.i, %4
-  br i1 %18, label %27, label %21
+16:                                               ; preds = %20, %18
+  %.1.i = phi i64 [ %7, %18 ], [ %22, %20 ]
+  %17 = icmp eq i64 %.1.i, %4
+  br i1 %17, label %26, label %20
 
-19:                                               ; preds = %15, %11
-  %20 = landingpad { ptr, i32 }
+18:                                               ; preds = %14, %10
+  %19 = landingpad { ptr, i32 }
           cleanup
-  br label %17
+  br label %16
 
-21:                                               ; preds = %17
-  %22 = getelementptr inbounds [0 x { i64, [26 x i64] }], ptr %2, i64 0, i64 %.1.i
-  %23 = add i64 %.1.i, 1
-  invoke void @"_ZN4core3ptr264drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..scope..ScopeFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha76c9c2fabb87bfcE.llvm.11632439649900387884"(ptr noundef nonnull align 8 %22) #32
-          to label %17 unwind label %24
+20:                                               ; preds = %16
+  %21 = getelementptr inbounds [0 x { i64, [26 x i64] }], ptr %2, i64 0, i64 %.1.i
+  %22 = add i64 %.1.i, 1
+  invoke void @"_ZN4core3ptr264drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..scope..ScopeFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha76c9c2fabb87bfcE.llvm.11632439649900387884"(ptr noundef nonnull align 8 %21) #32
+          to label %16 unwind label %23
 
-24:                                               ; preds = %21
-  %25 = landingpad { ptr, i32 }
+23:                                               ; preds = %20
+  %24 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #33
   unreachable
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.11632439649900387884.exit.i1": ; preds = %"_ZN4core3ptr264drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..scope..ScopeFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha76c9c2fabb87bfcE.llvm.11632439649900387884.exit.i"
-  %26 = mul nsw i64 %4, 216
-  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %26, i64 noundef 8) #31, !noalias !3762
+  %25 = mul nsw i64 %4, 216
+  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %25, i64 noundef 8) #31, !noalias !3762
   br label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha3a176359cbadeaaE.llvm.11632439649900387884.exit2"
 
 "_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha3a176359cbadeaaE.llvm.11632439649900387884.exit2": ; preds = %1, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.11632439649900387884.exit.i1"
   ret void
 
-27:                                               ; preds = %17
-  %28 = mul nsw i64 %4, 216
-  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %28, i64 noundef 8) #31, !noalias !3765
-  resume { ptr, i32 } %20
+26:                                               ; preds = %16
+  %27 = mul nsw i64 %4, 216
+  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %27, i64 noundef 8) #31, !noalias !3765
+  resume { ptr, i32 } %19
 }
 
 ; Function Attrs: nounwind nonlazybind uwtable
@@ -12235,66 +12221,64 @@ define hidden void @"_ZN4core3ptr310drop_in_place$LT$alloc..boxed..Box$LT$$u5b$f
   %6 = getelementptr inbounds [0 x { i64, [26 x i64] }], ptr %2, i64 0, i64 %.08.i
   %7 = add nuw i64 %.08.i, 1
   %8 = load i64, ptr %6, align 8, !range !1134, !noundef !5
-  %.not.i.i = icmp samesign ult i64 %8, 2
-  %9 = add nsw i64 %8, -1
-  %10 = select i1 %.not.i.i, i64 0, i64 %9
-  switch i64 %10, label %"_ZN4core3ptr275drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..app_service..AppRoutingFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hebb9e28e3f451376E.llvm.11632439649900387884.exit.i" [
-    i64 0, label %11
-    i64 1, label %12
+  %9 = tail call i64 @llvm.usub.sat.i64(i64 %8, i64 1)
+  switch i64 %9, label %"_ZN4core3ptr275drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..app_service..AppRoutingFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hebb9e28e3f451376E.llvm.11632439649900387884.exit.i" [
+    i64 0, label %10
+    i64 1, label %11
   ]
 
-11:                                               ; preds = %.lr.ph.i
+10:                                               ; preds = %.lr.ph.i
   invoke void @"_ZN4core3ptr224drop_in_place$LT$$LT$actix_web..app_service..AppRoutingFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h2d2543e957ed41d4E.llvm.11632439649900387884"(ptr noundef nonnull align 8 %6)
-          to label %"_ZN4core3ptr275drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..app_service..AppRoutingFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hebb9e28e3f451376E.llvm.11632439649900387884.exit.i" unwind label %19
+          to label %"_ZN4core3ptr275drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..app_service..AppRoutingFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hebb9e28e3f451376E.llvm.11632439649900387884.exit.i" unwind label %18
 
-12:                                               ; preds = %.lr.ph.i
-  %13 = getelementptr inbounds i8, ptr %6, i64 8
-  %14 = load i64, ptr %13, align 8, !range !4, !alias.scope !3803, !noundef !5
-  %.not.i.i.i = icmp eq i64 %14, 2
-  br i1 %.not.i.i.i, label %"_ZN4core3ptr275drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..app_service..AppRoutingFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hebb9e28e3f451376E.llvm.11632439649900387884.exit.i", label %15
+11:                                               ; preds = %.lr.ph.i
+  %12 = getelementptr inbounds i8, ptr %6, i64 8
+  %13 = load i64, ptr %12, align 8, !range !4, !alias.scope !3803, !noundef !5
+  %.not.i.i.i = icmp eq i64 %13, 2
+  br i1 %.not.i.i.i, label %"_ZN4core3ptr275drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..app_service..AppRoutingFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hebb9e28e3f451376E.llvm.11632439649900387884.exit.i", label %14
 
-15:                                               ; preds = %12
-  invoke void @"_ZN4core3ptr595drop_in_place$LT$$LP$actix_router..resource..ResourceDef$C$alloc..vec..Vec$LT$alloc..boxed..Box$LT$dyn$u20$actix_web..guard..Guard$GT$$GT$$C$alloc..boxed..Box$LT$dyn$u20$actix_service..Service$LT$actix_web..service..ServiceRequest$GT$$u2b$Error$u20$$u3d$$u20$actix_web..error..error..Error$u2b$Response$u20$$u3d$$u20$actix_web..service..ServiceResponse$u2b$Future$u20$$u3d$$u20$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$actix_web..service..ServiceResponse$C$actix_web..error..error..Error$GT$$GT$$GT$$GT$$RP$$GT$17hf4c647f4c3923346E.llvm.11632439649900387884"(ptr noalias noundef nonnull align 8 dereferenceable(192) %13)
-          to label %"_ZN4core3ptr275drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..app_service..AppRoutingFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hebb9e28e3f451376E.llvm.11632439649900387884.exit.i" unwind label %19
+14:                                               ; preds = %11
+  invoke void @"_ZN4core3ptr595drop_in_place$LT$$LP$actix_router..resource..ResourceDef$C$alloc..vec..Vec$LT$alloc..boxed..Box$LT$dyn$u20$actix_web..guard..Guard$GT$$GT$$C$alloc..boxed..Box$LT$dyn$u20$actix_service..Service$LT$actix_web..service..ServiceRequest$GT$$u2b$Error$u20$$u3d$$u20$actix_web..error..error..Error$u2b$Response$u20$$u3d$$u20$actix_web..service..ServiceResponse$u2b$Future$u20$$u3d$$u20$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$actix_web..service..ServiceResponse$C$actix_web..error..error..Error$GT$$GT$$GT$$GT$$RP$$GT$17hf4c647f4c3923346E.llvm.11632439649900387884"(ptr noalias noundef nonnull align 8 dereferenceable(192) %12)
+          to label %"_ZN4core3ptr275drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..app_service..AppRoutingFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hebb9e28e3f451376E.llvm.11632439649900387884.exit.i" unwind label %18
 
-"_ZN4core3ptr275drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..app_service..AppRoutingFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hebb9e28e3f451376E.llvm.11632439649900387884.exit.i": ; preds = %15, %12, %11, %.lr.ph.i
-  %16 = icmp eq i64 %7, %4
-  br i1 %16, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.11632439649900387884.exit.i1", label %.lr.ph.i
+"_ZN4core3ptr275drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..app_service..AppRoutingFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hebb9e28e3f451376E.llvm.11632439649900387884.exit.i": ; preds = %14, %11, %10, %.lr.ph.i
+  %15 = icmp eq i64 %7, %4
+  br i1 %15, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.11632439649900387884.exit.i1", label %.lr.ph.i
 
-17:                                               ; preds = %21, %19
-  %.1.i = phi i64 [ %7, %19 ], [ %23, %21 ]
-  %18 = icmp eq i64 %.1.i, %4
-  br i1 %18, label %27, label %21
+16:                                               ; preds = %20, %18
+  %.1.i = phi i64 [ %7, %18 ], [ %22, %20 ]
+  %17 = icmp eq i64 %.1.i, %4
+  br i1 %17, label %26, label %20
 
-19:                                               ; preds = %15, %11
-  %20 = landingpad { ptr, i32 }
+18:                                               ; preds = %14, %10
+  %19 = landingpad { ptr, i32 }
           cleanup
-  br label %17
+  br label %16
 
-21:                                               ; preds = %17
-  %22 = getelementptr inbounds [0 x { i64, [26 x i64] }], ptr %2, i64 0, i64 %.1.i
-  %23 = add i64 %.1.i, 1
-  invoke void @"_ZN4core3ptr275drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..app_service..AppRoutingFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hebb9e28e3f451376E.llvm.11632439649900387884"(ptr noundef nonnull align 8 %22) #32
-          to label %17 unwind label %24
+20:                                               ; preds = %16
+  %21 = getelementptr inbounds [0 x { i64, [26 x i64] }], ptr %2, i64 0, i64 %.1.i
+  %22 = add i64 %.1.i, 1
+  invoke void @"_ZN4core3ptr275drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..app_service..AppRoutingFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hebb9e28e3f451376E.llvm.11632439649900387884"(ptr noundef nonnull align 8 %21) #32
+          to label %16 unwind label %23
 
-24:                                               ; preds = %21
-  %25 = landingpad { ptr, i32 }
+23:                                               ; preds = %20
+  %24 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #33
   unreachable
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.11632439649900387884.exit.i1": ; preds = %"_ZN4core3ptr275drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..app_service..AppRoutingFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hebb9e28e3f451376E.llvm.11632439649900387884.exit.i"
-  %26 = mul nsw i64 %4, 216
-  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %26, i64 noundef 8) #31, !noalias !3806
+  %25 = mul nsw i64 %4, 216
+  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %25, i64 noundef 8) #31, !noalias !3806
   br label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb45f58644b043db9E.llvm.11632439649900387884.exit2"
 
 "_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb45f58644b043db9E.llvm.11632439649900387884.exit2": ; preds = %1, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.11632439649900387884.exit.i1"
   ret void
 
-27:                                               ; preds = %17
-  %28 = mul nsw i64 %4, 216
-  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %28, i64 noundef 8) #31, !noalias !3809
-  resume { ptr, i32 } %20
+26:                                               ; preds = %16
+  %27 = mul nsw i64 %4, 216
+  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %27, i64 noundef 8) #31, !noalias !3809
+  resume { ptr, i32 } %19
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -35605,53 +35589,51 @@ define hidden void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops
   %7 = getelementptr inbounds [0 x { i64, [26 x i64] }], ptr %3, i64 0, i64 %.08.i
   %8 = add nuw i64 %.08.i, 1
   %9 = load i64, ptr %7, align 8, !range !1134, !noundef !5
-  %.not.i.i = icmp samesign ult i64 %9, 2
-  %10 = add nsw i64 %9, -1
-  %11 = select i1 %.not.i.i, i64 0, i64 %10
-  switch i64 %11, label %"_ZN4core3ptr275drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..app_service..AppRoutingFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hebb9e28e3f451376E.llvm.11632439649900387884.exit.i" [
-    i64 0, label %12
-    i64 1, label %13
+  %10 = tail call i64 @llvm.usub.sat.i64(i64 %9, i64 1)
+  switch i64 %10, label %"_ZN4core3ptr275drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..app_service..AppRoutingFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hebb9e28e3f451376E.llvm.11632439649900387884.exit.i" [
+    i64 0, label %11
+    i64 1, label %12
   ]
 
-12:                                               ; preds = %.lr.ph.i
+11:                                               ; preds = %.lr.ph.i
   invoke void @"_ZN4core3ptr224drop_in_place$LT$$LT$actix_web..app_service..AppRoutingFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h2d2543e957ed41d4E.llvm.11632439649900387884"(ptr noundef nonnull align 8 %7)
-          to label %"_ZN4core3ptr275drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..app_service..AppRoutingFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hebb9e28e3f451376E.llvm.11632439649900387884.exit.i" unwind label %20
+          to label %"_ZN4core3ptr275drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..app_service..AppRoutingFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hebb9e28e3f451376E.llvm.11632439649900387884.exit.i" unwind label %19
 
-13:                                               ; preds = %.lr.ph.i
-  %14 = getelementptr inbounds i8, ptr %7, i64 8
-  %15 = load i64, ptr %14, align 8, !range !4, !alias.scope !12405, !noundef !5
-  %.not.i.i.i = icmp eq i64 %15, 2
-  br i1 %.not.i.i.i, label %"_ZN4core3ptr275drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..app_service..AppRoutingFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hebb9e28e3f451376E.llvm.11632439649900387884.exit.i", label %16
+12:                                               ; preds = %.lr.ph.i
+  %13 = getelementptr inbounds i8, ptr %7, i64 8
+  %14 = load i64, ptr %13, align 8, !range !4, !alias.scope !12405, !noundef !5
+  %.not.i.i.i = icmp eq i64 %14, 2
+  br i1 %.not.i.i.i, label %"_ZN4core3ptr275drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..app_service..AppRoutingFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hebb9e28e3f451376E.llvm.11632439649900387884.exit.i", label %15
 
-16:                                               ; preds = %13
-  invoke void @"_ZN4core3ptr595drop_in_place$LT$$LP$actix_router..resource..ResourceDef$C$alloc..vec..Vec$LT$alloc..boxed..Box$LT$dyn$u20$actix_web..guard..Guard$GT$$GT$$C$alloc..boxed..Box$LT$dyn$u20$actix_service..Service$LT$actix_web..service..ServiceRequest$GT$$u2b$Error$u20$$u3d$$u20$actix_web..error..error..Error$u2b$Response$u20$$u3d$$u20$actix_web..service..ServiceResponse$u2b$Future$u20$$u3d$$u20$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$actix_web..service..ServiceResponse$C$actix_web..error..error..Error$GT$$GT$$GT$$GT$$RP$$GT$17hf4c647f4c3923346E.llvm.11632439649900387884"(ptr noalias noundef nonnull align 8 dereferenceable(192) %14)
-          to label %"_ZN4core3ptr275drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..app_service..AppRoutingFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hebb9e28e3f451376E.llvm.11632439649900387884.exit.i" unwind label %20
+15:                                               ; preds = %12
+  invoke void @"_ZN4core3ptr595drop_in_place$LT$$LP$actix_router..resource..ResourceDef$C$alloc..vec..Vec$LT$alloc..boxed..Box$LT$dyn$u20$actix_web..guard..Guard$GT$$GT$$C$alloc..boxed..Box$LT$dyn$u20$actix_service..Service$LT$actix_web..service..ServiceRequest$GT$$u2b$Error$u20$$u3d$$u20$actix_web..error..error..Error$u2b$Response$u20$$u3d$$u20$actix_web..service..ServiceResponse$u2b$Future$u20$$u3d$$u20$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$actix_web..service..ServiceResponse$C$actix_web..error..error..Error$GT$$GT$$GT$$GT$$RP$$GT$17hf4c647f4c3923346E.llvm.11632439649900387884"(ptr noalias noundef nonnull align 8 dereferenceable(192) %13)
+          to label %"_ZN4core3ptr275drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..app_service..AppRoutingFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hebb9e28e3f451376E.llvm.11632439649900387884.exit.i" unwind label %19
 
-"_ZN4core3ptr275drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..app_service..AppRoutingFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hebb9e28e3f451376E.llvm.11632439649900387884.exit.i": ; preds = %16, %13, %12, %.lr.ph.i
-  %17 = icmp eq i64 %8, %5
-  br i1 %17, label %"_ZN4core3ptr285drop_in_place$LT$$u5b$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..app_service..AppRoutingFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$u5d$$GT$17h1a44d105e3c86d22E.llvm.11632439649900387884.exit", label %.lr.ph.i
+"_ZN4core3ptr275drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..app_service..AppRoutingFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hebb9e28e3f451376E.llvm.11632439649900387884.exit.i": ; preds = %15, %12, %11, %.lr.ph.i
+  %16 = icmp eq i64 %8, %5
+  br i1 %16, label %"_ZN4core3ptr285drop_in_place$LT$$u5b$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..app_service..AppRoutingFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$u5d$$GT$17h1a44d105e3c86d22E.llvm.11632439649900387884.exit", label %.lr.ph.i
 
-18:                                               ; preds = %22, %20
-  %.1.i = phi i64 [ %8, %20 ], [ %24, %22 ]
-  %19 = icmp eq i64 %.1.i, %5
-  br i1 %19, label %25, label %22
+17:                                               ; preds = %21, %19
+  %.1.i = phi i64 [ %8, %19 ], [ %23, %21 ]
+  %18 = icmp eq i64 %.1.i, %5
+  br i1 %18, label %24, label %21
 
-20:                                               ; preds = %16, %12
-  %21 = landingpad { ptr, i32 }
+19:                                               ; preds = %15, %11
+  %20 = landingpad { ptr, i32 }
           cleanup
-  br label %18
+  br label %17
 
-22:                                               ; preds = %18
-  %23 = getelementptr inbounds [0 x { i64, [26 x i64] }], ptr %3, i64 0, i64 %.1.i
-  %24 = add i64 %.1.i, 1
-  invoke void @"_ZN4core3ptr275drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..app_service..AppRoutingFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hebb9e28e3f451376E.llvm.11632439649900387884"(ptr noundef nonnull align 8 %23) #32
-          to label %18 unwind label %26
+21:                                               ; preds = %17
+  %22 = getelementptr inbounds [0 x { i64, [26 x i64] }], ptr %3, i64 0, i64 %.1.i
+  %23 = add i64 %.1.i, 1
+  invoke void @"_ZN4core3ptr275drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..app_service..AppRoutingFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hebb9e28e3f451376E.llvm.11632439649900387884"(ptr noundef nonnull align 8 %22) #32
+          to label %17 unwind label %25
 
-25:                                               ; preds = %18
-  resume { ptr, i32 } %21
+24:                                               ; preds = %17
+  resume { ptr, i32 } %20
 
-26:                                               ; preds = %22
-  %27 = landingpad { ptr, i32 }
+25:                                               ; preds = %21
+  %26 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #33
   unreachable
@@ -35870,53 +35852,51 @@ define hidden void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops
   %7 = getelementptr inbounds [0 x { i64, [26 x i64] }], ptr %3, i64 0, i64 %.08.i
   %8 = add nuw i64 %.08.i, 1
   %9 = load i64, ptr %7, align 8, !range !1134, !noundef !5
-  %.not.i.i = icmp samesign ult i64 %9, 2
-  %10 = add nsw i64 %9, -1
-  %11 = select i1 %.not.i.i, i64 0, i64 %10
-  switch i64 %11, label %"_ZN4core3ptr264drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..scope..ScopeFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha76c9c2fabb87bfcE.llvm.11632439649900387884.exit.i" [
-    i64 0, label %12
-    i64 1, label %13
+  %10 = tail call i64 @llvm.usub.sat.i64(i64 %9, i64 1)
+  switch i64 %10, label %"_ZN4core3ptr264drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..scope..ScopeFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha76c9c2fabb87bfcE.llvm.11632439649900387884.exit.i" [
+    i64 0, label %11
+    i64 1, label %12
   ]
 
-12:                                               ; preds = %.lr.ph.i
+11:                                               ; preds = %.lr.ph.i
   invoke void @"_ZN4core3ptr213drop_in_place$LT$$LT$actix_web..scope..ScopeFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h1708c7e7a0e07bf2E.llvm.11632439649900387884"(ptr noundef nonnull align 8 %7)
-          to label %"_ZN4core3ptr264drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..scope..ScopeFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha76c9c2fabb87bfcE.llvm.11632439649900387884.exit.i" unwind label %20
+          to label %"_ZN4core3ptr264drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..scope..ScopeFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha76c9c2fabb87bfcE.llvm.11632439649900387884.exit.i" unwind label %19
 
-13:                                               ; preds = %.lr.ph.i
-  %14 = getelementptr inbounds i8, ptr %7, i64 8
-  %15 = load i64, ptr %14, align 8, !range !4, !alias.scope !12490, !noundef !5
-  %.not.i.i.i = icmp eq i64 %15, 2
-  br i1 %.not.i.i.i, label %"_ZN4core3ptr264drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..scope..ScopeFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha76c9c2fabb87bfcE.llvm.11632439649900387884.exit.i", label %16
+12:                                               ; preds = %.lr.ph.i
+  %13 = getelementptr inbounds i8, ptr %7, i64 8
+  %14 = load i64, ptr %13, align 8, !range !4, !alias.scope !12490, !noundef !5
+  %.not.i.i.i = icmp eq i64 %14, 2
+  br i1 %.not.i.i.i, label %"_ZN4core3ptr264drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..scope..ScopeFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha76c9c2fabb87bfcE.llvm.11632439649900387884.exit.i", label %15
 
-16:                                               ; preds = %13
-  invoke void @"_ZN4core3ptr595drop_in_place$LT$$LP$actix_router..resource..ResourceDef$C$alloc..vec..Vec$LT$alloc..boxed..Box$LT$dyn$u20$actix_web..guard..Guard$GT$$GT$$C$alloc..boxed..Box$LT$dyn$u20$actix_service..Service$LT$actix_web..service..ServiceRequest$GT$$u2b$Error$u20$$u3d$$u20$actix_web..error..error..Error$u2b$Response$u20$$u3d$$u20$actix_web..service..ServiceResponse$u2b$Future$u20$$u3d$$u20$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$actix_web..service..ServiceResponse$C$actix_web..error..error..Error$GT$$GT$$GT$$GT$$RP$$GT$17hf4c647f4c3923346E.llvm.11632439649900387884"(ptr noalias noundef nonnull align 8 dereferenceable(192) %14)
-          to label %"_ZN4core3ptr264drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..scope..ScopeFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha76c9c2fabb87bfcE.llvm.11632439649900387884.exit.i" unwind label %20
+15:                                               ; preds = %12
+  invoke void @"_ZN4core3ptr595drop_in_place$LT$$LP$actix_router..resource..ResourceDef$C$alloc..vec..Vec$LT$alloc..boxed..Box$LT$dyn$u20$actix_web..guard..Guard$GT$$GT$$C$alloc..boxed..Box$LT$dyn$u20$actix_service..Service$LT$actix_web..service..ServiceRequest$GT$$u2b$Error$u20$$u3d$$u20$actix_web..error..error..Error$u2b$Response$u20$$u3d$$u20$actix_web..service..ServiceResponse$u2b$Future$u20$$u3d$$u20$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$actix_web..service..ServiceResponse$C$actix_web..error..error..Error$GT$$GT$$GT$$GT$$RP$$GT$17hf4c647f4c3923346E.llvm.11632439649900387884"(ptr noalias noundef nonnull align 8 dereferenceable(192) %13)
+          to label %"_ZN4core3ptr264drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..scope..ScopeFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha76c9c2fabb87bfcE.llvm.11632439649900387884.exit.i" unwind label %19
 
-"_ZN4core3ptr264drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..scope..ScopeFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha76c9c2fabb87bfcE.llvm.11632439649900387884.exit.i": ; preds = %16, %13, %12, %.lr.ph.i
-  %17 = icmp eq i64 %8, %5
-  br i1 %17, label %"_ZN4core3ptr274drop_in_place$LT$$u5b$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..scope..ScopeFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$u5d$$GT$17h0f2db125e37854e5E.llvm.11632439649900387884.exit", label %.lr.ph.i
+"_ZN4core3ptr264drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..scope..ScopeFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha76c9c2fabb87bfcE.llvm.11632439649900387884.exit.i": ; preds = %15, %12, %11, %.lr.ph.i
+  %16 = icmp eq i64 %8, %5
+  br i1 %16, label %"_ZN4core3ptr274drop_in_place$LT$$u5b$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..scope..ScopeFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$u5d$$GT$17h0f2db125e37854e5E.llvm.11632439649900387884.exit", label %.lr.ph.i
 
-18:                                               ; preds = %22, %20
-  %.1.i = phi i64 [ %8, %20 ], [ %24, %22 ]
-  %19 = icmp eq i64 %.1.i, %5
-  br i1 %19, label %25, label %22
+17:                                               ; preds = %21, %19
+  %.1.i = phi i64 [ %8, %19 ], [ %23, %21 ]
+  %18 = icmp eq i64 %.1.i, %5
+  br i1 %18, label %24, label %21
 
-20:                                               ; preds = %16, %12
-  %21 = landingpad { ptr, i32 }
+19:                                               ; preds = %15, %11
+  %20 = landingpad { ptr, i32 }
           cleanup
-  br label %18
+  br label %17
 
-22:                                               ; preds = %18
-  %23 = getelementptr inbounds [0 x { i64, [26 x i64] }], ptr %3, i64 0, i64 %.1.i
-  %24 = add i64 %.1.i, 1
-  invoke void @"_ZN4core3ptr264drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..scope..ScopeFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha76c9c2fabb87bfcE.llvm.11632439649900387884"(ptr noundef nonnull align 8 %23) #32
-          to label %18 unwind label %26
+21:                                               ; preds = %17
+  %22 = getelementptr inbounds [0 x { i64, [26 x i64] }], ptr %3, i64 0, i64 %.1.i
+  %23 = add i64 %.1.i, 1
+  invoke void @"_ZN4core3ptr264drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$$LT$actix_web..scope..ScopeFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha76c9c2fabb87bfcE.llvm.11632439649900387884"(ptr noundef nonnull align 8 %22) #32
+          to label %17 unwind label %25
 
-25:                                               ; preds = %18
-  resume { ptr, i32 } %21
+24:                                               ; preds = %17
+  resume { ptr, i32 } %20
 
-26:                                               ; preds = %22
-  %27 = landingpad { ptr, i32 }
+25:                                               ; preds = %21
+  %26 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #33
   unreachable
@@ -41241,11 +41221,11 @@ declare hidden noundef ptr @_ZN3std2io5Write9write_fmt17hd0d1301c6e47bf99E(ptr n
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #28
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #29
-
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.usub.sat.i64(i64, i64) #28
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
+declare void @llvm.experimental.noalias.scope.decl(metadata) #29
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { nounwind nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

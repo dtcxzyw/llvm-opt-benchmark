@@ -2026,9 +2026,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit140: ;
 
 242:                                              ; preds = %207
   %243 = icmp slt i32 %212, 2
-  %244 = add nsw i32 %212, -2
   %spec.select = select i1 %243, i64 160, i64 164
-  %spec.select152 = select i1 %243, i32 0, i32 %244
+  %244 = call i32 @llvm.smax.i32(i32 %212, i32 2)
+  %spec.select152 = add nsw i32 %244, -2
   br label %245
 
 245:                                              ; preds = %242, %.thread144

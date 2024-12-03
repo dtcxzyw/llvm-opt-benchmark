@@ -476,7 +476,7 @@ define internal range(i32 -16, 1) i32 @mca_mpool_hugepage_query(ptr noundef %0, 
   %5 = load i32, ptr @mca_mpool_hugepage_priority, align 4
   %6 = load i32, ptr getelementptr inbounds (i8, ptr @mca_mpool_hugepage_component, i64 352), align 8
   %7 = icmp eq i32 %6, 0
-  br i1 %7, label %97, label %8
+  br i1 %7, label %96, label %8
 
 8:                                                ; preds = %3
   %.not = icmp eq ptr %0, null
@@ -485,7 +485,7 @@ define internal range(i32 -16, 1) i32 @mca_mpool_hugepage_query(ptr noundef %0, 
 9:                                                ; preds = %8
   %10 = tail call noalias ptr @opal_argv_split(ptr noundef nonnull %0, i32 noundef 44) #14
   %11 = icmp eq ptr %10, null
-  br i1 %11, label %97, label %.preheader
+  br i1 %11, label %96, label %.preheader
 
 .preheader:                                       ; preds = %9
   %12 = load ptr, ptr %10, align 8
@@ -546,7 +546,7 @@ define internal range(i32 -16, 1) i32 @mca_mpool_hugepage_query(ptr noundef %0, 
 
 33:                                               ; preds = %.thread74, %31
   tail call void @opal_argv_free(ptr noundef nonnull %10) #14
-  br label %97
+  br label %96
 
 34:                                               ; preds = %.thread, %24, %27, %15
   %.04873 = phi ptr [ %16, %27 ], [ %16, %24 ], [ %16, %15 ], [ null, %.thread ]
@@ -655,51 +655,50 @@ define internal range(i32 -16, 1) i32 @mca_mpool_hugepage_query(ptr noundef %0, 
 
 75:                                               ; preds = %69
   %76 = getelementptr inbounds i8, ptr %70, i64 72
-  %77 = icmp slt i32 %.355, 80
-  %78 = add nsw i32 %.355, 20
-  %79 = select i1 %77, i32 %78, i32 100
+  %77 = tail call i32 @llvm.smin.i32(i32 %.355, i32 80)
+  %78 = add nsw i32 %77, 20
   %.not66 = icmp eq ptr %2, null
-  br i1 %.not66, label %81, label %80
+  br i1 %.not66, label %80, label %79
 
-80:                                               ; preds = %75
+79:                                               ; preds = %75
   store ptr %70, ptr %2, align 8
-  br label %81
+  br label %80
 
-81:                                               ; preds = %75, %80
-  %82 = load i32, ptr getelementptr inbounds (i8, ptr @opal_mpool_base_framework, i64 76), align 4
-  %83 = tail call zeroext i1 @opal_output_check_verbosity(i32 noundef 40, i32 noundef %82) #14
-  br i1 %83, label %84, label %95
+80:                                               ; preds = %75, %79
+  %81 = load i32, ptr getelementptr inbounds (i8, ptr @opal_mpool_base_framework, i64 76), align 4
+  %82 = tail call zeroext i1 @opal_output_check_verbosity(i32 noundef 40, i32 noundef %81) #14
+  br i1 %82, label %83, label %94
 
-84:                                               ; preds = %81
-  %85 = load i32, ptr getelementptr inbounds (i8, ptr @opal_mpool_base_framework, i64 76), align 4
-  %86 = load ptr, ptr %76, align 8
-  %87 = getelementptr inbounds i8, ptr %86, i64 48
-  %88 = load ptr, ptr %87, align 8
-  %89 = getelementptr inbounds i8, ptr %86, i64 60
-  %90 = load i32, ptr %89, align 4
-  tail call void (i32, ptr, ...) @opal_output(i32 noundef %85, ptr noundef nonnull @.str.20, i64 noundef %.6, ptr noundef %88, i32 noundef %90) #14
-  br label %95
+83:                                               ; preds = %80
+  %84 = load i32, ptr getelementptr inbounds (i8, ptr @opal_mpool_base_framework, i64 76), align 4
+  %85 = load ptr, ptr %76, align 8
+  %86 = getelementptr inbounds i8, ptr %85, i64 48
+  %87 = load ptr, ptr %86, align 8
+  %88 = getelementptr inbounds i8, ptr %85, i64 60
+  %89 = load i32, ptr %88, align 4
+  tail call void (i32, ptr, ...) @opal_output(i32 noundef %84, ptr noundef nonnull @.str.20, i64 noundef %.6, ptr noundef %87, i32 noundef %89) #14
+  br label %94
 
 ._crit_edge99:                                    ; preds = %68, %64
-  %91 = load i32, ptr getelementptr inbounds (i8, ptr @opal_mpool_base_framework, i64 76), align 4
-  %92 = tail call zeroext i1 @opal_output_check_verbosity(i32 noundef 20, i32 noundef %91) #14
-  br i1 %92, label %93, label %97
+  %90 = load i32, ptr getelementptr inbounds (i8, ptr @opal_mpool_base_framework, i64 76), align 4
+  %91 = tail call zeroext i1 @opal_output_check_verbosity(i32 noundef 20, i32 noundef %90) #14
+  br i1 %91, label %92, label %96
 
-93:                                               ; preds = %._crit_edge99
-  %94 = load i32, ptr getelementptr inbounds (i8, ptr @opal_mpool_base_framework, i64 76), align 4
-  tail call void (i32, ptr, ...) @opal_output(i32 noundef %94, ptr noundef nonnull @.str.21, i64 noundef %.6) #14
-  br label %97
+92:                                               ; preds = %._crit_edge99
+  %93 = load i32, ptr getelementptr inbounds (i8, ptr @opal_mpool_base_framework, i64 76), align 4
+  tail call void (i32, ptr, ...) @opal_output(i32 noundef %93, ptr noundef nonnull @.str.21, i64 noundef %.6) #14
+  br label %96
 
-95:                                               ; preds = %84, %81
+94:                                               ; preds = %83, %80
   %.not67 = icmp eq ptr %1, null
-  br i1 %.not67, label %97, label %96
+  br i1 %.not67, label %96, label %95
 
-96:                                               ; preds = %95
-  store i32 %79, ptr %1, align 4
-  br label %97
+95:                                               ; preds = %94
+  store i32 %78, ptr %1, align 4
+  br label %96
 
-97:                                               ; preds = %95, %96, %93, %._crit_edge99, %9, %3, %33
-  %.0 = phi i32 [ -13, %33 ], [ -16, %3 ], [ -2, %9 ], [ -13, %._crit_edge99 ], [ -13, %93 ], [ 0, %96 ], [ 0, %95 ]
+96:                                               ; preds = %94, %95, %92, %._crit_edge99, %9, %3, %33
+  %.0 = phi i32 [ -13, %33 ], [ -16, %3 ], [ -2, %9 ], [ -13, %._crit_edge99 ], [ -13, %92 ], [ 0, %95 ], [ 0, %94 ]
   ret i32 %.0
 }
 
@@ -780,6 +779,9 @@ declare void @opal_argv_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
 declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #6
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ucmp.i32.i64(i64, i64) #12

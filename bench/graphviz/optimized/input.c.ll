@@ -2259,7 +2259,7 @@ define internal fastcc zeroext i1 @getdoubles2ptf(ptr noundef %0, ptr noundef %1
   store i8 0, ptr %6, align 1
   %7 = tail call ptr @agget(ptr noundef %0, ptr noundef %1) #21
   %.not = icmp eq ptr %7, null
-  br i1 %.not, label %43, label %8
+  br i1 %.not, label %34, label %8
 
 8:                                                ; preds = %3
   %9 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %7, ptr noundef nonnull @.str.155, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6) #21
@@ -2270,56 +2270,44 @@ define internal fastcc zeroext i1 @getdoubles2ptf(ptr noundef %0, ptr noundef %1
   %13 = load double, ptr %5, align 8
   %14 = fcmp ogt double %13, 0.000000e+00
   %or.cond3 = select i1 %or.cond, i1 %14, i1 false
-  br i1 %or.cond3, label %15, label %28
+  br i1 %or.cond3, label %15, label %22
 
 15:                                               ; preds = %8
-  %16 = fmul double %11, 7.200000e+01
-  %17 = fcmp ult double %16, 0.000000e+00
-  %18 = call double @llvm.fmuladd.f64(double %11, double 7.200000e+01, double 5.000000e-01)
-  %19 = call double @llvm.fmuladd.f64(double %11, double 7.200000e+01, double -5.000000e-01)
-  %.in18 = select i1 %17, double %19, double %18
-  %20 = fptosi double %.in18 to i32
+  %16 = call double @llvm.fmuladd.f64(double %11, double 7.200000e+01, double 5.000000e-01)
+  %17 = fptosi double %16 to i32
+  %18 = sitofp i32 %17 to double
+  store double %18, ptr %2, align 8
+  %19 = call double @llvm.fmuladd.f64(double %13, double 7.200000e+01, double 5.000000e-01)
+  %20 = fptosi double %19 to i32
   %21 = sitofp i32 %20 to double
-  store double %21, ptr %2, align 8
-  %22 = fmul double %13, 7.200000e+01
-  %23 = fcmp ult double %22, 0.000000e+00
-  %24 = call double @llvm.fmuladd.f64(double %13, double 7.200000e+01, double 5.000000e-01)
-  %25 = call double @llvm.fmuladd.f64(double %13, double 7.200000e+01, double -5.000000e-01)
-  %.in19 = select i1 %23, double %25, double %24
-  %26 = fptosi double %.in19 to i32
-  %27 = sitofp i32 %26 to double
   br label %.sink.split
 
-28:                                               ; preds = %8
+22:                                               ; preds = %8
   store i8 0, ptr %6, align 1
-  %29 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %7, ptr noundef nonnull @.str.156, ptr noundef nonnull %4, ptr noundef nonnull %6) #21
-  %30 = icmp sgt i32 %29, 0
-  %31 = load double, ptr %4, align 8
-  %32 = fcmp ogt double %31, 0.000000e+00
-  %or.cond5 = select i1 %30, i1 %32, i1 false
-  br i1 %or.cond5, label %33, label %43
+  %23 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %7, ptr noundef nonnull @.str.156, ptr noundef nonnull %4, ptr noundef nonnull %6) #21
+  %24 = icmp sgt i32 %23, 0
+  %25 = load double, ptr %4, align 8
+  %26 = fcmp ogt double %25, 0.000000e+00
+  %or.cond5 = select i1 %24, i1 %26, i1 false
+  br i1 %or.cond5, label %27, label %34
 
-33:                                               ; preds = %28
-  %34 = fmul double %31, 7.200000e+01
-  %35 = fcmp ult double %34, 0.000000e+00
-  %36 = call double @llvm.fmuladd.f64(double %31, double 7.200000e+01, double 5.000000e-01)
-  %37 = call double @llvm.fmuladd.f64(double %31, double 7.200000e+01, double -5.000000e-01)
-  %.in = select i1 %35, double %37, double %36
-  %38 = fptosi double %.in to i32
-  %39 = sitofp i32 %38 to double
-  store double %39, ptr %2, align 8
+27:                                               ; preds = %22
+  %28 = call double @llvm.fmuladd.f64(double %25, double 7.200000e+01, double 5.000000e-01)
+  %29 = fptosi double %28 to i32
+  %30 = sitofp i32 %29 to double
+  store double %30, ptr %2, align 8
   br label %.sink.split
 
-.sink.split:                                      ; preds = %15, %33
-  %.sink = phi double [ %39, %33 ], [ %27, %15 ]
-  %40 = getelementptr inbounds i8, ptr %2, i64 8
-  store double %.sink, ptr %40, align 8
-  %41 = load i8, ptr %6, align 1
-  %42 = icmp eq i8 %41, 33
-  br label %43
+.sink.split:                                      ; preds = %27, %15
+  %.sink = phi double [ %21, %15 ], [ %30, %27 ]
+  %31 = getelementptr inbounds i8, ptr %2, i64 8
+  store double %.sink, ptr %31, align 8
+  %32 = load i8, ptr %6, align 1
+  %33 = icmp eq i8 %32, 33
+  br label %34
 
-43:                                               ; preds = %.sink.split, %28, %3
-  %.0 = phi i1 [ false, %28 ], [ false, %3 ], [ %42, %.sink.split ]
+34:                                               ; preds = %.sink.split, %22, %3
+  %.0 = phi i1 [ false, %22 ], [ false, %3 ], [ %33, %.sink.split ]
   ret i1 %.0
 }
 

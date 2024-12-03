@@ -3322,9 +3322,8 @@ if.end56:                                         ; preds = %for.body50
   %sub.ptr.lhs.cast.i168 = ptrtoint ptr %47 to i64
   %sub.ptr.rhs.cast.i169 = ptrtoint ptr %48 to i64
   %sub.ptr.sub.i170 = sub i64 %sub.ptr.lhs.cast.i168, %sub.ptr.rhs.cast.i169
-  %49 = ashr exact i64 %sub.ptr.sub.i170, 1
-  %.inv = icmp sgt i64 %sub.ptr.sub.i170, -1
-  %50 = select i1 %.inv, i64 %49, i64 -1
+  %49 = call i64 @llvm.smax.i64(i64 %sub.ptr.sub.i170, i64 -1)
+  %50 = ashr i64 %49, 1
   %call63 = call noalias noundef nonnull ptr @_Znam(i64 noundef %50) #26
   %mIndices = getelementptr inbounds i8, ptr %arrayidx60, i64 8
   store ptr %call63, ptr %mIndices, align 8
@@ -19616,6 +19615,9 @@ declare i64 @llvm.umax.i64(i64, i64) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #23
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.smax.i64(i64, i64) #23
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

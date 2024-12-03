@@ -7973,12 +7973,11 @@ define linkonce_odr hidden noundef i32 @_ZNK16MetaspaceClosure6MSORefI6SymbolE4s
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 4
   %6 = load i16, ptr %5, align 4
-  %7 = zext i16 %6 to i32
-  %8 = icmp ugt i16 %6, 2
-  %9 = add nuw nsw i32 %7, 13
+  %7 = tail call i16 @llvm.umax.i16(i16 %6, i16 2)
+  %8 = zext i16 %7 to i32
+  %9 = add nuw nsw i32 %8, 13
   %10 = lshr i32 %9, 3
-  %11 = select i1 %8, i32 %10, i32 1
-  ret i32 %11
+  ret i32 %10
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -9214,6 +9213,9 @@ declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #15
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctpop.i32(i32) #16
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #16
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
 
@@ -9221,7 +9223,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #16
+declare i16 @llvm.umax.i16(i16, i16) #16
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

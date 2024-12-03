@@ -77,9 +77,8 @@ entry:
   br i1 %cmp.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %cmp4 = icmp ult i32 %2, 64
-  %mul6 = shl i32 %2, 1
-  %spec.select = select i1 %cmp4, i32 128, i32 %mul6
+  %3 = tail call i32 @llvm.umax.i32(i32 %2, i32 64)
+  %spec.select = shl i32 %3, 1
   br label %if.end12.sink.split
 
 if.else:                                          ; preds = %entry
@@ -94,33 +93,33 @@ if.end12.sink.split:                              ; preds = %if.else, %if.then
   br label %if.end12
 
 if.end12:                                         ; preds = %if.end12.sink.split, %if.else
-  %3 = ptrtoint ptr %Ptr to i64
-  %conv.i.i = trunc i64 %3 to i32
+  %4 = ptrtoint ptr %Ptr to i64
+  %conv.i.i = trunc i64 %4 to i32
   %shr.i.i = lshr i32 %conv.i.i, 4
   %shr2.i.i = lshr i32 %conv.i.i, 9
   %xor.i.i = xor i32 %shr.i.i, %shr2.i.i
-  %4 = load i32, ptr %CurArraySize, align 8
-  %sub.i5 = add i32 %4, -1
+  %5 = load i32, ptr %CurArraySize, align 8
+  %sub.i5 = add i32 %5, -1
   %CurArray.i = getelementptr inbounds i8, ptr %this, i64 8
-  %5 = load ptr, ptr %CurArray.i, align 8
+  %6 = load ptr, ptr %CurArray.i, align 8
   %Bucket.017.i = and i32 %sub.i5, %xor.i.i
   %idxprom18.i = zext nneg i32 %Bucket.017.i to i64
-  %arrayidx19.i = getelementptr inbounds ptr, ptr %5, i64 %idxprom18.i
-  %6 = load ptr, ptr %arrayidx19.i, align 8
-  %cmp20.i = icmp eq ptr %6, inttoptr (i64 -1 to ptr)
+  %arrayidx19.i = getelementptr inbounds ptr, ptr %6, i64 %idxprom18.i
+  %7 = load ptr, ptr %arrayidx19.i, align 8
+  %cmp20.i = icmp eq ptr %7, inttoptr (i64 -1 to ptr)
   br i1 %cmp20.i, label %_ZNK4llvh19SmallPtrSetImplBase13FindBucketForEPKv.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end12, %if.end10.i
-  %7 = phi ptr [ %8, %if.end10.i ], [ %6, %if.end12 ]
+  %8 = phi ptr [ %9, %if.end10.i ], [ %7, %if.end12 ]
   %arrayidx24.i = phi ptr [ %arrayidx.i, %if.end10.i ], [ %arrayidx19.i, %if.end12 ]
   %Bucket.023.i = phi i32 [ %Bucket.0.i, %if.end10.i ], [ %Bucket.017.i, %if.end12 ]
   %Tombstone.022.i = phi ptr [ %spec.select.i, %if.end10.i ], [ null, %if.end12 ]
   %ProbeAmt.021.i = phi i32 [ %inc.i, %if.end10.i ], [ 1, %if.end12 ]
-  %cmp6.i = icmp eq ptr %7, %Ptr
+  %cmp6.i = icmp eq ptr %8, %Ptr
   br i1 %cmp6.i, label %return, label %if.end10.i
 
 if.end10.i:                                       ; preds = %if.end.i
-  %cmp14.i = icmp ne ptr %7, inttoptr (i64 -2 to ptr)
+  %cmp14.i = icmp ne ptr %8, inttoptr (i64 -2 to ptr)
   %tobool15.i = icmp ne ptr %Tombstone.022.i, null
   %or.cond.i = select i1 %cmp14.i, i1 true, i1 %tobool15.i
   %spec.select.i = select i1 %or.cond.i, ptr %Tombstone.022.i, ptr %arrayidx24.i
@@ -128,9 +127,9 @@ if.end10.i:                                       ; preds = %if.end.i
   %add.i = add i32 %ProbeAmt.021.i, %Bucket.023.i
   %Bucket.0.i = and i32 %add.i, %sub.i5
   %idxprom.i = zext i32 %Bucket.0.i to i64
-  %arrayidx.i = getelementptr inbounds ptr, ptr %5, i64 %idxprom.i
-  %8 = load ptr, ptr %arrayidx.i, align 8
-  %cmp.i = icmp eq ptr %8, inttoptr (i64 -1 to ptr)
+  %arrayidx.i = getelementptr inbounds ptr, ptr %6, i64 %idxprom.i
+  %9 = load ptr, ptr %arrayidx.i, align 8
+  %cmp.i = icmp eq ptr %9, inttoptr (i64 -1 to ptr)
   br i1 %cmp.i, label %_ZNK4llvh19SmallPtrSetImplBase13FindBucketForEPKv.exit, label %if.end.i, !llvm.loop !4
 
 _ZNK4llvh19SmallPtrSetImplBase13FindBucketForEPKv.exit: ; preds = %if.end10.i, %if.end12
@@ -147,14 +146,14 @@ if.end18:                                         ; preds = %_ZNK4llvh19SmallPtr
   br i1 %cmp20, label %if.then21, label %if.else22
 
 if.then21:                                        ; preds = %if.end18
-  %9 = load i32, ptr %NumTombstones.i, align 8
-  %dec = add i32 %9, -1
+  %10 = load i32, ptr %NumTombstones.i, align 8
+  %dec = add i32 %10, -1
   store i32 %dec, ptr %NumTombstones.i, align 8
   br label %if.end24
 
 if.else22:                                        ; preds = %if.end18
-  %10 = load i32, ptr %NumNonEmpty.i, align 4
-  %inc = add i32 %10, 1
+  %11 = load i32, ptr %NumNonEmpty.i, align 4
+  %inc = add i32 %11, 1
   store i32 %inc, ptr %NumNonEmpty.i, align 4
   br label %if.end24
 
@@ -898,6 +897,9 @@ declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #11
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #12

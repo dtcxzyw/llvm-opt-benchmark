@@ -11,13 +11,13 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define ptr @OCSP_request_add0_id(ptr noundef readonly %req, ptr noundef %cid) local_unnamed_addr #0 {
 entry:
-  %call = tail call ptr @OCSP_ONEREQ_new() #6
+  %call = tail call ptr @OCSP_ONEREQ_new() #7
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %call, align 8
-  tail call void @OCSP_CERTID_free(ptr noundef %0) #6
+  tail call void @OCSP_CERTID_free(ptr noundef %0) #7
   store ptr %cid, ptr %call, align 8
   %tobool.not = icmp eq ptr %req, null
   br i1 %tobool.not, label %return, label %land.lhs.true
@@ -25,13 +25,13 @@ if.end:                                           ; preds = %entry
 land.lhs.true:                                    ; preds = %if.end
   %requestList = getelementptr inbounds i8, ptr %req, i64 16
   %1 = load ptr, ptr %requestList, align 8
-  %call4 = tail call i32 @OPENSSL_sk_push(ptr noundef %1, ptr noundef nonnull %call) #6
+  %call4 = tail call i32 @OPENSSL_sk_push(ptr noundef %1, ptr noundef nonnull %call) #7
   %tobool5.not = icmp eq i32 %call4, 0
   br i1 %tobool5.not, label %if.then6, label %return
 
 if.then6:                                         ; preds = %land.lhs.true
   store ptr null, ptr %call, align 8
-  tail call void @OCSP_ONEREQ_free(ptr noundef nonnull %call) #6
+  tail call void @OCSP_ONEREQ_free(ptr noundef nonnull %call) #7
   br label %return
 
 return:                                           ; preds = %if.end, %land.lhs.true, %entry, %if.then6
@@ -50,25 +50,25 @@ declare void @OCSP_ONEREQ_free(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @OCSP_request_set1_name(ptr nocapture noundef %req, ptr noundef %nm) local_unnamed_addr #0 {
 entry:
-  %call = tail call ptr @GENERAL_NAME_new() #6
+  %call = tail call ptr @GENERAL_NAME_new() #7
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
   %d = getelementptr inbounds i8, ptr %call, i64 8
-  %call1 = tail call i32 @X509_NAME_set(ptr noundef nonnull %d, ptr noundef %nm) #6
+  %call1 = tail call i32 @X509_NAME_set(ptr noundef nonnull %d, ptr noundef %nm) #7
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %if.end
-  tail call void @GENERAL_NAME_free(ptr noundef nonnull %call) #6
+  tail call void @GENERAL_NAME_free(ptr noundef nonnull %call) #7
   br label %return
 
 if.end3:                                          ; preds = %if.end
   store i32 4, ptr %call, align 8
   %requestorName = getelementptr inbounds i8, ptr %req, i64 8
   %0 = load ptr, ptr %requestorName, align 8
-  tail call void @GENERAL_NAME_free(ptr noundef %0) #6
+  tail call void @GENERAL_NAME_free(ptr noundef %0) #7
   store ptr %call, ptr %requestorName, align 8
   br label %return
 
@@ -92,7 +92,7 @@ entry:
   br i1 %cmp, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %entry
-  %call = tail call ptr @OCSP_SIGNATURE_new() #6
+  %call = tail call ptr @OCSP_SIGNATURE_new() #7
   store ptr %call, ptr %optionalSignature, align 8
   %cmp2 = icmp eq ptr %call, null
   br i1 %cmp2, label %return, label %if.end
@@ -104,7 +104,7 @@ if.end:                                           ; preds = %land.lhs.true, %ent
 
 if.end5:                                          ; preds = %if.end
   %certs = getelementptr inbounds i8, ptr %1, i64 24
-  %call7 = tail call i32 @ossl_x509_add_cert_new(ptr noundef nonnull %certs, ptr noundef nonnull %cert, i32 noundef 1) #6
+  %call7 = tail call i32 @ossl_x509_add_cert_new(ptr noundef nonnull %certs, ptr noundef nonnull %cert, i32 noundef 1) #7
   br label %return
 
 return:                                           ; preds = %if.end, %land.lhs.true, %if.end5
@@ -119,28 +119,28 @@ declare i32 @ossl_x509_add_cert_new(ptr noundef, ptr noundef, i32 noundef) local
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @OCSP_request_sign(ptr noundef %req, ptr noundef %signer, ptr noundef %key, ptr noundef %dgst, ptr noundef %certs, i64 noundef %flags) local_unnamed_addr #0 {
 entry:
-  %call = tail call ptr @X509_get_subject_name(ptr noundef %signer) #6
-  %call.i = tail call ptr @GENERAL_NAME_new() #6
+  %call = tail call ptr @X509_get_subject_name(ptr noundef %signer) #7
+  %call.i = tail call ptr @GENERAL_NAME_new() #7
   %cmp.i = icmp eq ptr %call.i, null
   br i1 %cmp.i, label %err, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
   %d.i = getelementptr inbounds i8, ptr %call.i, i64 8
-  %call1.i = tail call i32 @X509_NAME_set(ptr noundef nonnull %d.i, ptr noundef %call) #6
+  %call1.i = tail call i32 @X509_NAME_set(ptr noundef nonnull %d.i, ptr noundef %call) #7
   %tobool.not.i = icmp eq i32 %call1.i, 0
   br i1 %tobool.not.i, label %if.then2.i, label %if.end
 
 if.then2.i:                                       ; preds = %if.end.i
-  tail call void @GENERAL_NAME_free(ptr noundef nonnull %call.i) #6
+  tail call void @GENERAL_NAME_free(ptr noundef nonnull %call.i) #7
   br label %err
 
 if.end:                                           ; preds = %if.end.i
   store i32 4, ptr %call.i, align 8
   %requestorName.i = getelementptr inbounds i8, ptr %req, i64 8
   %0 = load ptr, ptr %requestorName.i, align 8
-  tail call void @GENERAL_NAME_free(ptr noundef %0) #6
+  tail call void @GENERAL_NAME_free(ptr noundef %0) #7
   store ptr %call.i, ptr %requestorName.i, align 8
-  %call2 = tail call ptr @OCSP_SIGNATURE_new() #6
+  %call2 = tail call ptr @OCSP_SIGNATURE_new() #7
   %optionalSignature = getelementptr inbounds i8, ptr %req, i64 32
   store ptr %call2, ptr %optionalSignature, align 8
   %cmp = icmp eq ptr %call2, null
@@ -151,18 +151,18 @@ if.end4:                                          ; preds = %if.end
   br i1 %cmp5.not, label %if.end18, label %if.then6
 
 if.then6:                                         ; preds = %if.end4
-  %call7 = tail call i32 @X509_check_private_key(ptr noundef %signer, ptr noundef nonnull %key) #6
+  %call7 = tail call i32 @X509_check_private_key(ptr noundef %signer, ptr noundef nonnull %key) #7
   %tobool8.not = icmp eq i32 %call7, 0
   br i1 %tobool8.not, label %if.then9, label %if.end10
 
 if.then9:                                         ; preds = %if.then6
-  tail call void @ERR_new() #6
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 94, ptr noundef nonnull @__func__.OCSP_request_sign) #6
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 39, i32 noundef 110, ptr noundef null) #6
+  tail call void @ERR_new() #7
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 94, ptr noundef nonnull @__func__.OCSP_request_sign) #7
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 39, i32 noundef 110, ptr noundef null) #7
   br label %err
 
 if.end10:                                         ; preds = %if.then6
-  %call11 = tail call ptr @OCSP_REQINFO_it() #6
+  %call11 = tail call ptr @OCSP_REQINFO_it() #7
   %1 = load ptr, ptr %optionalSignature, align 8
   %signature = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %signature, align 8
@@ -170,7 +170,7 @@ if.end10:                                         ; preds = %if.then6
   %3 = load ptr, ptr %libctx, align 8
   %propq = getelementptr inbounds i8, ptr %signer, i64 376
   %4 = load ptr, ptr %propq, align 8
-  %call14 = tail call i32 @ASN1_item_sign_ex(ptr noundef %call11, ptr noundef %1, ptr noundef null, ptr noundef %2, ptr noundef nonnull %req, ptr noundef null, ptr noundef nonnull %key, ptr noundef %dgst, ptr noundef %3, ptr noundef %4) #6
+  %call14 = tail call i32 @ASN1_item_sign_ex(ptr noundef %call11, ptr noundef %1, ptr noundef null, ptr noundef %2, ptr noundef nonnull %req, ptr noundef null, ptr noundef nonnull %key, ptr noundef %dgst, ptr noundef %3, ptr noundef %4) #7
   %tobool15.not = icmp eq i32 %call14, 0
   br i1 %tobool15.not, label %err, label %if.end18
 
@@ -185,7 +185,7 @@ if.then20:                                        ; preds = %if.end18
   br i1 %cmp.i15, label %land.lhs.true.i, label %if.end.i16
 
 land.lhs.true.i:                                  ; preds = %if.then20
-  %call.i18 = tail call ptr @OCSP_SIGNATURE_new() #6
+  %call.i18 = tail call ptr @OCSP_SIGNATURE_new() #7
   store ptr %call.i18, ptr %optionalSignature, align 8
   %cmp2.i = icmp eq ptr %call.i18, null
   br i1 %cmp2.i, label %err, label %if.end.i16
@@ -197,7 +197,7 @@ if.end.i16:                                       ; preds = %land.lhs.true.i, %i
 
 OCSP_request_add1_cert.exit:                      ; preds = %if.end.i16
   %certs.i = getelementptr inbounds i8, ptr %6, i64 24
-  %call7.i = tail call i32 @ossl_x509_add_cert_new(ptr noundef nonnull %certs.i, ptr noundef nonnull %signer, i32 noundef 1) #6
+  %call7.i = tail call i32 @ossl_x509_add_cert_new(ptr noundef nonnull %certs.i, ptr noundef nonnull %signer, i32 noundef 1) #7
   %tobool22.not = icmp eq i32 %call7.i, 0
   br i1 %tobool22.not, label %err, label %OCSP_request_add1_cert.exit.lor.lhs.false_crit_edge
 
@@ -209,14 +209,14 @@ lor.lhs.false:                                    ; preds = %OCSP_request_add1_c
   %7 = phi ptr [ %.pre, %OCSP_request_add1_cert.exit.lor.lhs.false_crit_edge ], [ %6, %if.end.i16 ]
   %certs24 = getelementptr inbounds i8, ptr %7, i64 24
   %8 = load ptr, ptr %certs24, align 8
-  %call25 = tail call i32 @X509_add_certs(ptr noundef %8, ptr noundef %certs, i32 noundef 1) #6
+  %call25 = tail call i32 @X509_add_certs(ptr noundef %8, ptr noundef %certs, i32 noundef 1) #7
   %tobool26.not = icmp eq i32 %call25, 0
   br i1 %tobool26.not, label %err, label %return
 
 err:                                              ; preds = %land.lhs.true.i, %entry, %if.then2.i, %OCSP_request_add1_cert.exit, %lor.lhs.false, %if.end10, %if.end, %if.then9
   %optionalSignature30 = getelementptr inbounds i8, ptr %req, i64 32
   %9 = load ptr, ptr %optionalSignature30, align 8
-  tail call void @OCSP_SIGNATURE_free(ptr noundef %9) #6
+  tail call void @OCSP_SIGNATURE_free(ptr noundef %9) #7
   store ptr null, ptr %optionalSignature30, align 8
   br label %return
 
@@ -247,7 +247,7 @@ declare void @OCSP_SIGNATURE_free(ptr noundef) local_unnamed_addr #1
 define i32 @OCSP_response_status(ptr nocapture noundef readonly %resp) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %resp, align 8
-  %call = tail call i64 @ASN1_ENUMERATED_get(ptr noundef %0) #6
+  %call = tail call i64 @ASN1_ENUMERATED_get(ptr noundef %0) #7
   %conv = trunc i64 %call to i32
   ret i32 %conv
 }
@@ -263,28 +263,28 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  tail call void @ERR_new() #6
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 130, ptr noundef nonnull @__func__.OCSP_response_get1_basic) #6
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 39, i32 noundef 108, ptr noundef null) #6
+  tail call void @ERR_new() #7
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 130, ptr noundef nonnull @__func__.OCSP_response_get1_basic) #7
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 39, i32 noundef 108, ptr noundef null) #7
   br label %return
 
 if.end:                                           ; preds = %entry
   %1 = load ptr, ptr %0, align 8
-  %call = tail call i32 @OBJ_obj2nid(ptr noundef %1) #6
+  %call = tail call i32 @OBJ_obj2nid(ptr noundef %1) #7
   %cmp1.not = icmp eq i32 %call, 365
   br i1 %cmp1.not, label %if.end3, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  tail call void @ERR_new() #6
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 134, ptr noundef nonnull @__func__.OCSP_response_get1_basic) #6
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 39, i32 noundef 104, ptr noundef null) #6
+  tail call void @ERR_new() #7
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 134, ptr noundef nonnull @__func__.OCSP_response_get1_basic) #7
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 39, i32 noundef 104, ptr noundef null) #7
   br label %return
 
 if.end3:                                          ; preds = %if.end
   %response = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load ptr, ptr %response, align 8
-  %call4 = tail call ptr @OCSP_BASICRESP_it() #6
-  %call5 = tail call ptr @ASN1_item_unpack(ptr noundef %2, ptr noundef %call4) #6
+  %call4 = tail call ptr @OCSP_BASICRESP_it() #7
+  %call5 = tail call ptr @ASN1_item_unpack(ptr noundef %2, ptr noundef %call4) #7
   br label %return
 
 return:                                           ; preds = %if.end3, %if.then2, %if.then
@@ -328,7 +328,7 @@ entry:
 if.end:                                           ; preds = %entry
   %responses = getelementptr inbounds i8, ptr %bs, i64 32
   %0 = load ptr, ptr %responses, align 8
-  %call1 = tail call i32 @OPENSSL_sk_num(ptr noundef %0) #6
+  %call1 = tail call i32 @OPENSSL_sk_num(ptr noundef %0) #7
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -347,7 +347,7 @@ entry:
 if.end:                                           ; preds = %entry
   %responses = getelementptr inbounds i8, ptr %bs, i64 32
   %0 = load ptr, ptr %responses, align 8
-  %call1 = tail call ptr @OPENSSL_sk_value(ptr noundef %0, i32 noundef %idx) #6
+  %call1 = tail call ptr @OPENSSL_sk_value(ptr noundef %0, i32 noundef %idx) #7
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -413,7 +413,7 @@ entry:
 if.end7:                                          ; preds = %entry
   %value = getelementptr inbounds i8, ptr %bs, i64 16
   %1 = load ptr, ptr %value, align 8
-  %call = tail call ptr @X509_NAME_dup(ptr noundef %1) #6
+  %call = tail call ptr @X509_NAME_dup(ptr noundef %1) #7
   store ptr %call, ptr %pname, align 8
   store ptr null, ptr %pid, align 8
   %.pr = load ptr, ptr %pname, align 8
@@ -423,7 +423,7 @@ if.end7:                                          ; preds = %entry
 land.lhs.true:                                    ; preds = %entry
   %value4 = getelementptr inbounds i8, ptr %bs, i64 16
   %2 = load ptr, ptr %value4, align 8
-  %call5 = tail call ptr @ASN1_OCTET_STRING_dup(ptr noundef %2) #6
+  %call5 = tail call ptr @ASN1_OCTET_STRING_dup(ptr noundef %2) #7
   store ptr %call5, ptr %pid, align 8
   store ptr null, ptr %pname, align 8
   %.pr9 = load ptr, ptr %pid, align 8
@@ -449,31 +449,27 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %cmp1 = icmp slt i32 %last, 0
-  %inc = add nuw nsw i32 %last, 1
-  %last.addr.0 = select i1 %cmp1, i32 0, i32 %inc
+  %0 = tail call i32 @llvm.smax.i32(i32 %last, i32 -1)
   %responses = getelementptr inbounds i8, ptr %bs, i64 32
-  %0 = load ptr, ptr %responses, align 8
-  %call48 = tail call i32 @OPENSSL_sk_num(ptr noundef %0) #6
-  %cmp59 = icmp slt i32 %last.addr.0, %call48
-  br i1 %cmp59, label %for.body, label %return
+  %1 = load ptr, ptr %responses, align 8
+  br label %for.cond
 
-for.body:                                         ; preds = %if.end, %for.inc
-  %i.010 = phi i32 [ %inc11, %for.inc ], [ %last.addr.0, %if.end ]
-  %call7 = tail call ptr @OPENSSL_sk_value(ptr noundef %0, i32 noundef %i.010) #6
-  %1 = load ptr, ptr %call7, align 8
-  %call8 = tail call i32 @OCSP_id_cmp(ptr noundef %id, ptr noundef %1) #6
+for.cond:                                         ; preds = %for.body, %if.end
+  %i.0.in = phi i32 [ %0, %if.end ], [ %i.0, %for.body ]
+  %i.0 = add i32 %i.0.in, 1
+  %call4 = tail call i32 @OPENSSL_sk_num(ptr noundef %1) #7
+  %cmp5 = icmp slt i32 %i.0, %call4
+  br i1 %cmp5, label %for.body, label %return
+
+for.body:                                         ; preds = %for.cond
+  %call7 = tail call ptr @OPENSSL_sk_value(ptr noundef %1, i32 noundef %i.0) #7
+  %2 = load ptr, ptr %call7, align 8
+  %call8 = tail call i32 @OCSP_id_cmp(ptr noundef %id, ptr noundef %2) #7
   %tobool.not = icmp eq i32 %call8, 0
-  br i1 %tobool.not, label %return, label %for.inc
+  br i1 %tobool.not, label %return, label %for.cond, !llvm.loop !4
 
-for.inc:                                          ; preds = %for.body
-  %inc11 = add nuw nsw i32 %i.010, 1
-  %call4 = tail call i32 @OPENSSL_sk_num(ptr noundef %0) #6
-  %cmp5 = icmp slt i32 %inc11, %call4
-  br i1 %cmp5, label %for.body, label %return, !llvm.loop !4
-
-return:                                           ; preds = %for.body, %for.inc, %if.end, %entry
-  %retval.0 = phi i32 [ -1, %entry ], [ -1, %if.end ], [ %i.010, %for.body ], [ -1, %for.inc ]
+return:                                           ; preds = %for.cond, %for.body, %entry
+  %retval.0 = phi i32 [ -1, %entry ], [ -1, %for.cond ], [ %i.0, %for.body ]
   ret i32 %retval.0
 }
 
@@ -514,7 +510,7 @@ if.then6:                                         ; preds = %if.end4
   br i1 %tobool7.not, label %if.end12.sink.split, label %if.then8
 
 if.then8:                                         ; preds = %if.then6
-  %call = tail call i64 @ASN1_ENUMERATED_get(ptr noundef nonnull %4) #6
+  %call = tail call i64 @ASN1_ENUMERATED_get(ptr noundef nonnull %4) #7
   %conv = trunc i64 %call to i32
   br label %if.end12.sink.split
 
@@ -557,27 +553,29 @@ entry:
 if.end.i:                                         ; preds = %entry
   %responses.i = getelementptr inbounds i8, ptr %bs, i64 32
   %0 = load ptr, ptr %responses.i, align 8
-  %call48.i = tail call i32 @OPENSSL_sk_num(ptr noundef %0) #6
-  %cmp59.i = icmp sgt i32 %call48.i, 0
-  br i1 %cmp59.i, label %for.body.i, label %return
+  br label %for.cond.i
 
-for.body.i:                                       ; preds = %if.end.i, %for.inc.i
-  %i.010.i = phi i32 [ %inc11.i, %for.inc.i ], [ 0, %if.end.i ]
-  %call7.i = tail call ptr @OPENSSL_sk_value(ptr noundef %0, i32 noundef %i.010.i) #6
+for.cond.i:                                       ; preds = %for.body.i, %if.end.i
+  %i.0.in.i = phi i32 [ -1, %if.end.i ], [ %i.0.i, %for.body.i ]
+  %i.0.i = add nsw i32 %i.0.in.i, 1
+  %call4.i = tail call i32 @OPENSSL_sk_num(ptr noundef %0) #7
+  %cmp5.i = icmp slt i32 %i.0.i, %call4.i
+  br i1 %cmp5.i, label %for.body.i, label %return
+
+for.body.i:                                       ; preds = %for.cond.i
+  %call7.i = tail call ptr @OPENSSL_sk_value(ptr noundef %0, i32 noundef %i.0.i) #7
   %1 = load ptr, ptr %call7.i, align 8
-  %call8.i = tail call i32 @OCSP_id_cmp(ptr noundef %id, ptr noundef %1) #6
+  %call8.i = tail call i32 @OCSP_id_cmp(ptr noundef %id, ptr noundef %1) #7
   %tobool.not.i = icmp eq i32 %call8.i, 0
-  br i1 %tobool.not.i, label %OCSP_resp_get0.exit, label %for.inc.i
+  br i1 %tobool.not.i, label %OCSP_resp_find.exit, label %for.cond.i, !llvm.loop !4
 
-for.inc.i:                                        ; preds = %for.body.i
-  %inc11.i = add nuw nsw i32 %i.010.i, 1
-  %call4.i = tail call i32 @OPENSSL_sk_num(ptr noundef %0) #6
-  %cmp5.i = icmp slt i32 %inc11.i, %call4.i
-  br i1 %cmp5.i, label %for.body.i, label %return, !llvm.loop !4
+OCSP_resp_find.exit:                              ; preds = %for.body.i
+  %cmp = icmp slt i32 %i.0.in.i, -1
+  br i1 %cmp, label %return, label %OCSP_resp_get0.exit
 
-OCSP_resp_get0.exit:                              ; preds = %for.body.i
+OCSP_resp_get0.exit:                              ; preds = %OCSP_resp_find.exit
   %2 = load ptr, ptr %responses.i, align 8
-  %call1.i = tail call ptr @OPENSSL_sk_value(ptr noundef %2, i32 noundef %i.010.i) #6
+  %call1.i = tail call ptr @OPENSSL_sk_value(ptr noundef %2, i32 noundef %i.0.i) #7
   %cmp.i9 = icmp eq ptr %call1.i, null
   br i1 %cmp.i9, label %OCSP_single_get0_status.exit, label %if.end.i10
 
@@ -610,7 +608,7 @@ if.then6.i:                                       ; preds = %if.end4.i
   br i1 %tobool7.not.i, label %if.end12.sink.split.i, label %if.then8.i
 
 if.then8.i:                                       ; preds = %if.then6.i
-  %call.i = tail call i64 @ASN1_ENUMERATED_get(ptr noundef nonnull %7) #6
+  %call.i = tail call i64 @ASN1_ENUMERATED_get(ptr noundef nonnull %7) #7
   %conv.i = trunc i64 %call.i to i32
   br label %if.end12.sink.split.i
 
@@ -648,8 +646,8 @@ if.then4:                                         ; preds = %OCSP_single_get0_st
   store i32 %retval.0.i11, ptr %status, align 4
   br label %return
 
-return:                                           ; preds = %for.inc.i, %if.end.i, %entry, %OCSP_single_get0_status.exit, %if.then4
-  %retval.0 = phi i32 [ 1, %if.then4 ], [ 1, %OCSP_single_get0_status.exit ], [ 0, %entry ], [ 0, %if.end.i ], [ 0, %for.inc.i ]
+return:                                           ; preds = %for.cond.i, %entry, %OCSP_single_get0_status.exit, %if.then4, %OCSP_resp_find.exit
+  %retval.0 = phi i32 [ 0, %OCSP_resp_find.exit ], [ 1, %if.then4 ], [ 1, %OCSP_single_get0_status.exit ], [ 0, %entry ], [ 0, %for.cond.i ]
   ret i32 %retval.0
 }
 
@@ -658,8 +656,8 @@ define range(i32 0, 2) i32 @OCSP_check_validity(ptr noundef %thisupd, ptr nounde
 entry:
   %t_now = alloca i64, align 8
   %t_tmp = alloca i64, align 8
-  %call = call i64 @time(ptr noundef nonnull %t_now) #6
-  %call1 = call i32 @ASN1_GENERALIZEDTIME_check(ptr noundef %thisupd) #6
+  %call = call i64 @time(ptr noundef nonnull %t_now) #7
+  %call1 = call i32 @ASN1_GENERALIZEDTIME_check(ptr noundef %thisupd) #7
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %if.end11.sink.split, label %if.else
 
@@ -667,14 +665,14 @@ if.else:                                          ; preds = %entry
   %0 = load i64, ptr %t_now, align 8
   %add = add nsw i64 %0, %nsec
   store i64 %add, ptr %t_tmp, align 8
-  %call2 = call i32 @X509_cmp_time(ptr noundef %thisupd, ptr noundef nonnull %t_tmp) #6
+  %call2 = call i32 @X509_cmp_time(ptr noundef %thisupd, ptr noundef nonnull %t_tmp) #7
   %cmp = icmp sgt i32 %call2, 0
   br i1 %cmp, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %if.else
-  call void @ERR_new() #6
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 324, ptr noundef nonnull @__func__.OCSP_check_validity) #6
-  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 39, i32 noundef 126, ptr noundef null) #6
+  call void @ERR_new() #7
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 324, ptr noundef nonnull @__func__.OCSP_check_validity) #7
+  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 39, i32 noundef 126, ptr noundef null) #7
   br label %if.end
 
 if.end:                                           ; preds = %if.then3, %if.else
@@ -686,16 +684,16 @@ if.then5:                                         ; preds = %if.end
   %1 = load i64, ptr %t_now, align 8
   %sub = sub nsw i64 %1, %maxsec
   store i64 %sub, ptr %t_tmp, align 8
-  %call6 = call i32 @X509_cmp_time(ptr noundef %thisupd, ptr noundef nonnull %t_tmp) #6
+  %call6 = call i32 @X509_cmp_time(ptr noundef %thisupd, ptr noundef nonnull %t_tmp) #7
   %cmp7 = icmp slt i32 %call6, 0
   br i1 %cmp7, label %if.end11.sink.split, label %if.end11
 
 if.end11.sink.split:                              ; preds = %if.then5, %entry
   %.sink10 = phi i32 [ 319, %entry ], [ 335, %if.then5 ]
   %.sink = phi i32 [ 123, %entry ], [ 127, %if.then5 ]
-  call void @ERR_new() #6
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink10, ptr noundef nonnull @__func__.OCSP_check_validity) #6
-  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 39, i32 noundef %.sink, ptr noundef null) #6
+  call void @ERR_new() #7
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink10, ptr noundef nonnull @__func__.OCSP_check_validity) #7
+  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 39, i32 noundef %.sink, ptr noundef null) #7
   br label %if.end11
 
 if.end11:                                         ; preds = %if.end11.sink.split, %if.end, %if.then5
@@ -704,7 +702,7 @@ if.end11:                                         ; preds = %if.end11.sink.split
   br i1 %cmp12, label %return, label %if.end14
 
 if.end14:                                         ; preds = %if.end11
-  %call15 = call i32 @ASN1_GENERALIZEDTIME_check(ptr noundef nonnull %nextupd) #6
+  %call15 = call i32 @ASN1_GENERALIZEDTIME_check(ptr noundef nonnull %nextupd) #7
   %tobool16.not = icmp eq i32 %call15, 0
   br i1 %tobool16.not, label %if.end24.sink.split, label %if.else18
 
@@ -712,28 +710,28 @@ if.else18:                                        ; preds = %if.end14
   %2 = load i64, ptr %t_now, align 8
   %sub19 = sub nsw i64 %2, %nsec
   store i64 %sub19, ptr %t_tmp, align 8
-  %call20 = call i32 @X509_cmp_time(ptr noundef nonnull %nextupd, ptr noundef nonnull %t_tmp) #6
+  %call20 = call i32 @X509_cmp_time(ptr noundef nonnull %nextupd, ptr noundef nonnull %t_tmp) #7
   %cmp21 = icmp slt i32 %call20, 0
   br i1 %cmp21, label %if.end24.sink.split, label %if.end24
 
 if.end24.sink.split:                              ; preds = %if.else18, %if.end14
   %.sink12 = phi i32 [ 346, %if.end14 ], [ 351, %if.else18 ]
   %.sink11 = phi i32 [ 122, %if.end14 ], [ 125, %if.else18 ]
-  call void @ERR_new() #6
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink12, ptr noundef nonnull @__func__.OCSP_check_validity) #6
-  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 39, i32 noundef %.sink11, ptr noundef null) #6
+  call void @ERR_new() #7
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink12, ptr noundef nonnull @__func__.OCSP_check_validity) #7
+  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 39, i32 noundef %.sink11, ptr noundef null) #7
   br label %if.end24
 
 if.end24:                                         ; preds = %if.end24.sink.split, %if.else18
   %ret.2 = phi i32 [ %ret.0, %if.else18 ], [ 0, %if.end24.sink.split ]
-  %call25 = call i32 @ASN1_STRING_cmp(ptr noundef nonnull %nextupd, ptr noundef %thisupd) #6
+  %call25 = call i32 @ASN1_STRING_cmp(ptr noundef nonnull %nextupd, ptr noundef %thisupd) #7
   %cmp26 = icmp slt i32 %call25, 0
   br i1 %cmp26, label %if.then27, label %return
 
 if.then27:                                        ; preds = %if.end24
-  call void @ERR_new() #6
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 358, ptr noundef nonnull @__func__.OCSP_check_validity) #6
-  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 39, i32 noundef 124, ptr noundef null) #6
+  call void @ERR_new() #7
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 358, ptr noundef nonnull @__func__.OCSP_check_validity) #7
+  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 39, i32 noundef 124, ptr noundef null) #7
   br label %return
 
 return:                                           ; preds = %if.end24, %if.then27, %if.end11
@@ -757,13 +755,17 @@ entry:
   ret ptr %0
 }
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #6
+
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nounwind }
+attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

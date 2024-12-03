@@ -468,7 +468,7 @@ _ZNSt8__detail8_AdaptorISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm256
   br i1 %172, label %19, label %173, !llvm.loop !8
 
 173:                                              ; preds = %_ZNSt8__detail8_AdaptorISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEdEclEv.exit26
-  %174 = tail call double @log(double noundef %169) #6
+  %174 = tail call double @llvm.log.f64(double %169)
   %175 = fmul double %174, -2.000000e+00
   %176 = fdiv double %175, %169
   %177 = tail call double @sqrt(double noundef %176) #6
@@ -490,9 +490,6 @@ _ZNSt8__detail8_AdaptorISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm256
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
 declare double @sqrt(double noundef) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @log(double noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: none, inaccessiblemem: none) uwtable
 define internal void @_GLOBAL__sub_I_sampler.cpp() #4 section ".text.startup" {
@@ -522,6 +519,9 @@ __cxx_global_var_init.5.exit:                     ; preds = %1
   store i64 624, ptr getelementptr inbounds nuw (i8, ptr @_ZN3g2oL9_gen_realE, i64 4992), align 8
   ret void
 }
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.log.f64(double) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare x86_fp80 @llvm.log.f80(x86_fp80) #5

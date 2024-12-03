@@ -173,404 +173,403 @@ define hidden void @av1_loop_filter_frame_mt(ptr noundef %0, ptr noundef %1, ptr
   %.not = icmp ne i32 %5, 0
   %12 = icmp sgt i32 %11, 8
   %or.cond = select i1 %.not, i1 %12, i1 false
-  br i1 %or.cond, label %13, label %18
+  br i1 %or.cond, label %13, label %17
 
 13:                                               ; preds = %9
   %14 = lshr i32 %11, 1
   %15 = and i32 %14, 1073741816
-  %16 = icmp samesign ugt i32 %11, 71
-  %17 = lshr i32 %11, 3
-  %spec.select = select i1 %16, i32 %17, i32 8
-  br label %18
+  %16 = tail call i32 @llvm.umax.i32(i32 %11, i32 71)
+  %spec.select = lshr i32 %16, 3
+  br label %17
 
-18:                                               ; preds = %13, %9
+17:                                               ; preds = %13, %9
   %.021 = phi i32 [ %15, %13 ], [ 0, %9 ]
   %.0 = phi i32 [ %spec.select, %13 ], [ %11, %9 ]
-  %19 = add nsw i32 %.0, %.021
+  %18 = add nsw i32 %.0, %.021
   tail call void @av1_loop_filter_frame_init(ptr noundef nonnull %1, i32 noundef %3, i32 noundef %4) #7
-  %20 = tail call ptr @aom_get_worker_interface() #7
-  %21 = load i32, ptr %10, align 4
-  %22 = add nsw i32 %21, 31
-  %23 = ashr i32 %22, 5
-  %24 = getelementptr inbounds nuw i8, ptr %8, i64 72
-  %25 = load i32, ptr %24, align 8
-  %.not.i = icmp eq i32 %25, 0
-  br i1 %.not.i, label %33, label %26
+  %19 = tail call ptr @aom_get_worker_interface() #7
+  %20 = load i32, ptr %10, align 4
+  %21 = add nsw i32 %20, 31
+  %22 = ashr i32 %21, 5
+  %23 = getelementptr inbounds nuw i8, ptr %8, i64 72
+  %24 = load i32, ptr %23, align 8
+  %.not.i = icmp eq i32 %24, 0
+  br i1 %.not.i, label %32, label %25
 
-26:                                               ; preds = %18
-  %27 = getelementptr inbounds nuw i8, ptr %8, i64 76
-  %28 = load i32, ptr %27, align 4
-  %.not50.i = icmp eq i32 %23, %28
-  br i1 %.not50.i, label %29, label %33
+25:                                               ; preds = %17
+  %26 = getelementptr inbounds nuw i8, ptr %8, i64 76
+  %27 = load i32, ptr %26, align 4
+  %.not50.i = icmp eq i32 %22, %27
+  br i1 %.not50.i, label %28, label %32
 
-29:                                               ; preds = %26
-  %30 = getelementptr inbounds nuw i8, ptr %8, i64 88
-  %31 = load i32, ptr %30, align 8
-  %32 = icmp sgt i32 %7, %31
-  br i1 %32, label %33, label %._crit_edge70.i
+28:                                               ; preds = %25
+  %29 = getelementptr inbounds nuw i8, ptr %8, i64 88
+  %30 = load i32, ptr %29, align 8
+  %31 = icmp sgt i32 %7, %30
+  br i1 %31, label %32, label %._crit_edge70.i
 
-._crit_edge70.i:                                  ; preds = %29
-  %.pre.i = sext i32 %23 to i64
+._crit_edge70.i:                                  ; preds = %28
+  %.pre.i = sext i32 %22 to i64
   %.pre71.i = shl nsw i64 %.pre.i, 2
-  br label %94
+  br label %93
 
-33:                                               ; preds = %29, %26, %18
+32:                                               ; preds = %28, %25, %17
   tail call void @av1_loop_filter_dealloc(ptr noundef nonnull %8)
-  %34 = getelementptr inbounds nuw i8, ptr %1, i64 456
-  %35 = load i32, ptr %34, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %8, i64 76
-  store i32 %23, ptr %36, align 4
-  %37 = sext i32 %23 to i64
-  %38 = mul nsw i64 %37, 40
-  %39 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %40 = mul nsw i64 %37, 48
-  %41 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %42 = icmp sgt i32 %23, 0
-  br i1 %42, label %.split.us.preheader.i.i, label %.split.split.i.i
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 456
+  %34 = load i32, ptr %33, align 8
+  %35 = getelementptr inbounds nuw i8, ptr %8, i64 76
+  store i32 %22, ptr %35, align 4
+  %36 = sext i32 %22 to i64
+  %37 = mul nsw i64 %36, 40
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %39 = mul nsw i64 %36, 48
+  %40 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %41 = icmp sgt i32 %22, 0
+  br i1 %41, label %.split.us.preheader.i.i, label %.split.split.i.i
 
-.split.us.preheader.i.i:                          ; preds = %33
-  %wide.trip.count.i.i = zext nneg i32 %23 to i64
+.split.us.preheader.i.i:                          ; preds = %32
+  %wide.trip.count.i.i = zext nneg i32 %22 to i64
   br label %.split.us.i.i
 
 .split.us.i.i:                                    ; preds = %.critedge71..loopexit_crit_edge.us.i.i, %.split.us.preheader.i.i
   %indvars.iv104.i.i = phi i64 [ 0, %.split.us.preheader.i.i ], [ %indvars.iv.next105.i.i, %.critedge71..loopexit_crit_edge.us.i.i ]
-  %43 = tail call ptr @aom_malloc(i64 noundef %38) #7
-  %44 = getelementptr inbounds [3 x ptr], ptr %8, i64 0, i64 %indvars.iv104.i.i
-  store ptr %43, ptr %44, align 8
-  %.not63.us.i.i = icmp eq ptr %43, null
-  br i1 %.not63.us.i.i, label %45, label %.critedge.us.i.i.preheader
+  %42 = tail call ptr @aom_malloc(i64 noundef %37) #7
+  %43 = getelementptr inbounds [3 x ptr], ptr %8, i64 0, i64 %indvars.iv104.i.i
+  store ptr %42, ptr %43, align 8
+  %.not63.us.i.i = icmp eq ptr %42, null
+  br i1 %.not63.us.i.i, label %44, label %.critedge.us.i.i.preheader
 
-45:                                               ; preds = %.split.us.i.i
-  tail call void (ptr, i32, ptr, ...) @aom_internal_error(ptr noundef nonnull %39, i32 noundef 2, ptr noundef nonnull @.str) #7
-  %.pr.us.i.i = load ptr, ptr %44, align 8
-  %46 = icmp eq ptr %.pr.us.i.i, null
-  br i1 %46, label %.loopexit72.us.i.i, label %.critedge.us.i.i.preheader
+44:                                               ; preds = %.split.us.i.i
+  tail call void (ptr, i32, ptr, ...) @aom_internal_error(ptr noundef nonnull %38, i32 noundef 2, ptr noundef nonnull @.str) #7
+  %.pr.us.i.i = load ptr, ptr %43, align 8
+  %45 = icmp eq ptr %.pr.us.i.i, null
+  br i1 %45, label %.loopexit72.us.i.i, label %.critedge.us.i.i.preheader
 
-.critedge.us.i.i.preheader:                       ; preds = %45, %.split.us.i.i
+.critedge.us.i.i.preheader:                       ; preds = %44, %.split.us.i.i
   br label %.critedge.us.i.i
 
 .critedge.us.i.i:                                 ; preds = %.critedge.us.i.i.preheader, %.critedge.us.i.i
   %indvars.iv95.i.i = phi i64 [ %indvars.iv.next96.i.i, %.critedge.us.i.i ], [ 0, %.critedge.us.i.i.preheader ]
-  %47 = load ptr, ptr %44, align 8
-  %48 = getelementptr inbounds %union.pthread_mutex_t, ptr %47, i64 %indvars.iv95.i.i
-  %49 = tail call i32 @pthread_mutex_init(ptr noundef %48, ptr noundef null) #7
+  %46 = load ptr, ptr %43, align 8
+  %47 = getelementptr inbounds %union.pthread_mutex_t, ptr %46, i64 %indvars.iv95.i.i
+  %48 = tail call i32 @pthread_mutex_init(ptr noundef %47, ptr noundef null) #7
   %indvars.iv.next96.i.i = add nuw nsw i64 %indvars.iv95.i.i, 1
   %exitcond98.not.i.i = icmp eq i64 %indvars.iv.next96.i.i, %wide.trip.count.i.i
   br i1 %exitcond98.not.i.i, label %.loopexit72.us.i.i, label %.critedge.us.i.i, !llvm.loop !9
 
-.loopexit72.us.i.i:                               ; preds = %.critedge.us.i.i, %45
-  %50 = tail call ptr @aom_malloc(i64 noundef %40) #7
-  %51 = getelementptr inbounds [3 x ptr], ptr %41, i64 0, i64 %indvars.iv104.i.i
-  store ptr %50, ptr %51, align 8
-  %.not65.us.i.i = icmp eq ptr %50, null
-  br i1 %.not65.us.i.i, label %52, label %.critedge71.us.i.i.preheader
+.loopexit72.us.i.i:                               ; preds = %.critedge.us.i.i, %44
+  %49 = tail call ptr @aom_malloc(i64 noundef %39) #7
+  %50 = getelementptr inbounds [3 x ptr], ptr %40, i64 0, i64 %indvars.iv104.i.i
+  store ptr %49, ptr %50, align 8
+  %.not65.us.i.i = icmp eq ptr %49, null
+  br i1 %.not65.us.i.i, label %51, label %.critedge71.us.i.i.preheader
 
-52:                                               ; preds = %.loopexit72.us.i.i
-  tail call void (ptr, i32, ptr, ...) @aom_internal_error(ptr noundef nonnull %39, i32 noundef 2, ptr noundef nonnull @.str.1) #7
-  %.pr67.us.i.i = load ptr, ptr %51, align 8
-  %53 = icmp eq ptr %.pr67.us.i.i, null
-  br i1 %53, label %.critedge71..loopexit_crit_edge.us.i.i, label %.critedge71.us.i.i.preheader
+51:                                               ; preds = %.loopexit72.us.i.i
+  tail call void (ptr, i32, ptr, ...) @aom_internal_error(ptr noundef nonnull %38, i32 noundef 2, ptr noundef nonnull @.str.1) #7
+  %.pr67.us.i.i = load ptr, ptr %50, align 8
+  %52 = icmp eq ptr %.pr67.us.i.i, null
+  br i1 %52, label %.critedge71..loopexit_crit_edge.us.i.i, label %.critedge71.us.i.i.preheader
 
-.critedge71.us.i.i.preheader:                     ; preds = %52, %.loopexit72.us.i.i
+.critedge71.us.i.i.preheader:                     ; preds = %51, %.loopexit72.us.i.i
   br label %.critedge71.us.i.i
 
 .critedge71.us.i.i:                               ; preds = %.critedge71.us.i.i.preheader, %.critedge71.us.i.i
   %indvars.iv99.i.i = phi i64 [ %indvars.iv.next100.i.i, %.critedge71.us.i.i ], [ 0, %.critedge71.us.i.i.preheader ]
-  %54 = load ptr, ptr %51, align 8
-  %55 = getelementptr inbounds %union.pthread_cond_t, ptr %54, i64 %indvars.iv99.i.i
-  %56 = tail call i32 @pthread_cond_init(ptr noundef %55, ptr noundef null) #7
+  %53 = load ptr, ptr %50, align 8
+  %54 = getelementptr inbounds %union.pthread_cond_t, ptr %53, i64 %indvars.iv99.i.i
+  %55 = tail call i32 @pthread_cond_init(ptr noundef %54, ptr noundef null) #7
   %indvars.iv.next100.i.i = add nuw nsw i64 %indvars.iv99.i.i, 1
   %exitcond103.not.i.i = icmp eq i64 %indvars.iv.next100.i.i, %wide.trip.count.i.i
   br i1 %exitcond103.not.i.i, label %.critedge71..loopexit_crit_edge.us.i.i, label %.critedge71.us.i.i, !llvm.loop !10
 
-.critedge71..loopexit_crit_edge.us.i.i:           ; preds = %.critedge71.us.i.i, %52
+.critedge71..loopexit_crit_edge.us.i.i:           ; preds = %.critedge71.us.i.i, %51
   %indvars.iv.next105.i.i = add nuw nsw i64 %indvars.iv104.i.i, 1
   %exitcond107.not.i.i = icmp eq i64 %indvars.iv.next105.i.i, 3
   br i1 %exitcond107.not.i.i, label %.split78.us.i.i, label %.split.us.i.i, !llvm.loop !11
 
-.split.split.i.i:                                 ; preds = %33, %.critedge71.preheader.i.i
-  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.critedge71.preheader.i.i ], [ 0, %33 ]
-  %57 = tail call ptr @aom_malloc(i64 noundef %38) #7
-  %58 = getelementptr inbounds [3 x ptr], ptr %8, i64 0, i64 %indvars.iv.i.i
-  store ptr %57, ptr %58, align 8
-  %.not63.i.i = icmp eq ptr %57, null
-  br i1 %.not63.i.i, label %59, label %.critedge.preheader.i.i
+.split.split.i.i:                                 ; preds = %32, %.critedge71.preheader.i.i
+  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.critedge71.preheader.i.i ], [ 0, %32 ]
+  %56 = tail call ptr @aom_malloc(i64 noundef %37) #7
+  %57 = getelementptr inbounds [3 x ptr], ptr %8, i64 0, i64 %indvars.iv.i.i
+  store ptr %56, ptr %57, align 8
+  %.not63.i.i = icmp eq ptr %56, null
+  br i1 %.not63.i.i, label %58, label %.critedge.preheader.i.i
 
-59:                                               ; preds = %.split.split.i.i
-  tail call void (ptr, i32, ptr, ...) @aom_internal_error(ptr noundef nonnull %39, i32 noundef 2, ptr noundef nonnull @.str) #7
+58:                                               ; preds = %.split.split.i.i
+  tail call void (ptr, i32, ptr, ...) @aom_internal_error(ptr noundef nonnull %38, i32 noundef 2, ptr noundef nonnull @.str) #7
   br label %.critedge.preheader.i.i
 
-.critedge.preheader.i.i:                          ; preds = %59, %.split.split.i.i
-  %60 = tail call ptr @aom_malloc(i64 noundef %40) #7
-  %61 = getelementptr inbounds [3 x ptr], ptr %41, i64 0, i64 %indvars.iv.i.i
-  store ptr %60, ptr %61, align 8
-  %.not65.i.i = icmp eq ptr %60, null
-  br i1 %.not65.i.i, label %62, label %.critedge71.preheader.i.i
+.critedge.preheader.i.i:                          ; preds = %58, %.split.split.i.i
+  %59 = tail call ptr @aom_malloc(i64 noundef %39) #7
+  %60 = getelementptr inbounds [3 x ptr], ptr %40, i64 0, i64 %indvars.iv.i.i
+  store ptr %59, ptr %60, align 8
+  %.not65.i.i = icmp eq ptr %59, null
+  br i1 %.not65.i.i, label %61, label %.critedge71.preheader.i.i
 
-62:                                               ; preds = %.critedge.preheader.i.i
-  tail call void (ptr, i32, ptr, ...) @aom_internal_error(ptr noundef nonnull %39, i32 noundef 2, ptr noundef nonnull @.str.1) #7
+61:                                               ; preds = %.critedge.preheader.i.i
+  tail call void (ptr, i32, ptr, ...) @aom_internal_error(ptr noundef nonnull %38, i32 noundef 2, ptr noundef nonnull @.str.1) #7
   br label %.critedge71.preheader.i.i
 
-.critedge71.preheader.i.i:                        ; preds = %62, %.critedge.preheader.i.i
+.critedge71.preheader.i.i:                        ; preds = %61, %.critedge.preheader.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 3
   br i1 %exitcond.not.i.i, label %.split78.us.i.i, label %.split.split.i.i, !llvm.loop !11
 
 .split78.us.i.i:                                  ; preds = %.critedge71.preheader.i.i, %.critedge71..loopexit_crit_edge.us.i.i
-  %63 = tail call ptr @aom_malloc(i64 noundef 40) #7
-  %64 = getelementptr inbounds nuw i8, ptr %8, i64 96
-  store ptr %63, ptr %64, align 8
-  %.not.i.i = icmp eq ptr %63, null
-  br i1 %.not.i.i, label %65, label %.thread.i.i
+  %62 = tail call ptr @aom_malloc(i64 noundef 40) #7
+  %63 = getelementptr inbounds nuw i8, ptr %8, i64 96
+  store ptr %62, ptr %63, align 8
+  %.not.i.i = icmp eq ptr %62, null
+  br i1 %.not.i.i, label %64, label %.thread.i.i
 
-65:                                               ; preds = %.split78.us.i.i
-  tail call void (ptr, i32, ptr, ...) @aom_internal_error(ptr noundef nonnull %39, i32 noundef 2, ptr noundef nonnull @.str.2) #7
-  %.pr68.i.i = load ptr, ptr %64, align 8
+64:                                               ; preds = %.split78.us.i.i
+  tail call void (ptr, i32, ptr, ...) @aom_internal_error(ptr noundef nonnull %38, i32 noundef 2, ptr noundef nonnull @.str.2) #7
+  %.pr68.i.i = load ptr, ptr %63, align 8
   %.not59.i.i = icmp eq ptr %.pr68.i.i, null
-  br i1 %.not59.i.i, label %68, label %.thread.i.i
+  br i1 %.not59.i.i, label %67, label %.thread.i.i
 
-.thread.i.i:                                      ; preds = %65, %.split78.us.i.i
-  %66 = phi ptr [ %.pr68.i.i, %65 ], [ %63, %.split78.us.i.i ]
-  %67 = tail call i32 @pthread_mutex_init(ptr noundef nonnull %66, ptr noundef null) #7
-  br label %68
+.thread.i.i:                                      ; preds = %64, %.split78.us.i.i
+  %65 = phi ptr [ %.pr68.i.i, %64 ], [ %62, %.split78.us.i.i ]
+  %66 = tail call i32 @pthread_mutex_init(ptr noundef nonnull %65, ptr noundef null) #7
+  br label %67
 
-68:                                               ; preds = %.thread.i.i, %65
-  %69 = sext i32 %7 to i64
-  %70 = mul nsw i64 %69, 7848
-  %71 = tail call ptr @aom_malloc(i64 noundef %70) #7
-  %72 = getelementptr inbounds nuw i8, ptr %8, i64 80
-  store ptr %71, ptr %72, align 8
-  %.not60.i.i = icmp eq ptr %71, null
-  br i1 %.not60.i.i, label %73, label %74
+67:                                               ; preds = %.thread.i.i, %64
+  %68 = sext i32 %7 to i64
+  %69 = mul nsw i64 %68, 7848
+  %70 = tail call ptr @aom_malloc(i64 noundef %69) #7
+  %71 = getelementptr inbounds nuw i8, ptr %8, i64 80
+  store ptr %70, ptr %71, align 8
+  %.not60.i.i = icmp eq ptr %70, null
+  br i1 %.not60.i.i, label %72, label %73
 
-73:                                               ; preds = %68
-  tail call void (ptr, i32, ptr, ...) @aom_internal_error(ptr noundef nonnull %39, i32 noundef 2, ptr noundef nonnull @.str.3) #7
-  br label %74
+72:                                               ; preds = %67
+  tail call void (ptr, i32, ptr, ...) @aom_internal_error(ptr noundef nonnull %38, i32 noundef 2, ptr noundef nonnull @.str.3) #7
+  br label %73
 
-74:                                               ; preds = %73, %68
-  %75 = getelementptr inbounds nuw i8, ptr %8, i64 88
-  store i32 %7, ptr %75, align 8
-  %76 = shl nsw i64 %37, 2
-  %77 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  br label %78
+73:                                               ; preds = %72, %67
+  %74 = getelementptr inbounds nuw i8, ptr %8, i64 88
+  store i32 %7, ptr %74, align 8
+  %75 = shl nsw i64 %36, 2
+  %76 = getelementptr inbounds nuw i8, ptr %8, i64 48
+  br label %77
 
-78:                                               ; preds = %82, %74
-  %indvars.iv108.i.i = phi i64 [ 0, %74 ], [ %indvars.iv.next109.i.i, %82 ]
-  %79 = tail call ptr @aom_malloc(i64 noundef %76) #7
-  %80 = getelementptr inbounds [3 x ptr], ptr %77, i64 0, i64 %indvars.iv108.i.i
-  store ptr %79, ptr %80, align 8
-  %.not62.i.i = icmp eq ptr %79, null
-  br i1 %.not62.i.i, label %81, label %82
+77:                                               ; preds = %81, %73
+  %indvars.iv108.i.i = phi i64 [ 0, %73 ], [ %indvars.iv.next109.i.i, %81 ]
+  %78 = tail call ptr @aom_malloc(i64 noundef %75) #7
+  %79 = getelementptr inbounds [3 x ptr], ptr %76, i64 0, i64 %indvars.iv108.i.i
+  store ptr %78, ptr %79, align 8
+  %.not62.i.i = icmp eq ptr %78, null
+  br i1 %.not62.i.i, label %80, label %81
 
-81:                                               ; preds = %78
-  tail call void (ptr, i32, ptr, ...) @aom_internal_error(ptr noundef nonnull %39, i32 noundef 2, ptr noundef nonnull @.str.4) #7
-  br label %82
+80:                                               ; preds = %77
+  tail call void (ptr, i32, ptr, ...) @aom_internal_error(ptr noundef nonnull %38, i32 noundef 2, ptr noundef nonnull @.str.4) #7
+  br label %81
 
-82:                                               ; preds = %81, %78
+81:                                               ; preds = %80, %77
   %indvars.iv.next109.i.i = add nuw nsw i64 %indvars.iv108.i.i, 1
   %exitcond111.not.i.i = icmp eq i64 %indvars.iv.next109.i.i, 3
-  br i1 %exitcond111.not.i.i, label %83, label %78, !llvm.loop !12
+  br i1 %exitcond111.not.i.i, label %82, label %77, !llvm.loop !12
 
-83:                                               ; preds = %82
-  %84 = mul nsw i64 %37, 72
-  %85 = tail call ptr @aom_malloc(i64 noundef %84) #7
-  %86 = getelementptr inbounds nuw i8, ptr %8, i64 104
-  store ptr %85, ptr %86, align 8
-  %.not61.i.i = icmp eq ptr %85, null
-  br i1 %.not61.i.i, label %87, label %88
+82:                                               ; preds = %81
+  %83 = mul nsw i64 %36, 72
+  %84 = tail call ptr @aom_malloc(i64 noundef %83) #7
+  %85 = getelementptr inbounds nuw i8, ptr %8, i64 104
+  store ptr %84, ptr %85, align 8
+  %.not61.i.i = icmp eq ptr %84, null
+  br i1 %.not61.i.i, label %86, label %87
 
-87:                                               ; preds = %83
-  tail call void (ptr, i32, ptr, ...) @aom_internal_error(ptr noundef nonnull %39, i32 noundef 2, ptr noundef nonnull @.str.5) #7
-  br label %88
+86:                                               ; preds = %82
+  tail call void (ptr, i32, ptr, ...) @aom_internal_error(ptr noundef nonnull %38, i32 noundef 2, ptr noundef nonnull @.str.5) #7
+  br label %87
 
-88:                                               ; preds = %87, %83
-  %89 = icmp slt i32 %35, 640
-  br i1 %89, label %loop_filter_alloc.exit.i, label %90
+87:                                               ; preds = %86, %82
+  %88 = icmp slt i32 %34, 640
+  br i1 %88, label %loop_filter_alloc.exit.i, label %89
 
-90:                                               ; preds = %88
-  %91 = icmp samesign ult i32 %35, 1281
-  br i1 %91, label %loop_filter_alloc.exit.i, label %92
+89:                                               ; preds = %87
+  %90 = icmp samesign ult i32 %34, 1281
+  br i1 %90, label %loop_filter_alloc.exit.i, label %91
 
-92:                                               ; preds = %90
-  %93 = icmp samesign ult i32 %35, 4097
-  %..i.i.i = select i1 %93, i32 4, i32 8
+91:                                               ; preds = %89
+  %92 = icmp samesign ult i32 %34, 4097
+  %..i.i.i = select i1 %92, i32 4, i32 8
   br label %loop_filter_alloc.exit.i
 
-loop_filter_alloc.exit.i:                         ; preds = %92, %90, %88
-  %.0.i.i.i = phi i32 [ 1, %88 ], [ 2, %90 ], [ %..i.i.i, %92 ]
-  store i32 %.0.i.i.i, ptr %24, align 8
-  br label %94
+loop_filter_alloc.exit.i:                         ; preds = %91, %89, %87
+  %.0.i.i.i = phi i32 [ 1, %87 ], [ 2, %89 ], [ %..i.i.i, %91 ]
+  store i32 %.0.i.i.i, ptr %23, align 8
+  br label %93
 
-94:                                               ; preds = %loop_filter_alloc.exit.i, %._crit_edge70.i
-  %.pre-phi72.i = phi i64 [ %.pre71.i, %._crit_edge70.i ], [ %76, %loop_filter_alloc.exit.i ]
-  %95 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  br label %96
+93:                                               ; preds = %loop_filter_alloc.exit.i, %._crit_edge70.i
+  %.pre-phi72.i = phi i64 [ %.pre71.i, %._crit_edge70.i ], [ %75, %loop_filter_alloc.exit.i ]
+  %94 = getelementptr inbounds nuw i8, ptr %8, i64 48
+  br label %95
 
-96:                                               ; preds = %96, %94
-  %indvars.iv.i = phi i64 [ 0, %94 ], [ %indvars.iv.next.i, %96 ]
-  %97 = getelementptr inbounds [3 x ptr], ptr %95, i64 0, i64 %indvars.iv.i
-  %98 = load ptr, ptr %97, align 8
-  tail call void @llvm.memset.p0.i64(ptr align 4 %98, i8 -1, i64 %.pre-phi72.i, i1 false)
+95:                                               ; preds = %95, %93
+  %indvars.iv.i = phi i64 [ 0, %93 ], [ %indvars.iv.next.i, %95 ]
+  %96 = getelementptr inbounds [3 x ptr], ptr %94, i64 0, i64 %indvars.iv.i
+  %97 = load ptr, ptr %96, align 8
+  tail call void @llvm.memset.p0.i64(ptr align 4 %97, i8 -1, i64 %.pre-phi72.i, i1 false)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %99, label %96, !llvm.loop !13
+  br i1 %exitcond.not.i, label %98, label %95, !llvm.loop !13
 
-99:                                               ; preds = %96
-  %100 = getelementptr inbounds nuw i8, ptr %8, i64 104
-  %101 = load ptr, ptr %100, align 8
-  %102 = getelementptr inbounds nuw i8, ptr %8, i64 112
-  store i32 0, ptr %102, align 8
-  %103 = getelementptr inbounds nuw i8, ptr %8, i64 116
-  store i32 0, ptr %103, align 4
-  %104 = getelementptr inbounds i8, ptr %1, i64 23572
-  %105 = icmp slt i32 %3, %4
-  %106 = getelementptr inbounds nuw i8, ptr %1, i64 23580
-  %107 = getelementptr inbounds nuw i8, ptr %1, i64 23576
-  %108 = getelementptr inbounds nuw i8, ptr %1, i64 23568
-  %109 = icmp sgt i32 %.0, 0
-  %or.cond.i.i = and i1 %105, %109
+98:                                               ; preds = %95
+  %99 = getelementptr inbounds nuw i8, ptr %8, i64 104
+  %100 = load ptr, ptr %99, align 8
+  %101 = getelementptr inbounds nuw i8, ptr %8, i64 112
+  store i32 0, ptr %101, align 8
+  %102 = getelementptr inbounds nuw i8, ptr %8, i64 116
+  store i32 0, ptr %102, align 4
+  %103 = getelementptr inbounds i8, ptr %1, i64 23572
+  %104 = icmp slt i32 %3, %4
+  %105 = getelementptr inbounds nuw i8, ptr %1, i64 23580
+  %106 = getelementptr inbounds nuw i8, ptr %1, i64 23576
+  %107 = getelementptr inbounds nuw i8, ptr %1, i64 23568
+  %108 = icmp sgt i32 %.0, 0
+  %or.cond.i.i = and i1 %104, %108
   br i1 %or.cond.i.i, label %.preheader.us.us.i.i, label %enqueue_lf_jobs.exit.i
 
-.preheader.us.us.i.i:                             ; preds = %99, %._crit_edge40.split.us.us.us.i.i
-  %.045.us.us.i.i = phi ptr [ %.1.lcssa.us.us.i.i, %._crit_edge40.split.us.us.us.i.i ], [ %101, %99 ]
-  %110 = phi i1 [ false, %._crit_edge40.split.us.us.us.i.i ], [ true, %99 ]
-  %.02743.us.us.i.i = phi i32 [ 1, %._crit_edge40.split.us.us.us.i.i ], [ 0, %99 ]
-  br label %111
+.preheader.us.us.i.i:                             ; preds = %98, %._crit_edge40.split.us.us.us.i.i
+  %.045.us.us.i.i = phi ptr [ %.1.lcssa.us.us.i.i, %._crit_edge40.split.us.us.us.i.i ], [ %100, %98 ]
+  %109 = phi i1 [ false, %._crit_edge40.split.us.us.us.i.i ], [ true, %98 ]
+  %.02743.us.us.i.i = phi i32 [ 1, %._crit_edge40.split.us.us.us.i.i ], [ 0, %98 ]
+  br label %110
 
-._crit_edge40.split.us.us.us.i.i:                 ; preds = %..loopexit_crit_edge.us.us.us.i.i, %118
-  %.1.lcssa.us.us.i.i = phi ptr [ %.137.us.us.us.i.i, %118 ], [ %.2.us.us.us.i.i, %..loopexit_crit_edge.us.us.us.i.i ]
-  br i1 %110, label %.preheader.us.us.i.i, label %enqueue_lf_jobs.exit.i, !llvm.loop !14
+._crit_edge40.split.us.us.us.i.i:                 ; preds = %..loopexit_crit_edge.us.us.us.i.i, %117
+  %.1.lcssa.us.us.i.i = phi ptr [ %.137.us.us.us.i.i, %117 ], [ %.2.us.us.us.i.i, %..loopexit_crit_edge.us.us.us.i.i ]
+  br i1 %109, label %.preheader.us.us.i.i, label %enqueue_lf_jobs.exit.i, !llvm.loop !14
 
-111:                                              ; preds = %..loopexit_crit_edge.us.us.us.i.i, %.preheader.us.us.i.i
+110:                                              ; preds = %..loopexit_crit_edge.us.us.us.i.i, %.preheader.us.us.i.i
   %.137.us.us.us.i.i = phi ptr [ %.045.us.us.i.i, %.preheader.us.us.i.i ], [ %.2.us.us.us.i.i, %..loopexit_crit_edge.us.us.us.i.i ]
-  %.02835.us.us.us.i.i = phi i32 [ %3, %.preheader.us.us.i.i ], [ %120, %..loopexit_crit_edge.us.us.us.i.i ]
+  %.02835.us.us.us.i.i = phi i32 [ %3, %.preheader.us.us.i.i ], [ %119, %..loopexit_crit_edge.us.us.us.i.i ]
   switch i32 %.02835.us.us.us.i.i, label %.lr.ph.us.us.us.i.i.preheader [
-    i32 0, label %116
-    i32 1, label %114
-    i32 2, label %112
+    i32 0, label %115
+    i32 1, label %113
+    i32 2, label %111
   ]
 
-.lr.ph.us.us.us.i.i.preheader:                    ; preds = %118, %116, %114, %112, %111
+.lr.ph.us.us.us.i.i.preheader:                    ; preds = %117, %115, %113, %111, %110
   br label %.lr.ph.us.us.us.i.i
 
-112:                                              ; preds = %111
-  %113 = load i32, ptr %106, align 4
-  %.not32.us.us.us.i.i = icmp eq i32 %113, 0
+111:                                              ; preds = %110
+  %112 = load i32, ptr %105, align 4
+  %.not32.us.us.us.i.i = icmp eq i32 %112, 0
   br i1 %.not32.us.us.us.i.i, label %..loopexit_crit_edge.us.us.us.i.i, label %.lr.ph.us.us.us.i.i.preheader
 
-114:                                              ; preds = %111
-  %115 = load i32, ptr %107, align 8
-  %.not31.us.us.us.i.i = icmp eq i32 %115, 0
+113:                                              ; preds = %110
+  %114 = load i32, ptr %106, align 8
+  %.not31.us.us.us.i.i = icmp eq i32 %114, 0
   br i1 %.not31.us.us.us.i.i, label %..loopexit_crit_edge.us.us.us.i.i, label %.lr.ph.us.us.us.i.i.preheader
 
-116:                                              ; preds = %111
-  %117 = load i32, ptr %108, align 16
-  %.not.us.us.us.i.i = icmp eq i32 %117, 0
-  br i1 %.not.us.us.us.i.i, label %118, label %.lr.ph.us.us.us.i.i.preheader
+115:                                              ; preds = %110
+  %116 = load i32, ptr %107, align 16
+  %.not.us.us.us.i.i = icmp eq i32 %116, 0
+  br i1 %.not.us.us.us.i.i, label %117, label %.lr.ph.us.us.us.i.i.preheader
 
-118:                                              ; preds = %116
-  %119 = load i32, ptr %104, align 4
-  %.not30.us.us.us.i.i = icmp eq i32 %119, 0
+117:                                              ; preds = %115
+  %118 = load i32, ptr %103, align 4
+  %.not30.us.us.us.i.i = icmp eq i32 %118, 0
   br i1 %.not30.us.us.us.i.i, label %._crit_edge40.split.us.us.us.i.i, label %.lr.ph.us.us.us.i.i.preheader
 
-..loopexit_crit_edge.us.us.us.i.i:                ; preds = %.lr.ph.us.us.us.i.i, %114, %112
-  %.2.us.us.us.i.i = phi ptr [ %.137.us.us.us.i.i, %112 ], [ %.137.us.us.us.i.i, %114 ], [ %123, %.lr.ph.us.us.us.i.i ]
-  %120 = add i32 %.02835.us.us.us.i.i, 1
-  %exitcond.not.i51.i = icmp eq i32 %120, %4
-  br i1 %exitcond.not.i51.i, label %._crit_edge40.split.us.us.us.i.i, label %111, !llvm.loop !15
+..loopexit_crit_edge.us.us.us.i.i:                ; preds = %.lr.ph.us.us.us.i.i, %113, %111
+  %.2.us.us.us.i.i = phi ptr [ %.137.us.us.us.i.i, %111 ], [ %.137.us.us.us.i.i, %113 ], [ %122, %.lr.ph.us.us.us.i.i ]
+  %119 = add i32 %.02835.us.us.us.i.i, 1
+  %exitcond.not.i51.i = icmp eq i32 %119, %4
+  br i1 %exitcond.not.i51.i, label %._crit_edge40.split.us.us.us.i.i, label %110, !llvm.loop !15
 
 .lr.ph.us.us.us.i.i:                              ; preds = %.lr.ph.us.us.us.i.i.preheader, %.lr.ph.us.us.us.i.i
-  %.334.us.us.us.i.i = phi ptr [ %123, %.lr.ph.us.us.us.i.i ], [ %.137.us.us.us.i.i, %.lr.ph.us.us.us.i.i.preheader ]
-  %.02933.us.us.us.i.i = phi i32 [ %126, %.lr.ph.us.us.us.i.i ], [ %.021, %.lr.ph.us.us.us.i.i.preheader ]
+  %.334.us.us.us.i.i = phi ptr [ %122, %.lr.ph.us.us.us.i.i ], [ %.137.us.us.us.i.i, %.lr.ph.us.us.us.i.i.preheader ]
+  %.02933.us.us.us.i.i = phi i32 [ %125, %.lr.ph.us.us.us.i.i ], [ %.021, %.lr.ph.us.us.us.i.i.preheader ]
   store i32 %.02933.us.us.us.i.i, ptr %.334.us.us.us.i.i, align 4
-  %121 = getelementptr inbounds nuw i8, ptr %.334.us.us.us.i.i, i64 4
-  store i32 %.02835.us.us.us.i.i, ptr %121, align 4
-  %122 = getelementptr inbounds nuw i8, ptr %.334.us.us.us.i.i, i64 8
-  store i32 %.02743.us.us.i.i, ptr %122, align 4
-  %123 = getelementptr inbounds i8, ptr %.334.us.us.us.i.i, i64 12
-  %124 = load i32, ptr %102, align 8
-  %125 = add nsw i32 %124, 1
-  store i32 %125, ptr %102, align 8
-  %126 = add nuw nsw i32 %.02933.us.us.us.i.i, 32
-  %127 = icmp slt i32 %126, %19
-  br i1 %127, label %.lr.ph.us.us.us.i.i, label %..loopexit_crit_edge.us.us.us.i.i, !llvm.loop !16
+  %120 = getelementptr inbounds nuw i8, ptr %.334.us.us.us.i.i, i64 4
+  store i32 %.02835.us.us.us.i.i, ptr %120, align 4
+  %121 = getelementptr inbounds nuw i8, ptr %.334.us.us.us.i.i, i64 8
+  store i32 %.02743.us.us.i.i, ptr %121, align 4
+  %122 = getelementptr inbounds i8, ptr %.334.us.us.us.i.i, i64 12
+  %123 = load i32, ptr %101, align 8
+  %124 = add nsw i32 %123, 1
+  store i32 %124, ptr %101, align 8
+  %125 = add nuw nsw i32 %.02933.us.us.us.i.i, 32
+  %126 = icmp slt i32 %125, %18
+  br i1 %126, label %.lr.ph.us.us.us.i.i, label %..loopexit_crit_edge.us.us.us.i.i, !llvm.loop !16
 
-enqueue_lf_jobs.exit.i:                           ; preds = %._crit_edge40.split.us.us.us.i.i, %99
-  %128 = icmp sgt i32 %7, 0
-  br i1 %128, label %.lr.ph.i, label %loop_filter_rows_mt.exit
+enqueue_lf_jobs.exit.i:                           ; preds = %._crit_edge40.split.us.us.us.i.i, %98
+  %127 = icmp sgt i32 %7, 0
+  br i1 %127, label %.lr.ph.i, label %loop_filter_rows_mt.exit
 
 .lr.ph.i:                                         ; preds = %enqueue_lf_jobs.exit.i
-  %129 = getelementptr inbounds nuw i8, ptr %8, i64 80
-  %130 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %131 = getelementptr inbounds nuw i8, ptr %20, i64 24
-  %132 = getelementptr inbounds nuw i8, ptr %20, i64 32
-  %133 = zext nneg i32 %7 to i64
-  br label %136
+  %128 = getelementptr inbounds nuw i8, ptr %8, i64 80
+  %129 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %130 = getelementptr inbounds nuw i8, ptr %19, i64 24
+  %131 = getelementptr inbounds nuw i8, ptr %19, i64 32
+  %132 = zext nneg i32 %7 to i64
+  br label %135
 
 .preheader.i:                                     ; preds = %loop_filter_data_reset.exit.i
-  %134 = load ptr, ptr %132, align 8
-  tail call void %134(ptr noundef %6) #7
-  %135 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  br label %160
+  %133 = load ptr, ptr %131, align 8
+  tail call void %133(ptr noundef %6) #7
+  %134 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  br label %159
 
-136:                                              ; preds = %158, %.lr.ph.i
-  %indvars.iv63.i = phi i64 [ %133, %.lr.ph.i ], [ %indvars.iv.next64.i, %158 ]
+135:                                              ; preds = %157, %.lr.ph.i
+  %indvars.iv63.i = phi i64 [ %132, %.lr.ph.i ], [ %indvars.iv.next64.i, %157 ]
   %indvars.iv.next64.i = add nsw i64 %indvars.iv63.i, -1
-  %137 = getelementptr inbounds %struct.AVxWorker, ptr %6, i64 %indvars.iv.next64.i
-  %138 = load ptr, ptr %129, align 8
-  %139 = getelementptr inbounds %struct.LoopFilterWorkerData, ptr %138, i64 %indvars.iv.next64.i
-  %140 = getelementptr inbounds nuw i8, ptr %137, i64 24
-  store ptr @loop_filter_row_worker, ptr %140, align 8
-  %141 = getelementptr inbounds nuw i8, ptr %137, i64 32
-  store ptr %8, ptr %141, align 8
-  %142 = getelementptr inbounds nuw i8, ptr %137, i64 40
-  store ptr %139, ptr %142, align 8
-  store ptr %0, ptr %139, align 8
-  %143 = getelementptr inbounds nuw i8, ptr %139, i64 8
-  store ptr %1, ptr %143, align 8
-  %144 = getelementptr inbounds nuw i8, ptr %139, i64 7840
-  store ptr %2, ptr %144, align 8
-  %145 = getelementptr inbounds nuw i8, ptr %139, i64 16
-  br label %146
+  %136 = getelementptr inbounds %struct.AVxWorker, ptr %6, i64 %indvars.iv.next64.i
+  %137 = load ptr, ptr %128, align 8
+  %138 = getelementptr inbounds %struct.LoopFilterWorkerData, ptr %137, i64 %indvars.iv.next64.i
+  %139 = getelementptr inbounds nuw i8, ptr %136, i64 24
+  store ptr @loop_filter_row_worker, ptr %139, align 8
+  %140 = getelementptr inbounds nuw i8, ptr %136, i64 32
+  store ptr %8, ptr %140, align 8
+  %141 = getelementptr inbounds nuw i8, ptr %136, i64 40
+  store ptr %138, ptr %141, align 8
+  store ptr %0, ptr %138, align 8
+  %142 = getelementptr inbounds nuw i8, ptr %138, i64 8
+  store ptr %1, ptr %142, align 8
+  %143 = getelementptr inbounds nuw i8, ptr %138, i64 7840
+  store ptr %2, ptr %143, align 8
+  %144 = getelementptr inbounds nuw i8, ptr %138, i64 16
+  br label %145
 
-146:                                              ; preds = %146, %136
-  %indvars.iv.i52.i = phi i64 [ 0, %136 ], [ %indvars.iv.next.i53.i, %146 ]
-  %147 = getelementptr inbounds [3 x %struct.macroblockd_plane], ptr %145, i64 0, i64 %indvars.iv.i52.i
-  %148 = getelementptr inbounds nuw i8, ptr %147, i64 16
-  %149 = getelementptr inbounds %struct.macroblockd_plane, ptr %130, i64 %indvars.iv.i52.i
-  %150 = getelementptr inbounds nuw i8, ptr %149, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %148, ptr noundef nonnull align 8 dereferenceable(32) %150, i64 32, i1 false)
-  %151 = getelementptr inbounds nuw i8, ptr %149, i64 4
-  %152 = load i32, ptr %151, align 4
-  %153 = getelementptr inbounds nuw i8, ptr %147, i64 4
-  store i32 %152, ptr %153, align 4
-  %154 = getelementptr inbounds nuw i8, ptr %149, i64 8
-  %155 = load i32, ptr %154, align 8
-  %156 = getelementptr inbounds nuw i8, ptr %147, i64 8
-  store i32 %155, ptr %156, align 8
+145:                                              ; preds = %145, %135
+  %indvars.iv.i52.i = phi i64 [ 0, %135 ], [ %indvars.iv.next.i53.i, %145 ]
+  %146 = getelementptr inbounds [3 x %struct.macroblockd_plane], ptr %144, i64 0, i64 %indvars.iv.i52.i
+  %147 = getelementptr inbounds nuw i8, ptr %146, i64 16
+  %148 = getelementptr inbounds %struct.macroblockd_plane, ptr %129, i64 %indvars.iv.i52.i
+  %149 = getelementptr inbounds nuw i8, ptr %148, i64 16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %147, ptr noundef nonnull align 8 dereferenceable(32) %149, i64 32, i1 false)
+  %150 = getelementptr inbounds nuw i8, ptr %148, i64 4
+  %151 = load i32, ptr %150, align 4
+  %152 = getelementptr inbounds nuw i8, ptr %146, i64 4
+  store i32 %151, ptr %152, align 4
+  %153 = getelementptr inbounds nuw i8, ptr %148, i64 8
+  %154 = load i32, ptr %153, align 8
+  %155 = getelementptr inbounds nuw i8, ptr %146, i64 8
+  store i32 %154, ptr %155, align 8
   %indvars.iv.next.i53.i = add nuw nsw i64 %indvars.iv.i52.i, 1
   %exitcond.not.i54.i = icmp eq i64 %indvars.iv.next.i53.i, 3
-  br i1 %exitcond.not.i54.i, label %loop_filter_data_reset.exit.i, label %146, !llvm.loop !17
+  br i1 %exitcond.not.i54.i, label %loop_filter_data_reset.exit.i, label %145, !llvm.loop !17
 
-loop_filter_data_reset.exit.i:                    ; preds = %146
-  %157 = icmp eq i64 %indvars.iv.next64.i, 0
-  br i1 %157, label %.preheader.i, label %158
+loop_filter_data_reset.exit.i:                    ; preds = %145
+  %156 = icmp eq i64 %indvars.iv.next64.i, 0
+  br i1 %156, label %.preheader.i, label %157
 
-158:                                              ; preds = %loop_filter_data_reset.exit.i
-  %159 = load ptr, ptr %131, align 8
-  tail call void %159(ptr noundef nonnull %137) #7
-  br label %136
+157:                                              ; preds = %loop_filter_data_reset.exit.i
+  %158 = load ptr, ptr %130, align 8
+  tail call void %158(ptr noundef nonnull %136) #7
+  br label %135
 
-160:                                              ; preds = %160, %.preheader.i
-  %indvars.iv66.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next67.i, %160 ]
-  %161 = load ptr, ptr %135, align 8
-  %162 = getelementptr inbounds %struct.AVxWorker, ptr %6, i64 %indvars.iv66.i
-  %163 = tail call i32 %161(ptr noundef %162) #7
+159:                                              ; preds = %159, %.preheader.i
+  %indvars.iv66.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next67.i, %159 ]
+  %160 = load ptr, ptr %134, align 8
+  %161 = getelementptr inbounds %struct.AVxWorker, ptr %6, i64 %indvars.iv66.i
+  %162 = tail call i32 %160(ptr noundef %161) #7
   %indvars.iv.next67.i = add nuw nsw i64 %indvars.iv66.i, 1
-  %exitcond69.not.i = icmp eq i64 %indvars.iv.next67.i, %133
-  br i1 %exitcond69.not.i, label %loop_filter_rows_mt.exit, label %160, !llvm.loop !18
+  %exitcond69.not.i = icmp eq i64 %indvars.iv.next67.i, %132
+  br i1 %exitcond69.not.i, label %loop_filter_rows_mt.exit, label %159, !llvm.loop !18
 
-loop_filter_rows_mt.exit:                         ; preds = %160, %enqueue_lf_jobs.exit.i
+loop_filter_rows_mt.exit:                         ; preds = %159, %enqueue_lf_jobs.exit.i
   ret void
 }
 
@@ -1772,6 +1771,9 @@ declare i32 @llvm.smax.i32(i32, i32) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #5
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6

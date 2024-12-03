@@ -26,9 +26,9 @@ define dso_local noundef zeroext i1 @_ZNK3ozz8geometry11SkinningJob8ValidateEv(p
   %8 = and i1 %4, %7
   %9 = load i32, ptr %0, align 8
   %10 = icmp sgt i32 %9, 0
-  %11 = add nsw i32 %9, -1
-  %narrow = select i1 %10, i32 %11, i32 0
-  %12 = zext i32 %narrow to i64
+  %11 = tail call i32 @llvm.smax.i32(i32 %9, i32 1)
+  %narrow = add nsw i32 %11, -1
+  %12 = zext nneg i32 %narrow to i64
   %13 = getelementptr inbounds i8, ptr %0, i64 48
   %14 = load i64, ptr %13, align 8
   %15 = shl i64 %14, 1
@@ -7856,7 +7856,7 @@ define dso_local noundef zeroext i1 @_ZNK3ozz8geometry11SkinningJob3RunEv(ptr no
   %3 = load i32, ptr %0, align 8
   %4 = icmp ne i32 %3, 0
   %or.cond.not = select i1 %2, i1 %4, i1 false
-  br i1 %or.cond.not, label %5, label %26
+  br i1 %or.cond.not, label %5, label %25
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 32
@@ -7865,36 +7865,42 @@ define dso_local noundef zeroext i1 @_ZNK3ozz8geometry11SkinningJob3RunEv(ptr no
   %9 = zext i1 %8 to i64
   %10 = getelementptr inbounds i8, ptr %0, i64 4
   %11 = load i32, ptr %10, align 4
-  %12 = icmp ugt i32 %11, 5
-  %13 = add nsw i32 %11, -1
-  %narrow = select i1 %12, i32 4, i32 %13
-  %14 = sext i32 %narrow to i64
-  %15 = getelementptr inbounds i8, ptr %0, i64 120
-  %16 = load i64, ptr %15, align 8
-  %17 = icmp ne i64 %16, 0
-  %18 = zext i1 %17 to i64
-  %19 = getelementptr inbounds i8, ptr %0, i64 144
-  %20 = load i64, ptr %19, align 8
-  %21 = icmp ne i64 %20, 0
-  %22 = zext i1 %21 to i64
-  %23 = add nuw nsw i64 %22, %18
-  %24 = getelementptr inbounds [2 x [5 x [3 x ptr]]], ptr @_ZN3ozz8geometryL12kSkinningFctE, i64 0, i64 %9, i64 %14, i64 %23
-  %25 = load ptr, ptr %24, align 8
-  tail call void %25(ptr noundef nonnull align 8 dereferenceable(232) %0)
-  br label %26
+  %12 = tail call i32 @llvm.umin.i32(i32 %11, i32 5)
+  %narrow = add nsw i32 %12, -1
+  %13 = sext i32 %narrow to i64
+  %14 = getelementptr inbounds i8, ptr %0, i64 120
+  %15 = load i64, ptr %14, align 8
+  %16 = icmp ne i64 %15, 0
+  %17 = zext i1 %16 to i64
+  %18 = getelementptr inbounds i8, ptr %0, i64 144
+  %19 = load i64, ptr %18, align 8
+  %20 = icmp ne i64 %19, 0
+  %21 = zext i1 %20 to i64
+  %22 = add nuw nsw i64 %21, %17
+  %23 = getelementptr inbounds [2 x [5 x [3 x ptr]]], ptr @_ZN3ozz8geometryL12kSkinningFctE, i64 0, i64 %9, i64 %13, i64 %22
+  %24 = load ptr, ptr %23, align 8
+  tail call void %24(ptr noundef nonnull align 8 dereferenceable(232) %0)
+  br label %25
 
-26:                                               ; preds = %1, %5
+25:                                               ; preds = %1, %5
   ret i1 %2
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #5
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #5
+
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

@@ -22126,8 +22126,7 @@ define void @_ZN5image6codecs4webp3vp818create_border_luma17he81e83f9aa6a3fbcE(p
   br i1 %35, label %.preheader, label %.preheader108.preheader
 
 .preheader108.preheader:                          ; preds = %34
-  %umax = tail call i64 @llvm.umax.i64(i64 %7, i64 1)
-  %36 = add i64 %umax, -1
+  %36 = tail call i64 @llvm.usub.sat.i64(i64 %7, i64 1)
   br label %.preheader108
 
 .preheader:                                       ; preds = %34, %.preheader
@@ -24438,8 +24437,7 @@ define void @_ZN5image6codecs4webp3vp814predict_dcpred17hbe3e5dcddc10978eE(ptr n
   br i1 %.not86, label %._crit_edge79, label %.lr.ph78.preheader
 
 .lr.ph78.preheader:                               ; preds = %.preheader
-  %umax = tail call i64 @llvm.umax.i64(i64 %1, i64 1)
-  %9 = add i64 %umax, -1
+  %9 = tail call i64 @llvm.usub.sat.i64(i64 %1, i64 1)
   br label %.lr.ph78
 
 ._crit_edge:                                      ; preds = %42, %.preheader69

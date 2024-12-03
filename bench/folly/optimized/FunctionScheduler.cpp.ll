@@ -2331,7 +2331,7 @@ _ZNSt8__detail8_AdaptorISt26linear_congruential_engineImLm16807ELm0ELm2147483647
   br i1 %10, label %do.body, label %do.end, !llvm.loop !118
 
 do.end:                                           ; preds = %_ZNSt8__detail8_AdaptorISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEdEclEv.exit53
-  %call6 = tail call double @log(double noundef %9) #31
+  %call6 = tail call double @llvm.log.f64(double %9)
   %mul = fmul double %call6, -2.000000e+00
   %div = fdiv double %mul, %9
   %call7 = tail call double @sqrt(double noundef %div) #31

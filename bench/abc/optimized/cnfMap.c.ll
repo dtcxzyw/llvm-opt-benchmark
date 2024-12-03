@@ -76,9 +76,8 @@ Aig_ManObj.exit:                                  ; preds = %21, %26
   %49 = sext i32 %48 to i64
   %50 = getelementptr inbounds i32, ptr %2, i64 %49
   %51 = load i32, ptr %50, align 4
-  %.not18 = icmp ult i32 %43, 64
-  %52 = lshr i32 %43, 6
-  %spec.select = select i1 %.not18, i32 1, i32 %52
+  %52 = tail call i32 @llvm.umax.i32(i32 %43, i32 64)
+  %spec.select = lshr i32 %52, 6
   %53 = sdiv i32 %51, %spec.select
   %54 = add i32 %22, %53
   store i32 %54, ptr %1, align 4
@@ -133,9 +132,8 @@ define i32 @Cnf_CutSuperAreaFlow(ptr nocapture noundef readonly %0, ptr nocaptur
   %21 = sext i32 %20 to i64
   %22 = getelementptr inbounds i32, ptr %1, i64 %21
   %23 = load i32, ptr %22, align 4
-  %.not15 = icmp ult i32 %15, 64
-  %24 = lshr i32 %15, 6
-  %spec.select = select i1 %.not15, i32 1, i32 %24
+  %24 = tail call i32 @llvm.umax.i32(i32 %15, i32 64)
+  %spec.select = lshr i32 %24, 6
   %25 = sdiv i32 %23, %spec.select
   %26 = add nsw i32 %25, %.020
   br label %27
@@ -161,11 +159,11 @@ define void @Cnf_DeriveMapping(ptr nocapture noundef readonly %0) local_unnamed_
   %5 = sext i32 %.val52.val to i64
   %6 = shl nsw i64 %5, 2
   %calloc = tail call ptr @calloc(i64 1, i64 %6)
-  %7 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #7
+  %7 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #8
   %8 = getelementptr inbounds i8, ptr %7, i64 4
   store i32 0, ptr %8, align 4
   store i32 100, ptr %7, align 8
-  %9 = tail call noalias dereferenceable_or_null(800) ptr @malloc(i64 noundef 800) #7
+  %9 = tail call noalias dereferenceable_or_null(800) ptr @malloc(i64 noundef 800) #8
   %10 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %9, ptr %10, align 8
   %11 = icmp sgt i32 %.val52.val, 0
@@ -286,9 +284,8 @@ Aig_ManObj.exit.i:                                ; preds = %54, %49
   %77 = sext i32 %76 to i64
   %78 = getelementptr inbounds i32, ptr %calloc, i64 %77
   %79 = load i32, ptr %78, align 4
-  %.not18.i = icmp ult i32 %71, 64
-  %80 = lshr i32 %71, 6
-  %spec.select.i = select i1 %.not18.i, i32 1, i32 %80
+  %80 = tail call i32 @llvm.umax.i32(i32 %71, i32 64)
+  %spec.select.i = lshr i32 %80, 6
   %81 = sdiv i32 %79, %spec.select.i
   %82 = add i32 %81, %50
   store i32 %82, ptr %.058, align 4
@@ -384,16 +381,16 @@ Cnf_CutAssignAreaFlow.exit:                       ; preds = %83, %34
   br i1 %.not.i55, label %Vec_PtrFree.exit, label %132
 
 132:                                              ; preds = %.critedge
-  tail call void @free(ptr noundef nonnull %131) #8
+  tail call void @free(ptr noundef nonnull %131) #9
   br label %Vec_PtrFree.exit
 
 Vec_PtrFree.exit:                                 ; preds = %.critedge, %132
-  tail call void @free(ptr noundef nonnull %7) #8
+  tail call void @free(ptr noundef nonnull %7) #9
   %.not = icmp eq ptr %calloc, null
   br i1 %.not, label %134, label %133
 
 133:                                              ; preds = %Vec_PtrFree.exit
-  tail call void @free(ptr noundef nonnull %calloc) #8
+  tail call void @free(ptr noundef nonnull %calloc) #9
   br label %134
 
 134:                                              ; preds = %Vec_PtrFree.exit, %133
@@ -406,21 +403,25 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #5
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #5
+declare void @llvm.assume(i1 noundef) #6
 
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #6
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #7
 
 attributes #0 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #6 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
-attributes #7 = { nounwind allocsize(0) }
-attributes #8 = { nounwind }
+attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #7 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
+attributes #8 = { nounwind allocsize(0) }
+attributes #9 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -917,37 +917,36 @@ define dso_local void @_ZN4llvm8codeview15TypeDumpVisitor12visitTypeEndERNS0_8CV
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load i32, ptr %25, align 8
-  %27 = icmp sgt i32 %26, 1
-  %28 = add nsw i32 %26, -1
-  %spec.select.i = select i1 %27, i32 %28, i32 0
+  %27 = tail call i32 @llvm.smax.i32(i32 %26, i32 1)
+  %spec.select.i = add nsw i32 %27, -1
   store i32 %spec.select.i, ptr %25, align 8
-  %29 = load ptr, ptr %23, align 8
-  %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 288
-  %32 = load ptr, ptr %31, align 8
-  %33 = tail call noundef nonnull align 8 dereferenceable(48) ptr %32(ptr noundef nonnull align 8 dereferenceable(44) %29) #14
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 24
-  %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %33, i64 32
-  %37 = load ptr, ptr %36, align 8
-  %38 = ptrtoint ptr %35 to i64
-  %39 = ptrtoint ptr %37 to i64
-  %40 = sub i64 %38, %39
-  %41 = icmp ult i64 %40, 2
-  br i1 %41, label %42, label %44
+  %28 = load ptr, ptr %23, align 8
+  %29 = load ptr, ptr %28, align 8
+  %30 = getelementptr inbounds i8, ptr %29, i64 288
+  %31 = load ptr, ptr %30, align 8
+  %32 = tail call noundef nonnull align 8 dereferenceable(48) ptr %31(ptr noundef nonnull align 8 dereferenceable(44) %28) #14
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 24
+  %34 = load ptr, ptr %33, align 8
+  %35 = getelementptr inbounds nuw i8, ptr %32, i64 32
+  %36 = load ptr, ptr %35, align 8
+  %37 = ptrtoint ptr %34 to i64
+  %38 = ptrtoint ptr %36 to i64
+  %39 = sub i64 %37, %38
+  %40 = icmp ult i64 %39, 2
+  br i1 %40, label %41, label %43
 
-42:                                               ; preds = %22
-  %43 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %33, ptr noundef nonnull @.str.5, i64 noundef 2) #14
+41:                                               ; preds = %22
+  %42 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %32, ptr noundef nonnull @.str.5, i64 noundef 2) #14
   br label %_ZN4llvm12ErrorSuccessD2Ev.exit
 
-44:                                               ; preds = %22
-  store i16 2685, ptr %37, align 1
-  %45 = load ptr, ptr %36, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 2
-  store ptr %46, ptr %36, align 8
+43:                                               ; preds = %22
+  store i16 2685, ptr %36, align 1
+  %44 = load ptr, ptr %35, align 8
+  %45 = getelementptr inbounds i8, ptr %44, i64 2
+  store ptr %45, ptr %35, align 8
   br label %_ZN4llvm12ErrorSuccessD2Ev.exit
 
-_ZN4llvm12ErrorSuccessD2Ev.exit:                  ; preds = %44, %42
+_ZN4llvm12ErrorSuccessD2Ev.exit:                  ; preds = %43, %41
   store ptr null, ptr %0, align 8
   ret void
 }
@@ -1099,37 +1098,36 @@ define dso_local void @_ZN4llvm8codeview15TypeDumpVisitor14visitMemberEndERNS0_1
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %22 = load i32, ptr %21, align 8
-  %23 = icmp sgt i32 %22, 1
-  %24 = add nsw i32 %22, -1
-  %spec.select.i = select i1 %23, i32 %24, i32 0
+  %23 = tail call i32 @llvm.smax.i32(i32 %22, i32 1)
+  %spec.select.i = add nsw i32 %23, -1
   store i32 %spec.select.i, ptr %21, align 8
-  %25 = load ptr, ptr %19, align 8
-  %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 288
-  %28 = load ptr, ptr %27, align 8
-  %29 = tail call noundef nonnull align 8 dereferenceable(48) ptr %28(ptr noundef nonnull align 8 dereferenceable(44) %25) #14
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 24
-  %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %29, i64 32
-  %33 = load ptr, ptr %32, align 8
-  %34 = ptrtoint ptr %31 to i64
-  %35 = ptrtoint ptr %33 to i64
-  %36 = sub i64 %34, %35
-  %37 = icmp ult i64 %36, 2
-  br i1 %37, label %38, label %40
+  %24 = load ptr, ptr %19, align 8
+  %25 = load ptr, ptr %24, align 8
+  %26 = getelementptr inbounds i8, ptr %25, i64 288
+  %27 = load ptr, ptr %26, align 8
+  %28 = tail call noundef nonnull align 8 dereferenceable(48) ptr %27(ptr noundef nonnull align 8 dereferenceable(44) %24) #14
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 24
+  %30 = load ptr, ptr %29, align 8
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 32
+  %32 = load ptr, ptr %31, align 8
+  %33 = ptrtoint ptr %30 to i64
+  %34 = ptrtoint ptr %32 to i64
+  %35 = sub i64 %33, %34
+  %36 = icmp ult i64 %35, 2
+  br i1 %36, label %37, label %39
 
-38:                                               ; preds = %18
-  %39 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %29, ptr noundef nonnull @.str.5, i64 noundef 2) #14
+37:                                               ; preds = %18
+  %38 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %28, ptr noundef nonnull @.str.5, i64 noundef 2) #14
   br label %_ZN4llvm12ErrorSuccessD2Ev.exit
 
-40:                                               ; preds = %18
-  store i16 2685, ptr %33, align 1
-  %41 = load ptr, ptr %32, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 2
-  store ptr %42, ptr %32, align 8
+39:                                               ; preds = %18
+  store i16 2685, ptr %32, align 1
+  %40 = load ptr, ptr %31, align 8
+  %41 = getelementptr inbounds i8, ptr %40, i64 2
+  store ptr %41, ptr %31, align 8
   br label %_ZN4llvm12ErrorSuccessD2Ev.exit
 
-_ZN4llvm12ErrorSuccessD2Ev.exit:                  ; preds = %40, %38
+_ZN4llvm12ErrorSuccessD2Ev.exit:                  ; preds = %39, %37
   store ptr null, ptr %0, align 8
   ret void
 }
@@ -5080,6 +5078,9 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #13

@@ -389,9 +389,7 @@ if.then14:                                        ; preds = %if.else
   br i1 %or.cond, label %if.then18, label %if.end22
 
 if.then18:                                        ; preds = %if.then14
-  %cmp19 = icmp ugt i64 %call6, 7
-  %sub20 = add i64 %call6, -8
-  %cond = select i1 %cmp19, i64 %sub20, i64 0
+  %cond = tail call i64 @llvm.usub.sat.i64(i64 %call6, i64 8)
   %add.ptr = getelementptr inbounds i8, ptr %call.i, i64 %cond
   %sub21 = sub i64 %newsize, %cond
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %add.ptr, i8 0, i64 %sub21, i1 false)
@@ -668,10 +666,13 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare i64 @llvm.ctpop.i64(i64) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #6
+declare i64 @llvm.umax.i64(i64, i64) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #6
+declare i64 @llvm.usub.sat.i64(i64, i64) #6
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-builtin-malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-builtin-malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

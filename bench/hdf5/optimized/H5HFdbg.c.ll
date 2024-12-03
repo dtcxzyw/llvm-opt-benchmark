@@ -911,7 +911,7 @@ define internal noundef i32 @H5HF_dblock_debug_cb(ptr nocapture noundef readonly
   %.not56 = icmp ult i64 %8, %14
   %15 = and i1 %.not55, %.not56
   %or.cond61 = select i1 %.not, i1 true, i1 %15
-  br i1 %or.cond61, label %51, label %16
+  br i1 %or.cond61, label %50, label %16
 
 16:                                               ; preds = %2
   %.048 = tail call i64 @llvm.usub.sat.i64(i64 %4, i64 %10)
@@ -930,51 +930,50 @@ define internal noundef i32 @H5HF_dblock_debug_cb(ptr nocapture noundef readonly
   %27 = add nsw i32 %26, 3
   %28 = getelementptr inbounds i8, ptr %1, i64 12
   %29 = load i32, ptr %28, align 4
-  %30 = icmp slt i32 %29, 9
-  %31 = add nsw i32 %29, -9
-  %spec.select = select i1 %30, i32 0, i32 %31
-  %32 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.93, i32 noundef %27, ptr noundef nonnull @.str.6, i32 noundef %spec.select, ptr noundef nonnull %3, i64 noundef %.048, i64 noundef %19) #8
-  %33 = load i64, ptr %20, align 8
-  %34 = add i64 %33, 1
-  store i64 %34, ptr %20, align 8
-  %35 = icmp ult i64 %.048, %.049
-  br i1 %35, label %.lr.ph, label %._crit_edge.thread
+  %30 = tail call i32 @llvm.smax.i32(i32 %29, i32 9)
+  %spec.select = add nsw i32 %30, -9
+  %31 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.93, i32 noundef %27, ptr noundef nonnull @.str.6, i32 noundef %spec.select, ptr noundef nonnull %3, i64 noundef %.048, i64 noundef %19) #8
+  %32 = load i64, ptr %20, align 8
+  %33 = add i64 %32, 1
+  store i64 %33, ptr %20, align 8
+  %34 = icmp ult i64 %.048, %.049
+  br i1 %34, label %.lr.ph, label %._crit_edge.thread
 
 .lr.ph:                                           ; preds = %16
-  %36 = getelementptr inbounds i8, ptr %1, i64 32
-  br label %37
+  %35 = getelementptr inbounds i8, ptr %1, i64 32
+  br label %36
 
-37:                                               ; preds = %.lr.ph, %37
-  %.063 = phi i64 [ %.048, %.lr.ph ], [ %42, %37 ]
-  %.04762 = phi i64 [ 0, %.lr.ph ], [ %spec.select60, %37 ]
-  %38 = load ptr, ptr %36, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 %.063
-  %40 = load i8, ptr %39, align 1
-  %.not58 = icmp ne i8 %40, 0
-  %41 = zext i1 %.not58 to i64
-  %spec.select60 = add i64 %.04762, %41
-  store i8 1, ptr %39, align 1
-  %42 = add nuw i64 %.063, 1
-  %43 = icmp ult i64 %42, %.049
-  br i1 %43, label %37, label %._crit_edge
+36:                                               ; preds = %.lr.ph, %36
+  %.063 = phi i64 [ %.048, %.lr.ph ], [ %41, %36 ]
+  %.04762 = phi i64 [ 0, %.lr.ph ], [ %spec.select60, %36 ]
+  %37 = load ptr, ptr %35, align 8
+  %38 = getelementptr inbounds i8, ptr %37, i64 %.063
+  %39 = load i8, ptr %38, align 1
+  %.not58 = icmp ne i8 %39, 0
+  %40 = zext i1 %.not58 to i64
+  %spec.select60 = add i64 %.04762, %40
+  store i8 1, ptr %38, align 1
+  %41 = add nuw i64 %.063, 1
+  %42 = icmp ult i64 %41, %.049
+  br i1 %42, label %36, label %._crit_edge
 
-._crit_edge:                                      ; preds = %37
-  %44 = icmp eq i64 %spec.select60, 0
-  br i1 %44, label %._crit_edge.thread, label %45
+._crit_edge:                                      ; preds = %36
+  %43 = icmp eq i64 %spec.select60, 0
+  br i1 %43, label %._crit_edge.thread, label %44
 
-45:                                               ; preds = %._crit_edge
-  %46 = load ptr, ptr %1, align 8
-  %47 = call i64 @fwrite(ptr nonnull @.str.94, i64 46, i64 1, ptr %46)
-  br label %51
+44:                                               ; preds = %._crit_edge
+  %45 = load ptr, ptr %1, align 8
+  %46 = call i64 @fwrite(ptr nonnull @.str.94, i64 46, i64 1, ptr %45)
+  br label %50
 
 ._crit_edge.thread:                               ; preds = %16, %._crit_edge
-  %48 = getelementptr inbounds i8, ptr %1, i64 48
-  %49 = load i64, ptr %48, align 8
-  %50 = add i64 %49, %19
-  store i64 %50, ptr %48, align 8
-  br label %51
+  %47 = getelementptr inbounds i8, ptr %1, i64 48
+  %48 = load i64, ptr %47, align 8
+  %49 = add i64 %48, %19
+  store i64 %49, ptr %47, align 8
+  br label %50
 
-51:                                               ; preds = %2, %45, %._crit_edge.thread
+50:                                               ; preds = %2, %44, %._crit_edge.thread
   ret i32 0
 }
 
@@ -1165,21 +1164,20 @@ define internal range(i32 -1, 1) i32 @H5HF_sects_debug_cb(ptr noundef %0, ptr no
   %30 = load i32, ptr %5, align 8
   %31 = add nsw i32 %30, 3
   %32 = load i32, ptr %7, align 4
-  %33 = icmp slt i32 %32, 3
-  %34 = add nsw i32 %32, -3
-  %spec.select = select i1 %33, i32 0, i32 %34
-  %35 = tail call i32 @H5FS_sect_debug(ptr noundef %28, ptr noundef nonnull %0, ptr noundef %29, i32 noundef %31, i32 noundef %spec.select) #8
-  %36 = icmp slt i32 %35, 0
-  br i1 %36, label %37, label %41
+  %33 = tail call i32 @llvm.smax.i32(i32 %32, i32 3)
+  %spec.select = add nsw i32 %33, -3
+  %34 = tail call i32 @H5FS_sect_debug(ptr noundef %28, ptr noundef nonnull %0, ptr noundef %29, i32 noundef %31, i32 noundef %spec.select) #8
+  %35 = icmp slt i32 %34, 0
+  br i1 %35, label %36, label %40
 
-37:                                               ; preds = %14
-  %38 = load i64, ptr @H5E_HEAP_g, align 8
-  %39 = load i64, ptr @H5E_BADITER_g, align 8
-  %40 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5HF_sects_debug_cb, i32 noundef 742, i64 noundef %38, i64 noundef %39, ptr noundef nonnull @.str.102) #8
-  br label %41
+36:                                               ; preds = %14
+  %37 = load i64, ptr @H5E_HEAP_g, align 8
+  %38 = load i64, ptr @H5E_BADITER_g, align 8
+  %39 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5HF_sects_debug_cb, i32 noundef 742, i64 noundef %37, i64 noundef %38, ptr noundef nonnull @.str.102) #8
+  br label %40
 
-41:                                               ; preds = %14, %37
-  %.0 = phi i32 [ -1, %37 ], [ 0, %14 ]
+40:                                               ; preds = %14, %36
+  %.0 = phi i32 [ -1, %36 ], [ 0, %14 ]
   ret i32 %.0
 }
 

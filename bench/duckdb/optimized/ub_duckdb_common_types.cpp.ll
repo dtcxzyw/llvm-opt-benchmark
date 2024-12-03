@@ -32306,7 +32306,7 @@ if.end3.i.i:                                      ; preds = %entry
   %cmp4.i.i = fcmp olt float %value, 0.000000e+00
   %fneg.i.i = fneg double %conv
   %value.addr.0.i.i = select i1 %cmp4.i.i, double %fneg.i.i, double %conv
-  %call8.i.i = tail call double @fmod(double noundef %value.addr.0.i.i, double noundef 0x43F0000000000000) #40
+  %call8.i.i = frem nnan double %value.addr.0.i.i, 0x43F0000000000000
   %conv9.i.i = fptoui double %call8.i.i to i64
   store i64 %conv9.i.i, ptr %result, align 8, !tbaa !741
   %div.i.i = fmul double %value.addr.0.i.i, 0x3BF0000000000000
@@ -32336,7 +32336,7 @@ if.end3.i:                                        ; preds = %entry
   %cmp4.i = fcmp olt double %value, 0.000000e+00
   %fneg.i = fneg double %value
   %value.addr.0.i = select i1 %cmp4.i, double %fneg.i, double %value
-  %call8.i = tail call double @fmod(double noundef %value.addr.0.i, double noundef 0x43F0000000000000) #40
+  %call8.i = frem nnan double %value.addr.0.i, 0x43F0000000000000
   %conv9.i = fptoui double %call8.i to i64
   store i64 %conv9.i, ptr %result, align 8, !tbaa !741
   %div.i = fmul double %value.addr.0.i, 0x3BF0000000000000

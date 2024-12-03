@@ -3454,37 +3454,38 @@ define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_113X86AsmBackend12writeNopD
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %.023, i64 %12)
   %16 = trunc nuw i64 %.sroa.speculated to i32
   %17 = and i32 %16, 255
-  %18 = icmp samesign ult i32 %17, 11
-  %19 = add i32 %16, 246
-  %20 = and i32 %19, 255
-  %21 = select i1 %18, i32 0, i32 %20
-  %.not26 = icmp eq i32 %21, 0
-  br i1 %.not26, label %._crit_edge, label %.lr.ph
+  %18 = tail call i32 @llvm.usub.sat.i32(i32 %17, i32 10)
+  %.not26 = icmp samesign ult i32 %17, 11
+  br i1 %.not26, label %._crit_edge, label %.lr.ph.preheader
 
-.lr.ph:                                           ; preds = %15, %_ZN4llvm11raw_ostreamlsEc.exit
-  %indvars.iv = phi i32 [ %indvars.iv.next, %_ZN4llvm11raw_ostreamlsEc.exit ], [ 0, %15 ]
-  %22 = load ptr, ptr %13, align 8
-  %23 = load ptr, ptr %14, align 8
-  %.not.i = icmp ult ptr %22, %23
-  br i1 %.not.i, label %26, label %24
+.lr.ph.preheader:                                 ; preds = %15
+  %19 = trunc nuw i32 %18 to i8
+  br label %.lr.ph
+
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN4llvm11raw_ostreamlsEc.exit
+  %.025 = phi i8 [ %26, %_ZN4llvm11raw_ostreamlsEc.exit ], [ 0, %.lr.ph.preheader ]
+  %20 = load ptr, ptr %13, align 8
+  %21 = load ptr, ptr %14, align 8
+  %.not.i = icmp ult ptr %20, %21
+  br i1 %.not.i, label %24, label %22
+
+22:                                               ; preds = %.lr.ph
+  %23 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(48) %1, i8 noundef zeroext 102) #23
+  br label %_ZN4llvm11raw_ostreamlsEc.exit
 
 24:                                               ; preds = %.lr.ph
-  %25 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(48) %1, i8 noundef zeroext 102) #23
+  %25 = getelementptr inbounds i8, ptr %20, i64 1
+  store ptr %25, ptr %13, align 8
+  store i8 102, ptr %20, align 1
   br label %_ZN4llvm11raw_ostreamlsEc.exit
 
-26:                                               ; preds = %.lr.ph
-  %27 = getelementptr inbounds i8, ptr %22, i64 1
-  store ptr %27, ptr %13, align 8
-  store i8 102, ptr %22, align 1
-  br label %_ZN4llvm11raw_ostreamlsEc.exit
-
-_ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %24, %26
-  %indvars.iv.next = add nuw nsw i32 %indvars.iv, 1
-  %exitcond.not = icmp eq i32 %indvars.iv.next, %21
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !35
+_ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %22, %24
+  %26 = add nuw i8 %.025, 1
+  %27 = icmp ult i8 %26, %19
+  br i1 %27, label %.lr.ph, label %._crit_edge, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %_ZN4llvm11raw_ostreamlsEc.exit, %15
-  %28 = sub i32 %16, %21
+  %28 = sub i32 %16, %18
   %29 = and i32 %28, 255
   %.not = icmp eq i32 %29, 0
   br i1 %.not, label %33, label %30
@@ -7619,29 +7620,29 @@ declare void @llvm.assume(i1 noundef) #19
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #20
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #21
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.usub.sat.i32(i32, i32) #21
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #21
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #21
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #22
+declare i32 @llvm.umin.i32(i32, i32) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.usub.sat.i32(i32, i32) #22
+declare i64 @llvm.umin.i64(i64, i64) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #22
+declare i64 @llvm.fshl.i64(i64, i64, i64) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #22
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.fshl.i64(i64, i64, i64) #22
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smin.i64(i64, i64) #22
+declare i64 @llvm.smin.i64(i64, i64) #21
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind }
@@ -7664,8 +7665,8 @@ attributes #17 = { mustprogress nofree norecurse nosync nounwind willreturn memo
 attributes #18 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #19 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #20 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #21 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #22 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #21 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #22 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #23 = { nounwind }
 attributes #24 = { builtin nounwind allocsize(0) }
 attributes #25 = { noreturn nounwind }

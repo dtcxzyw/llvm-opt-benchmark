@@ -2602,11 +2602,11 @@ _ZN5clang8comments5Lexer19lexVerbatimLineTextERNS0_5TokenE.exit: ; preds = %.lr.
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %102 = load ptr, ptr %101, align 8
   %103 = load i8, ptr %102, align 1
-  switch i8 %103, label %322 [
+  switch i8 %103, label %321 [
     i8 92, label %104
     i8 64, label %104
-    i8 38, label %278
-    i8 60, label %279
+    i8 38, label %277
+    i8 60, label %278
   ]
 
 104:                                              ; preds = %100, %100
@@ -2785,7 +2785,7 @@ _ZN5clang8comments12_GLOBAL__N_115skipCommandNameEPKcS3_.exit: ; preds = %.lr.ph
   %196 = load ptr, ptr %195, align 8
   %197 = tail call noundef ptr @_ZNK5clang8comments13CommandTraits20getCommandInfoOrNULLEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(64) %196, ptr nonnull %107, i64 %194) #18
   %.not127 = icmp eq ptr %197, null
-  br i1 %.not127, label %198, label %245
+  br i1 %.not127, label %198, label %244
 
 198:                                              ; preds = %193
   %199 = load ptr, ptr %195, align 8
@@ -2839,7 +2839,7 @@ _ZN4llvm9StringRefC2EPKc.exit:                    ; preds = %201, %203
   %222 = getelementptr inbounds nuw i8, ptr %6, i64 24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %222) #18
   call void @_ZN5clang17DiagnosticBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(26) %5) #18
-  br label %245
+  br label %244
 
 223:                                              ; preds = %198
   %224 = load ptr, ptr %101, align 8
@@ -2870,10 +2870,8 @@ _ZN4llvm9StringRefC2EPKc.exit:                    ; preds = %201, %203
   call void @_ZN5clang8comments5Lexer4DiagENS_14SourceLocationEj(ptr dead_on_unwind nonnull writable sret(%"class.clang::DiagnosticBuilder") align 8 %7, ptr noundef nonnull align 8 dereferenceable(104) %0, i32 %.sroa.0.0.copyload.i142, i32 noundef 2454)
   %.sroa.0.0.copyload.i143 = load i32, ptr %1, align 8
   %242 = load i32, ptr %238, align 4
-  %switch.i = icmp ult i32 %242, 2
-  %243 = add i32 %242, -1
-  %244 = select i1 %switch.i, i32 0, i32 %243
-  %.sroa.0.0.i = add i32 %244, %.sroa.0.0.copyload.i143
+  %243 = call i32 @llvm.usub.sat.i32(i32 %242, i32 1)
+  %.sroa.0.0.i = add i32 %243, %.sroa.0.0.copyload.i143
   %.sroa.2.0.insert.ext = zext i32 %.sroa.0.0.i to i64
   %.sroa.2.0.insert.shift = shl nuw i64 %.sroa.2.0.insert.ext, 32
   %.sroa.0.0.insert.ext = zext i32 %.sroa.0.0.copyload.i143 to i64
@@ -2887,144 +2885,144 @@ _ZN4llvm9StringRefC2EPKc.exit:                    ; preds = %201, %203
   call void @_ZN5clang17DiagnosticBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(26) %7) #18
   br label %_ZN5clang8comments5Lexer20lexVerbatimBlockBodyERNS0_5TokenE.exit
 
-245:                                              ; preds = %_ZN4llvm9StringRefC2EPKc.exit, %193
+244:                                              ; preds = %_ZN4llvm9StringRefC2EPKc.exit, %193
   %.0113 = phi ptr [ %197, %193 ], [ %200, %_ZN4llvm9StringRefC2EPKc.exit ]
-  %246 = getelementptr inbounds nuw i8, ptr %.0113, i64 16
-  %247 = load i64, ptr %246, align 8
-  %248 = and i64 %247, 34359738368
-  %.not129 = icmp eq i64 %248, 0
-  br i1 %.not129, label %252, label %249
+  %245 = getelementptr inbounds nuw i8, ptr %.0113, i64 16
+  %246 = load i64, ptr %245, align 8
+  %247 = and i64 %246, 34359738368
+  %.not129 = icmp eq i64 %247, 0
+  br i1 %.not129, label %251, label %248
 
-249:                                              ; preds = %245
-  %250 = load ptr, ptr %101, align 8
-  %251 = load i8, ptr %250, align 1
-  call void @_ZN5clang8comments5Lexer24setupAndLexVerbatimBlockERNS0_5TokenEPKccPKNS0_11CommandInfoE(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef %.1, i8 noundef signext %251, ptr noundef nonnull %.0113)
+248:                                              ; preds = %244
+  %249 = load ptr, ptr %101, align 8
+  %250 = load i8, ptr %249, align 1
+  call void @_ZN5clang8comments5Lexer24setupAndLexVerbatimBlockERNS0_5TokenEPKccPKNS0_11CommandInfoE(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef %.1, i8 noundef signext %250, ptr noundef nonnull %.0113)
   br label %_ZN5clang8comments5Lexer20lexVerbatimBlockBodyERNS0_5TokenE.exit
 
-252:                                              ; preds = %245
-  %253 = and i64 %247, 137438953472
-  %.not130 = icmp eq i64 %253, 0
-  %254 = load ptr, ptr %101, align 8
-  %255 = ptrtoint ptr %.1 to i64
-  %256 = ptrtoint ptr %254 to i64
-  %257 = sub i64 %255, %256
-  %258 = trunc i64 %257 to i32
-  %259 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %260 = load ptr, ptr %259, align 8
-  %261 = ptrtoint ptr %260 to i64
-  %262 = sub i64 %256, %261
-  %263 = trunc i64 %262 to i32
-  %264 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %265 = load i32, ptr %264, align 8
-  %266 = add i32 %265, %263
-  store i32 %266, ptr %1, align 8
-  %267 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %268 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %269 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  br i1 %.not130, label %274, label %270
+251:                                              ; preds = %244
+  %252 = and i64 %246, 137438953472
+  %.not130 = icmp eq i64 %252, 0
+  %253 = load ptr, ptr %101, align 8
+  %254 = ptrtoint ptr %.1 to i64
+  %255 = ptrtoint ptr %253 to i64
+  %256 = sub i64 %254, %255
+  %257 = trunc i64 %256 to i32
+  %258 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %259 = load ptr, ptr %258, align 8
+  %260 = ptrtoint ptr %259 to i64
+  %261 = sub i64 %255, %260
+  %262 = trunc i64 %261 to i32
+  %263 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %264 = load i32, ptr %263, align 8
+  %265 = add i32 %264, %262
+  store i32 %265, ptr %1, align 8
+  %266 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %267 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %268 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  br i1 %.not130, label %273, label %269
 
-270:                                              ; preds = %252
-  store i32 9, ptr %267, align 4
-  store i32 %258, ptr %268, align 4
+269:                                              ; preds = %251
+  store i32 9, ptr %266, align 4
+  store i32 %257, ptr %267, align 4
   store ptr %.1, ptr %101, align 8
-  %271 = load i64, ptr %246, align 8
-  %272 = trunc i64 %271 to i32
-  %273 = and i32 %272, 1048575
-  store i32 %273, ptr %269, align 8
+  %270 = load i64, ptr %245, align 8
+  %271 = trunc i64 %270 to i32
+  %272 = and i32 %271, 1048575
+  store i32 %272, ptr %268, align 8
   store i8 3, ptr %13, align 2
   br label %_ZN5clang8comments5Lexer20lexVerbatimBlockBodyERNS0_5TokenE.exit
 
-274:                                              ; preds = %252
-  store i32 %106, ptr %267, align 4
-  store i32 %258, ptr %268, align 4
+273:                                              ; preds = %251
+  store i32 %106, ptr %266, align 4
+  store i32 %257, ptr %267, align 4
   store ptr %.1, ptr %101, align 8
-  %275 = load i64, ptr %246, align 8
-  %276 = trunc i64 %275 to i32
-  %277 = and i32 %276, 1048575
-  store i32 %277, ptr %269, align 8
+  %274 = load i64, ptr %245, align 8
+  %275 = trunc i64 %274 to i32
+  %276 = and i32 %275, 1048575
+  store i32 %276, ptr %268, align 8
   br label %_ZN5clang8comments5Lexer20lexVerbatimBlockBodyERNS0_5TokenE.exit
 
-278:                                              ; preds = %100
+277:                                              ; preds = %100
   tail call void @_ZN5clang8comments5Lexer25lexHTMLCharacterReferenceERNS0_5TokenE(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(24) %1)
   br label %_ZN5clang8comments5Lexer20lexVerbatimBlockBodyERNS0_5TokenE.exit
 
-279:                                              ; preds = %100
-  %280 = getelementptr inbounds i8, ptr %102, i64 1
-  %281 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %282 = load ptr, ptr %281, align 8
-  %283 = icmp eq ptr %280, %282
-  br i1 %283, label %284, label %298
+278:                                              ; preds = %100
+  %279 = getelementptr inbounds i8, ptr %102, i64 1
+  %280 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %281 = load ptr, ptr %280, align 8
+  %282 = icmp eq ptr %279, %281
+  br i1 %282, label %283, label %297
 
-284:                                              ; preds = %279
-  %285 = ptrtoint ptr %102 to i64
-  %286 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %287 = load ptr, ptr %286, align 8
-  %288 = ptrtoint ptr %287 to i64
-  %289 = sub i64 %285, %288
-  %290 = trunc i64 %289 to i32
-  %291 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %292 = load i32, ptr %291, align 8
-  %293 = add i32 %292, %290
-  store i32 %293, ptr %1, align 8
-  %294 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store i32 2, ptr %294, align 4
-  %295 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  store i32 1, ptr %295, align 4
-  store ptr %280, ptr %101, align 8
-  %296 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store ptr %102, ptr %296, align 8
-  %297 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 1, ptr %297, align 8
+283:                                              ; preds = %278
+  %284 = ptrtoint ptr %102 to i64
+  %285 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %286 = load ptr, ptr %285, align 8
+  %287 = ptrtoint ptr %286 to i64
+  %288 = sub i64 %284, %287
+  %289 = trunc i64 %288 to i32
+  %290 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %291 = load i32, ptr %290, align 8
+  %292 = add i32 %291, %289
+  store i32 %292, ptr %1, align 8
+  %293 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  store i32 2, ptr %293, align 4
+  %294 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  store i32 1, ptr %294, align 4
+  store ptr %279, ptr %101, align 8
+  %295 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store ptr %102, ptr %295, align 8
+  %296 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 1, ptr %296, align 8
   br label %_ZN5clang8comments5Lexer20lexVerbatimBlockBodyERNS0_5TokenE.exit
 
-298:                                              ; preds = %279
-  %299 = load i8, ptr %280, align 1
-  %300 = zext i8 %299 to i64
-  %301 = getelementptr inbounds [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %300
-  %302 = load i16, ptr %301, align 2
-  %303 = and i16 %302, 96
-  %.not164 = icmp eq i16 %303, 0
-  br i1 %.not164, label %305, label %304
+297:                                              ; preds = %278
+  %298 = load i8, ptr %279, align 1
+  %299 = zext i8 %298 to i64
+  %300 = getelementptr inbounds [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %299
+  %301 = load i16, ptr %300, align 2
+  %302 = and i16 %301, 96
+  %.not164 = icmp eq i16 %302, 0
+  br i1 %.not164, label %304, label %303
 
-304:                                              ; preds = %298
+303:                                              ; preds = %297
   tail call void @_ZN5clang8comments5Lexer23setupAndLexHTMLStartTagERNS0_5TokenE(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(24) %1)
   br label %_ZN5clang8comments5Lexer20lexVerbatimBlockBodyERNS0_5TokenE.exit
 
-305:                                              ; preds = %298
-  %306 = icmp eq i8 %299, 47
-  br i1 %306, label %307, label %308
+304:                                              ; preds = %297
+  %305 = icmp eq i8 %298, 47
+  br i1 %305, label %306, label %307
 
-307:                                              ; preds = %305
+306:                                              ; preds = %304
   tail call void @_ZN5clang8comments5Lexer21setupAndLexHTMLEndTagERNS0_5TokenE(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(24) %1)
   br label %_ZN5clang8comments5Lexer20lexVerbatimBlockBodyERNS0_5TokenE.exit
 
-308:                                              ; preds = %305
-  %309 = ptrtoint ptr %102 to i64
-  %310 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %311 = load ptr, ptr %310, align 8
-  %312 = ptrtoint ptr %311 to i64
-  %313 = sub i64 %309, %312
-  %314 = trunc i64 %313 to i32
-  %315 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %316 = load i32, ptr %315, align 8
-  %317 = add i32 %316, %314
-  store i32 %317, ptr %1, align 8
-  %318 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store i32 2, ptr %318, align 4
-  %319 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  store i32 1, ptr %319, align 4
-  store ptr %280, ptr %101, align 8
-  %320 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store ptr %102, ptr %320, align 8
-  %321 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 1, ptr %321, align 8
+307:                                              ; preds = %304
+  %308 = ptrtoint ptr %102 to i64
+  %309 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %310 = load ptr, ptr %309, align 8
+  %311 = ptrtoint ptr %310 to i64
+  %312 = sub i64 %308, %311
+  %313 = trunc i64 %312 to i32
+  %314 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %315 = load i32, ptr %314, align 8
+  %316 = add i32 %315, %313
+  store i32 %316, ptr %1, align 8
+  %317 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  store i32 2, ptr %317, align 4
+  %318 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  store i32 1, ptr %318, align 4
+  store ptr %279, ptr %101, align 8
+  %319 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store ptr %102, ptr %319, align 8
+  %320 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 1, ptr %320, align 8
   br label %_ZN5clang8comments5Lexer20lexVerbatimBlockBodyERNS0_5TokenE.exit
 
-322:                                              ; preds = %100
+321:                                              ; preds = %100
   tail call fastcc void @"_ZZN5clang8comments5Lexer14lexCommentTextERNS0_5TokenEENK3$_0clEv"(ptr nonnull %0, ptr nonnull %1)
   br label %_ZN5clang8comments5Lexer20lexVerbatimBlockBodyERNS0_5TokenE.exit
 
-_ZN5clang8comments5Lexer20lexVerbatimBlockBodyERNS0_5TokenE.exit: ; preds = %55, %_ZN5clang8comments5Lexer27skipLineStartingDecorationsEv.exit.thread.i, %304, %308, %307, %322, %284, %278, %274, %270, %249, %223, %159, %134, %111, %85, %84, %_ZN5clang8comments5Lexer19lexVerbatimLineTextERNS0_5TokenE.exit, %15, %11
+_ZN5clang8comments5Lexer20lexVerbatimBlockBodyERNS0_5TokenE.exit: ; preds = %55, %_ZN5clang8comments5Lexer27skipLineStartingDecorationsEv.exit.thread.i, %303, %307, %306, %321, %283, %277, %273, %269, %248, %223, %159, %134, %111, %85, %84, %_ZN5clang8comments5Lexer19lexVerbatimLineTextERNS0_5TokenE.exit, %15, %11
   ret void
 }
 
@@ -6121,6 +6119,9 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #17
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.usub.sat.i32(i32, i32) #14
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

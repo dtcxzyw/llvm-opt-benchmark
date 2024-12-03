@@ -602,14 +602,13 @@ get_memset_num_threads.exit.i:                    ; preds = %if.then.i.i, %if.en
   %sext15.i.i = shl i64 %cond17.i.i, 32
   %conv19.i.i = ashr exact i64 %sext15.i.i, 32
   %mul.i.i = mul i64 %div, %call
-  %div16.i.i = lshr i64 %mul.i.i, 26
-  %cmp21.i.i = icmp ult i64 %mul.i.i, 67108864
-  %cond26.i.i = select i1 %cmp21.i.i, i64 1, i64 %div16.i.i
+  %7 = call i64 @llvm.umax.i64(i64 %mul.i.i, i64 67108864)
+  %cond26.i.i = lshr i64 %7, 26
   %cond33.i.i = call i64 @llvm.umin.i64(i64 %conv19.i.i, i64 %cond26.i.i)
   %conv34.i.i = trunc i64 %cond33.i.i to i32
   store i32 %conv34.i.i, ptr %num_threads.i, align 8
-  %7 = load atomic i64, ptr @touch_all_pages.initialized seq_cst, align 8
-  %tobool.not.i11 = icmp eq i64 %7, 0
+  %8 = load atomic i64, ptr @touch_all_pages.initialized seq_cst, align 8
+  %tobool.not.i11 = icmp eq i64 %8, 0
   br i1 %tobool.not.i11, label %land.rhs.i, label %if.end.i
 
 land.rhs.i:                                       ; preds = %get_memset_num_threads.exit.i
@@ -642,8 +641,8 @@ if.end20.thread:                                  ; preds = %if.then8.i
 
 if.then11.i:                                      ; preds = %if.then8.i
   %call12.i = tail call ptr @__errno_location() #16
-  %8 = load i32, ptr %call12.i, align 4
-  %sub.i = sub i32 0, %8
+  %9 = load i32, ptr %call12.i, align 4
+  %sub.i = sub i32 0, %9
   br label %touch_all_pages.exit
 
 if.end15.i:                                       ; preds = %if.then6.i, %if.end.i
@@ -662,69 +661,69 @@ for.body.lr.ph.i:                                 ; preds = %if.end15.i
   br i1 %tobool43.not.i, label %for.body.us.i, label %for.body.i
 
 for.body.us.i:                                    ; preds = %for.body.lr.ph.i, %for.body.us.i
-  %9 = phi ptr [ %14, %for.body.us.i ], [ %call17.i, %for.body.lr.ph.i ]
+  %10 = phi ptr [ %15, %for.body.us.i ], [ %call17.i, %for.body.lr.ph.i ]
   %indvars.iv36.i = phi i64 [ %indvars.iv.next37.i, %for.body.us.i ], [ 0, %for.body.lr.ph.i ]
   %addr.029.us.i = phi ptr [ %add.ptr.us.i, %for.body.us.i ], [ %area, %for.body.lr.ph.i ]
-  %arrayidx.us.i = getelementptr %struct.MemsetThread, ptr %9, i64 %indvars.iv36.i
+  %arrayidx.us.i = getelementptr %struct.MemsetThread, ptr %10, i64 %indvars.iv36.i
   store ptr %addr.029.us.i, ptr %arrayidx.us.i, align 8
   %cmp28.us.i = icmp ugt i64 %rem.i, %indvars.iv36.i
   %conv30.us.i = zext i1 %cmp28.us.i to i64
   %add.us.i = add i64 %div.i, %conv30.us.i
-  %10 = load ptr, ptr %threads.i, align 8
-  %numpages34.us.i = getelementptr %struct.MemsetThread, ptr %10, i64 %indvars.iv36.i, i32 1
-  store i64 %add.us.i, ptr %numpages34.us.i, align 8
   %11 = load ptr, ptr %threads.i, align 8
-  %hpagesize38.us.i = getelementptr %struct.MemsetThread, ptr %11, i64 %indvars.iv36.i, i32 2
-  store i64 %call, ptr %hpagesize38.us.i, align 8
+  %numpages34.us.i = getelementptr %struct.MemsetThread, ptr %11, i64 %indvars.iv36.i, i32 1
+  store i64 %add.us.i, ptr %numpages34.us.i, align 8
   %12 = load ptr, ptr %threads.i, align 8
-  %context42.us.i = getelementptr %struct.MemsetThread, ptr %12, i64 %indvars.iv36.i, i32 5
-  store ptr %context.i, ptr %context42.us.i, align 8
+  %hpagesize38.us.i = getelementptr %struct.MemsetThread, ptr %12, i64 %indvars.iv36.i, i32 2
+  store i64 %call, ptr %hpagesize38.us.i, align 8
   %13 = load ptr, ptr %threads.i, align 8
-  %arrayidx54.us.i = getelementptr %struct.MemsetThread, ptr %13, i64 %indvars.iv36.i
+  %context42.us.i = getelementptr %struct.MemsetThread, ptr %13, i64 %indvars.iv36.i, i32 5
+  store ptr %context.i, ptr %context42.us.i, align 8
+  %14 = load ptr, ptr %threads.i, align 8
+  %arrayidx54.us.i = getelementptr %struct.MemsetThread, ptr %14, i64 %indvars.iv36.i
   %pgthread55.us.i = getelementptr inbounds i8, ptr %arrayidx54.us.i, i64 24
   call void @qemu_thread_create(ptr noundef nonnull %pgthread55.us.i, ptr noundef nonnull @.str.21, ptr noundef nonnull %touch_fn.0.i, ptr noundef %arrayidx54.us.i, i32 noundef 0) #15
-  %14 = load ptr, ptr %threads.i, align 8
-  %numpages63.us.i = getelementptr %struct.MemsetThread, ptr %14, i64 %indvars.iv36.i, i32 1
-  %15 = load i64, ptr %numpages63.us.i, align 8
-  %mul64.us.i = mul i64 %15, %call
+  %15 = load ptr, ptr %threads.i, align 8
+  %numpages63.us.i = getelementptr %struct.MemsetThread, ptr %15, i64 %indvars.iv36.i, i32 1
+  %16 = load i64, ptr %numpages63.us.i, align 8
+  %mul64.us.i = mul i64 %16, %call
   %add.ptr.us.i = getelementptr i8, ptr %addr.029.us.i, i64 %mul64.us.i
   %indvars.iv.next37.i = add nuw nsw i64 %indvars.iv36.i, 1
-  %16 = load i32, ptr %num_threads.i, align 8
-  %17 = sext i32 %16 to i64
-  %cmp23.us.i = icmp slt i64 %indvars.iv.next37.i, %17
+  %17 = load i32, ptr %num_threads.i, align 8
+  %18 = sext i32 %17 to i64
+  %cmp23.us.i = icmp slt i64 %indvars.iv.next37.i, %18
   br i1 %cmp23.us.i, label %for.body.us.i, label %for.end.i, !llvm.loop !5
 
 for.body.i:                                       ; preds = %for.body.lr.ph.i, %for.body.i
-  %18 = phi ptr [ %23, %for.body.i ], [ %call17.i, %for.body.lr.ph.i ]
+  %19 = phi ptr [ %24, %for.body.i ], [ %call17.i, %for.body.lr.ph.i ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i ], [ 0, %for.body.lr.ph.i ]
   %addr.029.i = phi ptr [ %add.ptr.i, %for.body.i ], [ %area, %for.body.lr.ph.i ]
-  %arrayidx.i = getelementptr %struct.MemsetThread, ptr %18, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr %struct.MemsetThread, ptr %19, i64 %indvars.iv.i
   store ptr %addr.029.i, ptr %arrayidx.i, align 8
   %cmp28.i = icmp ugt i64 %rem.i, %indvars.iv.i
   %conv30.i = zext i1 %cmp28.i to i64
   %add.i = add i64 %div.i, %conv30.i
-  %19 = load ptr, ptr %threads.i, align 8
-  %numpages34.i = getelementptr %struct.MemsetThread, ptr %19, i64 %indvars.iv.i, i32 1
-  store i64 %add.i, ptr %numpages34.i, align 8
   %20 = load ptr, ptr %threads.i, align 8
-  %hpagesize38.i = getelementptr %struct.MemsetThread, ptr %20, i64 %indvars.iv.i, i32 2
-  store i64 %call, ptr %hpagesize38.i, align 8
+  %numpages34.i = getelementptr %struct.MemsetThread, ptr %20, i64 %indvars.iv.i, i32 1
+  store i64 %add.i, ptr %numpages34.i, align 8
   %21 = load ptr, ptr %threads.i, align 8
-  %context42.i = getelementptr %struct.MemsetThread, ptr %21, i64 %indvars.iv.i, i32 5
-  store ptr %context.i, ptr %context42.i, align 8
+  %hpagesize38.i = getelementptr %struct.MemsetThread, ptr %21, i64 %indvars.iv.i, i32 2
+  store i64 %call, ptr %hpagesize38.i, align 8
   %22 = load ptr, ptr %threads.i, align 8
-  %arrayidx47.i = getelementptr %struct.MemsetThread, ptr %22, i64 %indvars.iv.i
+  %context42.i = getelementptr %struct.MemsetThread, ptr %22, i64 %indvars.iv.i, i32 5
+  store ptr %context.i, ptr %context42.i, align 8
+  %23 = load ptr, ptr %threads.i, align 8
+  %arrayidx47.i = getelementptr %struct.MemsetThread, ptr %23, i64 %indvars.iv.i
   %pgthread.i = getelementptr inbounds i8, ptr %arrayidx47.i, i64 24
   call void @thread_context_create_thread(ptr noundef nonnull %tc, ptr noundef nonnull %pgthread.i, ptr noundef nonnull @.str.21, ptr noundef nonnull %touch_fn.0.i, ptr noundef %arrayidx47.i, i32 noundef 0) #15
-  %23 = load ptr, ptr %threads.i, align 8
-  %numpages63.i = getelementptr %struct.MemsetThread, ptr %23, i64 %indvars.iv.i, i32 1
-  %24 = load i64, ptr %numpages63.i, align 8
-  %mul64.i = mul i64 %24, %call
+  %24 = load ptr, ptr %threads.i, align 8
+  %numpages63.i = getelementptr %struct.MemsetThread, ptr %24, i64 %indvars.iv.i, i32 1
+  %25 = load i64, ptr %numpages63.i, align 8
+  %mul64.i = mul i64 %25, %call
   %add.ptr.i = getelementptr i8, ptr %addr.029.i, i64 %mul64.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %25 = load i32, ptr %num_threads.i, align 8
-  %26 = sext i32 %25 to i64
-  %cmp23.i = icmp slt i64 %indvars.iv.next.i, %26
+  %26 = load i32, ptr %num_threads.i, align 8
+  %27 = sext i32 %26 to i64
+  %cmp23.i = icmp slt i64 %indvars.iv.next.i, %27
   br i1 %cmp23.i, label %for.body.i, label %for.end.i, !llvm.loop !5
 
 for.end.i:                                        ; preds = %for.body.i, %for.body.us.i, %if.end15.i
@@ -735,30 +734,30 @@ if.then66.i:                                      ; preds = %for.end.i
   br label %while.end.i
 
 while.end.i:                                      ; preds = %if.then66.i, %for.end.i
-  %27 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
-  %28 = inttoptr i64 %27 to ptr
-  call void %28(ptr noundef nonnull @page_mutex, ptr noundef nonnull @.str, i32 noundef 473) #15
+  %28 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
+  %29 = inttoptr i64 %28 to ptr
+  call void %29(ptr noundef nonnull @page_mutex, ptr noundef nonnull @.str, i32 noundef 473) #15
   store i8 1, ptr %context.i, align 8
   call void @qemu_cond_broadcast(ptr noundef nonnull @page_cond) #15
   call void @qemu_mutex_unlock_impl(ptr noundef nonnull @page_mutex, ptr noundef nonnull @.str, i32 noundef 476) #15
-  %29 = load i32, ptr %num_threads.i, align 8
-  %cmp7131.i = icmp sgt i32 %29, 0
+  %30 = load i32, ptr %num_threads.i, align 8
+  %cmp7131.i = icmp sgt i32 %30, 0
   br i1 %cmp7131.i, label %for.body73.i, label %for.end86.i
 
 for.body73.i:                                     ; preds = %while.end.i, %for.body73.i
   %indvars.iv39.i = phi i64 [ %indvars.iv.next40.i, %for.body73.i ], [ 0, %while.end.i ]
   %ret.033.i = phi i32 [ %spec.select.i, %for.body73.i ], [ 0, %while.end.i ]
-  %30 = load ptr, ptr %threads.i, align 8
-  %pgthread78.i = getelementptr %struct.MemsetThread, ptr %30, i64 %indvars.iv39.i, i32 3
+  %31 = load ptr, ptr %threads.i, align 8
+  %pgthread78.i = getelementptr %struct.MemsetThread, ptr %31, i64 %indvars.iv39.i, i32 3
   %call79.i = call ptr @qemu_thread_join(ptr noundef %pgthread78.i) #15
-  %31 = ptrtoint ptr %call79.i to i64
-  %conv80.i = trunc i64 %31 to i32
+  %32 = ptrtoint ptr %call79.i to i64
+  %conv80.i = trunc i64 %32 to i32
   %tobool81.not.i = icmp eq i32 %conv80.i, 0
   %spec.select.i = select i1 %tobool81.not.i, i32 %ret.033.i, i32 %conv80.i
   %indvars.iv.next40.i = add nuw nsw i64 %indvars.iv39.i, 1
-  %32 = load i32, ptr %num_threads.i, align 8
-  %33 = sext i32 %32 to i64
-  %cmp71.i = icmp slt i64 %indvars.iv.next40.i, %33
+  %33 = load i32, ptr %num_threads.i, align 8
+  %34 = sext i32 %33 to i64
+  %cmp71.i = icmp slt i64 %indvars.iv.next40.i, %34
   br i1 %cmp71.i, label %for.body73.i, label %for.end86.i, !llvm.loop !7
 
 for.end86.i:                                      ; preds = %for.body73.i, %while.end.i
@@ -770,8 +769,8 @@ if.then88.i:                                      ; preds = %for.end86.i
   br label %if.end89.i
 
 if.end89.i:                                       ; preds = %if.then88.i, %for.end86.i
-  %34 = load ptr, ptr %threads.i, align 8
-  call void @g_free(ptr noundef %34) #15
+  %35 = load ptr, ptr %threads.i, align 8
+  call void @g_free(ptr noundef %35) #15
   br label %touch_all_pages.exit
 
 touch_all_pages.exit:                             ; preds = %if.then11.i, %if.end89.i

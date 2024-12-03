@@ -1715,14 +1715,14 @@ avifPrepareReformatState.exit:                    ; preds = %96, %91
   br label %190
 
 190:                                              ; preds = %180, %.loopexit
-  %wide.trip.count136 = zext nneg i32 %119 to i64
+  %wide.trip.count134 = zext nneg i32 %119 to i64
   br label %191
 
 191:                                              ; preds = %190, %198
-  %indvars.iv133 = phi i64 [ 0, %190 ], [ %indvars.iv.next134, %198 ]
+  %indvars.iv131 = phi i64 [ 0, %190 ], [ %indvars.iv.next132, %198 ]
   %.074122 = phi i32 [ 0, %190 ], [ %spec.select105, %198 ]
   %192 = load ptr, ptr %4, align 8
-  %193 = getelementptr inbounds %struct.YUVToRGBThreadData, ptr %192, i64 %indvars.iv133
+  %193 = getelementptr inbounds %struct.YUVToRGBThreadData, ptr %192, i64 %indvars.iv131
   %194 = getelementptr inbounds nuw i8, ptr %193, i64 288
   %195 = load i32, ptr %194, align 8
   %.not98 = icmp eq i32 %195, 0
@@ -1741,9 +1741,9 @@ avifPrepareReformatState.exit:                    ; preds = %96, %91
   %200 = load i32, ptr %199, align 4
   %.not100 = icmp eq i32 %200, 0
   %spec.select105 = select i1 %.not100, i32 %.1, i32 %200
-  %indvars.iv.next134 = add nuw nsw i64 %indvars.iv133, 1
-  %exitcond137.not = icmp eq i64 %indvars.iv.next134, %wide.trip.count136
-  br i1 %exitcond137.not, label %201, label %191, !llvm.loop !15
+  %indvars.iv.next132 = add nuw nsw i64 %indvars.iv131, 1
+  %exitcond135.not = icmp eq i64 %indvars.iv.next132, %wide.trip.count134
+  br i1 %exitcond135.not, label %201, label %191, !llvm.loop !15
 
 201:                                              ; preds = %198
   call void @avifArrayDestroy(ptr noundef nonnull %4) #10

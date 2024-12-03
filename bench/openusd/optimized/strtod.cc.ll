@@ -102,7 +102,7 @@ define internal fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__
 
 8:                                                ; preds = %4
   store double 0.000000e+00, ptr %3, align 8
-  br label %229
+  br label %227
 
 9:                                                ; preds = %4
   %10 = add nsw i32 %2, %1
@@ -111,7 +111,7 @@ define internal fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__
 
 12:                                               ; preds = %9
   store double 0x7FF0000000000000, ptr %3, align 8
-  br label %229
+  br label %227
 
 13:                                               ; preds = %9
   %14 = icmp slt i32 %10, -323
@@ -119,7 +119,7 @@ define internal fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__
 
 15:                                               ; preds = %13
   store double 0.000000e+00, ptr %3, align 8
-  br label %229
+  br label %227
 
 16:                                               ; preds = %13
   %17 = icmp slt i32 %1, 16
@@ -261,7 +261,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL10ReadUint64ENS0_6V
 _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL12DoubleStrtodENS0_6VectorIKcEEiPd.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL10ReadUint64ENS0_6VectorIKcEEPi.exit.i, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL10ReadUint64ENS0_6VectorIKcEEPi.exit38.i, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL10ReadUint64ENS0_6VectorIKcEEPi.exit47.i
   %.sink.i = phi double [ %81, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL10ReadUint64ENS0_6VectorIKcEEPi.exit47.i ], [ %54, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL10ReadUint64ENS0_6VectorIKcEEPi.exit38.i ], [ %36, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL10ReadUint64ENS0_6VectorIKcEEPi.exit.i ]
   store double %.sink.i, ptr %3, align 8
-  br label %229
+  br label %227
 
 82:                                               ; preds = %55, %58
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
@@ -350,7 +350,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL11DiyFpStrtodENS0_6
   store double 0.000000e+00, ptr %3, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  br label %229
+  br label %227
 
 116:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion5DiyFp9NormalizeEv.exit.i
   store i64 0, ptr %5, align 8
@@ -368,7 +368,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL11DiyFpStrtodENS0_6
   br i1 %121, label %switch.lookup, label %122
 
 122:                                              ; preds = %119
-  call void @abort() #5
+  call void @abort() #6
   unreachable
 
 switch.lookup:                                    ; preds = %119
@@ -459,109 +459,107 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion5DiyFp9NormalizeEv.e
   %175 = shl i64 %164, %174
   %176 = add nsw i32 %.19.lcssa.i65.i, 64
   %177 = icmp sgt i32 %.19.lcssa.i65.i, -1086
-  %178 = icmp samesign ult i32 %176, -1073
-  %179 = add nsw i32 %.19.lcssa.i65.i, 1138
-  %spec.select.i74.i = select i1 %178, i32 0, i32 %179
+  %spec.select.i74.i = call i32 @llvm.usub.sat.i32(i32 %176, i32 -1074)
   %.0.i.i = select i1 %177, i32 53, i32 %spec.select.i74.i
-  %180 = sub nsw i32 64, %.0.i.i
-  %181 = icmp slt i32 %.0.i.i, 4
-  br i1 %181, label %182, label %189
+  %178 = sub nsw i32 64, %.0.i.i
+  %179 = icmp samesign ult i32 %.0.i.i, 4
+  br i1 %179, label %180, label %187
 
-182:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion5DiyFp9NormalizeEv.exit73.i
-  %183 = sub nsw i32 4, %.0.i.i
-  %184 = zext nneg i32 %183 to i64
-  %185 = lshr i64 %.1.lcssa.i66.i, %184
-  %186 = add nsw i32 %183, %.19.lcssa.i65.i
-  %187 = lshr i64 %175, %184
-  %188 = add nuw i64 %187, 9
-  br label %189
+180:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion5DiyFp9NormalizeEv.exit73.i
+  %181 = sub nuw nsw i32 4, %.0.i.i
+  %182 = zext nneg i32 %181 to i64
+  %183 = lshr i64 %.1.lcssa.i66.i, %182
+  %184 = add nsw i32 %181, %.19.lcssa.i65.i
+  %185 = lshr i64 %175, %182
+  %186 = add nuw i64 %185, 9
+  br label %187
 
-189:                                              ; preds = %182, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion5DiyFp9NormalizeEv.exit73.i
-  %.sroa.079.1.i = phi i64 [ %185, %182 ], [ %.1.lcssa.i66.i, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion5DiyFp9NormalizeEv.exit73.i ]
-  %.sroa.14.1.i = phi i32 [ %186, %182 ], [ %.19.lcssa.i65.i, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion5DiyFp9NormalizeEv.exit73.i ]
-  %.053.i = phi i32 [ 60, %182 ], [ %180, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion5DiyFp9NormalizeEv.exit73.i ]
-  %.1.i = phi i64 [ %188, %182 ], [ %175, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion5DiyFp9NormalizeEv.exit73.i ]
-  %190 = zext i32 %.053.i to i64
-  %notmask.i = shl nsw i64 -1, %190
-  %191 = xor i64 %notmask.i, -1
-  %192 = and i64 %.sroa.079.1.i, %191
-  %193 = add nsw i32 %.053.i, -1
-  %194 = zext nneg i32 %193 to i64
-  %195 = shl i64 %192, 3
-  %196 = shl i64 8, %194
-  %197 = lshr i64 %.sroa.079.1.i, %190
-  %198 = add nsw i32 %.053.i, %.sroa.14.1.i
-  %199 = add i64 %196, %.1.i
-  %.not60.i = icmp uge i64 %195, %199
-  %200 = zext i1 %.not60.i to i64
-  %spec.select105.i = add i64 %197, %200
-  %201 = icmp ugt i64 %spec.select105.i, 9007199254740991
-  br i1 %201, label %.lr.ph.i.i75.i, label %._crit_edge.i.i.i
+187:                                              ; preds = %180, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion5DiyFp9NormalizeEv.exit73.i
+  %.sroa.079.1.i = phi i64 [ %183, %180 ], [ %.1.lcssa.i66.i, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion5DiyFp9NormalizeEv.exit73.i ]
+  %.sroa.14.1.i = phi i32 [ %184, %180 ], [ %.19.lcssa.i65.i, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion5DiyFp9NormalizeEv.exit73.i ]
+  %.053.i = phi i32 [ 60, %180 ], [ %178, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion5DiyFp9NormalizeEv.exit73.i ]
+  %.1.i = phi i64 [ %186, %180 ], [ %175, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion5DiyFp9NormalizeEv.exit73.i ]
+  %188 = zext i32 %.053.i to i64
+  %notmask.i = shl nsw i64 -1, %188
+  %189 = xor i64 %notmask.i, -1
+  %190 = and i64 %.sroa.079.1.i, %189
+  %191 = add nsw i32 %.053.i, -1
+  %192 = zext nneg i32 %191 to i64
+  %193 = shl i64 %190, 3
+  %194 = shl i64 8, %192
+  %195 = lshr i64 %.sroa.079.1.i, %188
+  %196 = add nsw i32 %.053.i, %.sroa.14.1.i
+  %197 = add i64 %194, %.1.i
+  %.not60.i = icmp uge i64 %193, %197
+  %198 = zext i1 %.not60.i to i64
+  %spec.select105.i = add i64 %195, %198
+  %199 = icmp ugt i64 %spec.select105.i, 9007199254740991
+  br i1 %199, label %.lr.ph.i.i75.i, label %._crit_edge.i.i.i
 
-.lr.ph.i.i75.i:                                   ; preds = %189, %.lr.ph.i.i75.i
-  %.01521.i.i.i = phi i32 [ %203, %.lr.ph.i.i75.i ], [ %198, %189 ]
-  %.01620.i.i.i = phi i64 [ %202, %.lr.ph.i.i75.i ], [ %spec.select105.i, %189 ]
-  %202 = lshr i64 %.01620.i.i.i, 1
-  %203 = add nsw i32 %.01521.i.i.i, 1
-  %204 = icmp ugt i64 %.01620.i.i.i, 18014398509481983
-  br i1 %204, label %.lr.ph.i.i75.i, label %._crit_edge.i.i.i, !llvm.loop !8
+.lr.ph.i.i75.i:                                   ; preds = %187, %.lr.ph.i.i75.i
+  %.01521.i.i.i = phi i32 [ %201, %.lr.ph.i.i75.i ], [ %196, %187 ]
+  %.01620.i.i.i = phi i64 [ %200, %.lr.ph.i.i75.i ], [ %spec.select105.i, %187 ]
+  %200 = lshr i64 %.01620.i.i.i, 1
+  %201 = add nsw i32 %.01521.i.i.i, 1
+  %202 = icmp ugt i64 %.01620.i.i.i, 18014398509481983
+  br i1 %202, label %.lr.ph.i.i75.i, label %._crit_edge.i.i.i, !llvm.loop !8
 
-._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i75.i, %189
-  %.016.lcssa.i.i.i = phi i64 [ %spec.select105.i, %189 ], [ %202, %.lr.ph.i.i75.i ]
-  %.015.lcssa.i.i.i = phi i32 [ %198, %189 ], [ %203, %.lr.ph.i.i75.i ]
-  %205 = icmp sgt i32 %.015.lcssa.i.i.i, 971
-  br i1 %205, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL11DiyFpStrtodENS0_6VectorIKcEEiPd.exit, label %206
+._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i75.i, %187
+  %.016.lcssa.i.i.i = phi i64 [ %spec.select105.i, %187 ], [ %200, %.lr.ph.i.i75.i ]
+  %.015.lcssa.i.i.i = phi i32 [ %196, %187 ], [ %201, %.lr.ph.i.i75.i ]
+  %203 = icmp sgt i32 %.015.lcssa.i.i.i, 971
+  br i1 %203, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL11DiyFpStrtodENS0_6VectorIKcEEiPd.exit, label %204
 
-206:                                              ; preds = %._crit_edge.i.i.i
-  %207 = icmp slt i32 %.015.lcssa.i.i.i, -1074
-  br i1 %207, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL11DiyFpStrtodENS0_6VectorIKcEEiPd.exit, label %.preheader.i.i.i
+204:                                              ; preds = %._crit_edge.i.i.i
+  %205 = icmp slt i32 %.015.lcssa.i.i.i, -1074
+  br i1 %205, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL11DiyFpStrtodENS0_6VectorIKcEEiPd.exit, label %.preheader.i.i.i
 
-.preheader.i.i.i:                                 ; preds = %206
-  %208 = icmp ne i32 %.015.lcssa.i.i.i, -1074
-  %209 = and i64 %.016.lcssa.i.i.i, 4503599627370496
-  %210 = icmp eq i64 %209, 0
-  %211 = and i1 %208, %210
-  br i1 %211, label %.lr.ph25.i.i.i, label %._crit_edge26.i.i.i
+.preheader.i.i.i:                                 ; preds = %204
+  %206 = icmp ne i32 %.015.lcssa.i.i.i, -1074
+  %207 = and i64 %.016.lcssa.i.i.i, 4503599627370496
+  %208 = icmp eq i64 %207, 0
+  %209 = and i1 %206, %208
+  br i1 %209, label %.lr.ph25.i.i.i, label %._crit_edge26.i.i.i
 
 .lr.ph25.i.i.i:                                   ; preds = %.preheader.i.i.i, %.lr.ph25.i.i.i
-  %.124.i.i.i = phi i32 [ %213, %.lr.ph25.i.i.i ], [ %.015.lcssa.i.i.i, %.preheader.i.i.i ]
-  %.11723.i.i.i = phi i64 [ %212, %.lr.ph25.i.i.i ], [ %.016.lcssa.i.i.i, %.preheader.i.i.i ]
-  %212 = shl i64 %.11723.i.i.i, 1
-  %213 = add nsw i32 %.124.i.i.i, -1
-  %214 = icmp sgt i32 %.124.i.i.i, -1073
-  %215 = and i64 %.11723.i.i.i, 2251799813685248
-  %216 = icmp eq i64 %215, 0
-  %217 = select i1 %214, i1 %216, i1 false
-  br i1 %217, label %.lr.ph25.i.i.i, label %._crit_edge26.i.i.i, !llvm.loop !9
+  %.124.i.i.i = phi i32 [ %211, %.lr.ph25.i.i.i ], [ %.015.lcssa.i.i.i, %.preheader.i.i.i ]
+  %.11723.i.i.i = phi i64 [ %210, %.lr.ph25.i.i.i ], [ %.016.lcssa.i.i.i, %.preheader.i.i.i ]
+  %210 = shl i64 %.11723.i.i.i, 1
+  %211 = add nsw i32 %.124.i.i.i, -1
+  %212 = icmp sgt i32 %.124.i.i.i, -1073
+  %213 = and i64 %.11723.i.i.i, 2251799813685248
+  %214 = icmp eq i64 %213, 0
+  %215 = select i1 %212, i1 %214, i1 false
+  br i1 %215, label %.lr.ph25.i.i.i, label %._crit_edge26.i.i.i, !llvm.loop !9
 
 ._crit_edge26.i.i.i:                              ; preds = %.lr.ph25.i.i.i, %.preheader.i.i.i
-  %.117.lcssa.i.i.i = phi i64 [ %.016.lcssa.i.i.i, %.preheader.i.i.i ], [ %212, %.lr.ph25.i.i.i ]
-  %.1.lcssa.i.i.i = phi i32 [ %.015.lcssa.i.i.i, %.preheader.i.i.i ], [ %213, %.lr.ph25.i.i.i ]
-  %.lcssa.i.i.i = phi i1 [ %210, %.preheader.i.i.i ], [ %216, %.lr.ph25.i.i.i ]
-  %218 = icmp eq i32 %.1.lcssa.i.i.i, -1074
-  %brmerge.not.i.i.i = select i1 %218, i1 %.lcssa.i.i.i, i1 false
-  %219 = add nsw i32 %.1.lcssa.i.i.i, 1075
-  %220 = zext nneg i32 %219 to i64
-  %221 = shl nuw nsw i64 %220, 52
-  %.0.i.i.i = select i1 %brmerge.not.i.i.i, i64 0, i64 %221
-  %222 = and i64 %.117.lcssa.i.i.i, 4503599627370495
-  %223 = or disjoint i64 %.0.i.i.i, %222
-  %224 = bitcast i64 %223 to double
+  %.117.lcssa.i.i.i = phi i64 [ %.016.lcssa.i.i.i, %.preheader.i.i.i ], [ %210, %.lr.ph25.i.i.i ]
+  %.1.lcssa.i.i.i = phi i32 [ %.015.lcssa.i.i.i, %.preheader.i.i.i ], [ %211, %.lr.ph25.i.i.i ]
+  %.lcssa.i.i.i = phi i1 [ %208, %.preheader.i.i.i ], [ %214, %.lr.ph25.i.i.i ]
+  %216 = icmp eq i32 %.1.lcssa.i.i.i, -1074
+  %brmerge.not.i.i.i = select i1 %216, i1 %.lcssa.i.i.i, i1 false
+  %217 = add nsw i32 %.1.lcssa.i.i.i, 1075
+  %218 = zext nneg i32 %217 to i64
+  %219 = shl nuw nsw i64 %218, 52
+  %.0.i.i.i = select i1 %brmerge.not.i.i.i, i64 0, i64 %219
+  %220 = and i64 %.117.lcssa.i.i.i, 4503599627370495
+  %221 = or disjoint i64 %.0.i.i.i, %220
+  %222 = bitcast i64 %221 to double
   br label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL11DiyFpStrtodENS0_6VectorIKcEEiPd.exit
 
-_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL11DiyFpStrtodENS0_6VectorIKcEEiPd.exit: ; preds = %._crit_edge.i.i.i, %206, %._crit_edge26.i.i.i
-  %225 = phi double [ %224, %._crit_edge26.i.i.i ], [ 0x7FF0000000000000, %._crit_edge.i.i.i ], [ 0.000000e+00, %206 ]
-  store double %225, ptr %3, align 8
-  %226 = sub i64 %196, %.1.i
-  %227 = icmp uge i64 %226, %195
-  %or.cond.not.i = or i1 %227, %.not60.i
+_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL11DiyFpStrtodENS0_6VectorIKcEEiPd.exit: ; preds = %._crit_edge.i.i.i, %204, %._crit_edge26.i.i.i
+  %223 = phi double [ %222, %._crit_edge26.i.i.i ], [ 0x7FF0000000000000, %._crit_edge.i.i.i ], [ 0.000000e+00, %204 ]
+  store double %223, ptr %3, align 8
+  %224 = sub i64 %194, %.1.i
+  %225 = icmp uge i64 %224, %193
+  %or.cond.not.i = or i1 %225, %.not60.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  %228 = fcmp oeq double %225, 0x7FF0000000000000
-  %spec.select = select i1 %or.cond.not.i, i1 true, i1 %228
-  br label %229
+  %226 = fcmp oeq double %223, 0x7FF0000000000000
+  %spec.select = select i1 %or.cond.not.i, i1 true, i1 %226
+  br label %227
 
-229:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL11DiyFpStrtodENS0_6VectorIKcEEiPd.exit, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL11DiyFpStrtodENS0_6VectorIKcEEiPd.exit.thread, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL12DoubleStrtodENS0_6VectorIKcEEiPd.exit, %15, %12, %8
+227:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL11DiyFpStrtodENS0_6VectorIKcEEiPd.exit, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL11DiyFpStrtodENS0_6VectorIKcEEiPd.exit.thread, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL12DoubleStrtodENS0_6VectorIKcEEiPd.exit, %15, %12, %8
   %.0 = phi i1 [ true, %8 ], [ true, %12 ], [ true, %15 ], [ true, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL12DoubleStrtodENS0_6VectorIKcEEiPd.exit ], [ true, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL11DiyFpStrtodENS0_6VectorIKcEEiPd.exit.thread ], [ %spec.select, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL11DiyFpStrtodENS0_6VectorIKcEEiPd.exit ]
   ret i1 %.0
 }
@@ -1023,18 +1021,22 @@ declare void @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignu
 
 declare noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum7CompareERKS1_S3_(ptr noundef nonnull align 4 dereferenceable(516), ptr noundef nonnull align 4 dereferenceable(516)) local_unnamed_addr #2
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.usub.sat.i32(i32, i32) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { noreturn nounwind }
+attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

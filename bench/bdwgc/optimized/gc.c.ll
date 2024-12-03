@@ -44103,10 +44103,9 @@ define internal fastcc void @soft_set_grungy_pages(ptr noundef %0, ptr noundef %
   br label %pagemap_buffered_read.exit
 
 35:                                               ; preds = %28, %16
-  %.inv.i = icmp ugt i64 %22, 16383
-  %36 = sub i64 0, %22
-  %37 = select i1 %.inv.i, i64 -16384, i64 %36
-  %38 = and i64 %37, %21
+  %36 = tail call i64 @llvm.umin.i64(i64 %22, i64 16384)
+  %37 = sub nsw i64 0, %36
+  %38 = and i64 %21, %37
   br label %39
 
 39:                                               ; preds = %63, %35

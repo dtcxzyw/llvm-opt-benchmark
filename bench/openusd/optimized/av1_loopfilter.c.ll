@@ -1179,165 +1179,164 @@ define hidden void @av1_loop_filter_frame(ptr noundef %0, ptr noundef %1, ptr no
   %.not = icmp ne i32 %5, 0
   %9 = icmp sgt i32 %8, 8
   %or.cond = select i1 %.not, i1 %9, i1 false
-  br i1 %or.cond, label %10, label %15
+  br i1 %or.cond, label %10, label %14
 
 10:                                               ; preds = %6
   %11 = lshr i32 %8, 1
   %12 = and i32 %11, 1073741816
-  %13 = icmp samesign ugt i32 %8, 71
-  %14 = lshr i32 %8, 3
-  %spec.select = select i1 %13, i32 %14, i32 8
-  br label %15
+  %13 = tail call i32 @llvm.umax.i32(i32 %8, i32 71)
+  %spec.select = lshr i32 %13, 3
+  br label %14
 
-15:                                               ; preds = %10, %6
+14:                                               ; preds = %10, %6
   %.018 = phi i32 [ %12, %10 ], [ 0, %6 ]
   %.0 = phi i32 [ %spec.select, %10 ], [ %8, %6 ]
-  %16 = add nsw i32 %.0, %.018
+  %15 = add nsw i32 %.0, %.018
   tail call void @av1_loop_filter_frame_init(ptr noundef nonnull %1, i32 noundef %3, i32 noundef %4)
-  %17 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %18 = getelementptr inbounds nuw i8, ptr %1, i64 1080
-  %19 = load i32, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 23572
-  %21 = icmp slt i32 %3, %4
-  br i1 %21, label %.lr.ph136.i, label %loop_filter_rows.exit
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 1080
+  %18 = load i32, ptr %17, align 8
+  %19 = getelementptr inbounds i8, ptr %1, i64 23572
+  %20 = icmp slt i32 %3, %4
+  br i1 %20, label %.lr.ph136.i, label %loop_filter_rows.exit
 
-.lr.ph136.i:                                      ; preds = %15
-  %22 = getelementptr inbounds nuw i8, ptr %1, i64 23580
-  %23 = getelementptr inbounds nuw i8, ptr %1, i64 23576
-  %24 = getelementptr inbounds nuw i8, ptr %1, i64 23568
-  %25 = getelementptr inbounds nuw i8, ptr %1, i64 23600
-  %26 = icmp sgt i32 %.0, 0
-  %27 = icmp sgt i32 %19, 0
-  %28 = getelementptr inbounds nuw i8, ptr %1, i64 25212
-  %29 = sext i32 %3 to i64
-  br label %30
+.lr.ph136.i:                                      ; preds = %14
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 23580
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 23576
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 23568
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 23600
+  %25 = icmp sgt i32 %.0, 0
+  %26 = icmp sgt i32 %18, 0
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 25212
+  %28 = sext i32 %3 to i64
+  br label %29
 
-30:                                               ; preds = %.loopexit.i, %.lr.ph136.i
-  %indvars.iv.i = phi i64 [ %29, %.lr.ph136.i ], [ %indvars.iv.next.i, %.loopexit.i ]
+29:                                               ; preds = %.loopexit.i, %.lr.ph136.i
+  %indvars.iv.i = phi i64 [ %28, %.lr.ph136.i ], [ %indvars.iv.next.i, %.loopexit.i ]
   %indvars142.i = trunc i64 %indvars.iv.i to i32
-  switch i32 %indvars142.i, label %39 [
-    i32 0, label %31
-    i32 1, label %35
-    i32 2, label %37
+  switch i32 %indvars142.i, label %38 [
+    i32 0, label %30
+    i32 1, label %34
+    i32 2, label %36
   ]
 
-31:                                               ; preds = %30
-  %32 = load i32, ptr %24, align 16
-  %.not.i = icmp eq i32 %32, 0
-  br i1 %.not.i, label %33, label %39
+30:                                               ; preds = %29
+  %31 = load i32, ptr %23, align 16
+  %.not.i = icmp eq i32 %31, 0
+  br i1 %.not.i, label %32, label %38
 
-33:                                               ; preds = %31
-  %34 = load i32, ptr %20, align 4
-  %.not111.i = icmp eq i32 %34, 0
-  br i1 %.not111.i, label %loop_filter_rows.exit, label %39
+32:                                               ; preds = %30
+  %33 = load i32, ptr %19, align 4
+  %.not111.i = icmp eq i32 %33, 0
+  br i1 %.not111.i, label %loop_filter_rows.exit, label %38
 
-35:                                               ; preds = %30
-  %36 = load i32, ptr %23, align 8
-  %.not112.i = icmp eq i32 %36, 0
-  br i1 %.not112.i, label %.loopexit.i, label %39
+34:                                               ; preds = %29
+  %35 = load i32, ptr %22, align 8
+  %.not112.i = icmp eq i32 %35, 0
+  br i1 %.not112.i, label %.loopexit.i, label %38
 
-37:                                               ; preds = %30
-  %38 = load i32, ptr %22, align 4
-  %.not113.i = icmp eq i32 %38, 0
-  br i1 %.not113.i, label %.loopexit.i, label %39
+36:                                               ; preds = %29
+  %37 = load i32, ptr %21, align 4
+  %.not113.i = icmp eq i32 %37, 0
+  br i1 %.not113.i, label %.loopexit.i, label %38
 
-39:                                               ; preds = %37, %35, %33, %31, %30
-  %40 = load i32, ptr %25, align 16
-  %.not114.i = icmp eq i32 %40, 0
+38:                                               ; preds = %36, %34, %32, %30, %29
+  %39 = load i32, ptr %24, align 16
+  %.not114.i = icmp eq i32 %39, 0
   br i1 %.not114.i, label %.preheader119.i, label %.preheader120.i
 
-.preheader120.i:                                  ; preds = %39
-  br i1 %26, label %.preheader117.lr.ph.i, label %.loopexit.i
+.preheader120.i:                                  ; preds = %38
+  br i1 %25, label %.preheader117.lr.ph.i, label %.loopexit.i
 
 .preheader117.lr.ph.i:                            ; preds = %.preheader120.i
-  %41 = add nsw i32 %indvars142.i, 1
-  %42 = getelementptr inbounds %struct.macroblockd_plane, ptr %17, i64 %indvars.iv.i
+  %40 = add nsw i32 %indvars142.i, 1
+  %41 = getelementptr inbounds %struct.macroblockd_plane, ptr %16, i64 %indvars.iv.i
   br label %.preheader117.i
 
-.preheader119.i:                                  ; preds = %39
-  br i1 %26, label %.preheader116.lr.ph.i, label %.loopexit.i
+.preheader119.i:                                  ; preds = %38
+  br i1 %25, label %.preheader116.lr.ph.i, label %.loopexit.i
 
 .preheader116.lr.ph.i:                            ; preds = %.preheader119.i
-  %43 = add nsw i32 %indvars142.i, 1
-  %44 = getelementptr inbounds %struct.macroblockd_plane, ptr %17, i64 %indvars.iv.i
-  br i1 %27, label %.preheader116.us.i, label %.loopexit.i
+  %42 = add nsw i32 %indvars142.i, 1
+  %43 = getelementptr inbounds %struct.macroblockd_plane, ptr %16, i64 %indvars.iv.i
+  br i1 %26, label %.preheader116.us.i, label %.loopexit.i
 
 .preheader116.us.i:                               ; preds = %.preheader116.lr.ph.i, %._crit_edge126.us.i
-  %.1107127.us.i = phi i32 [ %49, %._crit_edge126.us.i ], [ %.018, %.preheader116.lr.ph.i ]
-  br label %45
+  %.1107127.us.i = phi i32 [ %48, %._crit_edge126.us.i ], [ %.018, %.preheader116.lr.ph.i ]
+  br label %44
 
-45:                                               ; preds = %45, %.preheader116.us.i
-  %.1124.us.i = phi i32 [ 0, %.preheader116.us.i ], [ %47, %45 ]
-  %46 = load i8, ptr %28, align 4
-  tail call void @av1_setup_dst_planes(ptr noundef nonnull %17, i8 noundef zeroext %46, ptr noundef %0, i32 noundef %.1107127.us.i, i32 noundef %.1124.us.i, i32 noundef %indvars142.i, i32 noundef %43) #8
-  tail call void @av1_filter_block_plane_vert(ptr noundef nonnull %1, ptr noundef %2, i32 noundef %indvars142.i, ptr noundef nonnull %44, i32 noundef %.1107127.us.i, i32 noundef %.1124.us.i)
-  %47 = add nuw nsw i32 %.1124.us.i, 32
-  %48 = icmp slt i32 %47, %19
-  br i1 %48, label %45, label %._crit_edge126.us.i, !llvm.loop !20
+44:                                               ; preds = %44, %.preheader116.us.i
+  %.1124.us.i = phi i32 [ 0, %.preheader116.us.i ], [ %46, %44 ]
+  %45 = load i8, ptr %27, align 4
+  tail call void @av1_setup_dst_planes(ptr noundef nonnull %16, i8 noundef zeroext %45, ptr noundef %0, i32 noundef %.1107127.us.i, i32 noundef %.1124.us.i, i32 noundef %indvars142.i, i32 noundef %42) #8
+  tail call void @av1_filter_block_plane_vert(ptr noundef nonnull %1, ptr noundef %2, i32 noundef %indvars142.i, ptr noundef nonnull %43, i32 noundef %.1107127.us.i, i32 noundef %.1124.us.i)
+  %46 = add nuw nsw i32 %.1124.us.i, 32
+  %47 = icmp slt i32 %46, %18
+  br i1 %47, label %44, label %._crit_edge126.us.i, !llvm.loop !20
 
-._crit_edge126.us.i:                              ; preds = %45
-  %49 = add nuw nsw i32 %.1107127.us.i, 32
-  %50 = icmp slt i32 %49, %16
-  br i1 %50, label %.preheader116.us.i, label %.preheader.us.i, !llvm.loop !21
+._crit_edge126.us.i:                              ; preds = %44
+  %48 = add nuw nsw i32 %.1107127.us.i, 32
+  %49 = icmp slt i32 %48, %15
+  br i1 %49, label %.preheader116.us.i, label %.preheader.us.i, !llvm.loop !21
 
 .preheader117.i:                                  ; preds = %._crit_edge.i, %.preheader117.lr.ph.i
-  %.0106123.i = phi i32 [ %.018, %.preheader117.lr.ph.i ], [ %59, %._crit_edge.i ]
-  br i1 %27, label %.lr.ph.i, label %._crit_edge.i
+  %.0106123.i = phi i32 [ %.018, %.preheader117.lr.ph.i ], [ %58, %._crit_edge.i ]
+  br i1 %26, label %.lr.ph.i, label %._crit_edge.i
 
-.lr.ph.i:                                         ; preds = %.preheader117.i, %55
-  %.0105122.i = phi i32 [ %56, %55 ], [ 0, %.preheader117.i ]
-  %51 = load i8, ptr %28, align 4
-  tail call void @av1_setup_dst_planes(ptr noundef nonnull %17, i8 noundef zeroext %51, ptr noundef %0, i32 noundef %.0106123.i, i32 noundef %.0105122.i, i32 noundef %indvars142.i, i32 noundef %41) #8
-  tail call void @av1_filter_block_plane_vert(ptr noundef nonnull %1, ptr noundef %2, i32 noundef %indvars142.i, ptr noundef nonnull %42, i32 noundef %.0106123.i, i32 noundef %.0105122.i)
+.lr.ph.i:                                         ; preds = %.preheader117.i, %54
+  %.0105122.i = phi i32 [ %55, %54 ], [ 0, %.preheader117.i ]
+  %50 = load i8, ptr %27, align 4
+  tail call void @av1_setup_dst_planes(ptr noundef nonnull %16, i8 noundef zeroext %50, ptr noundef %0, i32 noundef %.0106123.i, i32 noundef %.0105122.i, i32 noundef %indvars142.i, i32 noundef %40) #8
+  tail call void @av1_filter_block_plane_vert(ptr noundef nonnull %1, ptr noundef %2, i32 noundef %indvars142.i, ptr noundef nonnull %41, i32 noundef %.0106123.i, i32 noundef %.0105122.i)
   %.not115.i = icmp eq i32 %.0105122.i, 0
-  br i1 %.not115.i, label %55, label %52
+  br i1 %.not115.i, label %54, label %51
 
-52:                                               ; preds = %.lr.ph.i
-  %53 = add nsw i32 %.0105122.i, -32
-  %54 = load i8, ptr %28, align 4
-  tail call void @av1_setup_dst_planes(ptr noundef nonnull %17, i8 noundef zeroext %54, ptr noundef %0, i32 noundef %.0106123.i, i32 noundef %53, i32 noundef %indvars142.i, i32 noundef %41) #8
-  tail call void @av1_filter_block_plane_horz(ptr noundef nonnull %1, ptr noundef %2, i32 noundef %indvars142.i, ptr noundef nonnull %42, i32 noundef %.0106123.i, i32 noundef %53)
-  br label %55
+51:                                               ; preds = %.lr.ph.i
+  %52 = add nsw i32 %.0105122.i, -32
+  %53 = load i8, ptr %27, align 4
+  tail call void @av1_setup_dst_planes(ptr noundef nonnull %16, i8 noundef zeroext %53, ptr noundef %0, i32 noundef %.0106123.i, i32 noundef %52, i32 noundef %indvars142.i, i32 noundef %40) #8
+  tail call void @av1_filter_block_plane_horz(ptr noundef nonnull %1, ptr noundef %2, i32 noundef %indvars142.i, ptr noundef nonnull %41, i32 noundef %.0106123.i, i32 noundef %52)
+  br label %54
 
-55:                                               ; preds = %52, %.lr.ph.i
-  %56 = add nuw nsw i32 %.0105122.i, 32
-  %57 = icmp slt i32 %56, %19
-  br i1 %57, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !22
+54:                                               ; preds = %51, %.lr.ph.i
+  %55 = add nuw nsw i32 %.0105122.i, 32
+  %56 = icmp slt i32 %55, %18
+  br i1 %56, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !22
 
-._crit_edge.i:                                    ; preds = %55, %.preheader117.i
-  %.0105.lcssa.i = phi i32 [ -32, %.preheader117.i ], [ %.0105122.i, %55 ]
-  %58 = load i8, ptr %28, align 4
-  tail call void @av1_setup_dst_planes(ptr noundef nonnull %17, i8 noundef zeroext %58, ptr noundef %0, i32 noundef %.0106123.i, i32 noundef %.0105.lcssa.i, i32 noundef %indvars142.i, i32 noundef %41) #8
-  tail call void @av1_filter_block_plane_horz(ptr noundef nonnull %1, ptr noundef %2, i32 noundef %indvars142.i, ptr noundef nonnull %42, i32 noundef %.0106123.i, i32 noundef %.0105.lcssa.i)
-  %59 = add nuw nsw i32 %.0106123.i, 32
-  %60 = icmp slt i32 %59, %16
-  br i1 %60, label %.preheader117.i, label %.loopexit.i, !llvm.loop !23
+._crit_edge.i:                                    ; preds = %54, %.preheader117.i
+  %.0105.lcssa.i = phi i32 [ -32, %.preheader117.i ], [ %.0105122.i, %54 ]
+  %57 = load i8, ptr %27, align 4
+  tail call void @av1_setup_dst_planes(ptr noundef nonnull %16, i8 noundef zeroext %57, ptr noundef %0, i32 noundef %.0106123.i, i32 noundef %.0105.lcssa.i, i32 noundef %indvars142.i, i32 noundef %40) #8
+  tail call void @av1_filter_block_plane_horz(ptr noundef nonnull %1, ptr noundef %2, i32 noundef %indvars142.i, ptr noundef nonnull %41, i32 noundef %.0106123.i, i32 noundef %.0105.lcssa.i)
+  %58 = add nuw nsw i32 %.0106123.i, 32
+  %59 = icmp slt i32 %58, %15
+  br i1 %59, label %.preheader117.i, label %.loopexit.i, !llvm.loop !23
 
 .preheader.us.i:                                  ; preds = %._crit_edge126.us.i, %._crit_edge130.us.i
-  %.2108131.us.i = phi i32 [ %65, %._crit_edge130.us.i ], [ %.018, %._crit_edge126.us.i ]
-  br label %61
+  %.2108131.us.i = phi i32 [ %64, %._crit_edge130.us.i ], [ %.018, %._crit_edge126.us.i ]
+  br label %60
 
-61:                                               ; preds = %61, %.preheader.us.i
-  %.2128.us.i = phi i32 [ 0, %.preheader.us.i ], [ %63, %61 ]
-  %62 = load i8, ptr %28, align 4
-  tail call void @av1_setup_dst_planes(ptr noundef nonnull %17, i8 noundef zeroext %62, ptr noundef %0, i32 noundef %.2108131.us.i, i32 noundef %.2128.us.i, i32 noundef %indvars142.i, i32 noundef %43) #8
-  tail call void @av1_filter_block_plane_horz(ptr noundef nonnull %1, ptr noundef %2, i32 noundef %indvars142.i, ptr noundef nonnull %44, i32 noundef %.2108131.us.i, i32 noundef %.2128.us.i)
-  %63 = add nuw nsw i32 %.2128.us.i, 32
-  %64 = icmp slt i32 %63, %19
-  br i1 %64, label %61, label %._crit_edge130.us.i, !llvm.loop !24
+60:                                               ; preds = %60, %.preheader.us.i
+  %.2128.us.i = phi i32 [ 0, %.preheader.us.i ], [ %62, %60 ]
+  %61 = load i8, ptr %27, align 4
+  tail call void @av1_setup_dst_planes(ptr noundef nonnull %16, i8 noundef zeroext %61, ptr noundef %0, i32 noundef %.2108131.us.i, i32 noundef %.2128.us.i, i32 noundef %indvars142.i, i32 noundef %42) #8
+  tail call void @av1_filter_block_plane_horz(ptr noundef nonnull %1, ptr noundef %2, i32 noundef %indvars142.i, ptr noundef nonnull %43, i32 noundef %.2108131.us.i, i32 noundef %.2128.us.i)
+  %62 = add nuw nsw i32 %.2128.us.i, 32
+  %63 = icmp slt i32 %62, %18
+  br i1 %63, label %60, label %._crit_edge130.us.i, !llvm.loop !24
 
-._crit_edge130.us.i:                              ; preds = %61
-  %65 = add nuw nsw i32 %.2108131.us.i, 32
-  %66 = icmp slt i32 %65, %16
-  br i1 %66, label %.preheader.us.i, label %.loopexit.i, !llvm.loop !25
+._crit_edge130.us.i:                              ; preds = %60
+  %64 = add nuw nsw i32 %.2108131.us.i, 32
+  %65 = icmp slt i32 %64, %15
+  br i1 %65, label %.preheader.us.i, label %.loopexit.i, !llvm.loop !25
 
-.loopexit.i:                                      ; preds = %._crit_edge.i, %._crit_edge130.us.i, %.preheader116.lr.ph.i, %.preheader119.i, %.preheader120.i, %37, %35
+.loopexit.i:                                      ; preds = %._crit_edge.i, %._crit_edge130.us.i, %.preheader116.lr.ph.i, %.preheader119.i, %.preheader120.i, %36, %34
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %lftr.wideiv.i = trunc i64 %indvars.iv.next.i to i32
   %exitcond.not.i = icmp eq i32 %4, %lftr.wideiv.i
-  br i1 %exitcond.not.i, label %loop_filter_rows.exit, label %30, !llvm.loop !26
+  br i1 %exitcond.not.i, label %loop_filter_rows.exit, label %29, !llvm.loop !26
 
-loop_filter_rows.exit:                            ; preds = %33, %.loopexit.i, %15
+loop_filter_rows.exit:                            ; preds = %32, %.loopexit.i, %14
   ret void
 }
 

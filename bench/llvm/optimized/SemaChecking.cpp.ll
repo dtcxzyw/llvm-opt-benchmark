@@ -3469,8 +3469,7 @@ _ZNK5clang10ASTContext22getAsConstantArrayTypeENS_8QualTypeE.exit: ; preds = %9,
 _ZNK5clang17ConstantArrayType11getZExtSizeEv.exit: ; preds = %_ZNK5clang10ASTContext22getAsConstantArrayTypeENS_8QualTypeE.exit, %31
   %.in.i = phi ptr [ %.0.in.i.i, %31 ], [ %30, %_ZNK5clang10ASTContext22getAsConstantArrayTypeENS_8QualTypeE.exit ]
   %37 = load i64, ptr %.in.i, align 8
-  %.sroa.speculated17 = tail call i64 @llvm.umax.i64(i64 %37, i64 1)
-  %38 = add i64 %.sroa.speculated17, -1
+  %38 = tail call i64 @llvm.usub.sat.i64(i64 %37, i64 1)
   %39 = load ptr, ptr %1, align 8
   %40 = load i64, ptr %.sroa.2.0..sroa_idx, align 8
   %.not25 = icmp eq i64 %40, 0
@@ -34113,8 +34112,7 @@ _ZNK5clang17ConstantArrayType11getZExtSizeEv.exit: ; preds = %_ZNK5clang10ASTCon
   %31 = zext i32 %4 to i64
   %32 = getelementptr inbounds %"class.clang::SourceLocation", ptr %30, i64 %31
   %33 = load i64, ptr %.in.i, align 8
-  %.sroa.speculated9 = tail call i64 @llvm.umax.i64(i64 %33, i64 1)
-  %34 = add i64 %.sroa.speculated9, -1
+  %34 = tail call i64 @llvm.usub.sat.i64(i64 %33, i64 1)
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %34, i64 %29)
   %35 = getelementptr inbounds i8, ptr %32, i64 %.sroa.speculated
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 240
@@ -57705,8 +57703,7 @@ _ZNK5clang10ASTContext22getAsConstantArrayTypeENS_8QualTypeE.exit: ; preds = %49
 _ZNK5clang17ConstantArrayType11getZExtSizeEv.exit: ; preds = %_ZNK5clang10ASTContext22getAsConstantArrayTypeENS_8QualTypeE.exit, %76
   %.in.i = phi ptr [ %.0.in.i.i, %76 ], [ %75, %_ZNK5clang10ASTContext22getAsConstantArrayTypeENS_8QualTypeE.exit ]
   %82 = load i64, ptr %.in.i, align 8
-  %.sroa.speculated128 = tail call i64 @llvm.umax.i64(i64 %82, i64 1)
-  %83 = add i64 %.sroa.speculated128, -1
+  %83 = tail call i64 @llvm.usub.sat.i64(i64 %82, i64 1)
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %63, i64 %83)
   %84 = trunc i64 %4 to i32
   %85 = sub i32 %84, %7
@@ -82135,6 +82132,9 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #22
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.usub.sat.i64(i64, i64) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #22

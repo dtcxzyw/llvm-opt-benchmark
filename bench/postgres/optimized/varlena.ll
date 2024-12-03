@@ -3770,7 +3770,7 @@ define internal i64 @varstr_abbrev_convert(i64 noundef %0, ptr nocapture noundef
   %44 = tail call i32 @llvm.umin.i32(i32 %.0, i32 8)
   %45 = zext nneg i32 %44 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %3, ptr nonnull align 1 %12, i64 %45, i1 false)
-  br label %132
+  br label %131
 
 46:                                               ; preds = %39
   %47 = getelementptr inbounds i8, ptr %5, i64 16
@@ -3822,7 +3822,7 @@ define internal i64 @varstr_abbrev_convert(i64 noundef %0, ptr nocapture noundef
   %spec.select125 = zext nneg i32 %narrow132 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %3, ptr align 1 %68, i64 %spec.select125, i1 false)
   %.0..0..0..0.105.pre = load i64, ptr %3, align 8
-  br label %147
+  br label %146
 
 71:                                               ; preds = %._crit_edge, %63, %59
   %72 = phi ptr [ %.pre, %._crit_edge ], [ %.pre133, %63 ], [ %.pre133, %59 ]
@@ -3863,104 +3863,103 @@ define internal i64 @varstr_abbrev_convert(i64 noundef %0, ptr nocapture noundef
 ._crit_edge134:                                   ; preds = %92
   %.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 8
   %.pre135 = load ptr, ptr %.phi.trans.insert, align 8
-  br label %103
+  br label %102
 
 96:                                               ; preds = %92
-  %97 = icmp samesign ult i32 %94, 4
-  %98 = shl nuw nsw i32 %94, 1
-  %spec.select130 = select i1 %97, i32 8, i32 %98
+  %97 = tail call i32 @llvm.umax.i32(i32 %94, i32 4)
+  %spec.select130 = shl nuw nsw i32 %97, 1
   store i32 %spec.select130, ptr %93, align 4
-  %99 = getelementptr inbounds i8, ptr %5, i64 8
-  %100 = load ptr, ptr %99, align 8
-  %101 = zext nneg i32 %spec.select130 to i64
-  %102 = tail call ptr @repalloc(ptr noundef %100, i64 noundef %101) #19
-  store ptr %102, ptr %99, align 8
-  br label %103
+  %98 = getelementptr inbounds i8, ptr %5, i64 8
+  %99 = load ptr, ptr %98, align 8
+  %100 = zext nneg i32 %spec.select130 to i64
+  %101 = tail call ptr @repalloc(ptr noundef %99, i64 noundef %100) #19
+  store ptr %101, ptr %98, align 8
+  br label %102
 
-103:                                              ; preds = %._crit_edge134, %96
-  %104 = phi ptr [ %.pre135, %._crit_edge134 ], [ %102, %96 ]
-  %105 = load ptr, ptr %5, align 8
-  %106 = load ptr, ptr %76, align 8
-  %107 = tail call i64 @pg_strxfrm_prefix(ptr noundef %104, ptr noundef %105, i64 noundef 8, ptr noundef %106) #19
-  %108 = trunc i64 %107 to i32
-  %109 = getelementptr inbounds i8, ptr %5, i64 28
-  store i32 %108, ptr %109, align 4
+102:                                              ; preds = %._crit_edge134, %96
+  %103 = phi ptr [ %.pre135, %._crit_edge134 ], [ %101, %96 ]
+  %104 = load ptr, ptr %5, align 8
+  %105 = load ptr, ptr %76, align 8
+  %106 = tail call i64 @pg_strxfrm_prefix(ptr noundef %103, ptr noundef %104, i64 noundef 8, ptr noundef %105) #19
+  %107 = trunc i64 %106 to i32
+  %108 = getelementptr inbounds i8, ptr %5, i64 28
+  store i32 %107, ptr %108, align 4
   br label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %110 = phi i32 [ %126, %.lr.ph ], [ %89, %.preheader ]
-  %111 = phi i64 [ %124, %.lr.ph ], [ %86, %.preheader ]
-  %112 = add i64 %111, 1
-  %113 = shl i32 %110, 1
-  %narrow131 = tail call i32 @llvm.umin.i32(i32 %113, i32 1073741823)
+  %109 = phi i32 [ %125, %.lr.ph ], [ %89, %.preheader ]
+  %110 = phi i64 [ %123, %.lr.ph ], [ %86, %.preheader ]
+  %111 = add i64 %110, 1
+  %112 = shl i32 %109, 1
+  %narrow131 = tail call i32 @llvm.umin.i32(i32 %112, i32 1073741823)
   %spec.select127 = zext nneg i32 %narrow131 to i64
-  %114 = icmp ugt i64 %112, %spec.select127
-  %115 = trunc i64 %112 to i32
-  %116 = select i1 %114, i32 %115, i32 %narrow131
-  store i32 %116, ptr %80, align 4
-  %117 = load ptr, ptr %79, align 8
-  %118 = sext i32 %116 to i64
-  %119 = tail call ptr @repalloc(ptr noundef %117, i64 noundef %118) #19
-  store ptr %119, ptr %79, align 8
-  %120 = load ptr, ptr %5, align 8
-  %121 = load i32, ptr %80, align 4
-  %122 = sext i32 %121 to i64
-  %123 = load ptr, ptr %76, align 8
-  %124 = tail call i64 @pg_strxfrm(ptr noundef %119, ptr noundef %120, i64 noundef %122, ptr noundef %123) #19
-  %125 = trunc i64 %124 to i32
-  store i32 %125, ptr %88, align 4
-  %126 = load i32, ptr %80, align 4
-  %127 = sext i32 %126 to i64
-  %128 = icmp ult i64 %124, %127
-  br i1 %128, label %.loopexit, label %.lr.ph
+  %113 = icmp ugt i64 %111, %spec.select127
+  %114 = trunc i64 %111 to i32
+  %115 = select i1 %113, i32 %114, i32 %narrow131
+  store i32 %115, ptr %80, align 4
+  %116 = load ptr, ptr %79, align 8
+  %117 = sext i32 %115 to i64
+  %118 = tail call ptr @repalloc(ptr noundef %116, i64 noundef %117) #19
+  store ptr %118, ptr %79, align 8
+  %119 = load ptr, ptr %5, align 8
+  %120 = load i32, ptr %80, align 4
+  %121 = sext i32 %120 to i64
+  %122 = load ptr, ptr %76, align 8
+  %123 = tail call i64 @pg_strxfrm(ptr noundef %118, ptr noundef %119, i64 noundef %121, ptr noundef %122) #19
+  %124 = trunc i64 %123 to i32
+  store i32 %124, ptr %88, align 4
+  %125 = load i32, ptr %80, align 4
+  %126 = sext i32 %125 to i64
+  %127 = icmp ult i64 %123, %126
+  br i1 %127, label %.loopexit, label %.lr.ph
 
-.loopexit:                                        ; preds = %.lr.ph, %.preheader, %103
-  %.0103 = phi i64 [ %107, %103 ], [ %86, %.preheader ], [ %124, %.lr.ph ]
-  %129 = getelementptr inbounds i8, ptr %5, i64 8
-  %130 = load ptr, ptr %129, align 8
-  %131 = tail call i64 @llvm.umin.i64(i64 %.0103, i64 8)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %3, ptr align 1 %130, i64 %131, i1 false)
-  br label %132
+.loopexit:                                        ; preds = %.lr.ph, %.preheader, %102
+  %.0103 = phi i64 [ %106, %102 ], [ %86, %.preheader ], [ %123, %.lr.ph ]
+  %128 = getelementptr inbounds i8, ptr %5, i64 8
+  %129 = load ptr, ptr %128, align 8
+  %130 = tail call i64 @llvm.umin.i64(i64 %.0103, i64 8)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %3, ptr align 1 %129, i64 %130, i1 false)
+  br label %131
 
-132:                                              ; preds = %.loopexit, %43
-  %133 = tail call i32 @llvm.smin.i32(i32 %.0, i32 128)
-  %134 = tail call i32 @hash_bytes(ptr noundef nonnull %12, i32 noundef %133) #19
-  %135 = icmp sgt i32 %.0, 128
-  br i1 %135, label %136, label %139
+131:                                              ; preds = %.loopexit, %43
+  %132 = tail call i32 @llvm.smin.i32(i32 %.0, i32 128)
+  %133 = tail call i32 @hash_bytes(ptr noundef nonnull %12, i32 noundef %132) #19
+  %134 = icmp sgt i32 %.0, 128
+  br i1 %134, label %135, label %138
 
-136:                                              ; preds = %132
-  %137 = tail call i32 @hash_bytes_uint32(i32 noundef %.0) #19
-  %138 = xor i32 %137, %134
-  br label %139
+135:                                              ; preds = %131
+  %136 = tail call i32 @hash_bytes_uint32(i32 noundef %.0) #19
+  %137 = xor i32 %136, %133
+  br label %138
 
-139:                                              ; preds = %136, %132
-  %.0102 = phi i32 [ %138, %136 ], [ %134, %132 ]
-  %140 = getelementptr inbounds i8, ptr %5, i64 88
-  tail call void @addHyperLogLog(ptr noundef nonnull %140, i32 noundef %.0102) #19
+138:                                              ; preds = %135, %131
+  %.0102 = phi i32 [ %137, %135 ], [ %133, %131 ]
+  %139 = getelementptr inbounds i8, ptr %5, i64 88
+  tail call void @addHyperLogLog(ptr noundef nonnull %139, i32 noundef %.0102) #19
   %.0..0..0..0. = load i64, ptr %3, align 8
-  %141 = lshr i64 %.0..0..0..0., 32
-  %142 = xor i64 %141, %.0..0..0..0.
-  %143 = trunc i64 %142 to i32
-  %144 = tail call i32 @hash_bytes_uint32(i32 noundef %143) #19
-  %145 = getelementptr inbounds i8, ptr %5, i64 48
-  tail call void @addHyperLogLog(ptr noundef nonnull %145, i32 noundef %144) #19
-  %146 = getelementptr inbounds i8, ptr %5, i64 36
-  store i8 1, ptr %146, align 4
-  br label %147
+  %140 = lshr i64 %.0..0..0..0., 32
+  %141 = xor i64 %140, %.0..0..0..0.
+  %142 = trunc i64 %141 to i32
+  %143 = tail call i32 @hash_bytes_uint32(i32 noundef %142) #19
+  %144 = getelementptr inbounds i8, ptr %5, i64 48
+  tail call void @addHyperLogLog(ptr noundef nonnull %144, i32 noundef %143) #19
+  %145 = getelementptr inbounds i8, ptr %5, i64 36
+  store i8 1, ptr %145, align 4
+  br label %146
 
-147:                                              ; preds = %139, %66
-  %.0..0..0.105 = phi i64 [ %.0..0..0..0., %139 ], [ %.0..0..0..0.105.pre, %66 ]
-  %148 = ptrtoint ptr %7 to i64
-  %.not122 = icmp eq i64 %0, %148
-  br i1 %.not122, label %150, label %149
+146:                                              ; preds = %138, %66
+  %.0..0..0.105 = phi i64 [ %.0..0..0..0., %138 ], [ %.0..0..0..0.105.pre, %66 ]
+  %147 = ptrtoint ptr %7 to i64
+  %.not122 = icmp eq i64 %0, %147
+  br i1 %.not122, label %149, label %148
 
-149:                                              ; preds = %147
+148:                                              ; preds = %146
   tail call void @pfree(ptr noundef nonnull %7) #19
-  br label %150
+  br label %149
 
-150:                                              ; preds = %149, %147
-  %151 = tail call i64 @llvm.bswap.i64(i64 %.0..0..0.105)
-  ret i64 %151
+149:                                              ; preds = %148, %146
+  %150 = tail call i64 @llvm.bswap.i64(i64 %.0..0..0.105)
+  ret i64 %150
 }
 
 ; Function Attrs: nounwind uwtable

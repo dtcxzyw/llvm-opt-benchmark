@@ -59184,32 +59184,32 @@ sw.epilog:                                        ; preds = %sw.epilog.sink.spli
 ; Function Attrs: nofree nosync nounwind memory(none)
 declare i32 @llvm.eh.typeid.for.p0(ptr) #21
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #22
+
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #22
+declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #23
+declare void @llvm.experimental.noalias.scope.decl(metadata) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #24
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #24
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #25
+declare i64 @llvm.umax.i64(i64, i64) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #25
+declare i32 @llvm.smin.i32(i32, i32) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #25
+declare i32 @llvm.umax.i32(i32, i32) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #25
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #25
+declare i32 @llvm.umin.i32(i32, i32) #22
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn memory(read) }
@@ -59233,10 +59233,10 @@ attributes #18 = { cold noreturn }
 attributes #19 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #20 = { alwaysinline mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #21 = { nofree nosync nounwind memory(none) }
-attributes #22 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #23 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #24 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #25 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #22 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #23 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #24 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #25 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #26 = { nounwind }
 attributes #27 = { noreturn }
 attributes #28 = { builtin allocsize(0) }

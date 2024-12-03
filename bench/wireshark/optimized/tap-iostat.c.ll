@@ -2895,9 +2895,8 @@ printcenter.exit660:                              ; preds = %459, %461, %464, %4
 .lr.ph735:                                        ; preds = %.preheader668
   %499 = add i32 %.0531, -1
   %500 = getelementptr inbounds i8, ptr %7, i64 24
-  %501 = add i32 %.0541, 1
-  %.inv = icmp ult i32 %.0541, 3
-  %502 = select i1 %.inv, i32 3, i32 %501
+  %501 = call i32 @llvm.umax.i32(i32 %.0541, i32 2)
+  %502 = add i32 %501, 1
   %503 = select i1 %481, ptr @.str.68, ptr @.str.71
   br label %504
 

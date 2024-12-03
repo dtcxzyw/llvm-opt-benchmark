@@ -880,21 +880,20 @@ cond.true:                                        ; preds = %err_index
   br label %cond.end36
 
 cond.false:                                       ; preds = %err_index
-  %cmp28 = icmp ult i64 %shr, -13
-  %not = xor i64 %shr, -1
-  %spec.select = select i1 %cmp28, i64 13, i64 %not
+  %7 = tail call i64 @llvm.umax.i64(i64 %shr, i64 -14)
+  %spec.select = xor i64 %7, -1
   %arrayidx = getelementptr inbounds [14 x ptr], ptr @lj_obj_itypename, i64 0, i64 %spec.select
-  %7 = load ptr, ptr %arrayidx, align 8
+  %8 = load ptr, ptr %arrayidx, align 8
   br label %cond.end36
 
 cond.end36:                                       ; preds = %cond.false, %cond.true
-  %cond37 = phi ptr [ %add.ptr23, %cond.true ], [ %7, %cond.false ]
+  %cond37 = phi ptr [ %add.ptr23, %cond.true ], [ %8, %cond.false ]
   tail call void (ptr, i32, ...) @lj_err_callerv(ptr noundef nonnull %L, i32 noundef 3513, ptr noundef nonnull %add.ptr, ptr noundef %cond37) #10
   unreachable
 
 if.end:                                           ; preds = %entry
-  %8 = load i64, ptr %call, align 8
-  %shr38.mask = and i64 %8, -140737488355328
+  %9 = load i64, ptr %call, align 8
+  %shr38.mask = and i64 %9, -140737488355328
   %cmp40 = icmp eq i64 %shr38.mask, -1266637395197952
   br i1 %cmp40, label %if.end69, label %if.then42
 
@@ -909,15 +908,15 @@ if.then45:                                        ; preds = %if.then42
   br i1 %tobool48.not, label %if.end64, label %if.then49
 
 if.then49:                                        ; preds = %if.then45
-  %9 = load i64, ptr %call47, align 8
-  %cmp50 = icmp eq i64 %9, -1
+  %10 = load i64, ptr %call47, align 8
+  %cmp50 = icmp eq i64 %10, -1
   br i1 %cmp50, label %err_index, label %if.end53
 
 if.end53:                                         ; preds = %if.then49
   %top = getelementptr inbounds i8, ptr %L, i64 40
-  %10 = load ptr, ptr %top, align 8
-  %add.ptr54 = getelementptr inbounds i8, ptr %10, i64 -8
-  store i64 %9, ptr %add.ptr54, align 8
+  %11 = load ptr, ptr %top, align 8
+  %add.ptr54 = getelementptr inbounds i8, ptr %11, i64 -8
+  store i64 %10, ptr %add.ptr54, align 8
   br label %return
 
 if.else56:                                        ; preds = %if.then42
@@ -927,17 +926,17 @@ if.else56:                                        ; preds = %if.then42
 
 if.then61:                                        ; preds = %if.else56
   %add.ptr62 = getelementptr inbounds i8, ptr %1, i64 16
-  %11 = load i64, ptr %add.ptr62, align 8
-  store i64 %11, ptr %call59, align 8
+  %12 = load i64, ptr %add.ptr62, align 8
+  store i64 %12, ptr %call59, align 8
   br label %return
 
 if.end64:                                         ; preds = %if.else56, %if.then45
   %top65 = getelementptr inbounds i8, ptr %L, i64 40
-  %12 = load ptr, ptr %top65, align 8
-  %13 = load i64, ptr %12, align 8
-  store i64 %13, ptr %1, align 8
-  %14 = load ptr, ptr %top65, align 8
-  %add.ptr68 = getelementptr inbounds i8, ptr %14, i64 -16
+  %13 = load ptr, ptr %top65, align 8
+  %14 = load i64, ptr %13, align 8
+  store i64 %14, ptr %1, align 8
+  %15 = load ptr, ptr %top65, align 8
+  %add.ptr68 = getelementptr inbounds i8, ptr %15, i64 -16
   br label %if.end69
 
 if.end69:                                         ; preds = %if.end64, %if.end
@@ -3595,6 +3594,9 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #8
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #8
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

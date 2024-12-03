@@ -5178,8 +5178,7 @@ _ZNSt6vectorIN5faiss4NodeESaIS1_EE9push_backERKS1_.exit105: ; preds = %_ZNKSt6ve
 
 .lr.ph275.preheader:                              ; preds = %_ZNSt6vectorIN5faiss4NodeESaIS1_EE9push_backERKS1_.exit105
   %110 = getelementptr inbounds i8, ptr %106, i64 8
-  %umax = tail call i64 @llvm.umax.i64(i64 %97, i64 1)
-  %111 = add i64 %umax, -1
+  %111 = tail call i64 @llvm.usub.sat.i64(i64 %97, i64 1)
   br label %.lr.ph275
 
 .lr.ph275:                                        ; preds = %.lr.ph275.preheader, %_ZNSt6vectorIN5faiss4NodeESaIS1_EE9push_backERKS1_.exit117
@@ -7857,6 +7856,9 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #19
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.usub.sat.i64(i64, i64) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #19

@@ -70,97 +70,96 @@ define dso_local { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(
   %10 = load i32, ptr %9, align 8
   %11 = mul i32 %10, 3
   %.not = icmp ult i32 %8, %11
-  br i1 %.not, label %15, label %12
+  br i1 %.not, label %14, label %12
 
 12:                                               ; preds = %2
-  %13 = icmp ult i32 %10, 64
-  %14 = shl i32 %10, 1
-  %spec.select = select i1 %13, i32 128, i32 %14
+  %13 = tail call i32 @llvm.umax.i32(i32 %10, i32 64)
+  %spec.select = shl i32 %13, 1
   br label %.sink.split
 
-15:                                               ; preds = %2
-  %16 = sub i32 %10, %4
-  %17 = lshr i32 %10, 3
-  %18 = icmp ult i32 %16, %17
-  br i1 %18, label %.sink.split, label %19
+14:                                               ; preds = %2
+  %15 = sub i32 %10, %4
+  %16 = lshr i32 %10, 3
+  %17 = icmp ult i32 %15, %16
+  br i1 %17, label %.sink.split, label %18
 
-.sink.split:                                      ; preds = %15, %12
-  %.sink = phi i32 [ %spec.select, %12 ], [ %10, %15 ]
+.sink.split:                                      ; preds = %14, %12
+  %.sink = phi i32 [ %spec.select, %12 ], [ %10, %14 ]
   tail call void @_ZN4llvm19SmallPtrSetImplBase4GrowEj(ptr noundef nonnull align 8 dereferenceable(28) %0, i32 noundef %.sink)
-  br label %19
+  br label %18
 
-19:                                               ; preds = %.sink.split, %15
-  %20 = ptrtoint ptr %1 to i64
-  %21 = trunc i64 %20 to i32
-  %22 = lshr i32 %21, 4
-  %23 = lshr i32 %21, 9
-  %24 = xor i32 %22, %23
-  %25 = load i32, ptr %9, align 8
-  %26 = add i32 %25, -1
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %28 = load ptr, ptr %27, align 8
-  %.02428.i = and i32 %26, %24
-  %29 = zext nneg i32 %.02428.i to i64
-  %30 = getelementptr inbounds ptr, ptr %28, i64 %29
-  %31 = load ptr, ptr %30, align 8
-  %32 = icmp eq ptr %31, inttoptr (i64 -1 to ptr)
-  br i1 %32, label %_ZNK4llvm19SmallPtrSetImplBase13FindBucketForEPKv.exit, label %.lr.ph.i
+18:                                               ; preds = %.sink.split, %14
+  %19 = ptrtoint ptr %1 to i64
+  %20 = trunc i64 %19 to i32
+  %21 = lshr i32 %20, 4
+  %22 = lshr i32 %20, 9
+  %23 = xor i32 %21, %22
+  %24 = load i32, ptr %9, align 8
+  %25 = add i32 %24, -1
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %27 = load ptr, ptr %26, align 8
+  %.02428.i = and i32 %25, %23
+  %28 = zext nneg i32 %.02428.i to i64
+  %29 = getelementptr inbounds ptr, ptr %27, i64 %28
+  %30 = load ptr, ptr %29, align 8
+  %31 = icmp eq ptr %30, inttoptr (i64 -1 to ptr)
+  br i1 %31, label %_ZNK4llvm19SmallPtrSetImplBase13FindBucketForEPKv.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %19, %36
-  %33 = phi ptr [ %43, %36 ], [ %31, %19 ]
-  %34 = phi ptr [ %42, %36 ], [ %30, %19 ]
-  %.02431.i = phi i32 [ %.024.i, %36 ], [ %.02428.i, %19 ]
-  %.030.i = phi ptr [ %spec.select.i, %36 ], [ null, %19 ]
-  %.02329.i = phi i32 [ %39, %36 ], [ 1, %19 ]
-  %35 = icmp eq ptr %33, %1
-  br i1 %35, label %_ZNK4llvm19SmallPtrSetImplBase13FindBucketForEPKv.exit.thread, label %36
+.lr.ph.i:                                         ; preds = %18, %35
+  %32 = phi ptr [ %42, %35 ], [ %30, %18 ]
+  %33 = phi ptr [ %41, %35 ], [ %29, %18 ]
+  %.02431.i = phi i32 [ %.024.i, %35 ], [ %.02428.i, %18 ]
+  %.030.i = phi ptr [ %spec.select.i, %35 ], [ null, %18 ]
+  %.02329.i = phi i32 [ %38, %35 ], [ 1, %18 ]
+  %34 = icmp eq ptr %32, %1
+  br i1 %34, label %_ZNK4llvm19SmallPtrSetImplBase13FindBucketForEPKv.exit.thread, label %35
 
-36:                                               ; preds = %.lr.ph.i
-  %37 = icmp ne ptr %33, inttoptr (i64 -2 to ptr)
-  %38 = icmp ne ptr %.030.i, null
-  %or.cond.i = select i1 %37, i1 true, i1 %38
-  %spec.select.i = select i1 %or.cond.i, ptr %.030.i, ptr %34
-  %39 = add i32 %.02329.i, 1
-  %40 = add i32 %.02329.i, %.02431.i
-  %.024.i = and i32 %40, %26
-  %41 = zext i32 %.024.i to i64
-  %42 = getelementptr inbounds ptr, ptr %28, i64 %41
-  %43 = load ptr, ptr %42, align 8
-  %44 = icmp eq ptr %43, inttoptr (i64 -1 to ptr)
-  br i1 %44, label %_ZNK4llvm19SmallPtrSetImplBase13FindBucketForEPKv.exit, label %.lr.ph.i, !llvm.loop !4
+35:                                               ; preds = %.lr.ph.i
+  %36 = icmp ne ptr %32, inttoptr (i64 -2 to ptr)
+  %37 = icmp ne ptr %.030.i, null
+  %or.cond.i = select i1 %36, i1 true, i1 %37
+  %spec.select.i = select i1 %or.cond.i, ptr %.030.i, ptr %33
+  %38 = add i32 %.02329.i, 1
+  %39 = add i32 %.02329.i, %.02431.i
+  %.024.i = and i32 %39, %25
+  %40 = zext i32 %.024.i to i64
+  %41 = getelementptr inbounds ptr, ptr %27, i64 %40
+  %42 = load ptr, ptr %41, align 8
+  %43 = icmp eq ptr %42, inttoptr (i64 -1 to ptr)
+  br i1 %43, label %_ZNK4llvm19SmallPtrSetImplBase13FindBucketForEPKv.exit, label %.lr.ph.i, !llvm.loop !4
 
-_ZNK4llvm19SmallPtrSetImplBase13FindBucketForEPKv.exit: ; preds = %36, %19
-  %.0.lcssa.i = phi ptr [ null, %19 ], [ %spec.select.i, %36 ]
-  %.lcssa.i = phi ptr [ %30, %19 ], [ %42, %36 ]
+_ZNK4llvm19SmallPtrSetImplBase13FindBucketForEPKv.exit: ; preds = %35, %18
+  %.0.lcssa.i = phi ptr [ null, %18 ], [ %spec.select.i, %35 ]
+  %.lcssa.i = phi ptr [ %29, %18 ], [ %41, %35 ]
   %.not.i = icmp eq ptr %.0.lcssa.i, null
-  %45 = select i1 %.not.i, ptr %.lcssa.i, ptr %.0.lcssa.i
-  %.pre = load ptr, ptr %45, align 8
-  %46 = icmp eq ptr %.pre, %1
-  br i1 %46, label %_ZNK4llvm19SmallPtrSetImplBase13FindBucketForEPKv.exit.thread, label %47
+  %44 = select i1 %.not.i, ptr %.lcssa.i, ptr %.0.lcssa.i
+  %.pre = load ptr, ptr %44, align 8
+  %45 = icmp eq ptr %.pre, %1
+  br i1 %45, label %_ZNK4llvm19SmallPtrSetImplBase13FindBucketForEPKv.exit.thread, label %46
 
-47:                                               ; preds = %_ZNK4llvm19SmallPtrSetImplBase13FindBucketForEPKv.exit
-  %48 = icmp eq ptr %.pre, inttoptr (i64 -2 to ptr)
-  br i1 %48, label %49, label %52
+46:                                               ; preds = %_ZNK4llvm19SmallPtrSetImplBase13FindBucketForEPKv.exit
+  %47 = icmp eq ptr %.pre, inttoptr (i64 -2 to ptr)
+  br i1 %47, label %48, label %51
 
-49:                                               ; preds = %47
-  %50 = load i32, ptr %5, align 8
-  %51 = add i32 %50, -1
-  store i32 %51, ptr %5, align 8
-  br label %55
+48:                                               ; preds = %46
+  %49 = load i32, ptr %5, align 8
+  %50 = add i32 %49, -1
+  store i32 %50, ptr %5, align 8
+  br label %54
 
-52:                                               ; preds = %47
-  %53 = load i32, ptr %3, align 4
-  %54 = add i32 %53, 1
-  store i32 %54, ptr %3, align 4
-  br label %55
+51:                                               ; preds = %46
+  %52 = load i32, ptr %3, align 4
+  %53 = add i32 %52, 1
+  store i32 %53, ptr %3, align 4
+  br label %54
 
-55:                                               ; preds = %52, %49
-  store ptr %1, ptr %45, align 8
+54:                                               ; preds = %51, %48
+  store ptr %1, ptr %44, align 8
   br label %_ZNK4llvm19SmallPtrSetImplBase13FindBucketForEPKv.exit.thread
 
-_ZNK4llvm19SmallPtrSetImplBase13FindBucketForEPKv.exit.thread: ; preds = %.lr.ph.i, %_ZNK4llvm19SmallPtrSetImplBase13FindBucketForEPKv.exit, %55
-  %.022.i23 = phi ptr [ %45, %55 ], [ %45, %_ZNK4llvm19SmallPtrSetImplBase13FindBucketForEPKv.exit ], [ %34, %.lr.ph.i ]
-  %.sroa.3.0 = phi i8 [ 1, %55 ], [ 0, %_ZNK4llvm19SmallPtrSetImplBase13FindBucketForEPKv.exit ], [ 0, %.lr.ph.i ]
+_ZNK4llvm19SmallPtrSetImplBase13FindBucketForEPKv.exit.thread: ; preds = %.lr.ph.i, %_ZNK4llvm19SmallPtrSetImplBase13FindBucketForEPKv.exit, %54
+  %.022.i23 = phi ptr [ %44, %54 ], [ %44, %_ZNK4llvm19SmallPtrSetImplBase13FindBucketForEPKv.exit ], [ %33, %.lr.ph.i ]
+  %.sroa.3.0 = phi i8 [ 1, %54 ], [ 0, %_ZNK4llvm19SmallPtrSetImplBase13FindBucketForEPKv.exit ], [ 0, %.lr.ph.i ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.022.i23, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.3.0, 1
   ret { ptr, i8 } %.fca.1.insert
@@ -985,6 +984,9 @@ declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #11
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #12

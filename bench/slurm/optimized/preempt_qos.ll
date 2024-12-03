@@ -159,11 +159,11 @@ declare i32 @bit_test(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @preempt_p_get_data(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
-  switch i32 %1, label %31 [
+  switch i32 %1, label %30 [
     i32 0, label %4
     i32 1, label %8
     i32 2, label %16
-    i32 3, label %26
+    i32 3, label %25
   ]
 
 4:                                                ; preds = %3
@@ -171,7 +171,7 @@ define range(i32 -1, 1) i32 @preempt_p_get_data(ptr nocapture noundef readonly %
   %6 = icmp ne i16 %5, 0
   %7 = zext i1 %6 to i8
   store i8 %7, ptr %2, align 1
-  br label %33
+  br label %32
 
 8:                                                ; preds = %3
   %9 = getelementptr i8, ptr %0, i64 760
@@ -193,7 +193,7 @@ _job_preempt_mode.exit:                           ; preds = %10, %13
   %.0.i = phi i16 [ %14, %13 ], [ %12, %10 ]
   %15 = and i16 %.0.i, 16383
   store i16 %15, ptr %2, align 2
-  br label %33
+  br label %32
 
 16:                                               ; preds = %3
   %17 = getelementptr inbounds i8, ptr %0, i64 760
@@ -204,42 +204,41 @@ _job_preempt_mode.exit:                           ; preds = %10, %13
 19:                                               ; preds = %16
   %20 = getelementptr inbounds i8, ptr %18, i64 288
   %21 = load i32, ptr %20, align 8
-  %22 = icmp ugt i32 %21, 65534
-  %23 = shl nuw i32 %21, 16
-  %spec.select.i = select i1 %22, i32 -65536, i32 %23
+  %22 = tail call i32 @llvm.umin.i32(i32 %21, i32 65535)
+  %spec.select.i = shl nuw i32 %22, 16
   br label %_gen_job_prio.exit
 
 _gen_job_prio.exit:                               ; preds = %16, %19
   %.0.i11 = phi i32 [ 0, %16 ], [ %spec.select.i, %19 ]
-  %24 = getelementptr inbounds i8, ptr %0, i64 600
-  %25 = load i32, ptr %24, align 8
-  %.1.v.i = tail call i32 @llvm.umin.i32(i32 %25, i32 65535)
+  %23 = getelementptr inbounds i8, ptr %0, i64 600
+  %24 = load i32, ptr %23, align 8
+  %.1.v.i = tail call i32 @llvm.umin.i32(i32 %24, i32 65535)
   %.1.i = or disjoint i32 %.1.v.i, %.0.i11
   store i32 %.1.i, ptr %2, align 4
-  br label %33
+  br label %32
 
-26:                                               ; preds = %3
-  %27 = getelementptr i8, ptr %0, i64 760
-  %.val9 = load ptr, ptr %27, align 8
+25:                                               ; preds = %3
+  %26 = getelementptr i8, ptr %0, i64 760
+  %.val9 = load ptr, ptr %26, align 8
   %.not.i12 = icmp eq ptr %.val9, null
-  br i1 %.not.i12, label %_get_grace_time.exit, label %28
+  br i1 %.not.i12, label %_get_grace_time.exit, label %27
 
-28:                                               ; preds = %26
-  %29 = getelementptr inbounds i8, ptr %.val9, i64 16
-  %30 = load i32, ptr %29, align 8
+27:                                               ; preds = %25
+  %28 = getelementptr inbounds i8, ptr %.val9, i64 16
+  %29 = load i32, ptr %28, align 8
   br label %_get_grace_time.exit
 
-_get_grace_time.exit:                             ; preds = %26, %28
-  %.0.i13 = phi i32 [ %30, %28 ], [ 0, %26 ]
+_get_grace_time.exit:                             ; preds = %25, %27
+  %.0.i13 = phi i32 [ %29, %27 ], [ 0, %25 ]
   store i32 %.0.i13, ptr %2, align 4
-  br label %33
+  br label %32
 
-31:                                               ; preds = %3
-  %32 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.preempt_p_get_data, i32 noundef %1) #4
-  br label %33
+30:                                               ; preds = %3
+  %31 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.preempt_p_get_data, i32 noundef %1) #4
+  br label %32
 
-33:                                               ; preds = %31, %_get_grace_time.exit, %_gen_job_prio.exit, %_job_preempt_mode.exit, %4
-  %.0 = phi i32 [ -1, %31 ], [ 0, %_get_grace_time.exit ], [ 0, %_gen_job_prio.exit ], [ 0, %_job_preempt_mode.exit ], [ 0, %4 ]
+32:                                               ; preds = %30, %_get_grace_time.exit, %_gen_job_prio.exit, %_job_preempt_mode.exit, %4
+  %.0 = phi i32 [ -1, %30 ], [ 0, %_get_grace_time.exit ], [ 0, %_gen_job_prio.exit ], [ 0, %_job_preempt_mode.exit ], [ 0, %4 ]
   ret i32 %.0
 }
 

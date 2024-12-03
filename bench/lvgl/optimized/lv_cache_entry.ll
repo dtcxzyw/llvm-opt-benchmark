@@ -44,9 +44,8 @@ define void @lv_cache_entry_dec_ref(ptr noundef %0) local_unnamed_addr #1 {
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8, !tbaa !3
-  %5 = add nsw i32 %4, -1
-  %.inv = icmp sgt i32 %4, 0
-  %spec.select = select i1 %.inv, i32 %5, i32 0
+  %5 = tail call i32 @llvm.smax.i32(i32 %4, i32 1)
+  %spec.select = add nsw i32 %5, -1
   store i32 %spec.select, ptr %3, align 8, !tbaa !3
   ret void
 }
@@ -169,9 +168,8 @@ lv_cache_entry_get_ref.exit:                      ; preds = %2
   br i1 %5, label %7, label %lv_cache_entry_dec_ref.exit
 
 lv_cache_entry_dec_ref.exit:                      ; preds = %lv_cache_entry_get_ref.exit
-  %6 = add nsw i32 %4, -1
-  %.inv.i = icmp sgt i32 %4, 0
-  %spec.select.i = select i1 %.inv.i, i32 %6, i32 0
+  %6 = tail call i32 @llvm.smax.i32(i32 %4, i32 1)
+  %spec.select.i = add nsw i32 %6, -1
   store i32 %spec.select.i, ptr %3, align 8, !tbaa !3
   br label %7
 
@@ -229,7 +227,7 @@ define noundef i32 @lv_cache_entry_get_size(i32 noundef %0) local_unnamed_addr #
 define nonnull ptr @lv_cache_entry_alloc(i32 noundef %0, ptr noundef %1) local_unnamed_addr #6 {
   %3 = add i32 %0, 24
   %4 = zext i32 %3 to i64
-  %5 = tail call ptr @lv_malloc_zeroed(i64 noundef %4) #8
+  %5 = tail call ptr @lv_malloc_zeroed(i64 noundef %4) #9
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %.preheader, label %6
 
@@ -298,11 +296,14 @@ lv_cache_entry_get_data.exit:                     ; preds = %1
   %4 = zext i32 %3 to i64
   %5 = sub nsw i64 0, %4
   %6 = getelementptr inbounds i8, ptr %0, i64 %5
-  tail call void @lv_free(ptr noundef nonnull %6) #8
+  tail call void @lv_free(ptr noundef nonnull %6) #9
   ret void
 }
 
 declare void @lv_free(ptr noundef) local_unnamed_addr #7
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #8
 
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -312,7 +313,8 @@ attributes #4 = { nofree norecurse nosync nounwind memory(none) uwtable "min-leg
 attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nounwind }
+attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

@@ -366,20 +366,19 @@ entry:
   %0 = load ptr, ptr %rd, align 8
   %1 = load i64, ptr %0, align 8
   %shr = ashr i64 %1, 47
-  %cmp = icmp ult i64 %shr, -13
-  %not = xor i64 %shr, -1
-  %t.0 = select i1 %cmp, i64 13, i64 %not
+  %2 = tail call i64 @llvm.umax.i64(i64 %shr, i64 -14)
+  %t.0 = xor i64 %2, -1
   %fn = getelementptr inbounds i8, ptr %J, i64 144
-  %2 = load ptr, ptr %fn, align 8
-  %upvalue = getelementptr inbounds i8, ptr %2, i64 48
+  %3 = load ptr, ptr %fn, align 8
+  %upvalue = getelementptr inbounds i8, ptr %3, i64 48
   %arrayidx6 = getelementptr inbounds [1 x %union.TValue], ptr %upvalue, i64 0, i64 %t.0
-  %3 = load i64, ptr %arrayidx6, align 8
-  %and = and i64 %3, 140737488355327
-  %4 = inttoptr i64 %and to ptr
-  %call = tail call i32 @lj_ir_kgc(ptr noundef %J, ptr noundef %4, i32 noundef 4) #9
+  %4 = load i64, ptr %arrayidx6, align 8
+  %and = and i64 %4, 140737488355327
+  %5 = inttoptr i64 %and to ptr
+  %call = tail call i32 @lj_ir_kgc(ptr noundef %J, ptr noundef %5, i32 noundef 4) #9
   %base = getelementptr inbounds i8, ptr %J, i64 160
-  %5 = load ptr, ptr %base, align 8
-  store i32 %call, ptr %5, align 4
+  %6 = load ptr, ptr %base, align 8
+  store i32 %call, ptr %6, align 4
   ret void
 }
 
@@ -5581,6 +5580,9 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #7
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #7
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

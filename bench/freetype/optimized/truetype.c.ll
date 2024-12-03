@@ -21527,67 +21527,7 @@ define internal i64 @Round_None(ptr nocapture noundef readonly %0, i64 noundef %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i64 @Round_To_Grid(ptr nocapture noundef readonly %0, i64 noundef %1, i32 noundef %2) #4 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 496
-  %5 = sext i32 %2 to i64
-  %6 = getelementptr inbounds [4 x i64], ptr %4, i64 0, i64 %5
-  %7 = load i64, ptr %6, align 8
-  %8 = icmp sgt i64 %1, -1
-  br i1 %8, label %9, label %14
-
-9:                                                ; preds = %3
-  %10 = add nuw i64 %1, 32
-  %11 = add i64 %10, %7
-  %12 = and i64 %11, -64
-  %13 = icmp slt i64 %11, 0
-  %spec.store.select = select i1 %13, i64 0, i64 %12
-  br label %18
-
-14:                                               ; preds = %3
-  %reass.sub = sub i64 %7, %1
-  %15 = add i64 %reass.sub, 32
-  %16 = and i64 %15, -64
-  %17 = sub i64 0, %16
-  %spec.store.select1 = tail call i64 @llvm.smin.i64(i64 %17, i64 0)
-  br label %18
-
-18:                                               ; preds = %14, %9
-  %.0 = phi i64 [ %spec.store.select, %9 ], [ %spec.store.select1, %14 ]
-  ret i64 %.0
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i64 @Round_Up_To_Grid(ptr nocapture noundef readonly %0, i64 noundef %1, i32 noundef %2) #4 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 496
-  %5 = sext i32 %2 to i64
-  %6 = getelementptr inbounds [4 x i64], ptr %4, i64 0, i64 %5
-  %7 = load i64, ptr %6, align 8
-  %8 = icmp sgt i64 %1, -1
-  br i1 %8, label %9, label %14
-
-9:                                                ; preds = %3
-  %10 = add nuw i64 %1, 63
-  %11 = add i64 %10, %7
-  %12 = and i64 %11, -64
-  %13 = icmp slt i64 %11, 0
-  %spec.store.select = select i1 %13, i64 0, i64 %12
-  br label %18
-
-14:                                               ; preds = %3
-  %reass.sub = sub i64 %7, %1
-  %15 = add i64 %reass.sub, 63
-  %16 = and i64 %15, -64
-  %17 = sub i64 0, %16
-  %spec.store.select1 = tail call i64 @llvm.smin.i64(i64 %17, i64 0)
-  br label %18
-
-18:                                               ; preds = %14, %9
-  %.0 = phi i64 [ %spec.store.select, %9 ], [ %spec.store.select1, %14 ]
-  ret i64 %.0
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i64 @Round_Down_To_Grid(ptr nocapture noundef readonly %0, i64 noundef %1, i32 noundef %2) #4 {
+define internal range(i64 -9223372036854775808, 9223372036854775745) i64 @Round_To_Grid(ptr nocapture noundef readonly %0, i64 noundef %1, i32 noundef %2) #4 {
   %4 = getelementptr inbounds i8, ptr %0, i64 496
   %5 = sext i32 %2 to i64
   %6 = getelementptr inbounds [4 x i64], ptr %4, i64 0, i64 %5
@@ -21596,14 +21536,15 @@ define internal i64 @Round_Down_To_Grid(ptr nocapture noundef readonly %0, i64 n
   br i1 %8, label %9, label %13
 
 9:                                                ; preds = %3
-  %10 = add i64 %7, %1
-  %11 = and i64 %10, -64
-  %12 = icmp slt i64 %10, 0
-  %spec.store.select = select i1 %12, i64 0, i64 %11
+  %10 = add nuw i64 %1, 32
+  %11 = add i64 %10, %7
+  %12 = tail call i64 @llvm.smax.i64(i64 %11, i64 0)
+  %spec.store.select = and i64 %12, 9223372036854775744
   br label %17
 
 13:                                               ; preds = %3
-  %14 = sub i64 %7, %1
+  %reass.sub = sub i64 %7, %1
+  %14 = add i64 %reass.sub, 32
   %15 = and i64 %14, -64
   %16 = sub i64 0, %15
   %spec.store.select1 = tail call i64 @llvm.smin.i64(i64 %16, i64 0)
@@ -21611,6 +21552,62 @@ define internal i64 @Round_Down_To_Grid(ptr nocapture noundef readonly %0, i64 n
 
 17:                                               ; preds = %13, %9
   %.0 = phi i64 [ %spec.store.select, %9 ], [ %spec.store.select1, %13 ]
+  ret i64 %.0
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
+define internal range(i64 -9223372036854775808, 9223372036854775745) i64 @Round_Up_To_Grid(ptr nocapture noundef readonly %0, i64 noundef %1, i32 noundef %2) #4 {
+  %4 = getelementptr inbounds i8, ptr %0, i64 496
+  %5 = sext i32 %2 to i64
+  %6 = getelementptr inbounds [4 x i64], ptr %4, i64 0, i64 %5
+  %7 = load i64, ptr %6, align 8
+  %8 = icmp sgt i64 %1, -1
+  br i1 %8, label %9, label %13
+
+9:                                                ; preds = %3
+  %10 = add nuw i64 %1, 63
+  %11 = add i64 %10, %7
+  %12 = tail call i64 @llvm.smax.i64(i64 %11, i64 0)
+  %spec.store.select = and i64 %12, 9223372036854775744
+  br label %17
+
+13:                                               ; preds = %3
+  %reass.sub = sub i64 %7, %1
+  %14 = add i64 %reass.sub, 63
+  %15 = and i64 %14, -64
+  %16 = sub i64 0, %15
+  %spec.store.select1 = tail call i64 @llvm.smin.i64(i64 %16, i64 0)
+  br label %17
+
+17:                                               ; preds = %13, %9
+  %.0 = phi i64 [ %spec.store.select, %9 ], [ %spec.store.select1, %13 ]
+  ret i64 %.0
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
+define internal range(i64 -9223372036854775808, 9223372036854775745) i64 @Round_Down_To_Grid(ptr nocapture noundef readonly %0, i64 noundef %1, i32 noundef %2) #4 {
+  %4 = getelementptr inbounds i8, ptr %0, i64 496
+  %5 = sext i32 %2 to i64
+  %6 = getelementptr inbounds [4 x i64], ptr %4, i64 0, i64 %5
+  %7 = load i64, ptr %6, align 8
+  %8 = icmp sgt i64 %1, -1
+  br i1 %8, label %9, label %12
+
+9:                                                ; preds = %3
+  %10 = add i64 %7, %1
+  %11 = tail call i64 @llvm.smax.i64(i64 %10, i64 0)
+  %spec.store.select = and i64 %11, 9223372036854775744
+  br label %16
+
+12:                                               ; preds = %3
+  %13 = sub i64 %7, %1
+  %14 = and i64 %13, -64
+  %15 = sub i64 0, %14
+  %spec.store.select1 = tail call i64 @llvm.smin.i64(i64 %15, i64 0)
+  br label %16
+
+16:                                               ; preds = %12, %9
+  %.0 = phi i64 [ %spec.store.select, %9 ], [ %spec.store.select1, %12 ]
   ret i64 %.0
 }
 
@@ -21645,32 +21642,31 @@ define internal range(i64 32, -31) i64 @Round_To_Half_Grid(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i64 @Round_To_Double_Grid(ptr nocapture noundef readonly %0, i64 noundef %1, i32 noundef %2) #4 {
+define internal range(i64 -9223372036854775808, 9223372036854775777) i64 @Round_To_Double_Grid(ptr nocapture noundef readonly %0, i64 noundef %1, i32 noundef %2) #4 {
   %4 = getelementptr inbounds i8, ptr %0, i64 496
   %5 = sext i32 %2 to i64
   %6 = getelementptr inbounds [4 x i64], ptr %4, i64 0, i64 %5
   %7 = load i64, ptr %6, align 8
   %8 = icmp sgt i64 %1, -1
-  br i1 %8, label %9, label %14
+  br i1 %8, label %9, label %13
 
 9:                                                ; preds = %3
   %10 = add nuw i64 %1, 16
   %11 = add i64 %10, %7
-  %12 = and i64 %11, -32
-  %13 = icmp slt i64 %11, 0
-  %spec.store.select = select i1 %13, i64 0, i64 %12
-  br label %18
+  %12 = tail call i64 @llvm.smax.i64(i64 %11, i64 0)
+  %spec.store.select = and i64 %12, 9223372036854775776
+  br label %17
 
-14:                                               ; preds = %3
+13:                                               ; preds = %3
   %reass.sub = sub i64 %7, %1
-  %15 = add i64 %reass.sub, 16
-  %16 = and i64 %15, -32
-  %17 = sub i64 0, %16
-  %spec.store.select1 = tail call i64 @llvm.smin.i64(i64 %17, i64 0)
-  br label %18
+  %14 = add i64 %reass.sub, 16
+  %15 = and i64 %14, -32
+  %16 = sub i64 0, %15
+  %spec.store.select1 = tail call i64 @llvm.smin.i64(i64 %16, i64 0)
+  br label %17
 
-18:                                               ; preds = %14, %9
-  %.0 = phi i64 [ %spec.store.select, %9 ], [ %spec.store.select1, %14 ]
+17:                                               ; preds = %13, %9
+  %.0 = phi i64 [ %spec.store.select, %9 ], [ %spec.store.select1, %13 ]
   ret i64 %.0
 }
 

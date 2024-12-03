@@ -77252,29 +77252,29 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #31
 ; Function Attrs: nofree nosync nounwind memory(none)
 declare i32 @llvm.eh.typeid.for.p0(ptr) #32
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #33
+
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #33
+declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #34
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #34
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #35
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #34
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #35
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #35
+declare i64 @llvm.umax.i64(i64, i64) #33
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #35
+declare i32 @llvm.smin.i32(i32, i32) #33
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #35
+declare i16 @llvm.cttz.i16(i16, i1 immarg) #33
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.cttz.i16(i16, i1 immarg) #35
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #35
+declare i32 @llvm.umax.i32(i32, i32) #33
 
 declare double @exp2(double) local_unnamed_addr
 
@@ -77311,9 +77311,9 @@ attributes #29 = { mustprogress nocallback nofree nosync nounwind willreturn mem
 attributes #30 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #31 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #32 = { nofree nosync nounwind memory(none) }
-attributes #33 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #34 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #35 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #33 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #34 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #35 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #36 = { builtin allocsize(0) }
 attributes #37 = { builtin nounwind }
 attributes #38 = { noreturn nounwind }

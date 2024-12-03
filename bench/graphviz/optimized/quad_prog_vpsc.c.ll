@@ -1236,8 +1236,8 @@ define void @generateNonoverlapConstraints(ptr nocapture noundef %0, float nound
   %17 = getelementptr inbounds i8, ptr %16, i64 4
   %18 = load i32, ptr %17, align 4
   %19 = icmp sgt i32 %18, 0
-  %20 = shl nuw nsw i32 %18, 1
-  %21 = select i1 %19, i32 %20, i32 0
+  %20 = tail call i32 @llvm.smax.i32(i32 %18, i32 0)
+  %21 = shl nuw i32 %20, 1
   %.0357 = sub nsw i32 %12, %21
   %22 = icmp eq i32 %3, 0
   %23 = icmp sgt i32 %.0357, 0
@@ -1973,6 +1973,9 @@ declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #11
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #12
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #11
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

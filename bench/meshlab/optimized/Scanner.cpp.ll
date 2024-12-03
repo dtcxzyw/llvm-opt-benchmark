@@ -712,9 +712,8 @@ define noalias noundef ptr @_Z24coco_string_create_upperPKw(ptr noundef readonly
   %3 = tail call i64 @wcslen(ptr noundef nonnull %0) #24
   %4 = shl i64 %3, 32
   %sext = add i64 %4, 4294967296
-  %5 = ashr exact i64 %sext, 30
-  %.inv = icmp sgt i64 %sext, -1
-  %6 = select i1 %.inv, i64 %5, i64 -1
+  %5 = tail call i64 @llvm.smax.i64(i64 %sext, i64 -1)
+  %6 = ashr i64 %5, 30
   %7 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %6) #21
   %8 = and i64 %3, 2147483648
   %.not2628.not = icmp eq i64 %8, 0
@@ -5685,6 +5684,9 @@ define void @_ZN14VrmlTranslator7Scanner9ResetPeekEv(ptr nocapture noundef nonnu
   store ptr %3, ptr %4, align 8
   ret void
 }
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.smax.i64(i64, i64) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #19

@@ -328,8 +328,8 @@ _ZN5ZXing6Pdf41721DetectionResultColumn13setRowNumbersEv.exit: ; preds = %22
   %.not24.i.us = icmp eq i32 %50, %.sext.i.us
   %.sext5.i.us = sext i8 %49 to i32
   %.not25.i.us = icmp eq i32 %39, %.sext5.i.us
-  %or.cond105 = and i1 %.not24.i.us, %.not25.i.us
-  br i1 %or.cond105, label %54, label %.sink.split.i.us
+  %or.cond106 = and i1 %.not24.i.us, %.not25.i.us
+  br i1 %or.cond106, label %54, label %.sink.split.i.us
 
 51:                                               ; preds = %42
   %52 = mul nsw i32 %35, 3
@@ -391,8 +391,8 @@ _ZN5ZXing6Pdf41721DetectionResultColumn13setRowNumbersEv.exit: ; preds = %22
   %.not24.i = icmp eq i32 %78, %.sext.i
   %.sext5.i = sext i8 %77 to i32
   %.not25.i = icmp eq i32 %66, %.sext5.i
-  %or.cond106 = and i1 %.not24.i, %.not25.i
-  br i1 %or.cond106, label %82, label %.sink.split.i
+  %or.cond107 = and i1 %.not24.i, %.not25.i
+  br i1 %or.cond107, label %82, label %.sink.split.i
 
 79:                                               ; preds = %69
   %80 = add nsw i32 %62, 1
@@ -438,17 +438,17 @@ _ZN5ZXing6Pdf417L24RemoveIncorrectCodewordsEbRSt6vectorINS_8NullableINS0_8Codewo
   %98 = sext i32 %93 to i64
   br label %99
 
-99:                                               ; preds = %.lr.ph90, %142
-  %indvars.iv94 = phi i64 [ %97, %.lr.ph90 ], [ %indvars.iv.next95, %142 ]
-  %.04389 = phi i32 [ -1, %.lr.ph90 ], [ %.1, %142 ]
-  %.04586 = phi i32 [ 1, %.lr.ph90 ], [ %.146, %142 ]
-  %.07385 = phi i32 [ 0, %.lr.ph90 ], [ %.174, %142 ]
-  %.07584 = phi i32 [ 1, %.lr.ph90 ], [ %.176, %142 ]
+99:                                               ; preds = %.lr.ph90, %138
+  %indvars.iv94 = phi i64 [ %97, %.lr.ph90 ], [ %indvars.iv.next95, %138 ]
+  %.04389 = phi i32 [ -1, %.lr.ph90 ], [ %.1, %138 ]
+  %.04586 = phi i32 [ 1, %.lr.ph90 ], [ %.146, %138 ]
+  %.07385 = phi i32 [ 0, %.lr.ph90 ], [ %.174, %138 ]
+  %.07584 = phi i32 [ 1, %.lr.ph90 ], [ %.176, %138 ]
   %100 = load ptr, ptr %6, align 8
   %101 = getelementptr inbounds %"class.ZXing::Nullable.0", ptr %100, i64 %indvars.iv94
   %102 = load i8, ptr %101, align 4
   %103 = trunc i8 %102 to i1
-  br i1 %103, label %_ZNK5ZXing8NullableINS_6Pdf4178CodewordEEcvS2_Ev.exit, label %142
+  br i1 %103, label %_ZNK5ZXing8NullableINS_6Pdf4178CodewordEEcvS2_Ev.exit, label %138
 
 _ZNK5ZXing8NullableINS_6Pdf4178CodewordEEcvS2_Ev.exit: ; preds = %99
   %104 = getelementptr inbounds i8, ptr %101, i64 4
@@ -476,7 +476,7 @@ _ZNK5ZXing8NullableINS_6Pdf4178CodewordEEcvS2_Ev.exit: ; preds = %99
 
 115:                                              ; preds = %112
   %116 = add nsw i32 %.07385, 1
-  br label %142
+  br label %138
 
 117:                                              ; preds = %112
   %118 = icmp eq i32 %113, %.247
@@ -484,7 +484,7 @@ _ZNK5ZXing8NullableINS_6Pdf4178CodewordEEcvS2_Ev.exit: ; preds = %99
 
 119:                                              ; preds = %117
   %.sroa.speculated = tail call i32 @llvm.smax.i32(i32 %.07584, i32 %.07385)
-  br label %142
+  br label %138
 
 120:                                              ; preds = %117
   %121 = icmp slt i32 %113, 0
@@ -504,50 +504,46 @@ _ZNK5ZXing8NullableINS_6Pdf4178CodewordEEcvS2_Ev.exit: ; preds = %99
   store i8 0, ptr %101, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %104, i8 0, i64 16, i1 false)
   store i32 -1, ptr %.sroa.1.0..sroa_idx, align 4
-  br label %142
+  br label %138
 
 129:                                              ; preds = %122
-  %130 = icmp sgt i32 %.07584, 2
-  %131 = add nsw i32 %.07584, -2
-  %132 = select i1 %130, i32 %131, i32 1
-  %.042 = mul nsw i32 %113, %132
-  %133 = sext i32 %.042 to i64
-  %134 = icmp sle i64 %indvars.iv94, %133
-  %135 = icmp slt i32 %.042, 1
-  %.not5182 = or i1 %134, %135
-  br i1 %.not5182, label %._crit_edge, label %.lr.ph
+  %130 = tail call i32 @llvm.smax.i32(i32 %.07584, i32 3)
+  %131 = add nsw i32 %130, -2
+  %.042 = mul nsw i32 %113, %131
+  %132 = zext nneg i32 %.042 to i64
+  %.not103 = icmp samesign ugt i64 %indvars.iv94, %132
+  br i1 %.not103, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %129, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 1, %129 ]
-  %136 = sub nsw i64 %indvars.iv94, %indvars.iv
-  %137 = getelementptr inbounds %"class.ZXing::Nullable.0", ptr %100, i64 %136
-  %138 = load i8, ptr %137, align 4
-  %139 = trunc i8 %138 to i1
+  %133 = sub nsw i64 %indvars.iv94, %indvars.iv
+  %134 = getelementptr inbounds %"class.ZXing::Nullable.0", ptr %100, i64 %133
+  %135 = load i8, ptr %134, align 4
+  %136 = trunc i8 %135 to i1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %140 = icmp sge i64 %indvars.iv, %133
-  %.not51 = or i1 %140, %139
+  %137 = icmp samesign uge i64 %indvars.iv, %132
+  %.not51 = or i1 %137, %136
   br i1 %.not51, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
-._crit_edge:                                      ; preds = %.lr.ph, %129
-  %.041.in.lcssa = phi i1 [ %134, %129 ], [ %139, %.lr.ph ]
-  br i1 %.041.in.lcssa, label %141, label %142
+._crit_edge:                                      ; preds = %.lr.ph
+  br i1 %136, label %.critedge, label %138
 
-141:                                              ; preds = %._crit_edge
+.critedge:                                        ; preds = %129, %._crit_edge
   store i8 0, ptr %101, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %104, i8 0, i64 16, i1 false)
   store i32 -1, ptr %.sroa.1.0..sroa_idx, align 4
-  br label %142
+  br label %138
 
-142:                                              ; preds = %._crit_edge, %115, %128, %141, %119, %99
-  %.176 = phi i32 [ %.07584, %99 ], [ %.07584, %115 ], [ %.sroa.speculated, %119 ], [ %.07584, %128 ], [ %.07584, %141 ], [ %.07584, %._crit_edge ]
-  %.174 = phi i32 [ %.07385, %99 ], [ %116, %115 ], [ 1, %119 ], [ %.07385, %128 ], [ %.07385, %141 ], [ 1, %._crit_edge ]
-  %.146 = phi i32 [ %.04586, %99 ], [ %.247, %115 ], [ %.247, %119 ], [ %.247, %128 ], [ %.247, %141 ], [ %.247, %._crit_edge ]
-  %.1 = phi i32 [ %.04389, %99 ], [ %.sroa.1.0.copyload, %115 ], [ %.sroa.1.0.copyload, %119 ], [ %.2, %128 ], [ %.2, %141 ], [ %.sroa.1.0.copyload, %._crit_edge ]
+138:                                              ; preds = %._crit_edge, %115, %128, %.critedge, %119, %99
+  %.176 = phi i32 [ %.07584, %99 ], [ %.07584, %115 ], [ %.sroa.speculated, %119 ], [ %.07584, %128 ], [ %.07584, %.critedge ], [ %.07584, %._crit_edge ]
+  %.174 = phi i32 [ %.07385, %99 ], [ %116, %115 ], [ 1, %119 ], [ %.07385, %128 ], [ %.07385, %.critedge ], [ 1, %._crit_edge ]
+  %.146 = phi i32 [ %.04586, %99 ], [ %.247, %115 ], [ %.247, %119 ], [ %.247, %128 ], [ %.247, %.critedge ], [ %.247, %._crit_edge ]
+  %.1 = phi i32 [ %.04389, %99 ], [ %.sroa.1.0.copyload, %115 ], [ %.sroa.1.0.copyload, %119 ], [ %.2, %128 ], [ %.2, %.critedge ], [ %.sroa.1.0.copyload, %._crit_edge ]
   %indvars.iv.next95 = add nsw i64 %indvars.iv94, 1
-  %143 = icmp slt i64 %indvars.iv.next95, %98
-  br i1 %143, label %99, label %.loopexit, !llvm.loop !7
+  %139 = icmp slt i64 %indvars.iv.next95, %98
+  br i1 %139, label %99, label %.loopexit, !llvm.loop !7
 
-.loopexit:                                        ; preds = %142, %_ZN5ZXing6Pdf417L24RemoveIncorrectCodewordsEbRSt6vectorINS_8NullableINS0_8CodewordEEESaIS4_EERKNS0_15BarcodeMetadataE.exit, %2
+.loopexit:                                        ; preds = %138, %_ZN5ZXing6Pdf417L24RemoveIncorrectCodewordsEbRSt6vectorINS_8NullableINS0_8CodewordEEESaIS4_EERKNS0_15BarcodeMetadataE.exit, %2
   ret void
 }
 

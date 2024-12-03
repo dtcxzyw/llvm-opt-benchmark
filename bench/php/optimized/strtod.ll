@@ -50,7 +50,7 @@ define hidden double @lexbor_strtod_internal(ptr noundef %0, i64 noundef %1, i32
   %22 = sub i64 %20, %21
   %23 = add nsw i64 %22, 1
   %24 = icmp eq i64 %23, 0
-  br i1 %24, label %176, label %25
+  br i1 %24, label %174, label %25
 
 25:                                               ; preds = %19
   %26 = sub i64 %13, %23
@@ -59,11 +59,11 @@ define hidden double @lexbor_strtod_internal(ptr noundef %0, i64 noundef %1, i32
   %29 = trunc i64 %23 to i32
   %30 = add nsw i32 %28, %29
   %31 = icmp sgt i32 %30, 309
-  br i1 %31, label %176, label %32
+  br i1 %31, label %174, label %32
 
 32:                                               ; preds = %25
   %33 = icmp slt i32 %30, -323
-  br i1 %33, label %176, label %34
+  br i1 %33, label %174, label %34
 
 34:                                               ; preds = %32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
@@ -137,7 +137,7 @@ lexbor_diyfp_normalize.exit.i:                    ; preds = %.lr.ph.i.i90.i, %.p
 
 67:                                               ; preds = %lexbor_diyfp_normalize.exit.i
   %68 = sub i32 0, %62
-  %69 = call { i64, i32 } @lexbor_cached_power_dec(i32 noundef %54, ptr noundef nonnull %4) #3
+  %69 = call { i64, i32 } @lexbor_cached_power_dec(i32 noundef %54, ptr noundef nonnull %4) #4
   %70 = extractvalue { i64, i32 } %69, 0
   %71 = extractvalue { i64, i32 } %69, 1
   %72 = load i32, ptr %4, align 4
@@ -233,118 +233,120 @@ lexbor_diyfp_normalize.exit104.i:                 ; preds = %.lr.ph.i.i101.i, %.
   %126 = shl i64 %114, %121
   %127 = add nsw i32 %125, 64
   %128 = icmp sgt i32 %125, -1086
-  %129 = icmp samesign ult i32 %127, -1073
-  %130 = add nsw i32 %125, 1138
-  %spec.select.i105.i = select i1 %129, i32 0, i32 %130
+  %spec.select.i105.i = call i32 @llvm.usub.sat.i32(i32 range(i32 -2147483584, -2147483648) %127, i32 -1074)
   %.0.i106.i = select i1 %128, i32 53, i32 %spec.select.i105.i
-  %131 = sub nuw nsw i32 64, %.0.i106.i
-  %132 = icmp samesign ult i32 %.0.i106.i, 4
-  br i1 %132, label %133, label %140
+  %129 = sub nuw nsw i32 64, %.0.i106.i
+  %130 = icmp samesign ult i32 %.0.i106.i, 4
+  br i1 %130, label %131, label %138
 
-133:                                              ; preds = %lexbor_diyfp_normalize.exit104.i
-  %134 = sub nuw nsw i32 4, %.0.i106.i
-  %135 = zext nneg i32 %134 to i64
-  %136 = lshr i64 %122, %135
-  %137 = add i32 %134, %125
-  %138 = ashr i64 %126, %135
-  %139 = add nsw i64 %138, 9
-  br label %140
+131:                                              ; preds = %lexbor_diyfp_normalize.exit104.i
+  %132 = sub nuw nsw i32 4, %.0.i106.i
+  %133 = zext nneg i32 %132 to i64
+  %134 = lshr i64 %122, %133
+  %135 = add i32 %132, %125
+  %136 = ashr i64 %126, %133
+  %137 = add nsw i64 %136, 9
+  br label %138
 
-140:                                              ; preds = %133, %lexbor_diyfp_normalize.exit104.i
-  %.sroa.033.1.i = phi i64 [ %136, %133 ], [ %122, %lexbor_diyfp_normalize.exit104.i ]
-  %.sroa.13.1.i = phi i32 [ %137, %133 ], [ %125, %lexbor_diyfp_normalize.exit104.i ]
-  %.1.i = phi i64 [ %139, %133 ], [ %126, %lexbor_diyfp_normalize.exit104.i ]
-  %.082.i = phi i32 [ 60, %133 ], [ %131, %lexbor_diyfp_normalize.exit104.i ]
-  %141 = zext nneg i32 %.082.i to i64
-  %notmask.i = shl nsw i64 -1, %141
-  %142 = xor i64 %notmask.i, -1
-  %143 = and i64 %.sroa.033.1.i, %142
-  %144 = shl i64 %143, 3
-  %145 = add nsw i32 %.082.i, -1
-  %146 = zext nneg i32 %145 to i64
-  %147 = shl i64 8, %146
-  %148 = lshr i64 %.sroa.033.1.i, %141
-  %149 = add i32 %.082.i, %.sroa.13.1.i
-  %150 = add i64 %147, %.1.i
-  %.not88.i = icmp uge i64 %144, %150
-  %151 = zext i1 %.not88.i to i64
-  %spec.select89.i = add nuw i64 %148, %151
-  %152 = icmp ugt i64 %spec.select89.i, 9007199254740991
-  br i1 %152, label %.lr.ph.i.i, label %._crit_edge.i.i
+138:                                              ; preds = %131, %lexbor_diyfp_normalize.exit104.i
+  %.sroa.033.1.i = phi i64 [ %134, %131 ], [ %122, %lexbor_diyfp_normalize.exit104.i ]
+  %.sroa.13.1.i = phi i32 [ %135, %131 ], [ %125, %lexbor_diyfp_normalize.exit104.i ]
+  %.1.i = phi i64 [ %137, %131 ], [ %126, %lexbor_diyfp_normalize.exit104.i ]
+  %.082.i = phi i32 [ 60, %131 ], [ %129, %lexbor_diyfp_normalize.exit104.i ]
+  %139 = zext nneg i32 %.082.i to i64
+  %notmask.i = shl nsw i64 -1, %139
+  %140 = xor i64 %notmask.i, -1
+  %141 = and i64 %.sroa.033.1.i, %140
+  %142 = shl i64 %141, 3
+  %143 = add nsw i32 %.082.i, -1
+  %144 = zext nneg i32 %143 to i64
+  %145 = shl i64 8, %144
+  %146 = lshr i64 %.sroa.033.1.i, %139
+  %147 = add i32 %.082.i, %.sroa.13.1.i
+  %148 = add i64 %145, %.1.i
+  %.not88.i = icmp uge i64 %142, %148
+  %149 = zext i1 %.not88.i to i64
+  %spec.select89.i = add nuw i64 %146, %149
+  %150 = icmp ugt i64 %spec.select89.i, 9007199254740991
+  br i1 %150, label %.lr.ph.i.i, label %._crit_edge.i.i
 
-.lr.ph.i.i:                                       ; preds = %140, %.lr.ph.i.i
-  %.01621.i.i = phi i64 [ %153, %.lr.ph.i.i ], [ %spec.select89.i, %140 ]
-  %.01720.i.i = phi i32 [ %154, %.lr.ph.i.i ], [ %149, %140 ]
-  %153 = lshr i64 %.01621.i.i, 1
-  %154 = add nsw i32 %.01720.i.i, 1
-  %155 = icmp ugt i64 %.01621.i.i, 18014398509481983
-  br i1 %155, label %.lr.ph.i.i, label %._crit_edge.i.i
+.lr.ph.i.i:                                       ; preds = %138, %.lr.ph.i.i
+  %.01621.i.i = phi i64 [ %151, %.lr.ph.i.i ], [ %spec.select89.i, %138 ]
+  %.01720.i.i = phi i32 [ %152, %.lr.ph.i.i ], [ %147, %138 ]
+  %151 = lshr i64 %.01621.i.i, 1
+  %152 = add nsw i32 %.01720.i.i, 1
+  %153 = icmp ugt i64 %.01621.i.i, 18014398509481983
+  br i1 %153, label %.lr.ph.i.i, label %._crit_edge.i.i
 
-._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %140
-  %.017.lcssa.i.i = phi i32 [ %149, %140 ], [ %154, %.lr.ph.i.i ]
-  %.016.lcssa.i.i = phi i64 [ %spec.select89.i, %140 ], [ %153, %.lr.ph.i.i ]
-  %156 = icmp sgt i32 %.017.lcssa.i.i, 971
-  br i1 %156, label %lexbor_strtod_diyfp_strtod.exit, label %157
+._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %138
+  %.017.lcssa.i.i = phi i32 [ %147, %138 ], [ %152, %.lr.ph.i.i ]
+  %.016.lcssa.i.i = phi i64 [ %spec.select89.i, %138 ], [ %151, %.lr.ph.i.i ]
+  %154 = icmp sgt i32 %.017.lcssa.i.i, 971
+  br i1 %154, label %lexbor_strtod_diyfp_strtod.exit, label %155
 
-157:                                              ; preds = %._crit_edge.i.i
-  %158 = icmp slt i32 %.017.lcssa.i.i, -1074
-  br i1 %158, label %lexbor_strtod_diyfp_strtod.exit, label %.preheader.i.i
+155:                                              ; preds = %._crit_edge.i.i
+  %156 = icmp slt i32 %.017.lcssa.i.i, -1074
+  br i1 %156, label %lexbor_strtod_diyfp_strtod.exit, label %.preheader.i.i
 
-.preheader.i.i:                                   ; preds = %157
-  %159 = icmp ne i32 %.017.lcssa.i.i, -1074
-  %160 = and i64 %.016.lcssa.i.i, 4503599627370496
-  %161 = icmp eq i64 %160, 0
-  %162 = and i1 %159, %161
-  br i1 %162, label %.lr.ph25.i.i, label %._crit_edge26.i.i
+.preheader.i.i:                                   ; preds = %155
+  %157 = icmp ne i32 %.017.lcssa.i.i, -1074
+  %158 = and i64 %.016.lcssa.i.i, 4503599627370496
+  %159 = icmp eq i64 %158, 0
+  %160 = and i1 %157, %159
+  br i1 %160, label %.lr.ph25.i.i, label %._crit_edge26.i.i
 
 .lr.ph25.i.i:                                     ; preds = %.preheader.i.i, %.lr.ph25.i.i
-  %.124.i.i = phi i64 [ %163, %.lr.ph25.i.i ], [ %.016.lcssa.i.i, %.preheader.i.i ]
-  %.11823.i.i = phi i32 [ %164, %.lr.ph25.i.i ], [ %.017.lcssa.i.i, %.preheader.i.i ]
-  %163 = shl i64 %.124.i.i, 1
-  %164 = add nsw i32 %.11823.i.i, -1
-  %165 = icmp sgt i32 %.11823.i.i, -1073
-  %166 = and i64 %.124.i.i, 2251799813685248
-  %167 = icmp eq i64 %166, 0
-  %168 = select i1 %165, i1 %167, i1 false
-  br i1 %168, label %.lr.ph25.i.i, label %._crit_edge26.i.i
+  %.124.i.i = phi i64 [ %161, %.lr.ph25.i.i ], [ %.016.lcssa.i.i, %.preheader.i.i ]
+  %.11823.i.i = phi i32 [ %162, %.lr.ph25.i.i ], [ %.017.lcssa.i.i, %.preheader.i.i ]
+  %161 = shl i64 %.124.i.i, 1
+  %162 = add nsw i32 %.11823.i.i, -1
+  %163 = icmp sgt i32 %.11823.i.i, -1073
+  %164 = and i64 %.124.i.i, 2251799813685248
+  %165 = icmp eq i64 %164, 0
+  %166 = select i1 %163, i1 %165, i1 false
+  br i1 %166, label %.lr.ph25.i.i, label %._crit_edge26.i.i
 
 ._crit_edge26.i.i:                                ; preds = %.lr.ph25.i.i, %.preheader.i.i
-  %.118.lcssa.i.i = phi i32 [ %.017.lcssa.i.i, %.preheader.i.i ], [ %164, %.lr.ph25.i.i ]
-  %.1.lcssa.i.i = phi i64 [ %.016.lcssa.i.i, %.preheader.i.i ], [ %163, %.lr.ph25.i.i ]
-  %.lcssa.i.i = phi i1 [ %161, %.preheader.i.i ], [ %167, %.lr.ph25.i.i ]
-  %169 = icmp eq i32 %.118.lcssa.i.i, -1074
-  %brmerge.not.i.i = select i1 %169, i1 %.lcssa.i.i, i1 false
-  %170 = add nsw i32 %.118.lcssa.i.i, 1075
-  %171 = zext nneg i32 %170 to i64
-  %172 = shl nuw nsw i64 %171, 52
-  %.015.i.i = select i1 %brmerge.not.i.i, i64 0, i64 %172
-  %173 = and i64 %.1.lcssa.i.i, 4503599627370495
-  %174 = or disjoint i64 %.015.i.i, %173
-  %175 = bitcast i64 %174 to double
+  %.118.lcssa.i.i = phi i32 [ %.017.lcssa.i.i, %.preheader.i.i ], [ %162, %.lr.ph25.i.i ]
+  %.1.lcssa.i.i = phi i64 [ %.016.lcssa.i.i, %.preheader.i.i ], [ %161, %.lr.ph25.i.i ]
+  %.lcssa.i.i = phi i1 [ %159, %.preheader.i.i ], [ %165, %.lr.ph25.i.i ]
+  %167 = icmp eq i32 %.118.lcssa.i.i, -1074
+  %brmerge.not.i.i = select i1 %167, i1 %.lcssa.i.i, i1 false
+  %168 = add nsw i32 %.118.lcssa.i.i, 1075
+  %169 = zext nneg i32 %168 to i64
+  %170 = shl nuw nsw i64 %169, 52
+  %.015.i.i = select i1 %brmerge.not.i.i, i64 0, i64 %170
+  %171 = and i64 %.1.lcssa.i.i, 4503599627370495
+  %172 = or disjoint i64 %.015.i.i, %171
+  %173 = bitcast i64 %172 to double
   br label %lexbor_strtod_diyfp_strtod.exit
 
-lexbor_strtod_diyfp_strtod.exit:                  ; preds = %lexbor_diyfp_normalize.exit.i, %._crit_edge.i.i, %157, %._crit_edge26.i.i
-  %.0.i = phi double [ 0.000000e+00, %lexbor_diyfp_normalize.exit.i ], [ %175, %._crit_edge26.i.i ], [ 0x7FF0000000000000, %._crit_edge.i.i ], [ 0.000000e+00, %157 ]
+lexbor_strtod_diyfp_strtod.exit:                  ; preds = %lexbor_diyfp_normalize.exit.i, %._crit_edge.i.i, %155, %._crit_edge26.i.i
+  %.0.i = phi double [ 0.000000e+00, %lexbor_diyfp_normalize.exit.i ], [ %173, %._crit_edge26.i.i ], [ 0x7FF0000000000000, %._crit_edge.i.i ], [ 0.000000e+00, %155 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  br label %176
+  br label %174
 
-176:                                              ; preds = %32, %25, %19, %lexbor_strtod_diyfp_strtod.exit
+174:                                              ; preds = %32, %25, %19, %lexbor_strtod_diyfp_strtod.exit
   %.0 = phi double [ %.0.i, %lexbor_strtod_diyfp_strtod.exit ], [ 0.000000e+00, %19 ], [ 0x7FF0000000000000, %25 ], [ 0.000000e+00, %32 ]
   ret double %.0
 }
 
 declare { i64, i32 } @lexbor_cached_power_dec(i32 noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.usub.sat.i32(i32, i32) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nounwind }
+attributes #2 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #3 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

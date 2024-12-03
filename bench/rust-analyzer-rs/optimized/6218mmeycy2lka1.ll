@@ -639,9 +639,8 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !238
   %39 = and i32 %20, 16777215
   %40 = load i32, ptr %8, align 4, !noalias !249, !noundef !14
-  %41 = and i32 %20, -16777216
-  %switch.not.not.inv.i.i.i = icmp slt i32 %20, 0
-  %.0.i.i.i = select i1 %switch.not.not.inv.i.i.i, i32 %41, i32 0
+  %41 = tail call i32 @llvm.smin.i32(i32 %20, i32 0)
+  %.0.i.i.i = and i32 %41, -16777216
   %42 = add i32 %40, %39
   %43 = or i32 %42, %.0.i.i.i
   %44 = getelementptr inbounds { ptr, ptr, i32, i32 }, ptr %.sroa.9.0.copyload, i64 %.val18.i
@@ -36465,9 +36464,8 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
   %43 = and i32 %24, 16777215
   tail call void @llvm.assume(i1 %13)
   %44 = load i32, ptr %.val.i, align 4, !noalias !12820, !noundef !14
-  %45 = and i32 %24, -16777216
-  %switch.not.not.inv.i.i = icmp slt i32 %24, 0
-  %.0.i.i = select i1 %switch.not.not.inv.i.i, i32 %45, i32 0
+  %45 = tail call i32 @llvm.smin.i32(i32 %24, i32 0)
+  %.0.i.i = and i32 %45, -16777216
   %46 = add i32 %44, %43
   %47 = or i32 %46, %.0.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12821)
@@ -86657,6 +86655,9 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #28
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #28
 
 attributes #0 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

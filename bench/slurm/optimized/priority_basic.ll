@@ -54,36 +54,35 @@ define range(i32 1, 0) i32 @priority_p_set(i32 noundef %0, ptr nocapture noundef
   %6 = getelementptr inbounds i8, ptr %1, i64 712
   %7 = load i32, ptr %6, align 8
   %8 = icmp ugt i32 %7, 1
-  br i1 %8, label %23, label %9
+  br i1 %8, label %22, label %9
 
 9:                                                ; preds = %5, %2
-  %10 = icmp ugt i32 %0, 1
-  %11 = add i32 %0, -1
-  %spec.select = select i1 %10, i32 %11, i32 1
-  %12 = getelementptr inbounds i8, ptr %1, i64 216
-  %13 = load ptr, ptr %12, align 8
-  %.not20 = icmp eq ptr %13, null
-  br i1 %.not20, label %22, label %14
+  %10 = tail call i32 @llvm.umax.i32(i32 %0, i32 2)
+  %spec.select = add i32 %10, -1
+  %11 = getelementptr inbounds i8, ptr %1, i64 216
+  %12 = load ptr, ptr %11, align 8
+  %.not20 = icmp eq ptr %12, null
+  br i1 %.not20, label %21, label %13
 
-14:                                               ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %13, i64 288
-  %16 = load i32, ptr %15, align 8
-  %17 = xor i32 %16, -2147483648
-  %18 = icmp slt i32 %17, 1
-  %19 = add i32 %16, -2147483647
-  %20 = icmp ugt i32 %spec.select, %19
-  %or.cond = or i1 %18, %20
-  %21 = select i1 %or.cond, i32 %17, i32 0
-  %spec.select22 = sub i32 %spec.select, %21
+13:                                               ; preds = %9
+  %14 = getelementptr inbounds i8, ptr %12, i64 288
+  %15 = load i32, ptr %14, align 8
+  %16 = xor i32 %15, -2147483648
+  %17 = icmp slt i32 %16, 1
+  %18 = add i32 %15, -2147483647
+  %19 = icmp ugt i32 %spec.select, %18
+  %or.cond = or i1 %17, %19
+  %20 = select i1 %or.cond, i32 %16, i32 0
+  %spec.select22 = sub i32 %spec.select, %20
+  br label %21
+
+21:                                               ; preds = %13, %9
+  %.1 = phi i32 [ %spec.select, %9 ], [ %spec.select22, %13 ]
+  %spec.store.select = tail call i32 @llvm.umax.i32(i32 %.1, i32 1)
   br label %22
 
-22:                                               ; preds = %14, %9
-  %.1 = phi i32 [ %spec.select, %9 ], [ %spec.select22, %14 ]
-  %spec.store.select = tail call i32 @llvm.umax.i32(i32 %.1, i32 1)
-  br label %23
-
-23:                                               ; preds = %5, %22
-  %.015 = phi i32 [ %spec.store.select, %22 ], [ %7, %5 ]
+22:                                               ; preds = %5, %21
+  %.015 = phi i32 [ %spec.store.select, %21 ], [ %7, %5 ]
   ret i32 %.015
 }
 

@@ -4211,8 +4211,8 @@ define void @_ZN5sim_t16interactive_vregERKNSt7__cxx1112basic_stringIcSt11char_t
   %21 = tail call i64 @strtol(ptr nocapture noundef %20, ptr noundef null, i32 noundef 0) #28
   %22 = trunc i64 %21 to i32
   %or.cond = icmp ult i32 %22, 32
-  %23 = add nuw nsw i32 %22, 1
-  %spec.select = select i1 %or.cond, i32 %23, i32 32
+  %23 = tail call i32 @llvm.umin.i32(i32 %22, i32 31)
+  %spec.select = add nuw nsw i32 %23, 1
   %spec.select61 = select i1 %or.cond, i32 %22, i32 0
   %.pre = load ptr, ptr %2, align 8
   br label %24
@@ -15870,6 +15870,9 @@ declare i64 @llvm.umax.i64(i64, i64) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #24
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #24
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

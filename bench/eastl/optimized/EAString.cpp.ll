@@ -3523,20 +3523,19 @@ while.end.i:                                      ; preds = %while.cond.i
 _ZN2EA4StdC6StrlenEPKDs.exit:                     ; preds = %for.body.i, %for.body.i.preheader, %while.end.i
   %.pn.i = phi i64 [ %sub.ptr.lhs.cast12.i, %while.end.i ], [ %0, %for.body.i.preheader ], [ %3, %for.body.i ]
   %retval.0.in.i = sub i64 %.pn.i, %0
-  %9 = icmp slt i64 %retval.0.in.i, -2
-  %10 = add i64 %retval.0.in.i, 2
-  %11 = select i1 %9, i64 -1, i64 %10
-  %call1 = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef %11, ptr noundef nonnull @.str, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
+  %9 = tail call i64 @llvm.smax.i64(i64 %retval.0.in.i, i64 -3)
+  %10 = add i64 %9, 2
+  %call1 = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef %10, ptr noundef nonnull @.str, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
   br label %while.cond.i4
 
 while.cond.i4:                                    ; preds = %while.cond.i4, %_ZN2EA4StdC6StrlenEPKDs.exit
   %s.0.i = phi ptr [ %pString, %_ZN2EA4StdC6StrlenEPKDs.exit ], [ %incdec.ptr.i5, %while.cond.i4 ]
   %d.0.i = phi ptr [ %call1, %_ZN2EA4StdC6StrlenEPKDs.exit ], [ %incdec.ptr1.i, %while.cond.i4 ]
   %incdec.ptr.i5 = getelementptr inbounds i8, ptr %s.0.i, i64 2
-  %12 = load i16, ptr %s.0.i, align 2
+  %11 = load i16, ptr %s.0.i, align 2
   %incdec.ptr1.i = getelementptr inbounds i8, ptr %d.0.i, i64 2
-  store i16 %12, ptr %d.0.i, align 2
-  %cmp.not.i = icmp eq i16 %12, 0
+  store i16 %11, ptr %d.0.i, align 2
+  %cmp.not.i = icmp eq i16 %11, 0
   br i1 %cmp.not.i, label %return, label %while.cond.i4, !llvm.loop !7
 
 return:                                           ; preds = %while.cond.i4, %entry
@@ -13647,6 +13646,9 @@ declare i64 @llvm.umax.i64(i64, i64) #33
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #34
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.smax.i64(i64, i64) #33
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.usub.sat.i32(i32, i32) #33

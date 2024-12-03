@@ -2279,8 +2279,8 @@ define hidden double @cmsEstimateGamma(ptr nocapture noundef readonly %0, double
 
 11:                                               ; preds = %3
   %12 = fpext float %7 to double
-  %13 = tail call double @log(double noundef %12) #13
-  %14 = tail call double @log(double noundef %5) #13
+  %13 = tail call double @llvm.log.f64(double %12)
+  %14 = tail call double @llvm.log.f64(double %5)
   %15 = fdiv double %13, %14
   %16 = fadd double %.03140, %15
   %17 = tail call double @llvm.fmuladd.f64(double %15, double %15, double %.03239)
@@ -2965,6 +2965,9 @@ declare double @exp(double noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fmuladd.f32(float, float, float) #6
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.log.f64(double) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.log10.f64(double) #10

@@ -16647,7 +16647,7 @@ for.body46.i:                                     ; preds = %for.body46.i.prehea
   br i1 %or.cond115.i, label %invoke.cont65.i, label %fpclassify_not_nan.i.i
 
 fpclassify_not_nan.i.i:                           ; preds = %for.body46.i
-  %or.cond116.i = call i1 @llvm.is.fpclass.f32(float %48, i32 783)
+  %or.cond116.i = call i1 @llvm.is.fpclass.f32(float %48, i32 780)
   br i1 %or.cond116.i, label %invoke.cont65.i, label %for.inc.i
 
 lpad56.i:                                         ; preds = %if.end.i89.i, %if.then.i96.i, %invoke.cont71.i, %invoke.cont65.i
@@ -19199,7 +19199,7 @@ for.body46.i:                                     ; preds = %for.body46.i.prehea
   br i1 %or.cond114.i, label %invoke.cont65.i, label %fpclassify_not_nan.i.i
 
 fpclassify_not_nan.i.i:                           ; preds = %for.body46.i
-  %or.cond115.i = call i1 @llvm.is.fpclass.f64(double %91, i32 783)
+  %or.cond115.i = call i1 @llvm.is.fpclass.f64(double %91, i32 780)
   br i1 %or.cond115.i, label %invoke.cont65.i, label %for.inc.i
 
 lpad56.i:                                         ; preds = %if.end.i88.i, %if.then.i95.i, %invoke.cont70.i, %invoke.cont65.i

@@ -2114,7 +2114,7 @@ define dso_local void @calc_global_load() local_unnamed_addr #0 align 16 {
   %reass.sub = sub i64 %2, %1
   %3 = add i64 %reass.sub, -10
   %4 = icmp slt i64 %3, 0
-  br i1 %4, label %146, label %5
+  br i1 %4, label %144, label %5
 
 5:                                                ; preds = %0
   %6 = load i32, ptr @calc_load_idx, align 4
@@ -2136,179 +2136,177 @@ define dso_local void @calc_global_load() local_unnamed_addr #0 align 16 {
 
 .thread:                                          ; preds = %5, %15, %12
   %16 = load volatile i64, ptr @calc_load_tasks, align 8
-  %17 = icmp sgt i64 %16, 0
-  %18 = shl i64 %16, 11
-  %19 = select i1 %17, i64 %18, i64 0
-  %20 = load i64, ptr @avenrun, align 16
-  %21 = mul i64 %20, 1884
-  %22 = mul i64 %19, 164
-  %23 = add i64 %22, %21
-  %24 = icmp ult i64 %19, %20
-  %25 = add i64 %23, 2047
-  %26 = select i1 %24, i64 %23, i64 %25
-  %27 = lshr i64 %26, 11
-  store i64 %27, ptr @avenrun, align 16
-  %28 = load i64, ptr getelementptr inbounds (i8, ptr @avenrun, i64 8), align 8
-  %29 = mul i64 %28, 2014
-  %30 = mul i64 %19, 34
-  %31 = add i64 %29, %30
-  %32 = icmp ult i64 %19, %28
-  %33 = add i64 %31, 2047
-  %34 = select i1 %32, i64 %31, i64 %33
-  %35 = lshr i64 %34, 11
-  store i64 %35, ptr getelementptr inbounds (i8, ptr @avenrun, i64 8), align 8
-  %36 = load i64, ptr getelementptr inbounds (i8, ptr @avenrun, i64 16), align 16
-  %37 = mul i64 %36, 2037
-  %38 = mul i64 %19, 11
-  %39 = add i64 %37, %38
-  %40 = icmp ult i64 %19, %36
-  %41 = add i64 %39, 2047
-  %42 = select i1 %40, i64 %39, i64 %41
-  %43 = lshr i64 %42, 11
-  store i64 %43, ptr getelementptr inbounds (i8, ptr @avenrun, i64 16), align 16
-  %44 = add i64 %1, 5001
-  store volatile i64 %44, ptr @calc_load_update, align 8
-  %45 = load volatile i64, ptr @calc_load_update, align 8
-  %46 = load volatile i64, ptr @jiffies, align 64
-  %reass.sub9 = sub i64 %46, %45
-  %47 = add i64 %reass.sub9, -10
-  %48 = icmp slt i64 %47, 0
-  br i1 %48, label %143, label %49
+  %17 = tail call i64 @llvm.smax.i64(i64 %16, i64 0)
+  %18 = shl i64 %17, 11
+  %19 = load i64, ptr @avenrun, align 16
+  %20 = mul i64 %19, 1884
+  %21 = mul i64 %17, 335872
+  %22 = add i64 %21, %20
+  %23 = icmp ult i64 %18, %19
+  %24 = add i64 %22, 2047
+  %25 = select i1 %23, i64 %22, i64 %24
+  %26 = lshr i64 %25, 11
+  store i64 %26, ptr @avenrun, align 16
+  %27 = load i64, ptr getelementptr inbounds (i8, ptr @avenrun, i64 8), align 8
+  %28 = mul i64 %27, 2014
+  %29 = mul i64 %17, 69632
+  %30 = add i64 %28, %29
+  %31 = icmp ult i64 %18, %27
+  %32 = add i64 %30, 2047
+  %33 = select i1 %31, i64 %30, i64 %32
+  %34 = lshr i64 %33, 11
+  store i64 %34, ptr getelementptr inbounds (i8, ptr @avenrun, i64 8), align 8
+  %35 = load i64, ptr getelementptr inbounds (i8, ptr @avenrun, i64 16), align 16
+  %36 = mul i64 %35, 2037
+  %37 = mul i64 %17, 22528
+  %38 = add i64 %36, %37
+  %39 = icmp ult i64 %18, %35
+  %40 = add i64 %38, 2047
+  %41 = select i1 %39, i64 %38, i64 %40
+  %42 = lshr i64 %41, 11
+  store i64 %42, ptr getelementptr inbounds (i8, ptr @avenrun, i64 16), align 16
+  %43 = add i64 %1, 5001
+  store volatile i64 %43, ptr @calc_load_update, align 8
+  %44 = load volatile i64, ptr @calc_load_update, align 8
+  %45 = load volatile i64, ptr @jiffies, align 64
+  %reass.sub9 = sub i64 %45, %44
+  %46 = add i64 %reass.sub9, -10
+  %47 = icmp slt i64 %46, 0
+  br i1 %47, label %141, label %48
 
-49:                                               ; preds = %.thread
-  %50 = load volatile i64, ptr @jiffies, align 64
-  %reass.sub10 = sub i64 %50, %45
-  %51 = add i64 %reass.sub10, -10
-  %52 = sdiv i64 %51, 5001
-  %53 = add nsw i64 %52, 1
-  %54 = load volatile i64, ptr @calc_load_tasks, align 8
-  %55 = icmp sgt i64 %54, 0
-  %56 = shl i64 %54, 11
-  %57 = select i1 %55, i64 %56, i64 0
-  %58 = trunc i64 %53 to i32
-  %59 = icmp eq i32 %58, 0
-  br i1 %59, label %103, label %60
+48:                                               ; preds = %.thread
+  %49 = load volatile i64, ptr @jiffies, align 64
+  %reass.sub10 = sub i64 %49, %44
+  %50 = add i64 %reass.sub10, -10
+  %51 = sdiv i64 %50, 5001
+  %52 = add nsw i64 %51, 1
+  %53 = load volatile i64, ptr @calc_load_tasks, align 8
+  %54 = tail call i64 @llvm.smax.i64(i64 %53, i64 0)
+  %55 = shl i64 %54, 11
+  %56 = trunc i64 %52 to i32
+  %57 = icmp eq i32 %56, 0
+  br i1 %57, label %101, label %58
 
-60:                                               ; preds = %49
-  %61 = and i32 %58, 1
-  %62 = icmp eq i32 %61, 0
-  %63 = select i1 %62, i64 2048, i64 1884
-  %64 = icmp eq i32 %58, 1
-  br i1 %64, label %.loopexit6, label %.preheader5
+58:                                               ; preds = %48
+  %59 = and i32 %56, 1
+  %60 = icmp eq i32 %59, 0
+  %61 = select i1 %60, i64 2048, i64 1884
+  %62 = icmp eq i32 %56, 1
+  br i1 %62, label %.loopexit6, label %.preheader5
 
-.preheader5:                                      ; preds = %60, %.preheader5
-  %65 = phi i64 [ %77, %.preheader5 ], [ %63, %60 ]
-  %66 = phi i32 [ %68, %.preheader5 ], [ %58, %60 ]
-  %67 = phi i64 [ %71, %.preheader5 ], [ 1884, %60 ]
-  %68 = lshr i32 %66, 1
-  %69 = mul i64 %67, %67
-  %70 = add i64 %69, 1024
-  %71 = lshr i64 %70, 11
-  %72 = and i32 %66, 2
-  %73 = icmp eq i32 %72, 0
-  %74 = mul i64 %71, %65
-  %75 = add i64 %74, 1024
-  %76 = lshr i64 %75, 11
-  %77 = select i1 %73, i64 %65, i64 %76
-  %78 = icmp ult i32 %66, 4
-  br i1 %78, label %.loopexit6, label %.preheader5, !llvm.loop !72
+.preheader5:                                      ; preds = %58, %.preheader5
+  %63 = phi i64 [ %75, %.preheader5 ], [ %61, %58 ]
+  %64 = phi i32 [ %66, %.preheader5 ], [ %56, %58 ]
+  %65 = phi i64 [ %69, %.preheader5 ], [ 1884, %58 ]
+  %66 = lshr i32 %64, 1
+  %67 = mul i64 %65, %65
+  %68 = add i64 %67, 1024
+  %69 = lshr i64 %68, 11
+  %70 = and i32 %64, 2
+  %71 = icmp eq i32 %70, 0
+  %72 = mul i64 %69, %63
+  %73 = add i64 %72, 1024
+  %74 = lshr i64 %73, 11
+  %75 = select i1 %71, i64 %63, i64 %74
+  %76 = icmp ult i32 %64, 4
+  br i1 %76, label %.loopexit6, label %.preheader5, !llvm.loop !72
 
-.loopexit6:                                       ; preds = %.preheader5, %60
-  %79 = phi i64 [ %63, %60 ], [ %77, %.preheader5 ]
-  %80 = mul i64 %79, %27
-  %81 = sub nsw i64 2048, %79
-  %82 = mul i64 %81, %57
-  %83 = add i64 %82, %80
-  %84 = icmp ult i64 %57, %27
-  %85 = add i64 %83, 2047
-  %86 = select i1 %84, i64 %83, i64 %85
-  %87 = lshr i64 %86, 11
-  store i64 %87, ptr @avenrun, align 16
-  %88 = select i1 %62, i64 2048, i64 2014
-  br i1 %64, label %.loopexit4, label %.preheader3
+.loopexit6:                                       ; preds = %.preheader5, %58
+  %77 = phi i64 [ %61, %58 ], [ %75, %.preheader5 ]
+  %78 = mul i64 %77, %26
+  %79 = sub nsw i64 2048, %77
+  %80 = mul i64 %79, %55
+  %81 = add i64 %80, %78
+  %82 = icmp ult i64 %55, %26
+  %83 = add i64 %81, 2047
+  %84 = select i1 %82, i64 %81, i64 %83
+  %85 = lshr i64 %84, 11
+  store i64 %85, ptr @avenrun, align 16
+  %86 = select i1 %60, i64 2048, i64 2014
+  br i1 %62, label %.loopexit4, label %.preheader3
 
 .preheader3:                                      ; preds = %.loopexit6, %.preheader3
-  %89 = phi i64 [ %101, %.preheader3 ], [ %88, %.loopexit6 ]
-  %90 = phi i32 [ %92, %.preheader3 ], [ %58, %.loopexit6 ]
-  %91 = phi i64 [ %95, %.preheader3 ], [ 2014, %.loopexit6 ]
-  %92 = lshr i32 %90, 1
-  %93 = mul i64 %91, %91
-  %94 = add i64 %93, 1024
-  %95 = lshr i64 %94, 11
-  %96 = and i32 %90, 2
-  %97 = icmp eq i32 %96, 0
-  %98 = mul i64 %95, %89
-  %99 = add i64 %98, 1024
-  %100 = lshr i64 %99, 11
-  %101 = select i1 %97, i64 %89, i64 %100
-  %102 = icmp ult i32 %90, 4
-  br i1 %102, label %.loopexit4, label %.preheader3, !llvm.loop !72
+  %87 = phi i64 [ %99, %.preheader3 ], [ %86, %.loopexit6 ]
+  %88 = phi i32 [ %90, %.preheader3 ], [ %56, %.loopexit6 ]
+  %89 = phi i64 [ %93, %.preheader3 ], [ 2014, %.loopexit6 ]
+  %90 = lshr i32 %88, 1
+  %91 = mul i64 %89, %89
+  %92 = add i64 %91, 1024
+  %93 = lshr i64 %92, 11
+  %94 = and i32 %88, 2
+  %95 = icmp eq i32 %94, 0
+  %96 = mul i64 %93, %87
+  %97 = add i64 %96, 1024
+  %98 = lshr i64 %97, 11
+  %99 = select i1 %95, i64 %87, i64 %98
+  %100 = icmp ult i32 %88, 4
+  br i1 %100, label %.loopexit4, label %.preheader3, !llvm.loop !72
 
-103:                                              ; preds = %49
-  store i64 %27, ptr @avenrun, align 16
+101:                                              ; preds = %48
+  store i64 %26, ptr @avenrun, align 16
   br label %.loopexit4
 
-.loopexit4:                                       ; preds = %.preheader3, %103, %.loopexit6
-  %104 = phi i64 [ %88, %.loopexit6 ], [ 2048, %103 ], [ %101, %.preheader3 ]
-  %105 = mul i64 %104, %35
-  %106 = sub nsw i64 2048, %104
-  %107 = mul i64 %106, %57
-  %108 = add i64 %107, %105
-  %109 = icmp ult i64 %57, %35
-  %110 = add i64 %108, 2047
-  %111 = select i1 %109, i64 %108, i64 %110
-  %112 = lshr i64 %111, 11
-  store i64 %112, ptr getelementptr inbounds (i8, ptr @avenrun, i64 8), align 8
-  br i1 %59, label %.loopexit, label %113
+.loopexit4:                                       ; preds = %.preheader3, %101, %.loopexit6
+  %102 = phi i64 [ %86, %.loopexit6 ], [ 2048, %101 ], [ %99, %.preheader3 ]
+  %103 = mul i64 %102, %34
+  %104 = sub nsw i64 2048, %102
+  %105 = mul i64 %104, %55
+  %106 = add i64 %105, %103
+  %107 = icmp ult i64 %55, %34
+  %108 = add i64 %106, 2047
+  %109 = select i1 %107, i64 %106, i64 %108
+  %110 = lshr i64 %109, 11
+  store i64 %110, ptr getelementptr inbounds (i8, ptr @avenrun, i64 8), align 8
+  br i1 %57, label %.loopexit, label %111
 
-113:                                              ; preds = %.loopexit4
-  %114 = and i32 %58, 1
-  %115 = icmp eq i32 %114, 0
-  %116 = select i1 %115, i64 2048, i64 2037
-  %117 = icmp eq i32 %58, 1
-  br i1 %117, label %.loopexit, label %.preheader
+111:                                              ; preds = %.loopexit4
+  %112 = and i32 %56, 1
+  %113 = icmp eq i32 %112, 0
+  %114 = select i1 %113, i64 2048, i64 2037
+  %115 = icmp eq i32 %56, 1
+  br i1 %115, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %113, %.preheader
-  %118 = phi i64 [ %130, %.preheader ], [ %116, %113 ]
-  %119 = phi i32 [ %121, %.preheader ], [ %58, %113 ]
-  %120 = phi i64 [ %124, %.preheader ], [ 2037, %113 ]
-  %121 = lshr i32 %119, 1
-  %122 = mul i64 %120, %120
-  %123 = add i64 %122, 1024
-  %124 = lshr i64 %123, 11
-  %125 = and i32 %119, 2
-  %126 = icmp eq i32 %125, 0
-  %127 = mul i64 %124, %118
-  %128 = add i64 %127, 1024
-  %129 = lshr i64 %128, 11
-  %130 = select i1 %126, i64 %118, i64 %129
-  %131 = icmp ult i32 %119, 4
-  br i1 %131, label %.loopexit, label %.preheader, !llvm.loop !72
+.preheader:                                       ; preds = %111, %.preheader
+  %116 = phi i64 [ %128, %.preheader ], [ %114, %111 ]
+  %117 = phi i32 [ %119, %.preheader ], [ %56, %111 ]
+  %118 = phi i64 [ %122, %.preheader ], [ 2037, %111 ]
+  %119 = lshr i32 %117, 1
+  %120 = mul i64 %118, %118
+  %121 = add i64 %120, 1024
+  %122 = lshr i64 %121, 11
+  %123 = and i32 %117, 2
+  %124 = icmp eq i32 %123, 0
+  %125 = mul i64 %122, %116
+  %126 = add i64 %125, 1024
+  %127 = lshr i64 %126, 11
+  %128 = select i1 %124, i64 %116, i64 %127
+  %129 = icmp ult i32 %117, 4
+  br i1 %129, label %.loopexit, label %.preheader, !llvm.loop !72
 
-.loopexit:                                        ; preds = %.preheader, %113, %.loopexit4
-  %132 = phi i64 [ 2048, %.loopexit4 ], [ %116, %113 ], [ %130, %.preheader ]
-  %133 = mul i64 %132, %43
-  %134 = sub nsw i64 2048, %132
-  %135 = mul i64 %134, %57
-  %136 = add i64 %135, %133
-  %137 = icmp ult i64 %57, %43
-  %138 = add i64 %136, 2047
-  %139 = select i1 %137, i64 %136, i64 %138
-  %140 = lshr i64 %139, 11
-  store i64 %140, ptr getelementptr inbounds (i8, ptr @avenrun, i64 16), align 16
-  %141 = mul i64 %53, 5001
-  %142 = add i64 %141, %45
-  store volatile i64 %142, ptr @calc_load_update, align 8
-  br label %143
+.loopexit:                                        ; preds = %.preheader, %111, %.loopexit4
+  %130 = phi i64 [ 2048, %.loopexit4 ], [ %114, %111 ], [ %128, %.preheader ]
+  %131 = mul i64 %130, %42
+  %132 = sub nsw i64 2048, %130
+  %133 = mul i64 %132, %55
+  %134 = add i64 %133, %131
+  %135 = icmp ult i64 %55, %42
+  %136 = add i64 %134, 2047
+  %137 = select i1 %135, i64 %134, i64 %136
+  %138 = lshr i64 %137, 11
+  store i64 %138, ptr getelementptr inbounds (i8, ptr @avenrun, i64 16), align 16
+  %139 = mul i64 %52, 5001
+  %140 = add i64 %139, %44
+  store volatile i64 %140, ptr @calc_load_update, align 8
+  br label %141
 
-143:                                              ; preds = %.loopexit, %.thread
+141:                                              ; preds = %.loopexit, %.thread
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #42, !srcloc !78
-  %144 = load i32, ptr @calc_load_idx, align 4
-  %145 = add i32 %144, 1
-  store i32 %145, ptr @calc_load_idx, align 4
-  br label %146
+  %142 = load i32, ptr @calc_load_idx, align 4
+  %143 = add i32 %142, 1
+  store i32 %143, ptr @calc_load_idx, align 4
+  br label %144
 
-146:                                              ; preds = %143, %0
+144:                                              ; preds = %141, %0
   ret void
 }
 

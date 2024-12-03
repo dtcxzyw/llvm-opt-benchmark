@@ -1021,8 +1021,7 @@ define internal noundef double @_ZL15yyyymmdd_to_mjdd(double noundef %0) #7 {
   %spec.store.select.i = tail call i64 @llvm.umin.i64(i64 %10, i64 12)
   %16 = icmp eq i64 %10, 0
   %spec.store.select1.i = select i1 %16, i64 1, i64 %spec.store.select.i
-  %spec.store.select2.i.i = tail call i64 @llvm.umax.i64(i64 %spec.store.select1.i, i64 1)
-  %17 = add nsw i64 %spec.store.select2.i.i, -1
+  %17 = tail call i64 @llvm.usub.sat.i64(i64 %spec.store.select1.i, i64 1)
   %18 = getelementptr inbounds [12 x i32], ptr @__const._ZL13days_in_monthmm.month_table, i64 0, i64 %17
   %19 = load i32, ptr %18, align 4
   %20 = and i64 %4, 3
@@ -1261,7 +1260,7 @@ declare i64 @llvm.umin.i64(i64, i64) #10
 declare i32 @llvm.umin.i32(i32, i32) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #10
+declare i64 @llvm.usub.sat.i64(i64, i64) #10
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

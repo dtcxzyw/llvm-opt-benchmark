@@ -20,8 +20,8 @@ define double @missing_nextafter(double noundef %0, double noundef %1) local_unn
 5:                                                ; preds = %2
   %6 = fcmp uno double %1, 0.000000e+00
   %7 = fcmp oeq double %0, %1
-  %or.cond55 = or i1 %6, %7
-  br i1 %or.cond55, label %55, label %8
+  %or.cond54 = or i1 %6, %7
+  br i1 %or.cond54, label %55, label %8
 
 8:                                                ; preds = %5
   %9 = fcmp oeq double %0, 0.000000e+00
@@ -60,8 +60,8 @@ define double @missing_nextafter(double noundef %0, double noundef %1) local_unn
 26:                                               ; preds = %24
   %27 = fcmp oeq double %0, 0x7FEFFFFFFFFFFFFF
   %28 = fcmp oeq double %1, 0x7FF0000000000000
-  %or.cond54 = and i1 %27, %28
-  br i1 %or.cond54, label %55, label %29
+  %or.cond53 = and i1 %27, %28
+  br i1 %or.cond53, label %55, label %29
 
 29:                                               ; preds = %26, %21
   %30 = call double @frexp(double noundef %0, ptr noundef nonnull %3) #7

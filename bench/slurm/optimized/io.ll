@@ -2823,21 +2823,21 @@ declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #1
 define dso_local void @_shrink_msg_cache(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
   %3 = tail call i32 @list_count(ptr noundef %0) #9
   %4 = icmp sgt i32 %3, 128
-  br i1 %4, label %.lr.ph.split.preheader, label %._crit_edge
+  br i1 %4, label %.lr.ph.preheader, label %._crit_edge
 
-.lr.ph.split.preheader:                           ; preds = %2
+.lr.ph.preheader:                                 ; preds = %2
   %5 = add nsw i32 %3, -129
-  br label %.lr.ph.split
+  br label %.lr.ph
 
-.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %.lr.ph.split
-  %.010 = phi i32 [ %7, %.lr.ph.split ], [ 0, %.lr.ph.split.preheader ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
+  %.010 = phi i32 [ %7, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %6 = tail call ptr @list_dequeue(ptr noundef %0) #9
   tail call fastcc void @_free_outgoing_msg(ptr noundef %6, ptr noundef %1)
   %7 = add nuw nsw i32 %.010, 1
   %exitcond.not = icmp eq i32 %.010, %5
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !18
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
 
-._crit_edge:                                      ; preds = %.lr.ph.split, %2
+._crit_edge:                                      ; preds = %.lr.ph, %2
   ret void
 }
 
@@ -4404,15 +4404,15 @@ _task_build_message.exit.thread:                  ; preds = %38, %85
   %150 = load ptr, ptr %149, align 8
   %151 = call i32 @list_count(ptr noundef %150) #9
   %152 = icmp sgt i32 %151, 128
-  %153 = add nsw i32 %151, -128
   br i1 %152, label %.lr.ph55, label %_shrink_msg_cache.exit.loopexit
 
 .lr.ph55:                                         ; preds = %._crit_edge
-  %154 = getelementptr inbounds i8, ptr %148, i64 528
-  %155 = getelementptr inbounds i8, ptr %148, i64 472
-  %156 = getelementptr inbounds i8, ptr %148, i64 540
-  %157 = getelementptr inbounds i8, ptr %148, i64 144
-  %158 = getelementptr inbounds i8, ptr %148, i64 480
+  %153 = getelementptr inbounds i8, ptr %148, i64 528
+  %154 = getelementptr inbounds i8, ptr %148, i64 472
+  %155 = getelementptr inbounds i8, ptr %148, i64 540
+  %156 = getelementptr inbounds i8, ptr %148, i64 144
+  %157 = getelementptr inbounds i8, ptr %148, i64 480
+  %158 = add nsw i32 %151, -129
   br label %159
 
 159:                                              ; preds = %.lr.ph55, %_free_outgoing_msg.exit
@@ -4425,20 +4425,20 @@ _task_build_message.exit.thread:                  ; preds = %38, %85
   br i1 %163, label %164, label %_free_outgoing_msg.exit
 
 164:                                              ; preds = %159
-  %165 = load ptr, ptr %154, align 8
+  %165 = load ptr, ptr %153, align 8
   call void @list_enqueue(ptr noundef %165, ptr noundef nonnull %160) #9
-  %166 = load ptr, ptr %155, align 8
+  %166 = load ptr, ptr %154, align 8
   %167 = icmp eq ptr %166, null
   br i1 %167, label %_free_outgoing_msg.exit, label %.preheader
 
 .preheader:                                       ; preds = %164
-  %168 = load i32, ptr %157, align 8
+  %168 = load i32, ptr %156, align 8
   %.not59 = icmp eq i32 %168, 0
   br i1 %.not59, label %_outgoing_buf_free.exit41, label %.lr.ph50
 
 .lr.ph50:                                         ; preds = %.preheader, %_outgoing_buf_free.exit.thread
   %indvars.iv = phi i64 [ %indvars.iv.next, %_outgoing_buf_free.exit.thread ], [ 0, %.preheader ]
-  %169 = load ptr, ptr %155, align 8
+  %169 = load ptr, ptr %154, align 8
   %170 = getelementptr inbounds ptr, ptr %169, i64 %indvars.iv
   %171 = load ptr, ptr %170, align 8
   %172 = getelementptr inbounds i8, ptr %171, i64 136
@@ -4448,13 +4448,13 @@ _task_build_message.exit.thread:                  ; preds = %38, %85
 
 174:                                              ; preds = %.lr.ph50
   call fastcc void @_route_msg_task_to_client(ptr noundef nonnull %173)
-  %175 = load ptr, ptr %154, align 8
+  %175 = load ptr, ptr %153, align 8
   %176 = call i32 @list_count(ptr noundef %175) #9
   %177 = icmp sgt i32 %176, 0
   br i1 %177, label %_outgoing_buf_free.exit41.thread, label %178
 
 178:                                              ; preds = %174
-  %179 = load i32, ptr %156, align 4
+  %179 = load i32, ptr %155, align 4
   %180 = icmp slt i32 %179, 1024
   br i1 %180, label %181, label %_outgoing_buf_free.exit41
 
@@ -4469,15 +4469,15 @@ _task_build_message.exit.thread:                  ; preds = %38, %85
   %187 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %186, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 1872, ptr noundef nonnull @__func__.alloc_io_buf) #9
   %188 = getelementptr inbounds i8, ptr %182, i64 8
   store ptr %187, ptr %188, align 8
-  %189 = load ptr, ptr %154, align 8
+  %189 = load ptr, ptr %153, align 8
   call void @list_enqueue(ptr noundef %189, ptr noundef nonnull %182) #9
-  %190 = load i32, ptr %156, align 4
+  %190 = load i32, ptr %155, align 4
   %191 = add nsw i32 %190, 1
-  store i32 %191, ptr %156, align 4
+  store i32 %191, ptr %155, align 4
   br label %_outgoing_buf_free.exit41.thread
 
 _outgoing_buf_free.exit41.thread:                 ; preds = %174, %181, %.lr.ph50
-  %192 = load ptr, ptr %155, align 8
+  %192 = load ptr, ptr %154, align 8
   %193 = getelementptr inbounds ptr, ptr %192, i64 %indvars.iv
   %194 = load ptr, ptr %193, align 8
   %195 = getelementptr inbounds i8, ptr %194, i64 128
@@ -4487,13 +4487,13 @@ _outgoing_buf_free.exit41.thread:                 ; preds = %174, %181, %.lr.ph5
 
 197:                                              ; preds = %_outgoing_buf_free.exit41.thread
   call fastcc void @_route_msg_task_to_client(ptr noundef nonnull %196)
-  %198 = load ptr, ptr %154, align 8
+  %198 = load ptr, ptr %153, align 8
   %199 = call i32 @list_count(ptr noundef %198) #9
   %200 = icmp sgt i32 %199, 0
   br i1 %200, label %_outgoing_buf_free.exit.thread, label %201
 
 201:                                              ; preds = %197
-  %202 = load i32, ptr %156, align 4
+  %202 = load i32, ptr %155, align 4
   %203 = icmp slt i32 %202, 1024
   br i1 %203, label %204, label %_outgoing_buf_free.exit41
 
@@ -4508,29 +4508,29 @@ _outgoing_buf_free.exit41.thread:                 ; preds = %174, %181, %.lr.ph5
   %210 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %209, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 1872, ptr noundef nonnull @__func__.alloc_io_buf) #9
   %211 = getelementptr inbounds i8, ptr %205, i64 8
   store ptr %210, ptr %211, align 8
-  %212 = load ptr, ptr %154, align 8
+  %212 = load ptr, ptr %153, align 8
   call void @list_enqueue(ptr noundef %212, ptr noundef nonnull %205) #9
-  %213 = load i32, ptr %156, align 4
+  %213 = load i32, ptr %155, align 4
   %214 = add nsw i32 %213, 1
-  store i32 %214, ptr %156, align 4
+  store i32 %214, ptr %155, align 4
   br label %_outgoing_buf_free.exit.thread
 
 _outgoing_buf_free.exit.thread:                   ; preds = %197, %204, %_outgoing_buf_free.exit41.thread
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %215 = load i32, ptr %157, align 8
+  %215 = load i32, ptr %156, align 8
   %216 = zext i32 %215 to i64
   %217 = icmp samesign ult i64 %indvars.iv.next, %216
   br i1 %217, label %.lr.ph50, label %_outgoing_buf_free.exit41, !llvm.loop !19
 
 _outgoing_buf_free.exit41:                        ; preds = %_outgoing_buf_free.exit.thread, %178, %201, %.preheader
-  %218 = load ptr, ptr %158, align 8
+  %218 = load ptr, ptr %157, align 8
   %219 = call i32 @eio_signal_wakeup(ptr noundef %218) #9
   br label %_free_outgoing_msg.exit
 
 _free_outgoing_msg.exit:                          ; preds = %159, %164, %_outgoing_buf_free.exit41
   %220 = add nuw nsw i32 %.0.i3653, 1
-  %221 = icmp sgt i32 %153, %220
-  br i1 %221, label %159, label %_shrink_msg_cache.exit.loopexit, !llvm.loop !18
+  %exitcond.not = icmp eq i32 %.0.i3653, %158
+  br i1 %exitcond.not, label %_shrink_msg_cache.exit.loopexit, label %159, !llvm.loop !18
 
 .critedge:                                        ; preds = %20, %_shrink_msg_cache.exit.loopexit, %1, %_task_build_message.exit.thread
   ret void

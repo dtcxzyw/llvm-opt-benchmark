@@ -487,9 +487,8 @@ pagetable_iterate.exit.thread.i:                  ; preds = %pagetable_iterate.e
   br i1 %165, label %166, label %tbm_lossify.exit
 
 166:                                              ; preds = %pagetable_iterate.exit.thread.i
-  %167 = icmp slt i32 %163, 1073741823
-  %168 = shl nsw i32 %163, 1
-  %spec.select.i = select i1 %167, i32 %168, i32 2147483646
+  %167 = tail call i32 @llvm.smin.i32(i32 %163, i32 1073741823)
+  %spec.select.i = shl nsw i32 %167, 1
   store i32 %spec.select.i, ptr %14, align 4
   br label %tbm_lossify.exit
 
@@ -611,9 +610,8 @@ pagetable_iterate.exit.thread.i:                  ; preds = %pagetable_iterate.e
   br i1 %48, label %49, label %tbm_lossify.exit
 
 49:                                               ; preds = %pagetable_iterate.exit.thread.i
-  %50 = icmp slt i32 %46, 1073741823
-  %51 = shl nsw i32 %46, 1
-  %spec.select.i = select i1 %50, i32 %51, i32 2147483646
+  %50 = tail call i32 @llvm.smin.i32(i32 %46, i32 1073741823)
+  %spec.select.i = shl nsw i32 %50, 1
   store i32 %spec.select.i, ptr %5, align 4
   br label %tbm_lossify.exit
 
@@ -1282,9 +1280,8 @@ pagetable_iterate.exit.thread.i:                  ; preds = %pagetable_iterate.e
   br i1 %172, label %173, label %tbm_page_is_lossy.exit
 
 173:                                              ; preds = %pagetable_iterate.exit.thread.i
-  %174 = icmp slt i32 %170, 1073741823
-  %175 = shl nsw i32 %170, 1
-  %spec.select.i = select i1 %174, i32 %175, i32 2147483646
+  %174 = tail call i32 @llvm.smin.i32(i32 %170, i32 1073741823)
+  %spec.select.i = shl nsw i32 %174, 1
   store i32 %spec.select.i, ptr %129, align 4
   br label %tbm_page_is_lossy.exit
 
@@ -3344,6 +3341,9 @@ declare i64 @llvm.ctpop.i64(i64) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ucmp.i32.i32(i32, i32) #11
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12

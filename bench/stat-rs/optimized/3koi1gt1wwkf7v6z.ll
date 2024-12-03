@@ -352,32 +352,30 @@ define noundef double @"_ZN123_$LT$statrs..distribution..discrete_uniform..Discr
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define void @_ZN6statrs12distribution13inverse_gamma12InverseGamma3new17hd5824c7c622b771dE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 8)) %0, double noundef %1, double noundef %2) unnamed_addr #2 {
-  %or.cond11 = fcmp uno double %1, %2
-  br i1 %or.cond11, label %15, label %4
+  %or.cond10 = fcmp uno double %1, %2
+  br i1 %or.cond10, label %13, label %4
 
 4:                                                ; preds = %3
   %5 = fcmp ole double %1, 0.000000e+00
   %6 = fcmp ole double %2, 0.000000e+00
   %or.cond = or i1 %5, %6
-  br i1 %or.cond, label %15, label %7
+  br i1 %or.cond, label %13, label %7
 
 7:                                                ; preds = %4
-  %8 = tail call double @llvm.fabs.f64(double %1)
-  %9 = fcmp oeq double %8, 0x7FF0000000000000
-  %10 = tail call double @llvm.fabs.f64(double %2)
-  %11 = fcmp oeq double %10, 0x7FF0000000000000
-  %or.cond10 = or i1 %9, %11
-  br i1 %or.cond10, label %15, label %12
+  %8 = fcmp oeq double %1, 0x7FF0000000000000
+  %9 = fcmp oeq double %2, 0x7FF0000000000000
+  %or.cond9 = or i1 %8, %9
+  br i1 %or.cond9, label %13, label %10
 
-12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
-  store double %1, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
-  store double %2, ptr %14, align 8
-  br label %15
+10:                                               ; preds = %7
+  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  store double %1, ptr %11, align 8
+  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  store double %2, ptr %12, align 8
+  br label %13
 
-15:                                               ; preds = %3, %4, %7, %12
-  %.sink = phi i64 [ 21, %12 ], [ 0, %7 ], [ 0, %4 ], [ 0, %3 ]
+13:                                               ; preds = %3, %4, %7, %10
+  %.sink = phi i64 [ 21, %10 ], [ 0, %7 ], [ 0, %4 ], [ 0, %3 ]
   store i64 %.sink, ptr %0, align 8
   ret void
 }

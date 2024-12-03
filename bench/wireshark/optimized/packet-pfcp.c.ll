@@ -12120,8 +12120,7 @@ define internal void @dissect_pfcp_dscp_to_ppi_mapping_information(ptr noundef %
   %8 = load i32, ptr @hf_pfcp_dscp_to_ppi_mapping_info_ppi_value, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #12
   %10 = zext i16 %4 to i32
-  %umax = tail call i32 @llvm.umax.i32(i32 %10, i32 1)
-  %11 = add nsw i32 %umax, -1
+  %11 = tail call i32 @llvm.usub.sat.i32(i32 %10, i32 1)
   br label %12
 
 12:                                               ; preds = %13, %7
@@ -14093,7 +14092,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #10
+declare i32 @llvm.usub.sat.i32(i32, i32) #10
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11

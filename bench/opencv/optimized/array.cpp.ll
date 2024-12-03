@@ -6745,13 +6745,13 @@ define internal fastcc noundef ptr @_ZL13icvGetNodePtrP11CvSparseMatPKiPiiPj(ptr
 20:                                               ; preds = %17
   %21 = landingpad { ptr, i32 }
           cleanup
-  br label %197
+  br label %196
 
 22:                                               ; preds = %18
   %23 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #10
-  br label %197
+  br label %196
 
 24:                                               ; preds = %5
   %.not = icmp eq ptr %4, null
@@ -6793,13 +6793,13 @@ define internal fastcc noundef ptr @_ZL13icvGetNodePtrP11CvSparseMatPKiPiiPj(ptr
 37:                                               ; preds = %34
   %38 = landingpad { ptr, i32 }
           cleanup
-  br label %197
+  br label %196
 
 39:                                               ; preds = %35
   %40 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #10
-  br label %197
+  br label %196
 
 41:                                               ; preds = %29
   %42 = mul i32 %.096131, 1540483477
@@ -6895,7 +6895,7 @@ define internal fastcc noundef ptr @_ZL13icvGetNodePtrP11CvSparseMatPKiPiiPj(ptr
   %81 = icmp eq ptr %.0, null
   %82 = icmp ne i32 %3, 0
   %or.cond = and i1 %82, %81
-  br i1 %or.cond, label %83, label %192
+  br i1 %or.cond, label %83, label %191
 
 83:                                               ; preds = %.loopexit
   %84 = getelementptr inbounds i8, ptr %0, i64 24
@@ -6904,220 +6904,219 @@ define internal fastcc noundef ptr @_ZL13icvGetNodePtrP11CvSparseMatPKiPiiPj(ptr
   %87 = load i32, ptr %86, align 8
   %88 = mul nsw i32 %47, 3
   %.not118 = icmp slt i32 %87, %88
-  br i1 %.not118, label %145, label %89
+  br i1 %.not118, label %144, label %89
 
 89:                                               ; preds = %83
-  %90 = icmp slt i32 %47, 512
-  %91 = shl nsw i32 %47, 1
-  %spec.select = select i1 %90, i32 1024, i32 %91
-  %92 = add nsw i32 %spec.select, -1
-  %93 = tail call range(i32 0, 32) i32 @llvm.ctpop.i32(i32 %spec.select)
-  %94 = icmp samesign ult i32 %93, 2
-  br i1 %94, label %102, label %95
+  %90 = tail call i32 @llvm.smax.i32(i32 %47, i32 512)
+  %spec.select = shl nuw i32 %90, 1
+  %91 = add nsw i32 %spec.select, -1
+  %92 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %spec.select)
+  %93 = icmp samesign ult i32 %92, 2
+  br i1 %93, label %101, label %94
 
-95:                                               ; preds = %89
+94:                                               ; preds = %89
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %13) #10
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull @.str.95, ptr noundef nonnull align 1 dereferenceable(1) %13)
-          to label %96 unwind label %98
+          to label %95 unwind label %97
+
+95:                                               ; preds = %94
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull @__func__._ZL13icvGetNodePtrP11CvSparseMatPKiPiiPj, ptr noundef nonnull @.str.1, i32 noundef 700) #11
+          to label %96 unwind label %99
 
 96:                                               ; preds = %95
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull @__func__._ZL13icvGetNodePtrP11CvSparseMatPKiPiiPj, ptr noundef nonnull @.str.1, i32 noundef 700) #11
-          to label %97 unwind label %100
-
-97:                                               ; preds = %96
   unreachable
 
-98:                                               ; preds = %95
-  %99 = landingpad { ptr, i32 }
+97:                                               ; preds = %94
+  %98 = landingpad { ptr, i32 }
           cleanup
-  br label %197
+  br label %196
 
-100:                                              ; preds = %96
-  %101 = landingpad { ptr, i32 }
+99:                                               ; preds = %95
+  %100 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #10
-  br label %197
+  br label %196
 
-102:                                              ; preds = %89
-  %103 = shl i32 %spec.select, 3
-  %104 = sext i32 %103 to i64
-  %105 = tail call ptr @cvAlloc(i64 noundef %104)
-  tail call void @llvm.memset.p0.i64(ptr align 8 %105, i8 0, i64 %104, i1 false)
-  %106 = call ptr @cvInitSparseMatIterator(ptr noundef nonnull %0, ptr noundef nonnull %11)
-  %.not122145 = icmp eq ptr %106, null
+101:                                              ; preds = %89
+  %102 = shl i32 %90, 4
+  %103 = sext i32 %102 to i64
+  %104 = tail call ptr @cvAlloc(i64 noundef %103)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %104, i8 0, i64 %103, i1 false)
+  %105 = call ptr @cvInitSparseMatIterator(ptr noundef nonnull %0, ptr noundef nonnull %11)
+  %.not122145 = icmp eq ptr %105, null
   br i1 %.not122145, label %._crit_edge149, label %.lr.ph148
 
-.lr.ph148:                                        ; preds = %102
-  %107 = getelementptr inbounds i8, ptr %11, i64 8
-  %108 = getelementptr inbounds i8, ptr %11, i64 16
-  br label %109
+.lr.ph148:                                        ; preds = %101
+  %106 = getelementptr inbounds i8, ptr %11, i64 8
+  %107 = getelementptr inbounds i8, ptr %11, i64 16
+  br label %108
 
-109:                                              ; preds = %_ZL19cvGetNextSparseNodeP19CvSparseMatIterator.exit, %.lr.ph148
-  %.199146 = phi ptr [ %106, %.lr.ph148 ], [ %.lcssa.sink.i, %_ZL19cvGetNextSparseNodeP19CvSparseMatIterator.exit ]
-  %110 = load ptr, ptr %107, align 8
-  %111 = getelementptr inbounds i8, ptr %110, i64 8
-  %112 = load ptr, ptr %111, align 8
-  %.not.i = icmp eq ptr %112, null
-  br i1 %.not.i, label %113, label %_ZL19cvGetNextSparseNodeP19CvSparseMatIterator.exit
+108:                                              ; preds = %_ZL19cvGetNextSparseNodeP19CvSparseMatIterator.exit, %.lr.ph148
+  %.199146 = phi ptr [ %105, %.lr.ph148 ], [ %.lcssa.sink.i, %_ZL19cvGetNextSparseNodeP19CvSparseMatIterator.exit ]
+  %109 = load ptr, ptr %106, align 8
+  %110 = getelementptr inbounds i8, ptr %109, i64 8
+  %111 = load ptr, ptr %110, align 8
+  %.not.i = icmp eq ptr %111, null
+  br i1 %.not.i, label %112, label %_ZL19cvGetNextSparseNodeP19CvSparseMatIterator.exit
 
-113:                                              ; preds = %109
-  %114 = load i32, ptr %108, align 8
-  %115 = add nsw i32 %114, 1
-  store i32 %115, ptr %108, align 8
-  %116 = load ptr, ptr %11, align 8
-  %117 = getelementptr inbounds i8, ptr %116, i64 40
-  %118 = load i32, ptr %117, align 8
-  %119 = icmp slt i32 %115, %118
-  br i1 %119, label %.lr.ph.i, label %._crit_edge149.loopexit
+112:                                              ; preds = %108
+  %113 = load i32, ptr %107, align 8
+  %114 = add nsw i32 %113, 1
+  store i32 %114, ptr %107, align 8
+  %115 = load ptr, ptr %11, align 8
+  %116 = getelementptr inbounds i8, ptr %115, i64 40
+  %117 = load i32, ptr %116, align 8
+  %118 = icmp slt i32 %114, %117
+  br i1 %118, label %.lr.ph.i, label %._crit_edge149.loopexit
 
-.lr.ph.i:                                         ; preds = %113
-  %120 = getelementptr inbounds i8, ptr %116, i64 32
-  %121 = load ptr, ptr %120, align 8
-  %122 = sext i32 %114 to i64
-  %123 = add nsw i64 %122, 1
-  br label %124
+.lr.ph.i:                                         ; preds = %112
+  %119 = getelementptr inbounds i8, ptr %115, i64 32
+  %120 = load ptr, ptr %119, align 8
+  %121 = sext i32 %113 to i64
+  %122 = add nsw i64 %121, 1
+  br label %123
 
-124:                                              ; preds = %129, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ %123, %.lr.ph.i ], [ %indvars.iv.next.i, %129 ]
-  %125 = getelementptr inbounds ptr, ptr %121, i64 %indvars.iv.i
-  %126 = load ptr, ptr %125, align 8
-  %.not17.i = icmp eq ptr %126, null
-  br i1 %.not17.i, label %129, label %127
+123:                                              ; preds = %128, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ %122, %.lr.ph.i ], [ %indvars.iv.next.i, %128 ]
+  %124 = getelementptr inbounds ptr, ptr %120, i64 %indvars.iv.i
+  %125 = load ptr, ptr %124, align 8
+  %.not17.i = icmp eq ptr %125, null
+  br i1 %.not17.i, label %128, label %126
 
-127:                                              ; preds = %124
-  %128 = trunc nsw i64 %indvars.iv.i to i32
-  store i32 %128, ptr %108, align 8
+126:                                              ; preds = %123
+  %127 = trunc nsw i64 %indvars.iv.i to i32
+  store i32 %127, ptr %107, align 8
   br label %_ZL19cvGetNextSparseNodeP19CvSparseMatIterator.exit
 
-129:                                              ; preds = %124
+128:                                              ; preds = %123
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %lftr.wideiv.i = trunc i64 %indvars.iv.next.i to i32
-  %exitcond.not.i = icmp eq i32 %118, %lftr.wideiv.i
-  br i1 %exitcond.not.i, label %._crit_edge149.loopexit, label %124, !llvm.loop !43
+  %exitcond.not.i = icmp eq i32 %117, %lftr.wideiv.i
+  br i1 %exitcond.not.i, label %._crit_edge149.loopexit, label %123, !llvm.loop !43
 
-_ZL19cvGetNextSparseNodeP19CvSparseMatIterator.exit: ; preds = %109, %127
-  %.lcssa.sink.i = phi ptr [ %126, %127 ], [ %112, %109 ]
-  store ptr %.lcssa.sink.i, ptr %107, align 8
-  %130 = load i32, ptr %.199146, align 8
-  %131 = and i32 %130, %92
-  %132 = zext nneg i32 %131 to i64
-  %133 = getelementptr inbounds ptr, ptr %105, i64 %132
-  %134 = load ptr, ptr %133, align 8
-  %135 = getelementptr inbounds i8, ptr %.199146, i64 8
-  store ptr %134, ptr %135, align 8
-  store ptr %.199146, ptr %133, align 8
-  br label %109, !llvm.loop !44
+_ZL19cvGetNextSparseNodeP19CvSparseMatIterator.exit: ; preds = %108, %126
+  %.lcssa.sink.i = phi ptr [ %125, %126 ], [ %111, %108 ]
+  store ptr %.lcssa.sink.i, ptr %106, align 8
+  %129 = load i32, ptr %.199146, align 8
+  %130 = and i32 %129, %91
+  %131 = zext nneg i32 %130 to i64
+  %132 = getelementptr inbounds ptr, ptr %104, i64 %131
+  %133 = load ptr, ptr %132, align 8
+  %134 = getelementptr inbounds i8, ptr %.199146, i64 8
+  store ptr %133, ptr %134, align 8
+  store ptr %.199146, ptr %132, align 8
+  br label %108, !llvm.loop !44
 
-._crit_edge149.loopexit:                          ; preds = %113, %129
-  %136 = load i32, ptr %.199146, align 8
-  %137 = and i32 %136, %92
-  %138 = zext nneg i32 %137 to i64
-  %139 = getelementptr inbounds ptr, ptr %105, i64 %138
-  %140 = load ptr, ptr %139, align 8
-  %141 = getelementptr inbounds i8, ptr %.199146, i64 8
-  store ptr %140, ptr %141, align 8
-  store ptr %.199146, ptr %139, align 8
+._crit_edge149.loopexit:                          ; preds = %112, %128
+  %135 = load i32, ptr %.199146, align 8
+  %136 = and i32 %135, %91
+  %137 = zext nneg i32 %136 to i64
+  %138 = getelementptr inbounds ptr, ptr %104, i64 %137
+  %139 = load ptr, ptr %138, align 8
+  %140 = getelementptr inbounds i8, ptr %.199146, i64 8
+  store ptr %139, ptr %140, align 8
+  store ptr %.199146, ptr %138, align 8
   br label %._crit_edge149
 
-._crit_edge149:                                   ; preds = %._crit_edge149.loopexit, %102
-  %142 = getelementptr inbounds i8, ptr %0, i64 32
-  %143 = load ptr, ptr %142, align 8
-  call void @cvFree_(ptr noundef %143)
-  store ptr %105, ptr %142, align 8
+._crit_edge149:                                   ; preds = %._crit_edge149.loopexit, %101
+  %141 = getelementptr inbounds i8, ptr %0, i64 32
+  %142 = load ptr, ptr %141, align 8
+  call void @cvFree_(ptr noundef %142)
+  store ptr %104, ptr %141, align 8
   store i32 %spec.select, ptr %46, align 8
-  %144 = and i32 %92, %50
+  %143 = and i32 %91, %50
   %.pre = load ptr, ptr %84, align 8
-  br label %145
+  br label %144
 
-145:                                              ; preds = %._crit_edge149, %83
-  %146 = phi ptr [ %.pre, %._crit_edge149 ], [ %85, %83 ]
-  %.095 = phi i32 [ %144, %._crit_edge149 ], [ %49, %83 ]
+144:                                              ; preds = %._crit_edge149, %83
+  %145 = phi ptr [ %.pre, %._crit_edge149 ], [ %85, %83 ]
+  %.095 = phi i32 [ %143, %._crit_edge149 ], [ %49, %83 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  %147 = getelementptr inbounds i8, ptr %146, i64 96
-  %148 = load ptr, ptr %147, align 8
-  store ptr %148, ptr %6, align 8
-  %.not.i124 = icmp eq ptr %148, null
-  br i1 %.not.i124, label %157, label %149
+  %146 = getelementptr inbounds i8, ptr %145, i64 96
+  %147 = load ptr, ptr %146, align 8
+  store ptr %147, ptr %6, align 8
+  %.not.i124 = icmp eq ptr %147, null
+  br i1 %.not.i124, label %156, label %148
 
-149:                                              ; preds = %145
-  %150 = getelementptr inbounds i8, ptr %148, i64 8
-  %151 = load ptr, ptr %150, align 8
-  store ptr %151, ptr %147, align 8
-  %152 = load i32, ptr %148, align 8
-  %153 = and i32 %152, 67108863
-  store i32 %153, ptr %148, align 8
-  %154 = getelementptr inbounds i8, ptr %146, i64 104
-  %155 = load i32, ptr %154, align 8
-  %156 = add nsw i32 %155, 1
-  store i32 %156, ptr %154, align 8
+148:                                              ; preds = %144
+  %149 = getelementptr inbounds i8, ptr %147, i64 8
+  %150 = load ptr, ptr %149, align 8
+  store ptr %150, ptr %146, align 8
+  %151 = load i32, ptr %147, align 8
+  %152 = and i32 %151, 67108863
+  store i32 %152, ptr %147, align 8
+  %153 = getelementptr inbounds i8, ptr %145, i64 104
+  %154 = load i32, ptr %153, align 8
+  %155 = add nsw i32 %154, 1
+  store i32 %155, ptr %153, align 8
   br label %_ZL8cvSetNewP5CvSet.exit
 
-157:                                              ; preds = %145
-  %158 = call i32 @cvSetAdd(ptr noundef nonnull %146, ptr noundef null, ptr noundef nonnull %6)
+156:                                              ; preds = %144
+  %157 = call i32 @cvSetAdd(ptr noundef nonnull %145, ptr noundef null, ptr noundef nonnull %6)
   %.pre.i = load ptr, ptr %6, align 8
   br label %_ZL8cvSetNewP5CvSet.exit
 
-_ZL8cvSetNewP5CvSet.exit:                         ; preds = %149, %157
-  %159 = phi ptr [ %.pre.i, %157 ], [ %148, %149 ]
+_ZL8cvSetNewP5CvSet.exit:                         ; preds = %148, %156
+  %158 = phi ptr [ %.pre.i, %156 ], [ %147, %148 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  store i32 %50, ptr %159, align 8
-  %160 = getelementptr inbounds i8, ptr %0, i64 32
-  %161 = load ptr, ptr %160, align 8
-  %162 = sext i32 %.095 to i64
-  %163 = getelementptr inbounds ptr, ptr %161, i64 %162
-  %164 = load ptr, ptr %163, align 8
-  %165 = getelementptr inbounds i8, ptr %159, i64 8
-  store ptr %164, ptr %165, align 8
-  %166 = load ptr, ptr %160, align 8
-  %167 = getelementptr inbounds ptr, ptr %166, i64 %162
-  store ptr %159, ptr %167, align 8
-  %168 = getelementptr inbounds i8, ptr %0, i64 48
-  %169 = load i32, ptr %168, align 8
-  %170 = sext i32 %169 to i64
-  %171 = getelementptr inbounds i8, ptr %159, i64 %170
-  %172 = getelementptr inbounds i8, ptr %0, i64 4
-  %173 = load i32, ptr %172, align 4
-  %174 = sext i32 %173 to i64
-  %175 = shl nsw i64 %174, 2
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %171, ptr align 4 %1, i64 %175, i1 false)
-  %176 = getelementptr inbounds i8, ptr %0, i64 44
-  %177 = load i32, ptr %176, align 4
-  %178 = sext i32 %177 to i64
-  %179 = getelementptr inbounds i8, ptr %159, i64 %178
-  %180 = icmp sgt i32 %3, 0
-  br i1 %180, label %181, label %192
+  store i32 %50, ptr %158, align 8
+  %159 = getelementptr inbounds i8, ptr %0, i64 32
+  %160 = load ptr, ptr %159, align 8
+  %161 = sext i32 %.095 to i64
+  %162 = getelementptr inbounds ptr, ptr %160, i64 %161
+  %163 = load ptr, ptr %162, align 8
+  %164 = getelementptr inbounds i8, ptr %158, i64 8
+  store ptr %163, ptr %164, align 8
+  %165 = load ptr, ptr %159, align 8
+  %166 = getelementptr inbounds ptr, ptr %165, i64 %161
+  store ptr %158, ptr %166, align 8
+  %167 = getelementptr inbounds i8, ptr %0, i64 48
+  %168 = load i32, ptr %167, align 8
+  %169 = sext i32 %168 to i64
+  %170 = getelementptr inbounds i8, ptr %158, i64 %169
+  %171 = getelementptr inbounds i8, ptr %0, i64 4
+  %172 = load i32, ptr %171, align 4
+  %173 = sext i32 %172 to i64
+  %174 = shl nsw i64 %173, 2
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %170, ptr align 4 %1, i64 %174, i1 false)
+  %175 = getelementptr inbounds i8, ptr %0, i64 44
+  %176 = load i32, ptr %175, align 4
+  %177 = sext i32 %176 to i64
+  %178 = getelementptr inbounds i8, ptr %158, i64 %177
+  %179 = icmp sgt i32 %3, 0
+  br i1 %179, label %180, label %191
 
-181:                                              ; preds = %_ZL8cvSetNewP5CvSet.exit
-  %182 = load i32, ptr %0, align 8
-  %183 = lshr i32 %182, 3
-  %184 = and i32 %183, 511
-  %185 = add nuw nsw i32 %184, 1
-  %186 = shl i32 %182, 2
-  %187 = and i32 %186, 28
-  %188 = lshr i32 675553809, %187
-  %189 = and i32 %188, 15
-  %190 = mul nuw nsw i32 %189, %185
-  %191 = zext nneg i32 %190 to i64
-  call void @llvm.memset.p0.i64(ptr nonnull align 1 %179, i8 0, i64 %191, i1 false)
-  br label %192
+180:                                              ; preds = %_ZL8cvSetNewP5CvSet.exit
+  %181 = load i32, ptr %0, align 8
+  %182 = lshr i32 %181, 3
+  %183 = and i32 %182, 511
+  %184 = add nuw nsw i32 %183, 1
+  %185 = shl i32 %181, 2
+  %186 = and i32 %185, 28
+  %187 = lshr i32 675553809, %186
+  %188 = and i32 %187, 15
+  %189 = mul nuw nsw i32 %188, %184
+  %190 = zext nneg i32 %189 to i64
+  call void @llvm.memset.p0.i64(ptr nonnull align 1 %178, i8 0, i64 %190, i1 false)
+  br label %191
 
-192:                                              ; preds = %_ZL8cvSetNewP5CvSet.exit, %181, %.loopexit
-  %.1 = phi ptr [ %179, %181 ], [ %179, %_ZL8cvSetNewP5CvSet.exit ], [ %.0, %.loopexit ]
+191:                                              ; preds = %_ZL8cvSetNewP5CvSet.exit, %180, %.loopexit
+  %.1 = phi ptr [ %178, %180 ], [ %178, %_ZL8cvSetNewP5CvSet.exit ], [ %.0, %.loopexit ]
   %.not123 = icmp eq ptr %2, null
-  br i1 %.not123, label %196, label %193
+  br i1 %.not123, label %195, label %192
 
-193:                                              ; preds = %192
-  %194 = load i32, ptr %0, align 8
-  %195 = and i32 %194, 4095
-  store i32 %195, ptr %2, align 4
-  br label %196
+192:                                              ; preds = %191
+  %193 = load i32, ptr %0, align 8
+  %194 = and i32 %193, 4095
+  store i32 %194, ptr %2, align 4
+  br label %195
 
-196:                                              ; preds = %193, %192
+195:                                              ; preds = %192, %191
   ret ptr %.1
 
-197:                                              ; preds = %98, %100, %37, %39, %20, %22
-  %.sink = phi ptr [ %8, %22 ], [ %8, %20 ], [ %10, %39 ], [ %10, %37 ], [ %13, %100 ], [ %13, %98 ]
-  %.pn119.pn = phi { ptr, i32 } [ %23, %22 ], [ %21, %20 ], [ %40, %39 ], [ %38, %37 ], [ %101, %100 ], [ %99, %98 ]
+196:                                              ; preds = %97, %99, %37, %39, %20, %22
+  %.sink = phi ptr [ %8, %22 ], [ %8, %20 ], [ %10, %39 ], [ %10, %37 ], [ %13, %99 ], [ %13, %97 ]
+  %.pn119.pn = phi { ptr, i32 } [ %23, %22 ], [ %21, %20 ], [ %40, %39 ], [ %38, %37 ], [ %100, %99 ], [ %98, %97 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink) #10
   resume { ptr, i32 } %.pn119.pn
 }

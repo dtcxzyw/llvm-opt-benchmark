@@ -41656,17 +41656,16 @@ _ZN6google8protobuf8internal8ReadSizeEPPKc.exit:  ; preds = %if.then.i, %if.end.
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %8 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %conv.i.i = trunc i64 %sub.ptr.sub.i.i to i32
-  %add.i.i = add nsw i32 %conv.i.i, 16
-  %cmp.i.i = icmp sgt i32 %conv.i.i, 1008
-  %10 = select i1 %cmp.i.i, i32 %add.i.i, i32 1024
-  %.sroa.speculated8.i = tail call i32 @llvm.smin.i32(i32 %10, i32 %retval.0.i)
+  %10 = tail call i32 @llvm.smax.i32(i32 %conv.i.i, i32 1008)
+  %11 = add nuw i32 %10, 16
+  %.sroa.speculated8.i = tail call i32 @llvm.smin.i32(i32 %11, i32 %retval.0.i)
   %conv6.i = sext i32 %.sroa.speculated8.i to i64
   %add.i = add nsw i64 %conv6.i, %conv.i19
   %.sroa.speculated.i = tail call i64 @llvm.smin.i64(i64 %add.i, i64 2147483647)
   %conv11.i = trunc i64 %.sroa.speculated.i to i32
   %total_size_.i.i = getelementptr inbounds i8, ptr %3, i64 4
-  %11 = load i32, ptr %total_size_.i.i, align 4
-  %cmp.i5.i = icmp slt i32 %11, %conv11.i
+  %12 = load i32, ptr %total_size_.i.i, align 4
+  %cmp.i5.i = icmp slt i32 %12, %conv11.i
   br i1 %cmp.i5.i, label %if.then.i.i, label %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeIhLh0EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE0_clEi.exit
 
 if.then.i.i:                                      ; preds = %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit
@@ -41679,13 +41678,13 @@ _ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeIhLh0EEEPKcPNS0_11Me
 
 if.end:                                           ; preds = %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeIhLh0EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE0_clEi.exit
   %buffer_end_ = getelementptr inbounds i8, ptr %this, i64 8
-  %12 = load ptr, ptr %buffer_end_, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %12 to i64
+  %13 = load ptr, ptr %buffer_end_, align 8
+  %sub.ptr.lhs.cast = ptrtoint ptr %13 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %storemerge.i to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %chunk_size.0156 = trunc i64 %sub.ptr.sub to i32
-  %cmp157 = icmp sgt i32 %retval.0.i, %chunk_size.0156
-  br i1 %cmp157, label %while.body.lr.ph, label %while.end66
+  %chunk_size.0155 = trunc i64 %sub.ptr.sub to i32
+  %cmp156 = icmp sgt i32 %retval.0.i, %chunk_size.0155
+  br i1 %cmp156, label %while.body.lr.ph, label %while.end66
 
 while.body.lr.ph:                                 ; preds = %if.end
   %agg.tmp.sroa.3.0.add.sroa_idx = getelementptr inbounds i8, ptr %add, i64 8
@@ -41696,13 +41695,13 @@ while.body.lr.ph:                                 ; preds = %if.end
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end58
-  %13 = phi ptr [ %12, %while.body.lr.ph ], [ %44, %if.end58 ]
-  %chunk_size.0160 = phi i32 [ %chunk_size.0156, %while.body.lr.ph ], [ %chunk_size.0, %if.end58 ]
-  %size.0159 = phi i32 [ %retval.0.i, %while.body.lr.ph ], [ %sub46, %if.end58 ]
-  %ptr.addr.0158 = phi ptr [ %storemerge.i, %while.body.lr.ph ], [ %add.ptr60, %if.end58 ]
+  %14 = phi ptr [ %13, %while.body.lr.ph ], [ %45, %if.end58 ]
+  %chunk_size.0159 = phi i32 [ %chunk_size.0155, %while.body.lr.ph ], [ %chunk_size.0, %if.end58 ]
+  %size.0158 = phi i32 [ %retval.0.i, %while.body.lr.ph ], [ %sub46, %if.end58 ]
+  %ptr.addr.0157 = phi ptr [ %storemerge.i, %while.body.lr.ph ], [ %add.ptr60, %if.end58 ]
   %agg.tmp.sroa.3.0.copyload = load ptr, ptr %agg.tmp.sroa.3.0.add.sroa_idx, align 8
   %agg.tmp.sroa.7.0.copyload = load ptr, ptr %agg.tmp.sroa.7.0.add.sroa_idx, align 8
-  %cmp13.i = icmp ult ptr %ptr.addr.0158, %13
+  %cmp13.i = icmp ult ptr %ptr.addr.0157, %14
   br i1 %cmp13.i, label %while.body.i.preheader, label %if.end6
 
 while.body.i.preheader:                           ; preds = %while.body
@@ -41713,99 +41712,99 @@ while.body.i.preheader:                           ; preds = %while.body
   %total_size_.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.7.0.copyload, i64 4
   %arena_or_elements_.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.7.0.copyload, i64 8
   %fallback.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.4.0.copyload, i64 40
-  %14 = lshr i8 %agg.tmp.sroa.5.0.copyload, 3
-  %shr.i.i.i = zext nneg i8 %14 to i32
+  %15 = lshr i8 %agg.tmp.sroa.5.0.copyload, 3
+  %shr.i.i.i = zext nneg i8 %15 to i32
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i.preheader, %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeIhLh0EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i
-  %ptr.addr.014.i = phi ptr [ %retval.0.i12.i, %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeIhLh0EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i ], [ %ptr.addr.0158, %while.body.i.preheader ]
-  %15 = load i8, ptr %ptr.addr.014.i, align 1
-  %cmp.i.i22 = icmp sgt i8 %15, -1
-  br i1 %cmp.i.i22, label %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i, label %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i
+  %ptr.addr.014.i = phi ptr [ %retval.0.i12.i, %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeIhLh0EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i ], [ %ptr.addr.0157, %while.body.i.preheader ]
+  %16 = load i8, ptr %ptr.addr.014.i, align 1
+  %cmp.i.i = icmp sgt i8 %16, -1
+  br i1 %cmp.i.i, label %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i, label %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i
 
 _ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i: ; preds = %while.body.i
-  %conv1.i.i = zext nneg i8 %15 to i64
+  %conv1.i.i = zext nneg i8 %16 to i64
   %add.ptr.i.i = getelementptr inbounds i8, ptr %ptr.addr.014.i, i64 1
-  br label %if.end.i24
+  br label %if.end.i23
 
 _ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i: ; preds = %while.body.i
-  %conv.i.i23 = zext i8 %15 to i32
-  %call.i.i.i = tail call { ptr, i64 } @_ZN6google8protobuf8internal17VarintParseSlow64EPKcj(ptr noundef nonnull %ptr.addr.014.i, i32 noundef %conv.i.i23)
-  %16 = extractvalue { ptr, i64 } %call.i.i.i, 0
-  %17 = extractvalue { ptr, i64 } %call.i.i.i, 1
-  %cmp1.i = icmp eq ptr %16, null
-  br i1 %cmp1.i, label %return, label %if.end.i24
+  %conv.i.i22 = zext i8 %16 to i32
+  %call.i.i.i = tail call { ptr, i64 } @_ZN6google8protobuf8internal17VarintParseSlow64EPKcj(ptr noundef nonnull %ptr.addr.014.i, i32 noundef %conv.i.i22)
+  %17 = extractvalue { ptr, i64 } %call.i.i.i, 0
+  %18 = extractvalue { ptr, i64 } %call.i.i.i, 1
+  %cmp1.i = icmp eq ptr %17, null
+  br i1 %cmp1.i, label %return, label %if.end.i23
 
-if.end.i24:                                       ; preds = %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i
-  %retval.0.i12.i = phi ptr [ %add.ptr.i.i, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i ], [ %16, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i ]
-  %.sink.i11.i = phi i64 [ %conv1.i.i, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i ], [ %17, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i ]
-  %conv.i25 = trunc i64 %.sink.i11.i to i32
-  %cmp.i4.i = icmp slt i32 %conv.i25, 0
-  %cmp2.i.i = icmp samesign ugt i32 %conv.i25, %conv.i5.i
+if.end.i23:                                       ; preds = %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i
+  %retval.0.i12.i = phi ptr [ %add.ptr.i.i, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i ], [ %17, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i ]
+  %.sink.i11.i = phi i64 [ %conv1.i.i, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i ], [ %18, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i ]
+  %conv.i24 = trunc i64 %.sink.i11.i to i32
+  %cmp.i4.i = icmp slt i32 %conv.i24, 0
+  %cmp2.i.i = icmp samesign ugt i32 %conv.i24, %conv.i5.i
   %or.cond.i.i = select i1 %cmp.i4.i, i1 true, i1 %cmp2.i.i
   br i1 %or.cond.i.i, label %if.then.i7.i, label %if.else.i.i
 
-if.then.i7.i:                                     ; preds = %if.end.i24
-  %18 = load ptr, ptr %fallback.i.i.i.i, align 8
-  %call.i.i.i.i = tail call noundef nonnull align 8 dereferenceable(16) ptr %18(ptr noundef null, ptr noundef null, ptr noundef null, i64 0, ptr noundef null, i64 noundef 0)
-  %19 = load ptr, ptr %call.i.i.i.i, align 8
-  tail call void %19(ptr noundef %agg.tmp.sroa.3.0.copyload, i32 noundef %shr.i.i.i, i32 noundef %conv.i25)
+if.then.i7.i:                                     ; preds = %if.end.i23
+  %19 = load ptr, ptr %fallback.i.i.i.i, align 8
+  %call.i.i.i.i = tail call noundef nonnull align 8 dereferenceable(16) ptr %19(ptr noundef null, ptr noundef null, ptr noundef null, i64 0, ptr noundef null, i64 noundef 0)
+  %20 = load ptr, ptr %call.i.i.i.i, align 8
+  tail call void %20(ptr noundef %agg.tmp.sroa.3.0.copyload, i32 noundef %shr.i.i.i, i32 noundef %conv.i24)
   br label %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeIhLh0EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i
 
-if.else.i.i:                                      ; preds = %if.end.i24
-  %20 = load i32, ptr %total_size_.i.i.i, align 4
-  %21 = load i32, ptr %agg.tmp.sroa.7.0.copyload, align 8
-  %cmp.i.i.i = icmp eq i32 %21, %20
+if.else.i.i:                                      ; preds = %if.end.i23
+  %21 = load i32, ptr %total_size_.i.i.i, align 4
+  %22 = load i32, ptr %agg.tmp.sroa.7.0.copyload, align 8
+  %cmp.i.i.i = icmp eq i32 %22, %21
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN6google8protobuf13RepeatedFieldIiE3AddEi.exit.i.i
 
 if.then.i.i.i:                                    ; preds = %if.else.i.i
-  %add.i.i.i = add nsw i32 %20, 1
-  tail call void @_ZN6google8protobuf13RepeatedFieldIiE14GrowNoAnnotateEii(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.sroa.7.0.copyload, i32 noundef %20, i32 noundef %add.i.i.i)
-  %22 = load i32, ptr %total_size_.i.i.i, align 4
+  %add.i.i.i = add nsw i32 %21, 1
+  tail call void @_ZN6google8protobuf13RepeatedFieldIiE14GrowNoAnnotateEii(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.sroa.7.0.copyload, i32 noundef %21, i32 noundef %add.i.i.i)
+  %23 = load i32, ptr %total_size_.i.i.i, align 4
   %.pre.i.i.i = load i32, ptr %agg.tmp.sroa.7.0.copyload, align 8
   br label %_ZN6google8protobuf13RepeatedFieldIiE3AddEi.exit.i.i
 
 _ZN6google8protobuf13RepeatedFieldIiE3AddEi.exit.i.i: ; preds = %if.then.i.i.i, %if.else.i.i
-  %23 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %21, %if.else.i.i ]
-  %total_size.0.i.i.i = phi i32 [ %22, %if.then.i.i.i ], [ %20, %if.else.i.i ]
+  %24 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %22, %if.else.i.i ]
+  %total_size.0.i.i.i = phi i32 [ %23, %if.then.i.i.i ], [ %21, %if.else.i.i ]
   %elem.0.i.i.i = load ptr, ptr %arena_or_elements_.i.i.i.i, align 8
-  %add7.i.i.i = add nsw i32 %23, 1
+  %add7.i.i.i = add nsw i32 %24, 1
   store i32 %add7.i.i.i, ptr %agg.tmp.sroa.7.0.copyload, align 8
-  %idx.ext.i.i.i = sext i32 %23 to i64
+  %idx.ext.i.i.i = sext i32 %24 to i64
   %add.ptr.i.i.i = getelementptr inbounds i32, ptr %elem.0.i.i.i, i64 %idx.ext.i.i.i
-  store i32 %conv.i25, ptr %add.ptr.i.i.i, align 4
-  %24 = load i32, ptr %agg.tmp.sroa.7.0.copyload, align 8
-  %cmp10.i.i.i = icmp eq i32 %add7.i.i.i, %24
+  store i32 %conv.i24, ptr %add.ptr.i.i.i, align 4
+  %25 = load i32, ptr %agg.tmp.sroa.7.0.copyload, align 8
+  %cmp10.i.i.i = icmp eq i32 %add7.i.i.i, %25
   tail call void @llvm.assume(i1 %cmp10.i.i.i)
-  %25 = load ptr, ptr %arena_or_elements_.i.i.i.i, align 8
-  %cmp11.i.i.i = icmp eq ptr %elem.0.i.i.i, %25
+  %26 = load ptr, ptr %arena_or_elements_.i.i.i.i, align 8
+  %cmp11.i.i.i = icmp eq ptr %elem.0.i.i.i, %26
   tail call void @llvm.assume(i1 %cmp11.i.i.i)
-  %26 = load i32, ptr %total_size_.i.i.i, align 4
-  %cmp13.i.i.i = icmp eq i32 %total_size.0.i.i.i, %26
+  %27 = load i32, ptr %total_size_.i.i.i, align 4
+  %cmp13.i.i.i = icmp eq i32 %total_size.0.i.i.i, %27
   tail call void @llvm.assume(i1 %cmp13.i.i.i)
   br label %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeIhLh0EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i
 
 _ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeIhLh0EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i: ; preds = %_ZN6google8protobuf13RepeatedFieldIiE3AddEi.exit.i.i, %if.then.i7.i
-  %cmp.i26 = icmp ult ptr %retval.0.i12.i, %13
-  br i1 %cmp.i26, label %while.body.i, label %if.end6.loopexit, !llvm.loop !198
+  %cmp.i25 = icmp ult ptr %retval.0.i12.i, %14
+  br i1 %cmp.i25, label %while.body.i, label %if.end6.loopexit, !llvm.loop !198
 
 if.end6.loopexit:                                 ; preds = %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeIhLh0EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i
   %.pre = load ptr, ptr %buffer_end_, align 8
   br label %if.end6
 
 if.end6:                                          ; preds = %if.end6.loopexit, %while.body
-  %27 = phi ptr [ %13, %while.body ], [ %.pre, %if.end6.loopexit ]
-  %retval.0.i21133 = phi ptr [ %ptr.addr.0158, %while.body ], [ %retval.0.i12.i, %if.end6.loopexit ]
-  %sub.ptr.lhs.cast8 = ptrtoint ptr %retval.0.i21133 to i64
-  %sub.ptr.rhs.cast9 = ptrtoint ptr %27 to i64
+  %28 = phi ptr [ %14, %while.body ], [ %.pre, %if.end6.loopexit ]
+  %retval.0.i21132 = phi ptr [ %ptr.addr.0157, %while.body ], [ %retval.0.i12.i, %if.end6.loopexit ]
+  %sub.ptr.lhs.cast8 = ptrtoint ptr %retval.0.i21132 to i64
+  %sub.ptr.rhs.cast9 = ptrtoint ptr %28 to i64
   %sub.ptr.sub10 = sub i64 %sub.ptr.lhs.cast8, %sub.ptr.rhs.cast9
-  %sub = sub nsw i32 %size.0159, %chunk_size.0160
+  %sub = sub nsw i32 %size.0158, %chunk_size.0159
   %cmp12 = icmp slt i32 %sub, 17
   br i1 %cmp12, label %while.end, label %if.end44
 
 while.end:                                        ; preds = %if.end6
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(26) %buf, i8 0, i64 26, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %buf, ptr noundef nonnull align 1 dereferenceable(16) %27, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %buf, ptr noundef nonnull align 1 dereferenceable(16) %28, i64 16, i1 false)
   %idx.ext = sext i32 %sub to i64
   %add.ptr = getelementptr inbounds i8, ptr %buf, i64 %idx.ext
   %sext18 = shl i64 %sub.ptr.sub10, 32
@@ -41813,109 +41812,109 @@ while.end:                                        ; preds = %if.end6
   %add.ptr31 = getelementptr inbounds i8, ptr %buf, i64 %idx.ext30
   %agg.tmp32.sroa.3.0.copyload = load ptr, ptr %agg.tmp.sroa.3.0.add.sroa_idx, align 8
   %agg.tmp32.sroa.7.0.copyload = load ptr, ptr %agg.tmp.sroa.7.0.add.sroa_idx, align 8
-  %cmp13.i30 = icmp slt i64 %idx.ext30, %idx.ext
-  br i1 %cmp13.i30, label %while.body.i33.preheader, label %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_8TcParser20PackedEnumSmallRangeIhLh0EEEPKcPNS0_11MessageLiteES6_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUliE_EES6_S6_S6_T_.exit73
+  %cmp13.i29 = icmp slt i64 %idx.ext30, %idx.ext
+  br i1 %cmp13.i29, label %while.body.i32.preheader, label %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_8TcParser20PackedEnumSmallRangeIhLh0EEEPKcPNS0_11MessageLiteES6_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUliE_EES6_S6_S6_T_.exit72
 
-while.body.i33.preheader:                         ; preds = %while.end
+while.body.i32.preheader:                         ; preds = %while.end
   %agg.tmp32.sroa.5.0.copyload = load i8, ptr %agg.tmp.sroa.5.0.add.sroa_idx, align 8
   %agg.tmp32.sroa.4.0.copyload = load ptr, ptr %agg.tmp.sroa.4.0.add.sroa_idx, align 8
   %agg.tmp32.sroa.0.0.copyload = load i8, ptr %add, align 8
-  %conv.i5.i45 = zext i8 %agg.tmp32.sroa.0.0.copyload to i32
-  %total_size_.i.i.i49 = getelementptr inbounds i8, ptr %agg.tmp32.sroa.7.0.copyload, i64 4
-  %arena_or_elements_.i.i.i.i53 = getelementptr inbounds i8, ptr %agg.tmp32.sroa.7.0.copyload, i64 8
-  %fallback.i.i.i.i67 = getelementptr inbounds i8, ptr %agg.tmp32.sroa.4.0.copyload, i64 40
-  %28 = lshr i8 %agg.tmp32.sroa.5.0.copyload, 3
-  %shr.i.i.i69 = zext nneg i8 %28 to i32
-  br label %while.body.i33
+  %conv.i5.i44 = zext i8 %agg.tmp32.sroa.0.0.copyload to i32
+  %total_size_.i.i.i48 = getelementptr inbounds i8, ptr %agg.tmp32.sroa.7.0.copyload, i64 4
+  %arena_or_elements_.i.i.i.i52 = getelementptr inbounds i8, ptr %agg.tmp32.sroa.7.0.copyload, i64 8
+  %fallback.i.i.i.i66 = getelementptr inbounds i8, ptr %agg.tmp32.sroa.4.0.copyload, i64 40
+  %29 = lshr i8 %agg.tmp32.sroa.5.0.copyload, 3
+  %shr.i.i.i68 = zext nneg i8 %29 to i32
+  br label %while.body.i32
 
-while.body.i33:                                   ; preds = %while.body.i33.preheader, %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeIhLh0EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i61
-  %ptr.addr.014.i34 = phi ptr [ %retval.0.i12.i41, %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeIhLh0EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i61 ], [ %add.ptr31, %while.body.i33.preheader ]
-  %29 = load i8, ptr %ptr.addr.014.i34, align 1
-  %cmp.i.i35 = icmp sgt i8 %29, -1
-  br i1 %cmp.i.i35, label %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i70, label %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i36
+while.body.i32:                                   ; preds = %while.body.i32.preheader, %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeIhLh0EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i60
+  %ptr.addr.014.i33 = phi ptr [ %retval.0.i12.i40, %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeIhLh0EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i60 ], [ %add.ptr31, %while.body.i32.preheader ]
+  %30 = load i8, ptr %ptr.addr.014.i33, align 1
+  %cmp.i.i34 = icmp sgt i8 %30, -1
+  br i1 %cmp.i.i34, label %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i69, label %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i35
 
-_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i70: ; preds = %while.body.i33
-  %conv1.i.i71 = zext nneg i8 %29 to i64
-  %add.ptr.i.i72 = getelementptr inbounds i8, ptr %ptr.addr.014.i34, i64 1
-  br label %if.end.i40
+_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i69: ; preds = %while.body.i32
+  %conv1.i.i70 = zext nneg i8 %30 to i64
+  %add.ptr.i.i71 = getelementptr inbounds i8, ptr %ptr.addr.014.i33, i64 1
+  br label %if.end.i39
 
-_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i36: ; preds = %while.body.i33
-  %conv.i.i37 = zext i8 %29 to i32
-  %call.i.i.i38 = call { ptr, i64 } @_ZN6google8protobuf8internal17VarintParseSlow64EPKcj(ptr noundef nonnull %ptr.addr.014.i34, i32 noundef %conv.i.i37)
-  %30 = extractvalue { ptr, i64 } %call.i.i.i38, 0
-  %31 = extractvalue { ptr, i64 } %call.i.i.i38, 1
-  %cmp1.i39 = icmp eq ptr %30, null
-  br i1 %cmp1.i39, label %return, label %if.end.i40
+_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i35: ; preds = %while.body.i32
+  %conv.i.i36 = zext i8 %30 to i32
+  %call.i.i.i37 = call { ptr, i64 } @_ZN6google8protobuf8internal17VarintParseSlow64EPKcj(ptr noundef nonnull %ptr.addr.014.i33, i32 noundef %conv.i.i36)
+  %31 = extractvalue { ptr, i64 } %call.i.i.i37, 0
+  %32 = extractvalue { ptr, i64 } %call.i.i.i37, 1
+  %cmp1.i38 = icmp eq ptr %31, null
+  br i1 %cmp1.i38, label %return, label %if.end.i39
 
-if.end.i40:                                       ; preds = %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i36, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i70
-  %retval.0.i12.i41 = phi ptr [ %add.ptr.i.i72, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i70 ], [ %30, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i36 ]
-  %.sink.i11.i42 = phi i64 [ %conv1.i.i71, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i70 ], [ %31, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i36 ]
-  %conv.i43 = trunc i64 %.sink.i11.i42 to i32
-  %cmp.i4.i44 = icmp slt i32 %conv.i43, 0
-  %cmp2.i.i46 = icmp samesign ugt i32 %conv.i43, %conv.i5.i45
-  %or.cond.i.i47 = select i1 %cmp.i4.i44, i1 true, i1 %cmp2.i.i46
-  br i1 %or.cond.i.i47, label %if.then.i7.i66, label %if.else.i.i48
+if.end.i39:                                       ; preds = %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i35, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i69
+  %retval.0.i12.i40 = phi ptr [ %add.ptr.i.i71, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i69 ], [ %31, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i35 ]
+  %.sink.i11.i41 = phi i64 [ %conv1.i.i70, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i69 ], [ %32, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i35 ]
+  %conv.i42 = trunc i64 %.sink.i11.i41 to i32
+  %cmp.i4.i43 = icmp slt i32 %conv.i42, 0
+  %cmp2.i.i45 = icmp samesign ugt i32 %conv.i42, %conv.i5.i44
+  %or.cond.i.i46 = select i1 %cmp.i4.i43, i1 true, i1 %cmp2.i.i45
+  br i1 %or.cond.i.i46, label %if.then.i7.i65, label %if.else.i.i47
 
-if.then.i7.i66:                                   ; preds = %if.end.i40
-  %32 = load ptr, ptr %fallback.i.i.i.i67, align 8
-  %call.i.i.i.i68 = call noundef nonnull align 8 dereferenceable(16) ptr %32(ptr noundef null, ptr noundef null, ptr noundef null, i64 0, ptr noundef null, i64 noundef 0)
-  %33 = load ptr, ptr %call.i.i.i.i68, align 8
-  call void %33(ptr noundef %agg.tmp32.sroa.3.0.copyload, i32 noundef %shr.i.i.i69, i32 noundef %conv.i43)
-  br label %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeIhLh0EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i61
+if.then.i7.i65:                                   ; preds = %if.end.i39
+  %33 = load ptr, ptr %fallback.i.i.i.i66, align 8
+  %call.i.i.i.i67 = call noundef nonnull align 8 dereferenceable(16) ptr %33(ptr noundef null, ptr noundef null, ptr noundef null, i64 0, ptr noundef null, i64 noundef 0)
+  %34 = load ptr, ptr %call.i.i.i.i67, align 8
+  call void %34(ptr noundef %agg.tmp32.sroa.3.0.copyload, i32 noundef %shr.i.i.i68, i32 noundef %conv.i42)
+  br label %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeIhLh0EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i60
 
-if.else.i.i48:                                    ; preds = %if.end.i40
-  %34 = load i32, ptr %total_size_.i.i.i49, align 4
-  %35 = load i32, ptr %agg.tmp32.sroa.7.0.copyload, align 8
-  %cmp.i.i.i50 = icmp eq i32 %35, %34
-  br i1 %cmp.i.i.i50, label %if.then.i.i.i63, label %_ZN6google8protobuf13RepeatedFieldIiE3AddEi.exit.i.i51
+if.else.i.i47:                                    ; preds = %if.end.i39
+  %35 = load i32, ptr %total_size_.i.i.i48, align 4
+  %36 = load i32, ptr %agg.tmp32.sroa.7.0.copyload, align 8
+  %cmp.i.i.i49 = icmp eq i32 %36, %35
+  br i1 %cmp.i.i.i49, label %if.then.i.i.i62, label %_ZN6google8protobuf13RepeatedFieldIiE3AddEi.exit.i.i50
 
-if.then.i.i.i63:                                  ; preds = %if.else.i.i48
-  %add.i.i.i64 = add nsw i32 %34, 1
-  call void @_ZN6google8protobuf13RepeatedFieldIiE14GrowNoAnnotateEii(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp32.sroa.7.0.copyload, i32 noundef %34, i32 noundef %add.i.i.i64)
-  %36 = load i32, ptr %total_size_.i.i.i49, align 4
-  %.pre.i.i.i65 = load i32, ptr %agg.tmp32.sroa.7.0.copyload, align 8
-  br label %_ZN6google8protobuf13RepeatedFieldIiE3AddEi.exit.i.i51
+if.then.i.i.i62:                                  ; preds = %if.else.i.i47
+  %add.i.i.i63 = add nsw i32 %35, 1
+  call void @_ZN6google8protobuf13RepeatedFieldIiE14GrowNoAnnotateEii(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp32.sroa.7.0.copyload, i32 noundef %35, i32 noundef %add.i.i.i63)
+  %37 = load i32, ptr %total_size_.i.i.i48, align 4
+  %.pre.i.i.i64 = load i32, ptr %agg.tmp32.sroa.7.0.copyload, align 8
+  br label %_ZN6google8protobuf13RepeatedFieldIiE3AddEi.exit.i.i50
 
-_ZN6google8protobuf13RepeatedFieldIiE3AddEi.exit.i.i51: ; preds = %if.then.i.i.i63, %if.else.i.i48
-  %37 = phi i32 [ %.pre.i.i.i65, %if.then.i.i.i63 ], [ %35, %if.else.i.i48 ]
-  %total_size.0.i.i.i52 = phi i32 [ %36, %if.then.i.i.i63 ], [ %34, %if.else.i.i48 ]
-  %elem.0.i.i.i54 = load ptr, ptr %arena_or_elements_.i.i.i.i53, align 8
-  %add7.i.i.i55 = add nsw i32 %37, 1
-  store i32 %add7.i.i.i55, ptr %agg.tmp32.sroa.7.0.copyload, align 8
-  %idx.ext.i.i.i56 = sext i32 %37 to i64
-  %add.ptr.i.i.i57 = getelementptr inbounds i32, ptr %elem.0.i.i.i54, i64 %idx.ext.i.i.i56
-  store i32 %conv.i43, ptr %add.ptr.i.i.i57, align 4
-  %38 = load i32, ptr %agg.tmp32.sroa.7.0.copyload, align 8
-  %cmp10.i.i.i58 = icmp eq i32 %add7.i.i.i55, %38
-  call void @llvm.assume(i1 %cmp10.i.i.i58)
-  %39 = load ptr, ptr %arena_or_elements_.i.i.i.i53, align 8
-  %cmp11.i.i.i59 = icmp eq ptr %elem.0.i.i.i54, %39
-  call void @llvm.assume(i1 %cmp11.i.i.i59)
-  %40 = load i32, ptr %total_size_.i.i.i49, align 4
-  %cmp13.i.i.i60 = icmp eq i32 %total_size.0.i.i.i52, %40
-  call void @llvm.assume(i1 %cmp13.i.i.i60)
-  br label %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeIhLh0EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i61
+_ZN6google8protobuf13RepeatedFieldIiE3AddEi.exit.i.i50: ; preds = %if.then.i.i.i62, %if.else.i.i47
+  %38 = phi i32 [ %.pre.i.i.i64, %if.then.i.i.i62 ], [ %36, %if.else.i.i47 ]
+  %total_size.0.i.i.i51 = phi i32 [ %37, %if.then.i.i.i62 ], [ %35, %if.else.i.i47 ]
+  %elem.0.i.i.i53 = load ptr, ptr %arena_or_elements_.i.i.i.i52, align 8
+  %add7.i.i.i54 = add nsw i32 %38, 1
+  store i32 %add7.i.i.i54, ptr %agg.tmp32.sroa.7.0.copyload, align 8
+  %idx.ext.i.i.i55 = sext i32 %38 to i64
+  %add.ptr.i.i.i56 = getelementptr inbounds i32, ptr %elem.0.i.i.i53, i64 %idx.ext.i.i.i55
+  store i32 %conv.i42, ptr %add.ptr.i.i.i56, align 4
+  %39 = load i32, ptr %agg.tmp32.sroa.7.0.copyload, align 8
+  %cmp10.i.i.i57 = icmp eq i32 %add7.i.i.i54, %39
+  call void @llvm.assume(i1 %cmp10.i.i.i57)
+  %40 = load ptr, ptr %arena_or_elements_.i.i.i.i52, align 8
+  %cmp11.i.i.i58 = icmp eq ptr %elem.0.i.i.i53, %40
+  call void @llvm.assume(i1 %cmp11.i.i.i58)
+  %41 = load i32, ptr %total_size_.i.i.i48, align 4
+  %cmp13.i.i.i59 = icmp eq i32 %total_size.0.i.i.i51, %41
+  call void @llvm.assume(i1 %cmp13.i.i.i59)
+  br label %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeIhLh0EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i60
 
-_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeIhLh0EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i61: ; preds = %_ZN6google8protobuf13RepeatedFieldIiE3AddEi.exit.i.i51, %if.then.i7.i66
-  %cmp.i62 = icmp ult ptr %retval.0.i12.i41, %add.ptr
-  br i1 %cmp.i62, label %while.body.i33, label %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_8TcParser20PackedEnumSmallRangeIhLh0EEEPKcPNS0_11MessageLiteES6_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUliE_EES6_S6_S6_T_.exit73, !llvm.loop !198
+_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeIhLh0EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i60: ; preds = %_ZN6google8protobuf13RepeatedFieldIiE3AddEi.exit.i.i50, %if.then.i7.i65
+  %cmp.i61 = icmp ult ptr %retval.0.i12.i40, %add.ptr
+  br i1 %cmp.i61, label %while.body.i32, label %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_8TcParser20PackedEnumSmallRangeIhLh0EEEPKcPNS0_11MessageLiteES6_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUliE_EES6_S6_S6_T_.exit72, !llvm.loop !198
 
-_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_8TcParser20PackedEnumSmallRangeIhLh0EEEPKcPNS0_11MessageLiteES6_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUliE_EES6_S6_S6_T_.exit73: ; preds = %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeIhLh0EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i61, %while.end
-  %retval.0.i31 = phi ptr [ %add.ptr31, %while.end ], [ %retval.0.i12.i41, %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeIhLh0EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i61 ]
-  %cmp35.not = icmp eq ptr %retval.0.i31, %add.ptr
+_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_8TcParser20PackedEnumSmallRangeIhLh0EEEPKcPNS0_11MessageLiteES6_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUliE_EES6_S6_S6_T_.exit72: ; preds = %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeIhLh0EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i60, %while.end
+  %retval.0.i30 = phi ptr [ %add.ptr31, %while.end ], [ %retval.0.i12.i40, %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeIhLh0EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i60 ]
+  %cmp35.not = icmp eq ptr %retval.0.i30, %add.ptr
   br i1 %cmp35.not, label %if.end37, label %return
 
-if.end37:                                         ; preds = %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_8TcParser20PackedEnumSmallRangeIhLh0EEEPKcPNS0_11MessageLiteES6_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUliE_EES6_S6_S6_T_.exit73
-  %41 = load ptr, ptr %buffer_end_, align 8
-  %add.ptr43 = getelementptr inbounds i8, ptr %41, i64 %idx.ext
+if.end37:                                         ; preds = %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_8TcParser20PackedEnumSmallRangeIhLh0EEEPKcPNS0_11MessageLiteES6_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUliE_EES6_S6_S6_T_.exit72
+  %42 = load ptr, ptr %buffer_end_, align 8
+  %add.ptr43 = getelementptr inbounds i8, ptr %42, i64 %idx.ext
   br label %return
 
 if.end44:                                         ; preds = %if.end6
   %conv11 = trunc i64 %sub.ptr.sub10 to i32
-  %42 = add i32 %chunk_size.0160, %conv11
-  %sub46 = sub i32 %size.0159, %42
-  %43 = load i32, ptr %limit_, align 4
-  %cmp52 = icmp slt i32 %43, 17
+  %43 = add i32 %chunk_size.0159, %conv11
+  %sub46 = sub i32 %size.0158, %43
+  %44 = load i32, ptr %limit_, align 4
+  %cmp52 = icmp slt i32 %44, 17
   br i1 %cmp52, label %return, label %if.end54
 
 if.end54:                                         ; preds = %if.end44
@@ -41927,8 +41926,8 @@ if.end58:                                         ; preds = %if.end54
   %sext = shl i64 %sub.ptr.sub10, 32
   %idx.ext59 = ashr exact i64 %sext, 32
   %add.ptr60 = getelementptr inbounds i8, ptr %call55, i64 %idx.ext59
-  %44 = load ptr, ptr %buffer_end_, align 8
-  %sub.ptr.lhs.cast62 = ptrtoint ptr %44 to i64
+  %45 = load ptr, ptr %buffer_end_, align 8
+  %sub.ptr.lhs.cast62 = ptrtoint ptr %45 to i64
   %sub.ptr.rhs.cast63 = ptrtoint ptr %add.ptr60 to i64
   %sub.ptr.sub64 = sub i64 %sub.ptr.lhs.cast62, %sub.ptr.rhs.cast63
   %chunk_size.0 = trunc i64 %sub.ptr.sub64 to i32
@@ -41944,103 +41943,103 @@ while.end66:                                      ; preds = %if.end58, %if.end
   %agg.tmp70.sroa.3.0.copyload = load ptr, ptr %agg.tmp70.sroa.3.0.add.sroa_idx, align 8
   %agg.tmp70.sroa.7.0.add.sroa_idx = getelementptr inbounds i8, ptr %add, i64 32
   %agg.tmp70.sroa.7.0.copyload = load ptr, ptr %agg.tmp70.sroa.7.0.add.sroa_idx, align 8
-  %cmp13.i75 = icmp sgt i32 %size.0.lcssa, 0
-  br i1 %cmp13.i75, label %while.body.i78.preheader, label %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_8TcParser20PackedEnumSmallRangeIhLh0EEEPKcPNS0_11MessageLiteES6_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUliE_EES6_S6_S6_T_.exit118
+  %cmp13.i74 = icmp sgt i32 %size.0.lcssa, 0
+  br i1 %cmp13.i74, label %while.body.i77.preheader, label %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_8TcParser20PackedEnumSmallRangeIhLh0EEEPKcPNS0_11MessageLiteES6_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUliE_EES6_S6_S6_T_.exit117
 
-while.body.i78.preheader:                         ; preds = %while.end66
+while.body.i77.preheader:                         ; preds = %while.end66
   %agg.tmp70.sroa.5.0.add.sroa_idx = getelementptr inbounds i8, ptr %add, i64 24
   %agg.tmp70.sroa.5.0.copyload = load i8, ptr %agg.tmp70.sroa.5.0.add.sroa_idx, align 8
   %agg.tmp70.sroa.4.0.add.sroa_idx = getelementptr inbounds i8, ptr %add, i64 16
   %agg.tmp70.sroa.4.0.copyload = load ptr, ptr %agg.tmp70.sroa.4.0.add.sroa_idx, align 8
   %agg.tmp70.sroa.0.0.copyload = load i8, ptr %add, align 8
-  %conv.i5.i90 = zext i8 %agg.tmp70.sroa.0.0.copyload to i32
-  %total_size_.i.i.i94 = getelementptr inbounds i8, ptr %agg.tmp70.sroa.7.0.copyload, i64 4
-  %arena_or_elements_.i.i.i.i98 = getelementptr inbounds i8, ptr %agg.tmp70.sroa.7.0.copyload, i64 8
-  %fallback.i.i.i.i112 = getelementptr inbounds i8, ptr %agg.tmp70.sroa.4.0.copyload, i64 40
-  %45 = lshr i8 %agg.tmp70.sroa.5.0.copyload, 3
-  %shr.i.i.i114 = zext nneg i8 %45 to i32
-  br label %while.body.i78
+  %conv.i5.i89 = zext i8 %agg.tmp70.sroa.0.0.copyload to i32
+  %total_size_.i.i.i93 = getelementptr inbounds i8, ptr %agg.tmp70.sroa.7.0.copyload, i64 4
+  %arena_or_elements_.i.i.i.i97 = getelementptr inbounds i8, ptr %agg.tmp70.sroa.7.0.copyload, i64 8
+  %fallback.i.i.i.i111 = getelementptr inbounds i8, ptr %agg.tmp70.sroa.4.0.copyload, i64 40
+  %46 = lshr i8 %agg.tmp70.sroa.5.0.copyload, 3
+  %shr.i.i.i113 = zext nneg i8 %46 to i32
+  br label %while.body.i77
 
-while.body.i78:                                   ; preds = %while.body.i78.preheader, %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeIhLh0EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i106
-  %ptr.addr.014.i79 = phi ptr [ %retval.0.i12.i86, %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeIhLh0EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i106 ], [ %ptr.addr.0.lcssa, %while.body.i78.preheader ]
-  %46 = load i8, ptr %ptr.addr.014.i79, align 1
-  %cmp.i.i80 = icmp sgt i8 %46, -1
-  br i1 %cmp.i.i80, label %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i115, label %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i81
+while.body.i77:                                   ; preds = %while.body.i77.preheader, %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeIhLh0EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i105
+  %ptr.addr.014.i78 = phi ptr [ %retval.0.i12.i85, %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeIhLh0EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i105 ], [ %ptr.addr.0.lcssa, %while.body.i77.preheader ]
+  %47 = load i8, ptr %ptr.addr.014.i78, align 1
+  %cmp.i.i79 = icmp sgt i8 %47, -1
+  br i1 %cmp.i.i79, label %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i114, label %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i80
 
-_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i115: ; preds = %while.body.i78
-  %conv1.i.i116 = zext nneg i8 %46 to i64
-  %add.ptr.i.i117 = getelementptr inbounds i8, ptr %ptr.addr.014.i79, i64 1
-  br label %if.end.i85
+_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i114: ; preds = %while.body.i77
+  %conv1.i.i115 = zext nneg i8 %47 to i64
+  %add.ptr.i.i116 = getelementptr inbounds i8, ptr %ptr.addr.014.i78, i64 1
+  br label %if.end.i84
 
-_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i81: ; preds = %while.body.i78
-  %conv.i.i82 = zext i8 %46 to i32
-  %call.i.i.i83 = tail call { ptr, i64 } @_ZN6google8protobuf8internal17VarintParseSlow64EPKcj(ptr noundef nonnull %ptr.addr.014.i79, i32 noundef %conv.i.i82)
-  %47 = extractvalue { ptr, i64 } %call.i.i.i83, 0
-  %48 = extractvalue { ptr, i64 } %call.i.i.i83, 1
-  %cmp1.i84 = icmp eq ptr %47, null
-  br i1 %cmp1.i84, label %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_8TcParser20PackedEnumSmallRangeIhLh0EEEPKcPNS0_11MessageLiteES6_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUliE_EES6_S6_S6_T_.exit118, label %if.end.i85
+_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i80: ; preds = %while.body.i77
+  %conv.i.i81 = zext i8 %47 to i32
+  %call.i.i.i82 = tail call { ptr, i64 } @_ZN6google8protobuf8internal17VarintParseSlow64EPKcj(ptr noundef nonnull %ptr.addr.014.i78, i32 noundef %conv.i.i81)
+  %48 = extractvalue { ptr, i64 } %call.i.i.i82, 0
+  %49 = extractvalue { ptr, i64 } %call.i.i.i82, 1
+  %cmp1.i83 = icmp eq ptr %48, null
+  br i1 %cmp1.i83, label %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_8TcParser20PackedEnumSmallRangeIhLh0EEEPKcPNS0_11MessageLiteES6_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUliE_EES6_S6_S6_T_.exit117, label %if.end.i84
 
-if.end.i85:                                       ; preds = %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i81, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i115
-  %retval.0.i12.i86 = phi ptr [ %add.ptr.i.i117, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i115 ], [ %47, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i81 ]
-  %.sink.i11.i87 = phi i64 [ %conv1.i.i116, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i115 ], [ %48, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i81 ]
-  %conv.i88 = trunc i64 %.sink.i11.i87 to i32
-  %cmp.i4.i89 = icmp slt i32 %conv.i88, 0
-  %cmp2.i.i91 = icmp samesign ugt i32 %conv.i88, %conv.i5.i90
-  %or.cond.i.i92 = select i1 %cmp.i4.i89, i1 true, i1 %cmp2.i.i91
-  br i1 %or.cond.i.i92, label %if.then.i7.i111, label %if.else.i.i93
+if.end.i84:                                       ; preds = %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i80, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i114
+  %retval.0.i12.i85 = phi ptr [ %add.ptr.i.i116, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i114 ], [ %48, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i80 ]
+  %.sink.i11.i86 = phi i64 [ %conv1.i.i115, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i114 ], [ %49, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i80 ]
+  %conv.i87 = trunc i64 %.sink.i11.i86 to i32
+  %cmp.i4.i88 = icmp slt i32 %conv.i87, 0
+  %cmp2.i.i90 = icmp samesign ugt i32 %conv.i87, %conv.i5.i89
+  %or.cond.i.i91 = select i1 %cmp.i4.i88, i1 true, i1 %cmp2.i.i90
+  br i1 %or.cond.i.i91, label %if.then.i7.i110, label %if.else.i.i92
 
-if.then.i7.i111:                                  ; preds = %if.end.i85
-  %49 = load ptr, ptr %fallback.i.i.i.i112, align 8
-  %call.i.i.i.i113 = tail call noundef nonnull align 8 dereferenceable(16) ptr %49(ptr noundef null, ptr noundef null, ptr noundef null, i64 0, ptr noundef null, i64 noundef 0)
-  %50 = load ptr, ptr %call.i.i.i.i113, align 8
-  tail call void %50(ptr noundef %agg.tmp70.sroa.3.0.copyload, i32 noundef %shr.i.i.i114, i32 noundef %conv.i88)
-  br label %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeIhLh0EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i106
+if.then.i7.i110:                                  ; preds = %if.end.i84
+  %50 = load ptr, ptr %fallback.i.i.i.i111, align 8
+  %call.i.i.i.i112 = tail call noundef nonnull align 8 dereferenceable(16) ptr %50(ptr noundef null, ptr noundef null, ptr noundef null, i64 0, ptr noundef null, i64 noundef 0)
+  %51 = load ptr, ptr %call.i.i.i.i112, align 8
+  tail call void %51(ptr noundef %agg.tmp70.sroa.3.0.copyload, i32 noundef %shr.i.i.i113, i32 noundef %conv.i87)
+  br label %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeIhLh0EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i105
 
-if.else.i.i93:                                    ; preds = %if.end.i85
-  %51 = load i32, ptr %total_size_.i.i.i94, align 4
-  %52 = load i32, ptr %agg.tmp70.sroa.7.0.copyload, align 8
-  %cmp.i.i.i95 = icmp eq i32 %52, %51
-  br i1 %cmp.i.i.i95, label %if.then.i.i.i108, label %_ZN6google8protobuf13RepeatedFieldIiE3AddEi.exit.i.i96
+if.else.i.i92:                                    ; preds = %if.end.i84
+  %52 = load i32, ptr %total_size_.i.i.i93, align 4
+  %53 = load i32, ptr %agg.tmp70.sroa.7.0.copyload, align 8
+  %cmp.i.i.i94 = icmp eq i32 %53, %52
+  br i1 %cmp.i.i.i94, label %if.then.i.i.i107, label %_ZN6google8protobuf13RepeatedFieldIiE3AddEi.exit.i.i95
 
-if.then.i.i.i108:                                 ; preds = %if.else.i.i93
-  %add.i.i.i109 = add nsw i32 %51, 1
-  tail call void @_ZN6google8protobuf13RepeatedFieldIiE14GrowNoAnnotateEii(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp70.sroa.7.0.copyload, i32 noundef %51, i32 noundef %add.i.i.i109)
-  %53 = load i32, ptr %total_size_.i.i.i94, align 4
-  %.pre.i.i.i110 = load i32, ptr %agg.tmp70.sroa.7.0.copyload, align 8
-  br label %_ZN6google8protobuf13RepeatedFieldIiE3AddEi.exit.i.i96
+if.then.i.i.i107:                                 ; preds = %if.else.i.i92
+  %add.i.i.i108 = add nsw i32 %52, 1
+  tail call void @_ZN6google8protobuf13RepeatedFieldIiE14GrowNoAnnotateEii(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp70.sroa.7.0.copyload, i32 noundef %52, i32 noundef %add.i.i.i108)
+  %54 = load i32, ptr %total_size_.i.i.i93, align 4
+  %.pre.i.i.i109 = load i32, ptr %agg.tmp70.sroa.7.0.copyload, align 8
+  br label %_ZN6google8protobuf13RepeatedFieldIiE3AddEi.exit.i.i95
 
-_ZN6google8protobuf13RepeatedFieldIiE3AddEi.exit.i.i96: ; preds = %if.then.i.i.i108, %if.else.i.i93
-  %54 = phi i32 [ %.pre.i.i.i110, %if.then.i.i.i108 ], [ %52, %if.else.i.i93 ]
-  %total_size.0.i.i.i97 = phi i32 [ %53, %if.then.i.i.i108 ], [ %51, %if.else.i.i93 ]
-  %elem.0.i.i.i99 = load ptr, ptr %arena_or_elements_.i.i.i.i98, align 8
-  %add7.i.i.i100 = add nsw i32 %54, 1
-  store i32 %add7.i.i.i100, ptr %agg.tmp70.sroa.7.0.copyload, align 8
-  %idx.ext.i.i.i101 = sext i32 %54 to i64
-  %add.ptr.i.i.i102 = getelementptr inbounds i32, ptr %elem.0.i.i.i99, i64 %idx.ext.i.i.i101
-  store i32 %conv.i88, ptr %add.ptr.i.i.i102, align 4
-  %55 = load i32, ptr %agg.tmp70.sroa.7.0.copyload, align 8
-  %cmp10.i.i.i103 = icmp eq i32 %add7.i.i.i100, %55
-  tail call void @llvm.assume(i1 %cmp10.i.i.i103)
-  %56 = load ptr, ptr %arena_or_elements_.i.i.i.i98, align 8
-  %cmp11.i.i.i104 = icmp eq ptr %elem.0.i.i.i99, %56
-  tail call void @llvm.assume(i1 %cmp11.i.i.i104)
-  %57 = load i32, ptr %total_size_.i.i.i94, align 4
-  %cmp13.i.i.i105 = icmp eq i32 %total_size.0.i.i.i97, %57
-  tail call void @llvm.assume(i1 %cmp13.i.i.i105)
-  br label %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeIhLh0EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i106
+_ZN6google8protobuf13RepeatedFieldIiE3AddEi.exit.i.i95: ; preds = %if.then.i.i.i107, %if.else.i.i92
+  %55 = phi i32 [ %.pre.i.i.i109, %if.then.i.i.i107 ], [ %53, %if.else.i.i92 ]
+  %total_size.0.i.i.i96 = phi i32 [ %54, %if.then.i.i.i107 ], [ %52, %if.else.i.i92 ]
+  %elem.0.i.i.i98 = load ptr, ptr %arena_or_elements_.i.i.i.i97, align 8
+  %add7.i.i.i99 = add nsw i32 %55, 1
+  store i32 %add7.i.i.i99, ptr %agg.tmp70.sroa.7.0.copyload, align 8
+  %idx.ext.i.i.i100 = sext i32 %55 to i64
+  %add.ptr.i.i.i101 = getelementptr inbounds i32, ptr %elem.0.i.i.i98, i64 %idx.ext.i.i.i100
+  store i32 %conv.i87, ptr %add.ptr.i.i.i101, align 4
+  %56 = load i32, ptr %agg.tmp70.sroa.7.0.copyload, align 8
+  %cmp10.i.i.i102 = icmp eq i32 %add7.i.i.i99, %56
+  tail call void @llvm.assume(i1 %cmp10.i.i.i102)
+  %57 = load ptr, ptr %arena_or_elements_.i.i.i.i97, align 8
+  %cmp11.i.i.i103 = icmp eq ptr %elem.0.i.i.i98, %57
+  tail call void @llvm.assume(i1 %cmp11.i.i.i103)
+  %58 = load i32, ptr %total_size_.i.i.i93, align 4
+  %cmp13.i.i.i104 = icmp eq i32 %total_size.0.i.i.i96, %58
+  tail call void @llvm.assume(i1 %cmp13.i.i.i104)
+  br label %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeIhLh0EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i105
 
-_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeIhLh0EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i106: ; preds = %_ZN6google8protobuf13RepeatedFieldIiE3AddEi.exit.i.i96, %if.then.i7.i111
-  %cmp.i107 = icmp ult ptr %retval.0.i12.i86, %add.ptr69
-  br i1 %cmp.i107, label %while.body.i78, label %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_8TcParser20PackedEnumSmallRangeIhLh0EEEPKcPNS0_11MessageLiteES6_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUliE_EES6_S6_S6_T_.exit118, !llvm.loop !198
+_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeIhLh0EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i105: ; preds = %_ZN6google8protobuf13RepeatedFieldIiE3AddEi.exit.i.i95, %if.then.i7.i110
+  %cmp.i106 = icmp ult ptr %retval.0.i12.i85, %add.ptr69
+  br i1 %cmp.i106, label %while.body.i77, label %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_8TcParser20PackedEnumSmallRangeIhLh0EEEPKcPNS0_11MessageLiteES6_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUliE_EES6_S6_S6_T_.exit117, !llvm.loop !198
 
-_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_8TcParser20PackedEnumSmallRangeIhLh0EEEPKcPNS0_11MessageLiteES6_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUliE_EES6_S6_S6_T_.exit118: ; preds = %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i81, %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeIhLh0EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i106, %while.end66
-  %retval.0.i76 = phi ptr [ %ptr.addr.0.lcssa, %while.end66 ], [ null, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i81 ], [ %retval.0.i12.i86, %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeIhLh0EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i106 ]
-  %cmp72 = icmp eq ptr %add.ptr69, %retval.0.i76
-  %cond = select i1 %cmp72, ptr %retval.0.i76, ptr null
+_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_8TcParser20PackedEnumSmallRangeIhLh0EEEPKcPNS0_11MessageLiteES6_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUliE_EES6_S6_S6_T_.exit117: ; preds = %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i80, %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeIhLh0EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i105, %while.end66
+  %retval.0.i75 = phi ptr [ %ptr.addr.0.lcssa, %while.end66 ], [ null, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i80 ], [ %retval.0.i12.i85, %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeIhLh0EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i105 ]
+  %cmp72 = icmp eq ptr %add.ptr69, %retval.0.i75
+  %cond = select i1 %cmp72, ptr %retval.0.i75, ptr null
   br label %return
 
-return:                                           ; preds = %if.end54, %if.end44, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i36, %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_8TcParser20PackedEnumSmallRangeIhLh0EEEPKcPNS0_11MessageLiteES6_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUliE_EES6_S6_S6_T_.exit73, %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeIhLh0EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE0_clEi.exit, %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_8TcParser20PackedEnumSmallRangeIhLh0EEEPKcPNS0_11MessageLiteES6_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUliE_EES6_S6_S6_T_.exit118, %if.end37
-  %retval.0 = phi ptr [ %add.ptr43, %if.end37 ], [ %cond, %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_8TcParser20PackedEnumSmallRangeIhLh0EEEPKcPNS0_11MessageLiteES6_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUliE_EES6_S6_S6_T_.exit118 ], [ null, %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeIhLh0EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE0_clEi.exit ], [ null, %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_8TcParser20PackedEnumSmallRangeIhLh0EEEPKcPNS0_11MessageLiteES6_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUliE_EES6_S6_S6_T_.exit73 ], [ null, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i36 ], [ null, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i ], [ null, %if.end44 ], [ null, %if.end54 ]
+return:                                           ; preds = %if.end54, %if.end44, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i35, %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_8TcParser20PackedEnumSmallRangeIhLh0EEEPKcPNS0_11MessageLiteES6_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUliE_EES6_S6_S6_T_.exit72, %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeIhLh0EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE0_clEi.exit, %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_8TcParser20PackedEnumSmallRangeIhLh0EEEPKcPNS0_11MessageLiteES6_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUliE_EES6_S6_S6_T_.exit117, %if.end37
+  %retval.0 = phi ptr [ %add.ptr43, %if.end37 ], [ %cond, %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_8TcParser20PackedEnumSmallRangeIhLh0EEEPKcPNS0_11MessageLiteES6_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUliE_EES6_S6_S6_T_.exit117 ], [ null, %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeIhLh0EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE0_clEi.exit ], [ null, %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_8TcParser20PackedEnumSmallRangeIhLh0EEEPKcPNS0_11MessageLiteES6_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUliE_EES6_S6_S6_T_.exit72 ], [ null, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i35 ], [ null, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i ], [ null, %if.end44 ], [ null, %if.end54 ]
   ret ptr %retval.0
 }
 
@@ -42078,17 +42077,16 @@ _ZN6google8protobuf8internal8ReadSizeEPPKc.exit:  ; preds = %if.then.i, %if.end.
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %8 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %conv.i.i = trunc i64 %sub.ptr.sub.i.i to i32
-  %add.i.i = add nsw i32 %conv.i.i, 16
-  %cmp.i.i = icmp sgt i32 %conv.i.i, 1008
-  %10 = select i1 %cmp.i.i, i32 %add.i.i, i32 1024
-  %.sroa.speculated8.i = tail call i32 @llvm.smin.i32(i32 %10, i32 %retval.0.i)
+  %10 = tail call i32 @llvm.smax.i32(i32 %conv.i.i, i32 1008)
+  %11 = add nuw i32 %10, 16
+  %.sroa.speculated8.i = tail call i32 @llvm.smin.i32(i32 %11, i32 %retval.0.i)
   %conv6.i = sext i32 %.sroa.speculated8.i to i64
   %add.i = add nsw i64 %conv6.i, %conv.i19
   %.sroa.speculated.i = tail call i64 @llvm.smin.i64(i64 %add.i, i64 2147483647)
   %conv11.i = trunc i64 %.sroa.speculated.i to i32
   %total_size_.i.i = getelementptr inbounds i8, ptr %3, i64 4
-  %11 = load i32, ptr %total_size_.i.i, align 4
-  %cmp.i5.i = icmp slt i32 %11, %conv11.i
+  %12 = load i32, ptr %total_size_.i.i, align 4
+  %cmp.i5.i = icmp slt i32 %12, %conv11.i
   br i1 %cmp.i5.i, label %if.then.i.i, label %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeItLh0EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE0_clEi.exit
 
 if.then.i.i:                                      ; preds = %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit
@@ -42101,13 +42099,13 @@ _ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeItLh0EEEPKcPNS0_11Me
 
 if.end:                                           ; preds = %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeItLh0EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE0_clEi.exit
   %buffer_end_ = getelementptr inbounds i8, ptr %this, i64 8
-  %12 = load ptr, ptr %buffer_end_, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %12 to i64
+  %13 = load ptr, ptr %buffer_end_, align 8
+  %sub.ptr.lhs.cast = ptrtoint ptr %13 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %storemerge.i to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %chunk_size.0164 = trunc i64 %sub.ptr.sub to i32
-  %cmp165 = icmp sgt i32 %retval.0.i, %chunk_size.0164
-  br i1 %cmp165, label %while.body.lr.ph, label %while.end66
+  %chunk_size.0163 = trunc i64 %sub.ptr.sub to i32
+  %cmp164 = icmp sgt i32 %retval.0.i, %chunk_size.0163
+  br i1 %cmp164, label %while.body.lr.ph, label %while.end66
 
 while.body.lr.ph:                                 ; preds = %if.end
   %agg.tmp.sroa.3.0.add.sroa_idx = getelementptr inbounds i8, ptr %add, i64 8
@@ -42118,13 +42116,13 @@ while.body.lr.ph:                                 ; preds = %if.end
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end58
-  %13 = phi ptr [ %12, %while.body.lr.ph ], [ %42, %if.end58 ]
-  %chunk_size.0168 = phi i32 [ %chunk_size.0164, %while.body.lr.ph ], [ %chunk_size.0, %if.end58 ]
-  %size.0167 = phi i32 [ %retval.0.i, %while.body.lr.ph ], [ %sub46, %if.end58 ]
-  %ptr.addr.0166 = phi ptr [ %storemerge.i, %while.body.lr.ph ], [ %add.ptr60, %if.end58 ]
+  %14 = phi ptr [ %13, %while.body.lr.ph ], [ %43, %if.end58 ]
+  %chunk_size.0167 = phi i32 [ %chunk_size.0163, %while.body.lr.ph ], [ %chunk_size.0, %if.end58 ]
+  %size.0166 = phi i32 [ %retval.0.i, %while.body.lr.ph ], [ %sub46, %if.end58 ]
+  %ptr.addr.0165 = phi ptr [ %storemerge.i, %while.body.lr.ph ], [ %add.ptr60, %if.end58 ]
   %agg.tmp.sroa.3.0.copyload = load ptr, ptr %agg.tmp.sroa.3.0.add.sroa_idx, align 8
   %agg.tmp.sroa.7.0.copyload = load ptr, ptr %agg.tmp.sroa.7.0.add.sroa_idx, align 8
-  %cmp13.i = icmp ult ptr %ptr.addr.0166, %13
+  %cmp13.i = icmp ult ptr %ptr.addr.0165, %14
   br i1 %cmp13.i, label %while.body.i.preheader, label %if.end6
 
 while.body.i.preheader:                           ; preds = %while.body
@@ -42143,94 +42141,94 @@ while.body.i.preheader:                           ; preds = %while.body
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i.preheader, %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeItLh0EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i
-  %ptr.addr.014.i = phi ptr [ %retval.0.i12.i, %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeItLh0EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i ], [ %ptr.addr.0166, %while.body.i.preheader ]
-  %14 = load i8, ptr %ptr.addr.014.i, align 1
-  %cmp.i.i22 = icmp sgt i8 %14, -1
-  br i1 %cmp.i.i22, label %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i, label %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i
+  %ptr.addr.014.i = phi ptr [ %retval.0.i12.i, %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeItLh0EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i ], [ %ptr.addr.0165, %while.body.i.preheader ]
+  %15 = load i8, ptr %ptr.addr.014.i, align 1
+  %cmp.i.i = icmp sgt i8 %15, -1
+  br i1 %cmp.i.i, label %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i, label %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i
 
 _ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i: ; preds = %while.body.i
-  %conv1.i.i = zext nneg i8 %14 to i64
+  %conv1.i.i = zext nneg i8 %15 to i64
   %add.ptr.i.i = getelementptr inbounds i8, ptr %ptr.addr.014.i, i64 1
-  br label %if.end.i24
+  br label %if.end.i23
 
 _ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i: ; preds = %while.body.i
-  %conv.i.i23 = zext i8 %14 to i32
-  %call.i.i.i = tail call { ptr, i64 } @_ZN6google8protobuf8internal17VarintParseSlow64EPKcj(ptr noundef nonnull %ptr.addr.014.i, i32 noundef %conv.i.i23)
-  %15 = extractvalue { ptr, i64 } %call.i.i.i, 0
-  %16 = extractvalue { ptr, i64 } %call.i.i.i, 1
-  %cmp1.i = icmp eq ptr %15, null
-  br i1 %cmp1.i, label %return, label %if.end.i24
+  %conv.i.i22 = zext i8 %15 to i32
+  %call.i.i.i = tail call { ptr, i64 } @_ZN6google8protobuf8internal17VarintParseSlow64EPKcj(ptr noundef nonnull %ptr.addr.014.i, i32 noundef %conv.i.i22)
+  %16 = extractvalue { ptr, i64 } %call.i.i.i, 0
+  %17 = extractvalue { ptr, i64 } %call.i.i.i, 1
+  %cmp1.i = icmp eq ptr %16, null
+  br i1 %cmp1.i, label %return, label %if.end.i23
 
-if.end.i24:                                       ; preds = %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i
-  %retval.0.i12.i = phi ptr [ %add.ptr.i.i, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i ], [ %15, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i ]
-  %.sink.i11.i = phi i64 [ %conv1.i.i, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i ], [ %16, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i ]
-  %conv.i25 = trunc i64 %.sink.i11.i to i32
-  %cmp.i4.i = icmp slt i32 %conv.i25, 0
-  %cmp2.i.i = icmp samesign ugt i32 %conv.i25, %conv.i5.i
+if.end.i23:                                       ; preds = %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i
+  %retval.0.i12.i = phi ptr [ %add.ptr.i.i, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i ], [ %16, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i ]
+  %.sink.i11.i = phi i64 [ %conv1.i.i, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i ], [ %17, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i ]
+  %conv.i24 = trunc i64 %.sink.i11.i to i32
+  %cmp.i4.i = icmp slt i32 %conv.i24, 0
+  %cmp2.i.i = icmp samesign ugt i32 %conv.i24, %conv.i5.i
   %or.cond.i.i = select i1 %cmp.i4.i, i1 true, i1 %cmp2.i.i
   br i1 %or.cond.i.i, label %if.then.i7.i, label %if.else.i.i
 
-if.then.i7.i:                                     ; preds = %if.end.i24
-  %17 = load ptr, ptr %fallback.i.i.i.i, align 8
-  %call.i.i.i.i = tail call noundef nonnull align 8 dereferenceable(16) ptr %17(ptr noundef null, ptr noundef null, ptr noundef null, i64 0, ptr noundef null, i64 noundef 0)
-  %18 = load ptr, ptr %call.i.i.i.i, align 8
-  tail call void %18(ptr noundef %agg.tmp.sroa.3.0.copyload, i32 noundef %shr.i.i.i, i32 noundef %conv.i25)
+if.then.i7.i:                                     ; preds = %if.end.i23
+  %18 = load ptr, ptr %fallback.i.i.i.i, align 8
+  %call.i.i.i.i = tail call noundef nonnull align 8 dereferenceable(16) ptr %18(ptr noundef null, ptr noundef null, ptr noundef null, i64 0, ptr noundef null, i64 noundef 0)
+  %19 = load ptr, ptr %call.i.i.i.i, align 8
+  tail call void %19(ptr noundef %agg.tmp.sroa.3.0.copyload, i32 noundef %shr.i.i.i, i32 noundef %conv.i24)
   br label %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeItLh0EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i
 
-if.else.i.i:                                      ; preds = %if.end.i24
-  %19 = load i32, ptr %total_size_.i.i.i, align 4
-  %20 = load i32, ptr %agg.tmp.sroa.7.0.copyload, align 8
-  %cmp.i.i.i = icmp eq i32 %20, %19
+if.else.i.i:                                      ; preds = %if.end.i23
+  %20 = load i32, ptr %total_size_.i.i.i, align 4
+  %21 = load i32, ptr %agg.tmp.sroa.7.0.copyload, align 8
+  %cmp.i.i.i = icmp eq i32 %21, %20
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN6google8protobuf13RepeatedFieldIiE3AddEi.exit.i.i
 
 if.then.i.i.i:                                    ; preds = %if.else.i.i
-  %add.i5.i.i = add nsw i32 %19, 1
-  tail call void @_ZN6google8protobuf13RepeatedFieldIiE14GrowNoAnnotateEii(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.sroa.7.0.copyload, i32 noundef %19, i32 noundef %add.i5.i.i)
-  %21 = load i32, ptr %total_size_.i.i.i, align 4
+  %add.i5.i.i = add nsw i32 %20, 1
+  tail call void @_ZN6google8protobuf13RepeatedFieldIiE14GrowNoAnnotateEii(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.sroa.7.0.copyload, i32 noundef %20, i32 noundef %add.i5.i.i)
+  %22 = load i32, ptr %total_size_.i.i.i, align 4
   %.pre.i.i.i = load i32, ptr %agg.tmp.sroa.7.0.copyload, align 8
   br label %_ZN6google8protobuf13RepeatedFieldIiE3AddEi.exit.i.i
 
 _ZN6google8protobuf13RepeatedFieldIiE3AddEi.exit.i.i: ; preds = %if.then.i.i.i, %if.else.i.i
-  %22 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %20, %if.else.i.i ]
-  %total_size.0.i.i.i = phi i32 [ %21, %if.then.i.i.i ], [ %19, %if.else.i.i ]
+  %23 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %21, %if.else.i.i ]
+  %total_size.0.i.i.i = phi i32 [ %22, %if.then.i.i.i ], [ %20, %if.else.i.i ]
   %elem.0.i.i.i = load ptr, ptr %arena_or_elements_.i.i.i.i, align 8
-  %add7.i.i.i = add nsw i32 %22, 1
+  %add7.i.i.i = add nsw i32 %23, 1
   store i32 %add7.i.i.i, ptr %agg.tmp.sroa.7.0.copyload, align 8
-  %idx.ext.i.i.i = sext i32 %22 to i64
+  %idx.ext.i.i.i = sext i32 %23 to i64
   %add.ptr.i.i.i = getelementptr inbounds i32, ptr %elem.0.i.i.i, i64 %idx.ext.i.i.i
-  store i32 %conv.i25, ptr %add.ptr.i.i.i, align 4
-  %23 = load i32, ptr %agg.tmp.sroa.7.0.copyload, align 8
-  %cmp10.i.i.i = icmp eq i32 %add7.i.i.i, %23
+  store i32 %conv.i24, ptr %add.ptr.i.i.i, align 4
+  %24 = load i32, ptr %agg.tmp.sroa.7.0.copyload, align 8
+  %cmp10.i.i.i = icmp eq i32 %add7.i.i.i, %24
   tail call void @llvm.assume(i1 %cmp10.i.i.i)
-  %24 = load ptr, ptr %arena_or_elements_.i.i.i.i, align 8
-  %cmp11.i.i.i = icmp eq ptr %elem.0.i.i.i, %24
+  %25 = load ptr, ptr %arena_or_elements_.i.i.i.i, align 8
+  %cmp11.i.i.i = icmp eq ptr %elem.0.i.i.i, %25
   tail call void @llvm.assume(i1 %cmp11.i.i.i)
-  %25 = load i32, ptr %total_size_.i.i.i, align 4
-  %cmp13.i.i.i = icmp eq i32 %total_size.0.i.i.i, %25
+  %26 = load i32, ptr %total_size_.i.i.i, align 4
+  %cmp13.i.i.i = icmp eq i32 %total_size.0.i.i.i, %26
   tail call void @llvm.assume(i1 %cmp13.i.i.i)
   br label %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeItLh0EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i
 
 _ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeItLh0EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i: ; preds = %_ZN6google8protobuf13RepeatedFieldIiE3AddEi.exit.i.i, %if.then.i7.i
-  %cmp.i26 = icmp ult ptr %retval.0.i12.i, %13
-  br i1 %cmp.i26, label %while.body.i, label %if.end6.loopexit, !llvm.loop !200
+  %cmp.i25 = icmp ult ptr %retval.0.i12.i, %14
+  br i1 %cmp.i25, label %while.body.i, label %if.end6.loopexit, !llvm.loop !200
 
 if.end6.loopexit:                                 ; preds = %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeItLh0EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i
   %.pre = load ptr, ptr %buffer_end_, align 8
   br label %if.end6
 
 if.end6:                                          ; preds = %if.end6.loopexit, %while.body
-  %26 = phi ptr [ %13, %while.body ], [ %.pre, %if.end6.loopexit ]
-  %retval.0.i21141 = phi ptr [ %ptr.addr.0166, %while.body ], [ %retval.0.i12.i, %if.end6.loopexit ]
-  %sub.ptr.lhs.cast8 = ptrtoint ptr %retval.0.i21141 to i64
-  %sub.ptr.rhs.cast9 = ptrtoint ptr %26 to i64
+  %27 = phi ptr [ %14, %while.body ], [ %.pre, %if.end6.loopexit ]
+  %retval.0.i21140 = phi ptr [ %ptr.addr.0165, %while.body ], [ %retval.0.i12.i, %if.end6.loopexit ]
+  %sub.ptr.lhs.cast8 = ptrtoint ptr %retval.0.i21140 to i64
+  %sub.ptr.rhs.cast9 = ptrtoint ptr %27 to i64
   %sub.ptr.sub10 = sub i64 %sub.ptr.lhs.cast8, %sub.ptr.rhs.cast9
-  %sub = sub nsw i32 %size.0167, %chunk_size.0168
+  %sub = sub nsw i32 %size.0166, %chunk_size.0167
   %cmp12 = icmp slt i32 %sub, 17
   br i1 %cmp12, label %while.end, label %if.end44
 
 while.end:                                        ; preds = %if.end6
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(26) %buf, i8 0, i64 26, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %buf, ptr noundef nonnull align 1 dereferenceable(16) %26, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %buf, ptr noundef nonnull align 1 dereferenceable(16) %27, i64 16, i1 false)
   %idx.ext = sext i32 %sub to i64
   %add.ptr = getelementptr inbounds i8, ptr %buf, i64 %idx.ext
   %sext18 = shl i64 %sub.ptr.sub10, 32
@@ -42238,112 +42236,112 @@ while.end:                                        ; preds = %if.end6
   %add.ptr31 = getelementptr inbounds i8, ptr %buf, i64 %idx.ext30
   %agg.tmp32.sroa.3.0.copyload = load ptr, ptr %agg.tmp.sroa.3.0.add.sroa_idx, align 8
   %agg.tmp32.sroa.7.0.copyload = load ptr, ptr %agg.tmp.sroa.7.0.add.sroa_idx, align 8
-  %cmp13.i30 = icmp slt i64 %idx.ext30, %idx.ext
-  br i1 %cmp13.i30, label %while.body.i33.preheader, label %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_8TcParser20PackedEnumSmallRangeItLh0EEEPKcPNS0_11MessageLiteES6_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUliE_EES6_S6_S6_T_.exit77
+  %cmp13.i29 = icmp slt i64 %idx.ext30, %idx.ext
+  br i1 %cmp13.i29, label %while.body.i32.preheader, label %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_8TcParser20PackedEnumSmallRangeItLh0EEEPKcPNS0_11MessageLiteES6_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUliE_EES6_S6_S6_T_.exit76
 
-while.body.i33.preheader:                         ; preds = %while.end
+while.body.i32.preheader:                         ; preds = %while.end
   %agg.tmp32.sroa.5.0.copyload = load i16, ptr %agg.tmp.sroa.5.0.add.sroa_idx, align 8
   %agg.tmp32.sroa.4.0.copyload = load ptr, ptr %agg.tmp.sroa.4.0.add.sroa_idx, align 8
   %agg.tmp32.sroa.0.0.copyload = load i8, ptr %add, align 8
-  %conv.i5.i45 = zext i8 %agg.tmp32.sroa.0.0.copyload to i32
-  %total_size_.i.i.i49 = getelementptr inbounds i8, ptr %agg.tmp32.sroa.7.0.copyload, i64 4
-  %arena_or_elements_.i.i.i.i53 = getelementptr inbounds i8, ptr %agg.tmp32.sroa.7.0.copyload, i64 8
-  %conv.i.i.i67 = zext i16 %agg.tmp32.sroa.5.0.copyload to i32
-  %sext.i.i.i68 = shl i32 %conv.i.i.i67, 24
-  %conv2.i.i.i69 = ashr exact i32 %sext.i.i.i68, 24
-  %add.i.i.i70 = add nsw i32 %conv2.i.i.i69, %conv.i.i.i67
-  %shr.i.i.i71 = lshr i32 %add.i.i.i70, 4
-  %fallback.i.i.i.i72 = getelementptr inbounds i8, ptr %agg.tmp32.sroa.4.0.copyload, i64 40
-  br label %while.body.i33
+  %conv.i5.i44 = zext i8 %agg.tmp32.sroa.0.0.copyload to i32
+  %total_size_.i.i.i48 = getelementptr inbounds i8, ptr %agg.tmp32.sroa.7.0.copyload, i64 4
+  %arena_or_elements_.i.i.i.i52 = getelementptr inbounds i8, ptr %agg.tmp32.sroa.7.0.copyload, i64 8
+  %conv.i.i.i66 = zext i16 %agg.tmp32.sroa.5.0.copyload to i32
+  %sext.i.i.i67 = shl i32 %conv.i.i.i66, 24
+  %conv2.i.i.i68 = ashr exact i32 %sext.i.i.i67, 24
+  %add.i.i.i69 = add nsw i32 %conv2.i.i.i68, %conv.i.i.i66
+  %shr.i.i.i70 = lshr i32 %add.i.i.i69, 4
+  %fallback.i.i.i.i71 = getelementptr inbounds i8, ptr %agg.tmp32.sroa.4.0.copyload, i64 40
+  br label %while.body.i32
 
-while.body.i33:                                   ; preds = %while.body.i33.preheader, %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeItLh0EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i61
-  %ptr.addr.014.i34 = phi ptr [ %retval.0.i12.i41, %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeItLh0EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i61 ], [ %add.ptr31, %while.body.i33.preheader ]
-  %27 = load i8, ptr %ptr.addr.014.i34, align 1
-  %cmp.i.i35 = icmp sgt i8 %27, -1
-  br i1 %cmp.i.i35, label %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i74, label %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i36
+while.body.i32:                                   ; preds = %while.body.i32.preheader, %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeItLh0EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i60
+  %ptr.addr.014.i33 = phi ptr [ %retval.0.i12.i40, %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeItLh0EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i60 ], [ %add.ptr31, %while.body.i32.preheader ]
+  %28 = load i8, ptr %ptr.addr.014.i33, align 1
+  %cmp.i.i34 = icmp sgt i8 %28, -1
+  br i1 %cmp.i.i34, label %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i73, label %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i35
 
-_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i74: ; preds = %while.body.i33
-  %conv1.i.i75 = zext nneg i8 %27 to i64
-  %add.ptr.i.i76 = getelementptr inbounds i8, ptr %ptr.addr.014.i34, i64 1
-  br label %if.end.i40
+_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i73: ; preds = %while.body.i32
+  %conv1.i.i74 = zext nneg i8 %28 to i64
+  %add.ptr.i.i75 = getelementptr inbounds i8, ptr %ptr.addr.014.i33, i64 1
+  br label %if.end.i39
 
-_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i36: ; preds = %while.body.i33
-  %conv.i.i37 = zext i8 %27 to i32
-  %call.i.i.i38 = call { ptr, i64 } @_ZN6google8protobuf8internal17VarintParseSlow64EPKcj(ptr noundef nonnull %ptr.addr.014.i34, i32 noundef %conv.i.i37)
-  %28 = extractvalue { ptr, i64 } %call.i.i.i38, 0
-  %29 = extractvalue { ptr, i64 } %call.i.i.i38, 1
-  %cmp1.i39 = icmp eq ptr %28, null
-  br i1 %cmp1.i39, label %return, label %if.end.i40
+_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i35: ; preds = %while.body.i32
+  %conv.i.i36 = zext i8 %28 to i32
+  %call.i.i.i37 = call { ptr, i64 } @_ZN6google8protobuf8internal17VarintParseSlow64EPKcj(ptr noundef nonnull %ptr.addr.014.i33, i32 noundef %conv.i.i36)
+  %29 = extractvalue { ptr, i64 } %call.i.i.i37, 0
+  %30 = extractvalue { ptr, i64 } %call.i.i.i37, 1
+  %cmp1.i38 = icmp eq ptr %29, null
+  br i1 %cmp1.i38, label %return, label %if.end.i39
 
-if.end.i40:                                       ; preds = %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i36, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i74
-  %retval.0.i12.i41 = phi ptr [ %add.ptr.i.i76, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i74 ], [ %28, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i36 ]
-  %.sink.i11.i42 = phi i64 [ %conv1.i.i75, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i74 ], [ %29, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i36 ]
-  %conv.i43 = trunc i64 %.sink.i11.i42 to i32
-  %cmp.i4.i44 = icmp slt i32 %conv.i43, 0
-  %cmp2.i.i46 = icmp samesign ugt i32 %conv.i43, %conv.i5.i45
-  %or.cond.i.i47 = select i1 %cmp.i4.i44, i1 true, i1 %cmp2.i.i46
-  br i1 %or.cond.i.i47, label %if.then.i7.i66, label %if.else.i.i48
+if.end.i39:                                       ; preds = %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i35, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i73
+  %retval.0.i12.i40 = phi ptr [ %add.ptr.i.i75, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i73 ], [ %29, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i35 ]
+  %.sink.i11.i41 = phi i64 [ %conv1.i.i74, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i73 ], [ %30, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i35 ]
+  %conv.i42 = trunc i64 %.sink.i11.i41 to i32
+  %cmp.i4.i43 = icmp slt i32 %conv.i42, 0
+  %cmp2.i.i45 = icmp samesign ugt i32 %conv.i42, %conv.i5.i44
+  %or.cond.i.i46 = select i1 %cmp.i4.i43, i1 true, i1 %cmp2.i.i45
+  br i1 %or.cond.i.i46, label %if.then.i7.i65, label %if.else.i.i47
 
-if.then.i7.i66:                                   ; preds = %if.end.i40
-  %30 = load ptr, ptr %fallback.i.i.i.i72, align 8
-  %call.i.i.i.i73 = call noundef nonnull align 8 dereferenceable(16) ptr %30(ptr noundef null, ptr noundef null, ptr noundef null, i64 0, ptr noundef null, i64 noundef 0)
-  %31 = load ptr, ptr %call.i.i.i.i73, align 8
-  call void %31(ptr noundef %agg.tmp32.sroa.3.0.copyload, i32 noundef %shr.i.i.i71, i32 noundef %conv.i43)
-  br label %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeItLh0EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i61
+if.then.i7.i65:                                   ; preds = %if.end.i39
+  %31 = load ptr, ptr %fallback.i.i.i.i71, align 8
+  %call.i.i.i.i72 = call noundef nonnull align 8 dereferenceable(16) ptr %31(ptr noundef null, ptr noundef null, ptr noundef null, i64 0, ptr noundef null, i64 noundef 0)
+  %32 = load ptr, ptr %call.i.i.i.i72, align 8
+  call void %32(ptr noundef %agg.tmp32.sroa.3.0.copyload, i32 noundef %shr.i.i.i70, i32 noundef %conv.i42)
+  br label %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeItLh0EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i60
 
-if.else.i.i48:                                    ; preds = %if.end.i40
-  %32 = load i32, ptr %total_size_.i.i.i49, align 4
-  %33 = load i32, ptr %agg.tmp32.sroa.7.0.copyload, align 8
-  %cmp.i.i.i50 = icmp eq i32 %33, %32
-  br i1 %cmp.i.i.i50, label %if.then.i.i.i63, label %_ZN6google8protobuf13RepeatedFieldIiE3AddEi.exit.i.i51
+if.else.i.i47:                                    ; preds = %if.end.i39
+  %33 = load i32, ptr %total_size_.i.i.i48, align 4
+  %34 = load i32, ptr %agg.tmp32.sroa.7.0.copyload, align 8
+  %cmp.i.i.i49 = icmp eq i32 %34, %33
+  br i1 %cmp.i.i.i49, label %if.then.i.i.i62, label %_ZN6google8protobuf13RepeatedFieldIiE3AddEi.exit.i.i50
 
-if.then.i.i.i63:                                  ; preds = %if.else.i.i48
-  %add.i5.i.i64 = add nsw i32 %32, 1
-  call void @_ZN6google8protobuf13RepeatedFieldIiE14GrowNoAnnotateEii(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp32.sroa.7.0.copyload, i32 noundef %32, i32 noundef %add.i5.i.i64)
-  %34 = load i32, ptr %total_size_.i.i.i49, align 4
-  %.pre.i.i.i65 = load i32, ptr %agg.tmp32.sroa.7.0.copyload, align 8
-  br label %_ZN6google8protobuf13RepeatedFieldIiE3AddEi.exit.i.i51
+if.then.i.i.i62:                                  ; preds = %if.else.i.i47
+  %add.i5.i.i63 = add nsw i32 %33, 1
+  call void @_ZN6google8protobuf13RepeatedFieldIiE14GrowNoAnnotateEii(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp32.sroa.7.0.copyload, i32 noundef %33, i32 noundef %add.i5.i.i63)
+  %35 = load i32, ptr %total_size_.i.i.i48, align 4
+  %.pre.i.i.i64 = load i32, ptr %agg.tmp32.sroa.7.0.copyload, align 8
+  br label %_ZN6google8protobuf13RepeatedFieldIiE3AddEi.exit.i.i50
 
-_ZN6google8protobuf13RepeatedFieldIiE3AddEi.exit.i.i51: ; preds = %if.then.i.i.i63, %if.else.i.i48
-  %35 = phi i32 [ %.pre.i.i.i65, %if.then.i.i.i63 ], [ %33, %if.else.i.i48 ]
-  %total_size.0.i.i.i52 = phi i32 [ %34, %if.then.i.i.i63 ], [ %32, %if.else.i.i48 ]
-  %elem.0.i.i.i54 = load ptr, ptr %arena_or_elements_.i.i.i.i53, align 8
-  %add7.i.i.i55 = add nsw i32 %35, 1
-  store i32 %add7.i.i.i55, ptr %agg.tmp32.sroa.7.0.copyload, align 8
-  %idx.ext.i.i.i56 = sext i32 %35 to i64
-  %add.ptr.i.i.i57 = getelementptr inbounds i32, ptr %elem.0.i.i.i54, i64 %idx.ext.i.i.i56
-  store i32 %conv.i43, ptr %add.ptr.i.i.i57, align 4
-  %36 = load i32, ptr %agg.tmp32.sroa.7.0.copyload, align 8
-  %cmp10.i.i.i58 = icmp eq i32 %add7.i.i.i55, %36
-  call void @llvm.assume(i1 %cmp10.i.i.i58)
-  %37 = load ptr, ptr %arena_or_elements_.i.i.i.i53, align 8
-  %cmp11.i.i.i59 = icmp eq ptr %elem.0.i.i.i54, %37
-  call void @llvm.assume(i1 %cmp11.i.i.i59)
-  %38 = load i32, ptr %total_size_.i.i.i49, align 4
-  %cmp13.i.i.i60 = icmp eq i32 %total_size.0.i.i.i52, %38
-  call void @llvm.assume(i1 %cmp13.i.i.i60)
-  br label %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeItLh0EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i61
+_ZN6google8protobuf13RepeatedFieldIiE3AddEi.exit.i.i50: ; preds = %if.then.i.i.i62, %if.else.i.i47
+  %36 = phi i32 [ %.pre.i.i.i64, %if.then.i.i.i62 ], [ %34, %if.else.i.i47 ]
+  %total_size.0.i.i.i51 = phi i32 [ %35, %if.then.i.i.i62 ], [ %33, %if.else.i.i47 ]
+  %elem.0.i.i.i53 = load ptr, ptr %arena_or_elements_.i.i.i.i52, align 8
+  %add7.i.i.i54 = add nsw i32 %36, 1
+  store i32 %add7.i.i.i54, ptr %agg.tmp32.sroa.7.0.copyload, align 8
+  %idx.ext.i.i.i55 = sext i32 %36 to i64
+  %add.ptr.i.i.i56 = getelementptr inbounds i32, ptr %elem.0.i.i.i53, i64 %idx.ext.i.i.i55
+  store i32 %conv.i42, ptr %add.ptr.i.i.i56, align 4
+  %37 = load i32, ptr %agg.tmp32.sroa.7.0.copyload, align 8
+  %cmp10.i.i.i57 = icmp eq i32 %add7.i.i.i54, %37
+  call void @llvm.assume(i1 %cmp10.i.i.i57)
+  %38 = load ptr, ptr %arena_or_elements_.i.i.i.i52, align 8
+  %cmp11.i.i.i58 = icmp eq ptr %elem.0.i.i.i53, %38
+  call void @llvm.assume(i1 %cmp11.i.i.i58)
+  %39 = load i32, ptr %total_size_.i.i.i48, align 4
+  %cmp13.i.i.i59 = icmp eq i32 %total_size.0.i.i.i51, %39
+  call void @llvm.assume(i1 %cmp13.i.i.i59)
+  br label %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeItLh0EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i60
 
-_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeItLh0EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i61: ; preds = %_ZN6google8protobuf13RepeatedFieldIiE3AddEi.exit.i.i51, %if.then.i7.i66
-  %cmp.i62 = icmp ult ptr %retval.0.i12.i41, %add.ptr
-  br i1 %cmp.i62, label %while.body.i33, label %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_8TcParser20PackedEnumSmallRangeItLh0EEEPKcPNS0_11MessageLiteES6_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUliE_EES6_S6_S6_T_.exit77, !llvm.loop !200
+_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeItLh0EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i60: ; preds = %_ZN6google8protobuf13RepeatedFieldIiE3AddEi.exit.i.i50, %if.then.i7.i65
+  %cmp.i61 = icmp ult ptr %retval.0.i12.i40, %add.ptr
+  br i1 %cmp.i61, label %while.body.i32, label %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_8TcParser20PackedEnumSmallRangeItLh0EEEPKcPNS0_11MessageLiteES6_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUliE_EES6_S6_S6_T_.exit76, !llvm.loop !200
 
-_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_8TcParser20PackedEnumSmallRangeItLh0EEEPKcPNS0_11MessageLiteES6_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUliE_EES6_S6_S6_T_.exit77: ; preds = %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeItLh0EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i61, %while.end
-  %retval.0.i31 = phi ptr [ %add.ptr31, %while.end ], [ %retval.0.i12.i41, %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeItLh0EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i61 ]
-  %cmp35.not = icmp eq ptr %retval.0.i31, %add.ptr
+_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_8TcParser20PackedEnumSmallRangeItLh0EEEPKcPNS0_11MessageLiteES6_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUliE_EES6_S6_S6_T_.exit76: ; preds = %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeItLh0EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i60, %while.end
+  %retval.0.i30 = phi ptr [ %add.ptr31, %while.end ], [ %retval.0.i12.i40, %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeItLh0EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i60 ]
+  %cmp35.not = icmp eq ptr %retval.0.i30, %add.ptr
   br i1 %cmp35.not, label %if.end37, label %return
 
-if.end37:                                         ; preds = %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_8TcParser20PackedEnumSmallRangeItLh0EEEPKcPNS0_11MessageLiteES6_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUliE_EES6_S6_S6_T_.exit77
-  %39 = load ptr, ptr %buffer_end_, align 8
-  %add.ptr43 = getelementptr inbounds i8, ptr %39, i64 %idx.ext
+if.end37:                                         ; preds = %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_8TcParser20PackedEnumSmallRangeItLh0EEEPKcPNS0_11MessageLiteES6_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUliE_EES6_S6_S6_T_.exit76
+  %40 = load ptr, ptr %buffer_end_, align 8
+  %add.ptr43 = getelementptr inbounds i8, ptr %40, i64 %idx.ext
   br label %return
 
 if.end44:                                         ; preds = %if.end6
   %conv11 = trunc i64 %sub.ptr.sub10 to i32
-  %40 = add i32 %chunk_size.0168, %conv11
-  %sub46 = sub i32 %size.0167, %40
-  %41 = load i32, ptr %limit_, align 4
-  %cmp52 = icmp slt i32 %41, 17
+  %41 = add i32 %chunk_size.0167, %conv11
+  %sub46 = sub i32 %size.0166, %41
+  %42 = load i32, ptr %limit_, align 4
+  %cmp52 = icmp slt i32 %42, 17
   br i1 %cmp52, label %return, label %if.end54
 
 if.end54:                                         ; preds = %if.end44
@@ -42355,8 +42353,8 @@ if.end58:                                         ; preds = %if.end54
   %sext = shl i64 %sub.ptr.sub10, 32
   %idx.ext59 = ashr exact i64 %sext, 32
   %add.ptr60 = getelementptr inbounds i8, ptr %call55, i64 %idx.ext59
-  %42 = load ptr, ptr %buffer_end_, align 8
-  %sub.ptr.lhs.cast62 = ptrtoint ptr %42 to i64
+  %43 = load ptr, ptr %buffer_end_, align 8
+  %sub.ptr.lhs.cast62 = ptrtoint ptr %43 to i64
   %sub.ptr.rhs.cast63 = ptrtoint ptr %add.ptr60 to i64
   %sub.ptr.sub64 = sub i64 %sub.ptr.lhs.cast62, %sub.ptr.rhs.cast63
   %chunk_size.0 = trunc i64 %sub.ptr.sub64 to i32
@@ -42372,106 +42370,106 @@ while.end66:                                      ; preds = %if.end58, %if.end
   %agg.tmp70.sroa.3.0.copyload = load ptr, ptr %agg.tmp70.sroa.3.0.add.sroa_idx, align 8
   %agg.tmp70.sroa.7.0.add.sroa_idx = getelementptr inbounds i8, ptr %add, i64 32
   %agg.tmp70.sroa.7.0.copyload = load ptr, ptr %agg.tmp70.sroa.7.0.add.sroa_idx, align 8
-  %cmp13.i79 = icmp sgt i32 %size.0.lcssa, 0
-  br i1 %cmp13.i79, label %while.body.i82.preheader, label %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_8TcParser20PackedEnumSmallRangeItLh0EEEPKcPNS0_11MessageLiteES6_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUliE_EES6_S6_S6_T_.exit126
+  %cmp13.i78 = icmp sgt i32 %size.0.lcssa, 0
+  br i1 %cmp13.i78, label %while.body.i81.preheader, label %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_8TcParser20PackedEnumSmallRangeItLh0EEEPKcPNS0_11MessageLiteES6_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUliE_EES6_S6_S6_T_.exit125
 
-while.body.i82.preheader:                         ; preds = %while.end66
+while.body.i81.preheader:                         ; preds = %while.end66
   %agg.tmp70.sroa.5.0.add.sroa_idx = getelementptr inbounds i8, ptr %add, i64 24
   %agg.tmp70.sroa.5.0.copyload = load i16, ptr %agg.tmp70.sroa.5.0.add.sroa_idx, align 8
   %agg.tmp70.sroa.4.0.add.sroa_idx = getelementptr inbounds i8, ptr %add, i64 16
   %agg.tmp70.sroa.4.0.copyload = load ptr, ptr %agg.tmp70.sroa.4.0.add.sroa_idx, align 8
   %agg.tmp70.sroa.0.0.copyload = load i8, ptr %add, align 8
-  %conv.i5.i94 = zext i8 %agg.tmp70.sroa.0.0.copyload to i32
-  %total_size_.i.i.i98 = getelementptr inbounds i8, ptr %agg.tmp70.sroa.7.0.copyload, i64 4
-  %arena_or_elements_.i.i.i.i102 = getelementptr inbounds i8, ptr %agg.tmp70.sroa.7.0.copyload, i64 8
-  %conv.i.i.i116 = zext i16 %agg.tmp70.sroa.5.0.copyload to i32
-  %sext.i.i.i117 = shl i32 %conv.i.i.i116, 24
-  %conv2.i.i.i118 = ashr exact i32 %sext.i.i.i117, 24
-  %add.i.i.i119 = add nsw i32 %conv2.i.i.i118, %conv.i.i.i116
-  %shr.i.i.i120 = lshr i32 %add.i.i.i119, 4
-  %fallback.i.i.i.i121 = getelementptr inbounds i8, ptr %agg.tmp70.sroa.4.0.copyload, i64 40
-  br label %while.body.i82
+  %conv.i5.i93 = zext i8 %agg.tmp70.sroa.0.0.copyload to i32
+  %total_size_.i.i.i97 = getelementptr inbounds i8, ptr %agg.tmp70.sroa.7.0.copyload, i64 4
+  %arena_or_elements_.i.i.i.i101 = getelementptr inbounds i8, ptr %agg.tmp70.sroa.7.0.copyload, i64 8
+  %conv.i.i.i115 = zext i16 %agg.tmp70.sroa.5.0.copyload to i32
+  %sext.i.i.i116 = shl i32 %conv.i.i.i115, 24
+  %conv2.i.i.i117 = ashr exact i32 %sext.i.i.i116, 24
+  %add.i.i.i118 = add nsw i32 %conv2.i.i.i117, %conv.i.i.i115
+  %shr.i.i.i119 = lshr i32 %add.i.i.i118, 4
+  %fallback.i.i.i.i120 = getelementptr inbounds i8, ptr %agg.tmp70.sroa.4.0.copyload, i64 40
+  br label %while.body.i81
 
-while.body.i82:                                   ; preds = %while.body.i82.preheader, %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeItLh0EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i110
-  %ptr.addr.014.i83 = phi ptr [ %retval.0.i12.i90, %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeItLh0EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i110 ], [ %ptr.addr.0.lcssa, %while.body.i82.preheader ]
-  %43 = load i8, ptr %ptr.addr.014.i83, align 1
-  %cmp.i.i84 = icmp sgt i8 %43, -1
-  br i1 %cmp.i.i84, label %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i123, label %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i85
+while.body.i81:                                   ; preds = %while.body.i81.preheader, %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeItLh0EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i109
+  %ptr.addr.014.i82 = phi ptr [ %retval.0.i12.i89, %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeItLh0EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i109 ], [ %ptr.addr.0.lcssa, %while.body.i81.preheader ]
+  %44 = load i8, ptr %ptr.addr.014.i82, align 1
+  %cmp.i.i83 = icmp sgt i8 %44, -1
+  br i1 %cmp.i.i83, label %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i122, label %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i84
 
-_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i123: ; preds = %while.body.i82
-  %conv1.i.i124 = zext nneg i8 %43 to i64
-  %add.ptr.i.i125 = getelementptr inbounds i8, ptr %ptr.addr.014.i83, i64 1
-  br label %if.end.i89
+_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i122: ; preds = %while.body.i81
+  %conv1.i.i123 = zext nneg i8 %44 to i64
+  %add.ptr.i.i124 = getelementptr inbounds i8, ptr %ptr.addr.014.i82, i64 1
+  br label %if.end.i88
 
-_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i85: ; preds = %while.body.i82
-  %conv.i.i86 = zext i8 %43 to i32
-  %call.i.i.i87 = tail call { ptr, i64 } @_ZN6google8protobuf8internal17VarintParseSlow64EPKcj(ptr noundef nonnull %ptr.addr.014.i83, i32 noundef %conv.i.i86)
-  %44 = extractvalue { ptr, i64 } %call.i.i.i87, 0
-  %45 = extractvalue { ptr, i64 } %call.i.i.i87, 1
-  %cmp1.i88 = icmp eq ptr %44, null
-  br i1 %cmp1.i88, label %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_8TcParser20PackedEnumSmallRangeItLh0EEEPKcPNS0_11MessageLiteES6_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUliE_EES6_S6_S6_T_.exit126, label %if.end.i89
+_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i84: ; preds = %while.body.i81
+  %conv.i.i85 = zext i8 %44 to i32
+  %call.i.i.i86 = tail call { ptr, i64 } @_ZN6google8protobuf8internal17VarintParseSlow64EPKcj(ptr noundef nonnull %ptr.addr.014.i82, i32 noundef %conv.i.i85)
+  %45 = extractvalue { ptr, i64 } %call.i.i.i86, 0
+  %46 = extractvalue { ptr, i64 } %call.i.i.i86, 1
+  %cmp1.i87 = icmp eq ptr %45, null
+  br i1 %cmp1.i87, label %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_8TcParser20PackedEnumSmallRangeItLh0EEEPKcPNS0_11MessageLiteES6_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUliE_EES6_S6_S6_T_.exit125, label %if.end.i88
 
-if.end.i89:                                       ; preds = %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i85, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i123
-  %retval.0.i12.i90 = phi ptr [ %add.ptr.i.i125, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i123 ], [ %44, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i85 ]
-  %.sink.i11.i91 = phi i64 [ %conv1.i.i124, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i123 ], [ %45, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i85 ]
-  %conv.i92 = trunc i64 %.sink.i11.i91 to i32
-  %cmp.i4.i93 = icmp slt i32 %conv.i92, 0
-  %cmp2.i.i95 = icmp samesign ugt i32 %conv.i92, %conv.i5.i94
-  %or.cond.i.i96 = select i1 %cmp.i4.i93, i1 true, i1 %cmp2.i.i95
-  br i1 %or.cond.i.i96, label %if.then.i7.i115, label %if.else.i.i97
+if.end.i88:                                       ; preds = %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i84, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i122
+  %retval.0.i12.i89 = phi ptr [ %add.ptr.i.i124, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i122 ], [ %45, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i84 ]
+  %.sink.i11.i90 = phi i64 [ %conv1.i.i123, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i122 ], [ %46, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i84 ]
+  %conv.i91 = trunc i64 %.sink.i11.i90 to i32
+  %cmp.i4.i92 = icmp slt i32 %conv.i91, 0
+  %cmp2.i.i94 = icmp samesign ugt i32 %conv.i91, %conv.i5.i93
+  %or.cond.i.i95 = select i1 %cmp.i4.i92, i1 true, i1 %cmp2.i.i94
+  br i1 %or.cond.i.i95, label %if.then.i7.i114, label %if.else.i.i96
 
-if.then.i7.i115:                                  ; preds = %if.end.i89
-  %46 = load ptr, ptr %fallback.i.i.i.i121, align 8
-  %call.i.i.i.i122 = tail call noundef nonnull align 8 dereferenceable(16) ptr %46(ptr noundef null, ptr noundef null, ptr noundef null, i64 0, ptr noundef null, i64 noundef 0)
-  %47 = load ptr, ptr %call.i.i.i.i122, align 8
-  tail call void %47(ptr noundef %agg.tmp70.sroa.3.0.copyload, i32 noundef %shr.i.i.i120, i32 noundef %conv.i92)
-  br label %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeItLh0EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i110
+if.then.i7.i114:                                  ; preds = %if.end.i88
+  %47 = load ptr, ptr %fallback.i.i.i.i120, align 8
+  %call.i.i.i.i121 = tail call noundef nonnull align 8 dereferenceable(16) ptr %47(ptr noundef null, ptr noundef null, ptr noundef null, i64 0, ptr noundef null, i64 noundef 0)
+  %48 = load ptr, ptr %call.i.i.i.i121, align 8
+  tail call void %48(ptr noundef %agg.tmp70.sroa.3.0.copyload, i32 noundef %shr.i.i.i119, i32 noundef %conv.i91)
+  br label %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeItLh0EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i109
 
-if.else.i.i97:                                    ; preds = %if.end.i89
-  %48 = load i32, ptr %total_size_.i.i.i98, align 4
-  %49 = load i32, ptr %agg.tmp70.sroa.7.0.copyload, align 8
-  %cmp.i.i.i99 = icmp eq i32 %49, %48
-  br i1 %cmp.i.i.i99, label %if.then.i.i.i112, label %_ZN6google8protobuf13RepeatedFieldIiE3AddEi.exit.i.i100
+if.else.i.i96:                                    ; preds = %if.end.i88
+  %49 = load i32, ptr %total_size_.i.i.i97, align 4
+  %50 = load i32, ptr %agg.tmp70.sroa.7.0.copyload, align 8
+  %cmp.i.i.i98 = icmp eq i32 %50, %49
+  br i1 %cmp.i.i.i98, label %if.then.i.i.i111, label %_ZN6google8protobuf13RepeatedFieldIiE3AddEi.exit.i.i99
 
-if.then.i.i.i112:                                 ; preds = %if.else.i.i97
-  %add.i5.i.i113 = add nsw i32 %48, 1
-  tail call void @_ZN6google8protobuf13RepeatedFieldIiE14GrowNoAnnotateEii(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp70.sroa.7.0.copyload, i32 noundef %48, i32 noundef %add.i5.i.i113)
-  %50 = load i32, ptr %total_size_.i.i.i98, align 4
-  %.pre.i.i.i114 = load i32, ptr %agg.tmp70.sroa.7.0.copyload, align 8
-  br label %_ZN6google8protobuf13RepeatedFieldIiE3AddEi.exit.i.i100
+if.then.i.i.i111:                                 ; preds = %if.else.i.i96
+  %add.i5.i.i112 = add nsw i32 %49, 1
+  tail call void @_ZN6google8protobuf13RepeatedFieldIiE14GrowNoAnnotateEii(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp70.sroa.7.0.copyload, i32 noundef %49, i32 noundef %add.i5.i.i112)
+  %51 = load i32, ptr %total_size_.i.i.i97, align 4
+  %.pre.i.i.i113 = load i32, ptr %agg.tmp70.sroa.7.0.copyload, align 8
+  br label %_ZN6google8protobuf13RepeatedFieldIiE3AddEi.exit.i.i99
 
-_ZN6google8protobuf13RepeatedFieldIiE3AddEi.exit.i.i100: ; preds = %if.then.i.i.i112, %if.else.i.i97
-  %51 = phi i32 [ %.pre.i.i.i114, %if.then.i.i.i112 ], [ %49, %if.else.i.i97 ]
-  %total_size.0.i.i.i101 = phi i32 [ %50, %if.then.i.i.i112 ], [ %48, %if.else.i.i97 ]
-  %elem.0.i.i.i103 = load ptr, ptr %arena_or_elements_.i.i.i.i102, align 8
-  %add7.i.i.i104 = add nsw i32 %51, 1
-  store i32 %add7.i.i.i104, ptr %agg.tmp70.sroa.7.0.copyload, align 8
-  %idx.ext.i.i.i105 = sext i32 %51 to i64
-  %add.ptr.i.i.i106 = getelementptr inbounds i32, ptr %elem.0.i.i.i103, i64 %idx.ext.i.i.i105
-  store i32 %conv.i92, ptr %add.ptr.i.i.i106, align 4
-  %52 = load i32, ptr %agg.tmp70.sroa.7.0.copyload, align 8
-  %cmp10.i.i.i107 = icmp eq i32 %add7.i.i.i104, %52
-  tail call void @llvm.assume(i1 %cmp10.i.i.i107)
-  %53 = load ptr, ptr %arena_or_elements_.i.i.i.i102, align 8
-  %cmp11.i.i.i108 = icmp eq ptr %elem.0.i.i.i103, %53
-  tail call void @llvm.assume(i1 %cmp11.i.i.i108)
-  %54 = load i32, ptr %total_size_.i.i.i98, align 4
-  %cmp13.i.i.i109 = icmp eq i32 %total_size.0.i.i.i101, %54
-  tail call void @llvm.assume(i1 %cmp13.i.i.i109)
-  br label %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeItLh0EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i110
+_ZN6google8protobuf13RepeatedFieldIiE3AddEi.exit.i.i99: ; preds = %if.then.i.i.i111, %if.else.i.i96
+  %52 = phi i32 [ %.pre.i.i.i113, %if.then.i.i.i111 ], [ %50, %if.else.i.i96 ]
+  %total_size.0.i.i.i100 = phi i32 [ %51, %if.then.i.i.i111 ], [ %49, %if.else.i.i96 ]
+  %elem.0.i.i.i102 = load ptr, ptr %arena_or_elements_.i.i.i.i101, align 8
+  %add7.i.i.i103 = add nsw i32 %52, 1
+  store i32 %add7.i.i.i103, ptr %agg.tmp70.sroa.7.0.copyload, align 8
+  %idx.ext.i.i.i104 = sext i32 %52 to i64
+  %add.ptr.i.i.i105 = getelementptr inbounds i32, ptr %elem.0.i.i.i102, i64 %idx.ext.i.i.i104
+  store i32 %conv.i91, ptr %add.ptr.i.i.i105, align 4
+  %53 = load i32, ptr %agg.tmp70.sroa.7.0.copyload, align 8
+  %cmp10.i.i.i106 = icmp eq i32 %add7.i.i.i103, %53
+  tail call void @llvm.assume(i1 %cmp10.i.i.i106)
+  %54 = load ptr, ptr %arena_or_elements_.i.i.i.i101, align 8
+  %cmp11.i.i.i107 = icmp eq ptr %elem.0.i.i.i102, %54
+  tail call void @llvm.assume(i1 %cmp11.i.i.i107)
+  %55 = load i32, ptr %total_size_.i.i.i97, align 4
+  %cmp13.i.i.i108 = icmp eq i32 %total_size.0.i.i.i100, %55
+  tail call void @llvm.assume(i1 %cmp13.i.i.i108)
+  br label %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeItLh0EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i109
 
-_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeItLh0EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i110: ; preds = %_ZN6google8protobuf13RepeatedFieldIiE3AddEi.exit.i.i100, %if.then.i7.i115
-  %cmp.i111 = icmp ult ptr %retval.0.i12.i90, %add.ptr69
-  br i1 %cmp.i111, label %while.body.i82, label %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_8TcParser20PackedEnumSmallRangeItLh0EEEPKcPNS0_11MessageLiteES6_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUliE_EES6_S6_S6_T_.exit126, !llvm.loop !200
+_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeItLh0EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i109: ; preds = %_ZN6google8protobuf13RepeatedFieldIiE3AddEi.exit.i.i99, %if.then.i7.i114
+  %cmp.i110 = icmp ult ptr %retval.0.i12.i89, %add.ptr69
+  br i1 %cmp.i110, label %while.body.i81, label %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_8TcParser20PackedEnumSmallRangeItLh0EEEPKcPNS0_11MessageLiteES6_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUliE_EES6_S6_S6_T_.exit125, !llvm.loop !200
 
-_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_8TcParser20PackedEnumSmallRangeItLh0EEEPKcPNS0_11MessageLiteES6_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUliE_EES6_S6_S6_T_.exit126: ; preds = %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i85, %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeItLh0EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i110, %while.end66
-  %retval.0.i80 = phi ptr [ %ptr.addr.0.lcssa, %while.end66 ], [ null, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i85 ], [ %retval.0.i12.i90, %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeItLh0EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i110 ]
-  %cmp72 = icmp eq ptr %add.ptr69, %retval.0.i80
-  %cond = select i1 %cmp72, ptr %retval.0.i80, ptr null
+_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_8TcParser20PackedEnumSmallRangeItLh0EEEPKcPNS0_11MessageLiteES6_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUliE_EES6_S6_S6_T_.exit125: ; preds = %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i84, %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeItLh0EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i109, %while.end66
+  %retval.0.i79 = phi ptr [ %ptr.addr.0.lcssa, %while.end66 ], [ null, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i84 ], [ %retval.0.i12.i89, %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeItLh0EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i109 ]
+  %cmp72 = icmp eq ptr %add.ptr69, %retval.0.i79
+  %cond = select i1 %cmp72, ptr %retval.0.i79, ptr null
   br label %return
 
-return:                                           ; preds = %if.end54, %if.end44, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i36, %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_8TcParser20PackedEnumSmallRangeItLh0EEEPKcPNS0_11MessageLiteES6_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUliE_EES6_S6_S6_T_.exit77, %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeItLh0EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE0_clEi.exit, %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_8TcParser20PackedEnumSmallRangeItLh0EEEPKcPNS0_11MessageLiteES6_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUliE_EES6_S6_S6_T_.exit126, %if.end37
-  %retval.0 = phi ptr [ %add.ptr43, %if.end37 ], [ %cond, %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_8TcParser20PackedEnumSmallRangeItLh0EEEPKcPNS0_11MessageLiteES6_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUliE_EES6_S6_S6_T_.exit126 ], [ null, %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeItLh0EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE0_clEi.exit ], [ null, %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_8TcParser20PackedEnumSmallRangeItLh0EEEPKcPNS0_11MessageLiteES6_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUliE_EES6_S6_S6_T_.exit77 ], [ null, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i36 ], [ null, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i ], [ null, %if.end44 ], [ null, %if.end54 ]
+return:                                           ; preds = %if.end54, %if.end44, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i35, %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_8TcParser20PackedEnumSmallRangeItLh0EEEPKcPNS0_11MessageLiteES6_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUliE_EES6_S6_S6_T_.exit76, %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeItLh0EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE0_clEi.exit, %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_8TcParser20PackedEnumSmallRangeItLh0EEEPKcPNS0_11MessageLiteES6_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUliE_EES6_S6_S6_T_.exit125, %if.end37
+  %retval.0 = phi ptr [ %add.ptr43, %if.end37 ], [ %cond, %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_8TcParser20PackedEnumSmallRangeItLh0EEEPKcPNS0_11MessageLiteES6_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUliE_EES6_S6_S6_T_.exit125 ], [ null, %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeItLh0EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE0_clEi.exit ], [ null, %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_8TcParser20PackedEnumSmallRangeItLh0EEEPKcPNS0_11MessageLiteES6_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUliE_EES6_S6_S6_T_.exit76 ], [ null, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i35 ], [ null, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i ], [ null, %if.end44 ], [ null, %if.end54 ]
   ret ptr %retval.0
 }
 
@@ -42509,17 +42507,16 @@ _ZN6google8protobuf8internal8ReadSizeEPPKc.exit:  ; preds = %if.then.i, %if.end.
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %8 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %conv.i.i = trunc i64 %sub.ptr.sub.i.i to i32
-  %add.i.i = add nsw i32 %conv.i.i, 16
-  %cmp.i.i = icmp sgt i32 %conv.i.i, 1008
-  %10 = select i1 %cmp.i.i, i32 %add.i.i, i32 1024
-  %.sroa.speculated8.i = tail call i32 @llvm.smin.i32(i32 %10, i32 %retval.0.i)
+  %10 = tail call i32 @llvm.smax.i32(i32 %conv.i.i, i32 1008)
+  %11 = add nuw i32 %10, 16
+  %.sroa.speculated8.i = tail call i32 @llvm.smin.i32(i32 %11, i32 %retval.0.i)
   %conv6.i = sext i32 %.sroa.speculated8.i to i64
   %add.i = add nsw i64 %conv6.i, %conv.i19
   %.sroa.speculated.i = tail call i64 @llvm.smin.i64(i64 %add.i, i64 2147483647)
   %conv11.i = trunc i64 %.sroa.speculated.i to i32
   %total_size_.i.i = getelementptr inbounds i8, ptr %3, i64 4
-  %11 = load i32, ptr %total_size_.i.i, align 4
-  %cmp.i5.i = icmp slt i32 %11, %conv11.i
+  %12 = load i32, ptr %total_size_.i.i, align 4
+  %cmp.i5.i = icmp slt i32 %12, %conv11.i
   br i1 %cmp.i5.i, label %if.then.i.i, label %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeIhLh1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE0_clEi.exit
 
 if.then.i.i:                                      ; preds = %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit
@@ -42532,13 +42529,13 @@ _ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeIhLh1EEEPKcPNS0_11Me
 
 if.end:                                           ; preds = %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeIhLh1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE0_clEi.exit
   %buffer_end_ = getelementptr inbounds i8, ptr %this, i64 8
-  %12 = load ptr, ptr %buffer_end_, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %12 to i64
+  %13 = load ptr, ptr %buffer_end_, align 8
+  %sub.ptr.lhs.cast = ptrtoint ptr %13 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %storemerge.i to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %chunk_size.0156 = trunc i64 %sub.ptr.sub to i32
-  %cmp157 = icmp sgt i32 %retval.0.i, %chunk_size.0156
-  br i1 %cmp157, label %while.body.lr.ph, label %while.end66
+  %chunk_size.0155 = trunc i64 %sub.ptr.sub to i32
+  %cmp156 = icmp sgt i32 %retval.0.i, %chunk_size.0155
+  br i1 %cmp156, label %while.body.lr.ph, label %while.end66
 
 while.body.lr.ph:                                 ; preds = %if.end
   %agg.tmp.sroa.3.0.add.sroa_idx = getelementptr inbounds i8, ptr %add, i64 8
@@ -42549,13 +42546,13 @@ while.body.lr.ph:                                 ; preds = %if.end
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end58
-  %13 = phi ptr [ %12, %while.body.lr.ph ], [ %44, %if.end58 ]
-  %chunk_size.0160 = phi i32 [ %chunk_size.0156, %while.body.lr.ph ], [ %chunk_size.0, %if.end58 ]
-  %size.0159 = phi i32 [ %retval.0.i, %while.body.lr.ph ], [ %sub46, %if.end58 ]
-  %ptr.addr.0158 = phi ptr [ %storemerge.i, %while.body.lr.ph ], [ %add.ptr60, %if.end58 ]
+  %14 = phi ptr [ %13, %while.body.lr.ph ], [ %45, %if.end58 ]
+  %chunk_size.0159 = phi i32 [ %chunk_size.0155, %while.body.lr.ph ], [ %chunk_size.0, %if.end58 ]
+  %size.0158 = phi i32 [ %retval.0.i, %while.body.lr.ph ], [ %sub46, %if.end58 ]
+  %ptr.addr.0157 = phi ptr [ %storemerge.i, %while.body.lr.ph ], [ %add.ptr60, %if.end58 ]
   %agg.tmp.sroa.3.0.copyload = load ptr, ptr %agg.tmp.sroa.3.0.add.sroa_idx, align 8
   %agg.tmp.sroa.7.0.copyload = load ptr, ptr %agg.tmp.sroa.7.0.add.sroa_idx, align 8
-  %cmp13.i = icmp ult ptr %ptr.addr.0158, %13
+  %cmp13.i = icmp ult ptr %ptr.addr.0157, %14
   br i1 %cmp13.i, label %while.body.i.preheader, label %if.end6
 
 while.body.i.preheader:                           ; preds = %while.body
@@ -42566,99 +42563,99 @@ while.body.i.preheader:                           ; preds = %while.body
   %total_size_.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.7.0.copyload, i64 4
   %arena_or_elements_.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.7.0.copyload, i64 8
   %fallback.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.4.0.copyload, i64 40
-  %14 = lshr i8 %agg.tmp.sroa.5.0.copyload, 3
-  %shr.i.i.i = zext nneg i8 %14 to i32
+  %15 = lshr i8 %agg.tmp.sroa.5.0.copyload, 3
+  %shr.i.i.i = zext nneg i8 %15 to i32
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i.preheader, %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeIhLh1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i
-  %ptr.addr.014.i = phi ptr [ %retval.0.i12.i, %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeIhLh1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i ], [ %ptr.addr.0158, %while.body.i.preheader ]
-  %15 = load i8, ptr %ptr.addr.014.i, align 1
-  %cmp.i.i22 = icmp sgt i8 %15, -1
-  br i1 %cmp.i.i22, label %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i, label %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i
+  %ptr.addr.014.i = phi ptr [ %retval.0.i12.i, %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeIhLh1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i ], [ %ptr.addr.0157, %while.body.i.preheader ]
+  %16 = load i8, ptr %ptr.addr.014.i, align 1
+  %cmp.i.i = icmp sgt i8 %16, -1
+  br i1 %cmp.i.i, label %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i, label %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i
 
 _ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i: ; preds = %while.body.i
-  %conv1.i.i = zext nneg i8 %15 to i64
+  %conv1.i.i = zext nneg i8 %16 to i64
   %add.ptr.i.i = getelementptr inbounds i8, ptr %ptr.addr.014.i, i64 1
-  br label %if.end.i24
+  br label %if.end.i23
 
 _ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i: ; preds = %while.body.i
-  %conv.i.i23 = zext i8 %15 to i32
-  %call.i.i.i = tail call { ptr, i64 } @_ZN6google8protobuf8internal17VarintParseSlow64EPKcj(ptr noundef nonnull %ptr.addr.014.i, i32 noundef %conv.i.i23)
-  %16 = extractvalue { ptr, i64 } %call.i.i.i, 0
-  %17 = extractvalue { ptr, i64 } %call.i.i.i, 1
-  %cmp1.i = icmp eq ptr %16, null
-  br i1 %cmp1.i, label %return, label %if.end.i24
+  %conv.i.i22 = zext i8 %16 to i32
+  %call.i.i.i = tail call { ptr, i64 } @_ZN6google8protobuf8internal17VarintParseSlow64EPKcj(ptr noundef nonnull %ptr.addr.014.i, i32 noundef %conv.i.i22)
+  %17 = extractvalue { ptr, i64 } %call.i.i.i, 0
+  %18 = extractvalue { ptr, i64 } %call.i.i.i, 1
+  %cmp1.i = icmp eq ptr %17, null
+  br i1 %cmp1.i, label %return, label %if.end.i23
 
-if.end.i24:                                       ; preds = %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i
-  %retval.0.i12.i = phi ptr [ %add.ptr.i.i, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i ], [ %16, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i ]
-  %.sink.i11.i = phi i64 [ %conv1.i.i, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i ], [ %17, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i ]
-  %conv.i25 = trunc i64 %.sink.i11.i to i32
-  %cmp.i4.i = icmp slt i32 %conv.i25, 1
-  %cmp2.i.i = icmp samesign ugt i32 %conv.i25, %conv.i5.i
+if.end.i23:                                       ; preds = %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i
+  %retval.0.i12.i = phi ptr [ %add.ptr.i.i, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i ], [ %17, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i ]
+  %.sink.i11.i = phi i64 [ %conv1.i.i, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i ], [ %18, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i ]
+  %conv.i24 = trunc i64 %.sink.i11.i to i32
+  %cmp.i4.i = icmp slt i32 %conv.i24, 1
+  %cmp2.i.i = icmp samesign ugt i32 %conv.i24, %conv.i5.i
   %or.cond.i.i = select i1 %cmp.i4.i, i1 true, i1 %cmp2.i.i
   br i1 %or.cond.i.i, label %if.then.i7.i, label %if.else.i.i
 
-if.then.i7.i:                                     ; preds = %if.end.i24
-  %18 = load ptr, ptr %fallback.i.i.i.i, align 8
-  %call.i.i.i.i = tail call noundef nonnull align 8 dereferenceable(16) ptr %18(ptr noundef null, ptr noundef null, ptr noundef null, i64 0, ptr noundef null, i64 noundef 0)
-  %19 = load ptr, ptr %call.i.i.i.i, align 8
-  tail call void %19(ptr noundef %agg.tmp.sroa.3.0.copyload, i32 noundef %shr.i.i.i, i32 noundef %conv.i25)
+if.then.i7.i:                                     ; preds = %if.end.i23
+  %19 = load ptr, ptr %fallback.i.i.i.i, align 8
+  %call.i.i.i.i = tail call noundef nonnull align 8 dereferenceable(16) ptr %19(ptr noundef null, ptr noundef null, ptr noundef null, i64 0, ptr noundef null, i64 noundef 0)
+  %20 = load ptr, ptr %call.i.i.i.i, align 8
+  tail call void %20(ptr noundef %agg.tmp.sroa.3.0.copyload, i32 noundef %shr.i.i.i, i32 noundef %conv.i24)
   br label %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeIhLh1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i
 
-if.else.i.i:                                      ; preds = %if.end.i24
-  %20 = load i32, ptr %total_size_.i.i.i, align 4
-  %21 = load i32, ptr %agg.tmp.sroa.7.0.copyload, align 8
-  %cmp.i.i.i = icmp eq i32 %21, %20
+if.else.i.i:                                      ; preds = %if.end.i23
+  %21 = load i32, ptr %total_size_.i.i.i, align 4
+  %22 = load i32, ptr %agg.tmp.sroa.7.0.copyload, align 8
+  %cmp.i.i.i = icmp eq i32 %22, %21
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN6google8protobuf13RepeatedFieldIiE3AddEi.exit.i.i
 
 if.then.i.i.i:                                    ; preds = %if.else.i.i
-  %add.i.i.i = add nsw i32 %20, 1
-  tail call void @_ZN6google8protobuf13RepeatedFieldIiE14GrowNoAnnotateEii(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.sroa.7.0.copyload, i32 noundef %20, i32 noundef %add.i.i.i)
-  %22 = load i32, ptr %total_size_.i.i.i, align 4
+  %add.i.i.i = add nsw i32 %21, 1
+  tail call void @_ZN6google8protobuf13RepeatedFieldIiE14GrowNoAnnotateEii(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.sroa.7.0.copyload, i32 noundef %21, i32 noundef %add.i.i.i)
+  %23 = load i32, ptr %total_size_.i.i.i, align 4
   %.pre.i.i.i = load i32, ptr %agg.tmp.sroa.7.0.copyload, align 8
   br label %_ZN6google8protobuf13RepeatedFieldIiE3AddEi.exit.i.i
 
 _ZN6google8protobuf13RepeatedFieldIiE3AddEi.exit.i.i: ; preds = %if.then.i.i.i, %if.else.i.i
-  %23 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %21, %if.else.i.i ]
-  %total_size.0.i.i.i = phi i32 [ %22, %if.then.i.i.i ], [ %20, %if.else.i.i ]
+  %24 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %22, %if.else.i.i ]
+  %total_size.0.i.i.i = phi i32 [ %23, %if.then.i.i.i ], [ %21, %if.else.i.i ]
   %elem.0.i.i.i = load ptr, ptr %arena_or_elements_.i.i.i.i, align 8
-  %add7.i.i.i = add nsw i32 %23, 1
+  %add7.i.i.i = add nsw i32 %24, 1
   store i32 %add7.i.i.i, ptr %agg.tmp.sroa.7.0.copyload, align 8
-  %idx.ext.i.i.i = sext i32 %23 to i64
+  %idx.ext.i.i.i = sext i32 %24 to i64
   %add.ptr.i.i.i = getelementptr inbounds i32, ptr %elem.0.i.i.i, i64 %idx.ext.i.i.i
-  store i32 %conv.i25, ptr %add.ptr.i.i.i, align 4
-  %24 = load i32, ptr %agg.tmp.sroa.7.0.copyload, align 8
-  %cmp10.i.i.i = icmp eq i32 %add7.i.i.i, %24
+  store i32 %conv.i24, ptr %add.ptr.i.i.i, align 4
+  %25 = load i32, ptr %agg.tmp.sroa.7.0.copyload, align 8
+  %cmp10.i.i.i = icmp eq i32 %add7.i.i.i, %25
   tail call void @llvm.assume(i1 %cmp10.i.i.i)
-  %25 = load ptr, ptr %arena_or_elements_.i.i.i.i, align 8
-  %cmp11.i.i.i = icmp eq ptr %elem.0.i.i.i, %25
+  %26 = load ptr, ptr %arena_or_elements_.i.i.i.i, align 8
+  %cmp11.i.i.i = icmp eq ptr %elem.0.i.i.i, %26
   tail call void @llvm.assume(i1 %cmp11.i.i.i)
-  %26 = load i32, ptr %total_size_.i.i.i, align 4
-  %cmp13.i.i.i = icmp eq i32 %total_size.0.i.i.i, %26
+  %27 = load i32, ptr %total_size_.i.i.i, align 4
+  %cmp13.i.i.i = icmp eq i32 %total_size.0.i.i.i, %27
   tail call void @llvm.assume(i1 %cmp13.i.i.i)
   br label %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeIhLh1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i
 
 _ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeIhLh1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i: ; preds = %_ZN6google8protobuf13RepeatedFieldIiE3AddEi.exit.i.i, %if.then.i7.i
-  %cmp.i26 = icmp ult ptr %retval.0.i12.i, %13
-  br i1 %cmp.i26, label %while.body.i, label %if.end6.loopexit, !llvm.loop !202
+  %cmp.i25 = icmp ult ptr %retval.0.i12.i, %14
+  br i1 %cmp.i25, label %while.body.i, label %if.end6.loopexit, !llvm.loop !202
 
 if.end6.loopexit:                                 ; preds = %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeIhLh1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i
   %.pre = load ptr, ptr %buffer_end_, align 8
   br label %if.end6
 
 if.end6:                                          ; preds = %if.end6.loopexit, %while.body
-  %27 = phi ptr [ %13, %while.body ], [ %.pre, %if.end6.loopexit ]
-  %retval.0.i21133 = phi ptr [ %ptr.addr.0158, %while.body ], [ %retval.0.i12.i, %if.end6.loopexit ]
-  %sub.ptr.lhs.cast8 = ptrtoint ptr %retval.0.i21133 to i64
-  %sub.ptr.rhs.cast9 = ptrtoint ptr %27 to i64
+  %28 = phi ptr [ %14, %while.body ], [ %.pre, %if.end6.loopexit ]
+  %retval.0.i21132 = phi ptr [ %ptr.addr.0157, %while.body ], [ %retval.0.i12.i, %if.end6.loopexit ]
+  %sub.ptr.lhs.cast8 = ptrtoint ptr %retval.0.i21132 to i64
+  %sub.ptr.rhs.cast9 = ptrtoint ptr %28 to i64
   %sub.ptr.sub10 = sub i64 %sub.ptr.lhs.cast8, %sub.ptr.rhs.cast9
-  %sub = sub nsw i32 %size.0159, %chunk_size.0160
+  %sub = sub nsw i32 %size.0158, %chunk_size.0159
   %cmp12 = icmp slt i32 %sub, 17
   br i1 %cmp12, label %while.end, label %if.end44
 
 while.end:                                        ; preds = %if.end6
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(26) %buf, i8 0, i64 26, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %buf, ptr noundef nonnull align 1 dereferenceable(16) %27, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %buf, ptr noundef nonnull align 1 dereferenceable(16) %28, i64 16, i1 false)
   %idx.ext = sext i32 %sub to i64
   %add.ptr = getelementptr inbounds i8, ptr %buf, i64 %idx.ext
   %sext18 = shl i64 %sub.ptr.sub10, 32
@@ -42666,109 +42663,109 @@ while.end:                                        ; preds = %if.end6
   %add.ptr31 = getelementptr inbounds i8, ptr %buf, i64 %idx.ext30
   %agg.tmp32.sroa.3.0.copyload = load ptr, ptr %agg.tmp.sroa.3.0.add.sroa_idx, align 8
   %agg.tmp32.sroa.7.0.copyload = load ptr, ptr %agg.tmp.sroa.7.0.add.sroa_idx, align 8
-  %cmp13.i30 = icmp slt i64 %idx.ext30, %idx.ext
-  br i1 %cmp13.i30, label %while.body.i33.preheader, label %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_8TcParser20PackedEnumSmallRangeIhLh1EEEPKcPNS0_11MessageLiteES6_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUliE_EES6_S6_S6_T_.exit73
+  %cmp13.i29 = icmp slt i64 %idx.ext30, %idx.ext
+  br i1 %cmp13.i29, label %while.body.i32.preheader, label %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_8TcParser20PackedEnumSmallRangeIhLh1EEEPKcPNS0_11MessageLiteES6_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUliE_EES6_S6_S6_T_.exit72
 
-while.body.i33.preheader:                         ; preds = %while.end
+while.body.i32.preheader:                         ; preds = %while.end
   %agg.tmp32.sroa.5.0.copyload = load i8, ptr %agg.tmp.sroa.5.0.add.sroa_idx, align 8
   %agg.tmp32.sroa.4.0.copyload = load ptr, ptr %agg.tmp.sroa.4.0.add.sroa_idx, align 8
   %agg.tmp32.sroa.0.0.copyload = load i8, ptr %add, align 8
-  %conv.i5.i45 = zext i8 %agg.tmp32.sroa.0.0.copyload to i32
-  %total_size_.i.i.i49 = getelementptr inbounds i8, ptr %agg.tmp32.sroa.7.0.copyload, i64 4
-  %arena_or_elements_.i.i.i.i53 = getelementptr inbounds i8, ptr %agg.tmp32.sroa.7.0.copyload, i64 8
-  %fallback.i.i.i.i67 = getelementptr inbounds i8, ptr %agg.tmp32.sroa.4.0.copyload, i64 40
-  %28 = lshr i8 %agg.tmp32.sroa.5.0.copyload, 3
-  %shr.i.i.i69 = zext nneg i8 %28 to i32
-  br label %while.body.i33
+  %conv.i5.i44 = zext i8 %agg.tmp32.sroa.0.0.copyload to i32
+  %total_size_.i.i.i48 = getelementptr inbounds i8, ptr %agg.tmp32.sroa.7.0.copyload, i64 4
+  %arena_or_elements_.i.i.i.i52 = getelementptr inbounds i8, ptr %agg.tmp32.sroa.7.0.copyload, i64 8
+  %fallback.i.i.i.i66 = getelementptr inbounds i8, ptr %agg.tmp32.sroa.4.0.copyload, i64 40
+  %29 = lshr i8 %agg.tmp32.sroa.5.0.copyload, 3
+  %shr.i.i.i68 = zext nneg i8 %29 to i32
+  br label %while.body.i32
 
-while.body.i33:                                   ; preds = %while.body.i33.preheader, %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeIhLh1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i61
-  %ptr.addr.014.i34 = phi ptr [ %retval.0.i12.i41, %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeIhLh1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i61 ], [ %add.ptr31, %while.body.i33.preheader ]
-  %29 = load i8, ptr %ptr.addr.014.i34, align 1
-  %cmp.i.i35 = icmp sgt i8 %29, -1
-  br i1 %cmp.i.i35, label %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i70, label %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i36
+while.body.i32:                                   ; preds = %while.body.i32.preheader, %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeIhLh1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i60
+  %ptr.addr.014.i33 = phi ptr [ %retval.0.i12.i40, %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeIhLh1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i60 ], [ %add.ptr31, %while.body.i32.preheader ]
+  %30 = load i8, ptr %ptr.addr.014.i33, align 1
+  %cmp.i.i34 = icmp sgt i8 %30, -1
+  br i1 %cmp.i.i34, label %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i69, label %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i35
 
-_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i70: ; preds = %while.body.i33
-  %conv1.i.i71 = zext nneg i8 %29 to i64
-  %add.ptr.i.i72 = getelementptr inbounds i8, ptr %ptr.addr.014.i34, i64 1
-  br label %if.end.i40
+_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i69: ; preds = %while.body.i32
+  %conv1.i.i70 = zext nneg i8 %30 to i64
+  %add.ptr.i.i71 = getelementptr inbounds i8, ptr %ptr.addr.014.i33, i64 1
+  br label %if.end.i39
 
-_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i36: ; preds = %while.body.i33
-  %conv.i.i37 = zext i8 %29 to i32
-  %call.i.i.i38 = call { ptr, i64 } @_ZN6google8protobuf8internal17VarintParseSlow64EPKcj(ptr noundef nonnull %ptr.addr.014.i34, i32 noundef %conv.i.i37)
-  %30 = extractvalue { ptr, i64 } %call.i.i.i38, 0
-  %31 = extractvalue { ptr, i64 } %call.i.i.i38, 1
-  %cmp1.i39 = icmp eq ptr %30, null
-  br i1 %cmp1.i39, label %return, label %if.end.i40
+_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i35: ; preds = %while.body.i32
+  %conv.i.i36 = zext i8 %30 to i32
+  %call.i.i.i37 = call { ptr, i64 } @_ZN6google8protobuf8internal17VarintParseSlow64EPKcj(ptr noundef nonnull %ptr.addr.014.i33, i32 noundef %conv.i.i36)
+  %31 = extractvalue { ptr, i64 } %call.i.i.i37, 0
+  %32 = extractvalue { ptr, i64 } %call.i.i.i37, 1
+  %cmp1.i38 = icmp eq ptr %31, null
+  br i1 %cmp1.i38, label %return, label %if.end.i39
 
-if.end.i40:                                       ; preds = %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i36, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i70
-  %retval.0.i12.i41 = phi ptr [ %add.ptr.i.i72, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i70 ], [ %30, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i36 ]
-  %.sink.i11.i42 = phi i64 [ %conv1.i.i71, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i70 ], [ %31, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i36 ]
-  %conv.i43 = trunc i64 %.sink.i11.i42 to i32
-  %cmp.i4.i44 = icmp slt i32 %conv.i43, 1
-  %cmp2.i.i46 = icmp samesign ugt i32 %conv.i43, %conv.i5.i45
-  %or.cond.i.i47 = select i1 %cmp.i4.i44, i1 true, i1 %cmp2.i.i46
-  br i1 %or.cond.i.i47, label %if.then.i7.i66, label %if.else.i.i48
+if.end.i39:                                       ; preds = %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i35, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i69
+  %retval.0.i12.i40 = phi ptr [ %add.ptr.i.i71, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i69 ], [ %31, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i35 ]
+  %.sink.i11.i41 = phi i64 [ %conv1.i.i70, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i69 ], [ %32, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i35 ]
+  %conv.i42 = trunc i64 %.sink.i11.i41 to i32
+  %cmp.i4.i43 = icmp slt i32 %conv.i42, 1
+  %cmp2.i.i45 = icmp samesign ugt i32 %conv.i42, %conv.i5.i44
+  %or.cond.i.i46 = select i1 %cmp.i4.i43, i1 true, i1 %cmp2.i.i45
+  br i1 %or.cond.i.i46, label %if.then.i7.i65, label %if.else.i.i47
 
-if.then.i7.i66:                                   ; preds = %if.end.i40
-  %32 = load ptr, ptr %fallback.i.i.i.i67, align 8
-  %call.i.i.i.i68 = call noundef nonnull align 8 dereferenceable(16) ptr %32(ptr noundef null, ptr noundef null, ptr noundef null, i64 0, ptr noundef null, i64 noundef 0)
-  %33 = load ptr, ptr %call.i.i.i.i68, align 8
-  call void %33(ptr noundef %agg.tmp32.sroa.3.0.copyload, i32 noundef %shr.i.i.i69, i32 noundef %conv.i43)
-  br label %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeIhLh1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i61
+if.then.i7.i65:                                   ; preds = %if.end.i39
+  %33 = load ptr, ptr %fallback.i.i.i.i66, align 8
+  %call.i.i.i.i67 = call noundef nonnull align 8 dereferenceable(16) ptr %33(ptr noundef null, ptr noundef null, ptr noundef null, i64 0, ptr noundef null, i64 noundef 0)
+  %34 = load ptr, ptr %call.i.i.i.i67, align 8
+  call void %34(ptr noundef %agg.tmp32.sroa.3.0.copyload, i32 noundef %shr.i.i.i68, i32 noundef %conv.i42)
+  br label %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeIhLh1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i60
 
-if.else.i.i48:                                    ; preds = %if.end.i40
-  %34 = load i32, ptr %total_size_.i.i.i49, align 4
-  %35 = load i32, ptr %agg.tmp32.sroa.7.0.copyload, align 8
-  %cmp.i.i.i50 = icmp eq i32 %35, %34
-  br i1 %cmp.i.i.i50, label %if.then.i.i.i63, label %_ZN6google8protobuf13RepeatedFieldIiE3AddEi.exit.i.i51
+if.else.i.i47:                                    ; preds = %if.end.i39
+  %35 = load i32, ptr %total_size_.i.i.i48, align 4
+  %36 = load i32, ptr %agg.tmp32.sroa.7.0.copyload, align 8
+  %cmp.i.i.i49 = icmp eq i32 %36, %35
+  br i1 %cmp.i.i.i49, label %if.then.i.i.i62, label %_ZN6google8protobuf13RepeatedFieldIiE3AddEi.exit.i.i50
 
-if.then.i.i.i63:                                  ; preds = %if.else.i.i48
-  %add.i.i.i64 = add nsw i32 %34, 1
-  call void @_ZN6google8protobuf13RepeatedFieldIiE14GrowNoAnnotateEii(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp32.sroa.7.0.copyload, i32 noundef %34, i32 noundef %add.i.i.i64)
-  %36 = load i32, ptr %total_size_.i.i.i49, align 4
-  %.pre.i.i.i65 = load i32, ptr %agg.tmp32.sroa.7.0.copyload, align 8
-  br label %_ZN6google8protobuf13RepeatedFieldIiE3AddEi.exit.i.i51
+if.then.i.i.i62:                                  ; preds = %if.else.i.i47
+  %add.i.i.i63 = add nsw i32 %35, 1
+  call void @_ZN6google8protobuf13RepeatedFieldIiE14GrowNoAnnotateEii(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp32.sroa.7.0.copyload, i32 noundef %35, i32 noundef %add.i.i.i63)
+  %37 = load i32, ptr %total_size_.i.i.i48, align 4
+  %.pre.i.i.i64 = load i32, ptr %agg.tmp32.sroa.7.0.copyload, align 8
+  br label %_ZN6google8protobuf13RepeatedFieldIiE3AddEi.exit.i.i50
 
-_ZN6google8protobuf13RepeatedFieldIiE3AddEi.exit.i.i51: ; preds = %if.then.i.i.i63, %if.else.i.i48
-  %37 = phi i32 [ %.pre.i.i.i65, %if.then.i.i.i63 ], [ %35, %if.else.i.i48 ]
-  %total_size.0.i.i.i52 = phi i32 [ %36, %if.then.i.i.i63 ], [ %34, %if.else.i.i48 ]
-  %elem.0.i.i.i54 = load ptr, ptr %arena_or_elements_.i.i.i.i53, align 8
-  %add7.i.i.i55 = add nsw i32 %37, 1
-  store i32 %add7.i.i.i55, ptr %agg.tmp32.sroa.7.0.copyload, align 8
-  %idx.ext.i.i.i56 = sext i32 %37 to i64
-  %add.ptr.i.i.i57 = getelementptr inbounds i32, ptr %elem.0.i.i.i54, i64 %idx.ext.i.i.i56
-  store i32 %conv.i43, ptr %add.ptr.i.i.i57, align 4
-  %38 = load i32, ptr %agg.tmp32.sroa.7.0.copyload, align 8
-  %cmp10.i.i.i58 = icmp eq i32 %add7.i.i.i55, %38
-  call void @llvm.assume(i1 %cmp10.i.i.i58)
-  %39 = load ptr, ptr %arena_or_elements_.i.i.i.i53, align 8
-  %cmp11.i.i.i59 = icmp eq ptr %elem.0.i.i.i54, %39
-  call void @llvm.assume(i1 %cmp11.i.i.i59)
-  %40 = load i32, ptr %total_size_.i.i.i49, align 4
-  %cmp13.i.i.i60 = icmp eq i32 %total_size.0.i.i.i52, %40
-  call void @llvm.assume(i1 %cmp13.i.i.i60)
-  br label %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeIhLh1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i61
+_ZN6google8protobuf13RepeatedFieldIiE3AddEi.exit.i.i50: ; preds = %if.then.i.i.i62, %if.else.i.i47
+  %38 = phi i32 [ %.pre.i.i.i64, %if.then.i.i.i62 ], [ %36, %if.else.i.i47 ]
+  %total_size.0.i.i.i51 = phi i32 [ %37, %if.then.i.i.i62 ], [ %35, %if.else.i.i47 ]
+  %elem.0.i.i.i53 = load ptr, ptr %arena_or_elements_.i.i.i.i52, align 8
+  %add7.i.i.i54 = add nsw i32 %38, 1
+  store i32 %add7.i.i.i54, ptr %agg.tmp32.sroa.7.0.copyload, align 8
+  %idx.ext.i.i.i55 = sext i32 %38 to i64
+  %add.ptr.i.i.i56 = getelementptr inbounds i32, ptr %elem.0.i.i.i53, i64 %idx.ext.i.i.i55
+  store i32 %conv.i42, ptr %add.ptr.i.i.i56, align 4
+  %39 = load i32, ptr %agg.tmp32.sroa.7.0.copyload, align 8
+  %cmp10.i.i.i57 = icmp eq i32 %add7.i.i.i54, %39
+  call void @llvm.assume(i1 %cmp10.i.i.i57)
+  %40 = load ptr, ptr %arena_or_elements_.i.i.i.i52, align 8
+  %cmp11.i.i.i58 = icmp eq ptr %elem.0.i.i.i53, %40
+  call void @llvm.assume(i1 %cmp11.i.i.i58)
+  %41 = load i32, ptr %total_size_.i.i.i48, align 4
+  %cmp13.i.i.i59 = icmp eq i32 %total_size.0.i.i.i51, %41
+  call void @llvm.assume(i1 %cmp13.i.i.i59)
+  br label %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeIhLh1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i60
 
-_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeIhLh1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i61: ; preds = %_ZN6google8protobuf13RepeatedFieldIiE3AddEi.exit.i.i51, %if.then.i7.i66
-  %cmp.i62 = icmp ult ptr %retval.0.i12.i41, %add.ptr
-  br i1 %cmp.i62, label %while.body.i33, label %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_8TcParser20PackedEnumSmallRangeIhLh1EEEPKcPNS0_11MessageLiteES6_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUliE_EES6_S6_S6_T_.exit73, !llvm.loop !202
+_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeIhLh1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i60: ; preds = %_ZN6google8protobuf13RepeatedFieldIiE3AddEi.exit.i.i50, %if.then.i7.i65
+  %cmp.i61 = icmp ult ptr %retval.0.i12.i40, %add.ptr
+  br i1 %cmp.i61, label %while.body.i32, label %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_8TcParser20PackedEnumSmallRangeIhLh1EEEPKcPNS0_11MessageLiteES6_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUliE_EES6_S6_S6_T_.exit72, !llvm.loop !202
 
-_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_8TcParser20PackedEnumSmallRangeIhLh1EEEPKcPNS0_11MessageLiteES6_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUliE_EES6_S6_S6_T_.exit73: ; preds = %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeIhLh1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i61, %while.end
-  %retval.0.i31 = phi ptr [ %add.ptr31, %while.end ], [ %retval.0.i12.i41, %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeIhLh1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i61 ]
-  %cmp35.not = icmp eq ptr %retval.0.i31, %add.ptr
+_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_8TcParser20PackedEnumSmallRangeIhLh1EEEPKcPNS0_11MessageLiteES6_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUliE_EES6_S6_S6_T_.exit72: ; preds = %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeIhLh1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i60, %while.end
+  %retval.0.i30 = phi ptr [ %add.ptr31, %while.end ], [ %retval.0.i12.i40, %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeIhLh1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i60 ]
+  %cmp35.not = icmp eq ptr %retval.0.i30, %add.ptr
   br i1 %cmp35.not, label %if.end37, label %return
 
-if.end37:                                         ; preds = %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_8TcParser20PackedEnumSmallRangeIhLh1EEEPKcPNS0_11MessageLiteES6_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUliE_EES6_S6_S6_T_.exit73
-  %41 = load ptr, ptr %buffer_end_, align 8
-  %add.ptr43 = getelementptr inbounds i8, ptr %41, i64 %idx.ext
+if.end37:                                         ; preds = %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_8TcParser20PackedEnumSmallRangeIhLh1EEEPKcPNS0_11MessageLiteES6_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUliE_EES6_S6_S6_T_.exit72
+  %42 = load ptr, ptr %buffer_end_, align 8
+  %add.ptr43 = getelementptr inbounds i8, ptr %42, i64 %idx.ext
   br label %return
 
 if.end44:                                         ; preds = %if.end6
   %conv11 = trunc i64 %sub.ptr.sub10 to i32
-  %42 = add i32 %chunk_size.0160, %conv11
-  %sub46 = sub i32 %size.0159, %42
-  %43 = load i32, ptr %limit_, align 4
-  %cmp52 = icmp slt i32 %43, 17
+  %43 = add i32 %chunk_size.0159, %conv11
+  %sub46 = sub i32 %size.0158, %43
+  %44 = load i32, ptr %limit_, align 4
+  %cmp52 = icmp slt i32 %44, 17
   br i1 %cmp52, label %return, label %if.end54
 
 if.end54:                                         ; preds = %if.end44
@@ -42780,8 +42777,8 @@ if.end58:                                         ; preds = %if.end54
   %sext = shl i64 %sub.ptr.sub10, 32
   %idx.ext59 = ashr exact i64 %sext, 32
   %add.ptr60 = getelementptr inbounds i8, ptr %call55, i64 %idx.ext59
-  %44 = load ptr, ptr %buffer_end_, align 8
-  %sub.ptr.lhs.cast62 = ptrtoint ptr %44 to i64
+  %45 = load ptr, ptr %buffer_end_, align 8
+  %sub.ptr.lhs.cast62 = ptrtoint ptr %45 to i64
   %sub.ptr.rhs.cast63 = ptrtoint ptr %add.ptr60 to i64
   %sub.ptr.sub64 = sub i64 %sub.ptr.lhs.cast62, %sub.ptr.rhs.cast63
   %chunk_size.0 = trunc i64 %sub.ptr.sub64 to i32
@@ -42797,103 +42794,103 @@ while.end66:                                      ; preds = %if.end58, %if.end
   %agg.tmp70.sroa.3.0.copyload = load ptr, ptr %agg.tmp70.sroa.3.0.add.sroa_idx, align 8
   %agg.tmp70.sroa.7.0.add.sroa_idx = getelementptr inbounds i8, ptr %add, i64 32
   %agg.tmp70.sroa.7.0.copyload = load ptr, ptr %agg.tmp70.sroa.7.0.add.sroa_idx, align 8
-  %cmp13.i75 = icmp sgt i32 %size.0.lcssa, 0
-  br i1 %cmp13.i75, label %while.body.i78.preheader, label %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_8TcParser20PackedEnumSmallRangeIhLh1EEEPKcPNS0_11MessageLiteES6_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUliE_EES6_S6_S6_T_.exit118
+  %cmp13.i74 = icmp sgt i32 %size.0.lcssa, 0
+  br i1 %cmp13.i74, label %while.body.i77.preheader, label %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_8TcParser20PackedEnumSmallRangeIhLh1EEEPKcPNS0_11MessageLiteES6_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUliE_EES6_S6_S6_T_.exit117
 
-while.body.i78.preheader:                         ; preds = %while.end66
+while.body.i77.preheader:                         ; preds = %while.end66
   %agg.tmp70.sroa.5.0.add.sroa_idx = getelementptr inbounds i8, ptr %add, i64 24
   %agg.tmp70.sroa.5.0.copyload = load i8, ptr %agg.tmp70.sroa.5.0.add.sroa_idx, align 8
   %agg.tmp70.sroa.4.0.add.sroa_idx = getelementptr inbounds i8, ptr %add, i64 16
   %agg.tmp70.sroa.4.0.copyload = load ptr, ptr %agg.tmp70.sroa.4.0.add.sroa_idx, align 8
   %agg.tmp70.sroa.0.0.copyload = load i8, ptr %add, align 8
-  %conv.i5.i90 = zext i8 %agg.tmp70.sroa.0.0.copyload to i32
-  %total_size_.i.i.i94 = getelementptr inbounds i8, ptr %agg.tmp70.sroa.7.0.copyload, i64 4
-  %arena_or_elements_.i.i.i.i98 = getelementptr inbounds i8, ptr %agg.tmp70.sroa.7.0.copyload, i64 8
-  %fallback.i.i.i.i112 = getelementptr inbounds i8, ptr %agg.tmp70.sroa.4.0.copyload, i64 40
-  %45 = lshr i8 %agg.tmp70.sroa.5.0.copyload, 3
-  %shr.i.i.i114 = zext nneg i8 %45 to i32
-  br label %while.body.i78
+  %conv.i5.i89 = zext i8 %agg.tmp70.sroa.0.0.copyload to i32
+  %total_size_.i.i.i93 = getelementptr inbounds i8, ptr %agg.tmp70.sroa.7.0.copyload, i64 4
+  %arena_or_elements_.i.i.i.i97 = getelementptr inbounds i8, ptr %agg.tmp70.sroa.7.0.copyload, i64 8
+  %fallback.i.i.i.i111 = getelementptr inbounds i8, ptr %agg.tmp70.sroa.4.0.copyload, i64 40
+  %46 = lshr i8 %agg.tmp70.sroa.5.0.copyload, 3
+  %shr.i.i.i113 = zext nneg i8 %46 to i32
+  br label %while.body.i77
 
-while.body.i78:                                   ; preds = %while.body.i78.preheader, %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeIhLh1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i106
-  %ptr.addr.014.i79 = phi ptr [ %retval.0.i12.i86, %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeIhLh1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i106 ], [ %ptr.addr.0.lcssa, %while.body.i78.preheader ]
-  %46 = load i8, ptr %ptr.addr.014.i79, align 1
-  %cmp.i.i80 = icmp sgt i8 %46, -1
-  br i1 %cmp.i.i80, label %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i115, label %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i81
+while.body.i77:                                   ; preds = %while.body.i77.preheader, %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeIhLh1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i105
+  %ptr.addr.014.i78 = phi ptr [ %retval.0.i12.i85, %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeIhLh1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i105 ], [ %ptr.addr.0.lcssa, %while.body.i77.preheader ]
+  %47 = load i8, ptr %ptr.addr.014.i78, align 1
+  %cmp.i.i79 = icmp sgt i8 %47, -1
+  br i1 %cmp.i.i79, label %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i114, label %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i80
 
-_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i115: ; preds = %while.body.i78
-  %conv1.i.i116 = zext nneg i8 %46 to i64
-  %add.ptr.i.i117 = getelementptr inbounds i8, ptr %ptr.addr.014.i79, i64 1
-  br label %if.end.i85
+_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i114: ; preds = %while.body.i77
+  %conv1.i.i115 = zext nneg i8 %47 to i64
+  %add.ptr.i.i116 = getelementptr inbounds i8, ptr %ptr.addr.014.i78, i64 1
+  br label %if.end.i84
 
-_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i81: ; preds = %while.body.i78
-  %conv.i.i82 = zext i8 %46 to i32
-  %call.i.i.i83 = tail call { ptr, i64 } @_ZN6google8protobuf8internal17VarintParseSlow64EPKcj(ptr noundef nonnull %ptr.addr.014.i79, i32 noundef %conv.i.i82)
-  %47 = extractvalue { ptr, i64 } %call.i.i.i83, 0
-  %48 = extractvalue { ptr, i64 } %call.i.i.i83, 1
-  %cmp1.i84 = icmp eq ptr %47, null
-  br i1 %cmp1.i84, label %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_8TcParser20PackedEnumSmallRangeIhLh1EEEPKcPNS0_11MessageLiteES6_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUliE_EES6_S6_S6_T_.exit118, label %if.end.i85
+_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i80: ; preds = %while.body.i77
+  %conv.i.i81 = zext i8 %47 to i32
+  %call.i.i.i82 = tail call { ptr, i64 } @_ZN6google8protobuf8internal17VarintParseSlow64EPKcj(ptr noundef nonnull %ptr.addr.014.i78, i32 noundef %conv.i.i81)
+  %48 = extractvalue { ptr, i64 } %call.i.i.i82, 0
+  %49 = extractvalue { ptr, i64 } %call.i.i.i82, 1
+  %cmp1.i83 = icmp eq ptr %48, null
+  br i1 %cmp1.i83, label %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_8TcParser20PackedEnumSmallRangeIhLh1EEEPKcPNS0_11MessageLiteES6_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUliE_EES6_S6_S6_T_.exit117, label %if.end.i84
 
-if.end.i85:                                       ; preds = %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i81, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i115
-  %retval.0.i12.i86 = phi ptr [ %add.ptr.i.i117, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i115 ], [ %47, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i81 ]
-  %.sink.i11.i87 = phi i64 [ %conv1.i.i116, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i115 ], [ %48, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i81 ]
-  %conv.i88 = trunc i64 %.sink.i11.i87 to i32
-  %cmp.i4.i89 = icmp slt i32 %conv.i88, 1
-  %cmp2.i.i91 = icmp samesign ugt i32 %conv.i88, %conv.i5.i90
-  %or.cond.i.i92 = select i1 %cmp.i4.i89, i1 true, i1 %cmp2.i.i91
-  br i1 %or.cond.i.i92, label %if.then.i7.i111, label %if.else.i.i93
+if.end.i84:                                       ; preds = %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i80, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i114
+  %retval.0.i12.i85 = phi ptr [ %add.ptr.i.i116, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i114 ], [ %48, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i80 ]
+  %.sink.i11.i86 = phi i64 [ %conv1.i.i115, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i114 ], [ %49, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i80 ]
+  %conv.i87 = trunc i64 %.sink.i11.i86 to i32
+  %cmp.i4.i88 = icmp slt i32 %conv.i87, 1
+  %cmp2.i.i90 = icmp samesign ugt i32 %conv.i87, %conv.i5.i89
+  %or.cond.i.i91 = select i1 %cmp.i4.i88, i1 true, i1 %cmp2.i.i90
+  br i1 %or.cond.i.i91, label %if.then.i7.i110, label %if.else.i.i92
 
-if.then.i7.i111:                                  ; preds = %if.end.i85
-  %49 = load ptr, ptr %fallback.i.i.i.i112, align 8
-  %call.i.i.i.i113 = tail call noundef nonnull align 8 dereferenceable(16) ptr %49(ptr noundef null, ptr noundef null, ptr noundef null, i64 0, ptr noundef null, i64 noundef 0)
-  %50 = load ptr, ptr %call.i.i.i.i113, align 8
-  tail call void %50(ptr noundef %agg.tmp70.sroa.3.0.copyload, i32 noundef %shr.i.i.i114, i32 noundef %conv.i88)
-  br label %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeIhLh1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i106
+if.then.i7.i110:                                  ; preds = %if.end.i84
+  %50 = load ptr, ptr %fallback.i.i.i.i111, align 8
+  %call.i.i.i.i112 = tail call noundef nonnull align 8 dereferenceable(16) ptr %50(ptr noundef null, ptr noundef null, ptr noundef null, i64 0, ptr noundef null, i64 noundef 0)
+  %51 = load ptr, ptr %call.i.i.i.i112, align 8
+  tail call void %51(ptr noundef %agg.tmp70.sroa.3.0.copyload, i32 noundef %shr.i.i.i113, i32 noundef %conv.i87)
+  br label %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeIhLh1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i105
 
-if.else.i.i93:                                    ; preds = %if.end.i85
-  %51 = load i32, ptr %total_size_.i.i.i94, align 4
-  %52 = load i32, ptr %agg.tmp70.sroa.7.0.copyload, align 8
-  %cmp.i.i.i95 = icmp eq i32 %52, %51
-  br i1 %cmp.i.i.i95, label %if.then.i.i.i108, label %_ZN6google8protobuf13RepeatedFieldIiE3AddEi.exit.i.i96
+if.else.i.i92:                                    ; preds = %if.end.i84
+  %52 = load i32, ptr %total_size_.i.i.i93, align 4
+  %53 = load i32, ptr %agg.tmp70.sroa.7.0.copyload, align 8
+  %cmp.i.i.i94 = icmp eq i32 %53, %52
+  br i1 %cmp.i.i.i94, label %if.then.i.i.i107, label %_ZN6google8protobuf13RepeatedFieldIiE3AddEi.exit.i.i95
 
-if.then.i.i.i108:                                 ; preds = %if.else.i.i93
-  %add.i.i.i109 = add nsw i32 %51, 1
-  tail call void @_ZN6google8protobuf13RepeatedFieldIiE14GrowNoAnnotateEii(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp70.sroa.7.0.copyload, i32 noundef %51, i32 noundef %add.i.i.i109)
-  %53 = load i32, ptr %total_size_.i.i.i94, align 4
-  %.pre.i.i.i110 = load i32, ptr %agg.tmp70.sroa.7.0.copyload, align 8
-  br label %_ZN6google8protobuf13RepeatedFieldIiE3AddEi.exit.i.i96
+if.then.i.i.i107:                                 ; preds = %if.else.i.i92
+  %add.i.i.i108 = add nsw i32 %52, 1
+  tail call void @_ZN6google8protobuf13RepeatedFieldIiE14GrowNoAnnotateEii(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp70.sroa.7.0.copyload, i32 noundef %52, i32 noundef %add.i.i.i108)
+  %54 = load i32, ptr %total_size_.i.i.i93, align 4
+  %.pre.i.i.i109 = load i32, ptr %agg.tmp70.sroa.7.0.copyload, align 8
+  br label %_ZN6google8protobuf13RepeatedFieldIiE3AddEi.exit.i.i95
 
-_ZN6google8protobuf13RepeatedFieldIiE3AddEi.exit.i.i96: ; preds = %if.then.i.i.i108, %if.else.i.i93
-  %54 = phi i32 [ %.pre.i.i.i110, %if.then.i.i.i108 ], [ %52, %if.else.i.i93 ]
-  %total_size.0.i.i.i97 = phi i32 [ %53, %if.then.i.i.i108 ], [ %51, %if.else.i.i93 ]
-  %elem.0.i.i.i99 = load ptr, ptr %arena_or_elements_.i.i.i.i98, align 8
-  %add7.i.i.i100 = add nsw i32 %54, 1
-  store i32 %add7.i.i.i100, ptr %agg.tmp70.sroa.7.0.copyload, align 8
-  %idx.ext.i.i.i101 = sext i32 %54 to i64
-  %add.ptr.i.i.i102 = getelementptr inbounds i32, ptr %elem.0.i.i.i99, i64 %idx.ext.i.i.i101
-  store i32 %conv.i88, ptr %add.ptr.i.i.i102, align 4
-  %55 = load i32, ptr %agg.tmp70.sroa.7.0.copyload, align 8
-  %cmp10.i.i.i103 = icmp eq i32 %add7.i.i.i100, %55
-  tail call void @llvm.assume(i1 %cmp10.i.i.i103)
-  %56 = load ptr, ptr %arena_or_elements_.i.i.i.i98, align 8
-  %cmp11.i.i.i104 = icmp eq ptr %elem.0.i.i.i99, %56
-  tail call void @llvm.assume(i1 %cmp11.i.i.i104)
-  %57 = load i32, ptr %total_size_.i.i.i94, align 4
-  %cmp13.i.i.i105 = icmp eq i32 %total_size.0.i.i.i97, %57
-  tail call void @llvm.assume(i1 %cmp13.i.i.i105)
-  br label %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeIhLh1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i106
+_ZN6google8protobuf13RepeatedFieldIiE3AddEi.exit.i.i95: ; preds = %if.then.i.i.i107, %if.else.i.i92
+  %55 = phi i32 [ %.pre.i.i.i109, %if.then.i.i.i107 ], [ %53, %if.else.i.i92 ]
+  %total_size.0.i.i.i96 = phi i32 [ %54, %if.then.i.i.i107 ], [ %52, %if.else.i.i92 ]
+  %elem.0.i.i.i98 = load ptr, ptr %arena_or_elements_.i.i.i.i97, align 8
+  %add7.i.i.i99 = add nsw i32 %55, 1
+  store i32 %add7.i.i.i99, ptr %agg.tmp70.sroa.7.0.copyload, align 8
+  %idx.ext.i.i.i100 = sext i32 %55 to i64
+  %add.ptr.i.i.i101 = getelementptr inbounds i32, ptr %elem.0.i.i.i98, i64 %idx.ext.i.i.i100
+  store i32 %conv.i87, ptr %add.ptr.i.i.i101, align 4
+  %56 = load i32, ptr %agg.tmp70.sroa.7.0.copyload, align 8
+  %cmp10.i.i.i102 = icmp eq i32 %add7.i.i.i99, %56
+  tail call void @llvm.assume(i1 %cmp10.i.i.i102)
+  %57 = load ptr, ptr %arena_or_elements_.i.i.i.i97, align 8
+  %cmp11.i.i.i103 = icmp eq ptr %elem.0.i.i.i98, %57
+  tail call void @llvm.assume(i1 %cmp11.i.i.i103)
+  %58 = load i32, ptr %total_size_.i.i.i93, align 4
+  %cmp13.i.i.i104 = icmp eq i32 %total_size.0.i.i.i96, %58
+  tail call void @llvm.assume(i1 %cmp13.i.i.i104)
+  br label %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeIhLh1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i105
 
-_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeIhLh1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i106: ; preds = %_ZN6google8protobuf13RepeatedFieldIiE3AddEi.exit.i.i96, %if.then.i7.i111
-  %cmp.i107 = icmp ult ptr %retval.0.i12.i86, %add.ptr69
-  br i1 %cmp.i107, label %while.body.i78, label %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_8TcParser20PackedEnumSmallRangeIhLh1EEEPKcPNS0_11MessageLiteES6_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUliE_EES6_S6_S6_T_.exit118, !llvm.loop !202
+_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeIhLh1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i105: ; preds = %_ZN6google8protobuf13RepeatedFieldIiE3AddEi.exit.i.i95, %if.then.i7.i110
+  %cmp.i106 = icmp ult ptr %retval.0.i12.i85, %add.ptr69
+  br i1 %cmp.i106, label %while.body.i77, label %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_8TcParser20PackedEnumSmallRangeIhLh1EEEPKcPNS0_11MessageLiteES6_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUliE_EES6_S6_S6_T_.exit117, !llvm.loop !202
 
-_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_8TcParser20PackedEnumSmallRangeIhLh1EEEPKcPNS0_11MessageLiteES6_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUliE_EES6_S6_S6_T_.exit118: ; preds = %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i81, %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeIhLh1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i106, %while.end66
-  %retval.0.i76 = phi ptr [ %ptr.addr.0.lcssa, %while.end66 ], [ null, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i81 ], [ %retval.0.i12.i86, %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeIhLh1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i106 ]
-  %cmp72 = icmp eq ptr %add.ptr69, %retval.0.i76
-  %cond = select i1 %cmp72, ptr %retval.0.i76, ptr null
+_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_8TcParser20PackedEnumSmallRangeIhLh1EEEPKcPNS0_11MessageLiteES6_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUliE_EES6_S6_S6_T_.exit117: ; preds = %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i80, %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeIhLh1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i105, %while.end66
+  %retval.0.i75 = phi ptr [ %ptr.addr.0.lcssa, %while.end66 ], [ null, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i80 ], [ %retval.0.i12.i85, %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeIhLh1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i105 ]
+  %cmp72 = icmp eq ptr %add.ptr69, %retval.0.i75
+  %cond = select i1 %cmp72, ptr %retval.0.i75, ptr null
   br label %return
 
-return:                                           ; preds = %if.end54, %if.end44, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i36, %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_8TcParser20PackedEnumSmallRangeIhLh1EEEPKcPNS0_11MessageLiteES6_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUliE_EES6_S6_S6_T_.exit73, %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeIhLh1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE0_clEi.exit, %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_8TcParser20PackedEnumSmallRangeIhLh1EEEPKcPNS0_11MessageLiteES6_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUliE_EES6_S6_S6_T_.exit118, %if.end37
-  %retval.0 = phi ptr [ %add.ptr43, %if.end37 ], [ %cond, %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_8TcParser20PackedEnumSmallRangeIhLh1EEEPKcPNS0_11MessageLiteES6_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUliE_EES6_S6_S6_T_.exit118 ], [ null, %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeIhLh1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE0_clEi.exit ], [ null, %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_8TcParser20PackedEnumSmallRangeIhLh1EEEPKcPNS0_11MessageLiteES6_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUliE_EES6_S6_S6_T_.exit73 ], [ null, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i36 ], [ null, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i ], [ null, %if.end44 ], [ null, %if.end54 ]
+return:                                           ; preds = %if.end54, %if.end44, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i35, %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_8TcParser20PackedEnumSmallRangeIhLh1EEEPKcPNS0_11MessageLiteES6_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUliE_EES6_S6_S6_T_.exit72, %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeIhLh1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE0_clEi.exit, %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_8TcParser20PackedEnumSmallRangeIhLh1EEEPKcPNS0_11MessageLiteES6_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUliE_EES6_S6_S6_T_.exit117, %if.end37
+  %retval.0 = phi ptr [ %add.ptr43, %if.end37 ], [ %cond, %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_8TcParser20PackedEnumSmallRangeIhLh1EEEPKcPNS0_11MessageLiteES6_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUliE_EES6_S6_S6_T_.exit117 ], [ null, %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeIhLh1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE0_clEi.exit ], [ null, %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_8TcParser20PackedEnumSmallRangeIhLh1EEEPKcPNS0_11MessageLiteES6_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUliE_EES6_S6_S6_T_.exit72 ], [ null, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i35 ], [ null, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i ], [ null, %if.end44 ], [ null, %if.end54 ]
   ret ptr %retval.0
 }
 
@@ -42931,17 +42928,16 @@ _ZN6google8protobuf8internal8ReadSizeEPPKc.exit:  ; preds = %if.then.i, %if.end.
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %8 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %conv.i.i = trunc i64 %sub.ptr.sub.i.i to i32
-  %add.i.i = add nsw i32 %conv.i.i, 16
-  %cmp.i.i = icmp sgt i32 %conv.i.i, 1008
-  %10 = select i1 %cmp.i.i, i32 %add.i.i, i32 1024
-  %.sroa.speculated8.i = tail call i32 @llvm.smin.i32(i32 %10, i32 %retval.0.i)
+  %10 = tail call i32 @llvm.smax.i32(i32 %conv.i.i, i32 1008)
+  %11 = add nuw i32 %10, 16
+  %.sroa.speculated8.i = tail call i32 @llvm.smin.i32(i32 %11, i32 %retval.0.i)
   %conv6.i = sext i32 %.sroa.speculated8.i to i64
   %add.i = add nsw i64 %conv6.i, %conv.i19
   %.sroa.speculated.i = tail call i64 @llvm.smin.i64(i64 %add.i, i64 2147483647)
   %conv11.i = trunc i64 %.sroa.speculated.i to i32
   %total_size_.i.i = getelementptr inbounds i8, ptr %3, i64 4
-  %11 = load i32, ptr %total_size_.i.i, align 4
-  %cmp.i5.i = icmp slt i32 %11, %conv11.i
+  %12 = load i32, ptr %total_size_.i.i, align 4
+  %cmp.i5.i = icmp slt i32 %12, %conv11.i
   br i1 %cmp.i5.i, label %if.then.i.i, label %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeItLh1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE0_clEi.exit
 
 if.then.i.i:                                      ; preds = %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit
@@ -42954,13 +42950,13 @@ _ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeItLh1EEEPKcPNS0_11Me
 
 if.end:                                           ; preds = %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeItLh1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE0_clEi.exit
   %buffer_end_ = getelementptr inbounds i8, ptr %this, i64 8
-  %12 = load ptr, ptr %buffer_end_, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %12 to i64
+  %13 = load ptr, ptr %buffer_end_, align 8
+  %sub.ptr.lhs.cast = ptrtoint ptr %13 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %storemerge.i to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %chunk_size.0164 = trunc i64 %sub.ptr.sub to i32
-  %cmp165 = icmp sgt i32 %retval.0.i, %chunk_size.0164
-  br i1 %cmp165, label %while.body.lr.ph, label %while.end66
+  %chunk_size.0163 = trunc i64 %sub.ptr.sub to i32
+  %cmp164 = icmp sgt i32 %retval.0.i, %chunk_size.0163
+  br i1 %cmp164, label %while.body.lr.ph, label %while.end66
 
 while.body.lr.ph:                                 ; preds = %if.end
   %agg.tmp.sroa.3.0.add.sroa_idx = getelementptr inbounds i8, ptr %add, i64 8
@@ -42971,13 +42967,13 @@ while.body.lr.ph:                                 ; preds = %if.end
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end58
-  %13 = phi ptr [ %12, %while.body.lr.ph ], [ %42, %if.end58 ]
-  %chunk_size.0168 = phi i32 [ %chunk_size.0164, %while.body.lr.ph ], [ %chunk_size.0, %if.end58 ]
-  %size.0167 = phi i32 [ %retval.0.i, %while.body.lr.ph ], [ %sub46, %if.end58 ]
-  %ptr.addr.0166 = phi ptr [ %storemerge.i, %while.body.lr.ph ], [ %add.ptr60, %if.end58 ]
+  %14 = phi ptr [ %13, %while.body.lr.ph ], [ %43, %if.end58 ]
+  %chunk_size.0167 = phi i32 [ %chunk_size.0163, %while.body.lr.ph ], [ %chunk_size.0, %if.end58 ]
+  %size.0166 = phi i32 [ %retval.0.i, %while.body.lr.ph ], [ %sub46, %if.end58 ]
+  %ptr.addr.0165 = phi ptr [ %storemerge.i, %while.body.lr.ph ], [ %add.ptr60, %if.end58 ]
   %agg.tmp.sroa.3.0.copyload = load ptr, ptr %agg.tmp.sroa.3.0.add.sroa_idx, align 8
   %agg.tmp.sroa.7.0.copyload = load ptr, ptr %agg.tmp.sroa.7.0.add.sroa_idx, align 8
-  %cmp13.i = icmp ult ptr %ptr.addr.0166, %13
+  %cmp13.i = icmp ult ptr %ptr.addr.0165, %14
   br i1 %cmp13.i, label %while.body.i.preheader, label %if.end6
 
 while.body.i.preheader:                           ; preds = %while.body
@@ -42996,94 +42992,94 @@ while.body.i.preheader:                           ; preds = %while.body
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i.preheader, %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeItLh1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i
-  %ptr.addr.014.i = phi ptr [ %retval.0.i12.i, %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeItLh1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i ], [ %ptr.addr.0166, %while.body.i.preheader ]
-  %14 = load i8, ptr %ptr.addr.014.i, align 1
-  %cmp.i.i22 = icmp sgt i8 %14, -1
-  br i1 %cmp.i.i22, label %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i, label %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i
+  %ptr.addr.014.i = phi ptr [ %retval.0.i12.i, %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeItLh1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i ], [ %ptr.addr.0165, %while.body.i.preheader ]
+  %15 = load i8, ptr %ptr.addr.014.i, align 1
+  %cmp.i.i = icmp sgt i8 %15, -1
+  br i1 %cmp.i.i, label %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i, label %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i
 
 _ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i: ; preds = %while.body.i
-  %conv1.i.i = zext nneg i8 %14 to i64
+  %conv1.i.i = zext nneg i8 %15 to i64
   %add.ptr.i.i = getelementptr inbounds i8, ptr %ptr.addr.014.i, i64 1
-  br label %if.end.i24
+  br label %if.end.i23
 
 _ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i: ; preds = %while.body.i
-  %conv.i.i23 = zext i8 %14 to i32
-  %call.i.i.i = tail call { ptr, i64 } @_ZN6google8protobuf8internal17VarintParseSlow64EPKcj(ptr noundef nonnull %ptr.addr.014.i, i32 noundef %conv.i.i23)
-  %15 = extractvalue { ptr, i64 } %call.i.i.i, 0
-  %16 = extractvalue { ptr, i64 } %call.i.i.i, 1
-  %cmp1.i = icmp eq ptr %15, null
-  br i1 %cmp1.i, label %return, label %if.end.i24
+  %conv.i.i22 = zext i8 %15 to i32
+  %call.i.i.i = tail call { ptr, i64 } @_ZN6google8protobuf8internal17VarintParseSlow64EPKcj(ptr noundef nonnull %ptr.addr.014.i, i32 noundef %conv.i.i22)
+  %16 = extractvalue { ptr, i64 } %call.i.i.i, 0
+  %17 = extractvalue { ptr, i64 } %call.i.i.i, 1
+  %cmp1.i = icmp eq ptr %16, null
+  br i1 %cmp1.i, label %return, label %if.end.i23
 
-if.end.i24:                                       ; preds = %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i
-  %retval.0.i12.i = phi ptr [ %add.ptr.i.i, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i ], [ %15, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i ]
-  %.sink.i11.i = phi i64 [ %conv1.i.i, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i ], [ %16, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i ]
-  %conv.i25 = trunc i64 %.sink.i11.i to i32
-  %cmp.i4.i = icmp slt i32 %conv.i25, 1
-  %cmp2.i.i = icmp samesign ugt i32 %conv.i25, %conv.i5.i
+if.end.i23:                                       ; preds = %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i
+  %retval.0.i12.i = phi ptr [ %add.ptr.i.i, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i ], [ %16, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i ]
+  %.sink.i11.i = phi i64 [ %conv1.i.i, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i ], [ %17, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i ]
+  %conv.i24 = trunc i64 %.sink.i11.i to i32
+  %cmp.i4.i = icmp slt i32 %conv.i24, 1
+  %cmp2.i.i = icmp samesign ugt i32 %conv.i24, %conv.i5.i
   %or.cond.i.i = select i1 %cmp.i4.i, i1 true, i1 %cmp2.i.i
   br i1 %or.cond.i.i, label %if.then.i7.i, label %if.else.i.i
 
-if.then.i7.i:                                     ; preds = %if.end.i24
-  %17 = load ptr, ptr %fallback.i.i.i.i, align 8
-  %call.i.i.i.i = tail call noundef nonnull align 8 dereferenceable(16) ptr %17(ptr noundef null, ptr noundef null, ptr noundef null, i64 0, ptr noundef null, i64 noundef 0)
-  %18 = load ptr, ptr %call.i.i.i.i, align 8
-  tail call void %18(ptr noundef %agg.tmp.sroa.3.0.copyload, i32 noundef %shr.i.i.i, i32 noundef %conv.i25)
+if.then.i7.i:                                     ; preds = %if.end.i23
+  %18 = load ptr, ptr %fallback.i.i.i.i, align 8
+  %call.i.i.i.i = tail call noundef nonnull align 8 dereferenceable(16) ptr %18(ptr noundef null, ptr noundef null, ptr noundef null, i64 0, ptr noundef null, i64 noundef 0)
+  %19 = load ptr, ptr %call.i.i.i.i, align 8
+  tail call void %19(ptr noundef %agg.tmp.sroa.3.0.copyload, i32 noundef %shr.i.i.i, i32 noundef %conv.i24)
   br label %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeItLh1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i
 
-if.else.i.i:                                      ; preds = %if.end.i24
-  %19 = load i32, ptr %total_size_.i.i.i, align 4
-  %20 = load i32, ptr %agg.tmp.sroa.7.0.copyload, align 8
-  %cmp.i.i.i = icmp eq i32 %20, %19
+if.else.i.i:                                      ; preds = %if.end.i23
+  %20 = load i32, ptr %total_size_.i.i.i, align 4
+  %21 = load i32, ptr %agg.tmp.sroa.7.0.copyload, align 8
+  %cmp.i.i.i = icmp eq i32 %21, %20
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN6google8protobuf13RepeatedFieldIiE3AddEi.exit.i.i
 
 if.then.i.i.i:                                    ; preds = %if.else.i.i
-  %add.i5.i.i = add nsw i32 %19, 1
-  tail call void @_ZN6google8protobuf13RepeatedFieldIiE14GrowNoAnnotateEii(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.sroa.7.0.copyload, i32 noundef %19, i32 noundef %add.i5.i.i)
-  %21 = load i32, ptr %total_size_.i.i.i, align 4
+  %add.i5.i.i = add nsw i32 %20, 1
+  tail call void @_ZN6google8protobuf13RepeatedFieldIiE14GrowNoAnnotateEii(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.sroa.7.0.copyload, i32 noundef %20, i32 noundef %add.i5.i.i)
+  %22 = load i32, ptr %total_size_.i.i.i, align 4
   %.pre.i.i.i = load i32, ptr %agg.tmp.sroa.7.0.copyload, align 8
   br label %_ZN6google8protobuf13RepeatedFieldIiE3AddEi.exit.i.i
 
 _ZN6google8protobuf13RepeatedFieldIiE3AddEi.exit.i.i: ; preds = %if.then.i.i.i, %if.else.i.i
-  %22 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %20, %if.else.i.i ]
-  %total_size.0.i.i.i = phi i32 [ %21, %if.then.i.i.i ], [ %19, %if.else.i.i ]
+  %23 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %21, %if.else.i.i ]
+  %total_size.0.i.i.i = phi i32 [ %22, %if.then.i.i.i ], [ %20, %if.else.i.i ]
   %elem.0.i.i.i = load ptr, ptr %arena_or_elements_.i.i.i.i, align 8
-  %add7.i.i.i = add nsw i32 %22, 1
+  %add7.i.i.i = add nsw i32 %23, 1
   store i32 %add7.i.i.i, ptr %agg.tmp.sroa.7.0.copyload, align 8
-  %idx.ext.i.i.i = sext i32 %22 to i64
+  %idx.ext.i.i.i = sext i32 %23 to i64
   %add.ptr.i.i.i = getelementptr inbounds i32, ptr %elem.0.i.i.i, i64 %idx.ext.i.i.i
-  store i32 %conv.i25, ptr %add.ptr.i.i.i, align 4
-  %23 = load i32, ptr %agg.tmp.sroa.7.0.copyload, align 8
-  %cmp10.i.i.i = icmp eq i32 %add7.i.i.i, %23
+  store i32 %conv.i24, ptr %add.ptr.i.i.i, align 4
+  %24 = load i32, ptr %agg.tmp.sroa.7.0.copyload, align 8
+  %cmp10.i.i.i = icmp eq i32 %add7.i.i.i, %24
   tail call void @llvm.assume(i1 %cmp10.i.i.i)
-  %24 = load ptr, ptr %arena_or_elements_.i.i.i.i, align 8
-  %cmp11.i.i.i = icmp eq ptr %elem.0.i.i.i, %24
+  %25 = load ptr, ptr %arena_or_elements_.i.i.i.i, align 8
+  %cmp11.i.i.i = icmp eq ptr %elem.0.i.i.i, %25
   tail call void @llvm.assume(i1 %cmp11.i.i.i)
-  %25 = load i32, ptr %total_size_.i.i.i, align 4
-  %cmp13.i.i.i = icmp eq i32 %total_size.0.i.i.i, %25
+  %26 = load i32, ptr %total_size_.i.i.i, align 4
+  %cmp13.i.i.i = icmp eq i32 %total_size.0.i.i.i, %26
   tail call void @llvm.assume(i1 %cmp13.i.i.i)
   br label %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeItLh1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i
 
 _ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeItLh1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i: ; preds = %_ZN6google8protobuf13RepeatedFieldIiE3AddEi.exit.i.i, %if.then.i7.i
-  %cmp.i26 = icmp ult ptr %retval.0.i12.i, %13
-  br i1 %cmp.i26, label %while.body.i, label %if.end6.loopexit, !llvm.loop !204
+  %cmp.i25 = icmp ult ptr %retval.0.i12.i, %14
+  br i1 %cmp.i25, label %while.body.i, label %if.end6.loopexit, !llvm.loop !204
 
 if.end6.loopexit:                                 ; preds = %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeItLh1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i
   %.pre = load ptr, ptr %buffer_end_, align 8
   br label %if.end6
 
 if.end6:                                          ; preds = %if.end6.loopexit, %while.body
-  %26 = phi ptr [ %13, %while.body ], [ %.pre, %if.end6.loopexit ]
-  %retval.0.i21141 = phi ptr [ %ptr.addr.0166, %while.body ], [ %retval.0.i12.i, %if.end6.loopexit ]
-  %sub.ptr.lhs.cast8 = ptrtoint ptr %retval.0.i21141 to i64
-  %sub.ptr.rhs.cast9 = ptrtoint ptr %26 to i64
+  %27 = phi ptr [ %14, %while.body ], [ %.pre, %if.end6.loopexit ]
+  %retval.0.i21140 = phi ptr [ %ptr.addr.0165, %while.body ], [ %retval.0.i12.i, %if.end6.loopexit ]
+  %sub.ptr.lhs.cast8 = ptrtoint ptr %retval.0.i21140 to i64
+  %sub.ptr.rhs.cast9 = ptrtoint ptr %27 to i64
   %sub.ptr.sub10 = sub i64 %sub.ptr.lhs.cast8, %sub.ptr.rhs.cast9
-  %sub = sub nsw i32 %size.0167, %chunk_size.0168
+  %sub = sub nsw i32 %size.0166, %chunk_size.0167
   %cmp12 = icmp slt i32 %sub, 17
   br i1 %cmp12, label %while.end, label %if.end44
 
 while.end:                                        ; preds = %if.end6
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(26) %buf, i8 0, i64 26, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %buf, ptr noundef nonnull align 1 dereferenceable(16) %26, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %buf, ptr noundef nonnull align 1 dereferenceable(16) %27, i64 16, i1 false)
   %idx.ext = sext i32 %sub to i64
   %add.ptr = getelementptr inbounds i8, ptr %buf, i64 %idx.ext
   %sext18 = shl i64 %sub.ptr.sub10, 32
@@ -43091,112 +43087,112 @@ while.end:                                        ; preds = %if.end6
   %add.ptr31 = getelementptr inbounds i8, ptr %buf, i64 %idx.ext30
   %agg.tmp32.sroa.3.0.copyload = load ptr, ptr %agg.tmp.sroa.3.0.add.sroa_idx, align 8
   %agg.tmp32.sroa.7.0.copyload = load ptr, ptr %agg.tmp.sroa.7.0.add.sroa_idx, align 8
-  %cmp13.i30 = icmp slt i64 %idx.ext30, %idx.ext
-  br i1 %cmp13.i30, label %while.body.i33.preheader, label %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_8TcParser20PackedEnumSmallRangeItLh1EEEPKcPNS0_11MessageLiteES6_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUliE_EES6_S6_S6_T_.exit77
+  %cmp13.i29 = icmp slt i64 %idx.ext30, %idx.ext
+  br i1 %cmp13.i29, label %while.body.i32.preheader, label %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_8TcParser20PackedEnumSmallRangeItLh1EEEPKcPNS0_11MessageLiteES6_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUliE_EES6_S6_S6_T_.exit76
 
-while.body.i33.preheader:                         ; preds = %while.end
+while.body.i32.preheader:                         ; preds = %while.end
   %agg.tmp32.sroa.5.0.copyload = load i16, ptr %agg.tmp.sroa.5.0.add.sroa_idx, align 8
   %agg.tmp32.sroa.4.0.copyload = load ptr, ptr %agg.tmp.sroa.4.0.add.sroa_idx, align 8
   %agg.tmp32.sroa.0.0.copyload = load i8, ptr %add, align 8
-  %conv.i5.i45 = zext i8 %agg.tmp32.sroa.0.0.copyload to i32
-  %total_size_.i.i.i49 = getelementptr inbounds i8, ptr %agg.tmp32.sroa.7.0.copyload, i64 4
-  %arena_or_elements_.i.i.i.i53 = getelementptr inbounds i8, ptr %agg.tmp32.sroa.7.0.copyload, i64 8
-  %conv.i.i.i67 = zext i16 %agg.tmp32.sroa.5.0.copyload to i32
-  %sext.i.i.i68 = shl i32 %conv.i.i.i67, 24
-  %conv2.i.i.i69 = ashr exact i32 %sext.i.i.i68, 24
-  %add.i.i.i70 = add nsw i32 %conv2.i.i.i69, %conv.i.i.i67
-  %shr.i.i.i71 = lshr i32 %add.i.i.i70, 4
-  %fallback.i.i.i.i72 = getelementptr inbounds i8, ptr %agg.tmp32.sroa.4.0.copyload, i64 40
-  br label %while.body.i33
+  %conv.i5.i44 = zext i8 %agg.tmp32.sroa.0.0.copyload to i32
+  %total_size_.i.i.i48 = getelementptr inbounds i8, ptr %agg.tmp32.sroa.7.0.copyload, i64 4
+  %arena_or_elements_.i.i.i.i52 = getelementptr inbounds i8, ptr %agg.tmp32.sroa.7.0.copyload, i64 8
+  %conv.i.i.i66 = zext i16 %agg.tmp32.sroa.5.0.copyload to i32
+  %sext.i.i.i67 = shl i32 %conv.i.i.i66, 24
+  %conv2.i.i.i68 = ashr exact i32 %sext.i.i.i67, 24
+  %add.i.i.i69 = add nsw i32 %conv2.i.i.i68, %conv.i.i.i66
+  %shr.i.i.i70 = lshr i32 %add.i.i.i69, 4
+  %fallback.i.i.i.i71 = getelementptr inbounds i8, ptr %agg.tmp32.sroa.4.0.copyload, i64 40
+  br label %while.body.i32
 
-while.body.i33:                                   ; preds = %while.body.i33.preheader, %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeItLh1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i61
-  %ptr.addr.014.i34 = phi ptr [ %retval.0.i12.i41, %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeItLh1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i61 ], [ %add.ptr31, %while.body.i33.preheader ]
-  %27 = load i8, ptr %ptr.addr.014.i34, align 1
-  %cmp.i.i35 = icmp sgt i8 %27, -1
-  br i1 %cmp.i.i35, label %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i74, label %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i36
+while.body.i32:                                   ; preds = %while.body.i32.preheader, %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeItLh1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i60
+  %ptr.addr.014.i33 = phi ptr [ %retval.0.i12.i40, %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeItLh1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i60 ], [ %add.ptr31, %while.body.i32.preheader ]
+  %28 = load i8, ptr %ptr.addr.014.i33, align 1
+  %cmp.i.i34 = icmp sgt i8 %28, -1
+  br i1 %cmp.i.i34, label %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i73, label %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i35
 
-_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i74: ; preds = %while.body.i33
-  %conv1.i.i75 = zext nneg i8 %27 to i64
-  %add.ptr.i.i76 = getelementptr inbounds i8, ptr %ptr.addr.014.i34, i64 1
-  br label %if.end.i40
+_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i73: ; preds = %while.body.i32
+  %conv1.i.i74 = zext nneg i8 %28 to i64
+  %add.ptr.i.i75 = getelementptr inbounds i8, ptr %ptr.addr.014.i33, i64 1
+  br label %if.end.i39
 
-_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i36: ; preds = %while.body.i33
-  %conv.i.i37 = zext i8 %27 to i32
-  %call.i.i.i38 = call { ptr, i64 } @_ZN6google8protobuf8internal17VarintParseSlow64EPKcj(ptr noundef nonnull %ptr.addr.014.i34, i32 noundef %conv.i.i37)
-  %28 = extractvalue { ptr, i64 } %call.i.i.i38, 0
-  %29 = extractvalue { ptr, i64 } %call.i.i.i38, 1
-  %cmp1.i39 = icmp eq ptr %28, null
-  br i1 %cmp1.i39, label %return, label %if.end.i40
+_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i35: ; preds = %while.body.i32
+  %conv.i.i36 = zext i8 %28 to i32
+  %call.i.i.i37 = call { ptr, i64 } @_ZN6google8protobuf8internal17VarintParseSlow64EPKcj(ptr noundef nonnull %ptr.addr.014.i33, i32 noundef %conv.i.i36)
+  %29 = extractvalue { ptr, i64 } %call.i.i.i37, 0
+  %30 = extractvalue { ptr, i64 } %call.i.i.i37, 1
+  %cmp1.i38 = icmp eq ptr %29, null
+  br i1 %cmp1.i38, label %return, label %if.end.i39
 
-if.end.i40:                                       ; preds = %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i36, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i74
-  %retval.0.i12.i41 = phi ptr [ %add.ptr.i.i76, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i74 ], [ %28, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i36 ]
-  %.sink.i11.i42 = phi i64 [ %conv1.i.i75, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i74 ], [ %29, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i36 ]
-  %conv.i43 = trunc i64 %.sink.i11.i42 to i32
-  %cmp.i4.i44 = icmp slt i32 %conv.i43, 1
-  %cmp2.i.i46 = icmp samesign ugt i32 %conv.i43, %conv.i5.i45
-  %or.cond.i.i47 = select i1 %cmp.i4.i44, i1 true, i1 %cmp2.i.i46
-  br i1 %or.cond.i.i47, label %if.then.i7.i66, label %if.else.i.i48
+if.end.i39:                                       ; preds = %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i35, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i73
+  %retval.0.i12.i40 = phi ptr [ %add.ptr.i.i75, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i73 ], [ %29, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i35 ]
+  %.sink.i11.i41 = phi i64 [ %conv1.i.i74, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i73 ], [ %30, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i35 ]
+  %conv.i42 = trunc i64 %.sink.i11.i41 to i32
+  %cmp.i4.i43 = icmp slt i32 %conv.i42, 1
+  %cmp2.i.i45 = icmp samesign ugt i32 %conv.i42, %conv.i5.i44
+  %or.cond.i.i46 = select i1 %cmp.i4.i43, i1 true, i1 %cmp2.i.i45
+  br i1 %or.cond.i.i46, label %if.then.i7.i65, label %if.else.i.i47
 
-if.then.i7.i66:                                   ; preds = %if.end.i40
-  %30 = load ptr, ptr %fallback.i.i.i.i72, align 8
-  %call.i.i.i.i73 = call noundef nonnull align 8 dereferenceable(16) ptr %30(ptr noundef null, ptr noundef null, ptr noundef null, i64 0, ptr noundef null, i64 noundef 0)
-  %31 = load ptr, ptr %call.i.i.i.i73, align 8
-  call void %31(ptr noundef %agg.tmp32.sroa.3.0.copyload, i32 noundef %shr.i.i.i71, i32 noundef %conv.i43)
-  br label %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeItLh1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i61
+if.then.i7.i65:                                   ; preds = %if.end.i39
+  %31 = load ptr, ptr %fallback.i.i.i.i71, align 8
+  %call.i.i.i.i72 = call noundef nonnull align 8 dereferenceable(16) ptr %31(ptr noundef null, ptr noundef null, ptr noundef null, i64 0, ptr noundef null, i64 noundef 0)
+  %32 = load ptr, ptr %call.i.i.i.i72, align 8
+  call void %32(ptr noundef %agg.tmp32.sroa.3.0.copyload, i32 noundef %shr.i.i.i70, i32 noundef %conv.i42)
+  br label %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeItLh1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i60
 
-if.else.i.i48:                                    ; preds = %if.end.i40
-  %32 = load i32, ptr %total_size_.i.i.i49, align 4
-  %33 = load i32, ptr %agg.tmp32.sroa.7.0.copyload, align 8
-  %cmp.i.i.i50 = icmp eq i32 %33, %32
-  br i1 %cmp.i.i.i50, label %if.then.i.i.i63, label %_ZN6google8protobuf13RepeatedFieldIiE3AddEi.exit.i.i51
+if.else.i.i47:                                    ; preds = %if.end.i39
+  %33 = load i32, ptr %total_size_.i.i.i48, align 4
+  %34 = load i32, ptr %agg.tmp32.sroa.7.0.copyload, align 8
+  %cmp.i.i.i49 = icmp eq i32 %34, %33
+  br i1 %cmp.i.i.i49, label %if.then.i.i.i62, label %_ZN6google8protobuf13RepeatedFieldIiE3AddEi.exit.i.i50
 
-if.then.i.i.i63:                                  ; preds = %if.else.i.i48
-  %add.i5.i.i64 = add nsw i32 %32, 1
-  call void @_ZN6google8protobuf13RepeatedFieldIiE14GrowNoAnnotateEii(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp32.sroa.7.0.copyload, i32 noundef %32, i32 noundef %add.i5.i.i64)
-  %34 = load i32, ptr %total_size_.i.i.i49, align 4
-  %.pre.i.i.i65 = load i32, ptr %agg.tmp32.sroa.7.0.copyload, align 8
-  br label %_ZN6google8protobuf13RepeatedFieldIiE3AddEi.exit.i.i51
+if.then.i.i.i62:                                  ; preds = %if.else.i.i47
+  %add.i5.i.i63 = add nsw i32 %33, 1
+  call void @_ZN6google8protobuf13RepeatedFieldIiE14GrowNoAnnotateEii(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp32.sroa.7.0.copyload, i32 noundef %33, i32 noundef %add.i5.i.i63)
+  %35 = load i32, ptr %total_size_.i.i.i48, align 4
+  %.pre.i.i.i64 = load i32, ptr %agg.tmp32.sroa.7.0.copyload, align 8
+  br label %_ZN6google8protobuf13RepeatedFieldIiE3AddEi.exit.i.i50
 
-_ZN6google8protobuf13RepeatedFieldIiE3AddEi.exit.i.i51: ; preds = %if.then.i.i.i63, %if.else.i.i48
-  %35 = phi i32 [ %.pre.i.i.i65, %if.then.i.i.i63 ], [ %33, %if.else.i.i48 ]
-  %total_size.0.i.i.i52 = phi i32 [ %34, %if.then.i.i.i63 ], [ %32, %if.else.i.i48 ]
-  %elem.0.i.i.i54 = load ptr, ptr %arena_or_elements_.i.i.i.i53, align 8
-  %add7.i.i.i55 = add nsw i32 %35, 1
-  store i32 %add7.i.i.i55, ptr %agg.tmp32.sroa.7.0.copyload, align 8
-  %idx.ext.i.i.i56 = sext i32 %35 to i64
-  %add.ptr.i.i.i57 = getelementptr inbounds i32, ptr %elem.0.i.i.i54, i64 %idx.ext.i.i.i56
-  store i32 %conv.i43, ptr %add.ptr.i.i.i57, align 4
-  %36 = load i32, ptr %agg.tmp32.sroa.7.0.copyload, align 8
-  %cmp10.i.i.i58 = icmp eq i32 %add7.i.i.i55, %36
-  call void @llvm.assume(i1 %cmp10.i.i.i58)
-  %37 = load ptr, ptr %arena_or_elements_.i.i.i.i53, align 8
-  %cmp11.i.i.i59 = icmp eq ptr %elem.0.i.i.i54, %37
-  call void @llvm.assume(i1 %cmp11.i.i.i59)
-  %38 = load i32, ptr %total_size_.i.i.i49, align 4
-  %cmp13.i.i.i60 = icmp eq i32 %total_size.0.i.i.i52, %38
-  call void @llvm.assume(i1 %cmp13.i.i.i60)
-  br label %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeItLh1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i61
+_ZN6google8protobuf13RepeatedFieldIiE3AddEi.exit.i.i50: ; preds = %if.then.i.i.i62, %if.else.i.i47
+  %36 = phi i32 [ %.pre.i.i.i64, %if.then.i.i.i62 ], [ %34, %if.else.i.i47 ]
+  %total_size.0.i.i.i51 = phi i32 [ %35, %if.then.i.i.i62 ], [ %33, %if.else.i.i47 ]
+  %elem.0.i.i.i53 = load ptr, ptr %arena_or_elements_.i.i.i.i52, align 8
+  %add7.i.i.i54 = add nsw i32 %36, 1
+  store i32 %add7.i.i.i54, ptr %agg.tmp32.sroa.7.0.copyload, align 8
+  %idx.ext.i.i.i55 = sext i32 %36 to i64
+  %add.ptr.i.i.i56 = getelementptr inbounds i32, ptr %elem.0.i.i.i53, i64 %idx.ext.i.i.i55
+  store i32 %conv.i42, ptr %add.ptr.i.i.i56, align 4
+  %37 = load i32, ptr %agg.tmp32.sroa.7.0.copyload, align 8
+  %cmp10.i.i.i57 = icmp eq i32 %add7.i.i.i54, %37
+  call void @llvm.assume(i1 %cmp10.i.i.i57)
+  %38 = load ptr, ptr %arena_or_elements_.i.i.i.i52, align 8
+  %cmp11.i.i.i58 = icmp eq ptr %elem.0.i.i.i53, %38
+  call void @llvm.assume(i1 %cmp11.i.i.i58)
+  %39 = load i32, ptr %total_size_.i.i.i48, align 4
+  %cmp13.i.i.i59 = icmp eq i32 %total_size.0.i.i.i51, %39
+  call void @llvm.assume(i1 %cmp13.i.i.i59)
+  br label %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeItLh1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i60
 
-_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeItLh1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i61: ; preds = %_ZN6google8protobuf13RepeatedFieldIiE3AddEi.exit.i.i51, %if.then.i7.i66
-  %cmp.i62 = icmp ult ptr %retval.0.i12.i41, %add.ptr
-  br i1 %cmp.i62, label %while.body.i33, label %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_8TcParser20PackedEnumSmallRangeItLh1EEEPKcPNS0_11MessageLiteES6_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUliE_EES6_S6_S6_T_.exit77, !llvm.loop !204
+_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeItLh1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i60: ; preds = %_ZN6google8protobuf13RepeatedFieldIiE3AddEi.exit.i.i50, %if.then.i7.i65
+  %cmp.i61 = icmp ult ptr %retval.0.i12.i40, %add.ptr
+  br i1 %cmp.i61, label %while.body.i32, label %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_8TcParser20PackedEnumSmallRangeItLh1EEEPKcPNS0_11MessageLiteES6_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUliE_EES6_S6_S6_T_.exit76, !llvm.loop !204
 
-_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_8TcParser20PackedEnumSmallRangeItLh1EEEPKcPNS0_11MessageLiteES6_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUliE_EES6_S6_S6_T_.exit77: ; preds = %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeItLh1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i61, %while.end
-  %retval.0.i31 = phi ptr [ %add.ptr31, %while.end ], [ %retval.0.i12.i41, %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeItLh1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i61 ]
-  %cmp35.not = icmp eq ptr %retval.0.i31, %add.ptr
+_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_8TcParser20PackedEnumSmallRangeItLh1EEEPKcPNS0_11MessageLiteES6_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUliE_EES6_S6_S6_T_.exit76: ; preds = %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeItLh1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i60, %while.end
+  %retval.0.i30 = phi ptr [ %add.ptr31, %while.end ], [ %retval.0.i12.i40, %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeItLh1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i60 ]
+  %cmp35.not = icmp eq ptr %retval.0.i30, %add.ptr
   br i1 %cmp35.not, label %if.end37, label %return
 
-if.end37:                                         ; preds = %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_8TcParser20PackedEnumSmallRangeItLh1EEEPKcPNS0_11MessageLiteES6_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUliE_EES6_S6_S6_T_.exit77
-  %39 = load ptr, ptr %buffer_end_, align 8
-  %add.ptr43 = getelementptr inbounds i8, ptr %39, i64 %idx.ext
+if.end37:                                         ; preds = %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_8TcParser20PackedEnumSmallRangeItLh1EEEPKcPNS0_11MessageLiteES6_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUliE_EES6_S6_S6_T_.exit76
+  %40 = load ptr, ptr %buffer_end_, align 8
+  %add.ptr43 = getelementptr inbounds i8, ptr %40, i64 %idx.ext
   br label %return
 
 if.end44:                                         ; preds = %if.end6
   %conv11 = trunc i64 %sub.ptr.sub10 to i32
-  %40 = add i32 %chunk_size.0168, %conv11
-  %sub46 = sub i32 %size.0167, %40
-  %41 = load i32, ptr %limit_, align 4
-  %cmp52 = icmp slt i32 %41, 17
+  %41 = add i32 %chunk_size.0167, %conv11
+  %sub46 = sub i32 %size.0166, %41
+  %42 = load i32, ptr %limit_, align 4
+  %cmp52 = icmp slt i32 %42, 17
   br i1 %cmp52, label %return, label %if.end54
 
 if.end54:                                         ; preds = %if.end44
@@ -43208,8 +43204,8 @@ if.end58:                                         ; preds = %if.end54
   %sext = shl i64 %sub.ptr.sub10, 32
   %idx.ext59 = ashr exact i64 %sext, 32
   %add.ptr60 = getelementptr inbounds i8, ptr %call55, i64 %idx.ext59
-  %42 = load ptr, ptr %buffer_end_, align 8
-  %sub.ptr.lhs.cast62 = ptrtoint ptr %42 to i64
+  %43 = load ptr, ptr %buffer_end_, align 8
+  %sub.ptr.lhs.cast62 = ptrtoint ptr %43 to i64
   %sub.ptr.rhs.cast63 = ptrtoint ptr %add.ptr60 to i64
   %sub.ptr.sub64 = sub i64 %sub.ptr.lhs.cast62, %sub.ptr.rhs.cast63
   %chunk_size.0 = trunc i64 %sub.ptr.sub64 to i32
@@ -43225,106 +43221,106 @@ while.end66:                                      ; preds = %if.end58, %if.end
   %agg.tmp70.sroa.3.0.copyload = load ptr, ptr %agg.tmp70.sroa.3.0.add.sroa_idx, align 8
   %agg.tmp70.sroa.7.0.add.sroa_idx = getelementptr inbounds i8, ptr %add, i64 32
   %agg.tmp70.sroa.7.0.copyload = load ptr, ptr %agg.tmp70.sroa.7.0.add.sroa_idx, align 8
-  %cmp13.i79 = icmp sgt i32 %size.0.lcssa, 0
-  br i1 %cmp13.i79, label %while.body.i82.preheader, label %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_8TcParser20PackedEnumSmallRangeItLh1EEEPKcPNS0_11MessageLiteES6_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUliE_EES6_S6_S6_T_.exit126
+  %cmp13.i78 = icmp sgt i32 %size.0.lcssa, 0
+  br i1 %cmp13.i78, label %while.body.i81.preheader, label %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_8TcParser20PackedEnumSmallRangeItLh1EEEPKcPNS0_11MessageLiteES6_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUliE_EES6_S6_S6_T_.exit125
 
-while.body.i82.preheader:                         ; preds = %while.end66
+while.body.i81.preheader:                         ; preds = %while.end66
   %agg.tmp70.sroa.5.0.add.sroa_idx = getelementptr inbounds i8, ptr %add, i64 24
   %agg.tmp70.sroa.5.0.copyload = load i16, ptr %agg.tmp70.sroa.5.0.add.sroa_idx, align 8
   %agg.tmp70.sroa.4.0.add.sroa_idx = getelementptr inbounds i8, ptr %add, i64 16
   %agg.tmp70.sroa.4.0.copyload = load ptr, ptr %agg.tmp70.sroa.4.0.add.sroa_idx, align 8
   %agg.tmp70.sroa.0.0.copyload = load i8, ptr %add, align 8
-  %conv.i5.i94 = zext i8 %agg.tmp70.sroa.0.0.copyload to i32
-  %total_size_.i.i.i98 = getelementptr inbounds i8, ptr %agg.tmp70.sroa.7.0.copyload, i64 4
-  %arena_or_elements_.i.i.i.i102 = getelementptr inbounds i8, ptr %agg.tmp70.sroa.7.0.copyload, i64 8
-  %conv.i.i.i116 = zext i16 %agg.tmp70.sroa.5.0.copyload to i32
-  %sext.i.i.i117 = shl i32 %conv.i.i.i116, 24
-  %conv2.i.i.i118 = ashr exact i32 %sext.i.i.i117, 24
-  %add.i.i.i119 = add nsw i32 %conv2.i.i.i118, %conv.i.i.i116
-  %shr.i.i.i120 = lshr i32 %add.i.i.i119, 4
-  %fallback.i.i.i.i121 = getelementptr inbounds i8, ptr %agg.tmp70.sroa.4.0.copyload, i64 40
-  br label %while.body.i82
+  %conv.i5.i93 = zext i8 %agg.tmp70.sroa.0.0.copyload to i32
+  %total_size_.i.i.i97 = getelementptr inbounds i8, ptr %agg.tmp70.sroa.7.0.copyload, i64 4
+  %arena_or_elements_.i.i.i.i101 = getelementptr inbounds i8, ptr %agg.tmp70.sroa.7.0.copyload, i64 8
+  %conv.i.i.i115 = zext i16 %agg.tmp70.sroa.5.0.copyload to i32
+  %sext.i.i.i116 = shl i32 %conv.i.i.i115, 24
+  %conv2.i.i.i117 = ashr exact i32 %sext.i.i.i116, 24
+  %add.i.i.i118 = add nsw i32 %conv2.i.i.i117, %conv.i.i.i115
+  %shr.i.i.i119 = lshr i32 %add.i.i.i118, 4
+  %fallback.i.i.i.i120 = getelementptr inbounds i8, ptr %agg.tmp70.sroa.4.0.copyload, i64 40
+  br label %while.body.i81
 
-while.body.i82:                                   ; preds = %while.body.i82.preheader, %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeItLh1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i110
-  %ptr.addr.014.i83 = phi ptr [ %retval.0.i12.i90, %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeItLh1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i110 ], [ %ptr.addr.0.lcssa, %while.body.i82.preheader ]
-  %43 = load i8, ptr %ptr.addr.014.i83, align 1
-  %cmp.i.i84 = icmp sgt i8 %43, -1
-  br i1 %cmp.i.i84, label %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i123, label %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i85
+while.body.i81:                                   ; preds = %while.body.i81.preheader, %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeItLh1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i109
+  %ptr.addr.014.i82 = phi ptr [ %retval.0.i12.i89, %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeItLh1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i109 ], [ %ptr.addr.0.lcssa, %while.body.i81.preheader ]
+  %44 = load i8, ptr %ptr.addr.014.i82, align 1
+  %cmp.i.i83 = icmp sgt i8 %44, -1
+  br i1 %cmp.i.i83, label %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i122, label %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i84
 
-_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i123: ; preds = %while.body.i82
-  %conv1.i.i124 = zext nneg i8 %43 to i64
-  %add.ptr.i.i125 = getelementptr inbounds i8, ptr %ptr.addr.014.i83, i64 1
-  br label %if.end.i89
+_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i122: ; preds = %while.body.i81
+  %conv1.i.i123 = zext nneg i8 %44 to i64
+  %add.ptr.i.i124 = getelementptr inbounds i8, ptr %ptr.addr.014.i82, i64 1
+  br label %if.end.i88
 
-_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i85: ; preds = %while.body.i82
-  %conv.i.i86 = zext i8 %43 to i32
-  %call.i.i.i87 = tail call { ptr, i64 } @_ZN6google8protobuf8internal17VarintParseSlow64EPKcj(ptr noundef nonnull %ptr.addr.014.i83, i32 noundef %conv.i.i86)
-  %44 = extractvalue { ptr, i64 } %call.i.i.i87, 0
-  %45 = extractvalue { ptr, i64 } %call.i.i.i87, 1
-  %cmp1.i88 = icmp eq ptr %44, null
-  br i1 %cmp1.i88, label %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_8TcParser20PackedEnumSmallRangeItLh1EEEPKcPNS0_11MessageLiteES6_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUliE_EES6_S6_S6_T_.exit126, label %if.end.i89
+_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i84: ; preds = %while.body.i81
+  %conv.i.i85 = zext i8 %44 to i32
+  %call.i.i.i86 = tail call { ptr, i64 } @_ZN6google8protobuf8internal17VarintParseSlow64EPKcj(ptr noundef nonnull %ptr.addr.014.i82, i32 noundef %conv.i.i85)
+  %45 = extractvalue { ptr, i64 } %call.i.i.i86, 0
+  %46 = extractvalue { ptr, i64 } %call.i.i.i86, 1
+  %cmp1.i87 = icmp eq ptr %45, null
+  br i1 %cmp1.i87, label %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_8TcParser20PackedEnumSmallRangeItLh1EEEPKcPNS0_11MessageLiteES6_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUliE_EES6_S6_S6_T_.exit125, label %if.end.i88
 
-if.end.i89:                                       ; preds = %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i85, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i123
-  %retval.0.i12.i90 = phi ptr [ %add.ptr.i.i125, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i123 ], [ %44, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i85 ]
-  %.sink.i11.i91 = phi i64 [ %conv1.i.i124, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i123 ], [ %45, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i85 ]
-  %conv.i92 = trunc i64 %.sink.i11.i91 to i32
-  %cmp.i4.i93 = icmp slt i32 %conv.i92, 1
-  %cmp2.i.i95 = icmp samesign ugt i32 %conv.i92, %conv.i5.i94
-  %or.cond.i.i96 = select i1 %cmp.i4.i93, i1 true, i1 %cmp2.i.i95
-  br i1 %or.cond.i.i96, label %if.then.i7.i115, label %if.else.i.i97
+if.end.i88:                                       ; preds = %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i84, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i122
+  %retval.0.i12.i89 = phi ptr [ %add.ptr.i.i124, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i122 ], [ %45, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i84 ]
+  %.sink.i11.i90 = phi i64 [ %conv1.i.i123, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i122 ], [ %46, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i84 ]
+  %conv.i91 = trunc i64 %.sink.i11.i90 to i32
+  %cmp.i4.i92 = icmp slt i32 %conv.i91, 1
+  %cmp2.i.i94 = icmp samesign ugt i32 %conv.i91, %conv.i5.i93
+  %or.cond.i.i95 = select i1 %cmp.i4.i92, i1 true, i1 %cmp2.i.i94
+  br i1 %or.cond.i.i95, label %if.then.i7.i114, label %if.else.i.i96
 
-if.then.i7.i115:                                  ; preds = %if.end.i89
-  %46 = load ptr, ptr %fallback.i.i.i.i121, align 8
-  %call.i.i.i.i122 = tail call noundef nonnull align 8 dereferenceable(16) ptr %46(ptr noundef null, ptr noundef null, ptr noundef null, i64 0, ptr noundef null, i64 noundef 0)
-  %47 = load ptr, ptr %call.i.i.i.i122, align 8
-  tail call void %47(ptr noundef %agg.tmp70.sroa.3.0.copyload, i32 noundef %shr.i.i.i120, i32 noundef %conv.i92)
-  br label %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeItLh1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i110
+if.then.i7.i114:                                  ; preds = %if.end.i88
+  %47 = load ptr, ptr %fallback.i.i.i.i120, align 8
+  %call.i.i.i.i121 = tail call noundef nonnull align 8 dereferenceable(16) ptr %47(ptr noundef null, ptr noundef null, ptr noundef null, i64 0, ptr noundef null, i64 noundef 0)
+  %48 = load ptr, ptr %call.i.i.i.i121, align 8
+  tail call void %48(ptr noundef %agg.tmp70.sroa.3.0.copyload, i32 noundef %shr.i.i.i119, i32 noundef %conv.i91)
+  br label %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeItLh1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i109
 
-if.else.i.i97:                                    ; preds = %if.end.i89
-  %48 = load i32, ptr %total_size_.i.i.i98, align 4
-  %49 = load i32, ptr %agg.tmp70.sroa.7.0.copyload, align 8
-  %cmp.i.i.i99 = icmp eq i32 %49, %48
-  br i1 %cmp.i.i.i99, label %if.then.i.i.i112, label %_ZN6google8protobuf13RepeatedFieldIiE3AddEi.exit.i.i100
+if.else.i.i96:                                    ; preds = %if.end.i88
+  %49 = load i32, ptr %total_size_.i.i.i97, align 4
+  %50 = load i32, ptr %agg.tmp70.sroa.7.0.copyload, align 8
+  %cmp.i.i.i98 = icmp eq i32 %50, %49
+  br i1 %cmp.i.i.i98, label %if.then.i.i.i111, label %_ZN6google8protobuf13RepeatedFieldIiE3AddEi.exit.i.i99
 
-if.then.i.i.i112:                                 ; preds = %if.else.i.i97
-  %add.i5.i.i113 = add nsw i32 %48, 1
-  tail call void @_ZN6google8protobuf13RepeatedFieldIiE14GrowNoAnnotateEii(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp70.sroa.7.0.copyload, i32 noundef %48, i32 noundef %add.i5.i.i113)
-  %50 = load i32, ptr %total_size_.i.i.i98, align 4
-  %.pre.i.i.i114 = load i32, ptr %agg.tmp70.sroa.7.0.copyload, align 8
-  br label %_ZN6google8protobuf13RepeatedFieldIiE3AddEi.exit.i.i100
+if.then.i.i.i111:                                 ; preds = %if.else.i.i96
+  %add.i5.i.i112 = add nsw i32 %49, 1
+  tail call void @_ZN6google8protobuf13RepeatedFieldIiE14GrowNoAnnotateEii(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp70.sroa.7.0.copyload, i32 noundef %49, i32 noundef %add.i5.i.i112)
+  %51 = load i32, ptr %total_size_.i.i.i97, align 4
+  %.pre.i.i.i113 = load i32, ptr %agg.tmp70.sroa.7.0.copyload, align 8
+  br label %_ZN6google8protobuf13RepeatedFieldIiE3AddEi.exit.i.i99
 
-_ZN6google8protobuf13RepeatedFieldIiE3AddEi.exit.i.i100: ; preds = %if.then.i.i.i112, %if.else.i.i97
-  %51 = phi i32 [ %.pre.i.i.i114, %if.then.i.i.i112 ], [ %49, %if.else.i.i97 ]
-  %total_size.0.i.i.i101 = phi i32 [ %50, %if.then.i.i.i112 ], [ %48, %if.else.i.i97 ]
-  %elem.0.i.i.i103 = load ptr, ptr %arena_or_elements_.i.i.i.i102, align 8
-  %add7.i.i.i104 = add nsw i32 %51, 1
-  store i32 %add7.i.i.i104, ptr %agg.tmp70.sroa.7.0.copyload, align 8
-  %idx.ext.i.i.i105 = sext i32 %51 to i64
-  %add.ptr.i.i.i106 = getelementptr inbounds i32, ptr %elem.0.i.i.i103, i64 %idx.ext.i.i.i105
-  store i32 %conv.i92, ptr %add.ptr.i.i.i106, align 4
-  %52 = load i32, ptr %agg.tmp70.sroa.7.0.copyload, align 8
-  %cmp10.i.i.i107 = icmp eq i32 %add7.i.i.i104, %52
-  tail call void @llvm.assume(i1 %cmp10.i.i.i107)
-  %53 = load ptr, ptr %arena_or_elements_.i.i.i.i102, align 8
-  %cmp11.i.i.i108 = icmp eq ptr %elem.0.i.i.i103, %53
-  tail call void @llvm.assume(i1 %cmp11.i.i.i108)
-  %54 = load i32, ptr %total_size_.i.i.i98, align 4
-  %cmp13.i.i.i109 = icmp eq i32 %total_size.0.i.i.i101, %54
-  tail call void @llvm.assume(i1 %cmp13.i.i.i109)
-  br label %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeItLh1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i110
+_ZN6google8protobuf13RepeatedFieldIiE3AddEi.exit.i.i99: ; preds = %if.then.i.i.i111, %if.else.i.i96
+  %52 = phi i32 [ %.pre.i.i.i113, %if.then.i.i.i111 ], [ %50, %if.else.i.i96 ]
+  %total_size.0.i.i.i100 = phi i32 [ %51, %if.then.i.i.i111 ], [ %49, %if.else.i.i96 ]
+  %elem.0.i.i.i102 = load ptr, ptr %arena_or_elements_.i.i.i.i101, align 8
+  %add7.i.i.i103 = add nsw i32 %52, 1
+  store i32 %add7.i.i.i103, ptr %agg.tmp70.sroa.7.0.copyload, align 8
+  %idx.ext.i.i.i104 = sext i32 %52 to i64
+  %add.ptr.i.i.i105 = getelementptr inbounds i32, ptr %elem.0.i.i.i102, i64 %idx.ext.i.i.i104
+  store i32 %conv.i91, ptr %add.ptr.i.i.i105, align 4
+  %53 = load i32, ptr %agg.tmp70.sroa.7.0.copyload, align 8
+  %cmp10.i.i.i106 = icmp eq i32 %add7.i.i.i103, %53
+  tail call void @llvm.assume(i1 %cmp10.i.i.i106)
+  %54 = load ptr, ptr %arena_or_elements_.i.i.i.i101, align 8
+  %cmp11.i.i.i107 = icmp eq ptr %elem.0.i.i.i102, %54
+  tail call void @llvm.assume(i1 %cmp11.i.i.i107)
+  %55 = load i32, ptr %total_size_.i.i.i97, align 4
+  %cmp13.i.i.i108 = icmp eq i32 %total_size.0.i.i.i100, %55
+  tail call void @llvm.assume(i1 %cmp13.i.i.i108)
+  br label %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeItLh1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i109
 
-_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeItLh1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i110: ; preds = %_ZN6google8protobuf13RepeatedFieldIiE3AddEi.exit.i.i100, %if.then.i7.i115
-  %cmp.i111 = icmp ult ptr %retval.0.i12.i90, %add.ptr69
-  br i1 %cmp.i111, label %while.body.i82, label %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_8TcParser20PackedEnumSmallRangeItLh1EEEPKcPNS0_11MessageLiteES6_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUliE_EES6_S6_S6_T_.exit126, !llvm.loop !204
+_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeItLh1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i109: ; preds = %_ZN6google8protobuf13RepeatedFieldIiE3AddEi.exit.i.i99, %if.then.i7.i114
+  %cmp.i110 = icmp ult ptr %retval.0.i12.i89, %add.ptr69
+  br i1 %cmp.i110, label %while.body.i81, label %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_8TcParser20PackedEnumSmallRangeItLh1EEEPKcPNS0_11MessageLiteES6_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUliE_EES6_S6_S6_T_.exit125, !llvm.loop !204
 
-_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_8TcParser20PackedEnumSmallRangeItLh1EEEPKcPNS0_11MessageLiteES6_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUliE_EES6_S6_S6_T_.exit126: ; preds = %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i85, %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeItLh1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i110, %while.end66
-  %retval.0.i80 = phi ptr [ %ptr.addr.0.lcssa, %while.end66 ], [ null, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i85 ], [ %retval.0.i12.i90, %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeItLh1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i110 ]
-  %cmp72 = icmp eq ptr %add.ptr69, %retval.0.i80
-  %cond = select i1 %cmp72, ptr %retval.0.i80, ptr null
+_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_8TcParser20PackedEnumSmallRangeItLh1EEEPKcPNS0_11MessageLiteES6_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUliE_EES6_S6_S6_T_.exit125: ; preds = %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i84, %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeItLh1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i109, %while.end66
+  %retval.0.i79 = phi ptr [ %ptr.addr.0.lcssa, %while.end66 ], [ null, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i84 ], [ %retval.0.i12.i89, %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeItLh1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE_clEi.exit.i109 ]
+  %cmp72 = icmp eq ptr %add.ptr69, %retval.0.i79
+  %cond = select i1 %cmp72, ptr %retval.0.i79, ptr null
   br label %return
 
-return:                                           ; preds = %if.end54, %if.end44, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i36, %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_8TcParser20PackedEnumSmallRangeItLh1EEEPKcPNS0_11MessageLiteES6_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUliE_EES6_S6_S6_T_.exit77, %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeItLh1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE0_clEi.exit, %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_8TcParser20PackedEnumSmallRangeItLh1EEEPKcPNS0_11MessageLiteES6_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUliE_EES6_S6_S6_T_.exit126, %if.end37
-  %retval.0 = phi ptr [ %add.ptr43, %if.end37 ], [ %cond, %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_8TcParser20PackedEnumSmallRangeItLh1EEEPKcPNS0_11MessageLiteES6_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUliE_EES6_S6_S6_T_.exit126 ], [ null, %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeItLh1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE0_clEi.exit ], [ null, %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_8TcParser20PackedEnumSmallRangeItLh1EEEPKcPNS0_11MessageLiteES6_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUliE_EES6_S6_S6_T_.exit77 ], [ null, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i36 ], [ null, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i ], [ null, %if.end44 ], [ null, %if.end54 ]
+return:                                           ; preds = %if.end54, %if.end44, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i35, %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_8TcParser20PackedEnumSmallRangeItLh1EEEPKcPNS0_11MessageLiteES6_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUliE_EES6_S6_S6_T_.exit76, %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeItLh1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE0_clEi.exit, %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_8TcParser20PackedEnumSmallRangeItLh1EEEPKcPNS0_11MessageLiteES6_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUliE_EES6_S6_S6_T_.exit125, %if.end37
+  %retval.0 = phi ptr [ %add.ptr43, %if.end37 ], [ %cond, %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_8TcParser20PackedEnumSmallRangeItLh1EEEPKcPNS0_11MessageLiteES6_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUliE_EES6_S6_S6_T_.exit125 ], [ null, %_ZZN6google8protobuf8internal8TcParser20PackedEnumSmallRangeItLh1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUliE0_clEi.exit ], [ null, %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_8TcParser20PackedEnumSmallRangeItLh1EEEPKcPNS0_11MessageLiteES6_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUliE_EES6_S6_S6_T_.exit76 ], [ null, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i35 ], [ null, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i ], [ null, %if.end44 ], [ null, %if.end54 ]
   ret ptr %retval.0
 }
 

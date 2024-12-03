@@ -4988,7 +4988,7 @@ define internal fastcc zeroext range(i8 0, 2) i8 @dissect_session_response(ptr n
   %13 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %3, i32 noundef %12, ptr noundef %0, i32 noundef %6, i32 noundef %9, ptr noundef null, ptr noundef nonnull @.str.427) #9
   %14 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %13, ptr noundef nonnull @ei_knxip_error, ptr noundef nonnull @.str.380) #9
   %15 = add i32 %9, %6
-  br label %50
+  br label %48
 
 16:                                               ; preds = %5
   %17 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #9
@@ -4998,11 +4998,11 @@ define internal fastcc zeroext range(i8 0, 2) i8 @dissect_session_response(ptr n
   %19 = load i32, ptr @hf_knxip_session, align 4
   %20 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %19, ptr noundef %0, i32 noundef %6, i32 noundef 2, i32 noundef 0) #9
   %21 = add i32 %6, 2
-  %22 = tail call i32 @llvm.umax.i32(i32 %9, i32 18)
-  %spec.store.select = add nsw i32 %22, -18
+  %22 = add nsw i32 %9, -2
+  %spec.store.select = tail call i32 @llvm.usub.sat.i32(i32 %9, i32 18)
   %23 = load i32, ptr @hf_bytes, align 4
   %24 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %3, i32 noundef %23, ptr noundef %0, i32 noundef %21, i32 noundef %spec.store.select, ptr noundef null, ptr noundef nonnull @.str.332, ptr noundef nonnull @.str.465) #9
-  %.not63 = icmp eq i32 %spec.store.select, 0
+  %.not63 = icmp samesign ult i32 %9, 19
   br i1 %.not63, label %knxip_tree_add_data.exit.thread, label %.lr.ph.split.us.split.us.i
 
 .lr.ph.split.us.split.us.i:                       ; preds = %16, %.lr.ph.split.us.split.us.i
@@ -5028,41 +5028,39 @@ knxip_tree_add_data.exit.thread:                  ; preds = %16, %knxip_tree_add
 31:                                               ; preds = %knxip_tree_add_data.exit.thread, %knxip_tree_add_data.exit
   %.1 = phi i8 [ 0, %knxip_tree_add_data.exit.thread ], [ 1, %knxip_tree_add_data.exit ]
   %32 = add i32 %spec.store.select, %21
-  %33 = sub nsw i32 %9, %22
-  %34 = icmp ugt i32 %33, 2147483631
-  br i1 %34, label %35, label %41
+  %33 = sub i32 %22, %spec.store.select
+  %34 = icmp slt i32 %33, 16
+  %35 = load i32, ptr @hf_bytes, align 4
+  br i1 %34, label %36, label %40
 
-35:                                               ; preds = %31
-  %36 = add i32 %33, 16
-  %37 = load i32, ptr @hf_bytes, align 4
-  %38 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %3, i32 noundef %37, ptr noundef %0, i32 noundef %32, i32 noundef %36, ptr noundef null, ptr noundef nonnull @.str.458) #9
-  %39 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %38, ptr noundef nonnull @ei_knxip_error, ptr noundef nonnull @.str.361) #9
-  %40 = add i32 %9, %6
-  br label %50
+36:                                               ; preds = %31
+  %37 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %3, i32 noundef %35, ptr noundef %0, i32 noundef %32, i32 noundef %33, ptr noundef null, ptr noundef nonnull @.str.458) #9
+  %38 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %37, ptr noundef nonnull @ei_knxip_error, ptr noundef nonnull @.str.361) #9
+  %39 = add i32 %9, %6
+  br label %48
 
-41:                                               ; preds = %31
-  %42 = load i32, ptr @hf_bytes, align 4
-  %43 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %3, i32 noundef %42, ptr noundef %0, i32 noundef %32, i32 noundef 16, ptr noundef null, ptr noundef nonnull @.str.332, ptr noundef nonnull @.str.451) #9
+40:                                               ; preds = %31
+  %41 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %3, i32 noundef %35, ptr noundef %0, i32 noundef %32, i32 noundef 16, ptr noundef null, ptr noundef nonnull @.str.332, ptr noundef nonnull @.str.451) #9
   br label %.lr.ph.split.us.split.us.i58
 
-.lr.ph.split.us.split.us.i58:                     ; preds = %.lr.ph.split.us.split.us.i58, %41
-  %.029.us.us.i59 = phi i32 [ %46, %.lr.ph.split.us.split.us.i58 ], [ %32, %41 ]
-  %.02428.us.us.i60 = phi i32 [ %47, %.lr.ph.split.us.split.us.i58 ], [ 16, %41 ]
-  %44 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.029.us.us.i59) #9
-  %45 = zext i8 %44 to i32
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %43, ptr noundef nonnull @.str.327, i32 noundef %45) #9
-  %46 = add i32 %.029.us.us.i59, 1
-  %47 = add nsw i32 %.02428.us.us.i60, -1
-  %48 = icmp samesign ugt i32 %.02428.us.us.i60, 1
-  br i1 %48, label %.lr.ph.split.us.split.us.i58, label %knxip_tree_add_data.exit61, !llvm.loop !21
+.lr.ph.split.us.split.us.i58:                     ; preds = %.lr.ph.split.us.split.us.i58, %40
+  %.029.us.us.i59 = phi i32 [ %44, %.lr.ph.split.us.split.us.i58 ], [ %32, %40 ]
+  %.02428.us.us.i60 = phi i32 [ %45, %.lr.ph.split.us.split.us.i58 ], [ 16, %40 ]
+  %42 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.029.us.us.i59) #9
+  %43 = zext i8 %42 to i32
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %41, ptr noundef nonnull @.str.327, i32 noundef %43) #9
+  %44 = add i32 %.029.us.us.i59, 1
+  %45 = add nsw i32 %.02428.us.us.i60, -1
+  %46 = icmp samesign ugt i32 %.02428.us.us.i60, 1
+  br i1 %46, label %.lr.ph.split.us.split.us.i58, label %knxip_tree_add_data.exit61, !llvm.loop !21
 
 knxip_tree_add_data.exit61:                       ; preds = %.lr.ph.split.us.split.us.i58
-  %49 = add i32 %32, 16
-  br label %50
+  %47 = add i32 %32, 16
+  br label %48
 
-50:                                               ; preds = %35, %knxip_tree_add_data.exit61, %11
-  %.053 = phi i32 [ %15, %11 ], [ %40, %35 ], [ %49, %knxip_tree_add_data.exit61 ]
-  %.0 = phi i8 [ 0, %11 ], [ 0, %35 ], [ %.1, %knxip_tree_add_data.exit61 ]
+48:                                               ; preds = %36, %knxip_tree_add_data.exit61, %11
+  %.053 = phi i32 [ %15, %11 ], [ %39, %36 ], [ %47, %knxip_tree_add_data.exit61 ]
+  %.0 = phi i8 [ 0, %11 ], [ 0, %36 ], [ %.1, %knxip_tree_add_data.exit61 ]
   store i32 %.053, ptr %4, align 4
   ret i8 %.0
 }
@@ -5559,7 +5557,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #6
+declare i32 @llvm.usub.sat.i32(i32, i32) #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

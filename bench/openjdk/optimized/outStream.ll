@@ -159,74 +159,73 @@ define internal fastcc zeroext i16 @writeBytes(ptr nocapture noundef %0, ptr noc
   %10 = trunc i32 %5 to i16
   br label %.loopexit
 
-11:                                               ; preds = %.lr.ph, %30
-  %.04453 = phi i32 [ %2, %.lr.ph ], [ %41, %30 ]
-  %.04552 = phi ptr [ %1, %.lr.ph ], [ %42, %30 ]
+11:                                               ; preds = %.lr.ph, %29
+  %.04453 = phi i32 [ %2, %.lr.ph ], [ %40, %29 ]
+  %.04552 = phi ptr [ %1, %.lr.ph ], [ %41, %29 ]
   %12 = load i32, ptr %7, align 8
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %14, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %11
   %.pre = load ptr, ptr %0, align 8
-  br label %30
+  br label %29
 
 14:                                               ; preds = %11
   %15 = load ptr, ptr %8, align 8
   %16 = load i32, ptr %15, align 8
-  %17 = icmp slt i32 %16, 5000
-  %18 = shl nsw i32 %16, 1
-  %spec.select = select i1 %17, i32 %18, i32 10000
-  %19 = tail call ptr @jvmtiAllocate(i32 noundef %spec.select) #7
-  %20 = tail call ptr @jvmtiAllocate(i32 noundef 24) #7
+  %17 = tail call i32 @llvm.smin.i32(i32 %16, i32 5000)
+  %spec.select = shl i32 %17, 1
+  %18 = tail call ptr @jvmtiAllocate(i32 noundef %spec.select) #7
+  %19 = tail call ptr @jvmtiAllocate(i32 noundef 24) #7
+  %20 = icmp eq ptr %18, null
   %21 = icmp eq ptr %19, null
-  %22 = icmp eq ptr %20, null
-  %or.cond = select i1 %21, i1 true, i1 %22
-  br i1 %or.cond, label %23, label %24
+  %or.cond = select i1 %20, i1 true, i1 %21
+  br i1 %or.cond, label %22, label %23
 
-23:                                               ; preds = %14
+22:                                               ; preds = %14
+  tail call void @jvmtiDeallocate(ptr noundef %18) #7
   tail call void @jvmtiDeallocate(ptr noundef %19) #7
-  tail call void @jvmtiDeallocate(ptr noundef %20) #7
   store i32 110, ptr %4, align 8
   br label %.loopexit
 
-24:                                               ; preds = %14
-  store i32 0, ptr %20, align 8
-  %25 = getelementptr inbounds i8, ptr %20, i64 8
-  store ptr %19, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %20, i64 16
-  store ptr null, ptr %26, align 8
-  %27 = load ptr, ptr %8, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 16
-  store ptr %20, ptr %28, align 8
-  store ptr %20, ptr %8, align 8
-  %29 = load ptr, ptr %25, align 8
-  store ptr %29, ptr %0, align 8
+23:                                               ; preds = %14
+  store i32 0, ptr %19, align 8
+  %24 = getelementptr inbounds i8, ptr %19, i64 8
+  store ptr %18, ptr %24, align 8
+  %25 = getelementptr inbounds i8, ptr %19, i64 16
+  store ptr null, ptr %25, align 8
+  %26 = load ptr, ptr %8, align 8
+  %27 = getelementptr inbounds i8, ptr %26, i64 16
+  store ptr %19, ptr %27, align 8
+  store ptr %19, ptr %8, align 8
+  %28 = load ptr, ptr %24, align 8
+  store ptr %28, ptr %0, align 8
   store i32 %spec.select, ptr %7, align 8
-  br label %30
+  br label %29
 
-30:                                               ; preds = %._crit_edge, %24
-  %31 = phi ptr [ %29, %24 ], [ %.pre, %._crit_edge ]
-  %32 = phi i32 [ %spec.select, %24 ], [ %12, %._crit_edge ]
-  %.044. = tail call i32 @llvm.smin.i32(i32 %.04453, i32 %32)
-  %33 = sext i32 %.044. to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %31, ptr align 1 %.04552, i64 %33, i1 false)
-  %34 = load ptr, ptr %0, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 %33
-  store ptr %35, ptr %0, align 8
-  %36 = load i32, ptr %7, align 8
-  %37 = sub nsw i32 %36, %.044.
-  store i32 %37, ptr %7, align 8
-  %38 = load ptr, ptr %8, align 8
-  %39 = load i32, ptr %38, align 8
-  %40 = add nsw i32 %39, %.044.
-  store i32 %40, ptr %38, align 8
-  %41 = sub nsw i32 %.04453, %.044.
-  %42 = getelementptr inbounds i8, ptr %.04552, i64 %33
-  %43 = icmp sgt i32 %41, 0
-  br i1 %43, label %11, label %.loopexit, !llvm.loop !6
+29:                                               ; preds = %._crit_edge, %23
+  %30 = phi ptr [ %28, %23 ], [ %.pre, %._crit_edge ]
+  %31 = phi i32 [ %spec.select, %23 ], [ %12, %._crit_edge ]
+  %.044. = tail call i32 @llvm.smin.i32(i32 %.04453, i32 %31)
+  %32 = sext i32 %.044. to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %30, ptr align 1 %.04552, i64 %32, i1 false)
+  %33 = load ptr, ptr %0, align 8
+  %34 = getelementptr inbounds i8, ptr %33, i64 %32
+  store ptr %34, ptr %0, align 8
+  %35 = load i32, ptr %7, align 8
+  %36 = sub nsw i32 %35, %.044.
+  store i32 %36, ptr %7, align 8
+  %37 = load ptr, ptr %8, align 8
+  %38 = load i32, ptr %37, align 8
+  %39 = add nsw i32 %38, %.044.
+  store i32 %39, ptr %37, align 8
+  %40 = sub nsw i32 %.04453, %.044.
+  %41 = getelementptr inbounds i8, ptr %.04552, i64 %32
+  %42 = icmp sgt i32 %40, 0
+  br i1 %42, label %11, label %.loopexit, !llvm.loop !6
 
-.loopexit:                                        ; preds = %30, %.preheader, %23, %9
-  %.0 = phi i16 [ %10, %9 ], [ 110, %23 ], [ 0, %.preheader ], [ 0, %30 ]
+.loopexit:                                        ; preds = %29, %.preheader, %22, %9
+  %.0 = phi i16 [ %10, %9 ], [ 110, %22 ], [ 0, %.preheader ], [ 0, %29 ]
   ret i16 %.0
 }
 

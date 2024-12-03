@@ -4489,7 +4489,7 @@ _ZNSt8__detail8_AdaptorISt26linear_congruential_engineImLm16807ELm0ELm2147483647
   br i1 %53, label %16, label %54, !llvm.loop !47
 
 54:                                               ; preds = %_ZNSt8__detail8_AdaptorISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEdEclEv.exit27
-  %55 = tail call double @log(double noundef %50) #19
+  %55 = tail call double @llvm.log.f64(double %50)
   %56 = fmul double %55, -2.000000e+00
   %57 = fdiv double %56, %50
   %58 = tail call double @sqrt(double noundef %57) #19
@@ -6704,6 +6704,9 @@ define internal void @_GLOBAL__sub_I_speech_recognition.cpp() #15 section ".text
   %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #19
   ret void
 }
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.log.f64(double) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #16

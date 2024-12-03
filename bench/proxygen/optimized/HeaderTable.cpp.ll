@@ -298,19 +298,13 @@ entry:
   %cmp.i.i.i.i = icmp ult i8 %2, 24
   %cond.i.i.i.i = select i1 %cmp.i.i.i.i, i64 %sub.i.i.i.i, i64 %1
   %add13.i.i.i = add i64 %cond.i.i.i.i, %conv.i.i
-  %cmp.i.i.i.i.i.i.i = icmp ugt i64 %add13.i.i.i, 4294967295
-  %3 = shl nuw i64 %add13.i.i.i, 32
-  %4 = or disjoint i64 %3, 1
-  %retval.sroa.0.0.insert.insert.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i, i64 2818, i64 %4
-  %ref.tmp11.sroa.21.0.extract.shift.i.i.i = lshr i64 %retval.sroa.0.0.insert.insert.i.i.i.i.i, 32
-  %ref.tmp11.sroa.21.0.extract.trunc.i.i.i = trunc nuw i64 %ref.tmp11.sroa.21.0.extract.shift.i.i.i to i32
-  %5 = and i64 %retval.sroa.0.0.insert.insert.i.i.i.i.i, 3
-  %cmp.i.i1.i.i = icmp eq i64 %5, 1
-  %6 = add i32 %ref.tmp11.sroa.21.0.extract.trunc.i.i.i, 32
-  %add.i = select i1 %cmp.i.i1.i.i, i32 %6, i32 31
+  %cmp.i.i.i.i.i.i.i = icmp ult i64 %add13.i.i.i, 4294967296
+  %ref.tmp11.sroa.21.0.extract.trunc.i.i.i = trunc i64 %add13.i.i.i to i32
+  %3 = add i32 %ref.tmp11.sroa.21.0.extract.trunc.i.i.i, 32
+  %add.i = select i1 %cmp.i.i.i.i.i.i.i, i32 %3, i32 31
   %capacity_ = getelementptr inbounds i8, ptr %this, i64 8
-  %7 = load i32, ptr %capacity_, align 8
-  %cmp = icmp ugt i32 %add.i, %7
+  %4 = load i32, ptr %capacity_, align 8
+  %cmp = icmp ugt i32 %add.i, %4
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -324,108 +318,96 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %bytes_ = getelementptr inbounds i8, ptr %this, i64 12
-  %8 = load i32, ptr %bytes_, align 4
-  %9 = load ptr, ptr %header, align 8
-  %call.i.i.i1 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #29
+  %5 = load i32, ptr %bytes_, align 4
+  %6 = load ptr, ptr %header, align 8
+  %call.i.i.i1 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #29
   %conv.i.i2 = and i64 %call.i.i.i1, 4294967295
-  %10 = load i64, ptr %size_.i.i.i.i, align 8
-  %11 = load i8, ptr %arrayidx.i.i.i.i, align 1
-  %conv.i.i.i.i5 = zext i8 %11 to i64
+  %7 = load i64, ptr %size_.i.i.i.i, align 8
+  %8 = load i8, ptr %arrayidx.i.i.i.i, align 1
+  %conv.i.i.i.i5 = zext i8 %8 to i64
   %sub.i.i.i.i6 = sub nsw i64 23, %conv.i.i.i.i5
-  %cmp.i.i.i.i7 = icmp ult i8 %11, 24
-  %cond.i.i.i.i8 = select i1 %cmp.i.i.i.i7, i64 %sub.i.i.i.i6, i64 %10
+  %cmp.i.i.i.i7 = icmp ult i8 %8, 24
+  %cond.i.i.i.i8 = select i1 %cmp.i.i.i.i7, i64 %sub.i.i.i.i6, i64 %7
   %add13.i.i.i9 = add i64 %cond.i.i.i.i8, %conv.i.i2
-  %cmp.i.i.i.i.i.i.i10 = icmp ugt i64 %add13.i.i.i9, 4294967295
-  %12 = shl nuw i64 %add13.i.i.i9, 32
-  %13 = or disjoint i64 %12, 1
-  %retval.sroa.0.0.insert.insert.i.i.i.i.i11 = select i1 %cmp.i.i.i.i.i.i.i10, i64 2818, i64 %13
-  %ref.tmp11.sroa.21.0.extract.shift.i.i.i12 = lshr i64 %retval.sroa.0.0.insert.insert.i.i.i.i.i11, 32
-  %ref.tmp11.sroa.21.0.extract.trunc.i.i.i13 = trunc nuw i64 %ref.tmp11.sroa.21.0.extract.shift.i.i.i12 to i32
-  %14 = and i64 %retval.sroa.0.0.insert.insert.i.i.i.i.i11, 3
-  %cmp.i.i1.i.i14 = icmp eq i64 %14, 1
-  %15 = add i32 %ref.tmp11.sroa.21.0.extract.trunc.i.i.i13, 32
-  %add.i15 = select i1 %cmp.i.i1.i.i14, i32 %15, i32 31
-  %add = add i32 %add.i15, %8
-  %16 = load i32, ptr %capacity_, align 8
-  %cmp4 = icmp ugt i32 %add, %16
+  %cmp.i.i.i.i.i.i.i10 = icmp ult i64 %add13.i.i.i9, 4294967296
+  %ref.tmp11.sroa.21.0.extract.trunc.i.i.i11 = trunc i64 %add13.i.i.i9 to i32
+  %9 = add i32 %ref.tmp11.sroa.21.0.extract.trunc.i.i.i11, 32
+  %add.i12 = select i1 %cmp.i.i.i.i.i.i.i10, i32 %9, i32 31
+  %add = add i32 %add.i12, %5
+  %10 = load i32, ptr %capacity_, align 8
+  %cmp4 = icmp ugt i32 %add, %10
   br i1 %cmp4, label %if.then5, label %if.end12
 
 if.then5:                                         ; preds = %if.end
-  %17 = load ptr, ptr %header, align 8
-  %call.i.i.i16 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %17) #29
-  %conv.i.i17 = and i64 %call.i.i.i16, 4294967295
-  %18 = load i64, ptr %size_.i.i.i.i, align 8
-  %19 = load i8, ptr %arrayidx.i.i.i.i, align 1
-  %conv.i.i.i.i20 = zext i8 %19 to i64
-  %sub.i.i.i.i21 = sub nsw i64 23, %conv.i.i.i.i20
-  %cmp.i.i.i.i22 = icmp ult i8 %19, 24
-  %cond.i.i.i.i23 = select i1 %cmp.i.i.i.i22, i64 %sub.i.i.i.i21, i64 %18
-  %add13.i.i.i24 = add i64 %cond.i.i.i.i23, %conv.i.i17
-  %cmp.i.i.i.i.i.i.i25 = icmp ugt i64 %add13.i.i.i24, 4294967295
-  %20 = shl nuw i64 %add13.i.i.i24, 32
-  %21 = or disjoint i64 %20, 1
-  %retval.sroa.0.0.insert.insert.i.i.i.i.i26 = select i1 %cmp.i.i.i.i.i.i.i25, i64 2818, i64 %21
-  %ref.tmp11.sroa.21.0.extract.shift.i.i.i27 = lshr i64 %retval.sroa.0.0.insert.insert.i.i.i.i.i26, 32
-  %ref.tmp11.sroa.21.0.extract.trunc.i.i.i28 = trunc nuw i64 %ref.tmp11.sroa.21.0.extract.shift.i.i.i27 to i32
-  %22 = and i64 %retval.sroa.0.0.insert.insert.i.i.i.i.i26, 3
-  %cmp.i.i1.i.i29 = icmp eq i64 %22, 1
-  %23 = add i32 %ref.tmp11.sroa.21.0.extract.trunc.i.i.i28, 32
-  %add.i30 = select i1 %cmp.i.i1.i.i29, i32 %23, i32 31
-  %24 = load i32, ptr %capacity_, align 8
+  %11 = load ptr, ptr %header, align 8
+  %call.i.i.i13 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %11) #29
+  %conv.i.i14 = and i64 %call.i.i.i13, 4294967295
+  %12 = load i64, ptr %size_.i.i.i.i, align 8
+  %13 = load i8, ptr %arrayidx.i.i.i.i, align 1
+  %conv.i.i.i.i17 = zext i8 %13 to i64
+  %sub.i.i.i.i18 = sub nsw i64 23, %conv.i.i.i.i17
+  %cmp.i.i.i.i19 = icmp ult i8 %13, 24
+  %cond.i.i.i.i20 = select i1 %cmp.i.i.i.i19, i64 %sub.i.i.i.i18, i64 %12
+  %add13.i.i.i21 = add i64 %cond.i.i.i.i20, %conv.i.i14
+  %cmp.i.i.i.i.i.i.i22 = icmp ult i64 %add13.i.i.i21, 4294967296
+  %ref.tmp11.sroa.21.0.extract.trunc.i.i.i23 = trunc i64 %add13.i.i.i21 to i32
+  %14 = add i32 %ref.tmp11.sroa.21.0.extract.trunc.i.i.i23, 32
+  %add.i24 = select i1 %cmp.i.i.i.i.i.i.i22, i32 %14, i32 31
+  %15 = load i32, ptr %capacity_, align 8
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
-  %25 = load ptr, ptr %vfn, align 8
-  %call8 = tail call noundef i32 %25(ptr noundef nonnull align 8 dereferenceable(80) %this, i32 noundef %add.i30, i32 noundef %24)
+  %16 = load ptr, ptr %vfn, align 8
+  %call8 = tail call noundef i32 %16(ptr noundef nonnull align 8 dereferenceable(80) %this, i32 noundef %add.i24, i32 noundef %15)
   %cmp9 = icmp eq i32 %call8, 0
   br i1 %cmp9, label %return, label %if.end12
 
 if.end12:                                         ; preds = %if.then5, %if.end
   %size_ = getelementptr inbounds i8, ptr %this, i64 40
-  %26 = load i32, ptr %size_, align 8
-  %conv = zext i32 %26 to i64
+  %17 = load i32, ptr %size_, align 8
+  %conv = zext i32 %17 to i64
   %table_.i = getelementptr inbounds i8, ptr %this, i64 16
   %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 24
-  %27 = load ptr, ptr %_M_finish.i.i, align 8
-  %28 = load ptr, ptr %table_.i, align 8
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %27 to i64
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %28 to i64
+  %18 = load ptr, ptr %_M_finish.i.i, align 8
+  %19 = load ptr, ptr %table_.i, align 8
+  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %18 to i64
+  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %19 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 5
   %cmp14 = icmp eq i64 %sub.ptr.div.i.i, %conv
   br i1 %cmp14, label %if.then15, label %if.end25
 
 if.then15:                                        ; preds = %if.end12
-  %conv17 = uitofp i32 %26 to double
+  %conv17 = uitofp i32 %17 to double
   %mul = fmul double %conv17, 1.500000e+00
-  %29 = tail call double @llvm.ceil.f64(double %mul)
-  %conv18 = fptoui double %29 to i32
-  %30 = load i32, ptr %capacity_, align 8
-  %shr.i = lshr i32 %30, 5
+  %20 = tail call double @llvm.ceil.f64(double %mul)
+  %conv18 = fptoui double %20 to i32
+  %21 = load i32, ptr %capacity_, align 8
+  %shr.i = lshr i32 %21, 5
   %.sroa.speculated = tail call i32 @llvm.umin.i32(i32 %shr.i, i32 %conv18)
   %vtable23 = load ptr, ptr %this, align 8
   %vfn24 = getelementptr inbounds i8, ptr %vtable23, i64 32
-  %31 = load ptr, ptr %vfn24, align 8
-  tail call void %31(ptr noundef nonnull align 8 dereferenceable(80) %this, i32 noundef %.sroa.speculated)
+  %22 = load ptr, ptr %vfn24, align 8
+  tail call void %22(ptr noundef nonnull align 8 dereferenceable(80) %this, i32 noundef %.sroa.speculated)
   %.pre = load ptr, ptr %_M_finish.i.i, align 8
-  %.pre49 = load ptr, ptr %table_.i, align 8
-  %.pre50 = ptrtoint ptr %.pre to i64
-  %.pre51 = ptrtoint ptr %.pre49 to i64
-  %.pre52 = sub i64 %.pre50, %.pre51
-  %.pre53 = ashr exact i64 %.pre52, 5
+  %.pre40 = load ptr, ptr %table_.i, align 8
+  %.pre41 = ptrtoint ptr %.pre to i64
+  %.pre42 = ptrtoint ptr %.pre40 to i64
+  %.pre43 = sub i64 %.pre41, %.pre42
+  %.pre44 = ashr exact i64 %.pre43, 5
   br label %if.end25
 
 if.end25:                                         ; preds = %if.then15, %if.end12
-  %sub.ptr.div.i.i.i.pre-phi = phi i64 [ %.pre53, %if.then15 ], [ %sub.ptr.div.i.i, %if.end12 ]
+  %sub.ptr.div.i.i.i.pre-phi = phi i64 [ %.pre44, %if.then15 ], [ %sub.ptr.div.i.i, %if.end12 ]
   %head_ = getelementptr inbounds i8, ptr %this, i64 44
-  %32 = load i32, ptr %head_, align 4
-  %add.i31 = add i32 %32, 1
-  %conv.i = zext i32 %add.i31 to i64
+  %23 = load i32, ptr %head_, align 4
+  %add.i25 = add i32 %23, 1
+  %conv.i = zext i32 %add.i25 to i64
   %rem.i = urem i64 %conv.i, %sub.ptr.div.i.i.i.pre-phi
   %conv2.i = trunc nuw i64 %rem.i to i32
   store i32 %conv2.i, ptr %head_, align 4
   %indexNames_ = getelementptr inbounds i8, ptr %this, i64 52
-  %33 = load i8, ptr %indexNames_, align 4
-  %tobool = trunc i8 %33 to i1
+  %24 = load i8, ptr %indexNames_, align 4
+  %tobool = trunc i8 %24 to i1
   br i1 %tobool, label %if.then28, label %if.end31
 
 if.then28:                                        ; preds = %if.end25
@@ -435,60 +417,54 @@ if.then28:                                        ; preds = %if.end25
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp2.i.i)
   store ptr %header, ptr %ref.tmp.i.i, align 8, !alias.scope !13, !noalias !16
   call void @_ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyIN8proxygen15HPACKHeaderNameENSt7__cxx114listIjSaIjEEEvvvSt17integral_constantIbLb1EEEEE15tryEmplaceValueIS5_JRKSt21piecewise_construct_tSt5tupleIJRKS5_EESI_IJEEEEESt4pairINS1_11F14ItemIterIPNS1_8F14ChunkIjEEEEbERKT_DpOT0_(ptr nonnull sret(%"struct.std::pair.27") align 8 %rv.i.i, ptr noundef nonnull align 8 dereferenceable(24) %names_, ptr noundef nonnull align 8 dereferenceable(8) %header, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2.i.i), !noalias !16
-  %34 = load ptr, ptr %rv.i.i, align 8, !noalias !16, !nonnull !19, !noundef !19
-  %35 = load ptr, ptr %names_, align 8, !noalias !16, !nonnull !19, !noundef !19
-  %36 = load i32, ptr %34, align 4, !noalias !16
-  %idx.ext8.i.i.i = zext i32 %36 to i64
+  %25 = load ptr, ptr %rv.i.i, align 8, !noalias !16, !nonnull !19, !noundef !19
+  %26 = load ptr, ptr %names_, align 8, !noalias !16, !nonnull !19, !noundef !19
+  %27 = load i32, ptr %25, align 4, !noalias !16
+  %idx.ext8.i.i.i = zext i32 %27 to i64
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %rv.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp2.i.i)
-  %second.i = getelementptr inbounds %"struct.std::pair.8", ptr %35, i64 %idx.ext8.i.i.i, i32 1
+  %second.i = getelementptr inbounds %"struct.std::pair.8", ptr %26, i64 %idx.ext8.i.i.i, i32 1
   %call5.i.i.i.i.i.i = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #28
   %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i, i64 16
-  %37 = load i32, ptr %head_, align 4
-  store i32 %37, ptr %_M_storage.i.i.i.i, align 4
+  %28 = load i32, ptr %head_, align 4
+  store i32 %28, ptr %_M_storage.i.i.i.i, align 4
   call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %second.i) #29
   %_M_size.i.i.i = getelementptr inbounds i8, ptr %second.i, i64 16
-  %38 = load i64, ptr %_M_size.i.i.i, align 8
-  %add.i.i.i = add i64 %38, 1
+  %29 = load i64, ptr %_M_size.i.i.i, align 8
+  %add.i.i.i = add i64 %29, 1
   store i64 %add.i.i.i, ptr %_M_size.i.i.i, align 8
   br label %if.end31
 
 if.end31:                                         ; preds = %if.then28, %if.end25
-  %39 = load ptr, ptr %header, align 8
-  %call.i.i.i32 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %39) #29
-  %conv.i.i33 = and i64 %call.i.i.i32, 4294967295
-  %40 = load i64, ptr %size_.i.i.i.i, align 8
-  %41 = load i8, ptr %arrayidx.i.i.i.i, align 1
-  %conv.i.i.i.i36 = zext i8 %41 to i64
-  %sub.i.i.i.i37 = sub nsw i64 23, %conv.i.i.i.i36
-  %cmp.i.i.i.i38 = icmp ult i8 %41, 24
-  %cond.i.i.i.i39 = select i1 %cmp.i.i.i.i38, i64 %sub.i.i.i.i37, i64 %40
-  %add13.i.i.i40 = add i64 %cond.i.i.i.i39, %conv.i.i33
-  %cmp.i.i.i.i.i.i.i41 = icmp ugt i64 %add13.i.i.i40, 4294967295
-  %42 = shl nuw i64 %add13.i.i.i40, 32
-  %43 = or disjoint i64 %42, 1
-  %retval.sroa.0.0.insert.insert.i.i.i.i.i42 = select i1 %cmp.i.i.i.i.i.i.i41, i64 2818, i64 %43
-  %ref.tmp11.sroa.21.0.extract.shift.i.i.i43 = lshr i64 %retval.sroa.0.0.insert.insert.i.i.i.i.i42, 32
-  %ref.tmp11.sroa.21.0.extract.trunc.i.i.i44 = trunc nuw i64 %ref.tmp11.sroa.21.0.extract.shift.i.i.i43 to i32
-  %44 = and i64 %retval.sroa.0.0.insert.insert.i.i.i.i.i42, 3
-  %cmp.i.i1.i.i45 = icmp eq i64 %44, 1
-  %45 = add i32 %ref.tmp11.sroa.21.0.extract.trunc.i.i.i44, 32
-  %add.i46 = select i1 %cmp.i.i1.i.i45, i32 %45, i32 31
-  %46 = load i32, ptr %bytes_, align 4
-  %add34 = add i32 %add.i46, %46
+  %30 = load ptr, ptr %header, align 8
+  %call.i.i.i26 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %30) #29
+  %conv.i.i27 = and i64 %call.i.i.i26, 4294967295
+  %31 = load i64, ptr %size_.i.i.i.i, align 8
+  %32 = load i8, ptr %arrayidx.i.i.i.i, align 1
+  %conv.i.i.i.i30 = zext i8 %32 to i64
+  %sub.i.i.i.i31 = sub nsw i64 23, %conv.i.i.i.i30
+  %cmp.i.i.i.i32 = icmp ult i8 %32, 24
+  %cond.i.i.i.i33 = select i1 %cmp.i.i.i.i32, i64 %sub.i.i.i.i31, i64 %31
+  %add13.i.i.i34 = add i64 %cond.i.i.i.i33, %conv.i.i27
+  %cmp.i.i.i.i.i.i.i35 = icmp ult i64 %add13.i.i.i34, 4294967296
+  %ref.tmp11.sroa.21.0.extract.trunc.i.i.i36 = trunc i64 %add13.i.i.i34 to i32
+  %33 = add i32 %ref.tmp11.sroa.21.0.extract.trunc.i.i.i36, 32
+  %add.i37 = select i1 %cmp.i.i.i.i.i.i.i35, i32 %33, i32 31
+  %34 = load i32, ptr %bytes_, align 4
+  %add34 = add i32 %add.i37, %34
   store i32 %add34, ptr %bytes_, align 4
-  %47 = load i32, ptr %head_, align 4
-  %conv36 = zext i32 %47 to i64
-  %48 = load ptr, ptr %table_.i, align 8
-  %add.ptr.i = getelementptr inbounds %"class.proxygen::HPACKHeader", ptr %48, i64 %conv36
+  %35 = load i32, ptr %head_, align 4
+  %conv36 = zext i32 %35 to i64
+  %36 = load ptr, ptr %table_.i, align 8
+  %add.ptr.i = getelementptr inbounds %"class.proxygen::HPACKHeader", ptr %36, i64 %conv36
   %call38 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN8proxygen11HPACKHeaderaSEOS0_(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(32) %header) #29
-  %49 = load i32, ptr %size_, align 8
-  %inc = add i32 %49, 1
+  %37 = load i32, ptr %size_, align 8
+  %inc = add i32 %37, 1
   store i32 %inc, ptr %size_, align 8
   %insertCount_ = getelementptr inbounds i8, ptr %this, i64 48
-  %50 = load i32, ptr %insertCount_, align 8
-  %inc40 = add i32 %50, 1
+  %38 = load i32, ptr %insertCount_, align 8
+  %inc40 = add i32 %38, 1
   store i32 %inc40, ptr %insertCount_, align 8
   br label %return
 
@@ -1572,22 +1548,16 @@ if.end39:                                         ; preds = %entry.if.end39_crit
   %cmp.i.i.i.i124 = icmp ult i8 %45, 24
   %cond.i.i.i.i = select i1 %cmp.i.i.i.i124, i64 %sub.i.i.i.i, i64 %44
   %add13.i.i.i = add i64 %cond.i.i.i.i, %conv.i.i
-  %cmp.i.i.i.i.i.i.i = icmp ugt i64 %add13.i.i.i, 4294967295
-  %46 = shl nuw i64 %add13.i.i.i, 32
-  %47 = or disjoint i64 %46, 1
-  %retval.sroa.0.0.insert.insert.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i, i64 2818, i64 %47
-  %ref.tmp11.sroa.21.0.extract.shift.i.i.i = lshr i64 %retval.sroa.0.0.insert.insert.i.i.i.i.i, 32
-  %ref.tmp11.sroa.21.0.extract.trunc.i.i.i = trunc nuw i64 %ref.tmp11.sroa.21.0.extract.shift.i.i.i to i32
-  %48 = and i64 %retval.sroa.0.0.insert.insert.i.i.i.i.i, 3
-  %cmp.i.i1.i.i = icmp eq i64 %48, 1
-  %49 = add i32 %ref.tmp11.sroa.21.0.extract.trunc.i.i.i, 32
-  %add.i125 = select i1 %cmp.i.i1.i.i, i32 %49, i32 31
+  %cmp.i.i.i.i.i.i.i = icmp ult i64 %add13.i.i.i, 4294967296
+  %ref.tmp11.sroa.21.0.extract.trunc.i.i.i = trunc i64 %add13.i.i.i to i32
+  %46 = add i32 %ref.tmp11.sroa.21.0.extract.trunc.i.i.i, 32
+  %add.i125 = select i1 %cmp.i.i.i.i.i.i.i, i32 %46, i32 31
   %bytes_ = getelementptr inbounds i8, ptr %this, i64 12
-  %50 = load i32, ptr %bytes_, align 4
-  %sub = sub i32 %50, %add.i125
+  %47 = load i32, ptr %bytes_, align 4
+  %sub = sub i32 %47, %add.i125
   store i32 %sub, ptr %bytes_, align 4
-  %51 = load i32, ptr %size_14.i, align 8
-  %dec = add i32 %51, -1
+  %48 = load i32, ptr %size_14.i, align 8
+  %dec = add i32 %48, -1
   store i32 %dec, ptr %size_14.i, align 8
   ret i32 %add.i125
 }
@@ -1975,44 +1945,38 @@ for.body:                                         ; preds = %entry, %for.body
   %cmp.i.i.i.i = icmp ult i8 %3, 24
   %cond.i.i.i.i = select i1 %cmp.i.i.i.i, i64 %sub.i.i.i.i, i64 %2
   %add13.i.i.i = add i64 %cond.i.i.i.i, %conv.i.i
-  %cmp.i.i.i.i.i.i.i = icmp ugt i64 %add13.i.i.i, 4294967295
-  %4 = shl nuw i64 %add13.i.i.i, 32
-  %5 = or disjoint i64 %4, 1
-  %retval.sroa.0.0.insert.insert.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i, i64 2818, i64 %5
-  %ref.tmp11.sroa.21.0.extract.shift.i.i.i = lshr i64 %retval.sroa.0.0.insert.insert.i.i.i.i.i, 32
-  %ref.tmp11.sroa.21.0.extract.trunc.i.i.i = trunc nuw i64 %ref.tmp11.sroa.21.0.extract.shift.i.i.i to i32
-  %6 = and i64 %retval.sroa.0.0.insert.insert.i.i.i.i.i, 3
-  %cmp.i.i1.i.i = icmp eq i64 %6, 1
-  %7 = add i32 %ref.tmp11.sroa.21.0.extract.trunc.i.i.i, 32
-  %add.i = select i1 %cmp.i.i1.i.i, i32 %7, i32 31
+  %cmp.i.i.i.i.i.i.i = icmp ult i64 %add13.i.i.i, 4294967296
+  %ref.tmp11.sroa.21.0.extract.trunc.i.i.i = trunc i64 %add13.i.i.i to i32
+  %4 = add i32 %ref.tmp11.sroa.21.0.extract.trunc.i.i.i, 32
+  %add.i = select i1 %cmp.i.i.i.i.i.i.i, i32 %4, i32 31
   %call8 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call6, i32 noundef %add.i)
   %call9 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call8, ptr noundef nonnull @.str.12)
-  %8 = load ptr, ptr %call3, align 8
-  %call1.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %call9, ptr noundef nonnull align 8 dereferenceable(32) %8)
+  %5 = load ptr, ptr %call3, align 8
+  %call1.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %call9, ptr noundef nonnull align 8 dereferenceable(32) %5)
   %call11 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call9, ptr noundef nonnull @.str.13)
   %value = getelementptr inbounds i8, ptr %call3, i64 8
-  %9 = load ptr, ptr %value, align 8
-  %10 = load i8, ptr %arrayidx.i.i.i.i, align 1
-  %cmp.i.i.i.i11 = icmp ult i8 %10, 64
-  %cond.i.i.i.i12 = select i1 %cmp.i.i.i.i11, ptr %value, ptr %9
-  %11 = load i64, ptr %size_.i.i.i.i, align 8
-  %conv.i.i.i = zext i8 %10 to i64
+  %6 = load ptr, ptr %value, align 8
+  %7 = load i8, ptr %arrayidx.i.i.i.i, align 1
+  %cmp.i.i.i.i11 = icmp ult i8 %7, 64
+  %cond.i.i.i.i12 = select i1 %cmp.i.i.i.i11, ptr %value, ptr %6
+  %8 = load i64, ptr %size_.i.i.i.i, align 8
+  %conv.i.i.i = zext i8 %7 to i64
   %sub.i.i.i = sub nsw i64 23, %conv.i.i.i
-  %cmp.i.i.i = icmp ult i8 %10, 24
-  %cond.i.i.i = select i1 %cmp.i.i.i, i64 %sub.i.i.i, i64 %11
+  %cmp.i.i.i = icmp ult i8 %7, 24
+  %cond.i.i.i = select i1 %cmp.i.i.i, i64 %sub.i.i.i, i64 %8
   %call2.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %call11, ptr noundef %cond.i.i.i.i12, i64 noundef %cond.i.i.i)
   %call13 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %call11, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
   %inc = add nuw nsw i64 %i.015, 1
-  %12 = load i32, ptr %size_.i, align 8
-  %conv = zext i32 %12 to i64
+  %9 = load i32, ptr %size_.i, align 8
+  %conv = zext i32 %9 to i64
   %cmp.not.not = icmp samesign ult i64 %i.015, %conv
   br i1 %cmp.not.not, label %for.body, label %for.end, !llvm.loop !31
 
 for.end:                                          ; preds = %for.body, %entry
   %call14 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull @.str.14)
   %bytes_.i = getelementptr inbounds i8, ptr %table, i64 12
-  %13 = load i32, ptr %bytes_.i, align 4
-  %call16 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call14, i32 noundef %13)
+  %10 = load i32, ptr %bytes_.i, align 4
+  %call16 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call14, i32 noundef %10)
   %call17 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %call16, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
   ret ptr %os
 }

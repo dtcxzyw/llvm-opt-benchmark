@@ -1261,23 +1261,22 @@ if.end79:                                         ; preds = %if.then70, %if.end6
 
 if.end89:                                         ; preds = %if.end79
   %call82 = call i32 @sp_count_bits(ptr noundef nonnull %modulus) #19
-  %add83 = add nsw i32 %call82, 1
   %dp = getelementptr inbounds i8, ptr %k, i64 8
   %11 = load i64, ptr %dp, align 8
-  %cmp85 = icmp slt i32 %call82, 63
-  %spec.select = select i1 %cmp85, i32 %add83, i32 64
+  %12 = call i32 @llvm.smin.i32(i32 %call82, i32 63)
+  %spec.select = add nsw i32 %12, 1
   %call88 = call i32 @sp_copy(ptr noundef nonnull %k, ptr noundef %0) #19
   %cmp90 = icmp eq i32 %call88, 0
   br i1 %cmp90, label %if.end94, label %if.end353
 
 if.end94:                                         ; preds = %if.end89
-  %12 = load i32, ptr %modulus, align 8
-  %add92 = add nsw i32 %12, 1
+  %13 = load i32, ptr %modulus, align 8
+  %add92 = add nsw i32 %13, 1
   %call93 = call i32 @sp_grow(ptr noundef %0, i32 noundef %add92) #19
   %cmp95213 = icmp eq i32 %call93, 0
   %cmp96214 = icmp sgt i32 %call82, 0
-  %13 = select i1 %cmp95213, i1 %cmp96214, i1 false
-  br i1 %13, label %for.body.lr.ph, label %for.end
+  %14 = select i1 %cmp95213, i1 %cmp96214, i1 false
+  br i1 %14, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %if.end94
   %dp99 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1299,202 +1298,202 @@ if.then98:                                        ; preds = %for.body
   %inc = add nsw i32 %j.0216, 1
   %idxprom = sext i32 %j.0216 to i64
   %arrayidx100 = getelementptr inbounds [129 x i64], ptr %dp99, i64 0, i64 %idxprom
-  %14 = load i64, ptr %arrayidx100, align 8
+  %15 = load i64, ptr %arrayidx100, align 8
   br label %if.end101
 
 if.end101:                                        ; preds = %if.then98, %for.body
   %j.1 = phi i32 [ %inc, %if.then98 ], [ %j.0216, %for.body ]
   %cnt.3 = phi i32 [ 64, %if.then98 ], [ %dec, %for.body ]
-  %v.2 = phi i64 [ %14, %if.then98 ], [ %v.1218, %for.body ]
-  %15 = trunc i64 %v.2 to i32
-  %conv = and i32 %15, 1
+  %v.2 = phi i64 [ %15, %if.then98 ], [ %v.1218, %for.body ]
+  %16 = trunc i64 %v.2 to i32
+  %conv = and i32 %16, 1
   %xor = xor i32 %conv, %swap.0219
-  %16 = load ptr, ptr %R, align 8
-  %17 = load ptr, ptr %arrayidx109, align 8
-  %18 = load i32, ptr %modulus, align 8
-  %call114 = call i32 @sp_cond_swap_ct_ex(ptr noundef %16, ptr noundef %17, i32 noundef %18, i32 noundef %xor, ptr noundef nonnull %tmp) #19
+  %17 = load ptr, ptr %R, align 8
+  %18 = load ptr, ptr %arrayidx109, align 8
+  %19 = load i32, ptr %modulus, align 8
+  %call114 = call i32 @sp_cond_swap_ct_ex(ptr noundef %17, ptr noundef %18, i32 noundef %19, i32 noundef %xor, ptr noundef nonnull %tmp) #19
   %cmp116 = icmp eq i32 %call114, 0
   br i1 %cmp116, label %if.end128, label %if.end353
 
 if.end128:                                        ; preds = %if.end101
-  %19 = load ptr, ptr %R, align 8
-  %y120 = getelementptr inbounds i8, ptr %19, i64 1040
-  %20 = load ptr, ptr %arrayidx109, align 8
-  %y123 = getelementptr inbounds i8, ptr %20, i64 1040
-  %21 = load i32, ptr %modulus, align 8
-  %call127 = call i32 @sp_cond_swap_ct_ex(ptr noundef nonnull %y120, ptr noundef nonnull %y123, i32 noundef %21, i32 noundef %xor, ptr noundef nonnull %tmp) #19
+  %20 = load ptr, ptr %R, align 8
+  %y120 = getelementptr inbounds i8, ptr %20, i64 1040
+  %21 = load ptr, ptr %arrayidx109, align 8
+  %y123 = getelementptr inbounds i8, ptr %21, i64 1040
+  %22 = load i32, ptr %modulus, align 8
+  %call127 = call i32 @sp_cond_swap_ct_ex(ptr noundef nonnull %y120, ptr noundef nonnull %y123, i32 noundef %22, i32 noundef %xor, ptr noundef nonnull %tmp) #19
   %cmp129 = icmp eq i32 %call127, 0
   br i1 %cmp129, label %if.end141, label %if.end353
 
 if.end141:                                        ; preds = %if.end128
-  %22 = load ptr, ptr %R, align 8
-  %z133 = getelementptr inbounds i8, ptr %22, i64 2080
-  %23 = load ptr, ptr %arrayidx109, align 8
-  %z136 = getelementptr inbounds i8, ptr %23, i64 2080
-  %24 = load i32, ptr %modulus, align 8
-  %call140 = call i32 @sp_cond_swap_ct_ex(ptr noundef nonnull %z133, ptr noundef nonnull %z136, i32 noundef %24, i32 noundef %xor, ptr noundef nonnull %tmp) #19
+  %23 = load ptr, ptr %R, align 8
+  %z133 = getelementptr inbounds i8, ptr %23, i64 2080
+  %24 = load ptr, ptr %arrayidx109, align 8
+  %z136 = getelementptr inbounds i8, ptr %24, i64 2080
+  %25 = load i32, ptr %modulus, align 8
+  %call140 = call i32 @sp_cond_swap_ct_ex(ptr noundef nonnull %z133, ptr noundef nonnull %z136, i32 noundef %25, i32 noundef %xor, ptr noundef nonnull %tmp) #19
   %cmp143 = icmp eq i32 %call140, 0
   br i1 %cmp143, label %if.end149, label %if.end353
 
 if.end149:                                        ; preds = %if.end141
-  %25 = load ptr, ptr %R, align 8
-  %call148 = call i32 @ecc_projective_dbl_point_safe(ptr noundef %25, ptr noundef %25, ptr poison, ptr noundef nonnull %modulus, i64 noundef %mp)
+  %26 = load ptr, ptr %R, align 8
+  %call148 = call i32 @ecc_projective_dbl_point_safe(ptr noundef %26, ptr noundef %26, ptr poison, ptr noundef nonnull %modulus, i64 noundef %mp)
   %cmp150 = icmp eq i32 %call148, 0
   br i1 %cmp150, label %for.inc, label %if.end353
 
 for.inc:                                          ; preds = %if.end149
-  %26 = load ptr, ptr %R, align 8
-  %27 = load ptr, ptr %arrayidx109, align 8
-  %call156 = call i32 @ecc_projective_add_point_safe(ptr noundef %26, ptr noundef %27, ptr noundef %26, ptr poison, ptr noundef nonnull %modulus, i64 noundef %mp, ptr noundef nonnull %infinity)
+  %27 = load ptr, ptr %R, align 8
+  %28 = load ptr, ptr %arrayidx109, align 8
+  %call156 = call i32 @ecc_projective_add_point_safe(ptr noundef %27, ptr noundef %28, ptr noundef %27, ptr poison, ptr noundef nonnull %modulus, i64 noundef %mp, ptr noundef nonnull %infinity)
   %inc158 = add nuw nsw i32 %i.0215, 1
   %cmp95 = icmp eq i32 %call156, 0
   %cmp96 = icmp slt i32 %i.0215, %call82
-  %28 = select i1 %cmp95, i1 %cmp96, i1 false
-  br i1 %28, label %for.body, label %for.end.loopexit, !llvm.loop !9
+  %29 = select i1 %cmp95, i1 %cmp96, i1 false
+  br i1 %29, label %for.body, label %for.end.loopexit, !llvm.loop !9
 
 for.end.loopexit:                                 ; preds = %for.inc
-  %29 = xor i32 %conv, 1
+  %30 = xor i32 %conv, 1
   br i1 %cmp95, label %if.end172, label %if.end353
 
 for.end:                                          ; preds = %if.end94
   br i1 %cmp95213, label %if.end172, label %if.end353
 
 if.end172:                                        ; preds = %for.end.loopexit, %for.end
-  %swap.0.lcssa238 = phi i32 [ %29, %for.end.loopexit ], [ 0, %for.end ]
-  %30 = load ptr, ptr %R, align 8
+  %swap.0.lcssa238 = phi i32 [ %30, %for.end.loopexit ], [ 0, %for.end ]
+  %31 = load ptr, ptr %R, align 8
   %arrayidx166 = getelementptr inbounds i8, ptr %R, i64 8
-  %31 = load ptr, ptr %arrayidx166, align 8
-  %32 = load i32, ptr %modulus, align 8
-  %call171 = call i32 @sp_cond_swap_ct_ex(ptr noundef %30, ptr noundef %31, i32 noundef %32, i32 noundef %swap.0.lcssa238, ptr noundef nonnull %tmp) #19
+  %32 = load ptr, ptr %arrayidx166, align 8
+  %33 = load i32, ptr %modulus, align 8
+  %call171 = call i32 @sp_cond_swap_ct_ex(ptr noundef %31, ptr noundef %32, i32 noundef %33, i32 noundef %swap.0.lcssa238, ptr noundef nonnull %tmp) #19
   %cmp173 = icmp eq i32 %call171, 0
   br i1 %cmp173, label %if.end185, label %if.end353
 
 if.end185:                                        ; preds = %if.end172
-  %33 = load ptr, ptr %R, align 8
-  %y177 = getelementptr inbounds i8, ptr %33, i64 1040
-  %34 = load ptr, ptr %arrayidx166, align 8
-  %y180 = getelementptr inbounds i8, ptr %34, i64 1040
-  %35 = load i32, ptr %modulus, align 8
-  %call184 = call i32 @sp_cond_swap_ct_ex(ptr noundef nonnull %y177, ptr noundef nonnull %y180, i32 noundef %35, i32 noundef %swap.0.lcssa238, ptr noundef nonnull %tmp) #19
+  %34 = load ptr, ptr %R, align 8
+  %y177 = getelementptr inbounds i8, ptr %34, i64 1040
+  %35 = load ptr, ptr %arrayidx166, align 8
+  %y180 = getelementptr inbounds i8, ptr %35, i64 1040
+  %36 = load i32, ptr %modulus, align 8
+  %call184 = call i32 @sp_cond_swap_ct_ex(ptr noundef nonnull %y177, ptr noundef nonnull %y180, i32 noundef %36, i32 noundef %swap.0.lcssa238, ptr noundef nonnull %tmp) #19
   %cmp186 = icmp eq i32 %call184, 0
   br i1 %cmp186, label %if.end198, label %if.end353
 
 if.end198:                                        ; preds = %if.end185
-  %36 = load ptr, ptr %R, align 8
-  %z190 = getelementptr inbounds i8, ptr %36, i64 2080
-  %37 = load ptr, ptr %arrayidx166, align 8
-  %z193 = getelementptr inbounds i8, ptr %37, i64 2080
-  %38 = load i32, ptr %modulus, align 8
-  %call197 = call i32 @sp_cond_swap_ct_ex(ptr noundef nonnull %z190, ptr noundef nonnull %z193, i32 noundef %38, i32 noundef %swap.0.lcssa238, ptr noundef nonnull %tmp) #19
+  %37 = load ptr, ptr %R, align 8
+  %z190 = getelementptr inbounds i8, ptr %37, i64 2080
+  %38 = load ptr, ptr %arrayidx166, align 8
+  %z193 = getelementptr inbounds i8, ptr %38, i64 2080
+  %39 = load i32, ptr %modulus, align 8
+  %call197 = call i32 @sp_cond_swap_ct_ex(ptr noundef nonnull %z190, ptr noundef nonnull %z193, i32 noundef %39, i32 noundef %swap.0.lcssa238, ptr noundef nonnull %tmp) #19
   %cmp199 = icmp eq i32 %call197, 0
   br i1 %cmp199, label %if.end208, label %if.end353
 
 if.end208:                                        ; preds = %if.end198
-  %39 = load ptr, ptr %arrayidx, align 8
-  %call207 = call i32 @sp_copy(ptr noundef %P, ptr noundef %39) #19
+  %40 = load ptr, ptr %arrayidx, align 8
+  %call207 = call i32 @sp_copy(ptr noundef %P, ptr noundef %40) #19
   %cmp209 = icmp eq i32 %call207, 0
   br i1 %cmp209, label %if.end218, label %if.end353
 
 if.end218:                                        ; preds = %if.end208
   %y212 = getelementptr inbounds i8, ptr %P, i64 1040
-  %40 = load ptr, ptr %arrayidx, align 8
-  %y215 = getelementptr inbounds i8, ptr %40, i64 1040
+  %41 = load ptr, ptr %arrayidx, align 8
+  %y215 = getelementptr inbounds i8, ptr %41, i64 1040
   %call217 = call i32 @sp_sub(ptr noundef nonnull %modulus, ptr noundef nonnull %y212, ptr noundef nonnull %y215) #19
   %cmp219 = icmp eq i32 %call217, 0
   br i1 %cmp219, label %if.end228, label %if.end353
 
 if.end228:                                        ; preds = %if.end218
   %z222 = getelementptr inbounds i8, ptr %P, i64 2080
-  %41 = load ptr, ptr %arrayidx, align 8
-  %z225 = getelementptr inbounds i8, ptr %41, i64 2080
+  %42 = load ptr, ptr %arrayidx, align 8
+  %z225 = getelementptr inbounds i8, ptr %42, i64 2080
   %call227 = call i32 @sp_copy(ptr noundef nonnull %z222, ptr noundef nonnull %z225) #19
   %cmp229 = icmp eq i32 %call227, 0
   br i1 %cmp229, label %if.then231, label %if.end353
 
 if.then231:                                       ; preds = %if.end228
   %dp232 = getelementptr inbounds i8, ptr %k, i64 8
-  %42 = load i64, ptr %dp232, align 8
-  %43 = load ptr, ptr %R, align 8
-  %44 = load ptr, ptr %arrayidx166, align 8
-  %45 = load i32, ptr %modulus, align 8
-  %46 = trunc i64 %42 to i32
-  %conv242 = and i32 %46, 1
-  %call244 = call i32 @sp_cond_swap_ct_ex(ptr noundef %43, ptr noundef %44, i32 noundef %45, i32 noundef %conv242, ptr noundef nonnull %tmp) #19
+  %43 = load i64, ptr %dp232, align 8
+  %44 = load ptr, ptr %R, align 8
+  %45 = load ptr, ptr %arrayidx166, align 8
+  %46 = load i32, ptr %modulus, align 8
+  %47 = trunc i64 %43 to i32
+  %conv242 = and i32 %47, 1
+  %call244 = call i32 @sp_cond_swap_ct_ex(ptr noundef %44, ptr noundef %45, i32 noundef %46, i32 noundef %conv242, ptr noundef nonnull %tmp) #19
   %cmp245 = icmp eq i32 %call244, 0
   br i1 %cmp245, label %if.end258, label %if.end353
 
 if.end258:                                        ; preds = %if.then231
-  %47 = load ptr, ptr %R, align 8
-  %y249 = getelementptr inbounds i8, ptr %47, i64 1040
-  %48 = load ptr, ptr %arrayidx166, align 8
-  %y252 = getelementptr inbounds i8, ptr %48, i64 1040
-  %49 = load i32, ptr %modulus, align 8
-  %call257 = call i32 @sp_cond_swap_ct_ex(ptr noundef nonnull %y249, ptr noundef nonnull %y252, i32 noundef %49, i32 noundef %conv242, ptr noundef nonnull %tmp) #19
+  %48 = load ptr, ptr %R, align 8
+  %y249 = getelementptr inbounds i8, ptr %48, i64 1040
+  %49 = load ptr, ptr %arrayidx166, align 8
+  %y252 = getelementptr inbounds i8, ptr %49, i64 1040
+  %50 = load i32, ptr %modulus, align 8
+  %call257 = call i32 @sp_cond_swap_ct_ex(ptr noundef nonnull %y249, ptr noundef nonnull %y252, i32 noundef %50, i32 noundef %conv242, ptr noundef nonnull %tmp) #19
   %cmp259 = icmp eq i32 %call257, 0
   br i1 %cmp259, label %if.end272, label %if.end353
 
 if.end272:                                        ; preds = %if.end258
-  %50 = load ptr, ptr %R, align 8
-  %z263 = getelementptr inbounds i8, ptr %50, i64 2080
-  %51 = load ptr, ptr %arrayidx166, align 8
-  %z266 = getelementptr inbounds i8, ptr %51, i64 2080
-  %52 = load i32, ptr %modulus, align 8
-  %call271 = call i32 @sp_cond_swap_ct_ex(ptr noundef nonnull %z263, ptr noundef nonnull %z266, i32 noundef %52, i32 noundef %conv242, ptr noundef nonnull %tmp) #19
+  %51 = load ptr, ptr %R, align 8
+  %z263 = getelementptr inbounds i8, ptr %51, i64 2080
+  %52 = load ptr, ptr %arrayidx166, align 8
+  %z266 = getelementptr inbounds i8, ptr %52, i64 2080
+  %53 = load i32, ptr %modulus, align 8
+  %call271 = call i32 @sp_cond_swap_ct_ex(ptr noundef nonnull %z263, ptr noundef nonnull %z266, i32 noundef %53, i32 noundef %conv242, ptr noundef nonnull %tmp) #19
   %cmp273 = icmp eq i32 %call271, 0
   br i1 %cmp273, label %if.end280, label %if.end353
 
 if.end280:                                        ; preds = %if.end272
-  %53 = load ptr, ptr %R, align 8
-  %54 = load ptr, ptr %arrayidx, align 8
-  %call279 = call i32 @ecc_projective_add_point_safe(ptr noundef %53, ptr noundef %54, ptr noundef %53, ptr poison, ptr noundef nonnull %modulus, i64 noundef %mp, ptr noundef nonnull %infinity)
+  %54 = load ptr, ptr %R, align 8
+  %55 = load ptr, ptr %arrayidx, align 8
+  %call279 = call i32 @ecc_projective_add_point_safe(ptr noundef %54, ptr noundef %55, ptr noundef %54, ptr poison, ptr noundef nonnull %modulus, i64 noundef %mp, ptr noundef nonnull %infinity)
   %cmp281 = icmp eq i32 %call279, 0
   br i1 %cmp281, label %if.end294, label %if.end353
 
 if.end294:                                        ; preds = %if.end280
-  %55 = load ptr, ptr %R, align 8
-  %56 = load ptr, ptr %arrayidx166, align 8
-  %57 = load i32, ptr %modulus, align 8
-  %call293 = call i32 @sp_cond_swap_ct_ex(ptr noundef %55, ptr noundef %56, i32 noundef %57, i32 noundef %conv242, ptr noundef nonnull %tmp) #19
+  %56 = load ptr, ptr %R, align 8
+  %57 = load ptr, ptr %arrayidx166, align 8
+  %58 = load i32, ptr %modulus, align 8
+  %call293 = call i32 @sp_cond_swap_ct_ex(ptr noundef %56, ptr noundef %57, i32 noundef %58, i32 noundef %conv242, ptr noundef nonnull %tmp) #19
   %cmp295 = icmp eq i32 %call293, 0
   br i1 %cmp295, label %if.end308, label %if.end353
 
 if.end308:                                        ; preds = %if.end294
-  %58 = load ptr, ptr %R, align 8
-  %y299 = getelementptr inbounds i8, ptr %58, i64 1040
-  %59 = load ptr, ptr %arrayidx166, align 8
-  %y302 = getelementptr inbounds i8, ptr %59, i64 1040
-  %60 = load i32, ptr %modulus, align 8
-  %call307 = call i32 @sp_cond_swap_ct_ex(ptr noundef nonnull %y299, ptr noundef nonnull %y302, i32 noundef %60, i32 noundef %conv242, ptr noundef nonnull %tmp) #19
+  %59 = load ptr, ptr %R, align 8
+  %y299 = getelementptr inbounds i8, ptr %59, i64 1040
+  %60 = load ptr, ptr %arrayidx166, align 8
+  %y302 = getelementptr inbounds i8, ptr %60, i64 1040
+  %61 = load i32, ptr %modulus, align 8
+  %call307 = call i32 @sp_cond_swap_ct_ex(ptr noundef nonnull %y299, ptr noundef nonnull %y302, i32 noundef %61, i32 noundef %conv242, ptr noundef nonnull %tmp) #19
   %cmp309 = icmp eq i32 %call307, 0
   br i1 %cmp309, label %if.end323, label %if.end353
 
 if.end323:                                        ; preds = %if.end308
-  %61 = load ptr, ptr %R, align 8
-  %z313 = getelementptr inbounds i8, ptr %61, i64 2080
-  %62 = load ptr, ptr %arrayidx166, align 8
-  %z316 = getelementptr inbounds i8, ptr %62, i64 2080
-  %63 = load i32, ptr %modulus, align 8
-  %call321 = call i32 @sp_cond_swap_ct_ex(ptr noundef nonnull %z313, ptr noundef nonnull %z316, i32 noundef %63, i32 noundef %conv242, ptr noundef nonnull %tmp) #19
+  %62 = load ptr, ptr %R, align 8
+  %z313 = getelementptr inbounds i8, ptr %62, i64 2080
+  %63 = load ptr, ptr %arrayidx166, align 8
+  %z316 = getelementptr inbounds i8, ptr %63, i64 2080
+  %64 = load i32, ptr %modulus, align 8
+  %call321 = call i32 @sp_cond_swap_ct_ex(ptr noundef nonnull %z313, ptr noundef nonnull %z316, i32 noundef %64, i32 noundef %conv242, ptr noundef nonnull %tmp) #19
   %cmp324 = icmp eq i32 %call321, 0
   br i1 %cmp324, label %if.end333, label %if.end353
 
 if.end333:                                        ; preds = %if.end323
-  %64 = load ptr, ptr %R, align 8
-  %call332 = call i32 @sp_copy(ptr noundef %64, ptr noundef nonnull %Q) #19
+  %65 = load ptr, ptr %R, align 8
+  %call332 = call i32 @sp_copy(ptr noundef %65, ptr noundef nonnull %Q) #19
   %cmp334 = icmp eq i32 %call332, 0
   br i1 %cmp334, label %if.end343, label %if.end353
 
 if.end343:                                        ; preds = %if.end333
-  %65 = load ptr, ptr %R, align 8
-  %y338 = getelementptr inbounds i8, ptr %65, i64 1040
+  %66 = load ptr, ptr %R, align 8
+  %y338 = getelementptr inbounds i8, ptr %66, i64 1040
   %y340 = getelementptr inbounds i8, ptr %Q, i64 1040
   %call342 = call i32 @sp_copy(ptr noundef nonnull %y338, ptr noundef nonnull %y340) #19
   %cmp344 = icmp eq i32 %call342, 0
   br i1 %cmp344, label %if.then346, label %if.end353
 
 if.then346:                                       ; preds = %if.end343
-  %66 = load ptr, ptr %R, align 8
-  %z348 = getelementptr inbounds i8, ptr %66, i64 2080
+  %67 = load ptr, ptr %R, align 8
+  %z348 = getelementptr inbounds i8, ptr %67, i64 2080
   %z350 = getelementptr inbounds i8, ptr %Q, i64 2080
   %call352 = call i32 @sp_copy(ptr noundef nonnull %z348, ptr noundef nonnull %z350) #19
   br label %if.end353
@@ -7168,6 +7167,9 @@ declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #17
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #18

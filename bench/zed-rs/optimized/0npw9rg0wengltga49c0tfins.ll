@@ -122083,8 +122083,7 @@ _ZN9assistant7context7Context8messages17hb0c38655e699584eE.exit: ; preds = %"_ZN
 
 116:                                              ; preds = %.loopexit222
   %117 = load i64, ptr %.sroa.015.0, align 8, !noundef !5
-  %.sroa.0.0.sroa.speculated.i = call noundef range(i64 1, 0) i64 @llvm.umax.i64(i64 %117, i64 1)
-  %118 = add i64 %.sroa.0.0.sroa.speculated.i, -1
+  %118 = call i64 @llvm.usub.sat.i64(i64 %117, i64 1)
   call void @llvm.experimental.noalias.scope.decl(metadata !33589)
   %119 = load i64, ptr %100, align 8, !alias.scope !33589, !noundef !5
   %120 = icmp ugt i64 %118, %119

@@ -189,10 +189,10 @@ define noundef i32 @distort_transform(ptr nocapture noundef readnone %0, ptr noc
   %18 = getelementptr inbounds i8, ptr %1, i64 148
   %19 = and i32 %8, 4
   %20 = icmp eq i32 %19, 0
-  br i1 %15, label %21, label %158
+  br i1 %15, label %21, label %154
 
 21:                                               ; preds = %13
-  br i1 %17, label %22, label %68
+  br i1 %17, label %22, label %64
 
 22:                                               ; preds = %21
   br i1 %20, label %.loopexit, label %23
@@ -222,471 +222,467 @@ define noundef i32 @distort_transform(ptr nocapture noundef readnone %0, ptr noc
   br label %41
 
 41:                                               ; preds = %41, %38
-  %42 = phi i64 [ 0, %38 ], [ %56, %41 ]
+  %42 = phi i64 [ 0, %38 ], [ %52, %41 ]
   %43 = shl i64 %42, 1
   %44 = or disjoint i64 %43, 16
   %45 = getelementptr inbounds float, ptr %2, i64 %43
   %46 = getelementptr inbounds float, ptr %2, i64 %44
   %47 = load <16 x float>, ptr %45, align 4, !tbaa !41
   %48 = load <16 x float>, ptr %46, align 4, !tbaa !41
-  %49 = shufflevector <16 x float> %47, <16 x float> poison, <8 x i32> <i32 0, i32 2, i32 4, i32 6, i32 8, i32 10, i32 12, i32 14>
-  %50 = shufflevector <16 x float> %48, <16 x float> poison, <8 x i32> <i32 0, i32 2, i32 4, i32 6, i32 8, i32 10, i32 12, i32 14>
-  %51 = shufflevector <16 x float> %47, <16 x float> poison, <8 x i32> <i32 1, i32 3, i32 5, i32 7, i32 9, i32 11, i32 13, i32 15>
-  %52 = shufflevector <16 x float> %48, <16 x float> poison, <8 x i32> <i32 1, i32 3, i32 5, i32 7, i32 9, i32 11, i32 13, i32 15>
-  %53 = getelementptr float, ptr %40, i64 %43
-  %54 = shufflevector <8 x float> %51, <8 x float> %49, <16 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11, i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
-  store <16 x float> %54, ptr %45, align 4, !tbaa !41
-  %55 = shufflevector <8 x float> %52, <8 x float> %50, <16 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11, i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
-  store <16 x float> %55, ptr %53, align 4, !tbaa !41
-  %56 = add nuw i64 %42, 16
-  %57 = icmp eq i64 %56, %39
-  br i1 %57, label %58, label %41, !llvm.loop !42
+  %49 = getelementptr float, ptr %40, i64 %43
+  %50 = shufflevector <16 x float> %47, <16 x float> poison, <16 x i32> <i32 1, i32 0, i32 3, i32 2, i32 5, i32 4, i32 7, i32 6, i32 9, i32 8, i32 11, i32 10, i32 13, i32 12, i32 15, i32 14>
+  store <16 x float> %50, ptr %45, align 4, !tbaa !41
+  %51 = shufflevector <16 x float> %48, <16 x float> poison, <16 x i32> <i32 1, i32 0, i32 3, i32 2, i32 5, i32 4, i32 7, i32 6, i32 9, i32 8, i32 11, i32 10, i32 13, i32 12, i32 15, i32 14>
+  store <16 x float> %51, ptr %49, align 4, !tbaa !41
+  %52 = add nuw i64 %42, 16
+  %53 = icmp eq i64 %52, %39
+  br i1 %53, label %54, label %41, !llvm.loop !42
 
-58:                                               ; preds = %41
-  %59 = shl nuw nsw i64 %39, 1
-  %60 = icmp eq i64 %26, %39
-  br i1 %60, label %.loopexit, label %.preheader
+54:                                               ; preds = %41
+  %55 = shl nuw nsw i64 %39, 1
+  %56 = icmp eq i64 %26, %39
+  br i1 %56, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %58, %28, %23
-  %.ph = phi i64 [ %59, %58 ], [ 0, %23 ], [ 0, %28 ]
-  br label %61
+.preheader:                                       ; preds = %54, %28, %23
+  %.ph = phi i64 [ %55, %54 ], [ 0, %23 ], [ 0, %28 ]
+  br label %57
 
-61:                                               ; preds = %.preheader, %61
-  %62 = phi i64 [ %66, %61 ], [ %.ph, %.preheader ]
-  %63 = getelementptr inbounds float, ptr %2, i64 %62
-  %64 = load <2 x float>, ptr %63, align 4, !tbaa !41
-  %65 = shufflevector <2 x float> %64, <2 x float> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x float> %65, ptr %63, align 4, !tbaa !41
-  %66 = add nuw i64 %62, 2
-  %67 = icmp ult i64 %66, %11
-  br i1 %67, label %61, label %.loopexit, !llvm.loop !45
+57:                                               ; preds = %.preheader, %57
+  %58 = phi i64 [ %62, %57 ], [ %.ph, %.preheader ]
+  %59 = getelementptr inbounds float, ptr %2, i64 %58
+  %60 = load <2 x float>, ptr %59, align 4, !tbaa !41
+  %61 = shufflevector <2 x float> %60, <2 x float> poison, <2 x i32> <i32 1, i32 0>
+  store <2 x float> %61, ptr %59, align 4, !tbaa !41
+  %62 = add nuw i64 %58, 2
+  %63 = icmp ult i64 %62, %11
+  br i1 %63, label %57, label %.loopexit, !llvm.loop !45
 
-68:                                               ; preds = %21
-  %69 = load i32, ptr %18, align 4, !tbaa !46
-  %70 = sitofp i32 %69 to float
-  %71 = add i64 %11, -1
-  %72 = lshr i64 %71, 1
-  %73 = add nuw nsw i64 %72, 1
-  br i1 %20, label %113, label %74
+64:                                               ; preds = %21
+  %65 = load i32, ptr %18, align 4, !tbaa !46
+  %66 = sitofp i32 %65 to float
+  %67 = add i64 %11, -1
+  %68 = lshr i64 %67, 1
+  %69 = add nuw nsw i64 %68, 1
+  br i1 %20, label %109, label %70
 
-74:                                               ; preds = %68
-  %75 = icmp ult i64 %11, 47
-  br i1 %75, label %.preheader37, label %76
+70:                                               ; preds = %64
+  %71 = icmp ult i64 %11, 47
+  br i1 %71, label %.preheader37, label %72
 
-.preheader37:                                     ; preds = %110, %76, %74
-  %.ph38 = phi i64 [ %111, %110 ], [ 0, %74 ], [ 0, %76 ]
-  br label %148
+.preheader37:                                     ; preds = %106, %72, %70
+  %.ph38 = phi i64 [ %107, %106 ], [ 0, %70 ], [ 0, %72 ]
+  br label %144
 
-76:                                               ; preds = %74
-  %77 = getelementptr i8, ptr %2, i64 4
-  %78 = shl i64 %72, 3
-  %79 = getelementptr i8, ptr %77, i64 %78
-  %80 = icmp ult ptr %79, %77
-  %81 = icmp ugt i64 %71, 4611686018427387903
-  %82 = getelementptr i8, ptr %2, i64 %78
-  %83 = icmp ult ptr %82, %2
-  %84 = or i1 %81, %83
-  %85 = or i1 %80, %84
-  br i1 %85, label %.preheader37, label %86
+72:                                               ; preds = %70
+  %73 = getelementptr i8, ptr %2, i64 4
+  %74 = shl i64 %68, 3
+  %75 = getelementptr i8, ptr %73, i64 %74
+  %76 = icmp ult ptr %75, %73
+  %77 = icmp ugt i64 %67, 4611686018427387903
+  %78 = getelementptr i8, ptr %2, i64 %74
+  %79 = icmp ult ptr %78, %2
+  %80 = or i1 %77, %79
+  %81 = or i1 %76, %80
+  br i1 %81, label %.preheader37, label %82
 
-86:                                               ; preds = %76
-  %87 = and i64 %73, 4611686018427387888
-  %88 = insertelement <8 x float> poison, float %70, i64 0
-  %89 = shufflevector <8 x float> %88, <8 x float> poison, <8 x i32> zeroinitializer
-  %90 = getelementptr i8, ptr %2, i64 64
-  br label %91
+82:                                               ; preds = %72
+  %83 = and i64 %69, 4611686018427387888
+  %84 = insertelement <8 x float> poison, float %66, i64 0
+  %85 = shufflevector <8 x float> %84, <8 x float> poison, <8 x i32> zeroinitializer
+  %86 = getelementptr i8, ptr %2, i64 64
+  br label %87
 
-91:                                               ; preds = %91, %86
-  %92 = phi i64 [ 0, %86 ], [ %108, %91 ]
-  %93 = shl i64 %92, 1
-  %94 = or disjoint i64 %93, 16
-  %95 = getelementptr inbounds float, ptr %2, i64 %93
-  %96 = getelementptr inbounds float, ptr %2, i64 %94
-  %97 = load <16 x float>, ptr %95, align 4, !tbaa !41
-  %98 = load <16 x float>, ptr %96, align 4, !tbaa !41
-  %99 = shufflevector <16 x float> %97, <16 x float> poison, <8 x i32> <i32 0, i32 2, i32 4, i32 6, i32 8, i32 10, i32 12, i32 14>
-  %100 = shufflevector <16 x float> %98, <16 x float> poison, <8 x i32> <i32 0, i32 2, i32 4, i32 6, i32 8, i32 10, i32 12, i32 14>
-  %101 = shufflevector <16 x float> %97, <16 x float> poison, <8 x i32> <i32 1, i32 3, i32 5, i32 7, i32 9, i32 11, i32 13, i32 15>
-  %102 = shufflevector <16 x float> %98, <16 x float> poison, <8 x i32> <i32 1, i32 3, i32 5, i32 7, i32 9, i32 11, i32 13, i32 15>
-  %103 = fsub reassoc nsz arcp contract afn <8 x float> %89, %101
-  %104 = fsub reassoc nsz arcp contract afn <8 x float> %89, %102
-  %105 = getelementptr float, ptr %90, i64 %93
-  %106 = shufflevector <8 x float> %103, <8 x float> %99, <16 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11, i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
-  store <16 x float> %106, ptr %95, align 4, !tbaa !41
-  %107 = shufflevector <8 x float> %104, <8 x float> %100, <16 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11, i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
-  store <16 x float> %107, ptr %105, align 4, !tbaa !41
-  %108 = add nuw i64 %92, 16
-  %109 = icmp eq i64 %108, %87
-  br i1 %109, label %110, label %91, !llvm.loop !47
+87:                                               ; preds = %87, %82
+  %88 = phi i64 [ 0, %82 ], [ %104, %87 ]
+  %89 = shl i64 %88, 1
+  %90 = or disjoint i64 %89, 16
+  %91 = getelementptr inbounds float, ptr %2, i64 %89
+  %92 = getelementptr inbounds float, ptr %2, i64 %90
+  %93 = load <16 x float>, ptr %91, align 4, !tbaa !41
+  %94 = load <16 x float>, ptr %92, align 4, !tbaa !41
+  %95 = shufflevector <16 x float> %93, <16 x float> poison, <8 x i32> <i32 0, i32 2, i32 4, i32 6, i32 8, i32 10, i32 12, i32 14>
+  %96 = shufflevector <16 x float> %94, <16 x float> poison, <8 x i32> <i32 0, i32 2, i32 4, i32 6, i32 8, i32 10, i32 12, i32 14>
+  %97 = shufflevector <16 x float> %93, <16 x float> poison, <8 x i32> <i32 1, i32 3, i32 5, i32 7, i32 9, i32 11, i32 13, i32 15>
+  %98 = shufflevector <16 x float> %94, <16 x float> poison, <8 x i32> <i32 1, i32 3, i32 5, i32 7, i32 9, i32 11, i32 13, i32 15>
+  %99 = fsub reassoc nsz arcp contract afn <8 x float> %85, %97
+  %100 = fsub reassoc nsz arcp contract afn <8 x float> %85, %98
+  %101 = getelementptr float, ptr %86, i64 %89
+  %102 = shufflevector <8 x float> %99, <8 x float> %95, <16 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11, i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
+  store <16 x float> %102, ptr %91, align 4, !tbaa !41
+  %103 = shufflevector <8 x float> %100, <8 x float> %96, <16 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11, i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
+  store <16 x float> %103, ptr %101, align 4, !tbaa !41
+  %104 = add nuw i64 %88, 16
+  %105 = icmp eq i64 %104, %83
+  br i1 %105, label %106, label %87, !llvm.loop !47
 
-110:                                              ; preds = %91
-  %111 = shl nuw nsw i64 %87, 1
-  %112 = icmp eq i64 %73, %87
-  br i1 %112, label %.loopexit, label %.preheader37
+106:                                              ; preds = %87
+  %107 = shl nuw nsw i64 %83, 1
+  %108 = icmp eq i64 %69, %83
+  br i1 %108, label %.loopexit, label %.preheader37
 
-113:                                              ; preds = %68
-  %114 = icmp ult i64 %11, 31
-  br i1 %114, label %.preheader34, label %115
+109:                                              ; preds = %64
+  %110 = icmp ult i64 %11, 31
+  br i1 %110, label %.preheader34, label %111
 
-115:                                              ; preds = %113
-  %116 = getelementptr i8, ptr %2, i64 4
-  %117 = shl i64 %71, 2
-  %118 = and i64 %117, -8
-  %119 = icmp ugt i64 %71, 4611686018427387903
-  %120 = getelementptr i8, ptr %116, i64 %118
-  %121 = icmp ult ptr %120, %116
-  %122 = or i1 %119, %121
-  br i1 %122, label %.preheader34, label %123
+111:                                              ; preds = %109
+  %112 = getelementptr i8, ptr %2, i64 4
+  %113 = shl i64 %67, 2
+  %114 = and i64 %113, -8
+  %115 = icmp ugt i64 %67, 4611686018427387903
+  %116 = getelementptr i8, ptr %112, i64 %114
+  %117 = icmp ult ptr %116, %112
+  %118 = or i1 %115, %117
+  br i1 %118, label %.preheader34, label %119
 
-123:                                              ; preds = %115
-  %124 = and i64 %73, 4611686018427387896
-  %125 = insertelement <8 x float> poison, float %70, i64 0
-  %126 = shufflevector <8 x float> %125, <8 x float> poison, <8 x i32> zeroinitializer
-  br label %127
+119:                                              ; preds = %111
+  %120 = and i64 %69, 4611686018427387896
+  %121 = insertelement <8 x float> poison, float %66, i64 0
+  %122 = shufflevector <8 x float> %121, <8 x float> poison, <8 x i32> zeroinitializer
+  br label %123
 
-127:                                              ; preds = %127, %123
-  %128 = phi i64 [ 0, %123 ], [ %134, %127 ]
-  %129 = phi <8 x i64> [ <i64 0, i64 2, i64 4, i64 6, i64 8, i64 10, i64 12, i64 14>, %123 ], [ %135, %127 ]
-  %130 = or disjoint <8 x i64> %129, splat (i64 1)
-  %131 = getelementptr inbounds float, ptr %2, <8 x i64> %130
-  %132 = tail call <8 x float> @llvm.masked.gather.v8f32.v8p0(<8 x ptr> %131, i32 4, <8 x i1> splat (i1 true), <8 x float> poison), !tbaa !41
-  %133 = fsub reassoc nsz arcp contract afn <8 x float> %126, %132
-  tail call void @llvm.masked.scatter.v8f32.v8p0(<8 x float> %133, <8 x ptr> %131, i32 4, <8 x i1> splat (i1 true)), !tbaa !41
-  %134 = add nuw i64 %128, 8
-  %135 = add <8 x i64> %129, splat (i64 16)
-  %136 = icmp eq i64 %134, %124
-  br i1 %136, label %137, label %127, !llvm.loop !48
+123:                                              ; preds = %123, %119
+  %124 = phi i64 [ 0, %119 ], [ %130, %123 ]
+  %125 = phi <8 x i64> [ <i64 0, i64 2, i64 4, i64 6, i64 8, i64 10, i64 12, i64 14>, %119 ], [ %131, %123 ]
+  %126 = or disjoint <8 x i64> %125, splat (i64 1)
+  %127 = getelementptr inbounds float, ptr %2, <8 x i64> %126
+  %128 = tail call <8 x float> @llvm.masked.gather.v8f32.v8p0(<8 x ptr> %127, i32 4, <8 x i1> splat (i1 true), <8 x float> poison), !tbaa !41
+  %129 = fsub reassoc nsz arcp contract afn <8 x float> %122, %128
+  tail call void @llvm.masked.scatter.v8f32.v8p0(<8 x float> %129, <8 x ptr> %127, i32 4, <8 x i1> splat (i1 true)), !tbaa !41
+  %130 = add nuw i64 %124, 8
+  %131 = add <8 x i64> %125, splat (i64 16)
+  %132 = icmp eq i64 %130, %120
+  br i1 %132, label %133, label %123, !llvm.loop !48
 
-137:                                              ; preds = %127
-  %138 = shl nuw nsw i64 %124, 1
-  %139 = icmp eq i64 %73, %124
-  br i1 %139, label %.loopexit, label %.preheader34
+133:                                              ; preds = %123
+  %134 = shl nuw nsw i64 %120, 1
+  %135 = icmp eq i64 %69, %120
+  br i1 %135, label %.loopexit, label %.preheader34
 
-.preheader34:                                     ; preds = %137, %115, %113
-  %.ph35 = phi i64 [ %138, %137 ], [ 0, %113 ], [ 0, %115 ]
-  br label %140
+.preheader34:                                     ; preds = %133, %111, %109
+  %.ph35 = phi i64 [ %134, %133 ], [ 0, %109 ], [ 0, %111 ]
+  br label %136
 
-140:                                              ; preds = %.preheader34, %140
-  %141 = phi i64 [ %146, %140 ], [ %.ph35, %.preheader34 ]
-  %142 = or disjoint i64 %141, 1
-  %143 = getelementptr inbounds float, ptr %2, i64 %142
-  %144 = load float, ptr %143, align 4, !tbaa !41
-  %145 = fsub reassoc nsz arcp contract afn float %70, %144
-  store float %145, ptr %143, align 4, !tbaa !41
-  %146 = add nuw i64 %141, 2
-  %147 = icmp ult i64 %146, %11
-  br i1 %147, label %140, label %.loopexit, !llvm.loop !49
+136:                                              ; preds = %.preheader34, %136
+  %137 = phi i64 [ %142, %136 ], [ %.ph35, %.preheader34 ]
+  %138 = or disjoint i64 %137, 1
+  %139 = getelementptr inbounds float, ptr %2, i64 %138
+  %140 = load float, ptr %139, align 4, !tbaa !41
+  %141 = fsub reassoc nsz arcp contract afn float %66, %140
+  store float %141, ptr %139, align 4, !tbaa !41
+  %142 = add nuw i64 %137, 2
+  %143 = icmp ult i64 %142, %11
+  br i1 %143, label %136, label %.loopexit, !llvm.loop !49
 
-148:                                              ; preds = %.preheader37, %148
-  %149 = phi i64 [ %156, %148 ], [ %.ph38, %.preheader37 ]
-  %150 = getelementptr inbounds float, ptr %2, i64 %149
-  %151 = load float, ptr %150, align 4, !tbaa !41
-  %152 = or disjoint i64 %149, 1
-  %153 = getelementptr inbounds float, ptr %2, i64 %152
-  %154 = load float, ptr %153, align 4, !tbaa !41
-  %155 = fsub reassoc nsz arcp contract afn float %70, %154
-  store float %155, ptr %150, align 4, !tbaa !41
-  store float %151, ptr %153, align 4, !tbaa !41
-  %156 = add nuw i64 %149, 2
-  %157 = icmp ult i64 %156, %11
-  br i1 %157, label %148, label %.loopexit, !llvm.loop !50
+144:                                              ; preds = %.preheader37, %144
+  %145 = phi i64 [ %152, %144 ], [ %.ph38, %.preheader37 ]
+  %146 = getelementptr inbounds float, ptr %2, i64 %145
+  %147 = load float, ptr %146, align 4, !tbaa !41
+  %148 = or disjoint i64 %145, 1
+  %149 = getelementptr inbounds float, ptr %2, i64 %148
+  %150 = load float, ptr %149, align 4, !tbaa !41
+  %151 = fsub reassoc nsz arcp contract afn float %66, %150
+  store float %151, ptr %146, align 4, !tbaa !41
+  store float %147, ptr %149, align 4, !tbaa !41
+  %152 = add nuw i64 %145, 2
+  %153 = icmp ult i64 %152, %11
+  br i1 %153, label %144, label %.loopexit, !llvm.loop !50
 
-158:                                              ; preds = %13
-  %159 = getelementptr inbounds i8, ptr %1, i64 144
-  %160 = load i32, ptr %159, align 8, !tbaa !51
-  %161 = sitofp i32 %160 to float
-  br i1 %17, label %162, label %260
+154:                                              ; preds = %13
+  %155 = getelementptr inbounds i8, ptr %1, i64 144
+  %156 = load i32, ptr %155, align 8, !tbaa !51
+  %157 = sitofp i32 %156 to float
+  br i1 %17, label %158, label %256
 
-162:                                              ; preds = %158
-  %163 = add i64 %11, -1
-  %164 = lshr i64 %163, 1
-  %165 = add nuw nsw i64 %164, 1
-  %166 = icmp ult i64 %11, 47
-  br i1 %20, label %205, label %167
+158:                                              ; preds = %154
+  %159 = add i64 %11, -1
+  %160 = lshr i64 %159, 1
+  %161 = add nuw nsw i64 %160, 1
+  %162 = icmp ult i64 %11, 47
+  br i1 %20, label %201, label %163
 
-167:                                              ; preds = %162
-  br i1 %166, label %.preheader43, label %168
+163:                                              ; preds = %158
+  br i1 %162, label %.preheader43, label %164
 
-.preheader43:                                     ; preds = %202, %168, %167
-  %.ph44 = phi i64 [ %203, %202 ], [ 0, %167 ], [ 0, %168 ]
-  br label %250
+.preheader43:                                     ; preds = %198, %164, %163
+  %.ph44 = phi i64 [ %199, %198 ], [ 0, %163 ], [ 0, %164 ]
+  br label %246
 
-168:                                              ; preds = %167
-  %169 = getelementptr i8, ptr %2, i64 4
-  %170 = shl i64 %164, 3
-  %171 = getelementptr i8, ptr %169, i64 %170
-  %172 = icmp ult ptr %171, %169
-  %173 = icmp ugt i64 %163, 4611686018427387903
-  %174 = getelementptr i8, ptr %2, i64 %170
-  %175 = icmp ult ptr %174, %2
-  %176 = or i1 %173, %175
-  %177 = or i1 %172, %176
-  br i1 %177, label %.preheader43, label %178
+164:                                              ; preds = %163
+  %165 = getelementptr i8, ptr %2, i64 4
+  %166 = shl i64 %160, 3
+  %167 = getelementptr i8, ptr %165, i64 %166
+  %168 = icmp ult ptr %167, %165
+  %169 = icmp ugt i64 %159, 4611686018427387903
+  %170 = getelementptr i8, ptr %2, i64 %166
+  %171 = icmp ult ptr %170, %2
+  %172 = or i1 %169, %171
+  %173 = or i1 %168, %172
+  br i1 %173, label %.preheader43, label %174
 
-178:                                              ; preds = %168
-  %179 = and i64 %165, 4611686018427387888
-  %180 = insertelement <8 x float> poison, float %161, i64 0
-  %181 = shufflevector <8 x float> %180, <8 x float> poison, <8 x i32> zeroinitializer
-  %182 = getelementptr i8, ptr %2, i64 64
-  br label %183
+174:                                              ; preds = %164
+  %175 = and i64 %161, 4611686018427387888
+  %176 = insertelement <8 x float> poison, float %157, i64 0
+  %177 = shufflevector <8 x float> %176, <8 x float> poison, <8 x i32> zeroinitializer
+  %178 = getelementptr i8, ptr %2, i64 64
+  br label %179
 
-183:                                              ; preds = %183, %178
-  %184 = phi i64 [ 0, %178 ], [ %200, %183 ]
-  %185 = shl i64 %184, 1
-  %186 = or disjoint i64 %185, 16
-  %187 = getelementptr inbounds float, ptr %2, i64 %185
-  %188 = getelementptr inbounds float, ptr %2, i64 %186
-  %189 = load <16 x float>, ptr %187, align 4, !tbaa !41
-  %190 = load <16 x float>, ptr %188, align 4, !tbaa !41
-  %191 = shufflevector <16 x float> %189, <16 x float> poison, <8 x i32> <i32 0, i32 2, i32 4, i32 6, i32 8, i32 10, i32 12, i32 14>
-  %192 = shufflevector <16 x float> %190, <16 x float> poison, <8 x i32> <i32 0, i32 2, i32 4, i32 6, i32 8, i32 10, i32 12, i32 14>
-  %193 = shufflevector <16 x float> %189, <16 x float> poison, <8 x i32> <i32 1, i32 3, i32 5, i32 7, i32 9, i32 11, i32 13, i32 15>
-  %194 = shufflevector <16 x float> %190, <16 x float> poison, <8 x i32> <i32 1, i32 3, i32 5, i32 7, i32 9, i32 11, i32 13, i32 15>
-  %195 = fsub reassoc nsz arcp contract afn <8 x float> %181, %191
-  %196 = fsub reassoc nsz arcp contract afn <8 x float> %181, %192
-  %197 = getelementptr float, ptr %182, i64 %185
-  %198 = shufflevector <8 x float> %193, <8 x float> %195, <16 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11, i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
-  store <16 x float> %198, ptr %187, align 4, !tbaa !41
-  %199 = shufflevector <8 x float> %194, <8 x float> %196, <16 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11, i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
-  store <16 x float> %199, ptr %197, align 4, !tbaa !41
-  %200 = add nuw i64 %184, 16
-  %201 = icmp eq i64 %200, %179
-  br i1 %201, label %202, label %183, !llvm.loop !52
+179:                                              ; preds = %179, %174
+  %180 = phi i64 [ 0, %174 ], [ %196, %179 ]
+  %181 = shl i64 %180, 1
+  %182 = or disjoint i64 %181, 16
+  %183 = getelementptr inbounds float, ptr %2, i64 %181
+  %184 = getelementptr inbounds float, ptr %2, i64 %182
+  %185 = load <16 x float>, ptr %183, align 4, !tbaa !41
+  %186 = load <16 x float>, ptr %184, align 4, !tbaa !41
+  %187 = shufflevector <16 x float> %185, <16 x float> poison, <8 x i32> <i32 0, i32 2, i32 4, i32 6, i32 8, i32 10, i32 12, i32 14>
+  %188 = shufflevector <16 x float> %186, <16 x float> poison, <8 x i32> <i32 0, i32 2, i32 4, i32 6, i32 8, i32 10, i32 12, i32 14>
+  %189 = shufflevector <16 x float> %185, <16 x float> poison, <8 x i32> <i32 1, i32 3, i32 5, i32 7, i32 9, i32 11, i32 13, i32 15>
+  %190 = shufflevector <16 x float> %186, <16 x float> poison, <8 x i32> <i32 1, i32 3, i32 5, i32 7, i32 9, i32 11, i32 13, i32 15>
+  %191 = fsub reassoc nsz arcp contract afn <8 x float> %177, %187
+  %192 = fsub reassoc nsz arcp contract afn <8 x float> %177, %188
+  %193 = getelementptr float, ptr %178, i64 %181
+  %194 = shufflevector <8 x float> %189, <8 x float> %191, <16 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11, i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
+  store <16 x float> %194, ptr %183, align 4, !tbaa !41
+  %195 = shufflevector <8 x float> %190, <8 x float> %192, <16 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11, i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
+  store <16 x float> %195, ptr %193, align 4, !tbaa !41
+  %196 = add nuw i64 %180, 16
+  %197 = icmp eq i64 %196, %175
+  br i1 %197, label %198, label %179, !llvm.loop !52
 
-202:                                              ; preds = %183
-  %203 = shl nuw nsw i64 %179, 1
-  %204 = icmp eq i64 %165, %179
-  br i1 %204, label %.loopexit, label %.preheader43
+198:                                              ; preds = %179
+  %199 = shl nuw nsw i64 %175, 1
+  %200 = icmp eq i64 %161, %175
+  br i1 %200, label %.loopexit, label %.preheader43
 
-205:                                              ; preds = %162
-  br i1 %166, label %.preheader40, label %206
+201:                                              ; preds = %158
+  br i1 %162, label %.preheader40, label %202
 
-206:                                              ; preds = %205
-  %207 = getelementptr i8, ptr %2, i64 4
-  %208 = shl i64 %164, 3
-  %209 = getelementptr i8, ptr %207, i64 %208
-  %210 = icmp ult ptr %209, %207
-  %211 = icmp ugt i64 %163, 4611686018427387903
-  %212 = getelementptr i8, ptr %2, i64 %208
-  %213 = icmp ult ptr %212, %2
-  %214 = or i1 %211, %213
-  %215 = or i1 %210, %214
-  br i1 %215, label %.preheader40, label %216
+202:                                              ; preds = %201
+  %203 = getelementptr i8, ptr %2, i64 4
+  %204 = shl i64 %160, 3
+  %205 = getelementptr i8, ptr %203, i64 %204
+  %206 = icmp ult ptr %205, %203
+  %207 = icmp ugt i64 %159, 4611686018427387903
+  %208 = getelementptr i8, ptr %2, i64 %204
+  %209 = icmp ult ptr %208, %2
+  %210 = or i1 %207, %209
+  %211 = or i1 %206, %210
+  br i1 %211, label %.preheader40, label %212
 
-216:                                              ; preds = %206
-  %217 = and i64 %165, 4611686018427387888
-  %218 = insertelement <8 x float> poison, float %161, i64 0
-  %219 = shufflevector <8 x float> %218, <8 x float> poison, <8 x i32> zeroinitializer
-  %220 = getelementptr i8, ptr %2, i64 64
-  br label %221
+212:                                              ; preds = %202
+  %213 = and i64 %161, 4611686018427387888
+  %214 = insertelement <8 x float> poison, float %157, i64 0
+  %215 = shufflevector <8 x float> %214, <8 x float> poison, <8 x i32> zeroinitializer
+  %216 = getelementptr i8, ptr %2, i64 64
+  br label %217
 
-221:                                              ; preds = %221, %216
-  %222 = phi i64 [ 0, %216 ], [ %238, %221 ]
-  %223 = shl i64 %222, 1
-  %224 = or disjoint i64 %223, 16
-  %225 = getelementptr inbounds float, ptr %2, i64 %223
-  %226 = getelementptr inbounds float, ptr %2, i64 %224
-  %227 = load <16 x float>, ptr %225, align 4, !tbaa !41
-  %228 = load <16 x float>, ptr %226, align 4, !tbaa !41
-  %229 = shufflevector <16 x float> %227, <16 x float> poison, <8 x i32> <i32 0, i32 2, i32 4, i32 6, i32 8, i32 10, i32 12, i32 14>
-  %230 = shufflevector <16 x float> %228, <16 x float> poison, <8 x i32> <i32 0, i32 2, i32 4, i32 6, i32 8, i32 10, i32 12, i32 14>
-  %231 = shufflevector <16 x float> %227, <16 x float> poison, <8 x i32> <i32 1, i32 3, i32 5, i32 7, i32 9, i32 11, i32 13, i32 15>
-  %232 = shufflevector <16 x float> %228, <16 x float> poison, <8 x i32> <i32 1, i32 3, i32 5, i32 7, i32 9, i32 11, i32 13, i32 15>
-  %233 = fsub reassoc nsz arcp contract afn <8 x float> %219, %229
-  %234 = fsub reassoc nsz arcp contract afn <8 x float> %219, %230
-  %235 = getelementptr float, ptr %220, i64 %223
-  %236 = shufflevector <8 x float> %233, <8 x float> %231, <16 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11, i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
-  store <16 x float> %236, ptr %225, align 4, !tbaa !41
-  %237 = shufflevector <8 x float> %234, <8 x float> %232, <16 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11, i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
-  store <16 x float> %237, ptr %235, align 4, !tbaa !41
-  %238 = add nuw i64 %222, 16
-  %239 = icmp eq i64 %238, %217
-  br i1 %239, label %240, label %221, !llvm.loop !53
+217:                                              ; preds = %217, %212
+  %218 = phi i64 [ 0, %212 ], [ %234, %217 ]
+  %219 = shl i64 %218, 1
+  %220 = or disjoint i64 %219, 16
+  %221 = getelementptr inbounds float, ptr %2, i64 %219
+  %222 = getelementptr inbounds float, ptr %2, i64 %220
+  %223 = load <16 x float>, ptr %221, align 4, !tbaa !41
+  %224 = load <16 x float>, ptr %222, align 4, !tbaa !41
+  %225 = shufflevector <16 x float> %223, <16 x float> poison, <8 x i32> <i32 0, i32 2, i32 4, i32 6, i32 8, i32 10, i32 12, i32 14>
+  %226 = shufflevector <16 x float> %224, <16 x float> poison, <8 x i32> <i32 0, i32 2, i32 4, i32 6, i32 8, i32 10, i32 12, i32 14>
+  %227 = shufflevector <16 x float> %223, <16 x float> poison, <8 x i32> <i32 1, i32 3, i32 5, i32 7, i32 9, i32 11, i32 13, i32 15>
+  %228 = shufflevector <16 x float> %224, <16 x float> poison, <8 x i32> <i32 1, i32 3, i32 5, i32 7, i32 9, i32 11, i32 13, i32 15>
+  %229 = fsub reassoc nsz arcp contract afn <8 x float> %215, %225
+  %230 = fsub reassoc nsz arcp contract afn <8 x float> %215, %226
+  %231 = getelementptr float, ptr %216, i64 %219
+  %232 = shufflevector <8 x float> %229, <8 x float> %227, <16 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11, i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
+  store <16 x float> %232, ptr %221, align 4, !tbaa !41
+  %233 = shufflevector <8 x float> %230, <8 x float> %228, <16 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11, i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
+  store <16 x float> %233, ptr %231, align 4, !tbaa !41
+  %234 = add nuw i64 %218, 16
+  %235 = icmp eq i64 %234, %213
+  br i1 %235, label %236, label %217, !llvm.loop !53
 
-240:                                              ; preds = %221
-  %241 = shl nuw nsw i64 %217, 1
-  %242 = icmp eq i64 %165, %217
-  br i1 %242, label %.loopexit, label %.preheader40
+236:                                              ; preds = %217
+  %237 = shl nuw nsw i64 %213, 1
+  %238 = icmp eq i64 %161, %213
+  br i1 %238, label %.loopexit, label %.preheader40
 
-.preheader40:                                     ; preds = %240, %206, %205
-  %.ph41 = phi i64 [ %241, %240 ], [ 0, %205 ], [ 0, %206 ]
-  br label %243
+.preheader40:                                     ; preds = %236, %202, %201
+  %.ph41 = phi i64 [ %237, %236 ], [ 0, %201 ], [ 0, %202 ]
+  br label %239
 
-243:                                              ; preds = %.preheader40, %243
-  %244 = phi i64 [ %248, %243 ], [ %.ph41, %.preheader40 ]
-  %245 = getelementptr inbounds float, ptr %2, i64 %244
-  %246 = load float, ptr %245, align 4, !tbaa !41
-  %247 = fsub reassoc nsz arcp contract afn float %161, %246
-  store float %247, ptr %245, align 4, !tbaa !41
-  %248 = add nuw i64 %244, 2
-  %249 = icmp ult i64 %248, %11
-  br i1 %249, label %243, label %.loopexit, !llvm.loop !54
+239:                                              ; preds = %.preheader40, %239
+  %240 = phi i64 [ %244, %239 ], [ %.ph41, %.preheader40 ]
+  %241 = getelementptr inbounds float, ptr %2, i64 %240
+  %242 = load float, ptr %241, align 4, !tbaa !41
+  %243 = fsub reassoc nsz arcp contract afn float %157, %242
+  store float %243, ptr %241, align 4, !tbaa !41
+  %244 = add nuw i64 %240, 2
+  %245 = icmp ult i64 %244, %11
+  br i1 %245, label %239, label %.loopexit, !llvm.loop !54
 
-250:                                              ; preds = %.preheader43, %250
-  %251 = phi i64 [ %258, %250 ], [ %.ph44, %.preheader43 ]
-  %252 = getelementptr inbounds float, ptr %2, i64 %251
-  %253 = load float, ptr %252, align 4, !tbaa !41
-  %254 = or disjoint i64 %251, 1
-  %255 = getelementptr inbounds float, ptr %2, i64 %254
-  %256 = load float, ptr %255, align 4, !tbaa !41
-  %257 = fsub reassoc nsz arcp contract afn float %161, %253
-  store float %256, ptr %252, align 4, !tbaa !41
-  store float %257, ptr %255, align 4, !tbaa !41
-  %258 = add nuw i64 %251, 2
-  %259 = icmp ult i64 %258, %11
-  br i1 %259, label %250, label %.loopexit, !llvm.loop !55
+246:                                              ; preds = %.preheader43, %246
+  %247 = phi i64 [ %254, %246 ], [ %.ph44, %.preheader43 ]
+  %248 = getelementptr inbounds float, ptr %2, i64 %247
+  %249 = load float, ptr %248, align 4, !tbaa !41
+  %250 = or disjoint i64 %247, 1
+  %251 = getelementptr inbounds float, ptr %2, i64 %250
+  %252 = load float, ptr %251, align 4, !tbaa !41
+  %253 = fsub reassoc nsz arcp contract afn float %157, %249
+  store float %252, ptr %248, align 4, !tbaa !41
+  store float %253, ptr %251, align 4, !tbaa !41
+  %254 = add nuw i64 %247, 2
+  %255 = icmp ult i64 %254, %11
+  br i1 %255, label %246, label %.loopexit, !llvm.loop !55
 
-260:                                              ; preds = %158
-  %261 = load i32, ptr %18, align 4, !tbaa !46
-  %262 = sitofp i32 %261 to float
-  %263 = add i64 %11, -1
-  %264 = lshr i64 %263, 1
-  %265 = add nuw nsw i64 %264, 1
-  %266 = icmp ult i64 %11, 31
-  br i1 %20, label %313, label %267
+256:                                              ; preds = %154
+  %257 = load i32, ptr %18, align 4, !tbaa !46
+  %258 = sitofp i32 %257 to float
+  %259 = add i64 %11, -1
+  %260 = lshr i64 %259, 1
+  %261 = add nuw nsw i64 %260, 1
+  %262 = icmp ult i64 %11, 31
+  br i1 %20, label %309, label %263
 
-267:                                              ; preds = %260
-  br i1 %266, label %309, label %268
+263:                                              ; preds = %256
+  br i1 %262, label %305, label %264
 
-268:                                              ; preds = %267
-  %269 = getelementptr i8, ptr %2, i64 4
-  %270 = shl i64 %264, 3
-  %271 = getelementptr i8, ptr %269, i64 %270
-  %272 = icmp ult ptr %271, %269
-  %273 = icmp ugt i64 %263, 4611686018427387903
-  %274 = getelementptr i8, ptr %2, i64 %270
-  %275 = icmp ult ptr %274, %2
-  %276 = or i1 %273, %275
-  %277 = or i1 %272, %276
-  br i1 %277, label %309, label %278
+264:                                              ; preds = %263
+  %265 = getelementptr i8, ptr %2, i64 4
+  %266 = shl i64 %260, 3
+  %267 = getelementptr i8, ptr %265, i64 %266
+  %268 = icmp ult ptr %267, %265
+  %269 = icmp ugt i64 %259, 4611686018427387903
+  %270 = getelementptr i8, ptr %2, i64 %266
+  %271 = icmp ult ptr %270, %2
+  %272 = or i1 %269, %271
+  %273 = or i1 %268, %272
+  br i1 %273, label %305, label %274
 
-278:                                              ; preds = %268
-  %279 = and i64 %265, 4611686018427387888
-  %280 = insertelement <8 x float> poison, float %161, i64 0
-  %281 = shufflevector <8 x float> %280, <8 x float> poison, <8 x i32> zeroinitializer
-  %282 = insertelement <8 x float> poison, float %262, i64 0
-  %283 = shufflevector <8 x float> %282, <8 x float> poison, <8 x i32> zeroinitializer
-  %284 = getelementptr i8, ptr %2, i64 64
-  br label %285
+274:                                              ; preds = %264
+  %275 = and i64 %261, 4611686018427387888
+  %276 = insertelement <8 x float> poison, float %157, i64 0
+  %277 = shufflevector <8 x float> %276, <8 x float> poison, <8 x i32> zeroinitializer
+  %278 = insertelement <8 x float> poison, float %258, i64 0
+  %279 = shufflevector <8 x float> %278, <8 x float> poison, <8 x i32> zeroinitializer
+  %280 = getelementptr i8, ptr %2, i64 64
+  br label %281
 
-285:                                              ; preds = %285, %278
-  %286 = phi i64 [ 0, %278 ], [ %304, %285 ]
-  %287 = shl i64 %286, 1
-  %288 = or disjoint i64 %287, 16
-  %289 = getelementptr inbounds float, ptr %2, i64 %287
-  %290 = getelementptr inbounds float, ptr %2, i64 %288
-  %291 = load <16 x float>, ptr %289, align 4, !tbaa !41
-  %292 = load <16 x float>, ptr %290, align 4, !tbaa !41
-  %293 = shufflevector <16 x float> %291, <16 x float> poison, <8 x i32> <i32 0, i32 2, i32 4, i32 6, i32 8, i32 10, i32 12, i32 14>
-  %294 = shufflevector <16 x float> %292, <16 x float> poison, <8 x i32> <i32 0, i32 2, i32 4, i32 6, i32 8, i32 10, i32 12, i32 14>
-  %295 = shufflevector <16 x float> %291, <16 x float> poison, <8 x i32> <i32 1, i32 3, i32 5, i32 7, i32 9, i32 11, i32 13, i32 15>
-  %296 = shufflevector <16 x float> %292, <16 x float> poison, <8 x i32> <i32 1, i32 3, i32 5, i32 7, i32 9, i32 11, i32 13, i32 15>
-  %297 = fsub reassoc nsz arcp contract afn <8 x float> %281, %293
-  %298 = fsub reassoc nsz arcp contract afn <8 x float> %281, %294
-  %299 = fsub reassoc nsz arcp contract afn <8 x float> %283, %295
-  %300 = fsub reassoc nsz arcp contract afn <8 x float> %283, %296
-  %301 = getelementptr float, ptr %284, i64 %287
-  %302 = shufflevector <8 x float> %299, <8 x float> %297, <16 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11, i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
-  store <16 x float> %302, ptr %289, align 4, !tbaa !41
-  %303 = shufflevector <8 x float> %300, <8 x float> %298, <16 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11, i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
-  store <16 x float> %303, ptr %301, align 4, !tbaa !41
-  %304 = add nuw i64 %286, 16
-  %305 = icmp eq i64 %304, %279
-  br i1 %305, label %306, label %285, !llvm.loop !56
+281:                                              ; preds = %281, %274
+  %282 = phi i64 [ 0, %274 ], [ %300, %281 ]
+  %283 = shl i64 %282, 1
+  %284 = or disjoint i64 %283, 16
+  %285 = getelementptr inbounds float, ptr %2, i64 %283
+  %286 = getelementptr inbounds float, ptr %2, i64 %284
+  %287 = load <16 x float>, ptr %285, align 4, !tbaa !41
+  %288 = load <16 x float>, ptr %286, align 4, !tbaa !41
+  %289 = shufflevector <16 x float> %287, <16 x float> poison, <8 x i32> <i32 0, i32 2, i32 4, i32 6, i32 8, i32 10, i32 12, i32 14>
+  %290 = shufflevector <16 x float> %288, <16 x float> poison, <8 x i32> <i32 0, i32 2, i32 4, i32 6, i32 8, i32 10, i32 12, i32 14>
+  %291 = shufflevector <16 x float> %287, <16 x float> poison, <8 x i32> <i32 1, i32 3, i32 5, i32 7, i32 9, i32 11, i32 13, i32 15>
+  %292 = shufflevector <16 x float> %288, <16 x float> poison, <8 x i32> <i32 1, i32 3, i32 5, i32 7, i32 9, i32 11, i32 13, i32 15>
+  %293 = fsub reassoc nsz arcp contract afn <8 x float> %277, %289
+  %294 = fsub reassoc nsz arcp contract afn <8 x float> %277, %290
+  %295 = fsub reassoc nsz arcp contract afn <8 x float> %279, %291
+  %296 = fsub reassoc nsz arcp contract afn <8 x float> %279, %292
+  %297 = getelementptr float, ptr %280, i64 %283
+  %298 = shufflevector <8 x float> %295, <8 x float> %293, <16 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11, i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
+  store <16 x float> %298, ptr %285, align 4, !tbaa !41
+  %299 = shufflevector <8 x float> %296, <8 x float> %294, <16 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11, i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
+  store <16 x float> %299, ptr %297, align 4, !tbaa !41
+  %300 = add nuw i64 %282, 16
+  %301 = icmp eq i64 %300, %275
+  br i1 %301, label %302, label %281, !llvm.loop !56
 
-306:                                              ; preds = %285
-  %307 = shl nuw nsw i64 %279, 1
-  %308 = icmp eq i64 %265, %279
-  br i1 %308, label %.loopexit, label %309
+302:                                              ; preds = %281
+  %303 = shl nuw nsw i64 %275, 1
+  %304 = icmp eq i64 %261, %275
+  br i1 %304, label %.loopexit, label %305
 
-309:                                              ; preds = %306, %268, %267
-  %310 = phi i64 [ 0, %268 ], [ 0, %267 ], [ %307, %306 ]
-  %311 = insertelement <2 x float> poison, float %161, i64 0
-  %312 = insertelement <2 x float> %311, float %262, i64 1
-  br label %366
+305:                                              ; preds = %302, %264, %263
+  %306 = phi i64 [ 0, %264 ], [ 0, %263 ], [ %303, %302 ]
+  %307 = insertelement <2 x float> poison, float %157, i64 0
+  %308 = insertelement <2 x float> %307, float %258, i64 1
+  br label %362
 
-313:                                              ; preds = %260
-  br i1 %266, label %355, label %314
+309:                                              ; preds = %256
+  br i1 %262, label %351, label %310
 
-314:                                              ; preds = %313
-  %315 = getelementptr i8, ptr %2, i64 4
-  %316 = shl i64 %264, 3
-  %317 = getelementptr i8, ptr %315, i64 %316
-  %318 = icmp ult ptr %317, %315
-  %319 = icmp ugt i64 %263, 4611686018427387903
-  %320 = getelementptr i8, ptr %2, i64 %316
-  %321 = icmp ult ptr %320, %2
-  %322 = or i1 %319, %321
-  %323 = or i1 %318, %322
-  br i1 %323, label %355, label %324
+310:                                              ; preds = %309
+  %311 = getelementptr i8, ptr %2, i64 4
+  %312 = shl i64 %260, 3
+  %313 = getelementptr i8, ptr %311, i64 %312
+  %314 = icmp ult ptr %313, %311
+  %315 = icmp ugt i64 %259, 4611686018427387903
+  %316 = getelementptr i8, ptr %2, i64 %312
+  %317 = icmp ult ptr %316, %2
+  %318 = or i1 %315, %317
+  %319 = or i1 %314, %318
+  br i1 %319, label %351, label %320
 
-324:                                              ; preds = %314
-  %325 = and i64 %265, 4611686018427387888
-  %326 = insertelement <8 x float> poison, float %161, i64 0
-  %327 = shufflevector <8 x float> %326, <8 x float> poison, <8 x i32> zeroinitializer
-  %328 = insertelement <8 x float> poison, float %262, i64 0
-  %329 = shufflevector <8 x float> %328, <8 x float> poison, <8 x i32> zeroinitializer
-  %330 = getelementptr i8, ptr %2, i64 64
-  br label %331
+320:                                              ; preds = %310
+  %321 = and i64 %261, 4611686018427387888
+  %322 = insertelement <8 x float> poison, float %157, i64 0
+  %323 = shufflevector <8 x float> %322, <8 x float> poison, <8 x i32> zeroinitializer
+  %324 = insertelement <8 x float> poison, float %258, i64 0
+  %325 = shufflevector <8 x float> %324, <8 x float> poison, <8 x i32> zeroinitializer
+  %326 = getelementptr i8, ptr %2, i64 64
+  br label %327
 
-331:                                              ; preds = %331, %324
-  %332 = phi i64 [ 0, %324 ], [ %350, %331 ]
-  %333 = shl i64 %332, 1
-  %334 = or disjoint i64 %333, 16
-  %335 = getelementptr inbounds float, ptr %2, i64 %333
-  %336 = getelementptr inbounds float, ptr %2, i64 %334
-  %337 = load <16 x float>, ptr %335, align 4, !tbaa !41
-  %338 = load <16 x float>, ptr %336, align 4, !tbaa !41
-  %339 = shufflevector <16 x float> %337, <16 x float> poison, <8 x i32> <i32 0, i32 2, i32 4, i32 6, i32 8, i32 10, i32 12, i32 14>
-  %340 = shufflevector <16 x float> %338, <16 x float> poison, <8 x i32> <i32 0, i32 2, i32 4, i32 6, i32 8, i32 10, i32 12, i32 14>
-  %341 = shufflevector <16 x float> %337, <16 x float> poison, <8 x i32> <i32 1, i32 3, i32 5, i32 7, i32 9, i32 11, i32 13, i32 15>
-  %342 = shufflevector <16 x float> %338, <16 x float> poison, <8 x i32> <i32 1, i32 3, i32 5, i32 7, i32 9, i32 11, i32 13, i32 15>
-  %343 = fsub reassoc nsz arcp contract afn <8 x float> %327, %339
-  %344 = fsub reassoc nsz arcp contract afn <8 x float> %327, %340
-  %345 = fsub reassoc nsz arcp contract afn <8 x float> %329, %341
-  %346 = fsub reassoc nsz arcp contract afn <8 x float> %329, %342
-  %347 = getelementptr float, ptr %330, i64 %333
-  %348 = shufflevector <8 x float> %343, <8 x float> %345, <16 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11, i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
-  store <16 x float> %348, ptr %335, align 4, !tbaa !41
-  %349 = shufflevector <8 x float> %344, <8 x float> %346, <16 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11, i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
-  store <16 x float> %349, ptr %347, align 4, !tbaa !41
-  %350 = add nuw i64 %332, 16
-  %351 = icmp eq i64 %350, %325
-  br i1 %351, label %352, label %331, !llvm.loop !57
+327:                                              ; preds = %327, %320
+  %328 = phi i64 [ 0, %320 ], [ %346, %327 ]
+  %329 = shl i64 %328, 1
+  %330 = or disjoint i64 %329, 16
+  %331 = getelementptr inbounds float, ptr %2, i64 %329
+  %332 = getelementptr inbounds float, ptr %2, i64 %330
+  %333 = load <16 x float>, ptr %331, align 4, !tbaa !41
+  %334 = load <16 x float>, ptr %332, align 4, !tbaa !41
+  %335 = shufflevector <16 x float> %333, <16 x float> poison, <8 x i32> <i32 0, i32 2, i32 4, i32 6, i32 8, i32 10, i32 12, i32 14>
+  %336 = shufflevector <16 x float> %334, <16 x float> poison, <8 x i32> <i32 0, i32 2, i32 4, i32 6, i32 8, i32 10, i32 12, i32 14>
+  %337 = shufflevector <16 x float> %333, <16 x float> poison, <8 x i32> <i32 1, i32 3, i32 5, i32 7, i32 9, i32 11, i32 13, i32 15>
+  %338 = shufflevector <16 x float> %334, <16 x float> poison, <8 x i32> <i32 1, i32 3, i32 5, i32 7, i32 9, i32 11, i32 13, i32 15>
+  %339 = fsub reassoc nsz arcp contract afn <8 x float> %323, %335
+  %340 = fsub reassoc nsz arcp contract afn <8 x float> %323, %336
+  %341 = fsub reassoc nsz arcp contract afn <8 x float> %325, %337
+  %342 = fsub reassoc nsz arcp contract afn <8 x float> %325, %338
+  %343 = getelementptr float, ptr %326, i64 %329
+  %344 = shufflevector <8 x float> %339, <8 x float> %341, <16 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11, i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
+  store <16 x float> %344, ptr %331, align 4, !tbaa !41
+  %345 = shufflevector <8 x float> %340, <8 x float> %342, <16 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11, i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
+  store <16 x float> %345, ptr %343, align 4, !tbaa !41
+  %346 = add nuw i64 %328, 16
+  %347 = icmp eq i64 %346, %321
+  br i1 %347, label %348, label %327, !llvm.loop !57
 
-352:                                              ; preds = %331
-  %353 = shl nuw nsw i64 %325, 1
-  %354 = icmp eq i64 %265, %325
-  br i1 %354, label %.loopexit, label %355
+348:                                              ; preds = %327
+  %349 = shl nuw nsw i64 %321, 1
+  %350 = icmp eq i64 %261, %321
+  br i1 %350, label %.loopexit, label %351
 
-355:                                              ; preds = %352, %314, %313
-  %356 = phi i64 [ 0, %314 ], [ 0, %313 ], [ %353, %352 ]
-  %357 = insertelement <2 x float> poison, float %161, i64 0
-  %358 = insertelement <2 x float> %357, float %262, i64 1
-  br label %359
+351:                                              ; preds = %348, %310, %309
+  %352 = phi i64 [ 0, %310 ], [ 0, %309 ], [ %349, %348 ]
+  %353 = insertelement <2 x float> poison, float %157, i64 0
+  %354 = insertelement <2 x float> %353, float %258, i64 1
+  br label %355
 
-359:                                              ; preds = %359, %355
-  %360 = phi i64 [ %364, %359 ], [ %356, %355 ]
-  %361 = getelementptr inbounds float, ptr %2, i64 %360
-  %362 = load <2 x float>, ptr %361, align 4, !tbaa !41
-  %363 = fsub reassoc nsz arcp contract afn <2 x float> %358, %362
-  store <2 x float> %363, ptr %361, align 4, !tbaa !41
-  %364 = add nuw i64 %360, 2
-  %365 = icmp ult i64 %364, %11
-  br i1 %365, label %359, label %.loopexit, !llvm.loop !58
+355:                                              ; preds = %355, %351
+  %356 = phi i64 [ %360, %355 ], [ %352, %351 ]
+  %357 = getelementptr inbounds float, ptr %2, i64 %356
+  %358 = load <2 x float>, ptr %357, align 4, !tbaa !41
+  %359 = fsub reassoc nsz arcp contract afn <2 x float> %354, %358
+  store <2 x float> %359, ptr %357, align 4, !tbaa !41
+  %360 = add nuw i64 %356, 2
+  %361 = icmp ult i64 %360, %11
+  br i1 %361, label %355, label %.loopexit, !llvm.loop !58
 
-366:                                              ; preds = %366, %309
-  %367 = phi i64 [ %372, %366 ], [ %310, %309 ]
-  %368 = getelementptr inbounds float, ptr %2, i64 %367
-  %369 = load <2 x float>, ptr %368, align 4, !tbaa !41
-  %370 = fsub reassoc nsz arcp contract afn <2 x float> %312, %369
-  %371 = shufflevector <2 x float> %370, <2 x float> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x float> %371, ptr %368, align 4, !tbaa !41
-  %372 = add nuw i64 %367, 2
-  %373 = icmp ult i64 %372, %11
-  br i1 %373, label %366, label %.loopexit, !llvm.loop !59
+362:                                              ; preds = %362, %305
+  %363 = phi i64 [ %368, %362 ], [ %306, %305 ]
+  %364 = getelementptr inbounds float, ptr %2, i64 %363
+  %365 = load <2 x float>, ptr %364, align 4, !tbaa !41
+  %366 = fsub reassoc nsz arcp contract afn <2 x float> %308, %365
+  %367 = shufflevector <2 x float> %366, <2 x float> poison, <2 x i32> <i32 1, i32 0>
+  store <2 x float> %367, ptr %364, align 4, !tbaa !41
+  %368 = add nuw i64 %363, 2
+  %369 = icmp ult i64 %368, %11
+  br i1 %369, label %362, label %.loopexit, !llvm.loop !59
 
-.loopexit:                                        ; preds = %366, %359, %250, %243, %148, %140, %61, %352, %306, %240, %202, %137, %110, %58, %22, %10, %4
+.loopexit:                                        ; preds = %362, %355, %246, %239, %144, %136, %57, %348, %302, %236, %198, %133, %106, %54, %22, %10, %4
   ret i32 1
 }
 
@@ -712,10 +708,10 @@ define noundef i32 @distort_backtransform(ptr nocapture noundef readnone %0, ptr
   %18 = and i32 %8, 1
   %19 = icmp eq i32 %18, 0
   %20 = getelementptr inbounds i8, ptr %1, i64 148
-  br i1 %17, label %21, label %158
+  br i1 %17, label %21, label %154
 
 21:                                               ; preds = %13
-  br i1 %19, label %22, label %68
+  br i1 %19, label %22, label %64
 
 22:                                               ; preds = %21
   br i1 %15, label %.loopexit, label %23
@@ -745,467 +741,463 @@ define noundef i32 @distort_backtransform(ptr nocapture noundef readnone %0, ptr
   br label %41
 
 41:                                               ; preds = %41, %38
-  %42 = phi i64 [ 0, %38 ], [ %56, %41 ]
+  %42 = phi i64 [ 0, %38 ], [ %52, %41 ]
   %43 = shl i64 %42, 1
   %44 = or disjoint i64 %43, 16
   %45 = getelementptr inbounds float, ptr %2, i64 %43
   %46 = getelementptr inbounds float, ptr %2, i64 %44
   %47 = load <16 x float>, ptr %45, align 4, !tbaa !41
   %48 = load <16 x float>, ptr %46, align 4, !tbaa !41
-  %49 = shufflevector <16 x float> %47, <16 x float> poison, <8 x i32> <i32 0, i32 2, i32 4, i32 6, i32 8, i32 10, i32 12, i32 14>
-  %50 = shufflevector <16 x float> %48, <16 x float> poison, <8 x i32> <i32 0, i32 2, i32 4, i32 6, i32 8, i32 10, i32 12, i32 14>
-  %51 = shufflevector <16 x float> %47, <16 x float> poison, <8 x i32> <i32 1, i32 3, i32 5, i32 7, i32 9, i32 11, i32 13, i32 15>
-  %52 = shufflevector <16 x float> %48, <16 x float> poison, <8 x i32> <i32 1, i32 3, i32 5, i32 7, i32 9, i32 11, i32 13, i32 15>
-  %53 = getelementptr float, ptr %40, i64 %43
-  %54 = shufflevector <8 x float> %51, <8 x float> %49, <16 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11, i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
-  store <16 x float> %54, ptr %45, align 4, !tbaa !41
-  %55 = shufflevector <8 x float> %52, <8 x float> %50, <16 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11, i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
-  store <16 x float> %55, ptr %53, align 4, !tbaa !41
-  %56 = add nuw i64 %42, 16
-  %57 = icmp eq i64 %56, %39
-  br i1 %57, label %58, label %41, !llvm.loop !60
+  %49 = getelementptr float, ptr %40, i64 %43
+  %50 = shufflevector <16 x float> %47, <16 x float> poison, <16 x i32> <i32 1, i32 0, i32 3, i32 2, i32 5, i32 4, i32 7, i32 6, i32 9, i32 8, i32 11, i32 10, i32 13, i32 12, i32 15, i32 14>
+  store <16 x float> %50, ptr %45, align 4, !tbaa !41
+  %51 = shufflevector <16 x float> %48, <16 x float> poison, <16 x i32> <i32 1, i32 0, i32 3, i32 2, i32 5, i32 4, i32 7, i32 6, i32 9, i32 8, i32 11, i32 10, i32 13, i32 12, i32 15, i32 14>
+  store <16 x float> %51, ptr %49, align 4, !tbaa !41
+  %52 = add nuw i64 %42, 16
+  %53 = icmp eq i64 %52, %39
+  br i1 %53, label %54, label %41, !llvm.loop !60
 
-58:                                               ; preds = %41
-  %59 = shl nuw nsw i64 %39, 1
-  %60 = icmp eq i64 %26, %39
-  br i1 %60, label %.loopexit, label %.preheader
+54:                                               ; preds = %41
+  %55 = shl nuw nsw i64 %39, 1
+  %56 = icmp eq i64 %26, %39
+  br i1 %56, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %58, %28, %23
-  %.ph = phi i64 [ %59, %58 ], [ 0, %23 ], [ 0, %28 ]
-  br label %61
+.preheader:                                       ; preds = %54, %28, %23
+  %.ph = phi i64 [ %55, %54 ], [ 0, %23 ], [ 0, %28 ]
+  br label %57
 
-61:                                               ; preds = %.preheader, %61
-  %62 = phi i64 [ %66, %61 ], [ %.ph, %.preheader ]
-  %63 = getelementptr inbounds float, ptr %2, i64 %62
-  %64 = load <2 x float>, ptr %63, align 4, !tbaa !41
-  %65 = shufflevector <2 x float> %64, <2 x float> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x float> %65, ptr %63, align 4, !tbaa !41
-  %66 = add nuw i64 %62, 2
-  %67 = icmp ult i64 %66, %11
-  br i1 %67, label %61, label %.loopexit, !llvm.loop !61
+57:                                               ; preds = %.preheader, %57
+  %58 = phi i64 [ %62, %57 ], [ %.ph, %.preheader ]
+  %59 = getelementptr inbounds float, ptr %2, i64 %58
+  %60 = load <2 x float>, ptr %59, align 4, !tbaa !41
+  %61 = shufflevector <2 x float> %60, <2 x float> poison, <2 x i32> <i32 1, i32 0>
+  store <2 x float> %61, ptr %59, align 4, !tbaa !41
+  %62 = add nuw i64 %58, 2
+  %63 = icmp ult i64 %62, %11
+  br i1 %63, label %57, label %.loopexit, !llvm.loop !61
 
-68:                                               ; preds = %21
-  %69 = load i32, ptr %20, align 4, !tbaa !46
-  %70 = sitofp i32 %69 to float
-  %71 = add i64 %11, -1
-  %72 = lshr i64 %71, 1
-  %73 = add nuw nsw i64 %72, 1
-  br i1 %15, label %113, label %74
+64:                                               ; preds = %21
+  %65 = load i32, ptr %20, align 4, !tbaa !46
+  %66 = sitofp i32 %65 to float
+  %67 = add i64 %11, -1
+  %68 = lshr i64 %67, 1
+  %69 = add nuw nsw i64 %68, 1
+  br i1 %15, label %109, label %70
 
-74:                                               ; preds = %68
-  %75 = icmp ult i64 %11, 47
-  br i1 %75, label %.preheader37, label %76
+70:                                               ; preds = %64
+  %71 = icmp ult i64 %11, 47
+  br i1 %71, label %.preheader37, label %72
 
-.preheader37:                                     ; preds = %110, %76, %74
-  %.ph38 = phi i64 [ %111, %110 ], [ 0, %74 ], [ 0, %76 ]
-  br label %148
+.preheader37:                                     ; preds = %106, %72, %70
+  %.ph38 = phi i64 [ %107, %106 ], [ 0, %70 ], [ 0, %72 ]
+  br label %144
 
-76:                                               ; preds = %74
-  %77 = getelementptr i8, ptr %2, i64 4
-  %78 = shl i64 %72, 3
-  %79 = getelementptr i8, ptr %77, i64 %78
-  %80 = icmp ult ptr %79, %77
-  %81 = icmp ugt i64 %71, 4611686018427387903
-  %82 = getelementptr i8, ptr %2, i64 %78
-  %83 = icmp ult ptr %82, %2
-  %84 = or i1 %81, %83
-  %85 = or i1 %80, %84
-  br i1 %85, label %.preheader37, label %86
+72:                                               ; preds = %70
+  %73 = getelementptr i8, ptr %2, i64 4
+  %74 = shl i64 %68, 3
+  %75 = getelementptr i8, ptr %73, i64 %74
+  %76 = icmp ult ptr %75, %73
+  %77 = icmp ugt i64 %67, 4611686018427387903
+  %78 = getelementptr i8, ptr %2, i64 %74
+  %79 = icmp ult ptr %78, %2
+  %80 = or i1 %77, %79
+  %81 = or i1 %76, %80
+  br i1 %81, label %.preheader37, label %82
 
-86:                                               ; preds = %76
-  %87 = and i64 %73, 4611686018427387888
-  %88 = insertelement <8 x float> poison, float %70, i64 0
-  %89 = shufflevector <8 x float> %88, <8 x float> poison, <8 x i32> zeroinitializer
-  %90 = getelementptr i8, ptr %2, i64 64
-  br label %91
+82:                                               ; preds = %72
+  %83 = and i64 %69, 4611686018427387888
+  %84 = insertelement <8 x float> poison, float %66, i64 0
+  %85 = shufflevector <8 x float> %84, <8 x float> poison, <8 x i32> zeroinitializer
+  %86 = getelementptr i8, ptr %2, i64 64
+  br label %87
 
-91:                                               ; preds = %91, %86
-  %92 = phi i64 [ 0, %86 ], [ %108, %91 ]
-  %93 = shl i64 %92, 1
-  %94 = or disjoint i64 %93, 16
-  %95 = getelementptr inbounds float, ptr %2, i64 %93
-  %96 = getelementptr inbounds float, ptr %2, i64 %94
-  %97 = load <16 x float>, ptr %95, align 4, !tbaa !41
-  %98 = load <16 x float>, ptr %96, align 4, !tbaa !41
-  %99 = shufflevector <16 x float> %97, <16 x float> poison, <8 x i32> <i32 0, i32 2, i32 4, i32 6, i32 8, i32 10, i32 12, i32 14>
-  %100 = shufflevector <16 x float> %98, <16 x float> poison, <8 x i32> <i32 0, i32 2, i32 4, i32 6, i32 8, i32 10, i32 12, i32 14>
-  %101 = shufflevector <16 x float> %97, <16 x float> poison, <8 x i32> <i32 1, i32 3, i32 5, i32 7, i32 9, i32 11, i32 13, i32 15>
-  %102 = shufflevector <16 x float> %98, <16 x float> poison, <8 x i32> <i32 1, i32 3, i32 5, i32 7, i32 9, i32 11, i32 13, i32 15>
-  %103 = fsub reassoc nsz arcp contract afn <8 x float> %89, %99
-  %104 = fsub reassoc nsz arcp contract afn <8 x float> %89, %100
-  %105 = getelementptr float, ptr %90, i64 %93
-  %106 = shufflevector <8 x float> %101, <8 x float> %103, <16 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11, i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
-  store <16 x float> %106, ptr %95, align 4, !tbaa !41
-  %107 = shufflevector <8 x float> %102, <8 x float> %104, <16 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11, i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
-  store <16 x float> %107, ptr %105, align 4, !tbaa !41
-  %108 = add nuw i64 %92, 16
-  %109 = icmp eq i64 %108, %87
-  br i1 %109, label %110, label %91, !llvm.loop !62
+87:                                               ; preds = %87, %82
+  %88 = phi i64 [ 0, %82 ], [ %104, %87 ]
+  %89 = shl i64 %88, 1
+  %90 = or disjoint i64 %89, 16
+  %91 = getelementptr inbounds float, ptr %2, i64 %89
+  %92 = getelementptr inbounds float, ptr %2, i64 %90
+  %93 = load <16 x float>, ptr %91, align 4, !tbaa !41
+  %94 = load <16 x float>, ptr %92, align 4, !tbaa !41
+  %95 = shufflevector <16 x float> %93, <16 x float> poison, <8 x i32> <i32 0, i32 2, i32 4, i32 6, i32 8, i32 10, i32 12, i32 14>
+  %96 = shufflevector <16 x float> %94, <16 x float> poison, <8 x i32> <i32 0, i32 2, i32 4, i32 6, i32 8, i32 10, i32 12, i32 14>
+  %97 = shufflevector <16 x float> %93, <16 x float> poison, <8 x i32> <i32 1, i32 3, i32 5, i32 7, i32 9, i32 11, i32 13, i32 15>
+  %98 = shufflevector <16 x float> %94, <16 x float> poison, <8 x i32> <i32 1, i32 3, i32 5, i32 7, i32 9, i32 11, i32 13, i32 15>
+  %99 = fsub reassoc nsz arcp contract afn <8 x float> %85, %95
+  %100 = fsub reassoc nsz arcp contract afn <8 x float> %85, %96
+  %101 = getelementptr float, ptr %86, i64 %89
+  %102 = shufflevector <8 x float> %97, <8 x float> %99, <16 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11, i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
+  store <16 x float> %102, ptr %91, align 4, !tbaa !41
+  %103 = shufflevector <8 x float> %98, <8 x float> %100, <16 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11, i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
+  store <16 x float> %103, ptr %101, align 4, !tbaa !41
+  %104 = add nuw i64 %88, 16
+  %105 = icmp eq i64 %104, %83
+  br i1 %105, label %106, label %87, !llvm.loop !62
 
-110:                                              ; preds = %91
-  %111 = shl nuw nsw i64 %87, 1
-  %112 = icmp eq i64 %73, %87
-  br i1 %112, label %.loopexit, label %.preheader37
+106:                                              ; preds = %87
+  %107 = shl nuw nsw i64 %83, 1
+  %108 = icmp eq i64 %69, %83
+  br i1 %108, label %.loopexit, label %.preheader37
 
-113:                                              ; preds = %68
-  %114 = icmp ult i64 %11, 31
-  br i1 %114, label %.preheader34, label %115
+109:                                              ; preds = %64
+  %110 = icmp ult i64 %11, 31
+  br i1 %110, label %.preheader34, label %111
 
-115:                                              ; preds = %113
-  %116 = getelementptr i8, ptr %2, i64 4
-  %117 = shl i64 %71, 2
-  %118 = and i64 %117, -8
-  %119 = icmp ugt i64 %71, 4611686018427387903
-  %120 = getelementptr i8, ptr %116, i64 %118
-  %121 = icmp ult ptr %120, %116
-  %122 = or i1 %119, %121
-  br i1 %122, label %.preheader34, label %123
+111:                                              ; preds = %109
+  %112 = getelementptr i8, ptr %2, i64 4
+  %113 = shl i64 %67, 2
+  %114 = and i64 %113, -8
+  %115 = icmp ugt i64 %67, 4611686018427387903
+  %116 = getelementptr i8, ptr %112, i64 %114
+  %117 = icmp ult ptr %116, %112
+  %118 = or i1 %115, %117
+  br i1 %118, label %.preheader34, label %119
 
-123:                                              ; preds = %115
-  %124 = and i64 %73, 4611686018427387896
-  %125 = insertelement <8 x float> poison, float %70, i64 0
-  %126 = shufflevector <8 x float> %125, <8 x float> poison, <8 x i32> zeroinitializer
-  br label %127
+119:                                              ; preds = %111
+  %120 = and i64 %69, 4611686018427387896
+  %121 = insertelement <8 x float> poison, float %66, i64 0
+  %122 = shufflevector <8 x float> %121, <8 x float> poison, <8 x i32> zeroinitializer
+  br label %123
 
-127:                                              ; preds = %127, %123
-  %128 = phi i64 [ 0, %123 ], [ %134, %127 ]
-  %129 = phi <8 x i64> [ <i64 0, i64 2, i64 4, i64 6, i64 8, i64 10, i64 12, i64 14>, %123 ], [ %135, %127 ]
-  %130 = or disjoint <8 x i64> %129, splat (i64 1)
-  %131 = getelementptr inbounds float, ptr %2, <8 x i64> %130
-  %132 = tail call <8 x float> @llvm.masked.gather.v8f32.v8p0(<8 x ptr> %131, i32 4, <8 x i1> splat (i1 true), <8 x float> poison), !tbaa !41
-  %133 = fsub reassoc nsz arcp contract afn <8 x float> %126, %132
-  tail call void @llvm.masked.scatter.v8f32.v8p0(<8 x float> %133, <8 x ptr> %131, i32 4, <8 x i1> splat (i1 true)), !tbaa !41
-  %134 = add nuw i64 %128, 8
-  %135 = add <8 x i64> %129, splat (i64 16)
-  %136 = icmp eq i64 %134, %124
-  br i1 %136, label %137, label %127, !llvm.loop !63
+123:                                              ; preds = %123, %119
+  %124 = phi i64 [ 0, %119 ], [ %130, %123 ]
+  %125 = phi <8 x i64> [ <i64 0, i64 2, i64 4, i64 6, i64 8, i64 10, i64 12, i64 14>, %119 ], [ %131, %123 ]
+  %126 = or disjoint <8 x i64> %125, splat (i64 1)
+  %127 = getelementptr inbounds float, ptr %2, <8 x i64> %126
+  %128 = tail call <8 x float> @llvm.masked.gather.v8f32.v8p0(<8 x ptr> %127, i32 4, <8 x i1> splat (i1 true), <8 x float> poison), !tbaa !41
+  %129 = fsub reassoc nsz arcp contract afn <8 x float> %122, %128
+  tail call void @llvm.masked.scatter.v8f32.v8p0(<8 x float> %129, <8 x ptr> %127, i32 4, <8 x i1> splat (i1 true)), !tbaa !41
+  %130 = add nuw i64 %124, 8
+  %131 = add <8 x i64> %125, splat (i64 16)
+  %132 = icmp eq i64 %130, %120
+  br i1 %132, label %133, label %123, !llvm.loop !63
 
-137:                                              ; preds = %127
-  %138 = shl nuw nsw i64 %124, 1
-  %139 = icmp eq i64 %73, %124
-  br i1 %139, label %.loopexit, label %.preheader34
+133:                                              ; preds = %123
+  %134 = shl nuw nsw i64 %120, 1
+  %135 = icmp eq i64 %69, %120
+  br i1 %135, label %.loopexit, label %.preheader34
 
-.preheader34:                                     ; preds = %137, %115, %113
-  %.ph35 = phi i64 [ %138, %137 ], [ 0, %113 ], [ 0, %115 ]
-  br label %140
+.preheader34:                                     ; preds = %133, %111, %109
+  %.ph35 = phi i64 [ %134, %133 ], [ 0, %109 ], [ 0, %111 ]
+  br label %136
 
-140:                                              ; preds = %.preheader34, %140
-  %141 = phi i64 [ %146, %140 ], [ %.ph35, %.preheader34 ]
-  %142 = or disjoint i64 %141, 1
-  %143 = getelementptr inbounds float, ptr %2, i64 %142
-  %144 = load float, ptr %143, align 4, !tbaa !41
-  %145 = fsub reassoc nsz arcp contract afn float %70, %144
-  store float %145, ptr %143, align 4, !tbaa !41
-  %146 = add nuw i64 %141, 2
-  %147 = icmp ult i64 %146, %11
-  br i1 %147, label %140, label %.loopexit, !llvm.loop !64
+136:                                              ; preds = %.preheader34, %136
+  %137 = phi i64 [ %142, %136 ], [ %.ph35, %.preheader34 ]
+  %138 = or disjoint i64 %137, 1
+  %139 = getelementptr inbounds float, ptr %2, i64 %138
+  %140 = load float, ptr %139, align 4, !tbaa !41
+  %141 = fsub reassoc nsz arcp contract afn float %66, %140
+  store float %141, ptr %139, align 4, !tbaa !41
+  %142 = add nuw i64 %137, 2
+  %143 = icmp ult i64 %142, %11
+  br i1 %143, label %136, label %.loopexit, !llvm.loop !64
 
-148:                                              ; preds = %.preheader37, %148
-  %149 = phi i64 [ %156, %148 ], [ %.ph38, %.preheader37 ]
-  %150 = or disjoint i64 %149, 1
-  %151 = getelementptr inbounds float, ptr %2, i64 %149
-  %152 = load float, ptr %151, align 4, !tbaa !41
-  %153 = getelementptr inbounds float, ptr %2, i64 %150
-  %154 = load float, ptr %153, align 4, !tbaa !41
-  %155 = fsub reassoc nsz arcp contract afn float %70, %152
-  store float %154, ptr %151, align 4, !tbaa !41
-  store float %155, ptr %153, align 4, !tbaa !41
-  %156 = add nuw i64 %149, 2
-  %157 = icmp ult i64 %156, %11
-  br i1 %157, label %148, label %.loopexit, !llvm.loop !65
+144:                                              ; preds = %.preheader37, %144
+  %145 = phi i64 [ %152, %144 ], [ %.ph38, %.preheader37 ]
+  %146 = or disjoint i64 %145, 1
+  %147 = getelementptr inbounds float, ptr %2, i64 %145
+  %148 = load float, ptr %147, align 4, !tbaa !41
+  %149 = getelementptr inbounds float, ptr %2, i64 %146
+  %150 = load float, ptr %149, align 4, !tbaa !41
+  %151 = fsub reassoc nsz arcp contract afn float %66, %148
+  store float %150, ptr %147, align 4, !tbaa !41
+  store float %151, ptr %149, align 4, !tbaa !41
+  %152 = add nuw i64 %145, 2
+  %153 = icmp ult i64 %152, %11
+  br i1 %153, label %144, label %.loopexit, !llvm.loop !65
 
-158:                                              ; preds = %13
-  %159 = getelementptr inbounds i8, ptr %1, i64 144
-  %160 = load i32, ptr %159, align 8, !tbaa !51
-  %161 = sitofp i32 %160 to float
-  br i1 %19, label %162, label %258
+154:                                              ; preds = %13
+  %155 = getelementptr inbounds i8, ptr %1, i64 144
+  %156 = load i32, ptr %155, align 8, !tbaa !51
+  %157 = sitofp i32 %156 to float
+  br i1 %19, label %158, label %254
 
-162:                                              ; preds = %158
-  %163 = add i64 %11, -1
-  %164 = lshr i64 %163, 1
-  %165 = add nuw nsw i64 %164, 1
-  %166 = icmp ult i64 %11, 47
-  br i1 %15, label %205, label %167
+158:                                              ; preds = %154
+  %159 = add i64 %11, -1
+  %160 = lshr i64 %159, 1
+  %161 = add nuw nsw i64 %160, 1
+  %162 = icmp ult i64 %11, 47
+  br i1 %15, label %201, label %163
 
-167:                                              ; preds = %162
-  br i1 %166, label %.preheader43, label %168
+163:                                              ; preds = %158
+  br i1 %162, label %.preheader43, label %164
 
-.preheader43:                                     ; preds = %202, %168, %167
-  %.ph44 = phi i64 [ %203, %202 ], [ 0, %167 ], [ 0, %168 ]
-  br label %248
+.preheader43:                                     ; preds = %198, %164, %163
+  %.ph44 = phi i64 [ %199, %198 ], [ 0, %163 ], [ 0, %164 ]
+  br label %244
 
-168:                                              ; preds = %167
-  %169 = getelementptr i8, ptr %2, i64 4
-  %170 = shl i64 %164, 3
-  %171 = getelementptr i8, ptr %169, i64 %170
-  %172 = icmp ult ptr %171, %169
-  %173 = icmp ugt i64 %163, 4611686018427387903
-  %174 = getelementptr i8, ptr %2, i64 %170
-  %175 = icmp ult ptr %174, %2
-  %176 = or i1 %173, %175
-  %177 = or i1 %172, %176
-  br i1 %177, label %.preheader43, label %178
+164:                                              ; preds = %163
+  %165 = getelementptr i8, ptr %2, i64 4
+  %166 = shl i64 %160, 3
+  %167 = getelementptr i8, ptr %165, i64 %166
+  %168 = icmp ult ptr %167, %165
+  %169 = icmp ugt i64 %159, 4611686018427387903
+  %170 = getelementptr i8, ptr %2, i64 %166
+  %171 = icmp ult ptr %170, %2
+  %172 = or i1 %169, %171
+  %173 = or i1 %168, %172
+  br i1 %173, label %.preheader43, label %174
 
-178:                                              ; preds = %168
-  %179 = and i64 %165, 4611686018427387888
-  %180 = insertelement <8 x float> poison, float %161, i64 0
-  %181 = shufflevector <8 x float> %180, <8 x float> poison, <8 x i32> zeroinitializer
-  %182 = getelementptr i8, ptr %2, i64 64
-  br label %183
+174:                                              ; preds = %164
+  %175 = and i64 %161, 4611686018427387888
+  %176 = insertelement <8 x float> poison, float %157, i64 0
+  %177 = shufflevector <8 x float> %176, <8 x float> poison, <8 x i32> zeroinitializer
+  %178 = getelementptr i8, ptr %2, i64 64
+  br label %179
 
-183:                                              ; preds = %183, %178
-  %184 = phi i64 [ 0, %178 ], [ %200, %183 ]
-  %185 = shl i64 %184, 1
-  %186 = or disjoint i64 %185, 16
-  %187 = getelementptr inbounds float, ptr %2, i64 %185
-  %188 = getelementptr inbounds float, ptr %2, i64 %186
-  %189 = load <16 x float>, ptr %187, align 4, !tbaa !41
-  %190 = load <16 x float>, ptr %188, align 4, !tbaa !41
-  %191 = shufflevector <16 x float> %189, <16 x float> poison, <8 x i32> <i32 0, i32 2, i32 4, i32 6, i32 8, i32 10, i32 12, i32 14>
-  %192 = shufflevector <16 x float> %190, <16 x float> poison, <8 x i32> <i32 0, i32 2, i32 4, i32 6, i32 8, i32 10, i32 12, i32 14>
-  %193 = shufflevector <16 x float> %189, <16 x float> poison, <8 x i32> <i32 1, i32 3, i32 5, i32 7, i32 9, i32 11, i32 13, i32 15>
-  %194 = shufflevector <16 x float> %190, <16 x float> poison, <8 x i32> <i32 1, i32 3, i32 5, i32 7, i32 9, i32 11, i32 13, i32 15>
-  %195 = fsub reassoc nsz arcp contract afn <8 x float> %181, %193
-  %196 = fsub reassoc nsz arcp contract afn <8 x float> %181, %194
-  %197 = getelementptr float, ptr %182, i64 %185
-  %198 = shufflevector <8 x float> %195, <8 x float> %191, <16 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11, i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
-  store <16 x float> %198, ptr %187, align 4, !tbaa !41
-  %199 = shufflevector <8 x float> %196, <8 x float> %192, <16 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11, i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
-  store <16 x float> %199, ptr %197, align 4, !tbaa !41
-  %200 = add nuw i64 %184, 16
-  %201 = icmp eq i64 %200, %179
-  br i1 %201, label %202, label %183, !llvm.loop !66
+179:                                              ; preds = %179, %174
+  %180 = phi i64 [ 0, %174 ], [ %196, %179 ]
+  %181 = shl i64 %180, 1
+  %182 = or disjoint i64 %181, 16
+  %183 = getelementptr inbounds float, ptr %2, i64 %181
+  %184 = getelementptr inbounds float, ptr %2, i64 %182
+  %185 = load <16 x float>, ptr %183, align 4, !tbaa !41
+  %186 = load <16 x float>, ptr %184, align 4, !tbaa !41
+  %187 = shufflevector <16 x float> %185, <16 x float> poison, <8 x i32> <i32 0, i32 2, i32 4, i32 6, i32 8, i32 10, i32 12, i32 14>
+  %188 = shufflevector <16 x float> %186, <16 x float> poison, <8 x i32> <i32 0, i32 2, i32 4, i32 6, i32 8, i32 10, i32 12, i32 14>
+  %189 = shufflevector <16 x float> %185, <16 x float> poison, <8 x i32> <i32 1, i32 3, i32 5, i32 7, i32 9, i32 11, i32 13, i32 15>
+  %190 = shufflevector <16 x float> %186, <16 x float> poison, <8 x i32> <i32 1, i32 3, i32 5, i32 7, i32 9, i32 11, i32 13, i32 15>
+  %191 = fsub reassoc nsz arcp contract afn <8 x float> %177, %189
+  %192 = fsub reassoc nsz arcp contract afn <8 x float> %177, %190
+  %193 = getelementptr float, ptr %178, i64 %181
+  %194 = shufflevector <8 x float> %191, <8 x float> %187, <16 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11, i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
+  store <16 x float> %194, ptr %183, align 4, !tbaa !41
+  %195 = shufflevector <8 x float> %192, <8 x float> %188, <16 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11, i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
+  store <16 x float> %195, ptr %193, align 4, !tbaa !41
+  %196 = add nuw i64 %180, 16
+  %197 = icmp eq i64 %196, %175
+  br i1 %197, label %198, label %179, !llvm.loop !66
 
-202:                                              ; preds = %183
-  %203 = shl nuw nsw i64 %179, 1
-  %204 = icmp eq i64 %165, %179
-  br i1 %204, label %.loopexit, label %.preheader43
+198:                                              ; preds = %179
+  %199 = shl nuw nsw i64 %175, 1
+  %200 = icmp eq i64 %161, %175
+  br i1 %200, label %.loopexit, label %.preheader43
 
-205:                                              ; preds = %162
-  br i1 %166, label %.preheader40, label %206
+201:                                              ; preds = %158
+  br i1 %162, label %.preheader40, label %202
 
-206:                                              ; preds = %205
-  %207 = getelementptr i8, ptr %2, i64 4
-  %208 = shl i64 %164, 3
-  %209 = getelementptr i8, ptr %207, i64 %208
-  %210 = icmp ult ptr %209, %207
-  %211 = icmp ugt i64 %163, 4611686018427387903
-  %212 = getelementptr i8, ptr %2, i64 %208
-  %213 = icmp ult ptr %212, %2
-  %214 = or i1 %211, %213
-  %215 = or i1 %210, %214
-  br i1 %215, label %.preheader40, label %216
+202:                                              ; preds = %201
+  %203 = getelementptr i8, ptr %2, i64 4
+  %204 = shl i64 %160, 3
+  %205 = getelementptr i8, ptr %203, i64 %204
+  %206 = icmp ult ptr %205, %203
+  %207 = icmp ugt i64 %159, 4611686018427387903
+  %208 = getelementptr i8, ptr %2, i64 %204
+  %209 = icmp ult ptr %208, %2
+  %210 = or i1 %207, %209
+  %211 = or i1 %206, %210
+  br i1 %211, label %.preheader40, label %212
 
-216:                                              ; preds = %206
-  %217 = and i64 %165, 4611686018427387888
-  %218 = insertelement <8 x float> poison, float %161, i64 0
-  %219 = shufflevector <8 x float> %218, <8 x float> poison, <8 x i32> zeroinitializer
-  %220 = getelementptr i8, ptr %2, i64 64
-  br label %221
+212:                                              ; preds = %202
+  %213 = and i64 %161, 4611686018427387888
+  %214 = insertelement <8 x float> poison, float %157, i64 0
+  %215 = shufflevector <8 x float> %214, <8 x float> poison, <8 x i32> zeroinitializer
+  %216 = getelementptr i8, ptr %2, i64 64
+  br label %217
 
-221:                                              ; preds = %221, %216
-  %222 = phi i64 [ 0, %216 ], [ %236, %221 ]
-  %223 = shl i64 %222, 1
-  %224 = getelementptr float, ptr %2, i64 %223
-  %225 = getelementptr float, ptr %220, i64 %223
-  %226 = load <16 x float>, ptr %224, align 4, !tbaa !41
-  %227 = load <16 x float>, ptr %225, align 4, !tbaa !41
-  %228 = shufflevector <16 x float> %226, <16 x float> poison, <8 x i32> <i32 0, i32 2, i32 4, i32 6, i32 8, i32 10, i32 12, i32 14>
-  %229 = shufflevector <16 x float> %227, <16 x float> poison, <8 x i32> <i32 0, i32 2, i32 4, i32 6, i32 8, i32 10, i32 12, i32 14>
-  %230 = shufflevector <16 x float> %226, <16 x float> poison, <8 x i32> <i32 1, i32 3, i32 5, i32 7, i32 9, i32 11, i32 13, i32 15>
-  %231 = shufflevector <16 x float> %227, <16 x float> poison, <8 x i32> <i32 1, i32 3, i32 5, i32 7, i32 9, i32 11, i32 13, i32 15>
-  %232 = fsub reassoc nsz arcp contract afn <8 x float> %219, %228
-  %233 = fsub reassoc nsz arcp contract afn <8 x float> %219, %229
-  %234 = shufflevector <8 x float> %232, <8 x float> %230, <16 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11, i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
-  store <16 x float> %234, ptr %224, align 4, !tbaa !41
-  %235 = shufflevector <8 x float> %233, <8 x float> %231, <16 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11, i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
-  store <16 x float> %235, ptr %225, align 4, !tbaa !41
-  %236 = add nuw i64 %222, 16
-  %237 = icmp eq i64 %236, %217
-  br i1 %237, label %238, label %221, !llvm.loop !67
+217:                                              ; preds = %217, %212
+  %218 = phi i64 [ 0, %212 ], [ %232, %217 ]
+  %219 = shl i64 %218, 1
+  %220 = getelementptr float, ptr %2, i64 %219
+  %221 = getelementptr float, ptr %216, i64 %219
+  %222 = load <16 x float>, ptr %220, align 4, !tbaa !41
+  %223 = load <16 x float>, ptr %221, align 4, !tbaa !41
+  %224 = shufflevector <16 x float> %222, <16 x float> poison, <8 x i32> <i32 0, i32 2, i32 4, i32 6, i32 8, i32 10, i32 12, i32 14>
+  %225 = shufflevector <16 x float> %223, <16 x float> poison, <8 x i32> <i32 0, i32 2, i32 4, i32 6, i32 8, i32 10, i32 12, i32 14>
+  %226 = shufflevector <16 x float> %222, <16 x float> poison, <8 x i32> <i32 1, i32 3, i32 5, i32 7, i32 9, i32 11, i32 13, i32 15>
+  %227 = shufflevector <16 x float> %223, <16 x float> poison, <8 x i32> <i32 1, i32 3, i32 5, i32 7, i32 9, i32 11, i32 13, i32 15>
+  %228 = fsub reassoc nsz arcp contract afn <8 x float> %215, %224
+  %229 = fsub reassoc nsz arcp contract afn <8 x float> %215, %225
+  %230 = shufflevector <8 x float> %228, <8 x float> %226, <16 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11, i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
+  store <16 x float> %230, ptr %220, align 4, !tbaa !41
+  %231 = shufflevector <8 x float> %229, <8 x float> %227, <16 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11, i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
+  store <16 x float> %231, ptr %221, align 4, !tbaa !41
+  %232 = add nuw i64 %218, 16
+  %233 = icmp eq i64 %232, %213
+  br i1 %233, label %234, label %217, !llvm.loop !67
 
-238:                                              ; preds = %221
-  %239 = shl nuw nsw i64 %217, 1
-  %240 = icmp eq i64 %165, %217
-  br i1 %240, label %.loopexit, label %.preheader40
+234:                                              ; preds = %217
+  %235 = shl nuw nsw i64 %213, 1
+  %236 = icmp eq i64 %161, %213
+  br i1 %236, label %.loopexit, label %.preheader40
 
-.preheader40:                                     ; preds = %238, %206, %205
-  %.ph41 = phi i64 [ %239, %238 ], [ 0, %205 ], [ 0, %206 ]
-  br label %241
+.preheader40:                                     ; preds = %234, %202, %201
+  %.ph41 = phi i64 [ %235, %234 ], [ 0, %201 ], [ 0, %202 ]
+  br label %237
 
-241:                                              ; preds = %.preheader40, %241
-  %242 = phi i64 [ %246, %241 ], [ %.ph41, %.preheader40 ]
-  %243 = getelementptr inbounds float, ptr %2, i64 %242
-  %244 = load float, ptr %243, align 4, !tbaa !41
-  %245 = fsub reassoc nsz arcp contract afn float %161, %244
-  store float %245, ptr %243, align 4, !tbaa !41
-  %246 = add nuw i64 %242, 2
-  %247 = icmp ult i64 %246, %11
-  br i1 %247, label %241, label %.loopexit, !llvm.loop !68
+237:                                              ; preds = %.preheader40, %237
+  %238 = phi i64 [ %242, %237 ], [ %.ph41, %.preheader40 ]
+  %239 = getelementptr inbounds float, ptr %2, i64 %238
+  %240 = load float, ptr %239, align 4, !tbaa !41
+  %241 = fsub reassoc nsz arcp contract afn float %157, %240
+  store float %241, ptr %239, align 4, !tbaa !41
+  %242 = add nuw i64 %238, 2
+  %243 = icmp ult i64 %242, %11
+  br i1 %243, label %237, label %.loopexit, !llvm.loop !68
 
-248:                                              ; preds = %.preheader43, %248
-  %249 = phi i64 [ %256, %248 ], [ %.ph44, %.preheader43 ]
-  %250 = or disjoint i64 %249, 1
-  %251 = getelementptr inbounds float, ptr %2, i64 %249
-  %252 = load float, ptr %251, align 4, !tbaa !41
-  %253 = getelementptr inbounds float, ptr %2, i64 %250
-  %254 = load float, ptr %253, align 4, !tbaa !41
-  %255 = fsub reassoc nsz arcp contract afn float %161, %254
-  store float %255, ptr %251, align 4, !tbaa !41
-  store float %252, ptr %253, align 4, !tbaa !41
-  %256 = add nuw i64 %249, 2
-  %257 = icmp ult i64 %256, %11
-  br i1 %257, label %248, label %.loopexit, !llvm.loop !69
+244:                                              ; preds = %.preheader43, %244
+  %245 = phi i64 [ %252, %244 ], [ %.ph44, %.preheader43 ]
+  %246 = or disjoint i64 %245, 1
+  %247 = getelementptr inbounds float, ptr %2, i64 %245
+  %248 = load float, ptr %247, align 4, !tbaa !41
+  %249 = getelementptr inbounds float, ptr %2, i64 %246
+  %250 = load float, ptr %249, align 4, !tbaa !41
+  %251 = fsub reassoc nsz arcp contract afn float %157, %250
+  store float %251, ptr %247, align 4, !tbaa !41
+  store float %248, ptr %249, align 4, !tbaa !41
+  %252 = add nuw i64 %245, 2
+  %253 = icmp ult i64 %252, %11
+  br i1 %253, label %244, label %.loopexit, !llvm.loop !69
 
-258:                                              ; preds = %158
-  %259 = load i32, ptr %20, align 4, !tbaa !46
-  %260 = sitofp i32 %259 to float
-  %261 = add i64 %11, -1
-  %262 = lshr i64 %261, 1
-  %263 = add nuw nsw i64 %262, 1
-  %264 = icmp ult i64 %11, 31
-  br i1 %15, label %311, label %265
+254:                                              ; preds = %154
+  %255 = load i32, ptr %20, align 4, !tbaa !46
+  %256 = sitofp i32 %255 to float
+  %257 = add i64 %11, -1
+  %258 = lshr i64 %257, 1
+  %259 = add nuw nsw i64 %258, 1
+  %260 = icmp ult i64 %11, 31
+  br i1 %15, label %307, label %261
 
-265:                                              ; preds = %258
-  br i1 %264, label %307, label %266
+261:                                              ; preds = %254
+  br i1 %260, label %303, label %262
 
-266:                                              ; preds = %265
-  %267 = getelementptr i8, ptr %2, i64 4
-  %268 = shl i64 %262, 3
-  %269 = getelementptr i8, ptr %267, i64 %268
-  %270 = icmp ult ptr %269, %267
-  %271 = icmp ugt i64 %261, 4611686018427387903
-  %272 = getelementptr i8, ptr %2, i64 %268
-  %273 = icmp ult ptr %272, %2
-  %274 = or i1 %271, %273
-  %275 = or i1 %270, %274
-  br i1 %275, label %307, label %276
+262:                                              ; preds = %261
+  %263 = getelementptr i8, ptr %2, i64 4
+  %264 = shl i64 %258, 3
+  %265 = getelementptr i8, ptr %263, i64 %264
+  %266 = icmp ult ptr %265, %263
+  %267 = icmp ugt i64 %257, 4611686018427387903
+  %268 = getelementptr i8, ptr %2, i64 %264
+  %269 = icmp ult ptr %268, %2
+  %270 = or i1 %267, %269
+  %271 = or i1 %266, %270
+  br i1 %271, label %303, label %272
 
-276:                                              ; preds = %266
-  %277 = and i64 %263, 4611686018427387888
-  %278 = insertelement <8 x float> poison, float %161, i64 0
-  %279 = shufflevector <8 x float> %278, <8 x float> poison, <8 x i32> zeroinitializer
-  %280 = insertelement <8 x float> poison, float %260, i64 0
-  %281 = shufflevector <8 x float> %280, <8 x float> poison, <8 x i32> zeroinitializer
-  %282 = getelementptr i8, ptr %2, i64 64
-  br label %283
+272:                                              ; preds = %262
+  %273 = and i64 %259, 4611686018427387888
+  %274 = insertelement <8 x float> poison, float %157, i64 0
+  %275 = shufflevector <8 x float> %274, <8 x float> poison, <8 x i32> zeroinitializer
+  %276 = insertelement <8 x float> poison, float %256, i64 0
+  %277 = shufflevector <8 x float> %276, <8 x float> poison, <8 x i32> zeroinitializer
+  %278 = getelementptr i8, ptr %2, i64 64
+  br label %279
 
-283:                                              ; preds = %283, %276
-  %284 = phi i64 [ 0, %276 ], [ %302, %283 ]
-  %285 = shl i64 %284, 1
-  %286 = or disjoint i64 %285, 16
-  %287 = getelementptr inbounds float, ptr %2, i64 %285
-  %288 = getelementptr inbounds float, ptr %2, i64 %286
-  %289 = load <16 x float>, ptr %287, align 4, !tbaa !41
-  %290 = load <16 x float>, ptr %288, align 4, !tbaa !41
-  %291 = shufflevector <16 x float> %289, <16 x float> poison, <8 x i32> <i32 0, i32 2, i32 4, i32 6, i32 8, i32 10, i32 12, i32 14>
-  %292 = shufflevector <16 x float> %290, <16 x float> poison, <8 x i32> <i32 0, i32 2, i32 4, i32 6, i32 8, i32 10, i32 12, i32 14>
-  %293 = shufflevector <16 x float> %289, <16 x float> poison, <8 x i32> <i32 1, i32 3, i32 5, i32 7, i32 9, i32 11, i32 13, i32 15>
-  %294 = shufflevector <16 x float> %290, <16 x float> poison, <8 x i32> <i32 1, i32 3, i32 5, i32 7, i32 9, i32 11, i32 13, i32 15>
-  %295 = fsub reassoc nsz arcp contract afn <8 x float> %279, %293
-  %296 = fsub reassoc nsz arcp contract afn <8 x float> %279, %294
-  %297 = fsub reassoc nsz arcp contract afn <8 x float> %281, %291
-  %298 = fsub reassoc nsz arcp contract afn <8 x float> %281, %292
-  %299 = getelementptr float, ptr %282, i64 %285
-  %300 = shufflevector <8 x float> %295, <8 x float> %297, <16 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11, i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
-  store <16 x float> %300, ptr %287, align 4, !tbaa !41
-  %301 = shufflevector <8 x float> %296, <8 x float> %298, <16 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11, i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
-  store <16 x float> %301, ptr %299, align 4, !tbaa !41
-  %302 = add nuw i64 %284, 16
-  %303 = icmp eq i64 %302, %277
-  br i1 %303, label %304, label %283, !llvm.loop !70
+279:                                              ; preds = %279, %272
+  %280 = phi i64 [ 0, %272 ], [ %298, %279 ]
+  %281 = shl i64 %280, 1
+  %282 = or disjoint i64 %281, 16
+  %283 = getelementptr inbounds float, ptr %2, i64 %281
+  %284 = getelementptr inbounds float, ptr %2, i64 %282
+  %285 = load <16 x float>, ptr %283, align 4, !tbaa !41
+  %286 = load <16 x float>, ptr %284, align 4, !tbaa !41
+  %287 = shufflevector <16 x float> %285, <16 x float> poison, <8 x i32> <i32 0, i32 2, i32 4, i32 6, i32 8, i32 10, i32 12, i32 14>
+  %288 = shufflevector <16 x float> %286, <16 x float> poison, <8 x i32> <i32 0, i32 2, i32 4, i32 6, i32 8, i32 10, i32 12, i32 14>
+  %289 = shufflevector <16 x float> %285, <16 x float> poison, <8 x i32> <i32 1, i32 3, i32 5, i32 7, i32 9, i32 11, i32 13, i32 15>
+  %290 = shufflevector <16 x float> %286, <16 x float> poison, <8 x i32> <i32 1, i32 3, i32 5, i32 7, i32 9, i32 11, i32 13, i32 15>
+  %291 = fsub reassoc nsz arcp contract afn <8 x float> %275, %289
+  %292 = fsub reassoc nsz arcp contract afn <8 x float> %275, %290
+  %293 = fsub reassoc nsz arcp contract afn <8 x float> %277, %287
+  %294 = fsub reassoc nsz arcp contract afn <8 x float> %277, %288
+  %295 = getelementptr float, ptr %278, i64 %281
+  %296 = shufflevector <8 x float> %291, <8 x float> %293, <16 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11, i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
+  store <16 x float> %296, ptr %283, align 4, !tbaa !41
+  %297 = shufflevector <8 x float> %292, <8 x float> %294, <16 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11, i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
+  store <16 x float> %297, ptr %295, align 4, !tbaa !41
+  %298 = add nuw i64 %280, 16
+  %299 = icmp eq i64 %298, %273
+  br i1 %299, label %300, label %279, !llvm.loop !70
 
-304:                                              ; preds = %283
-  %305 = shl nuw nsw i64 %277, 1
-  %306 = icmp eq i64 %263, %277
-  br i1 %306, label %.loopexit, label %307
+300:                                              ; preds = %279
+  %301 = shl nuw nsw i64 %273, 1
+  %302 = icmp eq i64 %259, %273
+  br i1 %302, label %.loopexit, label %303
 
-307:                                              ; preds = %304, %266, %265
-  %308 = phi i64 [ 0, %266 ], [ 0, %265 ], [ %305, %304 ]
-  %309 = insertelement <2 x float> poison, float %260, i64 0
-  %310 = insertelement <2 x float> %309, float %161, i64 1
-  br label %362
+303:                                              ; preds = %300, %262, %261
+  %304 = phi i64 [ 0, %262 ], [ 0, %261 ], [ %301, %300 ]
+  %305 = insertelement <2 x float> poison, float %256, i64 0
+  %306 = insertelement <2 x float> %305, float %157, i64 1
+  br label %358
 
-311:                                              ; preds = %258
-  br i1 %264, label %351, label %312
+307:                                              ; preds = %254
+  br i1 %260, label %347, label %308
 
-312:                                              ; preds = %311
-  %313 = getelementptr i8, ptr %2, i64 4
-  %314 = shl i64 %262, 3
-  %315 = getelementptr i8, ptr %313, i64 %314
-  %316 = icmp ult ptr %315, %313
-  %317 = icmp ugt i64 %261, 4611686018427387903
-  %318 = getelementptr i8, ptr %2, i64 %314
-  %319 = icmp ult ptr %318, %2
-  %320 = or i1 %317, %319
-  %321 = or i1 %316, %320
-  br i1 %321, label %351, label %322
+308:                                              ; preds = %307
+  %309 = getelementptr i8, ptr %2, i64 4
+  %310 = shl i64 %258, 3
+  %311 = getelementptr i8, ptr %309, i64 %310
+  %312 = icmp ult ptr %311, %309
+  %313 = icmp ugt i64 %257, 4611686018427387903
+  %314 = getelementptr i8, ptr %2, i64 %310
+  %315 = icmp ult ptr %314, %2
+  %316 = or i1 %313, %315
+  %317 = or i1 %312, %316
+  br i1 %317, label %347, label %318
 
-322:                                              ; preds = %312
-  %323 = and i64 %263, 4611686018427387888
-  %324 = insertelement <8 x float> poison, float %161, i64 0
-  %325 = shufflevector <8 x float> %324, <8 x float> poison, <8 x i32> zeroinitializer
-  %326 = insertelement <8 x float> poison, float %260, i64 0
-  %327 = shufflevector <8 x float> %326, <8 x float> poison, <8 x i32> zeroinitializer
-  %328 = getelementptr i8, ptr %2, i64 64
-  br label %329
+318:                                              ; preds = %308
+  %319 = and i64 %259, 4611686018427387888
+  %320 = insertelement <8 x float> poison, float %157, i64 0
+  %321 = shufflevector <8 x float> %320, <8 x float> poison, <8 x i32> zeroinitializer
+  %322 = insertelement <8 x float> poison, float %256, i64 0
+  %323 = shufflevector <8 x float> %322, <8 x float> poison, <8 x i32> zeroinitializer
+  %324 = getelementptr i8, ptr %2, i64 64
+  br label %325
 
-329:                                              ; preds = %329, %322
-  %330 = phi i64 [ 0, %322 ], [ %346, %329 ]
-  %331 = shl i64 %330, 1
-  %332 = getelementptr float, ptr %2, i64 %331
-  %333 = getelementptr float, ptr %328, i64 %331
-  %334 = load <16 x float>, ptr %332, align 4, !tbaa !41
-  %335 = load <16 x float>, ptr %333, align 4, !tbaa !41
-  %336 = shufflevector <16 x float> %334, <16 x float> poison, <8 x i32> <i32 0, i32 2, i32 4, i32 6, i32 8, i32 10, i32 12, i32 14>
-  %337 = shufflevector <16 x float> %335, <16 x float> poison, <8 x i32> <i32 0, i32 2, i32 4, i32 6, i32 8, i32 10, i32 12, i32 14>
-  %338 = shufflevector <16 x float> %334, <16 x float> poison, <8 x i32> <i32 1, i32 3, i32 5, i32 7, i32 9, i32 11, i32 13, i32 15>
-  %339 = shufflevector <16 x float> %335, <16 x float> poison, <8 x i32> <i32 1, i32 3, i32 5, i32 7, i32 9, i32 11, i32 13, i32 15>
-  %340 = fsub reassoc nsz arcp contract afn <8 x float> %325, %336
-  %341 = fsub reassoc nsz arcp contract afn <8 x float> %325, %337
-  %342 = fsub reassoc nsz arcp contract afn <8 x float> %327, %338
-  %343 = fsub reassoc nsz arcp contract afn <8 x float> %327, %339
-  %344 = shufflevector <8 x float> %340, <8 x float> %342, <16 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11, i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
-  store <16 x float> %344, ptr %332, align 4, !tbaa !41
-  %345 = shufflevector <8 x float> %341, <8 x float> %343, <16 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11, i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
-  store <16 x float> %345, ptr %333, align 4, !tbaa !41
-  %346 = add nuw i64 %330, 16
-  %347 = icmp eq i64 %346, %323
-  br i1 %347, label %348, label %329, !llvm.loop !71
+325:                                              ; preds = %325, %318
+  %326 = phi i64 [ 0, %318 ], [ %342, %325 ]
+  %327 = shl i64 %326, 1
+  %328 = getelementptr float, ptr %2, i64 %327
+  %329 = getelementptr float, ptr %324, i64 %327
+  %330 = load <16 x float>, ptr %328, align 4, !tbaa !41
+  %331 = load <16 x float>, ptr %329, align 4, !tbaa !41
+  %332 = shufflevector <16 x float> %330, <16 x float> poison, <8 x i32> <i32 0, i32 2, i32 4, i32 6, i32 8, i32 10, i32 12, i32 14>
+  %333 = shufflevector <16 x float> %331, <16 x float> poison, <8 x i32> <i32 0, i32 2, i32 4, i32 6, i32 8, i32 10, i32 12, i32 14>
+  %334 = shufflevector <16 x float> %330, <16 x float> poison, <8 x i32> <i32 1, i32 3, i32 5, i32 7, i32 9, i32 11, i32 13, i32 15>
+  %335 = shufflevector <16 x float> %331, <16 x float> poison, <8 x i32> <i32 1, i32 3, i32 5, i32 7, i32 9, i32 11, i32 13, i32 15>
+  %336 = fsub reassoc nsz arcp contract afn <8 x float> %321, %332
+  %337 = fsub reassoc nsz arcp contract afn <8 x float> %321, %333
+  %338 = fsub reassoc nsz arcp contract afn <8 x float> %323, %334
+  %339 = fsub reassoc nsz arcp contract afn <8 x float> %323, %335
+  %340 = shufflevector <8 x float> %336, <8 x float> %338, <16 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11, i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
+  store <16 x float> %340, ptr %328, align 4, !tbaa !41
+  %341 = shufflevector <8 x float> %337, <8 x float> %339, <16 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11, i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
+  store <16 x float> %341, ptr %329, align 4, !tbaa !41
+  %342 = add nuw i64 %326, 16
+  %343 = icmp eq i64 %342, %319
+  br i1 %343, label %344, label %325, !llvm.loop !71
 
-348:                                              ; preds = %329
-  %349 = shl nuw nsw i64 %323, 1
-  %350 = icmp eq i64 %263, %323
-  br i1 %350, label %.loopexit, label %351
+344:                                              ; preds = %325
+  %345 = shl nuw nsw i64 %319, 1
+  %346 = icmp eq i64 %259, %319
+  br i1 %346, label %.loopexit, label %347
 
-351:                                              ; preds = %348, %312, %311
-  %352 = phi i64 [ 0, %312 ], [ 0, %311 ], [ %349, %348 ]
-  %353 = insertelement <2 x float> poison, float %161, i64 0
-  %354 = insertelement <2 x float> %353, float %260, i64 1
-  br label %355
+347:                                              ; preds = %344, %308, %307
+  %348 = phi i64 [ 0, %308 ], [ 0, %307 ], [ %345, %344 ]
+  %349 = insertelement <2 x float> poison, float %157, i64 0
+  %350 = insertelement <2 x float> %349, float %256, i64 1
+  br label %351
 
-355:                                              ; preds = %355, %351
-  %356 = phi i64 [ %360, %355 ], [ %352, %351 ]
-  %357 = getelementptr inbounds float, ptr %2, i64 %356
-  %358 = load <2 x float>, ptr %357, align 4, !tbaa !41
-  %359 = fsub reassoc nsz arcp contract afn <2 x float> %354, %358
-  store <2 x float> %359, ptr %357, align 4, !tbaa !41
-  %360 = add nuw i64 %356, 2
-  %361 = icmp ult i64 %360, %11
-  br i1 %361, label %355, label %.loopexit, !llvm.loop !72
+351:                                              ; preds = %351, %347
+  %352 = phi i64 [ %356, %351 ], [ %348, %347 ]
+  %353 = getelementptr inbounds float, ptr %2, i64 %352
+  %354 = load <2 x float>, ptr %353, align 4, !tbaa !41
+  %355 = fsub reassoc nsz arcp contract afn <2 x float> %350, %354
+  store <2 x float> %355, ptr %353, align 4, !tbaa !41
+  %356 = add nuw i64 %352, 2
+  %357 = icmp ult i64 %356, %11
+  br i1 %357, label %351, label %.loopexit, !llvm.loop !72
 
-362:                                              ; preds = %362, %307
-  %363 = phi i64 [ %368, %362 ], [ %308, %307 ]
-  %364 = getelementptr inbounds float, ptr %2, i64 %363
-  %365 = load <2 x float>, ptr %364, align 4, !tbaa !41
-  %366 = fsub reassoc nsz arcp contract afn <2 x float> %310, %365
-  %367 = shufflevector <2 x float> %366, <2 x float> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x float> %367, ptr %364, align 4, !tbaa !41
-  %368 = add nuw i64 %363, 2
-  %369 = icmp ult i64 %368, %11
-  br i1 %369, label %362, label %.loopexit, !llvm.loop !73
+358:                                              ; preds = %358, %303
+  %359 = phi i64 [ %364, %358 ], [ %304, %303 ]
+  %360 = getelementptr inbounds float, ptr %2, i64 %359
+  %361 = load <2 x float>, ptr %360, align 4, !tbaa !41
+  %362 = fsub reassoc nsz arcp contract afn <2 x float> %306, %361
+  %363 = shufflevector <2 x float> %362, <2 x float> poison, <2 x i32> <i32 1, i32 0>
+  store <2 x float> %363, ptr %360, align 4, !tbaa !41
+  %364 = add nuw i64 %359, 2
+  %365 = icmp ult i64 %364, %11
+  br i1 %365, label %358, label %.loopexit, !llvm.loop !73
 
-.loopexit:                                        ; preds = %362, %355, %248, %241, %148, %140, %61, %348, %304, %238, %202, %137, %110, %58, %22, %10, %4
+.loopexit:                                        ; preds = %358, %351, %244, %237, %144, %136, %57, %344, %300, %234, %198, %133, %106, %54, %22, %10, %4
   ret i32 1
 }
 

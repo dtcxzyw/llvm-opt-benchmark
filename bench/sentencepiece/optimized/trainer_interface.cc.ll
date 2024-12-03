@@ -16106,7 +16106,7 @@ _ZNSt8__detail8_AdaptorISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm256
   br i1 %170, label %19, label %171, !llvm.loop !243
 
 171:                                              ; preds = %_ZNSt8__detail8_AdaptorISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEfEclEv.exit25
-  %172 = tail call noundef float @logf(float noundef %167) #24
+  %172 = tail call float @llvm.log.f32(float %167)
   %173 = fmul float %172, -2.000000e+00
   %174 = fdiv float %173, %167
   %175 = tail call noundef float @sqrtf(float noundef %174) #24
@@ -16134,9 +16134,6 @@ declare float @nextafterf(float noundef, float noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
 declare float @sqrtf(float noundef) local_unnamed_addr #16
-
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare float @logf(float noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.round.f32(float) #15
@@ -18988,6 +18985,9 @@ declare i64 @llvm.smin.i64(i64, i64) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare x86_fp80 @llvm.log.f80(x86_fp80) #23
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.log.f32(float) #23
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

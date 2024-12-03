@@ -320,9 +320,8 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i:       ; preds = %sw.bb7
 
 invoke.cont.i:                                    ; preds = %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i
   %3 = load i32, ptr %call.i, align 4, !tbaa !24
-  %4 = add nuw nsw i32 %3, 1
-  %cmp.inv.i = icmp slt i32 %3, 1
-  %spec.select.i = select i1 %cmp.inv.i, i32 1, i32 %4
+  %4 = tail call i32 @llvm.smax.i32(i32 %3, i32 0)
+  %spec.select.i = add nuw i32 %4, 1
   store i32 %spec.select.i, ptr %call.i, align 4, !tbaa !24
   %m_data.i = getelementptr inbounds i8, ptr %1, i64 40
   %call3.i = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEfSt4lessIS5_ESaISt4pairIKS5_fEEEixERS9_(ptr noundef nonnull align 8 dereferenceable(48) %m_data.i, ptr noundef nonnull align 8 dereferenceable(32) %m_name9)
@@ -674,9 +673,8 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %entry
 
 invoke.cont:                                      ; preds = %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit
   %0 = load i32, ptr %call, align 4, !tbaa !24
-  %1 = add nuw nsw i32 %0, 1
-  %cmp.inv = icmp slt i32 %0, 1
-  %spec.select = select i1 %cmp.inv, i32 1, i32 %1
+  %1 = tail call i32 @llvm.smax.i32(i32 %0, i32 0)
+  %spec.select = add nuw i32 %1, 1
   store i32 %spec.select, ptr %call, align 4, !tbaa !24
   %m_data = getelementptr inbounds i8, ptr %this, i64 40
   %call3 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEfSt4lessIS5_ESaISt4pairIKS5_fEEEixERS9_(ptr noundef nonnull align 8 dereferenceable(48) %m_data, ptr noundef nonnull align 8 dereferenceable(32) %name)

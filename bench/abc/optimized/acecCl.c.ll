@@ -2142,13 +2142,12 @@ define noalias noundef ptr @Acec_RewriteTop(ptr noundef %0, ptr nocapture nounde
   %.val53 = load ptr, ptr %5, align 8
   %6 = getelementptr i8, ptr %.val53, i64 4
   %.val53.val = load i32, ptr %6, align 4
-  %7 = add nsw i32 %.val53.val, 1
-  %8 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #20
-  %or.cond.i = icmp ult i32 %.val53.val, 15
-  %spec.store.select.i = select i1 %or.cond.i, i32 16, i32 %7
-  %9 = getelementptr inbounds i8, ptr %8, i64 4
+  %7 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #20
+  %8 = tail call i32 @llvm.umax.i32(i32 %.val53.val, i32 15)
+  %spec.store.select.i = add i32 %8, 1
+  %9 = getelementptr inbounds i8, ptr %7, i64 4
   store i32 0, ptr %9, align 4
-  store i32 %spec.store.select.i, ptr %8, align 8
+  store i32 %spec.store.select.i, ptr %7, align 8
   %.not.i = icmp eq i32 %spec.store.select.i, 0
   br i1 %.not.i, label %Vec_IntAlloc.exit, label %10
 
@@ -2160,7 +2159,7 @@ define noalias noundef ptr @Acec_RewriteTop(ptr noundef %0, ptr nocapture nounde
 
 Vec_IntAlloc.exit:                                ; preds = %2, %10
   %14 = phi ptr [ %13, %10 ], [ null, %2 ]
-  %15 = getelementptr inbounds i8, ptr %8, i64 8
+  %15 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %14, ptr %15, align 8
   %16 = getelementptr i8, ptr %0, i64 32
   %.val49 = load ptr, ptr %16, align 8
@@ -2240,7 +2239,7 @@ Vec_IntAlloc.exit:                                ; preds = %2, %10
   %.val45 = load ptr, ptr %48, align 8
   %49 = load i32, ptr %.val45, align 4
   %50 = load i32, ptr %9, align 4
-  %51 = load i32, ptr %8, align 8
+  %51 = load i32, ptr %7, align 8
   %52 = icmp eq i32 %50, %51
   br i1 %52, label %53, label %.Vec_IntGrow.exit10_crit_edge.i
 
@@ -2268,7 +2267,7 @@ Vec_IntAlloc.exit:                                ; preds = %2, %10
 Vec_IntGrow.exit.i:                               ; preds = %59, %57
   %61 = phi ptr [ %58, %57 ], [ %60, %59 ]
   store ptr %61, ptr %15, align 8
-  store i32 16, ptr %8, align 8
+  store i32 16, ptr %7, align 8
   br label %Vec_IntPush.exit
 
 62:                                               ; preds = %53
@@ -2290,7 +2289,7 @@ Vec_IntGrow.exit.i:                               ; preds = %59, %57
 71:                                               ; preds = %69, %67
   %72 = phi ptr [ %68, %67 ], [ %70, %69 ]
   store ptr %72, ptr %15, align 8
-  store i32 %63, ptr %8, align 8
+  store i32 %63, ptr %7, align 8
   br label %Vec_IntPush.exit
 
 Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10_crit_edge.i, %Vec_IntGrow.exit.i, %71
@@ -2321,7 +2320,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   call void @Acec_InsertFadd(ptr noundef %0, ptr noundef nonnull %3, ptr noundef nonnull %4) #18
   %83 = load i32, ptr %4, align 4
   %84 = load i32, ptr %9, align 4
-  %85 = load i32, ptr %8, align 8
+  %85 = load i32, ptr %7, align 8
   %86 = icmp eq i32 %84, %85
   br i1 %86, label %87, label %.Vec_IntGrow.exit10_crit_edge.i60
 
@@ -2349,7 +2348,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 Vec_IntGrow.exit.i65:                             ; preds = %93, %91
   %95 = phi ptr [ %92, %91 ], [ %94, %93 ]
   store ptr %95, ptr %15, align 8
-  store i32 16, ptr %8, align 8
+  store i32 16, ptr %7, align 8
   br label %Vec_IntPush.exit66
 
 96:                                               ; preds = %87
@@ -2371,7 +2370,7 @@ Vec_IntGrow.exit.i65:                             ; preds = %93, %91
 105:                                              ; preds = %103, %101
   %106 = phi ptr [ %102, %101 ], [ %104, %103 ]
   store ptr %106, ptr %15, align 8
-  store i32 %97, ptr %8, align 8
+  store i32 %97, ptr %7, align 8
   br label %Vec_IntPush.exit66
 
 Vec_IntPush.exit66:                               ; preds = %.Vec_IntGrow.exit10_crit_edge.i60, %Vec_IntGrow.exit.i65, %105
@@ -2637,7 +2636,7 @@ Vec_IntPush.exit81:                               ; preds = %.Vec_IntGrow.exit10
   %.0.lcssa = phi i32 [ 0, %.critedge ], [ %.1, %.critedge2.loopexit ], [ 0, %34 ]
   store i32 %.val52.val, ptr %9, align 4
   %229 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12, i32 noundef %.0.lcssa)
-  ret ptr %8
+  ret ptr %7
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
@@ -3259,6 +3258,9 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #16
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

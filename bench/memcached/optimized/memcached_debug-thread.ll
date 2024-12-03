@@ -1784,9 +1784,8 @@ if.end23.i:                                       ; preds = %if.end17.i
 if.then25.i:                                      ; preds = %if.end23.i
   %29 = load i32, ptr getelementptr inbounds (i8, ptr @settings, i64 92), align 4
   %div.i = udiv i32 %28, %29
-  %cmp26.i = icmp slt i32 %div.i, 16384
-  %div2828.i = lshr i32 %div.i, 14
-  %limit.0.i = select i1 %cmp26.i, i32 1, i32 %div2828.i
+  %30 = tail call i32 @llvm.smax.i32(i32 %div.i, i32 16384)
+  %limit.0.i = lshr i32 %30, 14
   tail call void @cache_set_limit(ptr noundef nonnull %call18.i, i32 noundef %limit.0.i) #15
   br label %if.end31.i
 
@@ -1798,25 +1797,25 @@ if.end31.i:                                       ; preds = %if.then25.i, %if.en
   br i1 %cmp34.i, label %if.then35.i, label %if.end37.i
 
 if.then35.i:                                      ; preds = %if.end31.i
-  %30 = load ptr, ptr @stderr, align 8
-  %31 = tail call i64 @fwrite(ptr nonnull @.str.27, i64 33, i64 1, ptr %30) #16
+  %31 = load ptr, ptr @stderr, align 8
+  %32 = tail call i64 @fwrite(ptr nonnull @.str.27, i64 33, i64 1, ptr %31) #16
   tail call void @exit(i32 noundef 1) #17
   unreachable
 
 if.end37.i:                                       ; preds = %if.end31.i
   %storage.i = getelementptr inbounds i8, ptr %arrayidx59, i64 6904
-  %32 = load ptr, ptr %storage.i, align 8
-  %tobool38.not.i = icmp eq ptr %32, null
+  %33 = load ptr, ptr %storage.i, align 8
+  %tobool38.not.i = icmp eq ptr %33, null
   br i1 %tobool38.not.i, label %setup_thread.exit, label %if.then39.i
 
 if.then39.i:                                      ; preds = %if.end37.i
-  tail call void @thread_io_queue_add(ptr noundef nonnull %arrayidx59, i32 noundef 1, ptr noundef nonnull %32, ptr noundef nonnull @storage_submit_cb) #15
+  tail call void @thread_io_queue_add(ptr noundef nonnull %arrayidx59, i32 noundef 1, ptr noundef nonnull %33, ptr noundef nonnull @storage_submit_cb) #15
   br label %setup_thread.exit
 
 setup_thread.exit:                                ; preds = %if.end37.i, %if.then39.i
   tail call void @thread_io_queue_add(ptr noundef nonnull %arrayidx59, i32 noundef 0, ptr noundef null, ptr noundef null) #15
-  %33 = load i32, ptr getelementptr inbounds (i8, ptr @stats_state, i64 36), align 4
-  %add = add i32 %33, 5
+  %34 = load i32, ptr getelementptr inbounds (i8, ptr @stats_state, i64 36), align 4
+  %add = add i32 %34, 5
   store i32 %add, ptr getelementptr inbounds (i8, ptr @stats_state, i64 36), align 4
   %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
   %exitcond59.not = icmp eq i64 %indvars.iv.next57, %wide.trip.count
@@ -1824,8 +1823,8 @@ setup_thread.exit:                                ; preds = %if.end37.i, %if.the
 
 for.body66:                                       ; preds = %for.body66.preheader, %create_worker.exit
   %indvars.iv60 = phi i64 [ 0, %for.body66.preheader ], [ %indvars.iv.next61, %create_worker.exit ]
-  %34 = load ptr, ptr @threads, align 8
-  %arrayidx68 = getelementptr inbounds %struct.LIBEVENT_THREAD, ptr %34, i64 %indvars.iv60
+  %35 = load ptr, ptr @threads, align 8
+  %arrayidx68 = getelementptr inbounds %struct.LIBEVENT_THREAD, ptr %35, i64 %indvars.iv60
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %attr.i)
   %call.i36 = call i32 @pthread_attr_init(ptr noundef nonnull %attr.i) #15
   %call1.i37 = call i32 @pthread_create(ptr noundef %arrayidx68, ptr noundef nonnull %attr.i, ptr noundef nonnull @worker_libevent, ptr noundef %arrayidx68) #15
@@ -1833,15 +1832,15 @@ for.body66:                                       ; preds = %for.body66.preheade
   br i1 %cmp.not.i, label %create_worker.exit, label %if.then.i38
 
 if.then.i38:                                      ; preds = %for.body66
-  %35 = load ptr, ptr @stderr, align 8
+  %36 = load ptr, ptr @stderr, align 8
   %call2.i39 = call ptr @strerror(i32 noundef %call1.i37) #15
-  %call3.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %35, ptr noundef nonnull @.str.34, ptr noundef %call2.i39) #16
+  %call3.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %36, ptr noundef nonnull @.str.34, ptr noundef %call2.i39) #16
   call void @exit(i32 noundef 1) #17
   unreachable
 
 create_worker.exit:                               ; preds = %for.body66
-  %36 = load i64, ptr %arrayidx68, align 8
-  %call.i.i41 = call i32 @pthread_setname_np(i64 noundef %36, ptr noundef nonnull @.str.35) #15
+  %37 = load i64, ptr %arrayidx68, align 8
+  %call.i.i41 = call i32 @pthread_setname_np(i64 noundef %37, ptr noundef nonnull @.str.35) #15
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %attr.i)
   %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, 1
   %exitcond64.not = icmp eq i64 %indvars.iv.next61, %wide.trip.count63
@@ -1849,14 +1848,14 @@ create_worker.exit:                               ; preds = %for.body66
 
 for.end71:                                        ; preds = %create_worker.exit, %for.cond46.preheader
   %call72 = call i32 @pthread_mutex_lock(ptr noundef nonnull @init_lock) #15
-  %37 = load i32, ptr @init_count, align 4
-  %cmp1.i = icmp slt i32 %37, %nthreads
+  %38 = load i32, ptr @init_count, align 4
+  %cmp1.i = icmp slt i32 %38, %nthreads
   br i1 %cmp1.i, label %while.body.i, label %wait_for_thread_registration.exit
 
 while.body.i:                                     ; preds = %for.end71, %while.body.i
   %call.i42 = call i32 @pthread_cond_wait(ptr noundef nonnull @init_cond, ptr noundef nonnull @init_lock) #15
-  %38 = load i32, ptr @init_count, align 4
-  %cmp.i43 = icmp slt i32 %38, %nthreads
+  %39 = load i32, ptr @init_count, align 4
+  %cmp.i43 = icmp slt i32 %39, %nthreads
   br i1 %cmp.i43, label %while.body.i, label %wait_for_thread_registration.exit, !llvm.loop !7
 
 wait_for_thread_registration.exit:                ; preds = %while.body.i, %for.end71

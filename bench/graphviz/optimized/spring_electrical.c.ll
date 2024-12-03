@@ -1116,9 +1116,8 @@ average_edge_length.exit:                         ; preds = %49, %._crit_edge.i
 
 195:                                              ; preds = %191
   store i32 1, ptr %110, align 8
-  %196 = add nsw i32 %192, 1
-  %.inv.i = icmp slt i32 %192, 20
-  %spec.select.i = select i1 %.inv.i, i32 %196, i32 20
+  %196 = call i32 @llvm.smin.i32(i32 %192, i32 19)
+  %spec.select.i = add nsw i32 %196, 1
   store i32 %spec.select.i, ptr %7, align 8
   br label %oned_optimizer_train.exit
 
@@ -2110,9 +2109,8 @@ average_edge_length.exit:                         ; preds = %64, %._crit_edge.i
 
 248:                                              ; preds = %244
   store i32 1, ptr %123, align 8
-  %249 = add nsw i32 %245, 1
-  %.inv.i = icmp slt i32 %245, 20
-  %spec.select.i = select i1 %.inv.i, i32 %249, i32 20
+  %249 = call i32 @llvm.smin.i32(i32 %245, i32 19)
+  %spec.select.i = add nsw i32 %249, 1
   store i32 %spec.select.i, ptr %12, align 8
   br label %oned_optimizer_train.exit
 
@@ -4943,6 +4941,9 @@ declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_add
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #20
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #21

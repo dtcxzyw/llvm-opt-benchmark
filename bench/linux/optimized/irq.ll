@@ -105,9 +105,9 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @pirq_enable_irq(ptr noundef %0) #0 align 16 {
   %2 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #12
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #13
   store i8 0, ptr %2, align 1
-  %3 = call i32 @pci_read_config_byte(ptr noundef %0, i32 noundef 61, ptr noundef nonnull %2) #12
+  %3 = call i32 @pci_read_config_byte(ptr noundef %0, i32 noundef 61, ptr noundef nonnull %2) #13
   %4 = load i8, ptr %2, align 1
   %5 = icmp eq i8 %4, 0
   br i1 %5, label %113, label %6
@@ -168,7 +168,7 @@ define internal noundef i32 @pirq_enable_irq(ptr noundef %0) #0 align 16 {
   %44 = load i8, ptr %2, align 1
   %45 = zext i8 %44 to i32
   %46 = add nsw i32 %45, -1
-  %47 = call i32 @IO_APIC_get_PCI_irq_vector(i32 noundef %39, i32 noundef %43, i32 noundef %46) #12
+  %47 = call i32 @IO_APIC_get_PCI_irq_vector(i32 noundef %39, i32 noundef %43, i32 noundef %46) #13
   %48 = icmp slt i32 %47, 0
   br i1 %48, label %49, label %91
 
@@ -192,7 +192,7 @@ define internal noundef i32 @pirq_enable_irq(ptr noundef %0) #0 align 16 {
   %61 = getelementptr inbounds i8, ptr %59, i64 56
   %62 = load ptr, ptr %61, align 8
   %63 = load i8, ptr %2, align 1
-  %64 = call zeroext i8 @pci_swizzle_interrupt_pin(ptr noundef %60, i8 noundef zeroext %63) #12
+  %64 = call zeroext i8 @pci_swizzle_interrupt_pin(ptr noundef %60, i8 noundef zeroext %63) #13
   store i8 %64, ptr %2, align 1
   %65 = getelementptr inbounds i8, ptr %62, i64 16
   %66 = load ptr, ptr %65, align 8
@@ -205,7 +205,7 @@ define internal noundef i32 @pirq_enable_irq(ptr noundef %0) #0 align 16 {
   %73 = and i32 %72, 31
   %74 = zext i8 %64 to i32
   %75 = add nsw i32 %74, -1
-  %76 = call i32 @IO_APIC_get_PCI_irq_vector(i32 noundef %69, i32 noundef %73, i32 noundef %75) #12
+  %76 = call i32 @IO_APIC_get_PCI_irq_vector(i32 noundef %69, i32 noundef %73, i32 noundef %75) #13
   %77 = icmp sgt i32 %76, -1
   br i1 %77, label %78, label %54
 
@@ -226,7 +226,7 @@ define internal noundef i32 @pirq_enable_irq(ptr noundef %0) #0 align 16 {
   %88 = load i8, ptr %2, align 1
   %89 = zext i8 %88 to i32
   %90 = add nuw nsw i32 %89, 64
-  call void (ptr, ptr, ...) @_dev_warn(ptr noundef %79, ptr noundef nonnull @.str.40, ptr noundef %87, i32 noundef %90, i32 noundef %76) #13
+  call void (ptr, ptr, ...) @_dev_warn(ptr noundef %79, ptr noundef nonnull @.str.40, ptr noundef %87, i32 noundef %90, i32 noundef %76) #14
   br label %91, !llvm.loop !8
 
 91:                                               ; preds = %34, %86
@@ -240,7 +240,7 @@ define internal noundef i32 @pirq_enable_irq(ptr noundef %0) #0 align 16 {
   %96 = load i8, ptr %2, align 1
   %97 = zext i8 %96 to i32
   %98 = add nuw nsw i32 %97, 64
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %95, ptr noundef nonnull @.str.41, i32 noundef %98, i32 noundef %.ph) #13
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef %95, ptr noundef nonnull @.str.41, i32 noundef %98, i32 noundef %.ph) #14
   br label %113
 
 .thread:                                          ; preds = %.thread5, %18
@@ -263,11 +263,11 @@ define internal noundef i32 @pirq_enable_irq(ptr noundef %0) #0 align 16 {
   %110 = load i8, ptr %2, align 1
   %111 = zext i8 %110 to i32
   %112 = add nuw nsw i32 %111, 64
-  call void (ptr, ptr, ...) @_dev_warn(ptr noundef %109, ptr noundef nonnull @.str.44, i32 noundef %112, ptr noundef nonnull %103) #13
+  call void (ptr, ptr, ...) @_dev_warn(ptr noundef %109, ptr noundef nonnull @.str.44, i32 noundef %112, ptr noundef nonnull %103) #14
   br label %113
 
 113:                                              ; preds = %30, %91, %.thread5, %108, %.thread10, %18, %6, %1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #12
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #13
   ret i32 0
 }
 
@@ -312,7 +312,7 @@ define internal void @pirq_disable_irq(ptr nocapture noundef %0) #0 align 16 {
   br i1 %27, label %31, label %28
 
 28:                                               ; preds = %24
-  tail call void @mp_unmap_irq(i32 noundef %26) #12
+  tail call void @mp_unmap_irq(i32 noundef %26) #13
   store i32 0, ptr %25, align 4
   %29 = load i40, ptr %20, align 1
   %30 = and i40 %29, -2147483649
@@ -343,10 +343,10 @@ define dso_local void @elcr_set_level_irq(i32 noundef %0) local_unnamed_addr #0 
   %13 = trunc nuw i32 %7 to i16
   %14 = or i16 %8, %13
   store i16 %14, ptr @elcr_set_level_irq.elcr_irq_mask, align 2
-  %15 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str, i32 noundef %0) #13
+  %15 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str, i32 noundef %0) #14
   %16 = trunc nuw i32 %4 to i16
   %17 = or disjoint i16 %16, 1232
-  %18 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %17) #12, !srcloc !11
+  %18 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %17) #13, !srcloc !11
   %19 = zext i8 %18 to i32
   %20 = and i32 %3, %19
   %21 = icmp eq i32 %20, 0
@@ -355,7 +355,7 @@ define dso_local void @elcr_set_level_irq(i32 noundef %0) local_unnamed_addr #0 
 22:                                               ; preds = %12
   %23 = trunc nuw i32 %3 to i8
   %24 = or i8 %18, %23
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %24, i16 %17) #12, !srcloc !12
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %24, i16 %17) #13, !srcloc !12
   br label %25
 
 25:                                               ; preds = %22, %12, %6, %1
@@ -374,8 +374,8 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define dso_local void @pcibios_fixup_irqs() local_unnamed_addr #3 section ".init.text" align 16 {
   %1 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %1) #12
-  %2 = tail call ptr @pci_get_device(i32 noundef -1, i32 noundef -1, ptr noundef null) #12
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %1) #13
+  %2 = tail call ptr @pci_get_device(i32 noundef -1, i32 noundef -1, ptr noundef null) #13
   %3 = icmp eq ptr %2, null
   br i1 %3, label %.loopexit5, label %.preheader4
 
@@ -400,7 +400,7 @@ define dso_local void @pcibios_fixup_irqs() local_unnamed_addr #3 section ".init
   %16 = add i32 %13, 1
   %17 = select i1 %15, i32 1, i32 %16
   store i32 %17, ptr %12, align 4
-  %18 = tail call ptr @pci_get_device(i32 noundef -1, i32 noundef -1, ptr noundef nonnull %4) #12
+  %18 = tail call ptr @pci_get_device(i32 noundef -1, i32 noundef -1, ptr noundef nonnull %4) #13
   %19 = icmp eq ptr %18, null
   br i1 %19, label %.loopexit5, label %.preheader4, !llvm.loop !13
 
@@ -418,7 +418,7 @@ define dso_local void @pcibios_fixup_irqs() local_unnamed_addr #3 section ".init
   br i1 %27, label %.loopexit, label %28
 
 28:                                               ; preds = %22, %.loopexit5
-  %29 = tail call ptr @pci_get_device(i32 noundef -1, i32 noundef -1, ptr noundef null) #12
+  %29 = tail call ptr @pci_get_device(i32 noundef -1, i32 noundef -1, ptr noundef null) #13
   %30 = icmp eq ptr %29, null
   br i1 %30, label %.loopexit, label %.preheader.preheader
 
@@ -428,7 +428,7 @@ define dso_local void @pcibios_fixup_irqs() local_unnamed_addr #3 section ".init
 
 .preheader:                                       ; preds = %.preheader.preheader, %41
   %31 = phi ptr [ %42, %41 ], [ %29, %.preheader.preheader ]
-  %32 = call i32 @pci_read_config_byte(ptr noundef nonnull %31, i32 noundef 61, ptr noundef nonnull %1) #12
+  %32 = call i32 @pci_read_config_byte(ptr noundef nonnull %31, i32 noundef 61, ptr noundef nonnull %1) #13
   %33 = load i8, ptr %1, align 1
   %34 = icmp eq i8 %33, 0
   br i1 %34, label %41, label %35
@@ -444,12 +444,12 @@ define dso_local void @pcibios_fixup_irqs() local_unnamed_addr #3 section ".init
   br label %41
 
 41:                                               ; preds = %39, %35, %.preheader
-  %42 = call ptr @pci_get_device(i32 noundef -1, i32 noundef -1, ptr noundef nonnull %31) #12
+  %42 = call ptr @pci_get_device(i32 noundef -1, i32 noundef -1, ptr noundef nonnull %31) #13
   %43 = icmp eq ptr %42, null
   br i1 %43, label %.loopexit, label %.preheader, !llvm.loop !15
 
 .loopexit:                                        ; preds = %41, %28, %22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %1) #12
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %1) #13
   ret void
 }
 
@@ -463,10 +463,10 @@ declare dso_local i32 @pci_read_config_byte(ptr noundef, i32 noundef, ptr nounde
 define internal fastcc noundef range(i32 0, 2) i32 @pcibios_lookup_irq(ptr noundef %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 align 16 {
   %3 = alloca i8, align 1
   %4 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #13
   store i8 0, ptr %3, align 1, !annotation !14
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #12
-  %5 = call i32 @pci_read_config_byte(ptr noundef %0, i32 noundef 61, ptr noundef nonnull %3) #12
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #13
+  %5 = call i32 @pci_read_config_byte(ptr noundef %0, i32 noundef 61, ptr noundef nonnull %3) #13
   %6 = load i8, ptr %3, align 1
   %7 = icmp eq i8 %6, 0
   br i1 %7, label %.loopexit, label %8
@@ -527,10 +527,10 @@ define internal fastcc noundef range(i32 0, 2) i32 @pcibios_lookup_irq(ptr nound
 
 47:                                               ; preds = %43
   store i32 11, ptr %44, align 4
-  %48 = call i32 @pci_write_config_byte(ptr noundef %0, i32 noundef 60, i8 noundef zeroext 11) #12
+  %48 = call i32 @pci_write_config_byte(ptr noundef %0, i32 noundef 60, i8 noundef zeroext 11) #13
   %49 = load ptr, ptr getelementptr inbounds (i8, ptr @pirq_router, i64 24), align 8
   %50 = load ptr, ptr @pirq_router_dev, align 8
-  %51 = call i32 %49(ptr noundef %50, ptr noundef %0, i32 noundef 89, i32 noundef 11) #12
+  %51 = call i32 %49(ptr noundef %50, ptr noundef %0, i32 noundef 89, i32 noundef 11) #13
   br label %52
 
 52:                                               ; preds = %47, %43, %34
@@ -552,10 +552,10 @@ define internal fastcc noundef range(i32 0, 2) i32 @pcibios_lookup_irq(ptr nound
 62:                                               ; preds = %58
   %63 = load ptr, ptr getelementptr inbounds (i8, ptr @pirq_router, i64 16), align 8
   %64 = load ptr, ptr @pirq_router_dev, align 8
-  %65 = call i32 %63(ptr noundef %64, ptr noundef %0, i32 noundef 104) #12
+  %65 = call i32 %63(ptr noundef %64, ptr noundef %0, i32 noundef 104) #13
   store i32 %65, ptr %55, align 4
   %66 = trunc i32 %65 to i8
-  %67 = call i32 @pci_write_config_byte(ptr noundef %0, i32 noundef 60, i8 noundef zeroext %66) #12
+  %67 = call i32 @pci_write_config_byte(ptr noundef %0, i32 noundef 60, i8 noundef zeroext %66) #13
   br label %68
 
 68:                                               ; preds = %62, %58, %54, %52
@@ -581,7 +581,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @pcibios_lookup_irq(ptr nound
 
 83:                                               ; preds = %79
   %84 = getelementptr inbounds i8, ptr %0, i64 184
-  call void (ptr, ptr, ...) @_dev_warn(ptr noundef %84, ptr noundef nonnull @.str.2, i32 noundef %73, i32 noundef %70) #13
+  call void (ptr, ptr, ...) @_dev_warn(ptr noundef %84, ptr noundef nonnull @.str.2, i32 noundef %73, i32 noundef %70) #14
   br label %.thread
 
 85:                                               ; preds = %79, %68
@@ -607,7 +607,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @pcibios_lookup_irq(ptr nound
   br i1 %98, label %99, label %103
 
 99:                                               ; preds = %92
-  %100 = call i32 @can_request_irq(i32 noundef %88, i64 noundef 128) #12
+  %100 = call i32 @can_request_irq(i32 noundef %88, i64 noundef 128) #13
   %101 = icmp eq i32 %100, 0
   %102 = select i1 %101, i32 %87, i32 %88
   br label %103
@@ -635,7 +635,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @pcibios_lookup_irq(ptr nound
 
 115:                                              ; preds = %112
   %116 = load ptr, ptr @pirq_router_dev, align 8
-  %117 = call i32 %113(ptr noundef %116, ptr noundef %0, i32 noundef %71) #12
+  %117 = call i32 %113(ptr noundef %116, ptr noundef %0, i32 noundef %71) #13
   %118 = icmp eq i32 %117, 0
   br i1 %118, label %134, label %119
 
@@ -658,7 +658,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @pcibios_lookup_irq(ptr nound
 
 130:                                              ; preds = %127
   %131 = load ptr, ptr @pirq_router_dev, align 8
-  %132 = call i32 %128(ptr noundef %131, ptr noundef %0, i32 noundef %71, i32 noundef %117) #12
+  %132 = call i32 %128(ptr noundef %131, ptr noundef %0, i32 noundef %71, i32 noundef %117) #13
   br label %.thread21
 
 133:                                              ; preds = %127
@@ -684,7 +684,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @pcibios_lookup_irq(ptr nound
 
 145:                                              ; preds = %140
   %146 = load ptr, ptr @pirq_router_dev, align 8
-  %147 = call i32 %138(ptr noundef %146, ptr noundef %0, i32 noundef %71, i32 noundef %107) #12
+  %147 = call i32 %138(ptr noundef %146, ptr noundef %0, i32 noundef %71, i32 noundef %107) #13
   %148 = icmp eq i32 %147, 0
   br i1 %148, label %156, label %149
 
@@ -695,7 +695,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @pcibios_lookup_irq(ptr nound
 
 152:                                              ; preds = %149
   %153 = load ptr, ptr @pirq_router_dev, align 8
-  %154 = call i32 %150(ptr noundef %153, ptr noundef %0, i32 noundef %71, i32 noundef %107) #12
+  %154 = call i32 %150(ptr noundef %153, ptr noundef %0, i32 noundef %71, i32 noundef %107) #13
   br label %.thread21
 
 155:                                              ; preds = %149
@@ -722,8 +722,8 @@ define internal fastcc noundef range(i32 0, 2) i32 @pcibios_lookup_irq(ptr nound
   %168 = load i8, ptr %3, align 1
   %169 = zext i8 %168 to i32
   %170 = add nuw nsw i32 %169, 64
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %167, ptr noundef nonnull @.str.7, ptr noundef %166, i32 noundef %170, i32 noundef %165) #13
-  %171 = call ptr @pci_get_device(i32 noundef -1, i32 noundef -1, ptr noundef null) #12
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef %167, ptr noundef nonnull @.str.7, ptr noundef %166, i32 noundef %170, i32 noundef %165) #14
+  %171 = call ptr @pci_get_device(i32 noundef -1, i32 noundef -1, ptr noundef null) #13
   %172 = icmp eq ptr %171, null
   br i1 %172, label %.loopexit, label %173
 
@@ -734,7 +734,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @pcibios_lookup_irq(ptr nound
 
 176:                                              ; preds = %206, %173
   %177 = phi ptr [ %171, %173 ], [ %207, %206 ]
-  %178 = call i32 @pci_read_config_byte(ptr noundef nonnull %177, i32 noundef 61, ptr noundef nonnull %3) #12
+  %178 = call i32 @pci_read_config_byte(ptr noundef nonnull %177, i32 noundef 61, ptr noundef nonnull %3) #13
   %179 = load i8, ptr %3, align 1
   %180 = icmp eq i8 %179, 0
   br i1 %180, label %206, label %181
@@ -776,7 +776,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @pcibios_lookup_irq(ptr nound
   br i1 %205, label %209, label %206
 
 206:                                              ; preds = %220, %209, %202, %198, %184, %181, %176
-  %207 = call ptr @pci_get_device(i32 noundef -1, i32 noundef -1, ptr noundef nonnull %177) #12
+  %207 = call ptr @pci_get_device(i32 noundef -1, i32 noundef -1, ptr noundef nonnull %177) #13
   %208 = icmp eq ptr %207, null
   br i1 %208, label %.loopexit, label %176, !llvm.loop !17
 
@@ -801,13 +801,13 @@ define internal fastcc noundef range(i32 0, 2) i32 @pcibios_lookup_irq(ptr nound
 
 220:                                              ; preds = %217, %213
   %221 = phi ptr [ %219, %217 ], [ %215, %213 ]
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %167, ptr noundef nonnull @.str.8, i32 noundef %165, ptr noundef %221) #13
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef %167, ptr noundef nonnull @.str.8, i32 noundef %165, ptr noundef %221) #14
   br label %206
 
 .loopexit:                                        ; preds = %206, %.thread21, %160, %26, %23, %20, %11, %2
   %222 = phi i32 [ 0, %2 ], [ 0, %11 ], [ 0, %20 ], [ 0, %23 ], [ 0, %26 ], [ 0, %160 ], [ 1, %.thread21 ], [ 1, %206 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #12
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #13
   ret i32 %222
 }
 
@@ -818,15 +818,15 @@ define dso_local void @pcibios_irq_init() local_unnamed_addr #3 section ".init.t
   br i1 %2, label %.loopexit, label %3
 
 3:                                                ; preds = %0
-  %4 = tail call i32 @dmi_check_system(ptr noundef nonnull @pciirq_dmi_table) #12
-  %5 = tail call fastcc ptr @pirq_find_routing_table() #14
+  %4 = tail call i32 @dmi_check_system(ptr noundef nonnull @pciirq_dmi_table) #13
+  %5 = tail call fastcc ptr @pirq_find_routing_table() #15
   store ptr %5, ptr @pirq_table, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %36, label %7
 
 7:                                                ; preds = %3
-  tail call fastcc void @pirq_peer_trick() #14
-  tail call fastcc void @pirq_find_router() #14
+  tail call fastcc void @pirq_peer_trick() #15
+  tail call fastcc void @pirq_find_router() #15
   %8 = load ptr, ptr @pirq_table, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 10
   %10 = load i16, ptr %9, align 1
@@ -871,13 +871,13 @@ define dso_local void @pcibios_irq_init() local_unnamed_addr #3 section ".init.t
   br i1 %34, label %35, label %36
 
 35:                                               ; preds = %29
-  tail call void @kfree(ptr noundef null) #12
+  tail call void @kfree(ptr noundef null) #13
   store ptr null, ptr @pirq_table, align 8
   br label %36
 
 36:                                               ; preds = %35, %29, %.loopexit3, %3
   %37 = load ptr, ptr getelementptr inbounds (i8, ptr @x86_init, i64 168), align 8
-  tail call void %37() #12
+  tail call void %37() #13
   %38 = load i32, ptr @mp_irq_entries, align 4
   %39 = icmp eq i32 %38, 0
   br i1 %39, label %.loopexit, label %40
@@ -894,15 +894,15 @@ define dso_local void @pcibios_irq_init() local_unnamed_addr #3 section ".init.t
   br i1 %48, label %49, label %.loopexit
 
 49:                                               ; preds = %40
-  %50 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.1) #13
-  %51 = tail call ptr @pci_get_device(i32 noundef -1, i32 noundef -1, ptr noundef null) #12
+  %50 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.1) #14
+  %51 = tail call ptr @pci_get_device(i32 noundef -1, i32 noundef -1, ptr noundef null) #13
   %52 = icmp eq ptr %51, null
   br i1 %52, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %49, %.preheader
   %53 = phi ptr [ %55, %.preheader ], [ %51, %49 ]
   %54 = tail call i32 @pirq_enable_irq(ptr noundef nonnull %53)
-  %55 = tail call ptr @pci_get_device(i32 noundef -1, i32 noundef -1, ptr noundef nonnull %53) #12
+  %55 = tail call ptr @pci_get_device(i32 noundef -1, i32 noundef -1, ptr noundef nonnull %53) #13
   %56 = icmp eq ptr %55, null
   br i1 %56, label %.loopexit, label %.preheader, !llvm.loop !19
 
@@ -967,7 +967,7 @@ define internal fastcc ptr @pirq_find_routing_table() unnamed_addr #3 section ".
   br i1 %or.cond, label %.thread, label %.loopexit
 
 .thread:                                          ; preds = %34, %8, %13, %17
-  %37 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.13) #13
+  %37 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.13) #14
   br label %38
 
 38:                                               ; preds = %.thread, %0
@@ -1072,7 +1072,7 @@ define internal fastcc ptr @pirq_find_routing_table() unnamed_addr #3 section ".
 
 101:                                              ; preds = %94
   %102 = add nuw nsw i64 %96, 32
-  %103 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %102, i32 noundef 3520) #15
+  %103 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %102, i32 noundef 3520) #16
   %104 = icmp eq ptr %103, null
   br i1 %104, label %.thread17, label %105
 
@@ -1128,7 +1128,7 @@ define internal fastcc ptr @pirq_find_routing_table() unnamed_addr #3 section ".
 define internal fastcc void @pirq_peer_trick() unnamed_addr #3 section ".init.text" align 16 {
   %1 = alloca [256 x i8], align 16
   %2 = load ptr, ptr @pirq_table, align 8
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %1) #12
+  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %1) #13
   %3 = getelementptr inbounds i8, ptr %2, i64 6
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %1, i8 0, i64 256, i1 false)
   %4 = load i16, ptr %3, align 1
@@ -1167,12 +1167,12 @@ define internal fastcc void @pirq_peer_trick() unnamed_addr #3 section ".init.te
 
 25:                                               ; preds = %.loopexit
   %26 = trunc i64 %21 to i32
-  %27 = tail call ptr @pci_find_bus(i32 noundef 0, i32 noundef %26) #12
+  %27 = tail call ptr @pci_find_bus(i32 noundef 0, i32 noundef %26) #13
   %28 = icmp eq ptr %27, null
   br i1 %28, label %29, label %30
 
 29:                                               ; preds = %25
-  tail call void @pcibios_scan_root(i32 noundef %26) #12
+  tail call void @pcibios_scan_root(i32 noundef %26) #13
   br label %30
 
 30:                                               ; preds = %29, %25, %.loopexit
@@ -1182,7 +1182,7 @@ define internal fastcc void @pirq_peer_trick() unnamed_addr #3 section ".init.te
 
 33:                                               ; preds = %30
   store i32 -1, ptr @pcibios_last_bus, align 4
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %1) #12
+  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %1) #13
   ret void
 }
 
@@ -1203,22 +1203,22 @@ define internal fastcc void @pirq_find_router() unnamed_addr #3 section ".init.t
   %9 = getelementptr inbounds i8, ptr %1, i64 9
   %10 = load i8, ptr %9, align 1
   %11 = zext i8 %10 to i32
-  %12 = tail call ptr @pci_get_domain_bus_and_slot(i32 noundef 0, i32 noundef %8, i32 noundef %11) #12
+  %12 = tail call ptr @pci_get_domain_bus_and_slot(i32 noundef 0, i32 noundef %8, i32 noundef %11) #13
   %13 = icmp eq ptr %12, null
   br i1 %13, label %.loopexit, label %14
 
 14:                                               ; preds = %5
-  %15 = tail call fastcc zeroext i1 @pirq_try_router(ptr noundef %1, ptr noundef nonnull %12) #14
+  %15 = tail call fastcc zeroext i1 @pirq_try_router(ptr noundef %1, ptr noundef nonnull %12) #15
   br i1 %15, label %.thread, label %.loopexit
 
 .preheader:                                       ; preds = %0, %19
   %16 = phi ptr [ %17, %19 ], [ null, %0 ]
-  %17 = tail call ptr @pci_get_device(i32 noundef -1, i32 noundef -1, ptr noundef %16) #12
+  %17 = tail call ptr @pci_get_device(i32 noundef -1, i32 noundef -1, ptr noundef %16) #13
   %18 = icmp eq ptr %17, null
   br i1 %18, label %.loopexit, label %19
 
 19:                                               ; preds = %.preheader
-  %20 = tail call fastcc zeroext i1 @pirq_try_router(ptr noundef %1, ptr noundef nonnull %17) #14
+  %20 = tail call fastcc zeroext i1 @pirq_try_router(ptr noundef %1, ptr noundef nonnull %17) #15
   br i1 %20, label %.thread, label %.preheader, !llvm.loop !26
 
 .thread:                                          ; preds = %19, %14
@@ -1241,7 +1241,7 @@ define internal fastcc void @pirq_find_router() unnamed_addr #3 section ".init.t
   %30 = getelementptr inbounds i8, ptr %24, i64 62
   %31 = load i16, ptr %30, align 2
   %32 = zext i16 %31 to i32
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %25, ptr noundef nonnull @.str.16, ptr noundef %26, i32 noundef %29, i32 noundef %32) #13
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %25, ptr noundef nonnull @.str.16, ptr noundef %26, i32 noundef %29, i32 noundef %32) #14
   br label %33
 
 33:                                               ; preds = %23, %.loopexit
@@ -1258,7 +1258,7 @@ define dso_local void @pcibios_penalize_isa_irq(i32 noundef %0, i32 noundef %1) 
   br i1 %4, label %5, label %6
 
 5:                                                ; preds = %2
-  tail call void @acpi_penalize_isa_irq(i32 noundef %0, i32 noundef %1) #12
+  tail call void @acpi_penalize_isa_irq(i32 noundef %0, i32 noundef %1) #13
   br label %17
 
 6:                                                ; preds = %2
@@ -1398,7 +1398,7 @@ define internal fastcc ptr @pirq_get_info(ptr noundef %0, ptr nocapture noundef 
   %60 = phi i8 [ %63, %.thread14 ], [ %3, %.thread ]
   %61 = getelementptr inbounds i8, ptr %58, i64 56
   %62 = load ptr, ptr %61, align 8
-  %63 = tail call zeroext i8 @pci_swizzle_interrupt_pin(ptr noundef %59, i8 noundef zeroext %60) #12
+  %63 = tail call zeroext i8 @pci_swizzle_interrupt_pin(ptr noundef %59, i8 noundef zeroext %60) #13
   %64 = load ptr, ptr @pirq_table, align 8
   %65 = getelementptr inbounds i8, ptr %64, i64 6
   %66 = load i16, ptr %65, align 1
@@ -1478,7 +1478,7 @@ define internal fastcc ptr @pirq_get_info(ptr noundef %0, ptr nocapture noundef 
   %115 = phi ptr [ %113, %111 ], [ %109, %107 ]
   %116 = zext i8 %63 to i32
   %117 = add nuw nsw i32 %116, 64
-  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %48, ptr noundef nonnull @.str.9, ptr noundef %115, i32 noundef %117, i32 noundef %50) #13
+  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %48, ptr noundef nonnull @.str.9, ptr noundef %115, i32 noundef %117, i32 noundef %50) #14
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.thread14, %114, %.thread, %44
@@ -1512,7 +1512,7 @@ define internal noundef i32 @fix_broken_hp_bios_irq9(ptr nocapture noundef reado
   store i1 true, ptr @broken_hp_bios_irq9, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.12, ptr noundef %5) #13
+  %6 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.12, ptr noundef %5) #14
   br label %7
 
 7:                                                ; preds = %3, %1
@@ -1528,7 +1528,7 @@ define internal noundef i32 @fix_acer_tm360_irqrouting(ptr nocapture noundef rea
   store i1 true, ptr @acer_tm360_irqrouting, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.12, ptr noundef %5) #13
+  %6 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.12, ptr noundef %5) #14
   br label %7
 
 7:                                                ; preds = %3, %1
@@ -1572,7 +1572,7 @@ define internal fastcc noundef zeroext i1 @pirq_try_router(ptr nocapture noundef
   %13 = getelementptr inbounds i8, ptr %9, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = load i16, ptr %4, align 1
-  %16 = tail call i32 %14(ptr noundef nonnull @pirq_router, ptr noundef nonnull %1, i16 noundef zeroext %15) #12
+  %16 = tail call i32 %14(ptr noundef nonnull @pirq_router, ptr noundef nonnull %1, i16 noundef zeroext %15) #13
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %18, label %30
 
@@ -1585,7 +1585,7 @@ define internal fastcc noundef zeroext i1 @pirq_try_router(ptr nocapture noundef
   %22 = getelementptr inbounds i8, ptr %9, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = load i16, ptr %6, align 2
-  %25 = tail call i32 %23(ptr noundef nonnull @pirq_router, ptr noundef nonnull %1, i16 noundef zeroext %24) #12
+  %25 = tail call i32 %23(ptr noundef nonnull @pirq_router, ptr noundef nonnull %1, i16 noundef zeroext %24) #13
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %27, label %30
 
@@ -1602,7 +1602,7 @@ define internal fastcc noundef zeroext i1 @pirq_try_router(ptr nocapture noundef
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal noundef range(i32 0, 2) i32 @intel_router_probe(ptr nocapture noundef writeonly %0, ptr nocapture readnone %1, i16 noundef zeroext %2) #3 section ".init.text" align 16 {
-  %4 = tail call i32 @pci_dev_present(ptr noundef nonnull @intel_router_probe.pirq_440gx) #12
+  %4 = tail call i32 @pci_dev_present(ptr noundef nonnull @intel_router_probe.pirq_440gx) #13
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %6, label %26
 
@@ -1940,15 +1940,15 @@ define internal range(i32 0, 256) i32 @pirq_esc_get(ptr nocapture readnone %0, p
   %5 = icmp ult i32 %4, 4
   %6 = add nuw nsw i32 %2, 95
   %7 = select i1 %5, i32 %6, i32 %2
-  %8 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @pc_conf_lock) #12
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 2, i16 34) #12, !srcloc !12
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 15, i16 35) #12, !srcloc !12
+  %8 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @pc_conf_lock) #13
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 2, i16 34) #13, !srcloc !12
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 15, i16 35) #13, !srcloc !12
   %9 = trunc i32 %7 to i8
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %9, i16 34) #12, !srcloc !12
-  %10 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 35) #12, !srcloc !11
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 2, i16 34) #12, !srcloc !12
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 0, i16 35) #12, !srcloc !12
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @pc_conf_lock, i64 noundef %8) #12
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %9, i16 34) #13, !srcloc !12
+  %10 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 35) #13, !srcloc !11
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 2, i16 34) #13, !srcloc !12
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 0, i16 35) #13, !srcloc !12
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @pc_conf_lock, i64 noundef %8) #13
   %11 = icmp ult i8 %10, 16
   %12 = select i1 %11, i8 %10, i8 0
   %13 = zext i8 %12 to i32
@@ -1961,55 +1961,55 @@ define internal noundef i32 @pirq_esc_set(ptr nocapture readnone %0, ptr nocaptu
   %6 = icmp ult i32 %5, 4
   %7 = add nuw nsw i32 %2, 95
   %8 = select i1 %6, i32 %7, i32 %2
-  %9 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @pc_conf_lock) #12
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 2, i16 34) #12, !srcloc !12
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 15, i16 35) #12, !srcloc !12
+  %9 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @pc_conf_lock) #13
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 2, i16 34) #13, !srcloc !12
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 15, i16 35) #13, !srcloc !12
   %10 = trunc i32 %8 to i8
   %11 = trunc i32 %3 to i8
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %10, i16 34) #12, !srcloc !12
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %11, i16 35) #12, !srcloc !12
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 2, i16 34) #12, !srcloc !12
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 0, i16 35) #12, !srcloc !12
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @pc_conf_lock, i64 noundef %9) #12
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %10, i16 34) #13, !srcloc !12
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %11, i16 35) #13, !srcloc !12
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 2, i16 34) #13, !srcloc !12
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 0, i16 35) #13, !srcloc !12
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @pc_conf_lock, i64 noundef %9) #13
   ret i32 1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i32 0, 256) i32 @pirq_piix_get(ptr noundef %0, ptr nocapture readnone %1, i32 noundef %2) #0 align 16 {
   %4 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #13
   store i8 0, ptr %4, align 1, !annotation !14
-  %5 = call i32 @pci_read_config_byte(ptr noundef %0, i32 noundef %2, ptr noundef nonnull %4) #12
+  %5 = call i32 @pci_read_config_byte(ptr noundef %0, i32 noundef %2, ptr noundef nonnull %4) #13
   %6 = load i8, ptr %4, align 1
   %7 = icmp ult i8 %6, 16
   %8 = select i1 %7, i8 %6, i8 0
   %9 = zext i8 %8 to i32
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #13
   ret i32 %9
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @pirq_piix_set(ptr noundef %0, ptr nocapture readnone %1, i32 noundef %2, i32 noundef %3) #0 align 16 {
   %5 = trunc i32 %3 to i8
-  %6 = tail call i32 @pci_write_config_byte(ptr noundef %0, i32 noundef %2, i8 noundef zeroext %5) #12
+  %6 = tail call i32 @pci_write_config_byte(ptr noundef %0, i32 noundef %2, i8 noundef zeroext %5) #13
   ret i32 1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i32 0, 256) i32 @pirq_ib_get(ptr noundef %0, ptr nocapture readnone %1, i32 noundef %2) #0 align 16 {
   %4 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #13
   store i8 0, ptr %4, align 1, !annotation !14
   %5 = add i32 %2, -1
   %6 = icmp ult i32 %5, 2
   %7 = add nuw nsw i32 %2, 101
   %8 = select i1 %6, i32 %7, i32 %2
-  %9 = call i32 @pci_read_config_byte(ptr noundef %0, i32 noundef %8, ptr noundef nonnull %4) #12
+  %9 = call i32 @pci_read_config_byte(ptr noundef %0, i32 noundef %8, ptr noundef nonnull %4) #13
   %10 = load i8, ptr %4, align 1
   %11 = icmp ult i8 %10, 16
   %12 = select i1 %11, i8 %10, i8 0
   %13 = zext i8 %12 to i32
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #13
   ret i32 %13
 }
 
@@ -2020,7 +2020,7 @@ define internal noundef i32 @pirq_ib_set(ptr noundef %0, ptr nocapture readnone 
   %7 = add nuw nsw i32 %2, 101
   %8 = select i1 %6, i32 %7, i32 %2
   %9 = trunc i32 %3 to i8
-  %10 = tail call i32 @pci_write_config_byte(ptr noundef %0, i32 noundef %8, i8 noundef zeroext %9) #12
+  %10 = tail call i32 @pci_write_config_byte(ptr noundef %0, i32 noundef %8, i8 noundef zeroext %9) #13
   ret i32 1
 }
 
@@ -2038,13 +2038,13 @@ define internal range(i32 0, 256) i32 @pirq_finali_get(ptr nocapture readnone %0
   %7 = and i32 %6, 1
   %8 = or disjoint i32 %5, %7
   %9 = trunc nuw nsw i32 %8 to i8
-  %10 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @pc_conf_lock) #12
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 3, i16 34) #12, !srcloc !12
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 -59, i16 35) #12, !srcloc !12
+  %10 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @pc_conf_lock) #13
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 3, i16 34) #13, !srcloc !12
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 -59, i16 35) #13, !srcloc !12
   %11 = lshr i8 %9, 1
   %12 = or disjoint i8 %11, 66
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %12, i16 34) #12, !srcloc !12
-  %13 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 35) #12, !srcloc !11
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %12, i16 34) #13, !srcloc !12
+  %13 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 35) #13, !srcloc !11
   %14 = and i8 %9, 1
   %15 = icmp eq i8 %14, 0
   %16 = lshr i8 %13, 4
@@ -2053,9 +2053,9 @@ define internal range(i32 0, 256) i32 @pirq_finali_get(ptr nocapture readnone %0
   %19 = zext nneg i8 %18 to i64
   %20 = getelementptr [16 x i8], ptr @pirq_finali_get.irqmap, i64 0, i64 %19
   %21 = load i8, ptr %20, align 1
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 3, i16 34) #12, !srcloc !12
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 0, i16 35) #12, !srcloc !12
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @pc_conf_lock, i64 noundef %10) #12
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 3, i16 34) #13, !srcloc !12
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 0, i16 35) #13, !srcloc !12
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @pc_conf_lock, i64 noundef %10) #13
   %22 = zext i8 %21 to i32
   ret i32 %22
 }
@@ -2077,13 +2077,13 @@ define internal noundef range(i32 0, 2) i32 @pirq_finali_set(ptr nocapture readn
   %15 = and i32 %14, 1
   %16 = or disjoint i32 %13, %15
   %17 = trunc nuw nsw i32 %16 to i8
-  %18 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @pc_conf_lock) #12
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 3, i16 34) #12, !srcloc !12
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 -59, i16 35) #12, !srcloc !12
+  %18 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @pc_conf_lock) #13
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 3, i16 34) #13, !srcloc !12
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 -59, i16 35) #13, !srcloc !12
   %19 = lshr i8 %17, 1
   %20 = or disjoint i8 %19, 66
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %20, i16 34) #12, !srcloc !12
-  %21 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 35) #12, !srcloc !11
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %20, i16 34) #13, !srcloc !12
+  %21 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 35) #13, !srcloc !11
   %22 = and i8 %17, 1
   %23 = icmp eq i8 %22, 0
   br i1 %23, label %28, label %24
@@ -2101,11 +2101,11 @@ define internal noundef range(i32 0, 2) i32 @pirq_finali_set(ptr nocapture readn
 
 31:                                               ; preds = %28, %24
   %32 = phi i8 [ %27, %24 ], [ %30, %28 ]
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %20, i16 34) #12, !srcloc !12
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %32, i16 35) #12, !srcloc !12
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 3, i16 34) #12, !srcloc !12
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 0, i16 35) #12, !srcloc !12
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @pc_conf_lock, i64 noundef %18) #12
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %20, i16 34) #13, !srcloc !12
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %32, i16 35) #13, !srcloc !12
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 3, i16 34) #13, !srcloc !12
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 0, i16 35) #13, !srcloc !12
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @pc_conf_lock, i64 noundef %18) #13
   br label %33
 
 33:                                               ; preds = %31, %4
@@ -2133,10 +2133,10 @@ define internal noundef i32 @pirq_finali_lvl(ptr nocapture readnone %0, ptr noca
   %16 = trunc nuw i32 %10 to i16
   %17 = or i16 %11, %16
   store i16 %17, ptr @elcr_set_level_irq.elcr_irq_mask, align 2
-  %18 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str, i32 noundef %3) #13
+  %18 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str, i32 noundef %3) #14
   %19 = trunc nuw i32 %7 to i16
   %20 = or disjoint i16 %19, 1232
-  %21 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %20) #12, !srcloc !11
+  %21 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %20) #13, !srcloc !11
   %22 = zext i8 %21 to i32
   %23 = and i32 %6, %22
   %24 = icmp eq i32 %23, 0
@@ -2145,24 +2145,24 @@ define internal noundef i32 @pirq_finali_lvl(ptr nocapture readnone %0, ptr noca
 25:                                               ; preds = %15
   %26 = trunc nuw i32 %6 to i8
   %27 = or i8 %21, %26
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %27, i16 %20) #12, !srcloc !12
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %27, i16 %20) #13, !srcloc !12
   br label %28
 
 28:                                               ; preds = %25, %15, %9, %4
   %29 = trunc i32 %2 to i8
   %30 = lshr i8 %29, 4
   %31 = xor i8 %30, -1
-  %32 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @pc_conf_lock) #12
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 3, i16 34) #12, !srcloc !12
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 -59, i16 35) #12, !srcloc !12
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 68, i16 34) #12, !srcloc !12
-  %33 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 35) #12, !srcloc !11
+  %32 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @pc_conf_lock) #13
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 3, i16 34) #13, !srcloc !12
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 -59, i16 35) #13, !srcloc !12
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 68, i16 34) #13, !srcloc !12
+  %33 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 35) #13, !srcloc !11
   %34 = and i8 %33, %31
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 68, i16 34) #12, !srcloc !12
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %34, i16 35) #12, !srcloc !12
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 3, i16 34) #12, !srcloc !12
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 0, i16 35) #12, !srcloc !12
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @pc_conf_lock, i64 noundef %32) #12
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 68, i16 34) #13, !srcloc !12
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %34, i16 35) #13, !srcloc !12
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 3, i16 34) #13, !srcloc !12
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 0, i16 35) #13, !srcloc !12
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @pc_conf_lock, i64 noundef %32) #13
   ret i32 1
 }
 
@@ -2173,18 +2173,18 @@ define internal range(i32 0, 256) i32 @pirq_ali_get(ptr noundef %0, ptr nocaptur
   br i1 %5, label %6, label %7, !prof !30
 
 6:                                                ; preds = %3
-  tail call void asm sideeffect "358: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 358b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 358) #12, !srcloc !31
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.22, i32 441, i32 2307, i64 12) #12, !srcloc !32
-  tail call void asm sideeffect "359: nop\0A\09.pushsection .discard.instr_end\0A\09.long 359b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 359) #12, !srcloc !33
+  tail call void asm sideeffect "358: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 358b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 358) #13, !srcloc !31
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.22, i32 441, i32 2307, i64 12) #13, !srcloc !32
+  tail call void asm sideeffect "359: nop\0A\09.pushsection .discard.instr_end\0A\09.long 359b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 359) #13, !srcloc !33
   br label %7
 
 7:                                                ; preds = %6, %3
   %8 = add i32 %2, -1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #13
   store i8 0, ptr %4, align 1, !annotation !14
   %9 = lshr i32 %8, 1
   %10 = add nuw i32 %9, 72
-  %11 = call i32 @pci_read_config_byte(ptr noundef %0, i32 noundef %10, ptr noundef nonnull %4) #12
+  %11 = call i32 @pci_read_config_byte(ptr noundef %0, i32 noundef %10, ptr noundef nonnull %4) #13
   %12 = and i32 %8, 1
   %13 = icmp eq i32 %12, 0
   %14 = load i8, ptr %4, align 1
@@ -2192,7 +2192,7 @@ define internal range(i32 0, 256) i32 @pirq_ali_get(ptr noundef %0, ptr nocaptur
   %16 = lshr i32 %15, 4
   %17 = and i32 %15, 15
   %18 = select i1 %13, i32 %17, i32 %16
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #13
   %19 = zext nneg i32 %18 to i64
   %20 = getelementptr [16 x i8], ptr @pirq_ali_get.irqmap, i64 0, i64 %19
   %21 = load i8, ptr %20, align 1
@@ -2210,9 +2210,9 @@ define internal noundef range(i32 0, 2) i32 @pirq_ali_set(ptr noundef %0, ptr no
   br i1 %9, label %10, label %11, !prof !30
 
 10:                                               ; preds = %4
-  tail call void asm sideeffect "360: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 360b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 360) #12, !srcloc !34
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.22, i32 450, i32 2307, i64 12) #12, !srcloc !35
-  tail call void asm sideeffect "361: nop\0A\09.pushsection .discard.instr_end\0A\09.long 361b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 361) #12, !srcloc !36
+  tail call void asm sideeffect "360: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 360b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 360) #13, !srcloc !34
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.22, i32 450, i32 2307, i64 12) #13, !srcloc !35
+  tail call void asm sideeffect "361: nop\0A\09.pushsection .discard.instr_end\0A\09.long 361b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 361) #13, !srcloc !36
   br label %11
 
 11:                                               ; preds = %10, %4
@@ -2223,11 +2223,11 @@ define internal noundef range(i32 0, 2) i32 @pirq_ali_set(ptr noundef %0, ptr no
 
 15:                                               ; preds = %11
   %16 = add i32 %2, -1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #13
   store i8 0, ptr %5, align 1, !annotation !14
   %17 = lshr i32 %16, 1
   %18 = add nuw i32 %17, 72
-  %19 = call i32 @pci_read_config_byte(ptr noundef %0, i32 noundef %18, ptr noundef nonnull %5) #12
+  %19 = call i32 @pci_read_config_byte(ptr noundef %0, i32 noundef %18, ptr noundef nonnull %5) #13
   %20 = and i32 %16, 1
   %21 = icmp eq i32 %20, 0
   %22 = load i8, ptr %5, align 1
@@ -2247,8 +2247,8 @@ define internal noundef range(i32 0, 2) i32 @pirq_ali_set(ptr noundef %0, ptr no
 30:                                               ; preds = %27, %23
   %31 = phi i8 [ %26, %23 ], [ %29, %27 ]
   store i8 %31, ptr %5, align 1
-  %32 = call i32 @pci_write_config_byte(ptr noundef %0, i32 noundef %18, i8 noundef zeroext %31) #12
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #12
+  %32 = call i32 @pci_write_config_byte(ptr noundef %0, i32 noundef %18, i8 noundef zeroext %31) #13
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #13
   br label %33
 
 33:                                               ; preds = %30, %11
@@ -2263,9 +2263,9 @@ define internal range(i32 0, 16) i32 @pirq_ite_get(ptr noundef %0, ptr nocapture
   br i1 %5, label %6, label %7, !prof !30
 
 6:                                                ; preds = %3
-  tail call void asm sideeffect "366: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 366b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 366) #12, !srcloc !37
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.22, i32 635, i32 2307, i64 12) #12, !srcloc !38
-  tail call void asm sideeffect "367: nop\0A\09.pushsection .discard.instr_end\0A\09.long 367b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 367) #12, !srcloc !39
+  tail call void asm sideeffect "366: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 366b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 366) #13, !srcloc !37
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.22, i32 635, i32 2307, i64 12) #13, !srcloc !38
+  tail call void asm sideeffect "367: nop\0A\09.pushsection .discard.instr_end\0A\09.long 367b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 367) #13, !srcloc !39
   br label %7
 
 7:                                                ; preds = %6, %3
@@ -2274,11 +2274,11 @@ define internal range(i32 0, 16) i32 @pirq_ite_get(ptr noundef %0, ptr nocapture
   %10 = getelementptr [4 x i8], ptr @pirq_ite_set.pirqmap, i64 0, i64 %9
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i32
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #13
   store i8 0, ptr %4, align 1, !annotation !14
   %13 = lshr i32 %12, 1
   %14 = add nuw nsw i32 %13, 67
-  %15 = call i32 @pci_read_config_byte(ptr noundef %0, i32 noundef %14, ptr noundef nonnull %4) #12
+  %15 = call i32 @pci_read_config_byte(ptr noundef %0, i32 noundef %14, ptr noundef nonnull %4) #13
   %16 = and i32 %12, 1
   %17 = icmp eq i32 %16, 0
   %18 = load i8, ptr %4, align 1
@@ -2286,7 +2286,7 @@ define internal range(i32 0, 16) i32 @pirq_ite_get(ptr noundef %0, ptr nocapture
   %20 = lshr i32 %19, 4
   %21 = and i32 %19, 15
   %22 = select i1 %17, i32 %21, i32 %20
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #13
   ret i32 %22
 }
 
@@ -2297,9 +2297,9 @@ define internal noundef i32 @pirq_ite_set(ptr noundef %0, ptr nocapture readnone
   br i1 %6, label %7, label %8, !prof !30
 
 7:                                                ; preds = %4
-  tail call void asm sideeffect "368: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 368b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 368) #12, !srcloc !40
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.22, i32 643, i32 2307, i64 12) #12, !srcloc !41
-  tail call void asm sideeffect "369: nop\0A\09.pushsection .discard.instr_end\0A\09.long 369b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 369) #12, !srcloc !42
+  tail call void asm sideeffect "368: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 368b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 368) #13, !srcloc !40
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.22, i32 643, i32 2307, i64 12) #13, !srcloc !41
+  tail call void asm sideeffect "369: nop\0A\09.pushsection .discard.instr_end\0A\09.long 369b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 369) #13, !srcloc !42
   br label %8
 
 8:                                                ; preds = %7, %4
@@ -2308,11 +2308,11 @@ define internal noundef i32 @pirq_ite_set(ptr noundef %0, ptr nocapture readnone
   %11 = getelementptr [4 x i8], ptr @pirq_ite_set.pirqmap, i64 0, i64 %10
   %12 = load i8, ptr %11, align 1
   %13 = zext i8 %12 to i32
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #13
   store i8 0, ptr %5, align 1, !annotation !14
   %14 = lshr i32 %13, 1
   %15 = add nuw nsw i32 %14, 67
-  %16 = call i32 @pci_read_config_byte(ptr noundef %0, i32 noundef %15, ptr noundef nonnull %5) #12
+  %16 = call i32 @pci_read_config_byte(ptr noundef %0, i32 noundef %15, ptr noundef nonnull %5) #13
   %17 = and i32 %13, 1
   %18 = icmp eq i32 %17, 0
   %19 = load i8, ptr %5, align 1
@@ -2335,8 +2335,8 @@ define internal noundef i32 @pirq_ite_set(ptr noundef %0, ptr nocapture readnone
   %30 = phi i32 [ %24, %20 ], [ %28, %25 ]
   %31 = trunc i32 %30 to i8
   store i8 %31, ptr %5, align 1
-  %32 = call i32 @pci_write_config_byte(ptr noundef %0, i32 noundef %15, i8 noundef zeroext %31) #12
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #12
+  %32 = call i32 @pci_write_config_byte(ptr noundef %0, i32 noundef %15, i8 noundef zeroext %31) #13
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #13
   ret i32 1
 }
 
@@ -2347,9 +2347,9 @@ define internal range(i32 0, 16) i32 @pirq_via586_get(ptr noundef %0, ptr nocapt
   br i1 %5, label %6, label %7, !prof !30
 
 6:                                                ; preds = %3
-  tail call void asm sideeffect "362: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 362b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 362) #12, !srcloc !43
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.22, i32 613, i32 2307, i64 12) #12, !srcloc !44
-  tail call void asm sideeffect "363: nop\0A\09.pushsection .discard.instr_end\0A\09.long 363b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 363) #12, !srcloc !45
+  tail call void asm sideeffect "362: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 362b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 362) #13, !srcloc !43
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.22, i32 613, i32 2307, i64 12) #13, !srcloc !44
+  tail call void asm sideeffect "363: nop\0A\09.pushsection .discard.instr_end\0A\09.long 363b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 363) #13, !srcloc !45
   br label %7
 
 7:                                                ; preds = %6, %3
@@ -2357,18 +2357,18 @@ define internal range(i32 0, 16) i32 @pirq_via586_get(ptr noundef %0, ptr nocapt
   %9 = sext i32 %8 to i64
   %10 = getelementptr [5 x i32], ptr @pirq_via586_set.pirqmap, i64 0, i64 %9
   %11 = load i32, ptr %10, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #13
   store i8 0, ptr %4, align 1, !annotation !14
   %12 = lshr i32 %11, 1
   %13 = add nuw i32 %12, 85
-  %14 = call i32 @pci_read_config_byte(ptr noundef %0, i32 noundef %13, ptr noundef nonnull %4) #12
+  %14 = call i32 @pci_read_config_byte(ptr noundef %0, i32 noundef %13, ptr noundef nonnull %4) #13
   %15 = icmp eq i32 %8, 1
   %16 = load i8, ptr %4, align 1
   %17 = zext i8 %16 to i32
   %18 = lshr i32 %17, 4
   %19 = and i32 %17, 15
   %20 = select i1 %15, i32 %19, i32 %18
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #13
   ret i32 %20
 }
 
@@ -2379,9 +2379,9 @@ define internal noundef i32 @pirq_via586_set(ptr noundef %0, ptr nocapture readn
   br i1 %6, label %7, label %8, !prof !30
 
 7:                                                ; preds = %4
-  tail call void asm sideeffect "364: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 364b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 364) #12, !srcloc !46
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.22, i32 621, i32 2307, i64 12) #12, !srcloc !47
-  tail call void asm sideeffect "365: nop\0A\09.pushsection .discard.instr_end\0A\09.long 365b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 365) #12, !srcloc !48
+  tail call void asm sideeffect "364: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 364b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 364) #13, !srcloc !46
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.22, i32 621, i32 2307, i64 12) #13, !srcloc !47
+  tail call void asm sideeffect "365: nop\0A\09.pushsection .discard.instr_end\0A\09.long 365b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 365) #13, !srcloc !48
   br label %8
 
 8:                                                ; preds = %7, %4
@@ -2389,11 +2389,11 @@ define internal noundef i32 @pirq_via586_set(ptr noundef %0, ptr nocapture readn
   %10 = sext i32 %9 to i64
   %11 = getelementptr [5 x i32], ptr @pirq_via586_set.pirqmap, i64 0, i64 %10
   %12 = load i32, ptr %11, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #13
   store i8 0, ptr %5, align 1, !annotation !14
   %13 = lshr i32 %12, 1
   %14 = add nuw i32 %13, 85
-  %15 = call i32 @pci_read_config_byte(ptr noundef %0, i32 noundef %14, ptr noundef nonnull %5) #12
+  %15 = call i32 @pci_read_config_byte(ptr noundef %0, i32 noundef %14, ptr noundef nonnull %5) #13
   %16 = icmp eq i32 %9, 1
   %17 = load i8, ptr %5, align 1
   br i1 %16, label %23, label %18
@@ -2415,8 +2415,8 @@ define internal noundef i32 @pirq_via586_set(ptr noundef %0, ptr nocapture readn
   %28 = phi i32 [ %22, %18 ], [ %26, %23 ]
   %29 = trunc i32 %28 to i8
   store i8 %29, ptr %5, align 1
-  %30 = call i32 @pci_write_config_byte(ptr noundef %0, i32 noundef %14, i8 noundef zeroext %29) #12
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #12
+  %30 = call i32 @pci_write_config_byte(ptr noundef %0, i32 noundef %14, i8 noundef zeroext %29) #13
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #13
   ret i32 1
 }
 
@@ -2425,11 +2425,11 @@ define internal range(i32 0, 16) i32 @pirq_via_get(ptr noundef %0, ptr nocapture
   %4 = alloca i8, align 1
   %5 = icmp eq i32 %2, 4
   %6 = select i1 %5, i32 5, i32 %2
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #13
   store i8 0, ptr %4, align 1, !annotation !14
   %7 = lshr i32 %6, 1
   %8 = add nuw i32 %7, 85
-  %9 = call i32 @pci_read_config_byte(ptr noundef %0, i32 noundef %8, ptr noundef nonnull %4) #12
+  %9 = call i32 @pci_read_config_byte(ptr noundef %0, i32 noundef %8, ptr noundef nonnull %4) #13
   %10 = and i32 %6, 1
   %11 = icmp eq i32 %10, 0
   %12 = load i8, ptr %4, align 1
@@ -2437,7 +2437,7 @@ define internal range(i32 0, 16) i32 @pirq_via_get(ptr noundef %0, ptr nocapture
   %14 = lshr i32 %13, 4
   %15 = and i32 %13, 15
   %16 = select i1 %11, i32 %15, i32 %14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #13
   ret i32 %16
 }
 
@@ -2446,11 +2446,11 @@ define internal noundef i32 @pirq_via_set(ptr noundef %0, ptr nocapture readnone
   %5 = alloca i8, align 1
   %6 = icmp eq i32 %2, 4
   %7 = select i1 %6, i32 5, i32 %2
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #13
   store i8 0, ptr %5, align 1, !annotation !14
   %8 = lshr i32 %7, 1
   %9 = add nuw i32 %8, 85
-  %10 = call i32 @pci_read_config_byte(ptr noundef %0, i32 noundef %9, ptr noundef nonnull %5) #12
+  %10 = call i32 @pci_read_config_byte(ptr noundef %0, i32 noundef %9, ptr noundef nonnull %5) #13
   %11 = and i32 %7, 1
   %12 = icmp eq i32 %11, 0
   %13 = load i8, ptr %5, align 1
@@ -2473,8 +2473,8 @@ define internal noundef i32 @pirq_via_set(ptr noundef %0, ptr nocapture readnone
   %24 = phi i32 [ %18, %14 ], [ %22, %19 ]
   %25 = trunc i32 %24 to i8
   store i8 %25, ptr %5, align 1
-  %26 = call i32 @pci_write_config_byte(ptr noundef %0, i32 noundef %9, i8 noundef zeroext %25) #12
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #12
+  %26 = call i32 @pci_write_config_byte(ptr noundef %0, i32 noundef %9, i8 noundef zeroext %25) #13
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #13
   ret i32 1
 }
 
@@ -2482,11 +2482,11 @@ define internal noundef i32 @pirq_via_set(ptr noundef %0, ptr nocapture readnone
 define internal range(i32 0, 16) i32 @pirq_opti_get(ptr noundef %0, ptr nocapture readnone %1, i32 noundef %2) #0 align 16 {
   %4 = alloca i8, align 1
   %5 = ashr i32 %2, 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #13
   store i8 0, ptr %4, align 1, !annotation !14
   %6 = lshr i32 %5, 1
   %7 = add nuw i32 %6, 184
-  %8 = call i32 @pci_read_config_byte(ptr noundef %0, i32 noundef %7, ptr noundef nonnull %4) #12
+  %8 = call i32 @pci_read_config_byte(ptr noundef %0, i32 noundef %7, ptr noundef nonnull %4) #13
   %9 = and i32 %2, 16
   %10 = icmp eq i32 %9, 0
   %11 = load i8, ptr %4, align 1
@@ -2494,7 +2494,7 @@ define internal range(i32 0, 16) i32 @pirq_opti_get(ptr noundef %0, ptr nocaptur
   %13 = lshr i32 %12, 4
   %14 = and i32 %12, 15
   %15 = select i1 %10, i32 %14, i32 %13
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #13
   ret i32 %15
 }
 
@@ -2502,11 +2502,11 @@ define internal range(i32 0, 16) i32 @pirq_opti_get(ptr noundef %0, ptr nocaptur
 define internal noundef i32 @pirq_opti_set(ptr noundef %0, ptr nocapture readnone %1, i32 noundef %2, i32 noundef %3) #0 align 16 {
   %5 = alloca i8, align 1
   %6 = ashr i32 %2, 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #13
   store i8 0, ptr %5, align 1, !annotation !14
   %7 = lshr i32 %6, 1
   %8 = add nuw i32 %7, 184
-  %9 = call i32 @pci_read_config_byte(ptr noundef %0, i32 noundef %8, ptr noundef nonnull %5) #12
+  %9 = call i32 @pci_read_config_byte(ptr noundef %0, i32 noundef %8, ptr noundef nonnull %5) #13
   %10 = and i32 %2, 16
   %11 = icmp eq i32 %10, 0
   %12 = load i8, ptr %5, align 1
@@ -2529,40 +2529,39 @@ define internal noundef i32 @pirq_opti_set(ptr noundef %0, ptr nocapture readnon
   %23 = phi i32 [ %17, %13 ], [ %21, %18 ]
   %24 = trunc i32 %23 to i8
   store i8 %24, ptr %5, align 1
-  %25 = call i32 @pci_write_config_byte(ptr noundef %0, i32 noundef %8, i8 noundef zeroext %24) #12
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #12
+  %25 = call i32 @pci_write_config_byte(ptr noundef %0, i32 noundef %8, i8 noundef zeroext %24) #13
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #13
   ret i32 1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i32 0, 16) i32 @pirq_sis497_get(ptr noundef %0, ptr nocapture readnone %1, i32 noundef %2) #0 align 16 {
   %4 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #13
   store i8 0, ptr %4, align 1, !annotation !14
   %5 = add i32 %2, -1
   %6 = icmp ult i32 %5, 4
   %7 = add nuw nsw i32 %2, 191
   %8 = select i1 %6, i32 %7, i32 %2
-  %9 = call i32 @pci_read_config_byte(ptr noundef %0, i32 noundef %8, ptr noundef nonnull %4) #12
+  %9 = call i32 @pci_read_config_byte(ptr noundef %0, i32 noundef %8, ptr noundef nonnull %4) #13
   %10 = load i8, ptr %4, align 1
-  %11 = and i8 %10, 15
-  %12 = icmp slt i8 %10, 0
-  %13 = select i1 %12, i8 %11, i8 0
-  %14 = zext nneg i8 %13 to i32
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #12
-  ret i32 %14
+  %11 = call i8 @llvm.smin.i8(i8 %10, i8 0)
+  %12 = and i8 %11, 15
+  %13 = zext nneg i8 %12 to i32
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #13
+  ret i32 %13
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @pirq_sis497_set(ptr noundef %0, ptr nocapture readnone %1, i32 noundef %2, i32 noundef %3) #0 align 16 {
   %5 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #13
   store i8 0, ptr %5, align 1, !annotation !14
   %6 = add i32 %2, -1
   %7 = icmp ult i32 %6, 4
   %8 = add nuw nsw i32 %2, 191
   %9 = select i1 %7, i32 %8, i32 %2
-  %10 = call i32 @pci_read_config_byte(ptr noundef %0, i32 noundef %9, ptr noundef nonnull %5) #12
+  %10 = call i32 @pci_read_config_byte(ptr noundef %0, i32 noundef %9, ptr noundef nonnull %5) #13
   %11 = load i8, ptr %5, align 1
   %12 = and i8 %11, 112
   %13 = icmp eq i32 %3, 0
@@ -2571,40 +2570,39 @@ define internal noundef i32 @pirq_sis497_set(ptr noundef %0, ptr nocapture readn
   %16 = select i1 %13, i8 15, i8 %15
   %17 = or i8 %12, %16
   store i8 %17, ptr %5, align 1
-  %18 = call i32 @pci_write_config_byte(ptr noundef %0, i32 noundef %9, i8 noundef zeroext %17) #12
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #12
+  %18 = call i32 @pci_write_config_byte(ptr noundef %0, i32 noundef %9, i8 noundef zeroext %17) #13
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #13
   ret i32 1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i32 0, 16) i32 @pirq_sis503_get(ptr noundef %0, ptr nocapture readnone %1, i32 noundef %2) #0 align 16 {
   %4 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #13
   store i8 0, ptr %4, align 1, !annotation !14
   %5 = add i32 %2, -1
   %6 = icmp ult i32 %5, 4
   %7 = or disjoint i32 %2, 64
   %8 = select i1 %6, i32 %7, i32 %2
-  %9 = call i32 @pci_read_config_byte(ptr noundef %0, i32 noundef %8, ptr noundef nonnull %4) #12
+  %9 = call i32 @pci_read_config_byte(ptr noundef %0, i32 noundef %8, ptr noundef nonnull %4) #13
   %10 = load i8, ptr %4, align 1
-  %11 = and i8 %10, 15
-  %12 = icmp slt i8 %10, 0
-  %13 = select i1 %12, i8 0, i8 %11
-  %14 = zext nneg i8 %13 to i32
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #12
-  ret i32 %14
+  %11 = call i8 @llvm.smax.i8(i8 %10, i8 0)
+  %12 = and i8 %11, 15
+  %13 = zext nneg i8 %12 to i32
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #13
+  ret i32 %13
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @pirq_sis503_set(ptr noundef %0, ptr nocapture readnone %1, i32 noundef %2, i32 noundef %3) #0 align 16 {
   %5 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #13
   store i8 0, ptr %5, align 1, !annotation !14
   %6 = add i32 %2, -1
   %7 = icmp ult i32 %6, 4
   %8 = or disjoint i32 %2, 64
   %9 = select i1 %7, i32 %8, i32 %2
-  %10 = call i32 @pci_read_config_byte(ptr noundef %0, i32 noundef %9, ptr noundef nonnull %5) #12
+  %10 = call i32 @pci_read_config_byte(ptr noundef %0, i32 noundef %9, ptr noundef nonnull %5) #13
   %11 = load i8, ptr %5, align 1
   %12 = and i8 %11, 112
   %13 = icmp eq i32 %3, 0
@@ -2612,8 +2610,8 @@ define internal noundef i32 @pirq_sis503_set(ptr noundef %0, ptr nocapture readn
   %15 = select i1 %13, i8 -128, i8 %14
   %16 = or i8 %12, %15
   store i8 %16, ptr %5, align 1
-  %17 = call i32 @pci_write_config_byte(ptr noundef %0, i32 noundef %9, i8 noundef zeroext %16) #12
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #12
+  %17 = call i32 @pci_write_config_byte(ptr noundef %0, i32 noundef %9, i8 noundef zeroext %16) #13
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #13
   ret i32 1
 }
 
@@ -2621,11 +2619,11 @@ define internal noundef i32 @pirq_sis503_set(ptr noundef %0, ptr nocapture readn
 define internal range(i32 0, 16) i32 @pirq_cyrix_get(ptr noundef %0, ptr nocapture readnone %1, i32 noundef %2) #0 align 16 {
   %4 = alloca i8, align 1
   %5 = add i32 %2, -1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #13
   store i8 0, ptr %4, align 1, !annotation !14
   %6 = lshr i32 %5, 1
   %7 = add nuw i32 %6, 92
-  %8 = call i32 @pci_read_config_byte(ptr noundef %0, i32 noundef %7, ptr noundef nonnull %4) #12
+  %8 = call i32 @pci_read_config_byte(ptr noundef %0, i32 noundef %7, ptr noundef nonnull %4) #13
   %9 = and i32 %2, 1
   %10 = icmp eq i32 %9, 0
   %11 = load i8, ptr %4, align 1
@@ -2633,7 +2631,7 @@ define internal range(i32 0, 16) i32 @pirq_cyrix_get(ptr noundef %0, ptr nocaptu
   %13 = lshr i32 %12, 4
   %14 = and i32 %12, 15
   %15 = select i1 %10, i32 %14, i32 %13
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #13
   ret i32 %15
 }
 
@@ -2641,11 +2639,11 @@ define internal range(i32 0, 16) i32 @pirq_cyrix_get(ptr noundef %0, ptr nocaptu
 define internal noundef i32 @pirq_cyrix_set(ptr noundef %0, ptr nocapture readnone %1, i32 noundef %2, i32 noundef %3) #0 align 16 {
   %5 = alloca i8, align 1
   %6 = add i32 %2, -1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #13
   store i8 0, ptr %5, align 1, !annotation !14
   %7 = lshr i32 %6, 1
   %8 = add nuw i32 %7, 92
-  %9 = call i32 @pci_read_config_byte(ptr noundef %0, i32 noundef %8, ptr noundef nonnull %5) #12
+  %9 = call i32 @pci_read_config_byte(ptr noundef %0, i32 noundef %8, ptr noundef nonnull %5) #13
   %10 = and i32 %2, 1
   %11 = icmp eq i32 %10, 0
   %12 = load i8, ptr %5, align 1
@@ -2668,8 +2666,8 @@ define internal noundef i32 @pirq_cyrix_set(ptr noundef %0, ptr nocapture readno
   %23 = phi i32 [ %17, %13 ], [ %21, %18 ]
   %24 = trunc i32 %23 to i8
   store i8 %24, ptr %5, align 1
-  %25 = call i32 @pci_write_config_byte(ptr noundef %0, i32 noundef %8, i8 noundef zeroext %24) #12
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #12
+  %25 = call i32 @pci_write_config_byte(ptr noundef %0, i32 noundef %8, i8 noundef zeroext %24) #13
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #13
   ret i32 1
 }
 
@@ -2680,20 +2678,20 @@ define internal range(i32 0, 16) i32 @pirq_vlsi_get(ptr noundef %0, ptr noundef 
   br i1 %5, label %6, label %8, !prof !30
 
 6:                                                ; preds = %3
-  tail call void asm sideeffect "370: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 370b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 370) #12, !srcloc !49
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.22, i32 859, i32 2307, i64 12) #12, !srcloc !50
-  tail call void asm sideeffect "371: nop\0A\09.pushsection .discard.instr_end\0A\09.long 371b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 371) #12, !srcloc !51
+  tail call void asm sideeffect "370: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 370b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 370) #13, !srcloc !49
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.22, i32 859, i32 2307, i64 12) #13, !srcloc !50
+  tail call void asm sideeffect "371: nop\0A\09.pushsection .discard.instr_end\0A\09.long 371b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 371) #13, !srcloc !51
   %7 = getelementptr inbounds i8, ptr %1, i64 184
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %7, ptr noundef nonnull @.str.30, i32 noundef %2) #13
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %7, ptr noundef nonnull @.str.30, i32 noundef %2) #14
   br label %20
 
 8:                                                ; preds = %3
   %9 = add i32 %2, -1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #13
   store i8 0, ptr %4, align 1, !annotation !14
   %10 = lshr i32 %9, 1
   %11 = add nuw i32 %10, 116
-  %12 = call i32 @pci_read_config_byte(ptr noundef %0, i32 noundef %11, ptr noundef nonnull %4) #12
+  %12 = call i32 @pci_read_config_byte(ptr noundef %0, i32 noundef %11, ptr noundef nonnull %4) #13
   %13 = and i32 %9, 1
   %14 = icmp eq i32 %13, 0
   %15 = load i8, ptr %4, align 1
@@ -2701,7 +2699,7 @@ define internal range(i32 0, 16) i32 @pirq_vlsi_get(ptr noundef %0, ptr noundef 
   %17 = lshr i32 %16, 4
   %18 = and i32 %16, 15
   %19 = select i1 %14, i32 %18, i32 %17
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #13
   br label %20
 
 20:                                               ; preds = %8, %6
@@ -2716,20 +2714,20 @@ define internal noundef range(i32 0, 2) i32 @pirq_vlsi_set(ptr noundef %0, ptr n
   br i1 %6, label %7, label %9, !prof !30
 
 7:                                                ; preds = %4
-  tail call void asm sideeffect "372: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 372b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 372) #12, !srcloc !52
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.22, i32 869, i32 2307, i64 12) #12, !srcloc !53
-  tail call void asm sideeffect "373: nop\0A\09.pushsection .discard.instr_end\0A\09.long 373b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 373) #12, !srcloc !54
+  tail call void asm sideeffect "372: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 372b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 372) #13, !srcloc !52
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.22, i32 869, i32 2307, i64 12) #13, !srcloc !53
+  tail call void asm sideeffect "373: nop\0A\09.pushsection .discard.instr_end\0A\09.long 373b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 373) #13, !srcloc !54
   %8 = getelementptr inbounds i8, ptr %1, i64 184
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %8, ptr noundef nonnull @.str.30, i32 noundef %2) #13
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %8, ptr noundef nonnull @.str.30, i32 noundef %2) #14
   br label %30
 
 9:                                                ; preds = %4
   %10 = add i32 %2, -1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #13
   store i8 0, ptr %5, align 1, !annotation !14
   %11 = lshr i32 %10, 1
   %12 = add nuw i32 %11, 116
-  %13 = call i32 @pci_read_config_byte(ptr noundef %0, i32 noundef %12, ptr noundef nonnull %5) #12
+  %13 = call i32 @pci_read_config_byte(ptr noundef %0, i32 noundef %12, ptr noundef nonnull %5) #13
   %14 = and i32 %10, 1
   %15 = icmp eq i32 %14, 0
   %16 = load i8, ptr %5, align 1
@@ -2752,8 +2750,8 @@ define internal noundef range(i32 0, 2) i32 @pirq_vlsi_set(ptr noundef %0, ptr n
   %27 = phi i32 [ %21, %17 ], [ %25, %22 ]
   %28 = trunc i32 %27 to i8
   store i8 %28, ptr %5, align 1
-  %29 = call i32 @pci_write_config_byte(ptr noundef %0, i32 noundef %12, i8 noundef zeroext %28) #12
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #12
+  %29 = call i32 @pci_write_config_byte(ptr noundef %0, i32 noundef %12, i8 noundef zeroext %28) #13
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #13
   br label %30
 
 30:                                               ; preds = %26, %7
@@ -2764,8 +2762,8 @@ define internal noundef range(i32 0, 2) i32 @pirq_vlsi_set(ptr noundef %0, ptr n
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i32 0, 16) i32 @pirq_serverworks_get(ptr nocapture readnone %0, ptr nocapture readnone %1, i32 noundef %2) #0 align 16 {
   %4 = trunc i32 %2 to i8
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %4, i16 3072) #12, !srcloc !12
-  %5 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 3073) #12, !srcloc !11
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %4, i16 3072) #13, !srcloc !12
+  %5 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 3073) #13, !srcloc !11
   %6 = and i8 %5, 15
   %7 = zext nneg i8 %6 to i32
   ret i32 %7
@@ -2774,9 +2772,9 @@ define internal range(i32 0, 16) i32 @pirq_serverworks_get(ptr nocapture readnon
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @pirq_serverworks_set(ptr nocapture readnone %0, ptr nocapture readnone %1, i32 noundef %2, i32 noundef %3) #0 align 16 {
   %5 = trunc i32 %2 to i8
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %5, i16 3072) #12, !srcloc !12
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %5, i16 3072) #13, !srcloc !12
   %6 = trunc i32 %3 to i8
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %6, i16 3073) #12, !srcloc !12
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %6, i16 3073) #13, !srcloc !12
   ret i32 1
 }
 
@@ -2788,11 +2786,11 @@ define internal noundef range(i32 0, 16) i32 @pirq_amd756_get(ptr noundef %0, pt
 
 6:                                                ; preds = %3
   %7 = add i32 %2, -1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #13
   store i8 0, ptr %4, align 1, !annotation !14
   %8 = lshr i32 %7, 1
   %9 = add nuw i32 %8, 86
-  %10 = call i32 @pci_read_config_byte(ptr noundef %0, i32 noundef %9, ptr noundef nonnull %4) #12
+  %10 = call i32 @pci_read_config_byte(ptr noundef %0, i32 noundef %9, ptr noundef nonnull %4) #13
   %11 = and i32 %7, 1
   %12 = icmp eq i32 %11, 0
   %13 = load i8, ptr %4, align 1
@@ -2800,7 +2798,7 @@ define internal noundef range(i32 0, 16) i32 @pirq_amd756_get(ptr noundef %0, pt
   %15 = lshr i32 %14, 4
   %16 = and i32 %14, 15
   %17 = select i1 %12, i32 %16, i32 %15
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #13
   br label %18
 
 18:                                               ; preds = %6, %3
@@ -2812,7 +2810,7 @@ define internal noundef range(i32 0, 16) i32 @pirq_amd756_get(ptr noundef %0, pt
   %24 = getelementptr inbounds i8, ptr %1, i64 62
   %25 = load i16, ptr %24, align 2
   %26 = zext i16 %25 to i32
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %20, ptr noundef nonnull @.str.35, i32 noundef %23, i32 noundef %26, i32 noundef %2, i32 noundef %19) #13
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef %20, ptr noundef nonnull @.str.35, i32 noundef %23, i32 noundef %26, i32 noundef %2, i32 noundef %19) #14
   ret i32 %19
 }
 
@@ -2826,17 +2824,17 @@ define internal noundef i32 @pirq_amd756_set(ptr noundef %0, ptr noundef %1, i32
   %10 = getelementptr inbounds i8, ptr %1, i64 62
   %11 = load i16, ptr %10, align 2
   %12 = zext i16 %11 to i32
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %6, ptr noundef nonnull @.str.36, i32 noundef %9, i32 noundef %12, i32 noundef %2, i32 noundef %3) #13
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %6, ptr noundef nonnull @.str.36, i32 noundef %9, i32 noundef %12, i32 noundef %2, i32 noundef %3) #14
   %13 = icmp slt i32 %2, 5
   br i1 %13, label %14, label %35
 
 14:                                               ; preds = %4
   %15 = add i32 %2, -1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #13
   store i8 0, ptr %5, align 1, !annotation !14
   %16 = lshr i32 %15, 1
   %17 = add nuw i32 %16, 86
-  %18 = call i32 @pci_read_config_byte(ptr noundef %0, i32 noundef %17, ptr noundef nonnull %5) #12
+  %18 = call i32 @pci_read_config_byte(ptr noundef %0, i32 noundef %17, ptr noundef nonnull %5) #13
   %19 = and i32 %15, 1
   %20 = icmp eq i32 %19, 0
   %21 = load i8, ptr %5, align 1
@@ -2859,8 +2857,8 @@ define internal noundef i32 @pirq_amd756_set(ptr noundef %0, ptr noundef %1, i32
   %32 = phi i32 [ %26, %22 ], [ %30, %27 ]
   %33 = trunc i32 %32 to i8
   store i8 %33, ptr %5, align 1
-  %34 = call i32 @pci_write_config_byte(ptr noundef %0, i32 noundef %17, i8 noundef zeroext %33) #12
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #12
+  %34 = call i32 @pci_write_config_byte(ptr noundef %0, i32 noundef %17, i8 noundef zeroext %33) #13
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #13
   br label %35
 
 35:                                               ; preds = %31, %4
@@ -2873,10 +2871,10 @@ define internal range(i32 0, 16) i32 @pirq_pico_get(ptr nocapture readnone %0, p
   %5 = lshr i32 %4, 1
   %6 = trunc i32 %5 to i8
   %7 = add i8 %6, 16
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %7, i16 36) #12, !srcloc !12
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %7, i16 36) #13, !srcloc !12
   %8 = and i32 %4, 1
   %9 = icmp eq i32 %8, 0
-  %10 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 38) #12
+  %10 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 38) #13
   %11 = lshr i8 %10, 4
   %12 = and i8 %10, 15
   %13 = select i1 %9, i8 %12, i8 %11
@@ -2890,8 +2888,8 @@ define internal noundef i32 @pirq_pico_set(ptr nocapture readnone %0, ptr nocapt
   %6 = lshr i32 %5, 1
   %7 = trunc i32 %6 to i8
   %8 = add i8 %7, 16
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %8, i16 36) #12, !srcloc !12
-  %9 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 38) #12, !srcloc !11
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %8, i16 36) #13, !srcloc !12
+  %9 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 38) #13, !srcloc !11
   %10 = zext i8 %9 to i32
   %11 = and i32 %5, 1
   %12 = icmp eq i32 %11, 0
@@ -2911,7 +2909,7 @@ define internal noundef i32 @pirq_pico_set(ptr nocapture readnone %0, ptr nocapt
 20:                                               ; preds = %17, %13
   %21 = phi i32 [ %16, %13 ], [ %19, %17 ]
   %22 = trunc i32 %21 to i8
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %22, i16 38) #12, !srcloc !12
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %22, i16 38) #13, !srcloc !12
   ret i32 1
 }
 
@@ -2920,6 +2918,12 @@ declare dso_local i32 @IO_APIC_get_PCI_irq_vector(i32 noundef, i32 noundef, i32 
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @mp_unmap_irq(i32 noundef) local_unnamed_addr #4
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i8 @llvm.smin.i8(i8, i8) #12
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i8 @llvm.smax.i8(i8, i8) #12
 
 attributes #0 = { fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
@@ -2933,10 +2937,11 @@ attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #9 = { cold fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid optsize willreturn memory(argmem: write) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #10 = { cold fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid optsize willreturn memory(argmem: readwrite) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #11 = { cold fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #12 = { nounwind }
-attributes #13 = { cold nounwind }
-attributes #14 = { cold }
-attributes #15 = { nounwind allocsize(0) }
+attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #13 = { nounwind }
+attributes #14 = { cold nounwind }
+attributes #15 = { cold }
+attributes #16 = { nounwind allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

@@ -1642,37 +1642,35 @@ define hidden void @"_ZN15futures_channel4mpsc5queue14Queue$LT$T$GT$8pop_spin17h
   %4 = getelementptr inbounds i8, ptr %3, i64 24
   br label %5
 
-5:                                                ; preds = %13, %2
+5:                                                ; preds = %11, %2
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
   call void @"_ZN15futures_channel4mpsc5queue14Queue$LT$T$GT$3pop17h4070a03fe92e6b87E.llvm.2903763967427937413"(ptr noalias nocapture noundef nonnull sret([40 x i8]) align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 %1)
   %6 = load i64, ptr %4, align 8, !range !418, !noundef !4
-  %.not = icmp samesign ult i64 %6, 2
-  %7 = add nsw i64 %6, -1
-  %8 = select i1 %.not, i64 0, i64 %7
-  switch i64 %8, label %9 [
-    i64 0, label %10
-    i64 1, label %11
-    i64 2, label %13
+  %7 = tail call i64 @llvm.usub.sat.i64(i64 %6, i64 1)
+  switch i64 %7, label %default.unreachable [
+    i64 0, label %8
+    i64 1, label %9
+    i64 2, label %11
   ]
 
-9:                                                ; preds = %5
+default.unreachable:                              ; preds = %5
   unreachable
 
-10:                                               ; preds = %5
+8:                                                ; preds = %5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)
-  br label %14
+  br label %12
+
+9:                                                ; preds = %5
+  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  store i64 2, ptr %10, align 8
+  br label %12
 
 11:                                               ; preds = %5
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
-  store i64 2, ptr %12, align 8
-  br label %14
-
-13:                                               ; preds = %5
   tail call void @_ZN3std6thread9yield_now17h17a04a6f48076bfbE()
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
   br label %5
 
-14:                                               ; preds = %11, %10
+12:                                               ; preds = %9, %8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
   ret void
 }
@@ -20377,6 +20375,9 @@ declare hidden void @_ZN4gpui7element10AnyElement3new17hf55c8e2791330b84E(ptr de
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden void @_ZN4gpui7element10AnyElement3new17hf8677fc1109f6475E(ptr dead_on_unwind noalias nocapture noundef writable sret([24 x i8]) align 8 dereferenceable(24), ptr noalias nocapture noundef align 8 dereferenceable(712)) unnamed_addr #3
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.usub.sat.i64(i64, i64) #40
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.ucmp.i8.i64(i64, i64) #40

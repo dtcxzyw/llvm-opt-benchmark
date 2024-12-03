@@ -153,7 +153,7 @@ define internal range(i32 0, 10) i32 @lzma_decode(ptr noundef %0, ptr noalias no
   %.sroa.44.0 = select i1 %or.cond3271, i64 %59, i64 %.sroa.44.0.copyload
   %60 = getelementptr inbounds i8, ptr %0, i64 28320
   %61 = load i32, ptr %60, align 8
-  switch i32 %61, label %2614 [
+  switch i32 %61, label %2613 [
     i32 0, label %64
     i32 1, label %64
     i32 2, label %109
@@ -190,59 +190,59 @@ define internal range(i32 0, 10) i32 @lzma_decode(ptr noundef %0, ptr noalias no
     i32 33, label %1179
     i32 34, label %1213
     i32 35, label %1247
-    i32 36, label %1290
-    i32 37, label %1323
-    i32 38, label %1356
-    i32 39, label %1389
-    i32 40, label %1422
-    i32 41, label %1455
-    i32 42, label %1506
-    i32 43, label %1689
-    i32 44, label %1714
-    i32 45, label %1749
-    i32 46, label %1784
-    i32 47, label %1819
-    i32 48, label %1856
-    i32 49, label %1877
-    i32 51, label %1904
+    i32 36, label %1289
+    i32 37, label %1322
+    i32 38, label %1355
+    i32 39, label %1388
+    i32 40, label %1421
+    i32 41, label %1454
+    i32 42, label %1505
+    i32 43, label %1688
+    i32 44, label %1713
+    i32 45, label %1748
+    i32 46, label %1783
+    i32 47, label %1818
+    i32 48, label %1855
+    i32 49, label %1876
+    i32 51, label %1903
     i32 50, label %dict_get.exit3124
-    i32 52, label %1954
-    i32 53, label %1986
-    i32 54, label %2021
-    i32 55, label %2046
-    i32 56, label %2081
-    i32 57, label %2116
-    i32 58, label %2158
-    i32 59, label %2183
-    i32 60, label %2218
-    i32 61, label %2253
-    i32 62, label %2295
-    i32 63, label %2329
-    i32 64, label %2363
-    i32 65, label %2397
-    i32 66, label %2431
-    i32 67, label %2465
-    i32 68, label %2499
-    i32 69, label %2533
-    i32 70, label %2569
+    i32 52, label %1953
+    i32 53, label %1985
+    i32 54, label %2020
+    i32 55, label %2045
+    i32 56, label %2080
+    i32 57, label %2115
+    i32 58, label %2157
+    i32 59, label %2182
+    i32 60, label %2217
+    i32 61, label %2252
+    i32 62, label %2294
+    i32 63, label %2328
+    i32 64, label %2362
+    i32 65, label %2396
+    i32 66, label %2430
+    i32 67, label %2464
+    i32 68, label %2498
+    i32 69, label %2532
+    i32 70, label %2568
   ]
 
-dict_put.exit.thread:                             ; preds = %1935, %697, %.loopexit.i
-  %.sroa.35.14 = phi i64 [ %spec.select3278, %.loopexit.i ], [ %spec.select3274, %697 ], [ %spec.select3276, %1935 ]
-  %.sroa.10.14 = phi i64 [ %.sroa.10.80, %.loopexit.i ], [ %699, %697 ], [ %1943, %1935 ]
-  %.143198 = phi i32 [ 0, %.loopexit.i ], [ %.93193, %697 ], [ %.123196, %1935 ]
-  %.142908 = phi i32 [ %.132907, %.loopexit.i ], [ %.92903, %697 ], [ %.122906, %1935 ]
-  %.142831 = phi i32 [ %.132830, %.loopexit.i ], [ %.92826, %697 ], [ %.122829, %1935 ]
-  %.142754 = phi i32 [ %.132753, %.loopexit.i ], [ %.92749, %697 ], [ %.122752, %1935 ]
-  %.142667 = phi i32 [ %.132666, %.loopexit.i ], [ %.92662, %697 ], [ %.122665, %1935 ]
-  %.142591 = phi ptr [ %.132590, %.loopexit.i ], [ %.92586, %697 ], [ %.122589, %1935 ]
-  %.142494 = phi i32 [ %.132493, %.loopexit.i ], [ %.92489, %697 ], [ %.122492, %1935 ]
-  %.142412 = phi i32 [ %.132411, %.loopexit.i ], [ %.92407, %697 ], [ %.122410, %1935 ]
-  %.142324 = phi i32 [ %.132323, %.loopexit.i ], [ %.92319, %697 ], [ %.122322, %1935 ]
-  %.142247 = phi i32 [ %.132246, %.loopexit.i ], [ %.92242, %697 ], [ %.122245, %1935 ]
-  %.14 = phi i64 [ %.13, %.loopexit.i ], [ %.9, %697 ], [ %.12, %1935 ]
-  %.sroa.0.14 = phi i32 [ %.sroa.0.13, %.loopexit.i ], [ %.sroa.0.9, %697 ], [ %.sroa.0.12, %1935 ]
-  %.sroa.498.14 = phi i32 [ %.sroa.498.13, %.loopexit.i ], [ %.sroa.498.9, %697 ], [ %.sroa.498.12, %1935 ]
+dict_put.exit.thread:                             ; preds = %1934, %697, %.loopexit.i
+  %.sroa.35.14 = phi i64 [ %spec.select3278, %.loopexit.i ], [ %spec.select3274, %697 ], [ %spec.select3276, %1934 ]
+  %.sroa.10.14 = phi i64 [ %.sroa.10.80, %.loopexit.i ], [ %699, %697 ], [ %1942, %1934 ]
+  %.143198 = phi i32 [ 0, %.loopexit.i ], [ %.93193, %697 ], [ %.123196, %1934 ]
+  %.142908 = phi i32 [ %.132907, %.loopexit.i ], [ %.92903, %697 ], [ %.122906, %1934 ]
+  %.142831 = phi i32 [ %.132830, %.loopexit.i ], [ %.92826, %697 ], [ %.122829, %1934 ]
+  %.142754 = phi i32 [ %.132753, %.loopexit.i ], [ %.92749, %697 ], [ %.122752, %1934 ]
+  %.142667 = phi i32 [ %.132666, %.loopexit.i ], [ %.92662, %697 ], [ %.122665, %1934 ]
+  %.142591 = phi ptr [ %.132590, %.loopexit.i ], [ %.92586, %697 ], [ %.122589, %1934 ]
+  %.142494 = phi i32 [ %.132493, %.loopexit.i ], [ %.92489, %697 ], [ %.122492, %1934 ]
+  %.142412 = phi i32 [ %.132411, %.loopexit.i ], [ %.92407, %697 ], [ %.122410, %1934 ]
+  %.142324 = phi i32 [ %.132323, %.loopexit.i ], [ %.92319, %697 ], [ %.122322, %1934 ]
+  %.142247 = phi i32 [ %.132246, %.loopexit.i ], [ %.92242, %697 ], [ %.122245, %1934 ]
+  %.14 = phi i64 [ %.13, %.loopexit.i ], [ %.9, %697 ], [ %.12, %1934 ]
+  %.sroa.0.14 = phi i32 [ %.sroa.0.13, %.loopexit.i ], [ %.sroa.0.9, %697 ], [ %.sroa.0.12, %1934 ]
+  %.sroa.498.14 = phi i32 [ %.sroa.498.13, %.loopexit.i ], [ %.sroa.498.9, %697 ], [ %.sroa.498.12, %1934 ]
   %62 = trunc i64 %.sroa.10.14 to i32
   %63 = and i32 %37, %62
   br label %64
@@ -266,7 +266,7 @@ dict_put.exit.thread:                             ; preds = %1935, %697, %.loope
   %.sroa.498.0 = phi i32 [ %.sroa.498.14, %dict_put.exit.thread ], [ %.sroa.498.0.copyload, %.loopexit ], [ %.sroa.498.0.copyload, %.loopexit ]
   %65 = icmp eq i64 %.sroa.10.0, %.sroa.44.0
   %66 = select i1 %56, i1 %65, i1 false
-  br i1 %66, label %2614, label %67
+  br i1 %66, label %2613, label %67
 
 67:                                               ; preds = %64
   %68 = icmp ult i32 %.sroa.0.0, 16777216
@@ -278,7 +278,7 @@ dict_put.exit.thread:                             ; preds = %1935, %697, %.loope
 
 71:                                               ; preds = %69
   store i32 1, ptr %60, align 8
-  br label %2628
+  br label %2627
 
 72:                                               ; preds = %69
   %73 = shl nuw i32 %.sroa.0.0, 8
@@ -355,7 +355,7 @@ dict_get.exit:                                    ; preds = %80
 
 113:                                              ; preds = %111
   store i32 2, ptr %60, align 8
-  br label %2628
+  br label %2627
 
 114:                                              ; preds = %111
   %115 = shl nuw i32 %.sroa.0.17, 8
@@ -423,7 +423,7 @@ dict_get.exit:                                    ; preds = %80
 
 146:                                              ; preds = %144
   store i32 3, ptr %60, align 8
-  br label %2628
+  br label %2627
 
 147:                                              ; preds = %144
   %148 = shl nuw i32 %.sroa.0.19, 8
@@ -491,7 +491,7 @@ dict_get.exit:                                    ; preds = %80
 
 179:                                              ; preds = %177
   store i32 4, ptr %60, align 8
-  br label %2628
+  br label %2627
 
 180:                                              ; preds = %177
   %181 = shl nuw i32 %.sroa.0.21, 8
@@ -559,7 +559,7 @@ dict_get.exit:                                    ; preds = %80
 
 212:                                              ; preds = %210
   store i32 5, ptr %60, align 8
-  br label %2628
+  br label %2627
 
 213:                                              ; preds = %210
   %214 = shl nuw i32 %.sroa.0.23, 8
@@ -627,7 +627,7 @@ dict_get.exit:                                    ; preds = %80
 
 245:                                              ; preds = %243
   store i32 6, ptr %60, align 8
-  br label %2628
+  br label %2627
 
 246:                                              ; preds = %243
   %247 = shl nuw i32 %.sroa.0.25, 8
@@ -695,7 +695,7 @@ dict_get.exit:                                    ; preds = %80
 
 278:                                              ; preds = %276
   store i32 7, ptr %60, align 8
-  br label %2628
+  br label %2627
 
 279:                                              ; preds = %276
   %280 = shl nuw i32 %.sroa.0.27, 8
@@ -763,7 +763,7 @@ dict_get.exit:                                    ; preds = %80
 
 311:                                              ; preds = %309
   store i32 8, ptr %60, align 8
-  br label %2628
+  br label %2627
 
 312:                                              ; preds = %309
   %313 = shl nuw i32 %.sroa.0.29, 8
@@ -831,7 +831,7 @@ dict_get.exit:                                    ; preds = %80
 
 344:                                              ; preds = %342
   store i32 9, ptr %60, align 8
-  br label %2628
+  br label %2627
 
 345:                                              ; preds = %342
   %346 = shl nuw i32 %.sroa.0.31, 8
@@ -914,7 +914,7 @@ dict_get.exit3123:                                ; preds = %dict_get.exit
 
 388:                                              ; preds = %386
   store i32 10, ptr %60, align 8
-  br label %2628
+  br label %2627
 
 389:                                              ; preds = %386
   %390 = shl nuw i32 %.sroa.0.1, 8
@@ -994,7 +994,7 @@ dict_get.exit3123:                                ; preds = %dict_get.exit
 
 427:                                              ; preds = %425
   store i32 11, ptr %60, align 8
-  br label %2628
+  br label %2627
 
 428:                                              ; preds = %425
   %429 = shl nuw i32 %.sroa.0.2, 8
@@ -1074,7 +1074,7 @@ dict_get.exit3123:                                ; preds = %dict_get.exit
 
 466:                                              ; preds = %464
   store i32 12, ptr %60, align 8
-  br label %2628
+  br label %2627
 
 467:                                              ; preds = %464
   %468 = shl nuw i32 %.sroa.0.3, 8
@@ -1154,7 +1154,7 @@ dict_get.exit3123:                                ; preds = %dict_get.exit
 
 505:                                              ; preds = %503
   store i32 13, ptr %60, align 8
-  br label %2628
+  br label %2627
 
 506:                                              ; preds = %503
   %507 = shl nuw i32 %.sroa.0.4, 8
@@ -1234,7 +1234,7 @@ dict_get.exit3123:                                ; preds = %dict_get.exit
 
 544:                                              ; preds = %542
   store i32 14, ptr %60, align 8
-  br label %2628
+  br label %2627
 
 545:                                              ; preds = %542
   %546 = shl nuw i32 %.sroa.0.5, 8
@@ -1314,7 +1314,7 @@ dict_get.exit3123:                                ; preds = %dict_get.exit
 
 583:                                              ; preds = %581
   store i32 15, ptr %60, align 8
-  br label %2628
+  br label %2627
 
 584:                                              ; preds = %581
   %585 = shl nuw i32 %.sroa.0.6, 8
@@ -1394,7 +1394,7 @@ dict_get.exit3123:                                ; preds = %dict_get.exit
 
 622:                                              ; preds = %620
   store i32 16, ptr %60, align 8
-  br label %2628
+  br label %2627
 
 623:                                              ; preds = %620
   %624 = shl nuw i32 %.sroa.0.7, 8
@@ -1474,7 +1474,7 @@ dict_get.exit3123:                                ; preds = %dict_get.exit
 
 661:                                              ; preds = %659
   store i32 17, ptr %60, align 8
-  br label %2628
+  br label %2627
 
 662:                                              ; preds = %659
   %663 = shl nuw i32 %.sroa.0.8, 8
@@ -1568,7 +1568,7 @@ dict_get.exit3123:                                ; preds = %dict_get.exit
 
 dict_put.exit:                                    ; preds = %695
   store i32 18, ptr %60, align 8
-  br label %2628
+  br label %2627
 
 701:                                              ; preds = %80
   %702 = sub i32 %.sroa.0.16, %88
@@ -1604,7 +1604,7 @@ dict_put.exit:                                    ; preds = %695
 
 710:                                              ; preds = %708
   store i32 19, ptr %60, align 8
-  br label %2628
+  br label %2627
 
 711:                                              ; preds = %708
   %712 = shl nuw i32 %.sroa.0.49, 8
@@ -1628,7 +1628,7 @@ dict_put.exit:                                    ; preds = %695
   %725 = zext i16 %724 to i32
   %726 = mul i32 %720, %725
   %727 = icmp ult i32 %.sroa.498.50, %726
-  br i1 %727, label %728, label %1872
+  br i1 %727, label %728, label %1871
 
 728:                                              ; preds = %719
   %729 = sub nsw i32 2048, %725
@@ -1666,7 +1666,7 @@ dict_put.exit:                                    ; preds = %695
 
 739:                                              ; preds = %737
   store i32 20, ptr %60, align 8
-  br label %2628
+  br label %2627
 
 740:                                              ; preds = %737
   %741 = shl nuw i32 %.sroa.0.51, 8
@@ -1724,7 +1724,7 @@ dict_put.exit:                                    ; preds = %695
 
 764:                                              ; preds = %762
   store i32 21, ptr %60, align 8
-  br label %2628
+  br label %2627
 
 765:                                              ; preds = %762
   %766 = shl nuw i32 %.sroa.0.53, 8
@@ -1795,7 +1795,7 @@ dict_put.exit:                                    ; preds = %695
 
 799:                                              ; preds = %797
   store i32 22, ptr %60, align 8
-  br label %2628
+  br label %2627
 
 800:                                              ; preds = %797
   %801 = shl nuw i32 %.sroa.0.55, 8
@@ -1866,7 +1866,7 @@ dict_put.exit:                                    ; preds = %695
 
 834:                                              ; preds = %832
   store i32 23, ptr %60, align 8
-  br label %2628
+  br label %2627
 
 835:                                              ; preds = %832
   %836 = shl nuw i32 %.sroa.0.57, 8
@@ -1952,7 +1952,7 @@ dict_put.exit:                                    ; preds = %695
 
 876:                                              ; preds = %874
   store i32 24, ptr %60, align 8
-  br label %2628
+  br label %2627
 
 877:                                              ; preds = %874
   %878 = shl nuw i32 %.sroa.0.60, 8
@@ -2010,7 +2010,7 @@ dict_put.exit:                                    ; preds = %695
 
 901:                                              ; preds = %899
   store i32 25, ptr %60, align 8
-  br label %2628
+  br label %2627
 
 902:                                              ; preds = %899
   %903 = shl nuw i32 %.sroa.0.62, 8
@@ -2081,7 +2081,7 @@ dict_put.exit:                                    ; preds = %695
 
 936:                                              ; preds = %934
   store i32 26, ptr %60, align 8
-  br label %2628
+  br label %2627
 
 937:                                              ; preds = %934
   %938 = shl nuw i32 %.sroa.0.64, 8
@@ -2152,7 +2152,7 @@ dict_put.exit:                                    ; preds = %695
 
 971:                                              ; preds = %969
   store i32 27, ptr %60, align 8
-  br label %2628
+  br label %2627
 
 972:                                              ; preds = %969
   %973 = shl nuw i32 %.sroa.0.66, 8
@@ -2237,7 +2237,7 @@ dict_put.exit:                                    ; preds = %695
 
 1013:                                             ; preds = %1011
   store i32 28, ptr %60, align 8
-  br label %2628
+  br label %2627
 
 1014:                                             ; preds = %1011
   %1015 = shl nuw i32 %.sroa.0.69, 8
@@ -2306,7 +2306,7 @@ dict_put.exit:                                    ; preds = %695
 
 1047:                                             ; preds = %1045
   store i32 29, ptr %60, align 8
-  br label %2628
+  br label %2627
 
 1048:                                             ; preds = %1045
   %1049 = shl nuw i32 %.sroa.0.71, 8
@@ -2375,7 +2375,7 @@ dict_put.exit:                                    ; preds = %695
 
 1081:                                             ; preds = %1079
   store i32 30, ptr %60, align 8
-  br label %2628
+  br label %2627
 
 1082:                                             ; preds = %1079
   %1083 = shl nuw i32 %.sroa.0.73, 8
@@ -2444,7 +2444,7 @@ dict_put.exit:                                    ; preds = %695
 
 1115:                                             ; preds = %1113
   store i32 31, ptr %60, align 8
-  br label %2628
+  br label %2627
 
 1116:                                             ; preds = %1113
   %1117 = shl nuw i32 %.sroa.0.75, 8
@@ -2513,7 +2513,7 @@ dict_put.exit:                                    ; preds = %695
 
 1149:                                             ; preds = %1147
   store i32 32, ptr %60, align 8
-  br label %2628
+  br label %2627
 
 1150:                                             ; preds = %1147
   %1151 = shl nuw i32 %.sroa.0.77, 8
@@ -2582,7 +2582,7 @@ dict_put.exit:                                    ; preds = %695
 
 1183:                                             ; preds = %1181
   store i32 33, ptr %60, align 8
-  br label %2628
+  br label %2627
 
 1184:                                             ; preds = %1181
   %1185 = shl nuw i32 %.sroa.0.79, 8
@@ -2651,7 +2651,7 @@ dict_put.exit:                                    ; preds = %695
 
 1217:                                             ; preds = %1215
   store i32 34, ptr %60, align 8
-  br label %2628
+  br label %2627
 
 1218:                                             ; preds = %1215
   %1219 = shl nuw i32 %.sroa.0.81, 8
@@ -2720,7 +2720,7 @@ dict_put.exit:                                    ; preds = %695
 
 1251:                                             ; preds = %1249
   store i32 35, ptr %60, align 8
-  br label %2628
+  br label %2627
 
 1252:                                             ; preds = %1249
   %1253 = shl nuw i32 %.sroa.0.83, 8
@@ -2786,14 +2786,13 @@ dict_put.exit:                                    ; preds = %695
   %.sroa.0.86 = phi i32 [ %.sroa.0.59, %865 ], [ %.sroa.0.68, %1002 ], [ %.sroa.0.85, %1281 ]
   %.sroa.498.86 = phi i32 [ %.sroa.498.59, %865 ], [ %.sroa.498.68, %1002 ], [ %.sroa.498.85, %1281 ]
   %1284 = getelementptr inbounds i8, ptr %0, i64 25440
-  %1285 = icmp ult i32 %.423226, 6
-  %1286 = add i32 %.423226, -2
-  %1287 = select i1 %1285, i32 %1286, i32 3
-  %1288 = zext i32 %1287 to i64
-  %1289 = getelementptr inbounds [4 x [64 x i16]], ptr %1284, i64 0, i64 %1288
-  br label %1290
+  %1285 = tail call i32 @llvm.umin.i32(i32 %.423226, i32 5)
+  %1286 = add nsw i32 %1285, -2
+  %1287 = zext i32 %1286 to i64
+  %1288 = getelementptr inbounds [4 x [64 x i16]], ptr %1284, i64 0, i64 %1287
+  br label %1289
 
-1290:                                             ; preds = %1283, %.loopexit
+1289:                                             ; preds = %1283, %.loopexit
   %.sroa.35.43 = phi i64 [ %.sroa.35.42, %1283 ], [ %.sroa.35.0.copyload, %.loopexit ]
   %.sroa.10.43 = phi i64 [ %.sroa.10.42, %1283 ], [ %.sroa.10.0.copyload, %.loopexit ]
   %.433227 = phi i32 [ %.423226, %1283 ], [ %47, %.loopexit ]
@@ -2801,7 +2800,7 @@ dict_put.exit:                                    ; preds = %695
   %.432860 = phi i32 [ %.422859, %1283 ], [ %33, %.loopexit ]
   %.432783 = phi i32 [ %.422782, %1283 ], [ %35, %.loopexit ]
   %.432696 = phi i32 [ %.422695, %1283 ], [ %29, %.loopexit ]
-  %.422619 = phi ptr [ %1289, %1283 ], [ %39, %.loopexit ]
+  %.422619 = phi ptr [ %1288, %1283 ], [ %39, %.loopexit ]
   %.522532 = phi i32 [ 1, %1283 ], [ %41, %.loopexit ]
   %.432441 = phi i32 [ %.422440, %1283 ], [ %43, %.loopexit ]
   %.502360 = phi i32 [ %.492359, %1283 ], [ %45, %.loopexit ]
@@ -2809,2767 +2808,2767 @@ dict_put.exit:                                    ; preds = %695
   %.77 = phi i64 [ %.76, %1283 ], [ %25, %.loopexit ]
   %.sroa.0.87 = phi i32 [ %.sroa.0.86, %1283 ], [ %.sroa.0.0.copyload, %.loopexit ]
   %.sroa.498.87 = phi i32 [ %.sroa.498.86, %1283 ], [ %.sroa.498.0.copyload, %.loopexit ]
-  %1291 = icmp ult i32 %.sroa.0.87, 16777216
-  br i1 %1291, label %1292, label %1303
+  %1290 = icmp ult i32 %.sroa.0.87, 16777216
+  br i1 %1290, label %1291, label %1302
 
-1292:                                             ; preds = %1290
-  %1293 = icmp eq i64 %.77, %4
-  br i1 %1293, label %1294, label %1295
+1291:                                             ; preds = %1289
+  %1292 = icmp eq i64 %.77, %4
+  br i1 %1292, label %1293, label %1294
 
-1294:                                             ; preds = %1292
+1293:                                             ; preds = %1291
   store i32 36, ptr %60, align 8
-  br label %2628
+  br label %2627
 
-1295:                                             ; preds = %1292
-  %1296 = shl nuw i32 %.sroa.0.87, 8
-  %1297 = shl i32 %.sroa.498.87, 8
-  %1298 = add i64 %.77, 1
-  %1299 = getelementptr inbounds i8, ptr %2, i64 %.77
-  %1300 = load i8, ptr %1299, align 1
-  %1301 = zext i8 %1300 to i32
-  %1302 = or disjoint i32 %1297, %1301
-  br label %1303
+1294:                                             ; preds = %1291
+  %1295 = shl nuw i32 %.sroa.0.87, 8
+  %1296 = shl i32 %.sroa.498.87, 8
+  %1297 = add i64 %.77, 1
+  %1298 = getelementptr inbounds i8, ptr %2, i64 %.77
+  %1299 = load i8, ptr %1298, align 1
+  %1300 = zext i8 %1299 to i32
+  %1301 = or disjoint i32 %1296, %1300
+  br label %1302
 
-1303:                                             ; preds = %1290, %1295
-  %.78 = phi i64 [ %1298, %1295 ], [ %.77, %1290 ]
-  %.sroa.0.88 = phi i32 [ %1296, %1295 ], [ %.sroa.0.87, %1290 ]
-  %.sroa.498.88 = phi i32 [ %1302, %1295 ], [ %.sroa.498.87, %1290 ]
-  %1304 = lshr i32 %.sroa.0.88, 11
-  %1305 = zext i32 %.522532 to i64
-  %1306 = getelementptr inbounds i16, ptr %.422619, i64 %1305
-  %1307 = load i16, ptr %1306, align 2
-  %1308 = zext i16 %1307 to i32
-  %1309 = mul i32 %1304, %1308
-  %1310 = icmp ult i32 %.sroa.498.88, %1309
-  %1311 = shl i32 %.522532, 1
-  br i1 %1310, label %1312, label %1317
+1302:                                             ; preds = %1289, %1294
+  %.78 = phi i64 [ %1297, %1294 ], [ %.77, %1289 ]
+  %.sroa.0.88 = phi i32 [ %1295, %1294 ], [ %.sroa.0.87, %1289 ]
+  %.sroa.498.88 = phi i32 [ %1301, %1294 ], [ %.sroa.498.87, %1289 ]
+  %1303 = lshr i32 %.sroa.0.88, 11
+  %1304 = zext i32 %.522532 to i64
+  %1305 = getelementptr inbounds i16, ptr %.422619, i64 %1304
+  %1306 = load i16, ptr %1305, align 2
+  %1307 = zext i16 %1306 to i32
+  %1308 = mul i32 %1303, %1307
+  %1309 = icmp ult i32 %.sroa.498.88, %1308
+  %1310 = shl i32 %.522532, 1
+  br i1 %1309, label %1311, label %1316
 
-1312:                                             ; preds = %1303
-  %1313 = sub nsw i32 2048, %1308
-  %1314 = lshr i32 %1313, 5
-  %1315 = trunc i32 %1314 to i16
-  %1316 = add i16 %1307, %1315
-  store i16 %1316, ptr %1306, align 2
-  br label %1323
+1311:                                             ; preds = %1302
+  %1312 = sub nsw i32 2048, %1307
+  %1313 = lshr i32 %1312, 5
+  %1314 = trunc i32 %1313 to i16
+  %1315 = add i16 %1306, %1314
+  store i16 %1315, ptr %1305, align 2
+  br label %1322
 
-1317:                                             ; preds = %1303
-  %1318 = sub i32 %.sroa.0.88, %1309
-  %1319 = sub nuw i32 %.sroa.498.88, %1309
-  %1320 = lshr i16 %1307, 5
-  %1321 = sub i16 %1307, %1320
-  store i16 %1321, ptr %1306, align 2
-  %1322 = or disjoint i32 %1311, 1
-  br label %1323
+1316:                                             ; preds = %1302
+  %1317 = sub i32 %.sroa.0.88, %1308
+  %1318 = sub nuw i32 %.sroa.498.88, %1308
+  %1319 = lshr i16 %1306, 5
+  %1320 = sub i16 %1306, %1319
+  store i16 %1320, ptr %1305, align 2
+  %1321 = or disjoint i32 %1310, 1
+  br label %1322
 
-1323:                                             ; preds = %1317, %1312, %.loopexit
-  %.sroa.35.44 = phi i64 [ %.sroa.35.43, %1312 ], [ %.sroa.35.43, %1317 ], [ %.sroa.35.0.copyload, %.loopexit ]
-  %.sroa.10.44 = phi i64 [ %.sroa.10.43, %1312 ], [ %.sroa.10.43, %1317 ], [ %.sroa.10.0.copyload, %.loopexit ]
-  %.443228 = phi i32 [ %.433227, %1312 ], [ %.433227, %1317 ], [ %47, %.loopexit ]
-  %.442938 = phi i32 [ %.432937, %1312 ], [ %.432937, %1317 ], [ %31, %.loopexit ]
-  %.442861 = phi i32 [ %.432860, %1312 ], [ %.432860, %1317 ], [ %33, %.loopexit ]
-  %.442784 = phi i32 [ %.432783, %1312 ], [ %.432783, %1317 ], [ %35, %.loopexit ]
-  %.442697 = phi i32 [ %.432696, %1312 ], [ %.432696, %1317 ], [ %29, %.loopexit ]
-  %.432620 = phi ptr [ %.422619, %1312 ], [ %.422619, %1317 ], [ %39, %.loopexit ]
-  %.532533 = phi i32 [ %1311, %1312 ], [ %1322, %1317 ], [ %41, %.loopexit ]
-  %.442442 = phi i32 [ %.432441, %1312 ], [ %.432441, %1317 ], [ %43, %.loopexit ]
-  %.512361 = phi i32 [ %.502360, %1312 ], [ %.502360, %1317 ], [ %45, %.loopexit ]
-  %.442277 = phi i32 [ %.432276, %1312 ], [ %.432276, %1317 ], [ %27, %.loopexit ]
-  %.79 = phi i64 [ %.78, %1312 ], [ %.78, %1317 ], [ %25, %.loopexit ]
-  %.sroa.0.89 = phi i32 [ %1309, %1312 ], [ %1318, %1317 ], [ %.sroa.0.0.copyload, %.loopexit ]
-  %.sroa.498.89 = phi i32 [ %.sroa.498.88, %1312 ], [ %1319, %1317 ], [ %.sroa.498.0.copyload, %.loopexit ]
-  %1324 = icmp ult i32 %.sroa.0.89, 16777216
-  br i1 %1324, label %1325, label %1336
+1322:                                             ; preds = %1316, %1311, %.loopexit
+  %.sroa.35.44 = phi i64 [ %.sroa.35.43, %1311 ], [ %.sroa.35.43, %1316 ], [ %.sroa.35.0.copyload, %.loopexit ]
+  %.sroa.10.44 = phi i64 [ %.sroa.10.43, %1311 ], [ %.sroa.10.43, %1316 ], [ %.sroa.10.0.copyload, %.loopexit ]
+  %.443228 = phi i32 [ %.433227, %1311 ], [ %.433227, %1316 ], [ %47, %.loopexit ]
+  %.442938 = phi i32 [ %.432937, %1311 ], [ %.432937, %1316 ], [ %31, %.loopexit ]
+  %.442861 = phi i32 [ %.432860, %1311 ], [ %.432860, %1316 ], [ %33, %.loopexit ]
+  %.442784 = phi i32 [ %.432783, %1311 ], [ %.432783, %1316 ], [ %35, %.loopexit ]
+  %.442697 = phi i32 [ %.432696, %1311 ], [ %.432696, %1316 ], [ %29, %.loopexit ]
+  %.432620 = phi ptr [ %.422619, %1311 ], [ %.422619, %1316 ], [ %39, %.loopexit ]
+  %.532533 = phi i32 [ %1310, %1311 ], [ %1321, %1316 ], [ %41, %.loopexit ]
+  %.442442 = phi i32 [ %.432441, %1311 ], [ %.432441, %1316 ], [ %43, %.loopexit ]
+  %.512361 = phi i32 [ %.502360, %1311 ], [ %.502360, %1316 ], [ %45, %.loopexit ]
+  %.442277 = phi i32 [ %.432276, %1311 ], [ %.432276, %1316 ], [ %27, %.loopexit ]
+  %.79 = phi i64 [ %.78, %1311 ], [ %.78, %1316 ], [ %25, %.loopexit ]
+  %.sroa.0.89 = phi i32 [ %1308, %1311 ], [ %1317, %1316 ], [ %.sroa.0.0.copyload, %.loopexit ]
+  %.sroa.498.89 = phi i32 [ %.sroa.498.88, %1311 ], [ %1318, %1316 ], [ %.sroa.498.0.copyload, %.loopexit ]
+  %1323 = icmp ult i32 %.sroa.0.89, 16777216
+  br i1 %1323, label %1324, label %1335
 
-1325:                                             ; preds = %1323
-  %1326 = icmp eq i64 %.79, %4
-  br i1 %1326, label %1327, label %1328
+1324:                                             ; preds = %1322
+  %1325 = icmp eq i64 %.79, %4
+  br i1 %1325, label %1326, label %1327
 
-1327:                                             ; preds = %1325
+1326:                                             ; preds = %1324
   store i32 37, ptr %60, align 8
-  br label %2628
+  br label %2627
 
-1328:                                             ; preds = %1325
-  %1329 = shl nuw i32 %.sroa.0.89, 8
-  %1330 = shl i32 %.sroa.498.89, 8
-  %1331 = add i64 %.79, 1
-  %1332 = getelementptr inbounds i8, ptr %2, i64 %.79
-  %1333 = load i8, ptr %1332, align 1
-  %1334 = zext i8 %1333 to i32
-  %1335 = or disjoint i32 %1330, %1334
-  br label %1336
+1327:                                             ; preds = %1324
+  %1328 = shl nuw i32 %.sroa.0.89, 8
+  %1329 = shl i32 %.sroa.498.89, 8
+  %1330 = add i64 %.79, 1
+  %1331 = getelementptr inbounds i8, ptr %2, i64 %.79
+  %1332 = load i8, ptr %1331, align 1
+  %1333 = zext i8 %1332 to i32
+  %1334 = or disjoint i32 %1329, %1333
+  br label %1335
 
-1336:                                             ; preds = %1323, %1328
-  %.80 = phi i64 [ %1331, %1328 ], [ %.79, %1323 ]
-  %.sroa.0.90 = phi i32 [ %1329, %1328 ], [ %.sroa.0.89, %1323 ]
-  %.sroa.498.90 = phi i32 [ %1335, %1328 ], [ %.sroa.498.89, %1323 ]
-  %1337 = lshr i32 %.sroa.0.90, 11
-  %1338 = zext i32 %.532533 to i64
-  %1339 = getelementptr inbounds i16, ptr %.432620, i64 %1338
-  %1340 = load i16, ptr %1339, align 2
-  %1341 = zext i16 %1340 to i32
-  %1342 = mul i32 %1337, %1341
-  %1343 = icmp ult i32 %.sroa.498.90, %1342
-  %1344 = shl i32 %.532533, 1
-  br i1 %1343, label %1345, label %1350
+1335:                                             ; preds = %1322, %1327
+  %.80 = phi i64 [ %1330, %1327 ], [ %.79, %1322 ]
+  %.sroa.0.90 = phi i32 [ %1328, %1327 ], [ %.sroa.0.89, %1322 ]
+  %.sroa.498.90 = phi i32 [ %1334, %1327 ], [ %.sroa.498.89, %1322 ]
+  %1336 = lshr i32 %.sroa.0.90, 11
+  %1337 = zext i32 %.532533 to i64
+  %1338 = getelementptr inbounds i16, ptr %.432620, i64 %1337
+  %1339 = load i16, ptr %1338, align 2
+  %1340 = zext i16 %1339 to i32
+  %1341 = mul i32 %1336, %1340
+  %1342 = icmp ult i32 %.sroa.498.90, %1341
+  %1343 = shl i32 %.532533, 1
+  br i1 %1342, label %1344, label %1349
 
-1345:                                             ; preds = %1336
-  %1346 = sub nsw i32 2048, %1341
-  %1347 = lshr i32 %1346, 5
-  %1348 = trunc i32 %1347 to i16
-  %1349 = add i16 %1340, %1348
-  store i16 %1349, ptr %1339, align 2
-  br label %1356
+1344:                                             ; preds = %1335
+  %1345 = sub nsw i32 2048, %1340
+  %1346 = lshr i32 %1345, 5
+  %1347 = trunc i32 %1346 to i16
+  %1348 = add i16 %1339, %1347
+  store i16 %1348, ptr %1338, align 2
+  br label %1355
 
-1350:                                             ; preds = %1336
-  %1351 = sub i32 %.sroa.0.90, %1342
-  %1352 = sub nuw i32 %.sroa.498.90, %1342
-  %1353 = lshr i16 %1340, 5
-  %1354 = sub i16 %1340, %1353
-  store i16 %1354, ptr %1339, align 2
-  %1355 = or disjoint i32 %1344, 1
-  br label %1356
+1349:                                             ; preds = %1335
+  %1350 = sub i32 %.sroa.0.90, %1341
+  %1351 = sub nuw i32 %.sroa.498.90, %1341
+  %1352 = lshr i16 %1339, 5
+  %1353 = sub i16 %1339, %1352
+  store i16 %1353, ptr %1338, align 2
+  %1354 = or disjoint i32 %1343, 1
+  br label %1355
 
-1356:                                             ; preds = %1350, %1345, %.loopexit
-  %.sroa.35.45 = phi i64 [ %.sroa.35.44, %1345 ], [ %.sroa.35.44, %1350 ], [ %.sroa.35.0.copyload, %.loopexit ]
-  %.sroa.10.45 = phi i64 [ %.sroa.10.44, %1345 ], [ %.sroa.10.44, %1350 ], [ %.sroa.10.0.copyload, %.loopexit ]
-  %.453229 = phi i32 [ %.443228, %1345 ], [ %.443228, %1350 ], [ %47, %.loopexit ]
-  %.452939 = phi i32 [ %.442938, %1345 ], [ %.442938, %1350 ], [ %31, %.loopexit ]
-  %.452862 = phi i32 [ %.442861, %1345 ], [ %.442861, %1350 ], [ %33, %.loopexit ]
-  %.452785 = phi i32 [ %.442784, %1345 ], [ %.442784, %1350 ], [ %35, %.loopexit ]
-  %.452698 = phi i32 [ %.442697, %1345 ], [ %.442697, %1350 ], [ %29, %.loopexit ]
-  %.442621 = phi ptr [ %.432620, %1345 ], [ %.432620, %1350 ], [ %39, %.loopexit ]
-  %.542534 = phi i32 [ %1344, %1345 ], [ %1355, %1350 ], [ %41, %.loopexit ]
-  %.452443 = phi i32 [ %.442442, %1345 ], [ %.442442, %1350 ], [ %43, %.loopexit ]
-  %.522362 = phi i32 [ %.512361, %1345 ], [ %.512361, %1350 ], [ %45, %.loopexit ]
-  %.452278 = phi i32 [ %.442277, %1345 ], [ %.442277, %1350 ], [ %27, %.loopexit ]
-  %.81 = phi i64 [ %.80, %1345 ], [ %.80, %1350 ], [ %25, %.loopexit ]
-  %.sroa.0.91 = phi i32 [ %1342, %1345 ], [ %1351, %1350 ], [ %.sroa.0.0.copyload, %.loopexit ]
-  %.sroa.498.91 = phi i32 [ %.sroa.498.90, %1345 ], [ %1352, %1350 ], [ %.sroa.498.0.copyload, %.loopexit ]
-  %1357 = icmp ult i32 %.sroa.0.91, 16777216
-  br i1 %1357, label %1358, label %1369
+1355:                                             ; preds = %1349, %1344, %.loopexit
+  %.sroa.35.45 = phi i64 [ %.sroa.35.44, %1344 ], [ %.sroa.35.44, %1349 ], [ %.sroa.35.0.copyload, %.loopexit ]
+  %.sroa.10.45 = phi i64 [ %.sroa.10.44, %1344 ], [ %.sroa.10.44, %1349 ], [ %.sroa.10.0.copyload, %.loopexit ]
+  %.453229 = phi i32 [ %.443228, %1344 ], [ %.443228, %1349 ], [ %47, %.loopexit ]
+  %.452939 = phi i32 [ %.442938, %1344 ], [ %.442938, %1349 ], [ %31, %.loopexit ]
+  %.452862 = phi i32 [ %.442861, %1344 ], [ %.442861, %1349 ], [ %33, %.loopexit ]
+  %.452785 = phi i32 [ %.442784, %1344 ], [ %.442784, %1349 ], [ %35, %.loopexit ]
+  %.452698 = phi i32 [ %.442697, %1344 ], [ %.442697, %1349 ], [ %29, %.loopexit ]
+  %.442621 = phi ptr [ %.432620, %1344 ], [ %.432620, %1349 ], [ %39, %.loopexit ]
+  %.542534 = phi i32 [ %1343, %1344 ], [ %1354, %1349 ], [ %41, %.loopexit ]
+  %.452443 = phi i32 [ %.442442, %1344 ], [ %.442442, %1349 ], [ %43, %.loopexit ]
+  %.522362 = phi i32 [ %.512361, %1344 ], [ %.512361, %1349 ], [ %45, %.loopexit ]
+  %.452278 = phi i32 [ %.442277, %1344 ], [ %.442277, %1349 ], [ %27, %.loopexit ]
+  %.81 = phi i64 [ %.80, %1344 ], [ %.80, %1349 ], [ %25, %.loopexit ]
+  %.sroa.0.91 = phi i32 [ %1341, %1344 ], [ %1350, %1349 ], [ %.sroa.0.0.copyload, %.loopexit ]
+  %.sroa.498.91 = phi i32 [ %.sroa.498.90, %1344 ], [ %1351, %1349 ], [ %.sroa.498.0.copyload, %.loopexit ]
+  %1356 = icmp ult i32 %.sroa.0.91, 16777216
+  br i1 %1356, label %1357, label %1368
 
-1358:                                             ; preds = %1356
-  %1359 = icmp eq i64 %.81, %4
-  br i1 %1359, label %1360, label %1361
+1357:                                             ; preds = %1355
+  %1358 = icmp eq i64 %.81, %4
+  br i1 %1358, label %1359, label %1360
 
-1360:                                             ; preds = %1358
+1359:                                             ; preds = %1357
   store i32 38, ptr %60, align 8
-  br label %2628
+  br label %2627
 
-1361:                                             ; preds = %1358
-  %1362 = shl nuw i32 %.sroa.0.91, 8
-  %1363 = shl i32 %.sroa.498.91, 8
-  %1364 = add i64 %.81, 1
-  %1365 = getelementptr inbounds i8, ptr %2, i64 %.81
-  %1366 = load i8, ptr %1365, align 1
-  %1367 = zext i8 %1366 to i32
-  %1368 = or disjoint i32 %1363, %1367
-  br label %1369
+1360:                                             ; preds = %1357
+  %1361 = shl nuw i32 %.sroa.0.91, 8
+  %1362 = shl i32 %.sroa.498.91, 8
+  %1363 = add i64 %.81, 1
+  %1364 = getelementptr inbounds i8, ptr %2, i64 %.81
+  %1365 = load i8, ptr %1364, align 1
+  %1366 = zext i8 %1365 to i32
+  %1367 = or disjoint i32 %1362, %1366
+  br label %1368
 
-1369:                                             ; preds = %1356, %1361
-  %.82 = phi i64 [ %1364, %1361 ], [ %.81, %1356 ]
-  %.sroa.0.92 = phi i32 [ %1362, %1361 ], [ %.sroa.0.91, %1356 ]
-  %.sroa.498.92 = phi i32 [ %1368, %1361 ], [ %.sroa.498.91, %1356 ]
-  %1370 = lshr i32 %.sroa.0.92, 11
-  %1371 = zext i32 %.542534 to i64
-  %1372 = getelementptr inbounds i16, ptr %.442621, i64 %1371
-  %1373 = load i16, ptr %1372, align 2
-  %1374 = zext i16 %1373 to i32
-  %1375 = mul i32 %1370, %1374
-  %1376 = icmp ult i32 %.sroa.498.92, %1375
-  %1377 = shl i32 %.542534, 1
-  br i1 %1376, label %1378, label %1383
+1368:                                             ; preds = %1355, %1360
+  %.82 = phi i64 [ %1363, %1360 ], [ %.81, %1355 ]
+  %.sroa.0.92 = phi i32 [ %1361, %1360 ], [ %.sroa.0.91, %1355 ]
+  %.sroa.498.92 = phi i32 [ %1367, %1360 ], [ %.sroa.498.91, %1355 ]
+  %1369 = lshr i32 %.sroa.0.92, 11
+  %1370 = zext i32 %.542534 to i64
+  %1371 = getelementptr inbounds i16, ptr %.442621, i64 %1370
+  %1372 = load i16, ptr %1371, align 2
+  %1373 = zext i16 %1372 to i32
+  %1374 = mul i32 %1369, %1373
+  %1375 = icmp ult i32 %.sroa.498.92, %1374
+  %1376 = shl i32 %.542534, 1
+  br i1 %1375, label %1377, label %1382
 
-1378:                                             ; preds = %1369
-  %1379 = sub nsw i32 2048, %1374
-  %1380 = lshr i32 %1379, 5
-  %1381 = trunc i32 %1380 to i16
-  %1382 = add i16 %1373, %1381
-  store i16 %1382, ptr %1372, align 2
-  br label %1389
+1377:                                             ; preds = %1368
+  %1378 = sub nsw i32 2048, %1373
+  %1379 = lshr i32 %1378, 5
+  %1380 = trunc i32 %1379 to i16
+  %1381 = add i16 %1372, %1380
+  store i16 %1381, ptr %1371, align 2
+  br label %1388
 
-1383:                                             ; preds = %1369
-  %1384 = sub i32 %.sroa.0.92, %1375
-  %1385 = sub nuw i32 %.sroa.498.92, %1375
-  %1386 = lshr i16 %1373, 5
-  %1387 = sub i16 %1373, %1386
-  store i16 %1387, ptr %1372, align 2
-  %1388 = or disjoint i32 %1377, 1
-  br label %1389
+1382:                                             ; preds = %1368
+  %1383 = sub i32 %.sroa.0.92, %1374
+  %1384 = sub nuw i32 %.sroa.498.92, %1374
+  %1385 = lshr i16 %1372, 5
+  %1386 = sub i16 %1372, %1385
+  store i16 %1386, ptr %1371, align 2
+  %1387 = or disjoint i32 %1376, 1
+  br label %1388
 
-1389:                                             ; preds = %1383, %1378, %.loopexit
-  %.sroa.35.46 = phi i64 [ %.sroa.35.45, %1378 ], [ %.sroa.35.45, %1383 ], [ %.sroa.35.0.copyload, %.loopexit ]
-  %.sroa.10.46 = phi i64 [ %.sroa.10.45, %1378 ], [ %.sroa.10.45, %1383 ], [ %.sroa.10.0.copyload, %.loopexit ]
-  %.463230 = phi i32 [ %.453229, %1378 ], [ %.453229, %1383 ], [ %47, %.loopexit ]
-  %.462940 = phi i32 [ %.452939, %1378 ], [ %.452939, %1383 ], [ %31, %.loopexit ]
-  %.462863 = phi i32 [ %.452862, %1378 ], [ %.452862, %1383 ], [ %33, %.loopexit ]
-  %.462786 = phi i32 [ %.452785, %1378 ], [ %.452785, %1383 ], [ %35, %.loopexit ]
-  %.462699 = phi i32 [ %.452698, %1378 ], [ %.452698, %1383 ], [ %29, %.loopexit ]
-  %.452622 = phi ptr [ %.442621, %1378 ], [ %.442621, %1383 ], [ %39, %.loopexit ]
-  %.552535 = phi i32 [ %1377, %1378 ], [ %1388, %1383 ], [ %41, %.loopexit ]
-  %.462444 = phi i32 [ %.452443, %1378 ], [ %.452443, %1383 ], [ %43, %.loopexit ]
-  %.532363 = phi i32 [ %.522362, %1378 ], [ %.522362, %1383 ], [ %45, %.loopexit ]
-  %.462279 = phi i32 [ %.452278, %1378 ], [ %.452278, %1383 ], [ %27, %.loopexit ]
-  %.83 = phi i64 [ %.82, %1378 ], [ %.82, %1383 ], [ %25, %.loopexit ]
-  %.sroa.0.93 = phi i32 [ %1375, %1378 ], [ %1384, %1383 ], [ %.sroa.0.0.copyload, %.loopexit ]
-  %.sroa.498.93 = phi i32 [ %.sroa.498.92, %1378 ], [ %1385, %1383 ], [ %.sroa.498.0.copyload, %.loopexit ]
-  %1390 = icmp ult i32 %.sroa.0.93, 16777216
-  br i1 %1390, label %1391, label %1402
+1388:                                             ; preds = %1382, %1377, %.loopexit
+  %.sroa.35.46 = phi i64 [ %.sroa.35.45, %1377 ], [ %.sroa.35.45, %1382 ], [ %.sroa.35.0.copyload, %.loopexit ]
+  %.sroa.10.46 = phi i64 [ %.sroa.10.45, %1377 ], [ %.sroa.10.45, %1382 ], [ %.sroa.10.0.copyload, %.loopexit ]
+  %.463230 = phi i32 [ %.453229, %1377 ], [ %.453229, %1382 ], [ %47, %.loopexit ]
+  %.462940 = phi i32 [ %.452939, %1377 ], [ %.452939, %1382 ], [ %31, %.loopexit ]
+  %.462863 = phi i32 [ %.452862, %1377 ], [ %.452862, %1382 ], [ %33, %.loopexit ]
+  %.462786 = phi i32 [ %.452785, %1377 ], [ %.452785, %1382 ], [ %35, %.loopexit ]
+  %.462699 = phi i32 [ %.452698, %1377 ], [ %.452698, %1382 ], [ %29, %.loopexit ]
+  %.452622 = phi ptr [ %.442621, %1377 ], [ %.442621, %1382 ], [ %39, %.loopexit ]
+  %.552535 = phi i32 [ %1376, %1377 ], [ %1387, %1382 ], [ %41, %.loopexit ]
+  %.462444 = phi i32 [ %.452443, %1377 ], [ %.452443, %1382 ], [ %43, %.loopexit ]
+  %.532363 = phi i32 [ %.522362, %1377 ], [ %.522362, %1382 ], [ %45, %.loopexit ]
+  %.462279 = phi i32 [ %.452278, %1377 ], [ %.452278, %1382 ], [ %27, %.loopexit ]
+  %.83 = phi i64 [ %.82, %1377 ], [ %.82, %1382 ], [ %25, %.loopexit ]
+  %.sroa.0.93 = phi i32 [ %1374, %1377 ], [ %1383, %1382 ], [ %.sroa.0.0.copyload, %.loopexit ]
+  %.sroa.498.93 = phi i32 [ %.sroa.498.92, %1377 ], [ %1384, %1382 ], [ %.sroa.498.0.copyload, %.loopexit ]
+  %1389 = icmp ult i32 %.sroa.0.93, 16777216
+  br i1 %1389, label %1390, label %1401
 
-1391:                                             ; preds = %1389
-  %1392 = icmp eq i64 %.83, %4
-  br i1 %1392, label %1393, label %1394
+1390:                                             ; preds = %1388
+  %1391 = icmp eq i64 %.83, %4
+  br i1 %1391, label %1392, label %1393
 
-1393:                                             ; preds = %1391
+1392:                                             ; preds = %1390
   store i32 39, ptr %60, align 8
-  br label %2628
+  br label %2627
 
-1394:                                             ; preds = %1391
-  %1395 = shl nuw i32 %.sroa.0.93, 8
-  %1396 = shl i32 %.sroa.498.93, 8
-  %1397 = add i64 %.83, 1
-  %1398 = getelementptr inbounds i8, ptr %2, i64 %.83
-  %1399 = load i8, ptr %1398, align 1
-  %1400 = zext i8 %1399 to i32
-  %1401 = or disjoint i32 %1396, %1400
-  br label %1402
+1393:                                             ; preds = %1390
+  %1394 = shl nuw i32 %.sroa.0.93, 8
+  %1395 = shl i32 %.sroa.498.93, 8
+  %1396 = add i64 %.83, 1
+  %1397 = getelementptr inbounds i8, ptr %2, i64 %.83
+  %1398 = load i8, ptr %1397, align 1
+  %1399 = zext i8 %1398 to i32
+  %1400 = or disjoint i32 %1395, %1399
+  br label %1401
 
-1402:                                             ; preds = %1389, %1394
-  %.84 = phi i64 [ %1397, %1394 ], [ %.83, %1389 ]
-  %.sroa.0.94 = phi i32 [ %1395, %1394 ], [ %.sroa.0.93, %1389 ]
-  %.sroa.498.94 = phi i32 [ %1401, %1394 ], [ %.sroa.498.93, %1389 ]
-  %1403 = lshr i32 %.sroa.0.94, 11
-  %1404 = zext i32 %.552535 to i64
-  %1405 = getelementptr inbounds i16, ptr %.452622, i64 %1404
-  %1406 = load i16, ptr %1405, align 2
-  %1407 = zext i16 %1406 to i32
-  %1408 = mul i32 %1403, %1407
-  %1409 = icmp ult i32 %.sroa.498.94, %1408
-  %1410 = shl i32 %.552535, 1
-  br i1 %1409, label %1411, label %1416
+1401:                                             ; preds = %1388, %1393
+  %.84 = phi i64 [ %1396, %1393 ], [ %.83, %1388 ]
+  %.sroa.0.94 = phi i32 [ %1394, %1393 ], [ %.sroa.0.93, %1388 ]
+  %.sroa.498.94 = phi i32 [ %1400, %1393 ], [ %.sroa.498.93, %1388 ]
+  %1402 = lshr i32 %.sroa.0.94, 11
+  %1403 = zext i32 %.552535 to i64
+  %1404 = getelementptr inbounds i16, ptr %.452622, i64 %1403
+  %1405 = load i16, ptr %1404, align 2
+  %1406 = zext i16 %1405 to i32
+  %1407 = mul i32 %1402, %1406
+  %1408 = icmp ult i32 %.sroa.498.94, %1407
+  %1409 = shl i32 %.552535, 1
+  br i1 %1408, label %1410, label %1415
 
-1411:                                             ; preds = %1402
-  %1412 = sub nsw i32 2048, %1407
-  %1413 = lshr i32 %1412, 5
-  %1414 = trunc i32 %1413 to i16
-  %1415 = add i16 %1406, %1414
-  store i16 %1415, ptr %1405, align 2
-  br label %1422
+1410:                                             ; preds = %1401
+  %1411 = sub nsw i32 2048, %1406
+  %1412 = lshr i32 %1411, 5
+  %1413 = trunc i32 %1412 to i16
+  %1414 = add i16 %1405, %1413
+  store i16 %1414, ptr %1404, align 2
+  br label %1421
 
-1416:                                             ; preds = %1402
-  %1417 = sub i32 %.sroa.0.94, %1408
-  %1418 = sub nuw i32 %.sroa.498.94, %1408
-  %1419 = lshr i16 %1406, 5
-  %1420 = sub i16 %1406, %1419
-  store i16 %1420, ptr %1405, align 2
-  %1421 = or disjoint i32 %1410, 1
-  br label %1422
+1415:                                             ; preds = %1401
+  %1416 = sub i32 %.sroa.0.94, %1407
+  %1417 = sub nuw i32 %.sroa.498.94, %1407
+  %1418 = lshr i16 %1405, 5
+  %1419 = sub i16 %1405, %1418
+  store i16 %1419, ptr %1404, align 2
+  %1420 = or disjoint i32 %1409, 1
+  br label %1421
 
-1422:                                             ; preds = %1416, %1411, %.loopexit
-  %.sroa.35.47 = phi i64 [ %.sroa.35.46, %1411 ], [ %.sroa.35.46, %1416 ], [ %.sroa.35.0.copyload, %.loopexit ]
-  %.sroa.10.47 = phi i64 [ %.sroa.10.46, %1411 ], [ %.sroa.10.46, %1416 ], [ %.sroa.10.0.copyload, %.loopexit ]
-  %.473231 = phi i32 [ %.463230, %1411 ], [ %.463230, %1416 ], [ %47, %.loopexit ]
-  %.472941 = phi i32 [ %.462940, %1411 ], [ %.462940, %1416 ], [ %31, %.loopexit ]
-  %.472864 = phi i32 [ %.462863, %1411 ], [ %.462863, %1416 ], [ %33, %.loopexit ]
-  %.472787 = phi i32 [ %.462786, %1411 ], [ %.462786, %1416 ], [ %35, %.loopexit ]
-  %.472700 = phi i32 [ %.462699, %1411 ], [ %.462699, %1416 ], [ %29, %.loopexit ]
-  %.462623 = phi ptr [ %.452622, %1411 ], [ %.452622, %1416 ], [ %39, %.loopexit ]
-  %.562536 = phi i32 [ %1410, %1411 ], [ %1421, %1416 ], [ %41, %.loopexit ]
-  %.472445 = phi i32 [ %.462444, %1411 ], [ %.462444, %1416 ], [ %43, %.loopexit ]
-  %.542364 = phi i32 [ %.532363, %1411 ], [ %.532363, %1416 ], [ %45, %.loopexit ]
-  %.472280 = phi i32 [ %.462279, %1411 ], [ %.462279, %1416 ], [ %27, %.loopexit ]
-  %.85 = phi i64 [ %.84, %1411 ], [ %.84, %1416 ], [ %25, %.loopexit ]
-  %.sroa.0.95 = phi i32 [ %1408, %1411 ], [ %1417, %1416 ], [ %.sroa.0.0.copyload, %.loopexit ]
-  %.sroa.498.95 = phi i32 [ %.sroa.498.94, %1411 ], [ %1418, %1416 ], [ %.sroa.498.0.copyload, %.loopexit ]
-  %1423 = icmp ult i32 %.sroa.0.95, 16777216
-  br i1 %1423, label %1424, label %1435
+1421:                                             ; preds = %1415, %1410, %.loopexit
+  %.sroa.35.47 = phi i64 [ %.sroa.35.46, %1410 ], [ %.sroa.35.46, %1415 ], [ %.sroa.35.0.copyload, %.loopexit ]
+  %.sroa.10.47 = phi i64 [ %.sroa.10.46, %1410 ], [ %.sroa.10.46, %1415 ], [ %.sroa.10.0.copyload, %.loopexit ]
+  %.473231 = phi i32 [ %.463230, %1410 ], [ %.463230, %1415 ], [ %47, %.loopexit ]
+  %.472941 = phi i32 [ %.462940, %1410 ], [ %.462940, %1415 ], [ %31, %.loopexit ]
+  %.472864 = phi i32 [ %.462863, %1410 ], [ %.462863, %1415 ], [ %33, %.loopexit ]
+  %.472787 = phi i32 [ %.462786, %1410 ], [ %.462786, %1415 ], [ %35, %.loopexit ]
+  %.472700 = phi i32 [ %.462699, %1410 ], [ %.462699, %1415 ], [ %29, %.loopexit ]
+  %.462623 = phi ptr [ %.452622, %1410 ], [ %.452622, %1415 ], [ %39, %.loopexit ]
+  %.562536 = phi i32 [ %1409, %1410 ], [ %1420, %1415 ], [ %41, %.loopexit ]
+  %.472445 = phi i32 [ %.462444, %1410 ], [ %.462444, %1415 ], [ %43, %.loopexit ]
+  %.542364 = phi i32 [ %.532363, %1410 ], [ %.532363, %1415 ], [ %45, %.loopexit ]
+  %.472280 = phi i32 [ %.462279, %1410 ], [ %.462279, %1415 ], [ %27, %.loopexit ]
+  %.85 = phi i64 [ %.84, %1410 ], [ %.84, %1415 ], [ %25, %.loopexit ]
+  %.sroa.0.95 = phi i32 [ %1407, %1410 ], [ %1416, %1415 ], [ %.sroa.0.0.copyload, %.loopexit ]
+  %.sroa.498.95 = phi i32 [ %.sroa.498.94, %1410 ], [ %1417, %1415 ], [ %.sroa.498.0.copyload, %.loopexit ]
+  %1422 = icmp ult i32 %.sroa.0.95, 16777216
+  br i1 %1422, label %1423, label %1434
 
-1424:                                             ; preds = %1422
-  %1425 = icmp eq i64 %.85, %4
-  br i1 %1425, label %1426, label %1427
+1423:                                             ; preds = %1421
+  %1424 = icmp eq i64 %.85, %4
+  br i1 %1424, label %1425, label %1426
 
-1426:                                             ; preds = %1424
+1425:                                             ; preds = %1423
   store i32 40, ptr %60, align 8
-  br label %2628
+  br label %2627
 
-1427:                                             ; preds = %1424
-  %1428 = shl nuw i32 %.sroa.0.95, 8
-  %1429 = shl i32 %.sroa.498.95, 8
-  %1430 = add i64 %.85, 1
-  %1431 = getelementptr inbounds i8, ptr %2, i64 %.85
-  %1432 = load i8, ptr %1431, align 1
-  %1433 = zext i8 %1432 to i32
-  %1434 = or disjoint i32 %1429, %1433
-  br label %1435
+1426:                                             ; preds = %1423
+  %1427 = shl nuw i32 %.sroa.0.95, 8
+  %1428 = shl i32 %.sroa.498.95, 8
+  %1429 = add i64 %.85, 1
+  %1430 = getelementptr inbounds i8, ptr %2, i64 %.85
+  %1431 = load i8, ptr %1430, align 1
+  %1432 = zext i8 %1431 to i32
+  %1433 = or disjoint i32 %1428, %1432
+  br label %1434
 
-1435:                                             ; preds = %1422, %1427
-  %.86 = phi i64 [ %1430, %1427 ], [ %.85, %1422 ]
-  %.sroa.0.96 = phi i32 [ %1428, %1427 ], [ %.sroa.0.95, %1422 ]
-  %.sroa.498.96 = phi i32 [ %1434, %1427 ], [ %.sroa.498.95, %1422 ]
-  %1436 = lshr i32 %.sroa.0.96, 11
-  %1437 = zext i32 %.562536 to i64
-  %1438 = getelementptr inbounds i16, ptr %.462623, i64 %1437
-  %1439 = load i16, ptr %1438, align 2
-  %1440 = zext i16 %1439 to i32
-  %1441 = mul i32 %1436, %1440
-  %1442 = icmp ult i32 %.sroa.498.96, %1441
-  %1443 = shl i32 %.562536, 1
-  br i1 %1442, label %1444, label %1449
+1434:                                             ; preds = %1421, %1426
+  %.86 = phi i64 [ %1429, %1426 ], [ %.85, %1421 ]
+  %.sroa.0.96 = phi i32 [ %1427, %1426 ], [ %.sroa.0.95, %1421 ]
+  %.sroa.498.96 = phi i32 [ %1433, %1426 ], [ %.sroa.498.95, %1421 ]
+  %1435 = lshr i32 %.sroa.0.96, 11
+  %1436 = zext i32 %.562536 to i64
+  %1437 = getelementptr inbounds i16, ptr %.462623, i64 %1436
+  %1438 = load i16, ptr %1437, align 2
+  %1439 = zext i16 %1438 to i32
+  %1440 = mul i32 %1435, %1439
+  %1441 = icmp ult i32 %.sroa.498.96, %1440
+  %1442 = shl i32 %.562536, 1
+  br i1 %1441, label %1443, label %1448
 
-1444:                                             ; preds = %1435
-  %1445 = sub nsw i32 2048, %1440
-  %1446 = lshr i32 %1445, 5
-  %1447 = trunc i32 %1446 to i16
-  %1448 = add i16 %1439, %1447
-  store i16 %1448, ptr %1438, align 2
-  br label %1455
+1443:                                             ; preds = %1434
+  %1444 = sub nsw i32 2048, %1439
+  %1445 = lshr i32 %1444, 5
+  %1446 = trunc i32 %1445 to i16
+  %1447 = add i16 %1438, %1446
+  store i16 %1447, ptr %1437, align 2
+  br label %1454
 
-1449:                                             ; preds = %1435
-  %1450 = sub i32 %.sroa.0.96, %1441
-  %1451 = sub nuw i32 %.sroa.498.96, %1441
-  %1452 = lshr i16 %1439, 5
-  %1453 = sub i16 %1439, %1452
-  store i16 %1453, ptr %1438, align 2
-  %1454 = or disjoint i32 %1443, 1
-  br label %1455
+1448:                                             ; preds = %1434
+  %1449 = sub i32 %.sroa.0.96, %1440
+  %1450 = sub nuw i32 %.sroa.498.96, %1440
+  %1451 = lshr i16 %1438, 5
+  %1452 = sub i16 %1438, %1451
+  store i16 %1452, ptr %1437, align 2
+  %1453 = or disjoint i32 %1442, 1
+  br label %1454
 
-1455:                                             ; preds = %1449, %1444, %.loopexit
-  %.sroa.35.48 = phi i64 [ %.sroa.35.47, %1444 ], [ %.sroa.35.47, %1449 ], [ %.sroa.35.0.copyload, %.loopexit ]
-  %.sroa.10.48 = phi i64 [ %.sroa.10.47, %1444 ], [ %.sroa.10.47, %1449 ], [ %.sroa.10.0.copyload, %.loopexit ]
-  %.483232 = phi i32 [ %.473231, %1444 ], [ %.473231, %1449 ], [ %47, %.loopexit ]
-  %.482942 = phi i32 [ %.472941, %1444 ], [ %.472941, %1449 ], [ %31, %.loopexit ]
-  %.482865 = phi i32 [ %.472864, %1444 ], [ %.472864, %1449 ], [ %33, %.loopexit ]
-  %.482788 = phi i32 [ %.472787, %1444 ], [ %.472787, %1449 ], [ %35, %.loopexit ]
-  %.482701 = phi i32 [ %.472700, %1444 ], [ %.472700, %1449 ], [ %29, %.loopexit ]
-  %.472624 = phi ptr [ %.462623, %1444 ], [ %.462623, %1449 ], [ %39, %.loopexit ]
-  %.572537 = phi i32 [ %1443, %1444 ], [ %1454, %1449 ], [ %41, %.loopexit ]
-  %.482446 = phi i32 [ %.472445, %1444 ], [ %.472445, %1449 ], [ %43, %.loopexit ]
-  %.552365 = phi i32 [ %.542364, %1444 ], [ %.542364, %1449 ], [ %45, %.loopexit ]
-  %.482281 = phi i32 [ %.472280, %1444 ], [ %.472280, %1449 ], [ %27, %.loopexit ]
-  %.87 = phi i64 [ %.86, %1444 ], [ %.86, %1449 ], [ %25, %.loopexit ]
-  %.sroa.0.97 = phi i32 [ %1441, %1444 ], [ %1450, %1449 ], [ %.sroa.0.0.copyload, %.loopexit ]
-  %.sroa.498.97 = phi i32 [ %.sroa.498.96, %1444 ], [ %1451, %1449 ], [ %.sroa.498.0.copyload, %.loopexit ]
-  %1456 = icmp ult i32 %.sroa.0.97, 16777216
-  br i1 %1456, label %1457, label %1468
+1454:                                             ; preds = %1448, %1443, %.loopexit
+  %.sroa.35.48 = phi i64 [ %.sroa.35.47, %1443 ], [ %.sroa.35.47, %1448 ], [ %.sroa.35.0.copyload, %.loopexit ]
+  %.sroa.10.48 = phi i64 [ %.sroa.10.47, %1443 ], [ %.sroa.10.47, %1448 ], [ %.sroa.10.0.copyload, %.loopexit ]
+  %.483232 = phi i32 [ %.473231, %1443 ], [ %.473231, %1448 ], [ %47, %.loopexit ]
+  %.482942 = phi i32 [ %.472941, %1443 ], [ %.472941, %1448 ], [ %31, %.loopexit ]
+  %.482865 = phi i32 [ %.472864, %1443 ], [ %.472864, %1448 ], [ %33, %.loopexit ]
+  %.482788 = phi i32 [ %.472787, %1443 ], [ %.472787, %1448 ], [ %35, %.loopexit ]
+  %.482701 = phi i32 [ %.472700, %1443 ], [ %.472700, %1448 ], [ %29, %.loopexit ]
+  %.472624 = phi ptr [ %.462623, %1443 ], [ %.462623, %1448 ], [ %39, %.loopexit ]
+  %.572537 = phi i32 [ %1442, %1443 ], [ %1453, %1448 ], [ %41, %.loopexit ]
+  %.482446 = phi i32 [ %.472445, %1443 ], [ %.472445, %1448 ], [ %43, %.loopexit ]
+  %.552365 = phi i32 [ %.542364, %1443 ], [ %.542364, %1448 ], [ %45, %.loopexit ]
+  %.482281 = phi i32 [ %.472280, %1443 ], [ %.472280, %1448 ], [ %27, %.loopexit ]
+  %.87 = phi i64 [ %.86, %1443 ], [ %.86, %1448 ], [ %25, %.loopexit ]
+  %.sroa.0.97 = phi i32 [ %1440, %1443 ], [ %1449, %1448 ], [ %.sroa.0.0.copyload, %.loopexit ]
+  %.sroa.498.97 = phi i32 [ %.sroa.498.96, %1443 ], [ %1450, %1448 ], [ %.sroa.498.0.copyload, %.loopexit ]
+  %1455 = icmp ult i32 %.sroa.0.97, 16777216
+  br i1 %1455, label %1456, label %1467
 
-1457:                                             ; preds = %1455
-  %1458 = icmp eq i64 %.87, %4
-  br i1 %1458, label %1459, label %1460
+1456:                                             ; preds = %1454
+  %1457 = icmp eq i64 %.87, %4
+  br i1 %1457, label %1458, label %1459
 
-1459:                                             ; preds = %1457
+1458:                                             ; preds = %1456
   store i32 41, ptr %60, align 8
-  br label %2628
+  br label %2627
 
-1460:                                             ; preds = %1457
-  %1461 = shl nuw i32 %.sroa.0.97, 8
-  %1462 = shl i32 %.sroa.498.97, 8
-  %1463 = add i64 %.87, 1
-  %1464 = getelementptr inbounds i8, ptr %2, i64 %.87
-  %1465 = load i8, ptr %1464, align 1
-  %1466 = zext i8 %1465 to i32
-  %1467 = or disjoint i32 %1462, %1466
-  br label %1468
+1459:                                             ; preds = %1456
+  %1460 = shl nuw i32 %.sroa.0.97, 8
+  %1461 = shl i32 %.sroa.498.97, 8
+  %1462 = add i64 %.87, 1
+  %1463 = getelementptr inbounds i8, ptr %2, i64 %.87
+  %1464 = load i8, ptr %1463, align 1
+  %1465 = zext i8 %1464 to i32
+  %1466 = or disjoint i32 %1461, %1465
+  br label %1467
 
-1468:                                             ; preds = %1455, %1460
-  %.88 = phi i64 [ %1463, %1460 ], [ %.87, %1455 ]
-  %.sroa.0.98 = phi i32 [ %1461, %1460 ], [ %.sroa.0.97, %1455 ]
-  %.sroa.498.98 = phi i32 [ %1467, %1460 ], [ %.sroa.498.97, %1455 ]
-  %1469 = lshr i32 %.sroa.0.98, 11
-  %1470 = zext i32 %.572537 to i64
-  %1471 = getelementptr inbounds i16, ptr %.472624, i64 %1470
-  %1472 = load i16, ptr %1471, align 2
-  %1473 = zext i16 %1472 to i32
-  %1474 = mul i32 %1469, %1473
-  %1475 = icmp ult i32 %.sroa.498.98, %1474
-  %1476 = shl i32 %.572537, 1
-  br i1 %1475, label %1477, label %1482
+1467:                                             ; preds = %1454, %1459
+  %.88 = phi i64 [ %1462, %1459 ], [ %.87, %1454 ]
+  %.sroa.0.98 = phi i32 [ %1460, %1459 ], [ %.sroa.0.97, %1454 ]
+  %.sroa.498.98 = phi i32 [ %1466, %1459 ], [ %.sroa.498.97, %1454 ]
+  %1468 = lshr i32 %.sroa.0.98, 11
+  %1469 = zext i32 %.572537 to i64
+  %1470 = getelementptr inbounds i16, ptr %.472624, i64 %1469
+  %1471 = load i16, ptr %1470, align 2
+  %1472 = zext i16 %1471 to i32
+  %1473 = mul i32 %1468, %1472
+  %1474 = icmp ult i32 %.sroa.498.98, %1473
+  %1475 = shl i32 %.572537, 1
+  br i1 %1474, label %1476, label %1481
 
-1477:                                             ; preds = %1468
-  %1478 = sub nsw i32 2048, %1473
-  %1479 = lshr i32 %1478, 5
-  %1480 = trunc i32 %1479 to i16
-  %1481 = add i16 %1472, %1480
-  br label %1488
+1476:                                             ; preds = %1467
+  %1477 = sub nsw i32 2048, %1472
+  %1478 = lshr i32 %1477, 5
+  %1479 = trunc i32 %1478 to i16
+  %1480 = add i16 %1471, %1479
+  br label %1487
 
-1482:                                             ; preds = %1468
-  %1483 = sub i32 %.sroa.0.98, %1474
-  %1484 = sub nuw i32 %.sroa.498.98, %1474
-  %1485 = lshr i16 %1472, 5
-  %1486 = sub i16 %1472, %1485
-  %1487 = or disjoint i32 %1476, 1
-  br label %1488
+1481:                                             ; preds = %1467
+  %1482 = sub i32 %.sroa.0.98, %1473
+  %1483 = sub nuw i32 %.sroa.498.98, %1473
+  %1484 = lshr i16 %1471, 5
+  %1485 = sub i16 %1471, %1484
+  %1486 = or disjoint i32 %1475, 1
+  br label %1487
 
-1488:                                             ; preds = %1477, %1482
-  %.sink3306 = phi i16 [ %1481, %1477 ], [ %1486, %1482 ]
-  %.582538 = phi i32 [ %1476, %1477 ], [ %1487, %1482 ]
-  %.sroa.0.99 = phi i32 [ %1474, %1477 ], [ %1483, %1482 ]
-  %.sroa.498.99 = phi i32 [ %.sroa.498.98, %1477 ], [ %1484, %1482 ]
-  store i16 %.sink3306, ptr %1471, align 2
-  %1489 = add i32 %.582538, -64
-  %1490 = icmp ult i32 %1489, 4
-  br i1 %1490, label %1869, label %1491
+1487:                                             ; preds = %1476, %1481
+  %.sink3306 = phi i16 [ %1480, %1476 ], [ %1485, %1481 ]
+  %.582538 = phi i32 [ %1475, %1476 ], [ %1486, %1481 ]
+  %.sroa.0.99 = phi i32 [ %1473, %1476 ], [ %1482, %1481 ]
+  %.sroa.498.99 = phi i32 [ %.sroa.498.98, %1476 ], [ %1483, %1481 ]
+  store i16 %.sink3306, ptr %1470, align 2
+  %1488 = add i32 %.582538, -64
+  %1489 = icmp ult i32 %1488, 4
+  br i1 %1489, label %1868, label %1490
 
-1491:                                             ; preds = %1488
-  %1492 = lshr i32 %1489, 1
-  %1493 = and i32 %.582538, 1
-  %1494 = or disjoint i32 %1493, 2
-  %1495 = icmp ult i32 %1489, 14
-  br i1 %1495, label %1496, label %1687
+1490:                                             ; preds = %1487
+  %1491 = lshr i32 %1488, 1
+  %1492 = and i32 %.582538, 1
+  %1493 = or disjoint i32 %1492, 2
+  %1494 = icmp ult i32 %1488, 14
+  br i1 %1494, label %1495, label %1686
 
-1496:                                             ; preds = %1491
-  %1497 = add nsw i32 %1492, -1
-  %1498 = shl i32 %1494, %1497
-  %1499 = getelementptr inbounds i8, ptr %0, i64 25952
-  %1500 = zext i32 %1498 to i64
-  %1501 = getelementptr inbounds i16, ptr %1499, i64 %1500
-  %1502 = zext nneg i32 %1489 to i64
-  %1503 = sub nsw i64 0, %1502
-  %1504 = getelementptr inbounds i16, ptr %1501, i64 %1503
-  %1505 = getelementptr inbounds i8, ptr %1504, i64 -2
-  br label %1506
+1495:                                             ; preds = %1490
+  %1496 = add nsw i32 %1491, -1
+  %1497 = shl i32 %1493, %1496
+  %1498 = getelementptr inbounds i8, ptr %0, i64 25952
+  %1499 = zext i32 %1497 to i64
+  %1500 = getelementptr inbounds i16, ptr %1498, i64 %1499
+  %1501 = zext nneg i32 %1488 to i64
+  %1502 = sub nsw i64 0, %1501
+  %1503 = getelementptr inbounds i16, ptr %1500, i64 %1502
+  %1504 = getelementptr inbounds i8, ptr %1503, i64 -2
+  br label %1505
 
-1506:                                             ; preds = %1496, %.loopexit
-  %.sroa.35.10 = phi i64 [ %.sroa.35.48, %1496 ], [ %.sroa.35.0.copyload, %.loopexit ]
-  %.sroa.10.10 = phi i64 [ %.sroa.10.48, %1496 ], [ %.sroa.10.0.copyload, %.loopexit ]
-  %.103194 = phi i32 [ %.483232, %1496 ], [ %47, %.loopexit ]
-  %.102904 = phi i32 [ %.482942, %1496 ], [ %31, %.loopexit ]
-  %.102827 = phi i32 [ %.482865, %1496 ], [ %33, %.loopexit ]
-  %.102750 = phi i32 [ %.482788, %1496 ], [ %35, %.loopexit ]
-  %.102663 = phi i32 [ %1498, %1496 ], [ %29, %.loopexit ]
-  %.102587 = phi ptr [ %1505, %1496 ], [ %39, %.loopexit ]
-  %.102490 = phi i32 [ 1, %1496 ], [ %41, %.loopexit ]
-  %.102408 = phi i32 [ %1497, %1496 ], [ %43, %.loopexit ]
-  %.102320 = phi i32 [ 0, %1496 ], [ %45, %.loopexit ]
-  %.102243 = phi i32 [ %.482281, %1496 ], [ %27, %.loopexit ]
-  %.10 = phi i64 [ %.88, %1496 ], [ %25, %.loopexit ]
-  %.sroa.0.10 = phi i32 [ %.sroa.0.99, %1496 ], [ %.sroa.0.0.copyload, %.loopexit ]
-  %.sroa.498.10 = phi i32 [ %.sroa.498.99, %1496 ], [ %.sroa.498.0.copyload, %.loopexit ]
-  switch i32 %.102408, label %1869 [
-    i32 5, label %1507
-    i32 4, label %1543
-    i32 3, label %1580
-    i32 2, label %1617
-    i32 1, label %1654
+1505:                                             ; preds = %1495, %.loopexit
+  %.sroa.35.10 = phi i64 [ %.sroa.35.48, %1495 ], [ %.sroa.35.0.copyload, %.loopexit ]
+  %.sroa.10.10 = phi i64 [ %.sroa.10.48, %1495 ], [ %.sroa.10.0.copyload, %.loopexit ]
+  %.103194 = phi i32 [ %.483232, %1495 ], [ %47, %.loopexit ]
+  %.102904 = phi i32 [ %.482942, %1495 ], [ %31, %.loopexit ]
+  %.102827 = phi i32 [ %.482865, %1495 ], [ %33, %.loopexit ]
+  %.102750 = phi i32 [ %.482788, %1495 ], [ %35, %.loopexit ]
+  %.102663 = phi i32 [ %1497, %1495 ], [ %29, %.loopexit ]
+  %.102587 = phi ptr [ %1504, %1495 ], [ %39, %.loopexit ]
+  %.102490 = phi i32 [ 1, %1495 ], [ %41, %.loopexit ]
+  %.102408 = phi i32 [ %1496, %1495 ], [ %43, %.loopexit ]
+  %.102320 = phi i32 [ 0, %1495 ], [ %45, %.loopexit ]
+  %.102243 = phi i32 [ %.482281, %1495 ], [ %27, %.loopexit ]
+  %.10 = phi i64 [ %.88, %1495 ], [ %25, %.loopexit ]
+  %.sroa.0.10 = phi i32 [ %.sroa.0.99, %1495 ], [ %.sroa.0.0.copyload, %.loopexit ]
+  %.sroa.498.10 = phi i32 [ %.sroa.498.99, %1495 ], [ %.sroa.498.0.copyload, %.loopexit ]
+  switch i32 %.102408, label %1868 [
+    i32 5, label %1506
+    i32 4, label %1542
+    i32 3, label %1579
+    i32 2, label %1616
+    i32 1, label %1653
   ]
 
-1507:                                             ; preds = %1506
-  %1508 = icmp ult i32 %.sroa.0.10, 16777216
-  br i1 %1508, label %1509, label %1520
+1506:                                             ; preds = %1505
+  %1507 = icmp ult i32 %.sroa.0.10, 16777216
+  br i1 %1507, label %1508, label %1519
 
-1509:                                             ; preds = %1507
-  %1510 = icmp eq i64 %.10, %4
-  br i1 %1510, label %1511, label %1512
+1508:                                             ; preds = %1506
+  %1509 = icmp eq i64 %.10, %4
+  br i1 %1509, label %1510, label %1511
 
-1511:                                             ; preds = %1509
+1510:                                             ; preds = %1508
   store i32 42, ptr %60, align 8
-  br label %2628
+  br label %2627
 
-1512:                                             ; preds = %1509
-  %1513 = shl nuw i32 %.sroa.0.10, 8
-  %1514 = shl i32 %.sroa.498.10, 8
-  %1515 = add i64 %.10, 1
-  %1516 = getelementptr inbounds i8, ptr %2, i64 %.10
-  %1517 = load i8, ptr %1516, align 1
-  %1518 = zext i8 %1517 to i32
-  %1519 = or disjoint i32 %1514, %1518
-  br label %1520
+1511:                                             ; preds = %1508
+  %1512 = shl nuw i32 %.sroa.0.10, 8
+  %1513 = shl i32 %.sroa.498.10, 8
+  %1514 = add i64 %.10, 1
+  %1515 = getelementptr inbounds i8, ptr %2, i64 %.10
+  %1516 = load i8, ptr %1515, align 1
+  %1517 = zext i8 %1516 to i32
+  %1518 = or disjoint i32 %1513, %1517
+  br label %1519
 
-1520:                                             ; preds = %1507, %1512
-  %.90 = phi i64 [ %1515, %1512 ], [ %.10, %1507 ]
-  %.sroa.0.101 = phi i32 [ %1513, %1512 ], [ %.sroa.0.10, %1507 ]
-  %.sroa.498.101 = phi i32 [ %1519, %1512 ], [ %.sroa.498.10, %1507 ]
-  %1521 = lshr i32 %.sroa.0.101, 11
-  %1522 = zext i32 %.102490 to i64
-  %1523 = getelementptr inbounds i16, ptr %.102587, i64 %1522
-  %1524 = load i16, ptr %1523, align 2
-  %1525 = zext i16 %1524 to i32
-  %1526 = mul i32 %1521, %1525
-  %1527 = icmp ult i32 %.sroa.498.101, %1526
-  %1528 = shl i32 %.102490, 1
-  br i1 %1527, label %1529, label %1534
+1519:                                             ; preds = %1506, %1511
+  %.90 = phi i64 [ %1514, %1511 ], [ %.10, %1506 ]
+  %.sroa.0.101 = phi i32 [ %1512, %1511 ], [ %.sroa.0.10, %1506 ]
+  %.sroa.498.101 = phi i32 [ %1518, %1511 ], [ %.sroa.498.10, %1506 ]
+  %1520 = lshr i32 %.sroa.0.101, 11
+  %1521 = zext i32 %.102490 to i64
+  %1522 = getelementptr inbounds i16, ptr %.102587, i64 %1521
+  %1523 = load i16, ptr %1522, align 2
+  %1524 = zext i16 %1523 to i32
+  %1525 = mul i32 %1520, %1524
+  %1526 = icmp ult i32 %.sroa.498.101, %1525
+  %1527 = shl i32 %.102490, 1
+  br i1 %1526, label %1528, label %1533
 
-1529:                                             ; preds = %1520
-  %1530 = sub nsw i32 2048, %1525
-  %1531 = lshr i32 %1530, 5
-  %1532 = trunc i32 %1531 to i16
-  %1533 = add i16 %1524, %1532
-  br label %1541
+1528:                                             ; preds = %1519
+  %1529 = sub nsw i32 2048, %1524
+  %1530 = lshr i32 %1529, 5
+  %1531 = trunc i32 %1530 to i16
+  %1532 = add i16 %1523, %1531
+  br label %1540
 
-1534:                                             ; preds = %1520
-  %1535 = sub i32 %.sroa.0.101, %1526
-  %1536 = sub nuw i32 %.sroa.498.101, %1526
-  %1537 = lshr i16 %1524, 5
-  %1538 = sub i16 %1524, %1537
-  %1539 = or disjoint i32 %1528, 1
-  %1540 = add i32 %.102663, 1
-  br label %1541
+1533:                                             ; preds = %1519
+  %1534 = sub i32 %.sroa.0.101, %1525
+  %1535 = sub nuw i32 %.sroa.498.101, %1525
+  %1536 = lshr i16 %1523, 5
+  %1537 = sub i16 %1523, %1536
+  %1538 = or disjoint i32 %1527, 1
+  %1539 = add i32 %.102663, 1
+  br label %1540
 
-1541:                                             ; preds = %1529, %1534
-  %.sink3307 = phi i16 [ %1533, %1529 ], [ %1538, %1534 ]
-  %.502703 = phi i32 [ %.102663, %1529 ], [ %1540, %1534 ]
-  %.602540 = phi i32 [ %1528, %1529 ], [ %1539, %1534 ]
-  %.sroa.0.102 = phi i32 [ %1526, %1529 ], [ %1535, %1534 ]
-  %.sroa.498.102 = phi i32 [ %.sroa.498.101, %1529 ], [ %1536, %1534 ]
-  store i16 %.sink3307, ptr %1523, align 2
-  %1542 = add i32 %.102320, 1
-  br label %1543
+1540:                                             ; preds = %1528, %1533
+  %.sink3307 = phi i16 [ %1532, %1528 ], [ %1537, %1533 ]
+  %.502703 = phi i32 [ %.102663, %1528 ], [ %1539, %1533 ]
+  %.602540 = phi i32 [ %1527, %1528 ], [ %1538, %1533 ]
+  %.sroa.0.102 = phi i32 [ %1525, %1528 ], [ %1534, %1533 ]
+  %.sroa.498.102 = phi i32 [ %.sroa.498.101, %1528 ], [ %1535, %1533 ]
+  store i16 %.sink3307, ptr %1522, align 2
+  %1541 = add i32 %.102320, 1
+  br label %1542
 
-1543:                                             ; preds = %1541, %1506
-  %.512704 = phi i32 [ %.102663, %1506 ], [ %.502703, %1541 ]
-  %.612541 = phi i32 [ %.102490, %1506 ], [ %.602540, %1541 ]
-  %.572367 = phi i32 [ %.102320, %1506 ], [ %1542, %1541 ]
-  %.91 = phi i64 [ %.10, %1506 ], [ %.90, %1541 ]
-  %.sroa.0.103 = phi i32 [ %.sroa.0.10, %1506 ], [ %.sroa.0.102, %1541 ]
-  %.sroa.498.103 = phi i32 [ %.sroa.498.10, %1506 ], [ %.sroa.498.102, %1541 ]
-  %1544 = icmp ult i32 %.sroa.0.103, 16777216
-  br i1 %1544, label %1545, label %1556
+1542:                                             ; preds = %1540, %1505
+  %.512704 = phi i32 [ %.102663, %1505 ], [ %.502703, %1540 ]
+  %.612541 = phi i32 [ %.102490, %1505 ], [ %.602540, %1540 ]
+  %.572367 = phi i32 [ %.102320, %1505 ], [ %1541, %1540 ]
+  %.91 = phi i64 [ %.10, %1505 ], [ %.90, %1540 ]
+  %.sroa.0.103 = phi i32 [ %.sroa.0.10, %1505 ], [ %.sroa.0.102, %1540 ]
+  %.sroa.498.103 = phi i32 [ %.sroa.498.10, %1505 ], [ %.sroa.498.102, %1540 ]
+  %1543 = icmp ult i32 %.sroa.0.103, 16777216
+  br i1 %1543, label %1544, label %1555
 
-1545:                                             ; preds = %1543
-  %1546 = icmp eq i64 %.91, %4
-  br i1 %1546, label %1547, label %1548
+1544:                                             ; preds = %1542
+  %1545 = icmp eq i64 %.91, %4
+  br i1 %1545, label %1546, label %1547
 
-1547:                                             ; preds = %1545
+1546:                                             ; preds = %1544
   store i32 42, ptr %60, align 8
-  br label %2628
+  br label %2627
 
-1548:                                             ; preds = %1545
-  %1549 = shl nuw i32 %.sroa.0.103, 8
-  %1550 = shl i32 %.sroa.498.103, 8
-  %1551 = add i64 %.91, 1
-  %1552 = getelementptr inbounds i8, ptr %2, i64 %.91
-  %1553 = load i8, ptr %1552, align 1
-  %1554 = zext i8 %1553 to i32
-  %1555 = or disjoint i32 %1550, %1554
-  br label %1556
+1547:                                             ; preds = %1544
+  %1548 = shl nuw i32 %.sroa.0.103, 8
+  %1549 = shl i32 %.sroa.498.103, 8
+  %1550 = add i64 %.91, 1
+  %1551 = getelementptr inbounds i8, ptr %2, i64 %.91
+  %1552 = load i8, ptr %1551, align 1
+  %1553 = zext i8 %1552 to i32
+  %1554 = or disjoint i32 %1549, %1553
+  br label %1555
 
-1556:                                             ; preds = %1543, %1548
-  %.92 = phi i64 [ %1551, %1548 ], [ %.91, %1543 ]
-  %.sroa.0.104 = phi i32 [ %1549, %1548 ], [ %.sroa.0.103, %1543 ]
-  %.sroa.498.104 = phi i32 [ %1555, %1548 ], [ %.sroa.498.103, %1543 ]
-  %1557 = lshr i32 %.sroa.0.104, 11
-  %1558 = zext i32 %.612541 to i64
-  %1559 = getelementptr inbounds i16, ptr %.102587, i64 %1558
-  %1560 = load i16, ptr %1559, align 2
-  %1561 = zext i16 %1560 to i32
-  %1562 = mul i32 %1557, %1561
-  %1563 = icmp ult i32 %.sroa.498.104, %1562
-  %1564 = shl i32 %.612541, 1
-  br i1 %1563, label %1565, label %1570
+1555:                                             ; preds = %1542, %1547
+  %.92 = phi i64 [ %1550, %1547 ], [ %.91, %1542 ]
+  %.sroa.0.104 = phi i32 [ %1548, %1547 ], [ %.sroa.0.103, %1542 ]
+  %.sroa.498.104 = phi i32 [ %1554, %1547 ], [ %.sroa.498.103, %1542 ]
+  %1556 = lshr i32 %.sroa.0.104, 11
+  %1557 = zext i32 %.612541 to i64
+  %1558 = getelementptr inbounds i16, ptr %.102587, i64 %1557
+  %1559 = load i16, ptr %1558, align 2
+  %1560 = zext i16 %1559 to i32
+  %1561 = mul i32 %1556, %1560
+  %1562 = icmp ult i32 %.sroa.498.104, %1561
+  %1563 = shl i32 %.612541, 1
+  br i1 %1562, label %1564, label %1569
 
-1565:                                             ; preds = %1556
-  %1566 = sub nsw i32 2048, %1561
-  %1567 = lshr i32 %1566, 5
-  %1568 = trunc i32 %1567 to i16
-  %1569 = add i16 %1560, %1568
-  br label %1578
+1564:                                             ; preds = %1555
+  %1565 = sub nsw i32 2048, %1560
+  %1566 = lshr i32 %1565, 5
+  %1567 = trunc i32 %1566 to i16
+  %1568 = add i16 %1559, %1567
+  br label %1577
 
-1570:                                             ; preds = %1556
-  %1571 = sub i32 %.sroa.0.104, %1562
-  %1572 = sub nuw i32 %.sroa.498.104, %1562
-  %1573 = lshr i16 %1560, 5
-  %1574 = sub i16 %1560, %1573
-  %1575 = or disjoint i32 %1564, 1
-  %1576 = shl nuw i32 1, %.572367
-  %1577 = add i32 %1576, %.512704
-  br label %1578
+1569:                                             ; preds = %1555
+  %1570 = sub i32 %.sroa.0.104, %1561
+  %1571 = sub nuw i32 %.sroa.498.104, %1561
+  %1572 = lshr i16 %1559, 5
+  %1573 = sub i16 %1559, %1572
+  %1574 = or disjoint i32 %1563, 1
+  %1575 = shl nuw i32 1, %.572367
+  %1576 = add i32 %1575, %.512704
+  br label %1577
 
-1578:                                             ; preds = %1565, %1570
-  %.sink3308 = phi i16 [ %1569, %1565 ], [ %1574, %1570 ]
-  %.522705 = phi i32 [ %.512704, %1565 ], [ %1577, %1570 ]
-  %.622542 = phi i32 [ %1564, %1565 ], [ %1575, %1570 ]
-  %.sroa.0.105 = phi i32 [ %1562, %1565 ], [ %1571, %1570 ]
-  %.sroa.498.105 = phi i32 [ %.sroa.498.104, %1565 ], [ %1572, %1570 ]
-  store i16 %.sink3308, ptr %1559, align 2
-  %1579 = add i32 %.572367, 1
-  br label %1580
+1577:                                             ; preds = %1564, %1569
+  %.sink3308 = phi i16 [ %1568, %1564 ], [ %1573, %1569 ]
+  %.522705 = phi i32 [ %.512704, %1564 ], [ %1576, %1569 ]
+  %.622542 = phi i32 [ %1563, %1564 ], [ %1574, %1569 ]
+  %.sroa.0.105 = phi i32 [ %1561, %1564 ], [ %1570, %1569 ]
+  %.sroa.498.105 = phi i32 [ %.sroa.498.104, %1564 ], [ %1571, %1569 ]
+  store i16 %.sink3308, ptr %1558, align 2
+  %1578 = add i32 %.572367, 1
+  br label %1579
 
-1580:                                             ; preds = %1578, %1506
-  %.532706 = phi i32 [ %.102663, %1506 ], [ %.522705, %1578 ]
-  %.632543 = phi i32 [ %.102490, %1506 ], [ %.622542, %1578 ]
-  %.582368 = phi i32 [ %.102320, %1506 ], [ %1579, %1578 ]
-  %.93 = phi i64 [ %.10, %1506 ], [ %.92, %1578 ]
-  %.sroa.0.106 = phi i32 [ %.sroa.0.10, %1506 ], [ %.sroa.0.105, %1578 ]
-  %.sroa.498.106 = phi i32 [ %.sroa.498.10, %1506 ], [ %.sroa.498.105, %1578 ]
-  %1581 = icmp ult i32 %.sroa.0.106, 16777216
-  br i1 %1581, label %1582, label %1593
+1579:                                             ; preds = %1577, %1505
+  %.532706 = phi i32 [ %.102663, %1505 ], [ %.522705, %1577 ]
+  %.632543 = phi i32 [ %.102490, %1505 ], [ %.622542, %1577 ]
+  %.582368 = phi i32 [ %.102320, %1505 ], [ %1578, %1577 ]
+  %.93 = phi i64 [ %.10, %1505 ], [ %.92, %1577 ]
+  %.sroa.0.106 = phi i32 [ %.sroa.0.10, %1505 ], [ %.sroa.0.105, %1577 ]
+  %.sroa.498.106 = phi i32 [ %.sroa.498.10, %1505 ], [ %.sroa.498.105, %1577 ]
+  %1580 = icmp ult i32 %.sroa.0.106, 16777216
+  br i1 %1580, label %1581, label %1592
 
-1582:                                             ; preds = %1580
-  %1583 = icmp eq i64 %.93, %4
-  br i1 %1583, label %1584, label %1585
+1581:                                             ; preds = %1579
+  %1582 = icmp eq i64 %.93, %4
+  br i1 %1582, label %1583, label %1584
 
-1584:                                             ; preds = %1582
+1583:                                             ; preds = %1581
   store i32 42, ptr %60, align 8
-  br label %2628
+  br label %2627
 
-1585:                                             ; preds = %1582
-  %1586 = shl nuw i32 %.sroa.0.106, 8
-  %1587 = shl i32 %.sroa.498.106, 8
-  %1588 = add i64 %.93, 1
-  %1589 = getelementptr inbounds i8, ptr %2, i64 %.93
-  %1590 = load i8, ptr %1589, align 1
-  %1591 = zext i8 %1590 to i32
-  %1592 = or disjoint i32 %1587, %1591
-  br label %1593
+1584:                                             ; preds = %1581
+  %1585 = shl nuw i32 %.sroa.0.106, 8
+  %1586 = shl i32 %.sroa.498.106, 8
+  %1587 = add i64 %.93, 1
+  %1588 = getelementptr inbounds i8, ptr %2, i64 %.93
+  %1589 = load i8, ptr %1588, align 1
+  %1590 = zext i8 %1589 to i32
+  %1591 = or disjoint i32 %1586, %1590
+  br label %1592
 
-1593:                                             ; preds = %1580, %1585
-  %.94 = phi i64 [ %1588, %1585 ], [ %.93, %1580 ]
-  %.sroa.0.107 = phi i32 [ %1586, %1585 ], [ %.sroa.0.106, %1580 ]
-  %.sroa.498.107 = phi i32 [ %1592, %1585 ], [ %.sroa.498.106, %1580 ]
-  %1594 = lshr i32 %.sroa.0.107, 11
-  %1595 = zext i32 %.632543 to i64
-  %1596 = getelementptr inbounds i16, ptr %.102587, i64 %1595
-  %1597 = load i16, ptr %1596, align 2
-  %1598 = zext i16 %1597 to i32
-  %1599 = mul i32 %1594, %1598
-  %1600 = icmp ult i32 %.sroa.498.107, %1599
-  %1601 = shl i32 %.632543, 1
-  br i1 %1600, label %1602, label %1607
+1592:                                             ; preds = %1579, %1584
+  %.94 = phi i64 [ %1587, %1584 ], [ %.93, %1579 ]
+  %.sroa.0.107 = phi i32 [ %1585, %1584 ], [ %.sroa.0.106, %1579 ]
+  %.sroa.498.107 = phi i32 [ %1591, %1584 ], [ %.sroa.498.106, %1579 ]
+  %1593 = lshr i32 %.sroa.0.107, 11
+  %1594 = zext i32 %.632543 to i64
+  %1595 = getelementptr inbounds i16, ptr %.102587, i64 %1594
+  %1596 = load i16, ptr %1595, align 2
+  %1597 = zext i16 %1596 to i32
+  %1598 = mul i32 %1593, %1597
+  %1599 = icmp ult i32 %.sroa.498.107, %1598
+  %1600 = shl i32 %.632543, 1
+  br i1 %1599, label %1601, label %1606
 
-1602:                                             ; preds = %1593
-  %1603 = sub nsw i32 2048, %1598
-  %1604 = lshr i32 %1603, 5
-  %1605 = trunc i32 %1604 to i16
-  %1606 = add i16 %1597, %1605
-  br label %1615
+1601:                                             ; preds = %1592
+  %1602 = sub nsw i32 2048, %1597
+  %1603 = lshr i32 %1602, 5
+  %1604 = trunc i32 %1603 to i16
+  %1605 = add i16 %1596, %1604
+  br label %1614
 
-1607:                                             ; preds = %1593
-  %1608 = sub i32 %.sroa.0.107, %1599
-  %1609 = sub nuw i32 %.sroa.498.107, %1599
-  %1610 = lshr i16 %1597, 5
-  %1611 = sub i16 %1597, %1610
-  %1612 = or disjoint i32 %1601, 1
-  %1613 = shl nuw i32 1, %.582368
-  %1614 = add i32 %1613, %.532706
-  br label %1615
+1606:                                             ; preds = %1592
+  %1607 = sub i32 %.sroa.0.107, %1598
+  %1608 = sub nuw i32 %.sroa.498.107, %1598
+  %1609 = lshr i16 %1596, 5
+  %1610 = sub i16 %1596, %1609
+  %1611 = or disjoint i32 %1600, 1
+  %1612 = shl nuw i32 1, %.582368
+  %1613 = add i32 %1612, %.532706
+  br label %1614
 
-1615:                                             ; preds = %1602, %1607
-  %.sink3309 = phi i16 [ %1606, %1602 ], [ %1611, %1607 ]
-  %.542707 = phi i32 [ %.532706, %1602 ], [ %1614, %1607 ]
-  %.642544 = phi i32 [ %1601, %1602 ], [ %1612, %1607 ]
-  %.sroa.0.108 = phi i32 [ %1599, %1602 ], [ %1608, %1607 ]
-  %.sroa.498.108 = phi i32 [ %.sroa.498.107, %1602 ], [ %1609, %1607 ]
-  store i16 %.sink3309, ptr %1596, align 2
-  %1616 = add i32 %.582368, 1
-  br label %1617
+1614:                                             ; preds = %1601, %1606
+  %.sink3309 = phi i16 [ %1605, %1601 ], [ %1610, %1606 ]
+  %.542707 = phi i32 [ %.532706, %1601 ], [ %1613, %1606 ]
+  %.642544 = phi i32 [ %1600, %1601 ], [ %1611, %1606 ]
+  %.sroa.0.108 = phi i32 [ %1598, %1601 ], [ %1607, %1606 ]
+  %.sroa.498.108 = phi i32 [ %.sroa.498.107, %1601 ], [ %1608, %1606 ]
+  store i16 %.sink3309, ptr %1595, align 2
+  %1615 = add i32 %.582368, 1
+  br label %1616
 
-1617:                                             ; preds = %1615, %1506
-  %.552708 = phi i32 [ %.102663, %1506 ], [ %.542707, %1615 ]
-  %.652545 = phi i32 [ %.102490, %1506 ], [ %.642544, %1615 ]
-  %.592369 = phi i32 [ %.102320, %1506 ], [ %1616, %1615 ]
-  %.95 = phi i64 [ %.10, %1506 ], [ %.94, %1615 ]
-  %.sroa.0.109 = phi i32 [ %.sroa.0.10, %1506 ], [ %.sroa.0.108, %1615 ]
-  %.sroa.498.109 = phi i32 [ %.sroa.498.10, %1506 ], [ %.sroa.498.108, %1615 ]
-  %1618 = icmp ult i32 %.sroa.0.109, 16777216
-  br i1 %1618, label %1619, label %1630
+1616:                                             ; preds = %1614, %1505
+  %.552708 = phi i32 [ %.102663, %1505 ], [ %.542707, %1614 ]
+  %.652545 = phi i32 [ %.102490, %1505 ], [ %.642544, %1614 ]
+  %.592369 = phi i32 [ %.102320, %1505 ], [ %1615, %1614 ]
+  %.95 = phi i64 [ %.10, %1505 ], [ %.94, %1614 ]
+  %.sroa.0.109 = phi i32 [ %.sroa.0.10, %1505 ], [ %.sroa.0.108, %1614 ]
+  %.sroa.498.109 = phi i32 [ %.sroa.498.10, %1505 ], [ %.sroa.498.108, %1614 ]
+  %1617 = icmp ult i32 %.sroa.0.109, 16777216
+  br i1 %1617, label %1618, label %1629
 
-1619:                                             ; preds = %1617
-  %1620 = icmp eq i64 %.95, %4
-  br i1 %1620, label %1621, label %1622
+1618:                                             ; preds = %1616
+  %1619 = icmp eq i64 %.95, %4
+  br i1 %1619, label %1620, label %1621
 
-1621:                                             ; preds = %1619
+1620:                                             ; preds = %1618
   store i32 42, ptr %60, align 8
-  br label %2628
+  br label %2627
 
-1622:                                             ; preds = %1619
-  %1623 = shl nuw i32 %.sroa.0.109, 8
-  %1624 = shl i32 %.sroa.498.109, 8
-  %1625 = add i64 %.95, 1
-  %1626 = getelementptr inbounds i8, ptr %2, i64 %.95
-  %1627 = load i8, ptr %1626, align 1
-  %1628 = zext i8 %1627 to i32
-  %1629 = or disjoint i32 %1624, %1628
-  br label %1630
+1621:                                             ; preds = %1618
+  %1622 = shl nuw i32 %.sroa.0.109, 8
+  %1623 = shl i32 %.sroa.498.109, 8
+  %1624 = add i64 %.95, 1
+  %1625 = getelementptr inbounds i8, ptr %2, i64 %.95
+  %1626 = load i8, ptr %1625, align 1
+  %1627 = zext i8 %1626 to i32
+  %1628 = or disjoint i32 %1623, %1627
+  br label %1629
 
-1630:                                             ; preds = %1617, %1622
-  %.96 = phi i64 [ %1625, %1622 ], [ %.95, %1617 ]
-  %.sroa.0.110 = phi i32 [ %1623, %1622 ], [ %.sroa.0.109, %1617 ]
-  %.sroa.498.110 = phi i32 [ %1629, %1622 ], [ %.sroa.498.109, %1617 ]
-  %1631 = lshr i32 %.sroa.0.110, 11
-  %1632 = zext i32 %.652545 to i64
-  %1633 = getelementptr inbounds i16, ptr %.102587, i64 %1632
-  %1634 = load i16, ptr %1633, align 2
-  %1635 = zext i16 %1634 to i32
-  %1636 = mul i32 %1631, %1635
-  %1637 = icmp ult i32 %.sroa.498.110, %1636
-  %1638 = shl i32 %.652545, 1
-  br i1 %1637, label %1639, label %1644
+1629:                                             ; preds = %1616, %1621
+  %.96 = phi i64 [ %1624, %1621 ], [ %.95, %1616 ]
+  %.sroa.0.110 = phi i32 [ %1622, %1621 ], [ %.sroa.0.109, %1616 ]
+  %.sroa.498.110 = phi i32 [ %1628, %1621 ], [ %.sroa.498.109, %1616 ]
+  %1630 = lshr i32 %.sroa.0.110, 11
+  %1631 = zext i32 %.652545 to i64
+  %1632 = getelementptr inbounds i16, ptr %.102587, i64 %1631
+  %1633 = load i16, ptr %1632, align 2
+  %1634 = zext i16 %1633 to i32
+  %1635 = mul i32 %1630, %1634
+  %1636 = icmp ult i32 %.sroa.498.110, %1635
+  %1637 = shl i32 %.652545, 1
+  br i1 %1636, label %1638, label %1643
 
-1639:                                             ; preds = %1630
-  %1640 = sub nsw i32 2048, %1635
-  %1641 = lshr i32 %1640, 5
-  %1642 = trunc i32 %1641 to i16
-  %1643 = add i16 %1634, %1642
-  br label %1652
+1638:                                             ; preds = %1629
+  %1639 = sub nsw i32 2048, %1634
+  %1640 = lshr i32 %1639, 5
+  %1641 = trunc i32 %1640 to i16
+  %1642 = add i16 %1633, %1641
+  br label %1651
 
-1644:                                             ; preds = %1630
-  %1645 = sub i32 %.sroa.0.110, %1636
-  %1646 = sub nuw i32 %.sroa.498.110, %1636
-  %1647 = lshr i16 %1634, 5
-  %1648 = sub i16 %1634, %1647
-  %1649 = or disjoint i32 %1638, 1
-  %1650 = shl nuw i32 1, %.592369
-  %1651 = add i32 %1650, %.552708
-  br label %1652
+1643:                                             ; preds = %1629
+  %1644 = sub i32 %.sroa.0.110, %1635
+  %1645 = sub nuw i32 %.sroa.498.110, %1635
+  %1646 = lshr i16 %1633, 5
+  %1647 = sub i16 %1633, %1646
+  %1648 = or disjoint i32 %1637, 1
+  %1649 = shl nuw i32 1, %.592369
+  %1650 = add i32 %1649, %.552708
+  br label %1651
 
-1652:                                             ; preds = %1639, %1644
-  %.sink3310 = phi i16 [ %1643, %1639 ], [ %1648, %1644 ]
-  %.562709 = phi i32 [ %.552708, %1639 ], [ %1651, %1644 ]
-  %.662546 = phi i32 [ %1638, %1639 ], [ %1649, %1644 ]
-  %.sroa.0.111 = phi i32 [ %1636, %1639 ], [ %1645, %1644 ]
-  %.sroa.498.111 = phi i32 [ %.sroa.498.110, %1639 ], [ %1646, %1644 ]
-  store i16 %.sink3310, ptr %1633, align 2
-  %1653 = add i32 %.592369, 1
-  br label %1654
+1651:                                             ; preds = %1638, %1643
+  %.sink3310 = phi i16 [ %1642, %1638 ], [ %1647, %1643 ]
+  %.562709 = phi i32 [ %.552708, %1638 ], [ %1650, %1643 ]
+  %.662546 = phi i32 [ %1637, %1638 ], [ %1648, %1643 ]
+  %.sroa.0.111 = phi i32 [ %1635, %1638 ], [ %1644, %1643 ]
+  %.sroa.498.111 = phi i32 [ %.sroa.498.110, %1638 ], [ %1645, %1643 ]
+  store i16 %.sink3310, ptr %1632, align 2
+  %1652 = add i32 %.592369, 1
+  br label %1653
 
-1654:                                             ; preds = %1652, %1506
-  %.572710 = phi i32 [ %.102663, %1506 ], [ %.562709, %1652 ]
-  %.672547 = phi i32 [ %.102490, %1506 ], [ %.662546, %1652 ]
-  %.602370 = phi i32 [ %.102320, %1506 ], [ %1653, %1652 ]
-  %.97 = phi i64 [ %.10, %1506 ], [ %.96, %1652 ]
-  %.sroa.0.112 = phi i32 [ %.sroa.0.10, %1506 ], [ %.sroa.0.111, %1652 ]
-  %.sroa.498.112 = phi i32 [ %.sroa.498.10, %1506 ], [ %.sroa.498.111, %1652 ]
-  %1655 = icmp ult i32 %.sroa.0.112, 16777216
-  br i1 %1655, label %1656, label %1667
+1653:                                             ; preds = %1651, %1505
+  %.572710 = phi i32 [ %.102663, %1505 ], [ %.562709, %1651 ]
+  %.672547 = phi i32 [ %.102490, %1505 ], [ %.662546, %1651 ]
+  %.602370 = phi i32 [ %.102320, %1505 ], [ %1652, %1651 ]
+  %.97 = phi i64 [ %.10, %1505 ], [ %.96, %1651 ]
+  %.sroa.0.112 = phi i32 [ %.sroa.0.10, %1505 ], [ %.sroa.0.111, %1651 ]
+  %.sroa.498.112 = phi i32 [ %.sroa.498.10, %1505 ], [ %.sroa.498.111, %1651 ]
+  %1654 = icmp ult i32 %.sroa.0.112, 16777216
+  br i1 %1654, label %1655, label %1666
 
-1656:                                             ; preds = %1654
-  %1657 = icmp eq i64 %.97, %4
-  br i1 %1657, label %1658, label %1659
+1655:                                             ; preds = %1653
+  %1656 = icmp eq i64 %.97, %4
+  br i1 %1656, label %1657, label %1658
 
-1658:                                             ; preds = %1656
+1657:                                             ; preds = %1655
   store i32 42, ptr %60, align 8
-  br label %2628
+  br label %2627
 
-1659:                                             ; preds = %1656
-  %1660 = shl nuw i32 %.sroa.0.112, 8
-  %1661 = shl i32 %.sroa.498.112, 8
-  %1662 = add i64 %.97, 1
-  %1663 = getelementptr inbounds i8, ptr %2, i64 %.97
-  %1664 = load i8, ptr %1663, align 1
-  %1665 = zext i8 %1664 to i32
-  %1666 = or disjoint i32 %1661, %1665
-  br label %1667
+1658:                                             ; preds = %1655
+  %1659 = shl nuw i32 %.sroa.0.112, 8
+  %1660 = shl i32 %.sroa.498.112, 8
+  %1661 = add i64 %.97, 1
+  %1662 = getelementptr inbounds i8, ptr %2, i64 %.97
+  %1663 = load i8, ptr %1662, align 1
+  %1664 = zext i8 %1663 to i32
+  %1665 = or disjoint i32 %1660, %1664
+  br label %1666
 
-1667:                                             ; preds = %1654, %1659
-  %.98 = phi i64 [ %1662, %1659 ], [ %.97, %1654 ]
-  %.sroa.0.113 = phi i32 [ %1660, %1659 ], [ %.sroa.0.112, %1654 ]
-  %.sroa.498.113 = phi i32 [ %1666, %1659 ], [ %.sroa.498.112, %1654 ]
-  %1668 = lshr i32 %.sroa.0.113, 11
-  %1669 = zext i32 %.672547 to i64
-  %1670 = getelementptr inbounds i16, ptr %.102587, i64 %1669
-  %1671 = load i16, ptr %1670, align 2
-  %1672 = zext i16 %1671 to i32
-  %1673 = mul i32 %1668, %1672
-  %1674 = icmp ult i32 %.sroa.498.113, %1673
-  br i1 %1674, label %1675, label %1680
+1666:                                             ; preds = %1653, %1658
+  %.98 = phi i64 [ %1661, %1658 ], [ %.97, %1653 ]
+  %.sroa.0.113 = phi i32 [ %1659, %1658 ], [ %.sroa.0.112, %1653 ]
+  %.sroa.498.113 = phi i32 [ %1665, %1658 ], [ %.sroa.498.112, %1653 ]
+  %1667 = lshr i32 %.sroa.0.113, 11
+  %1668 = zext i32 %.672547 to i64
+  %1669 = getelementptr inbounds i16, ptr %.102587, i64 %1668
+  %1670 = load i16, ptr %1669, align 2
+  %1671 = zext i16 %1670 to i32
+  %1672 = mul i32 %1667, %1671
+  %1673 = icmp ult i32 %.sroa.498.113, %1672
+  br i1 %1673, label %1674, label %1679
 
-1675:                                             ; preds = %1667
-  %1676 = sub nsw i32 2048, %1672
-  %1677 = lshr i32 %1676, 5
-  %1678 = trunc i32 %1677 to i16
-  %1679 = add i16 %1671, %1678
-  store i16 %1679, ptr %1670, align 2
-  br label %1869
+1674:                                             ; preds = %1666
+  %1675 = sub nsw i32 2048, %1671
+  %1676 = lshr i32 %1675, 5
+  %1677 = trunc i32 %1676 to i16
+  %1678 = add i16 %1670, %1677
+  store i16 %1678, ptr %1669, align 2
+  br label %1868
 
-1680:                                             ; preds = %1667
-  %1681 = sub i32 %.sroa.0.113, %1673
-  %1682 = sub nuw i32 %.sroa.498.113, %1673
-  %1683 = lshr i16 %1671, 5
-  %1684 = sub i16 %1671, %1683
-  store i16 %1684, ptr %1670, align 2
-  %1685 = shl nuw i32 1, %.602370
-  %1686 = add i32 %1685, %.572710
-  br label %1869
+1679:                                             ; preds = %1666
+  %1680 = sub i32 %.sroa.0.113, %1672
+  %1681 = sub nuw i32 %.sroa.498.113, %1672
+  %1682 = lshr i16 %1670, 5
+  %1683 = sub i16 %1670, %1682
+  store i16 %1683, ptr %1669, align 2
+  %1684 = shl nuw i32 1, %.602370
+  %1685 = add i32 %1684, %.572710
+  br label %1868
 
-1687:                                             ; preds = %1491
-  %1688 = add nsw i32 %1492, -5
+1686:                                             ; preds = %1490
+  %1687 = add nsw i32 %1491, -5
+  br label %1688
+
+1688:                                             ; preds = %1686, %.loopexit
+  %.sroa.35.11 = phi i64 [ %.sroa.35.48, %1686 ], [ %.sroa.35.0.copyload, %.loopexit ]
+  %.sroa.10.11 = phi i64 [ %.sroa.10.48, %1686 ], [ %.sroa.10.0.copyload, %.loopexit ]
+  %.113195 = phi i32 [ %.483232, %1686 ], [ %47, %.loopexit ]
+  %.112905 = phi i32 [ %.482942, %1686 ], [ %31, %.loopexit ]
+  %.112828 = phi i32 [ %.482865, %1686 ], [ %33, %.loopexit ]
+  %.112751 = phi i32 [ %.482788, %1686 ], [ %35, %.loopexit ]
+  %.112664 = phi i32 [ %1493, %1686 ], [ %29, %.loopexit ]
+  %.112588 = phi ptr [ %.472624, %1686 ], [ %39, %.loopexit ]
+  %.112491 = phi i32 [ %1488, %1686 ], [ %41, %.loopexit ]
+  %.112409 = phi i32 [ %1687, %1686 ], [ %43, %.loopexit ]
+  %.112321 = phi i32 [ %.552365, %1686 ], [ %45, %.loopexit ]
+  %.112244 = phi i32 [ %.482281, %1686 ], [ %27, %.loopexit ]
+  %.11 = phi i64 [ %.88, %1686 ], [ %25, %.loopexit ]
+  %.sroa.0.11 = phi i32 [ %.sroa.0.99, %1686 ], [ %.sroa.0.0.copyload, %.loopexit ]
+  %.sroa.498.11 = phi i32 [ %.sroa.498.99, %1686 ], [ %.sroa.498.0.copyload, %.loopexit ]
   br label %1689
 
-1689:                                             ; preds = %1687, %.loopexit
-  %.sroa.35.11 = phi i64 [ %.sroa.35.48, %1687 ], [ %.sroa.35.0.copyload, %.loopexit ]
-  %.sroa.10.11 = phi i64 [ %.sroa.10.48, %1687 ], [ %.sroa.10.0.copyload, %.loopexit ]
-  %.113195 = phi i32 [ %.483232, %1687 ], [ %47, %.loopexit ]
-  %.112905 = phi i32 [ %.482942, %1687 ], [ %31, %.loopexit ]
-  %.112828 = phi i32 [ %.482865, %1687 ], [ %33, %.loopexit ]
-  %.112751 = phi i32 [ %.482788, %1687 ], [ %35, %.loopexit ]
-  %.112664 = phi i32 [ %1494, %1687 ], [ %29, %.loopexit ]
-  %.112588 = phi ptr [ %.472624, %1687 ], [ %39, %.loopexit ]
-  %.112491 = phi i32 [ %1489, %1687 ], [ %41, %.loopexit ]
-  %.112409 = phi i32 [ %1688, %1687 ], [ %43, %.loopexit ]
-  %.112321 = phi i32 [ %.552365, %1687 ], [ %45, %.loopexit ]
-  %.112244 = phi i32 [ %.482281, %1687 ], [ %27, %.loopexit ]
-  %.11 = phi i64 [ %.88, %1687 ], [ %25, %.loopexit ]
-  %.sroa.0.11 = phi i32 [ %.sroa.0.99, %1687 ], [ %.sroa.0.0.copyload, %.loopexit ]
-  %.sroa.498.11 = phi i32 [ %.sroa.498.99, %1687 ], [ %.sroa.498.0.copyload, %.loopexit ]
-  br label %1690
+1689:                                             ; preds = %1702, %1688
+  %.582711 = phi i32 [ %.112664, %1688 ], [ %1709, %1702 ]
+  %.542452 = phi i32 [ %.112409, %1688 ], [ %1710, %1702 ]
+  %.99 = phi i64 [ %.11, %1688 ], [ %.100, %1702 ]
+  %.sroa.0.114 = phi i32 [ %.sroa.0.11, %1688 ], [ %1703, %1702 ]
+  %.sroa.498.114 = phi i32 [ %.sroa.498.11, %1688 ], [ %1706, %1702 ]
+  %1690 = icmp ult i32 %.sroa.0.114, 16777216
+  br i1 %1690, label %1691, label %1702
 
-1690:                                             ; preds = %1703, %1689
-  %.582711 = phi i32 [ %.112664, %1689 ], [ %1710, %1703 ]
-  %.542452 = phi i32 [ %.112409, %1689 ], [ %1711, %1703 ]
-  %.99 = phi i64 [ %.11, %1689 ], [ %.100, %1703 ]
-  %.sroa.0.114 = phi i32 [ %.sroa.0.11, %1689 ], [ %1704, %1703 ]
-  %.sroa.498.114 = phi i32 [ %.sroa.498.11, %1689 ], [ %1707, %1703 ]
-  %1691 = icmp ult i32 %.sroa.0.114, 16777216
-  br i1 %1691, label %1692, label %1703
+1691:                                             ; preds = %1689
+  %1692 = icmp eq i64 %.99, %4
+  br i1 %1692, label %1693, label %1694
 
-1692:                                             ; preds = %1690
-  %1693 = icmp eq i64 %.99, %4
-  br i1 %1693, label %1694, label %1695
-
-1694:                                             ; preds = %1692
+1693:                                             ; preds = %1691
   store i32 43, ptr %60, align 8
-  br label %2628
+  br label %2627
 
-1695:                                             ; preds = %1692
-  %1696 = shl nuw i32 %.sroa.0.114, 8
-  %1697 = shl i32 %.sroa.498.114, 8
-  %1698 = add i64 %.99, 1
-  %1699 = getelementptr inbounds i8, ptr %2, i64 %.99
-  %1700 = load i8, ptr %1699, align 1
-  %1701 = zext i8 %1700 to i32
-  %1702 = or disjoint i32 %1697, %1701
-  br label %1703
+1694:                                             ; preds = %1691
+  %1695 = shl nuw i32 %.sroa.0.114, 8
+  %1696 = shl i32 %.sroa.498.114, 8
+  %1697 = add i64 %.99, 1
+  %1698 = getelementptr inbounds i8, ptr %2, i64 %.99
+  %1699 = load i8, ptr %1698, align 1
+  %1700 = zext i8 %1699 to i32
+  %1701 = or disjoint i32 %1696, %1700
+  br label %1702
 
-1703:                                             ; preds = %1690, %1695
-  %.100 = phi i64 [ %1698, %1695 ], [ %.99, %1690 ]
-  %.sroa.0.115 = phi i32 [ %1696, %1695 ], [ %.sroa.0.114, %1690 ]
-  %.sroa.498.115 = phi i32 [ %1702, %1695 ], [ %.sroa.498.114, %1690 ]
-  %1704 = lshr i32 %.sroa.0.115, 1
-  %1705 = sub i32 %.sroa.498.115, %1704
-  %.neg = ashr i32 %1705, 31
-  %1706 = and i32 %.neg, %1704
-  %1707 = add i32 %1706, %1705
-  %1708 = shl i32 %.582711, 1
-  %1709 = or disjoint i32 %1708, 1
-  %1710 = add nsw i32 %1709, %.neg
-  %1711 = add i32 %.542452, -1
-  %.not3117 = icmp eq i32 %1711, 0
-  br i1 %.not3117, label %1712, label %1690, !llvm.loop !13
+1702:                                             ; preds = %1689, %1694
+  %.100 = phi i64 [ %1697, %1694 ], [ %.99, %1689 ]
+  %.sroa.0.115 = phi i32 [ %1695, %1694 ], [ %.sroa.0.114, %1689 ]
+  %.sroa.498.115 = phi i32 [ %1701, %1694 ], [ %.sroa.498.114, %1689 ]
+  %1703 = lshr i32 %.sroa.0.115, 1
+  %1704 = sub i32 %.sroa.498.115, %1703
+  %.neg = ashr i32 %1704, 31
+  %1705 = and i32 %.neg, %1703
+  %1706 = add i32 %1705, %1704
+  %1707 = shl i32 %.582711, 1
+  %1708 = or disjoint i32 %1707, 1
+  %1709 = add nsw i32 %1708, %.neg
+  %1710 = add i32 %.542452, -1
+  %.not3117 = icmp eq i32 %1710, 0
+  br i1 %.not3117, label %1711, label %1689, !llvm.loop !13
 
-1712:                                             ; preds = %1703
-  %1713 = shl i32 %1710, 4
-  br label %1714
+1711:                                             ; preds = %1702
+  %1712 = shl i32 %1709, 4
+  br label %1713
 
-1714:                                             ; preds = %1712, %.loopexit
-  %.sroa.35.50 = phi i64 [ %.sroa.35.11, %1712 ], [ %.sroa.35.0.copyload, %.loopexit ]
-  %.sroa.10.50 = phi i64 [ %.sroa.10.11, %1712 ], [ %.sroa.10.0.copyload, %.loopexit ]
-  %.503234 = phi i32 [ %.113195, %1712 ], [ %47, %.loopexit ]
-  %.502944 = phi i32 [ %.112905, %1712 ], [ %31, %.loopexit ]
-  %.502867 = phi i32 [ %.112828, %1712 ], [ %33, %.loopexit ]
-  %.502790 = phi i32 [ %.112751, %1712 ], [ %35, %.loopexit ]
-  %.592712 = phi i32 [ %1713, %1712 ], [ %29, %.loopexit ]
-  %.492626 = phi ptr [ %.112588, %1712 ], [ %39, %.loopexit ]
-  %.682548 = phi i32 [ 1, %1712 ], [ %41, %.loopexit ]
-  %.552453 = phi i32 [ 0, %1712 ], [ %43, %.loopexit ]
-  %.612371 = phi i32 [ %.112321, %1712 ], [ %45, %.loopexit ]
-  %.502283 = phi i32 [ %.112244, %1712 ], [ %27, %.loopexit ]
-  %.101 = phi i64 [ %.100, %1712 ], [ %25, %.loopexit ]
-  %.sroa.0.116 = phi i32 [ %1704, %1712 ], [ %.sroa.0.0.copyload, %.loopexit ]
-  %.sroa.498.116 = phi i32 [ %1707, %1712 ], [ %.sroa.498.0.copyload, %.loopexit ]
-  %1715 = icmp ult i32 %.sroa.0.116, 16777216
-  br i1 %1715, label %1716, label %1727
+1713:                                             ; preds = %1711, %.loopexit
+  %.sroa.35.50 = phi i64 [ %.sroa.35.11, %1711 ], [ %.sroa.35.0.copyload, %.loopexit ]
+  %.sroa.10.50 = phi i64 [ %.sroa.10.11, %1711 ], [ %.sroa.10.0.copyload, %.loopexit ]
+  %.503234 = phi i32 [ %.113195, %1711 ], [ %47, %.loopexit ]
+  %.502944 = phi i32 [ %.112905, %1711 ], [ %31, %.loopexit ]
+  %.502867 = phi i32 [ %.112828, %1711 ], [ %33, %.loopexit ]
+  %.502790 = phi i32 [ %.112751, %1711 ], [ %35, %.loopexit ]
+  %.592712 = phi i32 [ %1712, %1711 ], [ %29, %.loopexit ]
+  %.492626 = phi ptr [ %.112588, %1711 ], [ %39, %.loopexit ]
+  %.682548 = phi i32 [ 1, %1711 ], [ %41, %.loopexit ]
+  %.552453 = phi i32 [ 0, %1711 ], [ %43, %.loopexit ]
+  %.612371 = phi i32 [ %.112321, %1711 ], [ %45, %.loopexit ]
+  %.502283 = phi i32 [ %.112244, %1711 ], [ %27, %.loopexit ]
+  %.101 = phi i64 [ %.100, %1711 ], [ %25, %.loopexit ]
+  %.sroa.0.116 = phi i32 [ %1703, %1711 ], [ %.sroa.0.0.copyload, %.loopexit ]
+  %.sroa.498.116 = phi i32 [ %1706, %1711 ], [ %.sroa.498.0.copyload, %.loopexit ]
+  %1714 = icmp ult i32 %.sroa.0.116, 16777216
+  br i1 %1714, label %1715, label %1726
 
-1716:                                             ; preds = %1714
-  %1717 = icmp eq i64 %.101, %4
-  br i1 %1717, label %1718, label %1719
+1715:                                             ; preds = %1713
+  %1716 = icmp eq i64 %.101, %4
+  br i1 %1716, label %1717, label %1718
 
-1718:                                             ; preds = %1716
+1717:                                             ; preds = %1715
   store i32 44, ptr %60, align 8
-  br label %2628
+  br label %2627
 
-1719:                                             ; preds = %1716
-  %1720 = shl nuw i32 %.sroa.0.116, 8
-  %1721 = shl i32 %.sroa.498.116, 8
-  %1722 = add i64 %.101, 1
-  %1723 = getelementptr inbounds i8, ptr %2, i64 %.101
-  %1724 = load i8, ptr %1723, align 1
-  %1725 = zext i8 %1724 to i32
-  %1726 = or disjoint i32 %1721, %1725
-  br label %1727
+1718:                                             ; preds = %1715
+  %1719 = shl nuw i32 %.sroa.0.116, 8
+  %1720 = shl i32 %.sroa.498.116, 8
+  %1721 = add i64 %.101, 1
+  %1722 = getelementptr inbounds i8, ptr %2, i64 %.101
+  %1723 = load i8, ptr %1722, align 1
+  %1724 = zext i8 %1723 to i32
+  %1725 = or disjoint i32 %1720, %1724
+  br label %1726
 
-1727:                                             ; preds = %1714, %1719
-  %.102 = phi i64 [ %1722, %1719 ], [ %.101, %1714 ]
-  %.sroa.0.117 = phi i32 [ %1720, %1719 ], [ %.sroa.0.116, %1714 ]
-  %.sroa.498.117 = phi i32 [ %1726, %1719 ], [ %.sroa.498.116, %1714 ]
-  %1728 = lshr i32 %.sroa.0.117, 11
-  %1729 = getelementptr inbounds i8, ptr %0, i64 26180
-  %1730 = zext i32 %.682548 to i64
-  %1731 = getelementptr inbounds [16 x i16], ptr %1729, i64 0, i64 %1730
-  %1732 = load i16, ptr %1731, align 2
-  %1733 = zext i16 %1732 to i32
-  %1734 = mul i32 %1728, %1733
-  %1735 = icmp ult i32 %.sroa.498.117, %1734
-  %1736 = shl i32 %.682548, 1
-  br i1 %1735, label %1737, label %1742
+1726:                                             ; preds = %1713, %1718
+  %.102 = phi i64 [ %1721, %1718 ], [ %.101, %1713 ]
+  %.sroa.0.117 = phi i32 [ %1719, %1718 ], [ %.sroa.0.116, %1713 ]
+  %.sroa.498.117 = phi i32 [ %1725, %1718 ], [ %.sroa.498.116, %1713 ]
+  %1727 = lshr i32 %.sroa.0.117, 11
+  %1728 = getelementptr inbounds i8, ptr %0, i64 26180
+  %1729 = zext i32 %.682548 to i64
+  %1730 = getelementptr inbounds [16 x i16], ptr %1728, i64 0, i64 %1729
+  %1731 = load i16, ptr %1730, align 2
+  %1732 = zext i16 %1731 to i32
+  %1733 = mul i32 %1727, %1732
+  %1734 = icmp ult i32 %.sroa.498.117, %1733
+  %1735 = shl i32 %.682548, 1
+  br i1 %1734, label %1736, label %1741
 
-1737:                                             ; preds = %1727
-  %1738 = sub nsw i32 2048, %1733
-  %1739 = lshr i32 %1738, 5
-  %1740 = trunc i32 %1739 to i16
-  %1741 = add i16 %1732, %1740
-  store i16 %1741, ptr %1731, align 2
-  br label %1749
+1736:                                             ; preds = %1726
+  %1737 = sub nsw i32 2048, %1732
+  %1738 = lshr i32 %1737, 5
+  %1739 = trunc i32 %1738 to i16
+  %1740 = add i16 %1731, %1739
+  store i16 %1740, ptr %1730, align 2
+  br label %1748
 
-1742:                                             ; preds = %1727
-  %1743 = sub i32 %.sroa.0.117, %1734
-  %1744 = sub nuw i32 %.sroa.498.117, %1734
-  %1745 = lshr i16 %1732, 5
-  %1746 = sub i16 %1732, %1745
-  store i16 %1746, ptr %1731, align 2
-  %1747 = or disjoint i32 %1736, 1
-  %1748 = add i32 %.592712, 1
-  br label %1749
+1741:                                             ; preds = %1726
+  %1742 = sub i32 %.sroa.0.117, %1733
+  %1743 = sub nuw i32 %.sroa.498.117, %1733
+  %1744 = lshr i16 %1731, 5
+  %1745 = sub i16 %1731, %1744
+  store i16 %1745, ptr %1730, align 2
+  %1746 = or disjoint i32 %1735, 1
+  %1747 = add i32 %.592712, 1
+  br label %1748
 
-1749:                                             ; preds = %1742, %1737, %.loopexit
-  %.sroa.35.51 = phi i64 [ %.sroa.35.50, %1737 ], [ %.sroa.35.50, %1742 ], [ %.sroa.35.0.copyload, %.loopexit ]
-  %.sroa.10.51 = phi i64 [ %.sroa.10.50, %1737 ], [ %.sroa.10.50, %1742 ], [ %.sroa.10.0.copyload, %.loopexit ]
-  %.513235 = phi i32 [ %.503234, %1737 ], [ %.503234, %1742 ], [ %47, %.loopexit ]
-  %.512945 = phi i32 [ %.502944, %1737 ], [ %.502944, %1742 ], [ %31, %.loopexit ]
-  %.512868 = phi i32 [ %.502867, %1737 ], [ %.502867, %1742 ], [ %33, %.loopexit ]
-  %.512791 = phi i32 [ %.502790, %1737 ], [ %.502790, %1742 ], [ %35, %.loopexit ]
-  %.602713 = phi i32 [ %.592712, %1737 ], [ %1748, %1742 ], [ %29, %.loopexit ]
-  %.502627 = phi ptr [ %.492626, %1737 ], [ %.492626, %1742 ], [ %39, %.loopexit ]
-  %.692549 = phi i32 [ %1736, %1737 ], [ %1747, %1742 ], [ %41, %.loopexit ]
-  %.562454 = phi i32 [ %.552453, %1737 ], [ %.552453, %1742 ], [ %43, %.loopexit ]
-  %.622372 = phi i32 [ %.612371, %1737 ], [ %.612371, %1742 ], [ %45, %.loopexit ]
-  %.512284 = phi i32 [ %.502283, %1737 ], [ %.502283, %1742 ], [ %27, %.loopexit ]
-  %.103 = phi i64 [ %.102, %1737 ], [ %.102, %1742 ], [ %25, %.loopexit ]
-  %.sroa.0.118 = phi i32 [ %1734, %1737 ], [ %1743, %1742 ], [ %.sroa.0.0.copyload, %.loopexit ]
-  %.sroa.498.118 = phi i32 [ %.sroa.498.117, %1737 ], [ %1744, %1742 ], [ %.sroa.498.0.copyload, %.loopexit ]
-  %1750 = icmp ult i32 %.sroa.0.118, 16777216
-  br i1 %1750, label %1751, label %1762
+1748:                                             ; preds = %1741, %1736, %.loopexit
+  %.sroa.35.51 = phi i64 [ %.sroa.35.50, %1736 ], [ %.sroa.35.50, %1741 ], [ %.sroa.35.0.copyload, %.loopexit ]
+  %.sroa.10.51 = phi i64 [ %.sroa.10.50, %1736 ], [ %.sroa.10.50, %1741 ], [ %.sroa.10.0.copyload, %.loopexit ]
+  %.513235 = phi i32 [ %.503234, %1736 ], [ %.503234, %1741 ], [ %47, %.loopexit ]
+  %.512945 = phi i32 [ %.502944, %1736 ], [ %.502944, %1741 ], [ %31, %.loopexit ]
+  %.512868 = phi i32 [ %.502867, %1736 ], [ %.502867, %1741 ], [ %33, %.loopexit ]
+  %.512791 = phi i32 [ %.502790, %1736 ], [ %.502790, %1741 ], [ %35, %.loopexit ]
+  %.602713 = phi i32 [ %.592712, %1736 ], [ %1747, %1741 ], [ %29, %.loopexit ]
+  %.502627 = phi ptr [ %.492626, %1736 ], [ %.492626, %1741 ], [ %39, %.loopexit ]
+  %.692549 = phi i32 [ %1735, %1736 ], [ %1746, %1741 ], [ %41, %.loopexit ]
+  %.562454 = phi i32 [ %.552453, %1736 ], [ %.552453, %1741 ], [ %43, %.loopexit ]
+  %.622372 = phi i32 [ %.612371, %1736 ], [ %.612371, %1741 ], [ %45, %.loopexit ]
+  %.512284 = phi i32 [ %.502283, %1736 ], [ %.502283, %1741 ], [ %27, %.loopexit ]
+  %.103 = phi i64 [ %.102, %1736 ], [ %.102, %1741 ], [ %25, %.loopexit ]
+  %.sroa.0.118 = phi i32 [ %1733, %1736 ], [ %1742, %1741 ], [ %.sroa.0.0.copyload, %.loopexit ]
+  %.sroa.498.118 = phi i32 [ %.sroa.498.117, %1736 ], [ %1743, %1741 ], [ %.sroa.498.0.copyload, %.loopexit ]
+  %1749 = icmp ult i32 %.sroa.0.118, 16777216
+  br i1 %1749, label %1750, label %1761
 
-1751:                                             ; preds = %1749
-  %1752 = icmp eq i64 %.103, %4
-  br i1 %1752, label %1753, label %1754
+1750:                                             ; preds = %1748
+  %1751 = icmp eq i64 %.103, %4
+  br i1 %1751, label %1752, label %1753
 
-1753:                                             ; preds = %1751
+1752:                                             ; preds = %1750
   store i32 45, ptr %60, align 8
-  br label %2628
+  br label %2627
 
-1754:                                             ; preds = %1751
-  %1755 = shl nuw i32 %.sroa.0.118, 8
-  %1756 = shl i32 %.sroa.498.118, 8
-  %1757 = add i64 %.103, 1
-  %1758 = getelementptr inbounds i8, ptr %2, i64 %.103
-  %1759 = load i8, ptr %1758, align 1
-  %1760 = zext i8 %1759 to i32
-  %1761 = or disjoint i32 %1756, %1760
-  br label %1762
+1753:                                             ; preds = %1750
+  %1754 = shl nuw i32 %.sroa.0.118, 8
+  %1755 = shl i32 %.sroa.498.118, 8
+  %1756 = add i64 %.103, 1
+  %1757 = getelementptr inbounds i8, ptr %2, i64 %.103
+  %1758 = load i8, ptr %1757, align 1
+  %1759 = zext i8 %1758 to i32
+  %1760 = or disjoint i32 %1755, %1759
+  br label %1761
 
-1762:                                             ; preds = %1749, %1754
-  %.104 = phi i64 [ %1757, %1754 ], [ %.103, %1749 ]
-  %.sroa.0.119 = phi i32 [ %1755, %1754 ], [ %.sroa.0.118, %1749 ]
-  %.sroa.498.119 = phi i32 [ %1761, %1754 ], [ %.sroa.498.118, %1749 ]
-  %1763 = lshr i32 %.sroa.0.119, 11
-  %1764 = getelementptr inbounds i8, ptr %0, i64 26180
-  %1765 = zext i32 %.692549 to i64
-  %1766 = getelementptr inbounds [16 x i16], ptr %1764, i64 0, i64 %1765
-  %1767 = load i16, ptr %1766, align 2
-  %1768 = zext i16 %1767 to i32
-  %1769 = mul i32 %1763, %1768
-  %1770 = icmp ult i32 %.sroa.498.119, %1769
-  %1771 = shl i32 %.692549, 1
-  br i1 %1770, label %1772, label %1777
+1761:                                             ; preds = %1748, %1753
+  %.104 = phi i64 [ %1756, %1753 ], [ %.103, %1748 ]
+  %.sroa.0.119 = phi i32 [ %1754, %1753 ], [ %.sroa.0.118, %1748 ]
+  %.sroa.498.119 = phi i32 [ %1760, %1753 ], [ %.sroa.498.118, %1748 ]
+  %1762 = lshr i32 %.sroa.0.119, 11
+  %1763 = getelementptr inbounds i8, ptr %0, i64 26180
+  %1764 = zext i32 %.692549 to i64
+  %1765 = getelementptr inbounds [16 x i16], ptr %1763, i64 0, i64 %1764
+  %1766 = load i16, ptr %1765, align 2
+  %1767 = zext i16 %1766 to i32
+  %1768 = mul i32 %1762, %1767
+  %1769 = icmp ult i32 %.sroa.498.119, %1768
+  %1770 = shl i32 %.692549, 1
+  br i1 %1769, label %1771, label %1776
 
-1772:                                             ; preds = %1762
-  %1773 = sub nsw i32 2048, %1768
-  %1774 = lshr i32 %1773, 5
-  %1775 = trunc i32 %1774 to i16
-  %1776 = add i16 %1767, %1775
-  store i16 %1776, ptr %1766, align 2
-  br label %1784
+1771:                                             ; preds = %1761
+  %1772 = sub nsw i32 2048, %1767
+  %1773 = lshr i32 %1772, 5
+  %1774 = trunc i32 %1773 to i16
+  %1775 = add i16 %1766, %1774
+  store i16 %1775, ptr %1765, align 2
+  br label %1783
 
-1777:                                             ; preds = %1762
-  %1778 = sub i32 %.sroa.0.119, %1769
-  %1779 = sub nuw i32 %.sroa.498.119, %1769
-  %1780 = lshr i16 %1767, 5
-  %1781 = sub i16 %1767, %1780
-  store i16 %1781, ptr %1766, align 2
-  %1782 = or disjoint i32 %1771, 1
-  %1783 = add i32 %.602713, 2
-  br label %1784
+1776:                                             ; preds = %1761
+  %1777 = sub i32 %.sroa.0.119, %1768
+  %1778 = sub nuw i32 %.sroa.498.119, %1768
+  %1779 = lshr i16 %1766, 5
+  %1780 = sub i16 %1766, %1779
+  store i16 %1780, ptr %1765, align 2
+  %1781 = or disjoint i32 %1770, 1
+  %1782 = add i32 %.602713, 2
+  br label %1783
 
-1784:                                             ; preds = %1777, %1772, %.loopexit
-  %.sroa.35.52 = phi i64 [ %.sroa.35.51, %1772 ], [ %.sroa.35.51, %1777 ], [ %.sroa.35.0.copyload, %.loopexit ]
-  %.sroa.10.52 = phi i64 [ %.sroa.10.51, %1772 ], [ %.sroa.10.51, %1777 ], [ %.sroa.10.0.copyload, %.loopexit ]
-  %.523236 = phi i32 [ %.513235, %1772 ], [ %.513235, %1777 ], [ %47, %.loopexit ]
-  %.522946 = phi i32 [ %.512945, %1772 ], [ %.512945, %1777 ], [ %31, %.loopexit ]
-  %.522869 = phi i32 [ %.512868, %1772 ], [ %.512868, %1777 ], [ %33, %.loopexit ]
-  %.522792 = phi i32 [ %.512791, %1772 ], [ %.512791, %1777 ], [ %35, %.loopexit ]
-  %.612714 = phi i32 [ %.602713, %1772 ], [ %1783, %1777 ], [ %29, %.loopexit ]
-  %.512628 = phi ptr [ %.502627, %1772 ], [ %.502627, %1777 ], [ %39, %.loopexit ]
-  %.702550 = phi i32 [ %1771, %1772 ], [ %1782, %1777 ], [ %41, %.loopexit ]
-  %.572455 = phi i32 [ %.562454, %1772 ], [ %.562454, %1777 ], [ %43, %.loopexit ]
-  %.632373 = phi i32 [ %.622372, %1772 ], [ %.622372, %1777 ], [ %45, %.loopexit ]
-  %.522285 = phi i32 [ %.512284, %1772 ], [ %.512284, %1777 ], [ %27, %.loopexit ]
-  %.105 = phi i64 [ %.104, %1772 ], [ %.104, %1777 ], [ %25, %.loopexit ]
-  %.sroa.0.120 = phi i32 [ %1769, %1772 ], [ %1778, %1777 ], [ %.sroa.0.0.copyload, %.loopexit ]
-  %.sroa.498.120 = phi i32 [ %.sroa.498.119, %1772 ], [ %1779, %1777 ], [ %.sroa.498.0.copyload, %.loopexit ]
-  %1785 = icmp ult i32 %.sroa.0.120, 16777216
-  br i1 %1785, label %1786, label %1797
+1783:                                             ; preds = %1776, %1771, %.loopexit
+  %.sroa.35.52 = phi i64 [ %.sroa.35.51, %1771 ], [ %.sroa.35.51, %1776 ], [ %.sroa.35.0.copyload, %.loopexit ]
+  %.sroa.10.52 = phi i64 [ %.sroa.10.51, %1771 ], [ %.sroa.10.51, %1776 ], [ %.sroa.10.0.copyload, %.loopexit ]
+  %.523236 = phi i32 [ %.513235, %1771 ], [ %.513235, %1776 ], [ %47, %.loopexit ]
+  %.522946 = phi i32 [ %.512945, %1771 ], [ %.512945, %1776 ], [ %31, %.loopexit ]
+  %.522869 = phi i32 [ %.512868, %1771 ], [ %.512868, %1776 ], [ %33, %.loopexit ]
+  %.522792 = phi i32 [ %.512791, %1771 ], [ %.512791, %1776 ], [ %35, %.loopexit ]
+  %.612714 = phi i32 [ %.602713, %1771 ], [ %1782, %1776 ], [ %29, %.loopexit ]
+  %.512628 = phi ptr [ %.502627, %1771 ], [ %.502627, %1776 ], [ %39, %.loopexit ]
+  %.702550 = phi i32 [ %1770, %1771 ], [ %1781, %1776 ], [ %41, %.loopexit ]
+  %.572455 = phi i32 [ %.562454, %1771 ], [ %.562454, %1776 ], [ %43, %.loopexit ]
+  %.632373 = phi i32 [ %.622372, %1771 ], [ %.622372, %1776 ], [ %45, %.loopexit ]
+  %.522285 = phi i32 [ %.512284, %1771 ], [ %.512284, %1776 ], [ %27, %.loopexit ]
+  %.105 = phi i64 [ %.104, %1771 ], [ %.104, %1776 ], [ %25, %.loopexit ]
+  %.sroa.0.120 = phi i32 [ %1768, %1771 ], [ %1777, %1776 ], [ %.sroa.0.0.copyload, %.loopexit ]
+  %.sroa.498.120 = phi i32 [ %.sroa.498.119, %1771 ], [ %1778, %1776 ], [ %.sroa.498.0.copyload, %.loopexit ]
+  %1784 = icmp ult i32 %.sroa.0.120, 16777216
+  br i1 %1784, label %1785, label %1796
 
-1786:                                             ; preds = %1784
-  %1787 = icmp eq i64 %.105, %4
-  br i1 %1787, label %1788, label %1789
+1785:                                             ; preds = %1783
+  %1786 = icmp eq i64 %.105, %4
+  br i1 %1786, label %1787, label %1788
 
-1788:                                             ; preds = %1786
+1787:                                             ; preds = %1785
   store i32 46, ptr %60, align 8
-  br label %2628
+  br label %2627
 
-1789:                                             ; preds = %1786
-  %1790 = shl nuw i32 %.sroa.0.120, 8
-  %1791 = shl i32 %.sroa.498.120, 8
-  %1792 = add i64 %.105, 1
-  %1793 = getelementptr inbounds i8, ptr %2, i64 %.105
-  %1794 = load i8, ptr %1793, align 1
-  %1795 = zext i8 %1794 to i32
-  %1796 = or disjoint i32 %1791, %1795
-  br label %1797
+1788:                                             ; preds = %1785
+  %1789 = shl nuw i32 %.sroa.0.120, 8
+  %1790 = shl i32 %.sroa.498.120, 8
+  %1791 = add i64 %.105, 1
+  %1792 = getelementptr inbounds i8, ptr %2, i64 %.105
+  %1793 = load i8, ptr %1792, align 1
+  %1794 = zext i8 %1793 to i32
+  %1795 = or disjoint i32 %1790, %1794
+  br label %1796
 
-1797:                                             ; preds = %1784, %1789
-  %.106 = phi i64 [ %1792, %1789 ], [ %.105, %1784 ]
-  %.sroa.0.121 = phi i32 [ %1790, %1789 ], [ %.sroa.0.120, %1784 ]
-  %.sroa.498.121 = phi i32 [ %1796, %1789 ], [ %.sroa.498.120, %1784 ]
-  %1798 = lshr i32 %.sroa.0.121, 11
-  %1799 = getelementptr inbounds i8, ptr %0, i64 26180
-  %1800 = zext i32 %.702550 to i64
-  %1801 = getelementptr inbounds [16 x i16], ptr %1799, i64 0, i64 %1800
-  %1802 = load i16, ptr %1801, align 2
-  %1803 = zext i16 %1802 to i32
-  %1804 = mul i32 %1798, %1803
-  %1805 = icmp ult i32 %.sroa.498.121, %1804
-  %1806 = shl i32 %.702550, 1
-  br i1 %1805, label %1807, label %1812
+1796:                                             ; preds = %1783, %1788
+  %.106 = phi i64 [ %1791, %1788 ], [ %.105, %1783 ]
+  %.sroa.0.121 = phi i32 [ %1789, %1788 ], [ %.sroa.0.120, %1783 ]
+  %.sroa.498.121 = phi i32 [ %1795, %1788 ], [ %.sroa.498.120, %1783 ]
+  %1797 = lshr i32 %.sroa.0.121, 11
+  %1798 = getelementptr inbounds i8, ptr %0, i64 26180
+  %1799 = zext i32 %.702550 to i64
+  %1800 = getelementptr inbounds [16 x i16], ptr %1798, i64 0, i64 %1799
+  %1801 = load i16, ptr %1800, align 2
+  %1802 = zext i16 %1801 to i32
+  %1803 = mul i32 %1797, %1802
+  %1804 = icmp ult i32 %.sroa.498.121, %1803
+  %1805 = shl i32 %.702550, 1
+  br i1 %1804, label %1806, label %1811
 
-1807:                                             ; preds = %1797
-  %1808 = sub nsw i32 2048, %1803
-  %1809 = lshr i32 %1808, 5
-  %1810 = trunc i32 %1809 to i16
-  %1811 = add i16 %1802, %1810
-  store i16 %1811, ptr %1801, align 2
-  br label %1819
+1806:                                             ; preds = %1796
+  %1807 = sub nsw i32 2048, %1802
+  %1808 = lshr i32 %1807, 5
+  %1809 = trunc i32 %1808 to i16
+  %1810 = add i16 %1801, %1809
+  store i16 %1810, ptr %1800, align 2
+  br label %1818
 
-1812:                                             ; preds = %1797
-  %1813 = sub i32 %.sroa.0.121, %1804
-  %1814 = sub nuw i32 %.sroa.498.121, %1804
-  %1815 = lshr i16 %1802, 5
-  %1816 = sub i16 %1802, %1815
-  store i16 %1816, ptr %1801, align 2
-  %1817 = or disjoint i32 %1806, 1
-  %1818 = add i32 %.612714, 4
-  br label %1819
+1811:                                             ; preds = %1796
+  %1812 = sub i32 %.sroa.0.121, %1803
+  %1813 = sub nuw i32 %.sroa.498.121, %1803
+  %1814 = lshr i16 %1801, 5
+  %1815 = sub i16 %1801, %1814
+  store i16 %1815, ptr %1800, align 2
+  %1816 = or disjoint i32 %1805, 1
+  %1817 = add i32 %.612714, 4
+  br label %1818
 
-1819:                                             ; preds = %1812, %1807, %.loopexit
-  %.sroa.35.53 = phi i64 [ %.sroa.35.52, %1807 ], [ %.sroa.35.52, %1812 ], [ %.sroa.35.0.copyload, %.loopexit ]
-  %.sroa.10.53 = phi i64 [ %.sroa.10.52, %1807 ], [ %.sroa.10.52, %1812 ], [ %.sroa.10.0.copyload, %.loopexit ]
-  %.533237 = phi i32 [ %.523236, %1807 ], [ %.523236, %1812 ], [ %47, %.loopexit ]
-  %.532947 = phi i32 [ %.522946, %1807 ], [ %.522946, %1812 ], [ %31, %.loopexit ]
-  %.532870 = phi i32 [ %.522869, %1807 ], [ %.522869, %1812 ], [ %33, %.loopexit ]
-  %.532793 = phi i32 [ %.522792, %1807 ], [ %.522792, %1812 ], [ %35, %.loopexit ]
-  %.622715 = phi i32 [ %.612714, %1807 ], [ %1818, %1812 ], [ %29, %.loopexit ]
-  %.522629 = phi ptr [ %.512628, %1807 ], [ %.512628, %1812 ], [ %39, %.loopexit ]
-  %.712551 = phi i32 [ %1806, %1807 ], [ %1817, %1812 ], [ %41, %.loopexit ]
-  %.582456 = phi i32 [ %.572455, %1807 ], [ %.572455, %1812 ], [ %43, %.loopexit ]
-  %.642374 = phi i32 [ %.632373, %1807 ], [ %.632373, %1812 ], [ %45, %.loopexit ]
-  %.532286 = phi i32 [ %.522285, %1807 ], [ %.522285, %1812 ], [ %27, %.loopexit ]
-  %.107 = phi i64 [ %.106, %1807 ], [ %.106, %1812 ], [ %25, %.loopexit ]
-  %.sroa.0.122 = phi i32 [ %1804, %1807 ], [ %1813, %1812 ], [ %.sroa.0.0.copyload, %.loopexit ]
-  %.sroa.498.122 = phi i32 [ %.sroa.498.121, %1807 ], [ %1814, %1812 ], [ %.sroa.498.0.copyload, %.loopexit ]
-  %1820 = icmp ult i32 %.sroa.0.122, 16777216
-  br i1 %1820, label %1821, label %1832
+1818:                                             ; preds = %1811, %1806, %.loopexit
+  %.sroa.35.53 = phi i64 [ %.sroa.35.52, %1806 ], [ %.sroa.35.52, %1811 ], [ %.sroa.35.0.copyload, %.loopexit ]
+  %.sroa.10.53 = phi i64 [ %.sroa.10.52, %1806 ], [ %.sroa.10.52, %1811 ], [ %.sroa.10.0.copyload, %.loopexit ]
+  %.533237 = phi i32 [ %.523236, %1806 ], [ %.523236, %1811 ], [ %47, %.loopexit ]
+  %.532947 = phi i32 [ %.522946, %1806 ], [ %.522946, %1811 ], [ %31, %.loopexit ]
+  %.532870 = phi i32 [ %.522869, %1806 ], [ %.522869, %1811 ], [ %33, %.loopexit ]
+  %.532793 = phi i32 [ %.522792, %1806 ], [ %.522792, %1811 ], [ %35, %.loopexit ]
+  %.622715 = phi i32 [ %.612714, %1806 ], [ %1817, %1811 ], [ %29, %.loopexit ]
+  %.522629 = phi ptr [ %.512628, %1806 ], [ %.512628, %1811 ], [ %39, %.loopexit ]
+  %.712551 = phi i32 [ %1805, %1806 ], [ %1816, %1811 ], [ %41, %.loopexit ]
+  %.582456 = phi i32 [ %.572455, %1806 ], [ %.572455, %1811 ], [ %43, %.loopexit ]
+  %.642374 = phi i32 [ %.632373, %1806 ], [ %.632373, %1811 ], [ %45, %.loopexit ]
+  %.532286 = phi i32 [ %.522285, %1806 ], [ %.522285, %1811 ], [ %27, %.loopexit ]
+  %.107 = phi i64 [ %.106, %1806 ], [ %.106, %1811 ], [ %25, %.loopexit ]
+  %.sroa.0.122 = phi i32 [ %1803, %1806 ], [ %1812, %1811 ], [ %.sroa.0.0.copyload, %.loopexit ]
+  %.sroa.498.122 = phi i32 [ %.sroa.498.121, %1806 ], [ %1813, %1811 ], [ %.sroa.498.0.copyload, %.loopexit ]
+  %1819 = icmp ult i32 %.sroa.0.122, 16777216
+  br i1 %1819, label %1820, label %1831
 
-1821:                                             ; preds = %1819
-  %1822 = icmp eq i64 %.107, %4
-  br i1 %1822, label %1823, label %1824
+1820:                                             ; preds = %1818
+  %1821 = icmp eq i64 %.107, %4
+  br i1 %1821, label %1822, label %1823
 
-1823:                                             ; preds = %1821
+1822:                                             ; preds = %1820
   store i32 47, ptr %60, align 8
-  br label %2628
+  br label %2627
 
-1824:                                             ; preds = %1821
-  %1825 = shl nuw i32 %.sroa.0.122, 8
-  %1826 = shl i32 %.sroa.498.122, 8
-  %1827 = add i64 %.107, 1
-  %1828 = getelementptr inbounds i8, ptr %2, i64 %.107
-  %1829 = load i8, ptr %1828, align 1
-  %1830 = zext i8 %1829 to i32
-  %1831 = or disjoint i32 %1826, %1830
-  br label %1832
+1823:                                             ; preds = %1820
+  %1824 = shl nuw i32 %.sroa.0.122, 8
+  %1825 = shl i32 %.sroa.498.122, 8
+  %1826 = add i64 %.107, 1
+  %1827 = getelementptr inbounds i8, ptr %2, i64 %.107
+  %1828 = load i8, ptr %1827, align 1
+  %1829 = zext i8 %1828 to i32
+  %1830 = or disjoint i32 %1825, %1829
+  br label %1831
 
-1832:                                             ; preds = %1819, %1824
-  %.108 = phi i64 [ %1827, %1824 ], [ %.107, %1819 ]
-  %.sroa.0.123 = phi i32 [ %1825, %1824 ], [ %.sroa.0.122, %1819 ]
-  %.sroa.498.123 = phi i32 [ %1831, %1824 ], [ %.sroa.498.122, %1819 ]
-  %1833 = lshr i32 %.sroa.0.123, 11
-  %1834 = getelementptr inbounds i8, ptr %0, i64 26180
-  %1835 = zext i32 %.712551 to i64
-  %1836 = getelementptr inbounds [16 x i16], ptr %1834, i64 0, i64 %1835
-  %1837 = load i16, ptr %1836, align 2
-  %1838 = zext i16 %1837 to i32
-  %1839 = mul i32 %1833, %1838
-  %1840 = icmp ult i32 %.sroa.498.123, %1839
-  br i1 %1840, label %1841, label %1846
+1831:                                             ; preds = %1818, %1823
+  %.108 = phi i64 [ %1826, %1823 ], [ %.107, %1818 ]
+  %.sroa.0.123 = phi i32 [ %1824, %1823 ], [ %.sroa.0.122, %1818 ]
+  %.sroa.498.123 = phi i32 [ %1830, %1823 ], [ %.sroa.498.122, %1818 ]
+  %1832 = lshr i32 %.sroa.0.123, 11
+  %1833 = getelementptr inbounds i8, ptr %0, i64 26180
+  %1834 = zext i32 %.712551 to i64
+  %1835 = getelementptr inbounds [16 x i16], ptr %1833, i64 0, i64 %1834
+  %1836 = load i16, ptr %1835, align 2
+  %1837 = zext i16 %1836 to i32
+  %1838 = mul i32 %1832, %1837
+  %1839 = icmp ult i32 %.sroa.498.123, %1838
+  br i1 %1839, label %1840, label %1845
 
-1841:                                             ; preds = %1832
-  %1842 = sub nsw i32 2048, %1838
-  %1843 = lshr i32 %1842, 5
-  %1844 = trunc i32 %1843 to i16
-  %1845 = add i16 %1837, %1844
-  br label %1852
+1840:                                             ; preds = %1831
+  %1841 = sub nsw i32 2048, %1837
+  %1842 = lshr i32 %1841, 5
+  %1843 = trunc i32 %1842 to i16
+  %1844 = add i16 %1836, %1843
+  br label %1851
 
-1846:                                             ; preds = %1832
-  %1847 = sub i32 %.sroa.0.123, %1839
-  %1848 = sub nuw i32 %.sroa.498.123, %1839
-  %1849 = lshr i16 %1837, 5
-  %1850 = sub i16 %1837, %1849
-  %1851 = add i32 %.622715, 8
-  br label %1852
+1845:                                             ; preds = %1831
+  %1846 = sub i32 %.sroa.0.123, %1838
+  %1847 = sub nuw i32 %.sroa.498.123, %1838
+  %1848 = lshr i16 %1836, 5
+  %1849 = sub i16 %1836, %1848
+  %1850 = add i32 %.622715, 8
+  br label %1851
 
-1852:                                             ; preds = %1841, %1846
-  %.sink3311 = phi i16 [ %1845, %1841 ], [ %1850, %1846 ]
-  %.632716 = phi i32 [ %.622715, %1841 ], [ %1851, %1846 ]
-  %.sroa.0.124 = phi i32 [ %1839, %1841 ], [ %1847, %1846 ]
-  %.sroa.498.124 = phi i32 [ %.sroa.498.123, %1841 ], [ %1848, %1846 ]
-  store i16 %.sink3311, ptr %1836, align 2
-  %1853 = icmp eq i32 %.632716, -1
-  br i1 %1853, label %1854, label %1869
+1851:                                             ; preds = %1840, %1845
+  %.sink3311 = phi i16 [ %1844, %1840 ], [ %1849, %1845 ]
+  %.632716 = phi i32 [ %.622715, %1840 ], [ %1850, %1845 ]
+  %.sroa.0.124 = phi i32 [ %1838, %1840 ], [ %1846, %1845 ]
+  %.sroa.498.124 = phi i32 [ %.sroa.498.123, %1840 ], [ %1847, %1845 ]
+  store i16 %.sink3311, ptr %1835, align 2
+  %1852 = icmp eq i32 %.632716, -1
+  br i1 %1852, label %1853, label %1868
 
-1854:                                             ; preds = %1852
-  %1855 = load i64, ptr %54, align 8
-  %.not3118 = icmp eq i64 %1855, -1
-  br i1 %.not3118, label %1856, label %2628
+1853:                                             ; preds = %1851
+  %1854 = load i64, ptr %54, align 8
+  %.not3118 = icmp eq i64 %1854, -1
+  br i1 %.not3118, label %1855, label %2627
 
-1856:                                             ; preds = %.loopexit, %1854
-  %.sroa.35.54 = phi i64 [ %.sroa.35.53, %1854 ], [ %.sroa.35.0.copyload, %.loopexit ]
-  %.sroa.10.54 = phi i64 [ %.sroa.10.53, %1854 ], [ %.sroa.10.0.copyload, %.loopexit ]
-  %.543238 = phi i32 [ %.533237, %1854 ], [ %47, %.loopexit ]
-  %.542948 = phi i32 [ %.532947, %1854 ], [ %31, %.loopexit ]
-  %.542871 = phi i32 [ %.532870, %1854 ], [ %33, %.loopexit ]
-  %.542794 = phi i32 [ %.532793, %1854 ], [ %35, %.loopexit ]
-  %.642717 = phi i32 [ -1, %1854 ], [ %29, %.loopexit ]
-  %.532630 = phi ptr [ %.522629, %1854 ], [ %39, %.loopexit ]
-  %.722552 = phi i32 [ %.712551, %1854 ], [ %41, %.loopexit ]
-  %.592457 = phi i32 [ %.582456, %1854 ], [ %43, %.loopexit ]
-  %.652375 = phi i32 [ %.642374, %1854 ], [ %45, %.loopexit ]
-  %.542287 = phi i32 [ %.532286, %1854 ], [ %27, %.loopexit ]
-  %.109 = phi i64 [ %.108, %1854 ], [ %25, %.loopexit ]
-  %.sroa.0.125 = phi i32 [ %.sroa.0.124, %1854 ], [ %.sroa.0.0.copyload, %.loopexit ]
-  %.sroa.498.125 = phi i32 [ %.sroa.498.124, %1854 ], [ %.sroa.498.0.copyload, %.loopexit ]
-  %1857 = icmp ult i32 %.sroa.0.125, 16777216
-  br i1 %1857, label %1858, label %2628
+1855:                                             ; preds = %.loopexit, %1853
+  %.sroa.35.54 = phi i64 [ %.sroa.35.53, %1853 ], [ %.sroa.35.0.copyload, %.loopexit ]
+  %.sroa.10.54 = phi i64 [ %.sroa.10.53, %1853 ], [ %.sroa.10.0.copyload, %.loopexit ]
+  %.543238 = phi i32 [ %.533237, %1853 ], [ %47, %.loopexit ]
+  %.542948 = phi i32 [ %.532947, %1853 ], [ %31, %.loopexit ]
+  %.542871 = phi i32 [ %.532870, %1853 ], [ %33, %.loopexit ]
+  %.542794 = phi i32 [ %.532793, %1853 ], [ %35, %.loopexit ]
+  %.642717 = phi i32 [ -1, %1853 ], [ %29, %.loopexit ]
+  %.532630 = phi ptr [ %.522629, %1853 ], [ %39, %.loopexit ]
+  %.722552 = phi i32 [ %.712551, %1853 ], [ %41, %.loopexit ]
+  %.592457 = phi i32 [ %.582456, %1853 ], [ %43, %.loopexit ]
+  %.652375 = phi i32 [ %.642374, %1853 ], [ %45, %.loopexit ]
+  %.542287 = phi i32 [ %.532286, %1853 ], [ %27, %.loopexit ]
+  %.109 = phi i64 [ %.108, %1853 ], [ %25, %.loopexit ]
+  %.sroa.0.125 = phi i32 [ %.sroa.0.124, %1853 ], [ %.sroa.0.0.copyload, %.loopexit ]
+  %.sroa.498.125 = phi i32 [ %.sroa.498.124, %1853 ], [ %.sroa.498.0.copyload, %.loopexit ]
+  %1856 = icmp ult i32 %.sroa.0.125, 16777216
+  br i1 %1856, label %1857, label %2627
 
-1858:                                             ; preds = %1856
-  %1859 = icmp eq i64 %.109, %4
-  br i1 %1859, label %1860, label %1861
+1857:                                             ; preds = %1855
+  %1858 = icmp eq i64 %.109, %4
+  br i1 %1858, label %1859, label %1860
 
-1860:                                             ; preds = %1858
+1859:                                             ; preds = %1857
   store i32 48, ptr %60, align 8
-  br label %2628
+  br label %2627
 
-1861:                                             ; preds = %1858
-  %1862 = shl nuw i32 %.sroa.0.125, 8
-  %1863 = shl i32 %.sroa.498.125, 8
-  %1864 = add i64 %.109, 1
-  %1865 = getelementptr inbounds i8, ptr %2, i64 %.109
-  %1866 = load i8, ptr %1865, align 1
-  %1867 = zext i8 %1866 to i32
-  %1868 = or disjoint i32 %1863, %1867
-  br label %2628
+1860:                                             ; preds = %1857
+  %1861 = shl nuw i32 %.sroa.0.125, 8
+  %1862 = shl i32 %.sroa.498.125, 8
+  %1863 = add i64 %.109, 1
+  %1864 = getelementptr inbounds i8, ptr %2, i64 %.109
+  %1865 = load i8, ptr %1864, align 1
+  %1866 = zext i8 %1865 to i32
+  %1867 = or disjoint i32 %1862, %1866
+  br label %2627
 
-1869:                                             ; preds = %1488, %1680, %1675, %1506, %1852
-  %.sroa.35.49 = phi i64 [ %.sroa.35.48, %1488 ], [ %.sroa.35.10, %1506 ], [ %.sroa.35.10, %1675 ], [ %.sroa.35.10, %1680 ], [ %.sroa.35.53, %1852 ]
-  %.sroa.10.49 = phi i64 [ %.sroa.10.48, %1488 ], [ %.sroa.10.10, %1506 ], [ %.sroa.10.10, %1675 ], [ %.sroa.10.10, %1680 ], [ %.sroa.10.53, %1852 ]
-  %.493233 = phi i32 [ %.483232, %1488 ], [ %.103194, %1506 ], [ %.103194, %1675 ], [ %.103194, %1680 ], [ %.533237, %1852 ]
-  %.492943 = phi i32 [ %.482942, %1488 ], [ %.102904, %1506 ], [ %.102904, %1675 ], [ %.102904, %1680 ], [ %.532947, %1852 ]
-  %.492866 = phi i32 [ %.482865, %1488 ], [ %.102827, %1506 ], [ %.102827, %1675 ], [ %.102827, %1680 ], [ %.532870, %1852 ]
-  %.492789 = phi i32 [ %.482788, %1488 ], [ %.102750, %1506 ], [ %.102750, %1675 ], [ %.102750, %1680 ], [ %.532793, %1852 ]
-  %.492702 = phi i32 [ %1489, %1488 ], [ %.102663, %1506 ], [ %.572710, %1675 ], [ %1686, %1680 ], [ %.632716, %1852 ]
-  %.482625 = phi ptr [ %.472624, %1488 ], [ %.102587, %1506 ], [ %.102587, %1675 ], [ %.102587, %1680 ], [ %.522629, %1852 ]
-  %.592539 = phi i32 [ %1489, %1488 ], [ %.102490, %1506 ], [ %.672547, %1675 ], [ %.672547, %1680 ], [ %.712551, %1852 ]
-  %.492447 = phi i32 [ %.482446, %1488 ], [ %.102408, %1506 ], [ 1, %1675 ], [ 1, %1680 ], [ %.582456, %1852 ]
-  %.562366 = phi i32 [ %.552365, %1488 ], [ %.102320, %1506 ], [ %.602370, %1675 ], [ %.602370, %1680 ], [ %.642374, %1852 ]
-  %.492282 = phi i32 [ %.482281, %1488 ], [ %.102243, %1506 ], [ %.102243, %1675 ], [ %.102243, %1680 ], [ %.532286, %1852 ]
-  %.89 = phi i64 [ %.88, %1488 ], [ %.10, %1506 ], [ %.98, %1675 ], [ %.98, %1680 ], [ %.108, %1852 ]
-  %.sroa.0.100 = phi i32 [ %.sroa.0.99, %1488 ], [ %.sroa.0.10, %1506 ], [ %1673, %1675 ], [ %1681, %1680 ], [ %.sroa.0.124, %1852 ]
-  %.sroa.498.100 = phi i32 [ %.sroa.498.99, %1488 ], [ %.sroa.498.10, %1506 ], [ %.sroa.498.113, %1675 ], [ %1682, %1680 ], [ %.sroa.498.124, %1852 ]
-  %1870 = zext i32 %.492702 to i64
-  %1871 = icmp ugt i64 %.sroa.35.49, %1870
-  br i1 %1871, label %2569, label %2628
+1868:                                             ; preds = %1487, %1679, %1674, %1505, %1851
+  %.sroa.35.49 = phi i64 [ %.sroa.35.48, %1487 ], [ %.sroa.35.10, %1505 ], [ %.sroa.35.10, %1674 ], [ %.sroa.35.10, %1679 ], [ %.sroa.35.53, %1851 ]
+  %.sroa.10.49 = phi i64 [ %.sroa.10.48, %1487 ], [ %.sroa.10.10, %1505 ], [ %.sroa.10.10, %1674 ], [ %.sroa.10.10, %1679 ], [ %.sroa.10.53, %1851 ]
+  %.493233 = phi i32 [ %.483232, %1487 ], [ %.103194, %1505 ], [ %.103194, %1674 ], [ %.103194, %1679 ], [ %.533237, %1851 ]
+  %.492943 = phi i32 [ %.482942, %1487 ], [ %.102904, %1505 ], [ %.102904, %1674 ], [ %.102904, %1679 ], [ %.532947, %1851 ]
+  %.492866 = phi i32 [ %.482865, %1487 ], [ %.102827, %1505 ], [ %.102827, %1674 ], [ %.102827, %1679 ], [ %.532870, %1851 ]
+  %.492789 = phi i32 [ %.482788, %1487 ], [ %.102750, %1505 ], [ %.102750, %1674 ], [ %.102750, %1679 ], [ %.532793, %1851 ]
+  %.492702 = phi i32 [ %1488, %1487 ], [ %.102663, %1505 ], [ %.572710, %1674 ], [ %1685, %1679 ], [ %.632716, %1851 ]
+  %.482625 = phi ptr [ %.472624, %1487 ], [ %.102587, %1505 ], [ %.102587, %1674 ], [ %.102587, %1679 ], [ %.522629, %1851 ]
+  %.592539 = phi i32 [ %1488, %1487 ], [ %.102490, %1505 ], [ %.672547, %1674 ], [ %.672547, %1679 ], [ %.712551, %1851 ]
+  %.492447 = phi i32 [ %.482446, %1487 ], [ %.102408, %1505 ], [ 1, %1674 ], [ 1, %1679 ], [ %.582456, %1851 ]
+  %.562366 = phi i32 [ %.552365, %1487 ], [ %.102320, %1505 ], [ %.602370, %1674 ], [ %.602370, %1679 ], [ %.642374, %1851 ]
+  %.492282 = phi i32 [ %.482281, %1487 ], [ %.102243, %1505 ], [ %.102243, %1674 ], [ %.102243, %1679 ], [ %.532286, %1851 ]
+  %.89 = phi i64 [ %.88, %1487 ], [ %.10, %1505 ], [ %.98, %1674 ], [ %.98, %1679 ], [ %.108, %1851 ]
+  %.sroa.0.100 = phi i32 [ %.sroa.0.99, %1487 ], [ %.sroa.0.10, %1505 ], [ %1672, %1674 ], [ %1680, %1679 ], [ %.sroa.0.124, %1851 ]
+  %.sroa.498.100 = phi i32 [ %.sroa.498.99, %1487 ], [ %.sroa.498.10, %1505 ], [ %.sroa.498.113, %1674 ], [ %1681, %1679 ], [ %.sroa.498.124, %1851 ]
+  %1869 = zext i32 %.492702 to i64
+  %1870 = icmp ugt i64 %.sroa.35.49, %1869
+  br i1 %1870, label %2568, label %2627
 
-1872:                                             ; preds = %719
-  %1873 = sub i32 %.sroa.0.50, %726
-  %1874 = sub nuw i32 %.sroa.498.50, %726
-  %1875 = lshr i16 %724, 5
-  %1876 = sub i16 %724, %1875
-  store i16 %1876, ptr %723, align 2
+1871:                                             ; preds = %719
+  %1872 = sub i32 %.sroa.0.50, %726
+  %1873 = sub nuw i32 %.sroa.498.50, %726
+  %1874 = lshr i16 %724, 5
+  %1875 = sub i16 %724, %1874
+  store i16 %1875, ptr %723, align 2
   %.not = icmp eq i64 %.sroa.35.25, 0
-  br i1 %.not, label %2628, label %1877
+  br i1 %.not, label %2627, label %1876
 
-1877:                                             ; preds = %.loopexit, %1872
-  %.sroa.35.55 = phi i64 [ %.sroa.35.25, %1872 ], [ %.sroa.35.0.copyload, %.loopexit ]
-  %.sroa.10.55 = phi i64 [ %.sroa.10.25, %1872 ], [ %.sroa.10.0.copyload, %.loopexit ]
-  %.553239 = phi i32 [ %.253209, %1872 ], [ %47, %.loopexit ]
-  %.552949 = phi i32 [ %.252919, %1872 ], [ %31, %.loopexit ]
-  %.552872 = phi i32 [ %.252842, %1872 ], [ %33, %.loopexit ]
-  %.552795 = phi i32 [ %.252765, %1872 ], [ %35, %.loopexit ]
-  %.652718 = phi i32 [ %.252678, %1872 ], [ %29, %.loopexit ]
-  %.542631 = phi ptr [ %.252602, %1872 ], [ %39, %.loopexit ]
-  %.732553 = phi i32 [ %.322512, %1872 ], [ %41, %.loopexit ]
-  %.602458 = phi i32 [ %.252423, %1872 ], [ %43, %.loopexit ]
-  %.662376 = phi i32 [ %.322342, %1872 ], [ %45, %.loopexit ]
-  %.552288 = phi i32 [ %.252258, %1872 ], [ %27, %.loopexit ]
-  %.102220 = phi i32 [ %.12211, %1872 ], [ %53, %.loopexit ]
-  %.111 = phi i64 [ %.43, %1872 ], [ %25, %.loopexit ]
-  %.sroa.0.127 = phi i32 [ %1873, %1872 ], [ %.sroa.0.0.copyload, %.loopexit ]
-  %.sroa.498.127 = phi i32 [ %1874, %1872 ], [ %.sroa.498.0.copyload, %.loopexit ]
-  %1878 = icmp ult i32 %.sroa.0.127, 16777216
-  br i1 %1878, label %1879, label %1890
+1876:                                             ; preds = %.loopexit, %1871
+  %.sroa.35.55 = phi i64 [ %.sroa.35.25, %1871 ], [ %.sroa.35.0.copyload, %.loopexit ]
+  %.sroa.10.55 = phi i64 [ %.sroa.10.25, %1871 ], [ %.sroa.10.0.copyload, %.loopexit ]
+  %.553239 = phi i32 [ %.253209, %1871 ], [ %47, %.loopexit ]
+  %.552949 = phi i32 [ %.252919, %1871 ], [ %31, %.loopexit ]
+  %.552872 = phi i32 [ %.252842, %1871 ], [ %33, %.loopexit ]
+  %.552795 = phi i32 [ %.252765, %1871 ], [ %35, %.loopexit ]
+  %.652718 = phi i32 [ %.252678, %1871 ], [ %29, %.loopexit ]
+  %.542631 = phi ptr [ %.252602, %1871 ], [ %39, %.loopexit ]
+  %.732553 = phi i32 [ %.322512, %1871 ], [ %41, %.loopexit ]
+  %.602458 = phi i32 [ %.252423, %1871 ], [ %43, %.loopexit ]
+  %.662376 = phi i32 [ %.322342, %1871 ], [ %45, %.loopexit ]
+  %.552288 = phi i32 [ %.252258, %1871 ], [ %27, %.loopexit ]
+  %.102220 = phi i32 [ %.12211, %1871 ], [ %53, %.loopexit ]
+  %.111 = phi i64 [ %.43, %1871 ], [ %25, %.loopexit ]
+  %.sroa.0.127 = phi i32 [ %1872, %1871 ], [ %.sroa.0.0.copyload, %.loopexit ]
+  %.sroa.498.127 = phi i32 [ %1873, %1871 ], [ %.sroa.498.0.copyload, %.loopexit ]
+  %1877 = icmp ult i32 %.sroa.0.127, 16777216
+  br i1 %1877, label %1878, label %1889
 
-1879:                                             ; preds = %1877
-  %1880 = icmp eq i64 %.111, %4
-  br i1 %1880, label %1881, label %1882
+1878:                                             ; preds = %1876
+  %1879 = icmp eq i64 %.111, %4
+  br i1 %1879, label %1880, label %1881
 
-1881:                                             ; preds = %1879
+1880:                                             ; preds = %1878
   store i32 49, ptr %60, align 8
-  br label %2628
+  br label %2627
 
-1882:                                             ; preds = %1879
-  %1883 = shl nuw i32 %.sroa.0.127, 8
-  %1884 = shl i32 %.sroa.498.127, 8
-  %1885 = add i64 %.111, 1
-  %1886 = getelementptr inbounds i8, ptr %2, i64 %.111
-  %1887 = load i8, ptr %1886, align 1
-  %1888 = zext i8 %1887 to i32
-  %1889 = or disjoint i32 %1884, %1888
-  br label %1890
+1881:                                             ; preds = %1878
+  %1882 = shl nuw i32 %.sroa.0.127, 8
+  %1883 = shl i32 %.sroa.498.127, 8
+  %1884 = add i64 %.111, 1
+  %1885 = getelementptr inbounds i8, ptr %2, i64 %.111
+  %1886 = load i8, ptr %1885, align 1
+  %1887 = zext i8 %1886 to i32
+  %1888 = or disjoint i32 %1883, %1887
+  br label %1889
 
-1890:                                             ; preds = %1877, %1882
-  %.112 = phi i64 [ %1885, %1882 ], [ %.111, %1877 ]
-  %.sroa.0.128 = phi i32 [ %1883, %1882 ], [ %.sroa.0.127, %1877 ]
-  %.sroa.498.128 = phi i32 [ %1889, %1882 ], [ %.sroa.498.127, %1877 ]
-  %1891 = lshr i32 %.sroa.0.128, 11
-  %1892 = getelementptr inbounds i8, ptr %0, i64 24984
-  %1893 = zext i32 %.552288 to i64
-  %1894 = getelementptr inbounds [12 x i16], ptr %1892, i64 0, i64 %1893
-  %1895 = load i16, ptr %1894, align 2
-  %1896 = zext i16 %1895 to i32
-  %1897 = mul i32 %1891, %1896
-  %1898 = icmp ult i32 %.sroa.498.128, %1897
-  br i1 %1898, label %1899, label %1949
+1889:                                             ; preds = %1876, %1881
+  %.112 = phi i64 [ %1884, %1881 ], [ %.111, %1876 ]
+  %.sroa.0.128 = phi i32 [ %1882, %1881 ], [ %.sroa.0.127, %1876 ]
+  %.sroa.498.128 = phi i32 [ %1888, %1881 ], [ %.sroa.498.127, %1876 ]
+  %1890 = lshr i32 %.sroa.0.128, 11
+  %1891 = getelementptr inbounds i8, ptr %0, i64 24984
+  %1892 = zext i32 %.552288 to i64
+  %1893 = getelementptr inbounds [12 x i16], ptr %1891, i64 0, i64 %1892
+  %1894 = load i16, ptr %1893, align 2
+  %1895 = zext i16 %1894 to i32
+  %1896 = mul i32 %1890, %1895
+  %1897 = icmp ult i32 %.sroa.498.128, %1896
+  br i1 %1897, label %1898, label %1948
 
-1899:                                             ; preds = %1890
-  %1900 = sub nsw i32 2048, %1896
-  %1901 = lshr i32 %1900, 5
-  %1902 = trunc i32 %1901 to i16
-  %1903 = add i16 %1895, %1902
-  store i16 %1903, ptr %1894, align 2
-  br label %1904
+1898:                                             ; preds = %1889
+  %1899 = sub nsw i32 2048, %1895
+  %1900 = lshr i32 %1899, 5
+  %1901 = trunc i32 %1900 to i16
+  %1902 = add i16 %1894, %1901
+  store i16 %1902, ptr %1893, align 2
+  br label %1903
 
-1904:                                             ; preds = %.loopexit, %1899
-  %.sroa.35.56 = phi i64 [ %.sroa.35.55, %1899 ], [ %.sroa.35.0.copyload, %.loopexit ]
-  %.sroa.10.56 = phi i64 [ %.sroa.10.55, %1899 ], [ %.sroa.10.0.copyload, %.loopexit ]
-  %.563240 = phi i32 [ %.553239, %1899 ], [ %47, %.loopexit ]
-  %.562950 = phi i32 [ %.552949, %1899 ], [ %31, %.loopexit ]
-  %.562873 = phi i32 [ %.552872, %1899 ], [ %33, %.loopexit ]
-  %.562796 = phi i32 [ %.552795, %1899 ], [ %35, %.loopexit ]
-  %.662719 = phi i32 [ %.652718, %1899 ], [ %29, %.loopexit ]
-  %.552632 = phi ptr [ %.542631, %1899 ], [ %39, %.loopexit ]
-  %.742554 = phi i32 [ %.732553, %1899 ], [ %41, %.loopexit ]
-  %.612459 = phi i32 [ %.602458, %1899 ], [ %43, %.loopexit ]
-  %.672377 = phi i32 [ %.662376, %1899 ], [ %45, %.loopexit ]
-  %.562289 = phi i32 [ %.552288, %1899 ], [ %27, %.loopexit ]
-  %.112221 = phi i32 [ %.102220, %1899 ], [ %53, %.loopexit ]
-  %.113 = phi i64 [ %.112, %1899 ], [ %25, %.loopexit ]
-  %.sroa.0.129 = phi i32 [ %1897, %1899 ], [ %.sroa.0.0.copyload, %.loopexit ]
-  %.sroa.498.129 = phi i32 [ %.sroa.498.128, %1899 ], [ %.sroa.498.0.copyload, %.loopexit ]
-  %1905 = icmp ult i32 %.sroa.0.129, 16777216
-  br i1 %1905, label %1906, label %1917
+1903:                                             ; preds = %.loopexit, %1898
+  %.sroa.35.56 = phi i64 [ %.sroa.35.55, %1898 ], [ %.sroa.35.0.copyload, %.loopexit ]
+  %.sroa.10.56 = phi i64 [ %.sroa.10.55, %1898 ], [ %.sroa.10.0.copyload, %.loopexit ]
+  %.563240 = phi i32 [ %.553239, %1898 ], [ %47, %.loopexit ]
+  %.562950 = phi i32 [ %.552949, %1898 ], [ %31, %.loopexit ]
+  %.562873 = phi i32 [ %.552872, %1898 ], [ %33, %.loopexit ]
+  %.562796 = phi i32 [ %.552795, %1898 ], [ %35, %.loopexit ]
+  %.662719 = phi i32 [ %.652718, %1898 ], [ %29, %.loopexit ]
+  %.552632 = phi ptr [ %.542631, %1898 ], [ %39, %.loopexit ]
+  %.742554 = phi i32 [ %.732553, %1898 ], [ %41, %.loopexit ]
+  %.612459 = phi i32 [ %.602458, %1898 ], [ %43, %.loopexit ]
+  %.672377 = phi i32 [ %.662376, %1898 ], [ %45, %.loopexit ]
+  %.562289 = phi i32 [ %.552288, %1898 ], [ %27, %.loopexit ]
+  %.112221 = phi i32 [ %.102220, %1898 ], [ %53, %.loopexit ]
+  %.113 = phi i64 [ %.112, %1898 ], [ %25, %.loopexit ]
+  %.sroa.0.129 = phi i32 [ %1896, %1898 ], [ %.sroa.0.0.copyload, %.loopexit ]
+  %.sroa.498.129 = phi i32 [ %.sroa.498.128, %1898 ], [ %.sroa.498.0.copyload, %.loopexit ]
+  %1904 = icmp ult i32 %.sroa.0.129, 16777216
+  br i1 %1904, label %1905, label %1916
 
-1906:                                             ; preds = %1904
-  %1907 = icmp eq i64 %.113, %4
-  br i1 %1907, label %1908, label %1909
+1905:                                             ; preds = %1903
+  %1906 = icmp eq i64 %.113, %4
+  br i1 %1906, label %1907, label %1908
 
-1908:                                             ; preds = %1906
+1907:                                             ; preds = %1905
   store i32 51, ptr %60, align 8
-  br label %2628
+  br label %2627
 
-1909:                                             ; preds = %1906
-  %1910 = shl nuw i32 %.sroa.0.129, 8
-  %1911 = shl i32 %.sroa.498.129, 8
-  %1912 = add i64 %.113, 1
-  %1913 = getelementptr inbounds i8, ptr %2, i64 %.113
-  %1914 = load i8, ptr %1913, align 1
-  %1915 = zext i8 %1914 to i32
-  %1916 = or disjoint i32 %1911, %1915
-  br label %1917
+1908:                                             ; preds = %1905
+  %1909 = shl nuw i32 %.sroa.0.129, 8
+  %1910 = shl i32 %.sroa.498.129, 8
+  %1911 = add i64 %.113, 1
+  %1912 = getelementptr inbounds i8, ptr %2, i64 %.113
+  %1913 = load i8, ptr %1912, align 1
+  %1914 = zext i8 %1913 to i32
+  %1915 = or disjoint i32 %1910, %1914
+  br label %1916
 
-1917:                                             ; preds = %1904, %1909
-  %.114 = phi i64 [ %1912, %1909 ], [ %.113, %1904 ]
-  %.sroa.0.130 = phi i32 [ %1910, %1909 ], [ %.sroa.0.129, %1904 ]
-  %.sroa.498.130 = phi i32 [ %1916, %1909 ], [ %.sroa.498.129, %1904 ]
-  %1918 = lshr i32 %.sroa.0.130, 11
-  %1919 = getelementptr inbounds i8, ptr %0, i64 25056
-  %1920 = zext i32 %.562289 to i64
-  %1921 = zext i32 %.112221 to i64
-  %1922 = getelementptr inbounds [12 x [16 x i16]], ptr %1919, i64 0, i64 %1920, i64 %1921
-  %1923 = load i16, ptr %1922, align 2
-  %1924 = zext i16 %1923 to i32
-  %1925 = mul i32 %1918, %1924
-  %1926 = icmp ult i32 %.sroa.498.130, %1925
-  br i1 %1926, label %1927, label %1944
+1916:                                             ; preds = %1903, %1908
+  %.114 = phi i64 [ %1911, %1908 ], [ %.113, %1903 ]
+  %.sroa.0.130 = phi i32 [ %1909, %1908 ], [ %.sroa.0.129, %1903 ]
+  %.sroa.498.130 = phi i32 [ %1915, %1908 ], [ %.sroa.498.129, %1903 ]
+  %1917 = lshr i32 %.sroa.0.130, 11
+  %1918 = getelementptr inbounds i8, ptr %0, i64 25056
+  %1919 = zext i32 %.562289 to i64
+  %1920 = zext i32 %.112221 to i64
+  %1921 = getelementptr inbounds [12 x [16 x i16]], ptr %1918, i64 0, i64 %1919, i64 %1920
+  %1922 = load i16, ptr %1921, align 2
+  %1923 = zext i16 %1922 to i32
+  %1924 = mul i32 %1917, %1923
+  %1925 = icmp ult i32 %.sroa.498.130, %1924
+  br i1 %1925, label %1926, label %1943
 
-1927:                                             ; preds = %1917
-  %1928 = sub nsw i32 2048, %1924
-  %1929 = lshr i32 %1928, 5
-  %1930 = trunc i32 %1929 to i16
-  %1931 = add i16 %1923, %1930
-  store i16 %1931, ptr %1922, align 2
-  %1932 = icmp ult i32 %.562289, 7
-  %1933 = select i1 %1932, i32 9, i32 11
+1926:                                             ; preds = %1916
+  %1927 = sub nsw i32 2048, %1923
+  %1928 = lshr i32 %1927, 5
+  %1929 = trunc i32 %1928 to i16
+  %1930 = add i16 %1922, %1929
+  store i16 %1930, ptr %1921, align 2
+  %1931 = icmp ult i32 %.562289, 7
+  %1932 = select i1 %1931, i32 9, i32 11
   br label %dict_get.exit3124
 
-dict_get.exit3124:                                ; preds = %1927, %.loopexit
-  %.sroa.35.12 = phi i64 [ %.sroa.35.56, %1927 ], [ %.sroa.35.0.copyload, %.loopexit ]
-  %.sroa.10.12 = phi i64 [ %.sroa.10.56, %1927 ], [ %.sroa.10.0.copyload, %.loopexit ]
-  %.123196 = phi i32 [ %.563240, %1927 ], [ %47, %.loopexit ]
-  %.122906 = phi i32 [ %.562950, %1927 ], [ %31, %.loopexit ]
-  %.122829 = phi i32 [ %.562873, %1927 ], [ %33, %.loopexit ]
-  %.122752 = phi i32 [ %.562796, %1927 ], [ %35, %.loopexit ]
-  %.122665 = phi i32 [ %.662719, %1927 ], [ %29, %.loopexit ]
-  %.122589 = phi ptr [ %.552632, %1927 ], [ %39, %.loopexit ]
-  %.122492 = phi i32 [ %.742554, %1927 ], [ %41, %.loopexit ]
-  %.122410 = phi i32 [ %.612459, %1927 ], [ %43, %.loopexit ]
-  %.122322 = phi i32 [ %.672377, %1927 ], [ %45, %.loopexit ]
-  %.122245 = phi i32 [ %1933, %1927 ], [ %27, %.loopexit ]
-  %.12 = phi i64 [ %.114, %1927 ], [ %25, %.loopexit ]
-  %.sroa.0.12 = phi i32 [ %1925, %1927 ], [ %.sroa.0.0.copyload, %.loopexit ]
-  %.sroa.498.12 = phi i32 [ %.sroa.498.130, %1927 ], [ %.sroa.498.0.copyload, %.loopexit ]
-  %1934 = icmp eq i64 %.sroa.10.12, %.sroa.44.0
-  br i1 %1934, label %dict_put.exit3125, label %1935
+dict_get.exit3124:                                ; preds = %1926, %.loopexit
+  %.sroa.35.12 = phi i64 [ %.sroa.35.56, %1926 ], [ %.sroa.35.0.copyload, %.loopexit ]
+  %.sroa.10.12 = phi i64 [ %.sroa.10.56, %1926 ], [ %.sroa.10.0.copyload, %.loopexit ]
+  %.123196 = phi i32 [ %.563240, %1926 ], [ %47, %.loopexit ]
+  %.122906 = phi i32 [ %.562950, %1926 ], [ %31, %.loopexit ]
+  %.122829 = phi i32 [ %.562873, %1926 ], [ %33, %.loopexit ]
+  %.122752 = phi i32 [ %.562796, %1926 ], [ %35, %.loopexit ]
+  %.122665 = phi i32 [ %.662719, %1926 ], [ %29, %.loopexit ]
+  %.122589 = phi ptr [ %.552632, %1926 ], [ %39, %.loopexit ]
+  %.122492 = phi i32 [ %.742554, %1926 ], [ %41, %.loopexit ]
+  %.122410 = phi i32 [ %.612459, %1926 ], [ %43, %.loopexit ]
+  %.122322 = phi i32 [ %.672377, %1926 ], [ %45, %.loopexit ]
+  %.122245 = phi i32 [ %1932, %1926 ], [ %27, %.loopexit ]
+  %.12 = phi i64 [ %.114, %1926 ], [ %25, %.loopexit ]
+  %.sroa.0.12 = phi i32 [ %1924, %1926 ], [ %.sroa.0.0.copyload, %.loopexit ]
+  %.sroa.498.12 = phi i32 [ %.sroa.498.130, %1926 ], [ %.sroa.498.0.copyload, %.loopexit ]
+  %1933 = icmp eq i64 %.sroa.10.12, %.sroa.44.0
+  br i1 %1933, label %dict_put.exit3125, label %1934
 
-1935:                                             ; preds = %dict_get.exit3124
-  %1936 = getelementptr i8, ptr %.sroa.0.0.copyload3154, i64 %.sroa.10.12
-  %1937 = zext i32 %.122665 to i64
-  %1938 = xor i64 %1937, -1
-  %1939 = getelementptr i8, ptr %1936, i64 %1938
-  %1940 = icmp ugt i64 %.sroa.10.12, %1937
-  %spec.select3275 = select i1 %1940, i64 0, i64 %.sroa.50.0.copyload
-  %1941 = getelementptr i8, ptr %1939, i64 %spec.select3275
-  %1942 = load i8, ptr %1941, align 1
-  %1943 = add i64 %.sroa.10.12, 1
-  store i8 %1942, ptr %1936, align 1
-  %spec.select3276 = tail call i64 @llvm.umax.i64(i64 %1943, i64 %.sroa.35.12)
+1934:                                             ; preds = %dict_get.exit3124
+  %1935 = getelementptr i8, ptr %.sroa.0.0.copyload3154, i64 %.sroa.10.12
+  %1936 = zext i32 %.122665 to i64
+  %1937 = xor i64 %1936, -1
+  %1938 = getelementptr i8, ptr %1935, i64 %1937
+  %1939 = icmp ugt i64 %.sroa.10.12, %1936
+  %spec.select3275 = select i1 %1939, i64 0, i64 %.sroa.50.0.copyload
+  %1940 = getelementptr i8, ptr %1938, i64 %spec.select3275
+  %1941 = load i8, ptr %1940, align 1
+  %1942 = add i64 %.sroa.10.12, 1
+  store i8 %1941, ptr %1935, align 1
+  %spec.select3276 = tail call i64 @llvm.umax.i64(i64 %1942, i64 %.sroa.35.12)
   br label %dict_put.exit.thread
 
 dict_put.exit3125:                                ; preds = %dict_get.exit3124
   store i32 50, ptr %60, align 8
-  br label %2628
+  br label %2627
 
-1944:                                             ; preds = %1917
-  %1945 = sub i32 %.sroa.0.130, %1925
-  %1946 = sub nuw i32 %.sroa.498.130, %1925
-  %1947 = lshr i16 %1923, 5
-  %1948 = sub i16 %1923, %1947
-  store i16 %1948, ptr %1922, align 2
-  br label %2018
+1943:                                             ; preds = %1916
+  %1944 = sub i32 %.sroa.0.130, %1924
+  %1945 = sub nuw i32 %.sroa.498.130, %1924
+  %1946 = lshr i16 %1922, 5
+  %1947 = sub i16 %1922, %1946
+  store i16 %1947, ptr %1921, align 2
+  br label %2017
 
-1949:                                             ; preds = %1890
-  %1950 = sub i32 %.sroa.0.128, %1897
-  %1951 = sub nuw i32 %.sroa.498.128, %1897
-  %1952 = lshr i16 %1895, 5
-  %1953 = sub i16 %1895, %1952
-  store i16 %1953, ptr %1894, align 2
-  br label %1954
+1948:                                             ; preds = %1889
+  %1949 = sub i32 %.sroa.0.128, %1896
+  %1950 = sub nuw i32 %.sroa.498.128, %1896
+  %1951 = lshr i16 %1894, 5
+  %1952 = sub i16 %1894, %1951
+  store i16 %1952, ptr %1893, align 2
+  br label %1953
 
-1954:                                             ; preds = %.loopexit, %1949
-  %.sroa.35.58 = phi i64 [ %.sroa.35.55, %1949 ], [ %.sroa.35.0.copyload, %.loopexit ]
-  %.sroa.10.58 = phi i64 [ %.sroa.10.55, %1949 ], [ %.sroa.10.0.copyload, %.loopexit ]
-  %.583242 = phi i32 [ %.553239, %1949 ], [ %47, %.loopexit ]
-  %.582952 = phi i32 [ %.552949, %1949 ], [ %31, %.loopexit ]
-  %.582875 = phi i32 [ %.552872, %1949 ], [ %33, %.loopexit ]
-  %.582798 = phi i32 [ %.552795, %1949 ], [ %35, %.loopexit ]
-  %.682721 = phi i32 [ %.652718, %1949 ], [ %29, %.loopexit ]
-  %.572634 = phi ptr [ %.542631, %1949 ], [ %39, %.loopexit ]
-  %.752555 = phi i32 [ %.732553, %1949 ], [ %41, %.loopexit ]
-  %.632461 = phi i32 [ %.602458, %1949 ], [ %43, %.loopexit ]
-  %.692379 = phi i32 [ %.662376, %1949 ], [ %45, %.loopexit ]
-  %.582291 = phi i32 [ %.552288, %1949 ], [ %27, %.loopexit ]
-  %.132223 = phi i32 [ %.102220, %1949 ], [ %53, %.loopexit ]
-  %.116 = phi i64 [ %.112, %1949 ], [ %25, %.loopexit ]
-  %.sroa.0.132 = phi i32 [ %1950, %1949 ], [ %.sroa.0.0.copyload, %.loopexit ]
-  %.sroa.498.132 = phi i32 [ %1951, %1949 ], [ %.sroa.498.0.copyload, %.loopexit ]
-  %1955 = icmp ult i32 %.sroa.0.132, 16777216
-  br i1 %1955, label %1956, label %1967
+1953:                                             ; preds = %.loopexit, %1948
+  %.sroa.35.58 = phi i64 [ %.sroa.35.55, %1948 ], [ %.sroa.35.0.copyload, %.loopexit ]
+  %.sroa.10.58 = phi i64 [ %.sroa.10.55, %1948 ], [ %.sroa.10.0.copyload, %.loopexit ]
+  %.583242 = phi i32 [ %.553239, %1948 ], [ %47, %.loopexit ]
+  %.582952 = phi i32 [ %.552949, %1948 ], [ %31, %.loopexit ]
+  %.582875 = phi i32 [ %.552872, %1948 ], [ %33, %.loopexit ]
+  %.582798 = phi i32 [ %.552795, %1948 ], [ %35, %.loopexit ]
+  %.682721 = phi i32 [ %.652718, %1948 ], [ %29, %.loopexit ]
+  %.572634 = phi ptr [ %.542631, %1948 ], [ %39, %.loopexit ]
+  %.752555 = phi i32 [ %.732553, %1948 ], [ %41, %.loopexit ]
+  %.632461 = phi i32 [ %.602458, %1948 ], [ %43, %.loopexit ]
+  %.692379 = phi i32 [ %.662376, %1948 ], [ %45, %.loopexit ]
+  %.582291 = phi i32 [ %.552288, %1948 ], [ %27, %.loopexit ]
+  %.132223 = phi i32 [ %.102220, %1948 ], [ %53, %.loopexit ]
+  %.116 = phi i64 [ %.112, %1948 ], [ %25, %.loopexit ]
+  %.sroa.0.132 = phi i32 [ %1949, %1948 ], [ %.sroa.0.0.copyload, %.loopexit ]
+  %.sroa.498.132 = phi i32 [ %1950, %1948 ], [ %.sroa.498.0.copyload, %.loopexit ]
+  %1954 = icmp ult i32 %.sroa.0.132, 16777216
+  br i1 %1954, label %1955, label %1966
 
-1956:                                             ; preds = %1954
-  %1957 = icmp eq i64 %.116, %4
-  br i1 %1957, label %1958, label %1959
+1955:                                             ; preds = %1953
+  %1956 = icmp eq i64 %.116, %4
+  br i1 %1956, label %1957, label %1958
 
-1958:                                             ; preds = %1956
+1957:                                             ; preds = %1955
   store i32 52, ptr %60, align 8
-  br label %2628
+  br label %2627
 
-1959:                                             ; preds = %1956
-  %1960 = shl nuw i32 %.sroa.0.132, 8
-  %1961 = shl i32 %.sroa.498.132, 8
-  %1962 = add i64 %.116, 1
-  %1963 = getelementptr inbounds i8, ptr %2, i64 %.116
-  %1964 = load i8, ptr %1963, align 1
-  %1965 = zext i8 %1964 to i32
-  %1966 = or disjoint i32 %1961, %1965
-  br label %1967
+1958:                                             ; preds = %1955
+  %1959 = shl nuw i32 %.sroa.0.132, 8
+  %1960 = shl i32 %.sroa.498.132, 8
+  %1961 = add i64 %.116, 1
+  %1962 = getelementptr inbounds i8, ptr %2, i64 %.116
+  %1963 = load i8, ptr %1962, align 1
+  %1964 = zext i8 %1963 to i32
+  %1965 = or disjoint i32 %1960, %1964
+  br label %1966
 
-1967:                                             ; preds = %1954, %1959
-  %.117 = phi i64 [ %1962, %1959 ], [ %.116, %1954 ]
-  %.sroa.0.133 = phi i32 [ %1960, %1959 ], [ %.sroa.0.132, %1954 ]
-  %.sroa.498.133 = phi i32 [ %1966, %1959 ], [ %.sroa.498.132, %1954 ]
-  %1968 = lshr i32 %.sroa.0.133, 11
-  %1969 = getelementptr inbounds i8, ptr %0, i64 25008
-  %1970 = zext i32 %.582291 to i64
-  %1971 = getelementptr inbounds [12 x i16], ptr %1969, i64 0, i64 %1970
-  %1972 = load i16, ptr %1971, align 2
-  %1973 = zext i16 %1972 to i32
-  %1974 = mul i32 %1968, %1973
-  %1975 = icmp ult i32 %.sroa.498.133, %1974
-  br i1 %1975, label %1976, label %1981
+1966:                                             ; preds = %1953, %1958
+  %.117 = phi i64 [ %1961, %1958 ], [ %.116, %1953 ]
+  %.sroa.0.133 = phi i32 [ %1959, %1958 ], [ %.sroa.0.132, %1953 ]
+  %.sroa.498.133 = phi i32 [ %1965, %1958 ], [ %.sroa.498.132, %1953 ]
+  %1967 = lshr i32 %.sroa.0.133, 11
+  %1968 = getelementptr inbounds i8, ptr %0, i64 25008
+  %1969 = zext i32 %.582291 to i64
+  %1970 = getelementptr inbounds [12 x i16], ptr %1968, i64 0, i64 %1969
+  %1971 = load i16, ptr %1970, align 2
+  %1972 = zext i16 %1971 to i32
+  %1973 = mul i32 %1967, %1972
+  %1974 = icmp ult i32 %.sroa.498.133, %1973
+  br i1 %1974, label %1975, label %1980
 
-1976:                                             ; preds = %1967
-  %1977 = sub nsw i32 2048, %1973
-  %1978 = lshr i32 %1977, 5
-  %1979 = trunc i32 %1978 to i16
-  %1980 = add i16 %1972, %1979
-  store i16 %1980, ptr %1971, align 2
-  br label %2018
+1975:                                             ; preds = %1966
+  %1976 = sub nsw i32 2048, %1972
+  %1977 = lshr i32 %1976, 5
+  %1978 = trunc i32 %1977 to i16
+  %1979 = add i16 %1971, %1978
+  store i16 %1979, ptr %1970, align 2
+  br label %2017
 
-1981:                                             ; preds = %1967
-  %1982 = sub i32 %.sroa.0.133, %1974
-  %1983 = sub nuw i32 %.sroa.498.133, %1974
-  %1984 = lshr i16 %1972, 5
-  %1985 = sub i16 %1972, %1984
-  store i16 %1985, ptr %1971, align 2
-  br label %1986
+1980:                                             ; preds = %1966
+  %1981 = sub i32 %.sroa.0.133, %1973
+  %1982 = sub nuw i32 %.sroa.498.133, %1973
+  %1983 = lshr i16 %1971, 5
+  %1984 = sub i16 %1971, %1983
+  store i16 %1984, ptr %1970, align 2
+  br label %1985
 
-1986:                                             ; preds = %.loopexit, %1981
-  %.sroa.35.59 = phi i64 [ %.sroa.35.58, %1981 ], [ %.sroa.35.0.copyload, %.loopexit ]
-  %.sroa.10.59 = phi i64 [ %.sroa.10.58, %1981 ], [ %.sroa.10.0.copyload, %.loopexit ]
-  %.593243 = phi i32 [ %.583242, %1981 ], [ %47, %.loopexit ]
-  %.592953 = phi i32 [ %.582952, %1981 ], [ %31, %.loopexit ]
-  %.592876 = phi i32 [ %.582875, %1981 ], [ %33, %.loopexit ]
-  %.592799 = phi i32 [ %.582798, %1981 ], [ %35, %.loopexit ]
-  %.692722 = phi i32 [ %.682721, %1981 ], [ %29, %.loopexit ]
-  %.582635 = phi ptr [ %.572634, %1981 ], [ %39, %.loopexit ]
-  %.762556 = phi i32 [ %.752555, %1981 ], [ %41, %.loopexit ]
-  %.642462 = phi i32 [ %.632461, %1981 ], [ %43, %.loopexit ]
-  %.702380 = phi i32 [ %.692379, %1981 ], [ %45, %.loopexit ]
-  %.592292 = phi i32 [ %.582291, %1981 ], [ %27, %.loopexit ]
-  %.142224 = phi i32 [ %.132223, %1981 ], [ %53, %.loopexit ]
-  %.118 = phi i64 [ %.117, %1981 ], [ %25, %.loopexit ]
-  %.sroa.0.134 = phi i32 [ %1982, %1981 ], [ %.sroa.0.0.copyload, %.loopexit ]
-  %.sroa.498.134 = phi i32 [ %1983, %1981 ], [ %.sroa.498.0.copyload, %.loopexit ]
-  %1987 = icmp ult i32 %.sroa.0.134, 16777216
-  br i1 %1987, label %1988, label %1999
+1985:                                             ; preds = %.loopexit, %1980
+  %.sroa.35.59 = phi i64 [ %.sroa.35.58, %1980 ], [ %.sroa.35.0.copyload, %.loopexit ]
+  %.sroa.10.59 = phi i64 [ %.sroa.10.58, %1980 ], [ %.sroa.10.0.copyload, %.loopexit ]
+  %.593243 = phi i32 [ %.583242, %1980 ], [ %47, %.loopexit ]
+  %.592953 = phi i32 [ %.582952, %1980 ], [ %31, %.loopexit ]
+  %.592876 = phi i32 [ %.582875, %1980 ], [ %33, %.loopexit ]
+  %.592799 = phi i32 [ %.582798, %1980 ], [ %35, %.loopexit ]
+  %.692722 = phi i32 [ %.682721, %1980 ], [ %29, %.loopexit ]
+  %.582635 = phi ptr [ %.572634, %1980 ], [ %39, %.loopexit ]
+  %.762556 = phi i32 [ %.752555, %1980 ], [ %41, %.loopexit ]
+  %.642462 = phi i32 [ %.632461, %1980 ], [ %43, %.loopexit ]
+  %.702380 = phi i32 [ %.692379, %1980 ], [ %45, %.loopexit ]
+  %.592292 = phi i32 [ %.582291, %1980 ], [ %27, %.loopexit ]
+  %.142224 = phi i32 [ %.132223, %1980 ], [ %53, %.loopexit ]
+  %.118 = phi i64 [ %.117, %1980 ], [ %25, %.loopexit ]
+  %.sroa.0.134 = phi i32 [ %1981, %1980 ], [ %.sroa.0.0.copyload, %.loopexit ]
+  %.sroa.498.134 = phi i32 [ %1982, %1980 ], [ %.sroa.498.0.copyload, %.loopexit ]
+  %1986 = icmp ult i32 %.sroa.0.134, 16777216
+  br i1 %1986, label %1987, label %1998
 
-1988:                                             ; preds = %1986
-  %1989 = icmp eq i64 %.118, %4
-  br i1 %1989, label %1990, label %1991
+1987:                                             ; preds = %1985
+  %1988 = icmp eq i64 %.118, %4
+  br i1 %1988, label %1989, label %1990
 
-1990:                                             ; preds = %1988
+1989:                                             ; preds = %1987
   store i32 53, ptr %60, align 8
-  br label %2628
+  br label %2627
 
-1991:                                             ; preds = %1988
-  %1992 = shl nuw i32 %.sroa.0.134, 8
-  %1993 = shl i32 %.sroa.498.134, 8
-  %1994 = add i64 %.118, 1
-  %1995 = getelementptr inbounds i8, ptr %2, i64 %.118
-  %1996 = load i8, ptr %1995, align 1
-  %1997 = zext i8 %1996 to i32
-  %1998 = or disjoint i32 %1993, %1997
-  br label %1999
+1990:                                             ; preds = %1987
+  %1991 = shl nuw i32 %.sroa.0.134, 8
+  %1992 = shl i32 %.sroa.498.134, 8
+  %1993 = add i64 %.118, 1
+  %1994 = getelementptr inbounds i8, ptr %2, i64 %.118
+  %1995 = load i8, ptr %1994, align 1
+  %1996 = zext i8 %1995 to i32
+  %1997 = or disjoint i32 %1992, %1996
+  br label %1998
 
-1999:                                             ; preds = %1986, %1991
-  %.119 = phi i64 [ %1994, %1991 ], [ %.118, %1986 ]
-  %.sroa.0.135 = phi i32 [ %1992, %1991 ], [ %.sroa.0.134, %1986 ]
-  %.sroa.498.135 = phi i32 [ %1998, %1991 ], [ %.sroa.498.134, %1986 ]
-  %2000 = lshr i32 %.sroa.0.135, 11
-  %2001 = getelementptr inbounds i8, ptr %0, i64 25032
-  %2002 = zext i32 %.592292 to i64
-  %2003 = getelementptr inbounds [12 x i16], ptr %2001, i64 0, i64 %2002
-  %2004 = load i16, ptr %2003, align 2
-  %2005 = zext i16 %2004 to i32
-  %2006 = mul i32 %2000, %2005
-  %2007 = icmp ult i32 %.sroa.498.135, %2006
-  br i1 %2007, label %2008, label %2013
+1998:                                             ; preds = %1985, %1990
+  %.119 = phi i64 [ %1993, %1990 ], [ %.118, %1985 ]
+  %.sroa.0.135 = phi i32 [ %1991, %1990 ], [ %.sroa.0.134, %1985 ]
+  %.sroa.498.135 = phi i32 [ %1997, %1990 ], [ %.sroa.498.134, %1985 ]
+  %1999 = lshr i32 %.sroa.0.135, 11
+  %2000 = getelementptr inbounds i8, ptr %0, i64 25032
+  %2001 = zext i32 %.592292 to i64
+  %2002 = getelementptr inbounds [12 x i16], ptr %2000, i64 0, i64 %2001
+  %2003 = load i16, ptr %2002, align 2
+  %2004 = zext i16 %2003 to i32
+  %2005 = mul i32 %1999, %2004
+  %2006 = icmp ult i32 %.sroa.498.135, %2005
+  br i1 %2006, label %2007, label %2012
 
-2008:                                             ; preds = %1999
-  %2009 = sub nsw i32 2048, %2005
-  %2010 = lshr i32 %2009, 5
-  %2011 = trunc i32 %2010 to i16
-  %2012 = add i16 %2004, %2011
-  store i16 %2012, ptr %2003, align 2
-  br label %2018
+2007:                                             ; preds = %1998
+  %2008 = sub nsw i32 2048, %2004
+  %2009 = lshr i32 %2008, 5
+  %2010 = trunc i32 %2009 to i16
+  %2011 = add i16 %2003, %2010
+  store i16 %2011, ptr %2002, align 2
+  br label %2017
 
-2013:                                             ; preds = %1999
-  %2014 = sub i32 %.sroa.0.135, %2006
-  %2015 = sub nuw i32 %.sroa.498.135, %2006
-  %2016 = lshr i16 %2004, 5
-  %2017 = sub i16 %2004, %2016
-  store i16 %2017, ptr %2003, align 2
-  br label %2018
+2012:                                             ; preds = %1998
+  %2013 = sub i32 %.sroa.0.135, %2005
+  %2014 = sub nuw i32 %.sroa.498.135, %2005
+  %2015 = lshr i16 %2003, 5
+  %2016 = sub i16 %2003, %2015
+  store i16 %2016, ptr %2002, align 2
+  br label %2017
 
-2018:                                             ; preds = %1976, %2013, %2008, %1944
-  %.sroa.35.57 = phi i64 [ %.sroa.35.56, %1944 ], [ %.sroa.35.58, %1976 ], [ %.sroa.35.59, %2008 ], [ %.sroa.35.59, %2013 ]
-  %.sroa.10.57 = phi i64 [ %.sroa.10.56, %1944 ], [ %.sroa.10.58, %1976 ], [ %.sroa.10.59, %2008 ], [ %.sroa.10.59, %2013 ]
-  %.573241 = phi i32 [ %.563240, %1944 ], [ %.583242, %1976 ], [ %.593243, %2008 ], [ %.593243, %2013 ]
-  %.572951 = phi i32 [ %.562950, %1944 ], [ %.682721, %1976 ], [ %.692722, %2008 ], [ %.692722, %2013 ]
-  %.572874 = phi i32 [ %.562873, %1944 ], [ %.582875, %1976 ], [ %.592953, %2008 ], [ %.592953, %2013 ]
-  %.572797 = phi i32 [ %.562796, %1944 ], [ %.582798, %1976 ], [ %.592799, %2008 ], [ %.592876, %2013 ]
-  %.672720 = phi i32 [ %.662719, %1944 ], [ %.582952, %1976 ], [ %.592876, %2008 ], [ %.592799, %2013 ]
-  %.562633 = phi ptr [ %.552632, %1944 ], [ %.572634, %1976 ], [ %.582635, %2008 ], [ %.582635, %2013 ]
-  %.622460 = phi i32 [ %.612459, %1944 ], [ %.632461, %1976 ], [ %.642462, %2008 ], [ %.642462, %2013 ]
-  %.682378 = phi i32 [ %.672377, %1944 ], [ %.692379, %1976 ], [ %.702380, %2008 ], [ %.702380, %2013 ]
-  %.572290 = phi i32 [ %.562289, %1944 ], [ %.582291, %1976 ], [ %.592292, %2008 ], [ %.592292, %2013 ]
-  %.122222 = phi i32 [ %.112221, %1944 ], [ %.132223, %1976 ], [ %.142224, %2008 ], [ %.142224, %2013 ]
-  %.115 = phi i64 [ %.114, %1944 ], [ %.117, %1976 ], [ %.119, %2008 ], [ %.119, %2013 ]
-  %.sroa.0.131 = phi i32 [ %1945, %1944 ], [ %1974, %1976 ], [ %2006, %2008 ], [ %2014, %2013 ]
-  %.sroa.498.131 = phi i32 [ %1946, %1944 ], [ %.sroa.498.133, %1976 ], [ %.sroa.498.135, %2008 ], [ %2015, %2013 ]
-  %2019 = icmp ult i32 %.572290, 7
-  %2020 = select i1 %2019, i32 8, i32 11
-  br label %2021
+2017:                                             ; preds = %1975, %2012, %2007, %1943
+  %.sroa.35.57 = phi i64 [ %.sroa.35.56, %1943 ], [ %.sroa.35.58, %1975 ], [ %.sroa.35.59, %2007 ], [ %.sroa.35.59, %2012 ]
+  %.sroa.10.57 = phi i64 [ %.sroa.10.56, %1943 ], [ %.sroa.10.58, %1975 ], [ %.sroa.10.59, %2007 ], [ %.sroa.10.59, %2012 ]
+  %.573241 = phi i32 [ %.563240, %1943 ], [ %.583242, %1975 ], [ %.593243, %2007 ], [ %.593243, %2012 ]
+  %.572951 = phi i32 [ %.562950, %1943 ], [ %.682721, %1975 ], [ %.692722, %2007 ], [ %.692722, %2012 ]
+  %.572874 = phi i32 [ %.562873, %1943 ], [ %.582875, %1975 ], [ %.592953, %2007 ], [ %.592953, %2012 ]
+  %.572797 = phi i32 [ %.562796, %1943 ], [ %.582798, %1975 ], [ %.592799, %2007 ], [ %.592876, %2012 ]
+  %.672720 = phi i32 [ %.662719, %1943 ], [ %.582952, %1975 ], [ %.592876, %2007 ], [ %.592799, %2012 ]
+  %.562633 = phi ptr [ %.552632, %1943 ], [ %.572634, %1975 ], [ %.582635, %2007 ], [ %.582635, %2012 ]
+  %.622460 = phi i32 [ %.612459, %1943 ], [ %.632461, %1975 ], [ %.642462, %2007 ], [ %.642462, %2012 ]
+  %.682378 = phi i32 [ %.672377, %1943 ], [ %.692379, %1975 ], [ %.702380, %2007 ], [ %.702380, %2012 ]
+  %.572290 = phi i32 [ %.562289, %1943 ], [ %.582291, %1975 ], [ %.592292, %2007 ], [ %.592292, %2012 ]
+  %.122222 = phi i32 [ %.112221, %1943 ], [ %.132223, %1975 ], [ %.142224, %2007 ], [ %.142224, %2012 ]
+  %.115 = phi i64 [ %.114, %1943 ], [ %.117, %1975 ], [ %.119, %2007 ], [ %.119, %2012 ]
+  %.sroa.0.131 = phi i32 [ %1944, %1943 ], [ %1973, %1975 ], [ %2005, %2007 ], [ %2013, %2012 ]
+  %.sroa.498.131 = phi i32 [ %1945, %1943 ], [ %.sroa.498.133, %1975 ], [ %.sroa.498.135, %2007 ], [ %2014, %2012 ]
+  %2018 = icmp ult i32 %.572290, 7
+  %2019 = select i1 %2018, i32 8, i32 11
+  br label %2020
 
-2021:                                             ; preds = %.loopexit, %2018
-  %.sroa.35.60 = phi i64 [ %.sroa.35.57, %2018 ], [ %.sroa.35.0.copyload, %.loopexit ]
-  %.sroa.10.60 = phi i64 [ %.sroa.10.57, %2018 ], [ %.sroa.10.0.copyload, %.loopexit ]
-  %.603244 = phi i32 [ %.573241, %2018 ], [ %47, %.loopexit ]
-  %.602954 = phi i32 [ %.572951, %2018 ], [ %31, %.loopexit ]
-  %.602877 = phi i32 [ %.572874, %2018 ], [ %33, %.loopexit ]
-  %.602800 = phi i32 [ %.572797, %2018 ], [ %35, %.loopexit ]
-  %.702723 = phi i32 [ %.672720, %2018 ], [ %29, %.loopexit ]
-  %.592636 = phi ptr [ %.562633, %2018 ], [ %39, %.loopexit ]
-  %.772557 = phi i32 [ 1, %2018 ], [ %41, %.loopexit ]
-  %.652463 = phi i32 [ %.622460, %2018 ], [ %43, %.loopexit ]
-  %.712381 = phi i32 [ %.682378, %2018 ], [ %45, %.loopexit ]
-  %.602293 = phi i32 [ %2020, %2018 ], [ %27, %.loopexit ]
-  %.152225 = phi i32 [ %.122222, %2018 ], [ %53, %.loopexit ]
-  %.120 = phi i64 [ %.115, %2018 ], [ %25, %.loopexit ]
-  %.sroa.0.136 = phi i32 [ %.sroa.0.131, %2018 ], [ %.sroa.0.0.copyload, %.loopexit ]
-  %.sroa.498.136 = phi i32 [ %.sroa.498.131, %2018 ], [ %.sroa.498.0.copyload, %.loopexit ]
-  %2022 = icmp ult i32 %.sroa.0.136, 16777216
-  br i1 %2022, label %2023, label %2034
+2020:                                             ; preds = %.loopexit, %2017
+  %.sroa.35.60 = phi i64 [ %.sroa.35.57, %2017 ], [ %.sroa.35.0.copyload, %.loopexit ]
+  %.sroa.10.60 = phi i64 [ %.sroa.10.57, %2017 ], [ %.sroa.10.0.copyload, %.loopexit ]
+  %.603244 = phi i32 [ %.573241, %2017 ], [ %47, %.loopexit ]
+  %.602954 = phi i32 [ %.572951, %2017 ], [ %31, %.loopexit ]
+  %.602877 = phi i32 [ %.572874, %2017 ], [ %33, %.loopexit ]
+  %.602800 = phi i32 [ %.572797, %2017 ], [ %35, %.loopexit ]
+  %.702723 = phi i32 [ %.672720, %2017 ], [ %29, %.loopexit ]
+  %.592636 = phi ptr [ %.562633, %2017 ], [ %39, %.loopexit ]
+  %.772557 = phi i32 [ 1, %2017 ], [ %41, %.loopexit ]
+  %.652463 = phi i32 [ %.622460, %2017 ], [ %43, %.loopexit ]
+  %.712381 = phi i32 [ %.682378, %2017 ], [ %45, %.loopexit ]
+  %.602293 = phi i32 [ %2019, %2017 ], [ %27, %.loopexit ]
+  %.152225 = phi i32 [ %.122222, %2017 ], [ %53, %.loopexit ]
+  %.120 = phi i64 [ %.115, %2017 ], [ %25, %.loopexit ]
+  %.sroa.0.136 = phi i32 [ %.sroa.0.131, %2017 ], [ %.sroa.0.0.copyload, %.loopexit ]
+  %.sroa.498.136 = phi i32 [ %.sroa.498.131, %2017 ], [ %.sroa.498.0.copyload, %.loopexit ]
+  %2021 = icmp ult i32 %.sroa.0.136, 16777216
+  br i1 %2021, label %2022, label %2033
 
-2023:                                             ; preds = %2021
-  %2024 = icmp eq i64 %.120, %4
-  br i1 %2024, label %2025, label %2026
+2022:                                             ; preds = %2020
+  %2023 = icmp eq i64 %.120, %4
+  br i1 %2023, label %2024, label %2025
 
-2025:                                             ; preds = %2023
+2024:                                             ; preds = %2022
   store i32 54, ptr %60, align 8
-  br label %2628
+  br label %2627
 
-2026:                                             ; preds = %2023
-  %2027 = shl nuw i32 %.sroa.0.136, 8
-  %2028 = shl i32 %.sroa.498.136, 8
-  %2029 = add i64 %.120, 1
-  %2030 = getelementptr inbounds i8, ptr %2, i64 %.120
-  %2031 = load i8, ptr %2030, align 1
-  %2032 = zext i8 %2031 to i32
-  %2033 = or disjoint i32 %2028, %2032
-  br label %2034
+2025:                                             ; preds = %2022
+  %2026 = shl nuw i32 %.sroa.0.136, 8
+  %2027 = shl i32 %.sroa.498.136, 8
+  %2028 = add i64 %.120, 1
+  %2029 = getelementptr inbounds i8, ptr %2, i64 %.120
+  %2030 = load i8, ptr %2029, align 1
+  %2031 = zext i8 %2030 to i32
+  %2032 = or disjoint i32 %2027, %2031
+  br label %2033
 
-2034:                                             ; preds = %2021, %2026
-  %.121 = phi i64 [ %2029, %2026 ], [ %.120, %2021 ]
-  %.sroa.0.137 = phi i32 [ %2027, %2026 ], [ %.sroa.0.136, %2021 ]
-  %.sroa.498.137 = phi i32 [ %2033, %2026 ], [ %.sroa.498.136, %2021 ]
-  %2035 = lshr i32 %.sroa.0.137, 11
-  %2036 = getelementptr inbounds i8, ptr %0, i64 27240
-  %2037 = load i16, ptr %2036, align 8
-  %2038 = zext i16 %2037 to i32
-  %2039 = mul i32 %2035, %2038
-  %2040 = icmp ult i32 %.sroa.498.137, %2039
-  br i1 %2040, label %2041, label %2153
+2033:                                             ; preds = %2020, %2025
+  %.121 = phi i64 [ %2028, %2025 ], [ %.120, %2020 ]
+  %.sroa.0.137 = phi i32 [ %2026, %2025 ], [ %.sroa.0.136, %2020 ]
+  %.sroa.498.137 = phi i32 [ %2032, %2025 ], [ %.sroa.498.136, %2020 ]
+  %2034 = lshr i32 %.sroa.0.137, 11
+  %2035 = getelementptr inbounds i8, ptr %0, i64 27240
+  %2036 = load i16, ptr %2035, align 8
+  %2037 = zext i16 %2036 to i32
+  %2038 = mul i32 %2034, %2037
+  %2039 = icmp ult i32 %.sroa.498.137, %2038
+  br i1 %2039, label %2040, label %2152
 
-2041:                                             ; preds = %2034
-  %2042 = sub nsw i32 2048, %2038
-  %2043 = lshr i32 %2042, 5
-  %2044 = trunc i32 %2043 to i16
-  %2045 = add i16 %2037, %2044
-  store i16 %2045, ptr %2036, align 8
-  br label %2046
+2040:                                             ; preds = %2033
+  %2041 = sub nsw i32 2048, %2037
+  %2042 = lshr i32 %2041, 5
+  %2043 = trunc i32 %2042 to i16
+  %2044 = add i16 %2036, %2043
+  store i16 %2044, ptr %2035, align 8
+  br label %2045
 
-2046:                                             ; preds = %2041, %.loopexit
-  %.sroa.35.61 = phi i64 [ %.sroa.35.60, %2041 ], [ %.sroa.35.0.copyload, %.loopexit ]
-  %.sroa.10.61 = phi i64 [ %.sroa.10.60, %2041 ], [ %.sroa.10.0.copyload, %.loopexit ]
-  %.613245 = phi i32 [ %.603244, %2041 ], [ %47, %.loopexit ]
-  %.612955 = phi i32 [ %.602954, %2041 ], [ %31, %.loopexit ]
-  %.612878 = phi i32 [ %.602877, %2041 ], [ %33, %.loopexit ]
-  %.612801 = phi i32 [ %.602800, %2041 ], [ %35, %.loopexit ]
-  %.712724 = phi i32 [ %.702723, %2041 ], [ %29, %.loopexit ]
-  %.602637 = phi ptr [ %.592636, %2041 ], [ %39, %.loopexit ]
-  %.782558 = phi i32 [ %.772557, %2041 ], [ %41, %.loopexit ]
-  %.662464 = phi i32 [ %.652463, %2041 ], [ %43, %.loopexit ]
-  %.722382 = phi i32 [ %.712381, %2041 ], [ %45, %.loopexit ]
-  %.612294 = phi i32 [ %.602293, %2041 ], [ %27, %.loopexit ]
-  %.162226 = phi i32 [ %.152225, %2041 ], [ %53, %.loopexit ]
-  %.122 = phi i64 [ %.121, %2041 ], [ %25, %.loopexit ]
-  %.sroa.0.138 = phi i32 [ %2039, %2041 ], [ %.sroa.0.0.copyload, %.loopexit ]
-  %.sroa.498.138 = phi i32 [ %.sroa.498.137, %2041 ], [ %.sroa.498.0.copyload, %.loopexit ]
-  %2047 = icmp ult i32 %.sroa.0.138, 16777216
-  br i1 %2047, label %2048, label %2059
+2045:                                             ; preds = %2040, %.loopexit
+  %.sroa.35.61 = phi i64 [ %.sroa.35.60, %2040 ], [ %.sroa.35.0.copyload, %.loopexit ]
+  %.sroa.10.61 = phi i64 [ %.sroa.10.60, %2040 ], [ %.sroa.10.0.copyload, %.loopexit ]
+  %.613245 = phi i32 [ %.603244, %2040 ], [ %47, %.loopexit ]
+  %.612955 = phi i32 [ %.602954, %2040 ], [ %31, %.loopexit ]
+  %.612878 = phi i32 [ %.602877, %2040 ], [ %33, %.loopexit ]
+  %.612801 = phi i32 [ %.602800, %2040 ], [ %35, %.loopexit ]
+  %.712724 = phi i32 [ %.702723, %2040 ], [ %29, %.loopexit ]
+  %.602637 = phi ptr [ %.592636, %2040 ], [ %39, %.loopexit ]
+  %.782558 = phi i32 [ %.772557, %2040 ], [ %41, %.loopexit ]
+  %.662464 = phi i32 [ %.652463, %2040 ], [ %43, %.loopexit ]
+  %.722382 = phi i32 [ %.712381, %2040 ], [ %45, %.loopexit ]
+  %.612294 = phi i32 [ %.602293, %2040 ], [ %27, %.loopexit ]
+  %.162226 = phi i32 [ %.152225, %2040 ], [ %53, %.loopexit ]
+  %.122 = phi i64 [ %.121, %2040 ], [ %25, %.loopexit ]
+  %.sroa.0.138 = phi i32 [ %2038, %2040 ], [ %.sroa.0.0.copyload, %.loopexit ]
+  %.sroa.498.138 = phi i32 [ %.sroa.498.137, %2040 ], [ %.sroa.498.0.copyload, %.loopexit ]
+  %2046 = icmp ult i32 %.sroa.0.138, 16777216
+  br i1 %2046, label %2047, label %2058
 
-2048:                                             ; preds = %2046
-  %2049 = icmp eq i64 %.122, %4
-  br i1 %2049, label %2050, label %2051
+2047:                                             ; preds = %2045
+  %2048 = icmp eq i64 %.122, %4
+  br i1 %2048, label %2049, label %2050
 
-2050:                                             ; preds = %2048
+2049:                                             ; preds = %2047
   store i32 55, ptr %60, align 8
-  br label %2628
+  br label %2627
 
-2051:                                             ; preds = %2048
-  %2052 = shl nuw i32 %.sroa.0.138, 8
-  %2053 = shl i32 %.sroa.498.138, 8
-  %2054 = add i64 %.122, 1
-  %2055 = getelementptr inbounds i8, ptr %2, i64 %.122
-  %2056 = load i8, ptr %2055, align 1
-  %2057 = zext i8 %2056 to i32
-  %2058 = or disjoint i32 %2053, %2057
-  br label %2059
+2050:                                             ; preds = %2047
+  %2051 = shl nuw i32 %.sroa.0.138, 8
+  %2052 = shl i32 %.sroa.498.138, 8
+  %2053 = add i64 %.122, 1
+  %2054 = getelementptr inbounds i8, ptr %2, i64 %.122
+  %2055 = load i8, ptr %2054, align 1
+  %2056 = zext i8 %2055 to i32
+  %2057 = or disjoint i32 %2052, %2056
+  br label %2058
 
-2059:                                             ; preds = %2046, %2051
-  %.123 = phi i64 [ %2054, %2051 ], [ %.122, %2046 ]
-  %.sroa.0.139 = phi i32 [ %2052, %2051 ], [ %.sroa.0.138, %2046 ]
-  %.sroa.498.139 = phi i32 [ %2058, %2051 ], [ %.sroa.498.138, %2046 ]
-  %2060 = lshr i32 %.sroa.0.139, 11
-  %2061 = getelementptr inbounds i8, ptr %0, i64 27244
-  %2062 = zext i32 %.162226 to i64
-  %2063 = zext i32 %.782558 to i64
-  %2064 = getelementptr inbounds [16 x [8 x i16]], ptr %2061, i64 0, i64 %2062, i64 %2063
-  %2065 = load i16, ptr %2064, align 2
-  %2066 = zext i16 %2065 to i32
-  %2067 = mul i32 %2060, %2066
-  %2068 = icmp ult i32 %.sroa.498.139, %2067
-  %2069 = shl i32 %.782558, 1
-  br i1 %2068, label %2070, label %2075
+2058:                                             ; preds = %2045, %2050
+  %.123 = phi i64 [ %2053, %2050 ], [ %.122, %2045 ]
+  %.sroa.0.139 = phi i32 [ %2051, %2050 ], [ %.sroa.0.138, %2045 ]
+  %.sroa.498.139 = phi i32 [ %2057, %2050 ], [ %.sroa.498.138, %2045 ]
+  %2059 = lshr i32 %.sroa.0.139, 11
+  %2060 = getelementptr inbounds i8, ptr %0, i64 27244
+  %2061 = zext i32 %.162226 to i64
+  %2062 = zext i32 %.782558 to i64
+  %2063 = getelementptr inbounds [16 x [8 x i16]], ptr %2060, i64 0, i64 %2061, i64 %2062
+  %2064 = load i16, ptr %2063, align 2
+  %2065 = zext i16 %2064 to i32
+  %2066 = mul i32 %2059, %2065
+  %2067 = icmp ult i32 %.sroa.498.139, %2066
+  %2068 = shl i32 %.782558, 1
+  br i1 %2067, label %2069, label %2074
 
-2070:                                             ; preds = %2059
-  %2071 = sub nsw i32 2048, %2066
-  %2072 = lshr i32 %2071, 5
-  %2073 = trunc i32 %2072 to i16
-  %2074 = add i16 %2065, %2073
-  store i16 %2074, ptr %2064, align 2
-  br label %2081
+2069:                                             ; preds = %2058
+  %2070 = sub nsw i32 2048, %2065
+  %2071 = lshr i32 %2070, 5
+  %2072 = trunc i32 %2071 to i16
+  %2073 = add i16 %2064, %2072
+  store i16 %2073, ptr %2063, align 2
+  br label %2080
 
-2075:                                             ; preds = %2059
-  %2076 = sub i32 %.sroa.0.139, %2067
-  %2077 = sub nuw i32 %.sroa.498.139, %2067
-  %2078 = lshr i16 %2065, 5
-  %2079 = sub i16 %2065, %2078
-  store i16 %2079, ptr %2064, align 2
-  %2080 = or disjoint i32 %2069, 1
-  br label %2081
+2074:                                             ; preds = %2058
+  %2075 = sub i32 %.sroa.0.139, %2066
+  %2076 = sub nuw i32 %.sroa.498.139, %2066
+  %2077 = lshr i16 %2064, 5
+  %2078 = sub i16 %2064, %2077
+  store i16 %2078, ptr %2063, align 2
+  %2079 = or disjoint i32 %2068, 1
+  br label %2080
 
-2081:                                             ; preds = %2075, %2070, %.loopexit
-  %.sroa.35.62 = phi i64 [ %.sroa.35.61, %2070 ], [ %.sroa.35.61, %2075 ], [ %.sroa.35.0.copyload, %.loopexit ]
-  %.sroa.10.62 = phi i64 [ %.sroa.10.61, %2070 ], [ %.sroa.10.61, %2075 ], [ %.sroa.10.0.copyload, %.loopexit ]
-  %.623246 = phi i32 [ %.613245, %2070 ], [ %.613245, %2075 ], [ %47, %.loopexit ]
-  %.622956 = phi i32 [ %.612955, %2070 ], [ %.612955, %2075 ], [ %31, %.loopexit ]
-  %.622879 = phi i32 [ %.612878, %2070 ], [ %.612878, %2075 ], [ %33, %.loopexit ]
-  %.622802 = phi i32 [ %.612801, %2070 ], [ %.612801, %2075 ], [ %35, %.loopexit ]
-  %.722725 = phi i32 [ %.712724, %2070 ], [ %.712724, %2075 ], [ %29, %.loopexit ]
-  %.612638 = phi ptr [ %.602637, %2070 ], [ %.602637, %2075 ], [ %39, %.loopexit ]
-  %.792559 = phi i32 [ %2069, %2070 ], [ %2080, %2075 ], [ %41, %.loopexit ]
-  %.672465 = phi i32 [ %.662464, %2070 ], [ %.662464, %2075 ], [ %43, %.loopexit ]
-  %.732383 = phi i32 [ %.722382, %2070 ], [ %.722382, %2075 ], [ %45, %.loopexit ]
-  %.622295 = phi i32 [ %.612294, %2070 ], [ %.612294, %2075 ], [ %27, %.loopexit ]
-  %.172227 = phi i32 [ %.162226, %2070 ], [ %.162226, %2075 ], [ %53, %.loopexit ]
-  %.124 = phi i64 [ %.123, %2070 ], [ %.123, %2075 ], [ %25, %.loopexit ]
-  %.sroa.0.140 = phi i32 [ %2067, %2070 ], [ %2076, %2075 ], [ %.sroa.0.0.copyload, %.loopexit ]
-  %.sroa.498.140 = phi i32 [ %.sroa.498.139, %2070 ], [ %2077, %2075 ], [ %.sroa.498.0.copyload, %.loopexit ]
-  %2082 = icmp ult i32 %.sroa.0.140, 16777216
-  br i1 %2082, label %2083, label %2094
+2080:                                             ; preds = %2074, %2069, %.loopexit
+  %.sroa.35.62 = phi i64 [ %.sroa.35.61, %2069 ], [ %.sroa.35.61, %2074 ], [ %.sroa.35.0.copyload, %.loopexit ]
+  %.sroa.10.62 = phi i64 [ %.sroa.10.61, %2069 ], [ %.sroa.10.61, %2074 ], [ %.sroa.10.0.copyload, %.loopexit ]
+  %.623246 = phi i32 [ %.613245, %2069 ], [ %.613245, %2074 ], [ %47, %.loopexit ]
+  %.622956 = phi i32 [ %.612955, %2069 ], [ %.612955, %2074 ], [ %31, %.loopexit ]
+  %.622879 = phi i32 [ %.612878, %2069 ], [ %.612878, %2074 ], [ %33, %.loopexit ]
+  %.622802 = phi i32 [ %.612801, %2069 ], [ %.612801, %2074 ], [ %35, %.loopexit ]
+  %.722725 = phi i32 [ %.712724, %2069 ], [ %.712724, %2074 ], [ %29, %.loopexit ]
+  %.612638 = phi ptr [ %.602637, %2069 ], [ %.602637, %2074 ], [ %39, %.loopexit ]
+  %.792559 = phi i32 [ %2068, %2069 ], [ %2079, %2074 ], [ %41, %.loopexit ]
+  %.672465 = phi i32 [ %.662464, %2069 ], [ %.662464, %2074 ], [ %43, %.loopexit ]
+  %.732383 = phi i32 [ %.722382, %2069 ], [ %.722382, %2074 ], [ %45, %.loopexit ]
+  %.622295 = phi i32 [ %.612294, %2069 ], [ %.612294, %2074 ], [ %27, %.loopexit ]
+  %.172227 = phi i32 [ %.162226, %2069 ], [ %.162226, %2074 ], [ %53, %.loopexit ]
+  %.124 = phi i64 [ %.123, %2069 ], [ %.123, %2074 ], [ %25, %.loopexit ]
+  %.sroa.0.140 = phi i32 [ %2066, %2069 ], [ %2075, %2074 ], [ %.sroa.0.0.copyload, %.loopexit ]
+  %.sroa.498.140 = phi i32 [ %.sroa.498.139, %2069 ], [ %2076, %2074 ], [ %.sroa.498.0.copyload, %.loopexit ]
+  %2081 = icmp ult i32 %.sroa.0.140, 16777216
+  br i1 %2081, label %2082, label %2093
 
-2083:                                             ; preds = %2081
-  %2084 = icmp eq i64 %.124, %4
-  br i1 %2084, label %2085, label %2086
+2082:                                             ; preds = %2080
+  %2083 = icmp eq i64 %.124, %4
+  br i1 %2083, label %2084, label %2085
 
-2085:                                             ; preds = %2083
+2084:                                             ; preds = %2082
   store i32 56, ptr %60, align 8
-  br label %2628
+  br label %2627
 
-2086:                                             ; preds = %2083
-  %2087 = shl nuw i32 %.sroa.0.140, 8
-  %2088 = shl i32 %.sroa.498.140, 8
-  %2089 = add i64 %.124, 1
-  %2090 = getelementptr inbounds i8, ptr %2, i64 %.124
-  %2091 = load i8, ptr %2090, align 1
-  %2092 = zext i8 %2091 to i32
-  %2093 = or disjoint i32 %2088, %2092
-  br label %2094
+2085:                                             ; preds = %2082
+  %2086 = shl nuw i32 %.sroa.0.140, 8
+  %2087 = shl i32 %.sroa.498.140, 8
+  %2088 = add i64 %.124, 1
+  %2089 = getelementptr inbounds i8, ptr %2, i64 %.124
+  %2090 = load i8, ptr %2089, align 1
+  %2091 = zext i8 %2090 to i32
+  %2092 = or disjoint i32 %2087, %2091
+  br label %2093
 
-2094:                                             ; preds = %2081, %2086
-  %.125 = phi i64 [ %2089, %2086 ], [ %.124, %2081 ]
-  %.sroa.0.141 = phi i32 [ %2087, %2086 ], [ %.sroa.0.140, %2081 ]
-  %.sroa.498.141 = phi i32 [ %2093, %2086 ], [ %.sroa.498.140, %2081 ]
-  %2095 = lshr i32 %.sroa.0.141, 11
-  %2096 = getelementptr inbounds i8, ptr %0, i64 27244
-  %2097 = zext i32 %.172227 to i64
-  %2098 = zext i32 %.792559 to i64
-  %2099 = getelementptr inbounds [16 x [8 x i16]], ptr %2096, i64 0, i64 %2097, i64 %2098
-  %2100 = load i16, ptr %2099, align 2
-  %2101 = zext i16 %2100 to i32
-  %2102 = mul i32 %2095, %2101
-  %2103 = icmp ult i32 %.sroa.498.141, %2102
-  %2104 = shl i32 %.792559, 1
-  br i1 %2103, label %2105, label %2110
+2093:                                             ; preds = %2080, %2085
+  %.125 = phi i64 [ %2088, %2085 ], [ %.124, %2080 ]
+  %.sroa.0.141 = phi i32 [ %2086, %2085 ], [ %.sroa.0.140, %2080 ]
+  %.sroa.498.141 = phi i32 [ %2092, %2085 ], [ %.sroa.498.140, %2080 ]
+  %2094 = lshr i32 %.sroa.0.141, 11
+  %2095 = getelementptr inbounds i8, ptr %0, i64 27244
+  %2096 = zext i32 %.172227 to i64
+  %2097 = zext i32 %.792559 to i64
+  %2098 = getelementptr inbounds [16 x [8 x i16]], ptr %2095, i64 0, i64 %2096, i64 %2097
+  %2099 = load i16, ptr %2098, align 2
+  %2100 = zext i16 %2099 to i32
+  %2101 = mul i32 %2094, %2100
+  %2102 = icmp ult i32 %.sroa.498.141, %2101
+  %2103 = shl i32 %.792559, 1
+  br i1 %2102, label %2104, label %2109
 
-2105:                                             ; preds = %2094
-  %2106 = sub nsw i32 2048, %2101
-  %2107 = lshr i32 %2106, 5
-  %2108 = trunc i32 %2107 to i16
-  %2109 = add i16 %2100, %2108
-  store i16 %2109, ptr %2099, align 2
-  br label %2116
+2104:                                             ; preds = %2093
+  %2105 = sub nsw i32 2048, %2100
+  %2106 = lshr i32 %2105, 5
+  %2107 = trunc i32 %2106 to i16
+  %2108 = add i16 %2099, %2107
+  store i16 %2108, ptr %2098, align 2
+  br label %2115
 
-2110:                                             ; preds = %2094
-  %2111 = sub i32 %.sroa.0.141, %2102
-  %2112 = sub nuw i32 %.sroa.498.141, %2102
-  %2113 = lshr i16 %2100, 5
-  %2114 = sub i16 %2100, %2113
-  store i16 %2114, ptr %2099, align 2
-  %2115 = or disjoint i32 %2104, 1
-  br label %2116
+2109:                                             ; preds = %2093
+  %2110 = sub i32 %.sroa.0.141, %2101
+  %2111 = sub nuw i32 %.sroa.498.141, %2101
+  %2112 = lshr i16 %2099, 5
+  %2113 = sub i16 %2099, %2112
+  store i16 %2113, ptr %2098, align 2
+  %2114 = or disjoint i32 %2103, 1
+  br label %2115
 
-2116:                                             ; preds = %2110, %2105, %.loopexit
-  %.sroa.35.63 = phi i64 [ %.sroa.35.62, %2105 ], [ %.sroa.35.62, %2110 ], [ %.sroa.35.0.copyload, %.loopexit ]
-  %.sroa.10.63 = phi i64 [ %.sroa.10.62, %2105 ], [ %.sroa.10.62, %2110 ], [ %.sroa.10.0.copyload, %.loopexit ]
-  %.633247 = phi i32 [ %.623246, %2105 ], [ %.623246, %2110 ], [ %47, %.loopexit ]
-  %.632957 = phi i32 [ %.622956, %2105 ], [ %.622956, %2110 ], [ %31, %.loopexit ]
-  %.632880 = phi i32 [ %.622879, %2105 ], [ %.622879, %2110 ], [ %33, %.loopexit ]
-  %.632803 = phi i32 [ %.622802, %2105 ], [ %.622802, %2110 ], [ %35, %.loopexit ]
-  %.732726 = phi i32 [ %.722725, %2105 ], [ %.722725, %2110 ], [ %29, %.loopexit ]
-  %.622639 = phi ptr [ %.612638, %2105 ], [ %.612638, %2110 ], [ %39, %.loopexit ]
-  %.802560 = phi i32 [ %2104, %2105 ], [ %2115, %2110 ], [ %41, %.loopexit ]
-  %.682466 = phi i32 [ %.672465, %2105 ], [ %.672465, %2110 ], [ %43, %.loopexit ]
-  %.742384 = phi i32 [ %.732383, %2105 ], [ %.732383, %2110 ], [ %45, %.loopexit ]
-  %.632296 = phi i32 [ %.622295, %2105 ], [ %.622295, %2110 ], [ %27, %.loopexit ]
-  %.182228 = phi i32 [ %.172227, %2105 ], [ %.172227, %2110 ], [ %53, %.loopexit ]
-  %.126 = phi i64 [ %.125, %2105 ], [ %.125, %2110 ], [ %25, %.loopexit ]
-  %.sroa.0.142 = phi i32 [ %2102, %2105 ], [ %2111, %2110 ], [ %.sroa.0.0.copyload, %.loopexit ]
-  %.sroa.498.142 = phi i32 [ %.sroa.498.141, %2105 ], [ %2112, %2110 ], [ %.sroa.498.0.copyload, %.loopexit ]
-  %2117 = icmp ult i32 %.sroa.0.142, 16777216
-  br i1 %2117, label %2118, label %2129
+2115:                                             ; preds = %2109, %2104, %.loopexit
+  %.sroa.35.63 = phi i64 [ %.sroa.35.62, %2104 ], [ %.sroa.35.62, %2109 ], [ %.sroa.35.0.copyload, %.loopexit ]
+  %.sroa.10.63 = phi i64 [ %.sroa.10.62, %2104 ], [ %.sroa.10.62, %2109 ], [ %.sroa.10.0.copyload, %.loopexit ]
+  %.633247 = phi i32 [ %.623246, %2104 ], [ %.623246, %2109 ], [ %47, %.loopexit ]
+  %.632957 = phi i32 [ %.622956, %2104 ], [ %.622956, %2109 ], [ %31, %.loopexit ]
+  %.632880 = phi i32 [ %.622879, %2104 ], [ %.622879, %2109 ], [ %33, %.loopexit ]
+  %.632803 = phi i32 [ %.622802, %2104 ], [ %.622802, %2109 ], [ %35, %.loopexit ]
+  %.732726 = phi i32 [ %.722725, %2104 ], [ %.722725, %2109 ], [ %29, %.loopexit ]
+  %.622639 = phi ptr [ %.612638, %2104 ], [ %.612638, %2109 ], [ %39, %.loopexit ]
+  %.802560 = phi i32 [ %2103, %2104 ], [ %2114, %2109 ], [ %41, %.loopexit ]
+  %.682466 = phi i32 [ %.672465, %2104 ], [ %.672465, %2109 ], [ %43, %.loopexit ]
+  %.742384 = phi i32 [ %.732383, %2104 ], [ %.732383, %2109 ], [ %45, %.loopexit ]
+  %.632296 = phi i32 [ %.622295, %2104 ], [ %.622295, %2109 ], [ %27, %.loopexit ]
+  %.182228 = phi i32 [ %.172227, %2104 ], [ %.172227, %2109 ], [ %53, %.loopexit ]
+  %.126 = phi i64 [ %.125, %2104 ], [ %.125, %2109 ], [ %25, %.loopexit ]
+  %.sroa.0.142 = phi i32 [ %2101, %2104 ], [ %2110, %2109 ], [ %.sroa.0.0.copyload, %.loopexit ]
+  %.sroa.498.142 = phi i32 [ %.sroa.498.141, %2104 ], [ %2111, %2109 ], [ %.sroa.498.0.copyload, %.loopexit ]
+  %2116 = icmp ult i32 %.sroa.0.142, 16777216
+  br i1 %2116, label %2117, label %2128
 
-2118:                                             ; preds = %2116
-  %2119 = icmp eq i64 %.126, %4
-  br i1 %2119, label %2120, label %2121
+2117:                                             ; preds = %2115
+  %2118 = icmp eq i64 %.126, %4
+  br i1 %2118, label %2119, label %2120
 
-2120:                                             ; preds = %2118
+2119:                                             ; preds = %2117
   store i32 57, ptr %60, align 8
-  br label %2628
+  br label %2627
 
-2121:                                             ; preds = %2118
-  %2122 = shl nuw i32 %.sroa.0.142, 8
-  %2123 = shl i32 %.sroa.498.142, 8
-  %2124 = add i64 %.126, 1
-  %2125 = getelementptr inbounds i8, ptr %2, i64 %.126
-  %2126 = load i8, ptr %2125, align 1
-  %2127 = zext i8 %2126 to i32
-  %2128 = or disjoint i32 %2123, %2127
-  br label %2129
+2120:                                             ; preds = %2117
+  %2121 = shl nuw i32 %.sroa.0.142, 8
+  %2122 = shl i32 %.sroa.498.142, 8
+  %2123 = add i64 %.126, 1
+  %2124 = getelementptr inbounds i8, ptr %2, i64 %.126
+  %2125 = load i8, ptr %2124, align 1
+  %2126 = zext i8 %2125 to i32
+  %2127 = or disjoint i32 %2122, %2126
+  br label %2128
 
-2129:                                             ; preds = %2116, %2121
-  %.127 = phi i64 [ %2124, %2121 ], [ %.126, %2116 ]
-  %.sroa.0.143 = phi i32 [ %2122, %2121 ], [ %.sroa.0.142, %2116 ]
-  %.sroa.498.143 = phi i32 [ %2128, %2121 ], [ %.sroa.498.142, %2116 ]
-  %2130 = lshr i32 %.sroa.0.143, 11
-  %2131 = getelementptr inbounds i8, ptr %0, i64 27244
-  %2132 = zext i32 %.182228 to i64
-  %2133 = zext i32 %.802560 to i64
-  %2134 = getelementptr inbounds [16 x [8 x i16]], ptr %2131, i64 0, i64 %2132, i64 %2133
-  %2135 = load i16, ptr %2134, align 2
-  %2136 = zext i16 %2135 to i32
-  %2137 = mul i32 %2130, %2136
-  %2138 = icmp ult i32 %.sroa.498.143, %2137
-  %2139 = shl i32 %.802560, 1
-  br i1 %2138, label %2140, label %2145
+2128:                                             ; preds = %2115, %2120
+  %.127 = phi i64 [ %2123, %2120 ], [ %.126, %2115 ]
+  %.sroa.0.143 = phi i32 [ %2121, %2120 ], [ %.sroa.0.142, %2115 ]
+  %.sroa.498.143 = phi i32 [ %2127, %2120 ], [ %.sroa.498.142, %2115 ]
+  %2129 = lshr i32 %.sroa.0.143, 11
+  %2130 = getelementptr inbounds i8, ptr %0, i64 27244
+  %2131 = zext i32 %.182228 to i64
+  %2132 = zext i32 %.802560 to i64
+  %2133 = getelementptr inbounds [16 x [8 x i16]], ptr %2130, i64 0, i64 %2131, i64 %2132
+  %2134 = load i16, ptr %2133, align 2
+  %2135 = zext i16 %2134 to i32
+  %2136 = mul i32 %2129, %2135
+  %2137 = icmp ult i32 %.sroa.498.143, %2136
+  %2138 = shl i32 %.802560, 1
+  br i1 %2137, label %2139, label %2144
 
-2140:                                             ; preds = %2129
-  %2141 = sub nsw i32 2048, %2136
-  %2142 = lshr i32 %2141, 5
-  %2143 = trunc i32 %2142 to i16
-  %2144 = add i16 %2135, %2143
-  br label %2151
+2139:                                             ; preds = %2128
+  %2140 = sub nsw i32 2048, %2135
+  %2141 = lshr i32 %2140, 5
+  %2142 = trunc i32 %2141 to i16
+  %2143 = add i16 %2134, %2142
+  br label %2150
 
-2145:                                             ; preds = %2129
-  %2146 = sub i32 %.sroa.0.143, %2137
-  %2147 = sub nuw i32 %.sroa.498.143, %2137
-  %2148 = lshr i16 %2135, 5
-  %2149 = sub i16 %2135, %2148
-  %2150 = or disjoint i32 %2139, 1
-  br label %2151
+2144:                                             ; preds = %2128
+  %2145 = sub i32 %.sroa.0.143, %2136
+  %2146 = sub nuw i32 %.sroa.498.143, %2136
+  %2147 = lshr i16 %2134, 5
+  %2148 = sub i16 %2134, %2147
+  %2149 = or disjoint i32 %2138, 1
+  br label %2150
 
-2151:                                             ; preds = %2140, %2145
-  %.sink3312 = phi i16 [ %2144, %2140 ], [ %2149, %2145 ]
-  %.812561 = phi i32 [ %2139, %2140 ], [ %2150, %2145 ]
-  %.sroa.0.144 = phi i32 [ %2137, %2140 ], [ %2146, %2145 ]
-  %.sroa.498.144 = phi i32 [ %.sroa.498.143, %2140 ], [ %2147, %2145 ]
-  store i16 %.sink3312, ptr %2134, align 2
-  %2152 = add i32 %.812561, -6
-  br label %2569
+2150:                                             ; preds = %2139, %2144
+  %.sink3312 = phi i16 [ %2143, %2139 ], [ %2148, %2144 ]
+  %.812561 = phi i32 [ %2138, %2139 ], [ %2149, %2144 ]
+  %.sroa.0.144 = phi i32 [ %2136, %2139 ], [ %2145, %2144 ]
+  %.sroa.498.144 = phi i32 [ %.sroa.498.143, %2139 ], [ %2146, %2144 ]
+  store i16 %.sink3312, ptr %2133, align 2
+  %2151 = add i32 %.812561, -6
+  br label %2568
 
-2153:                                             ; preds = %2034
-  %2154 = sub i32 %.sroa.0.137, %2039
-  %2155 = sub nuw i32 %.sroa.498.137, %2039
-  %2156 = lshr i16 %2037, 5
-  %2157 = sub i16 %2037, %2156
-  store i16 %2157, ptr %2036, align 8
-  br label %2158
+2152:                                             ; preds = %2033
+  %2153 = sub i32 %.sroa.0.137, %2038
+  %2154 = sub nuw i32 %.sroa.498.137, %2038
+  %2155 = lshr i16 %2036, 5
+  %2156 = sub i16 %2036, %2155
+  store i16 %2156, ptr %2035, align 8
+  br label %2157
 
-2158:                                             ; preds = %.loopexit, %2153
-  %.sroa.35.64 = phi i64 [ %.sroa.35.60, %2153 ], [ %.sroa.35.0.copyload, %.loopexit ]
-  %.sroa.10.64 = phi i64 [ %.sroa.10.60, %2153 ], [ %.sroa.10.0.copyload, %.loopexit ]
-  %.643248 = phi i32 [ %.603244, %2153 ], [ %47, %.loopexit ]
-  %.642958 = phi i32 [ %.602954, %2153 ], [ %31, %.loopexit ]
-  %.642881 = phi i32 [ %.602877, %2153 ], [ %33, %.loopexit ]
-  %.642804 = phi i32 [ %.602800, %2153 ], [ %35, %.loopexit ]
-  %.742727 = phi i32 [ %.702723, %2153 ], [ %29, %.loopexit ]
-  %.632640 = phi ptr [ %.592636, %2153 ], [ %39, %.loopexit ]
-  %.822562 = phi i32 [ %.772557, %2153 ], [ %41, %.loopexit ]
-  %.692467 = phi i32 [ %.652463, %2153 ], [ %43, %.loopexit ]
-  %.752385 = phi i32 [ %.712381, %2153 ], [ %45, %.loopexit ]
-  %.642297 = phi i32 [ %.602293, %2153 ], [ %27, %.loopexit ]
-  %.192229 = phi i32 [ %.152225, %2153 ], [ %53, %.loopexit ]
-  %.128 = phi i64 [ %.121, %2153 ], [ %25, %.loopexit ]
-  %.sroa.0.145 = phi i32 [ %2154, %2153 ], [ %.sroa.0.0.copyload, %.loopexit ]
-  %.sroa.498.145 = phi i32 [ %2155, %2153 ], [ %.sroa.498.0.copyload, %.loopexit ]
-  %2159 = icmp ult i32 %.sroa.0.145, 16777216
-  br i1 %2159, label %2160, label %2171
+2157:                                             ; preds = %.loopexit, %2152
+  %.sroa.35.64 = phi i64 [ %.sroa.35.60, %2152 ], [ %.sroa.35.0.copyload, %.loopexit ]
+  %.sroa.10.64 = phi i64 [ %.sroa.10.60, %2152 ], [ %.sroa.10.0.copyload, %.loopexit ]
+  %.643248 = phi i32 [ %.603244, %2152 ], [ %47, %.loopexit ]
+  %.642958 = phi i32 [ %.602954, %2152 ], [ %31, %.loopexit ]
+  %.642881 = phi i32 [ %.602877, %2152 ], [ %33, %.loopexit ]
+  %.642804 = phi i32 [ %.602800, %2152 ], [ %35, %.loopexit ]
+  %.742727 = phi i32 [ %.702723, %2152 ], [ %29, %.loopexit ]
+  %.632640 = phi ptr [ %.592636, %2152 ], [ %39, %.loopexit ]
+  %.822562 = phi i32 [ %.772557, %2152 ], [ %41, %.loopexit ]
+  %.692467 = phi i32 [ %.652463, %2152 ], [ %43, %.loopexit ]
+  %.752385 = phi i32 [ %.712381, %2152 ], [ %45, %.loopexit ]
+  %.642297 = phi i32 [ %.602293, %2152 ], [ %27, %.loopexit ]
+  %.192229 = phi i32 [ %.152225, %2152 ], [ %53, %.loopexit ]
+  %.128 = phi i64 [ %.121, %2152 ], [ %25, %.loopexit ]
+  %.sroa.0.145 = phi i32 [ %2153, %2152 ], [ %.sroa.0.0.copyload, %.loopexit ]
+  %.sroa.498.145 = phi i32 [ %2154, %2152 ], [ %.sroa.498.0.copyload, %.loopexit ]
+  %2158 = icmp ult i32 %.sroa.0.145, 16777216
+  br i1 %2158, label %2159, label %2170
 
-2160:                                             ; preds = %2158
-  %2161 = icmp eq i64 %.128, %4
-  br i1 %2161, label %2162, label %2163
+2159:                                             ; preds = %2157
+  %2160 = icmp eq i64 %.128, %4
+  br i1 %2160, label %2161, label %2162
 
-2162:                                             ; preds = %2160
+2161:                                             ; preds = %2159
   store i32 58, ptr %60, align 8
-  br label %2628
+  br label %2627
 
-2163:                                             ; preds = %2160
-  %2164 = shl nuw i32 %.sroa.0.145, 8
-  %2165 = shl i32 %.sroa.498.145, 8
-  %2166 = add i64 %.128, 1
-  %2167 = getelementptr inbounds i8, ptr %2, i64 %.128
-  %2168 = load i8, ptr %2167, align 1
-  %2169 = zext i8 %2168 to i32
-  %2170 = or disjoint i32 %2165, %2169
-  br label %2171
+2162:                                             ; preds = %2159
+  %2163 = shl nuw i32 %.sroa.0.145, 8
+  %2164 = shl i32 %.sroa.498.145, 8
+  %2165 = add i64 %.128, 1
+  %2166 = getelementptr inbounds i8, ptr %2, i64 %.128
+  %2167 = load i8, ptr %2166, align 1
+  %2168 = zext i8 %2167 to i32
+  %2169 = or disjoint i32 %2164, %2168
+  br label %2170
 
-2171:                                             ; preds = %2158, %2163
-  %.129 = phi i64 [ %2166, %2163 ], [ %.128, %2158 ]
-  %.sroa.0.146 = phi i32 [ %2164, %2163 ], [ %.sroa.0.145, %2158 ]
-  %.sroa.498.146 = phi i32 [ %2170, %2163 ], [ %.sroa.498.145, %2158 ]
-  %2172 = lshr i32 %.sroa.0.146, 11
-  %2173 = getelementptr inbounds i8, ptr %0, i64 27242
-  %2174 = load i16, ptr %2173, align 2
-  %2175 = zext i16 %2174 to i32
-  %2176 = mul i32 %2172, %2175
-  %2177 = icmp ult i32 %.sroa.498.146, %2176
-  br i1 %2177, label %2178, label %2290
+2170:                                             ; preds = %2157, %2162
+  %.129 = phi i64 [ %2165, %2162 ], [ %.128, %2157 ]
+  %.sroa.0.146 = phi i32 [ %2163, %2162 ], [ %.sroa.0.145, %2157 ]
+  %.sroa.498.146 = phi i32 [ %2169, %2162 ], [ %.sroa.498.145, %2157 ]
+  %2171 = lshr i32 %.sroa.0.146, 11
+  %2172 = getelementptr inbounds i8, ptr %0, i64 27242
+  %2173 = load i16, ptr %2172, align 2
+  %2174 = zext i16 %2173 to i32
+  %2175 = mul i32 %2171, %2174
+  %2176 = icmp ult i32 %.sroa.498.146, %2175
+  br i1 %2176, label %2177, label %2289
 
-2178:                                             ; preds = %2171
-  %2179 = sub nsw i32 2048, %2175
-  %2180 = lshr i32 %2179, 5
-  %2181 = trunc i32 %2180 to i16
-  %2182 = add i16 %2174, %2181
-  store i16 %2182, ptr %2173, align 2
-  br label %2183
+2177:                                             ; preds = %2170
+  %2178 = sub nsw i32 2048, %2174
+  %2179 = lshr i32 %2178, 5
+  %2180 = trunc i32 %2179 to i16
+  %2181 = add i16 %2173, %2180
+  store i16 %2181, ptr %2172, align 2
+  br label %2182
 
-2183:                                             ; preds = %2178, %.loopexit
-  %.sroa.35.65 = phi i64 [ %.sroa.35.64, %2178 ], [ %.sroa.35.0.copyload, %.loopexit ]
-  %.sroa.10.65 = phi i64 [ %.sroa.10.64, %2178 ], [ %.sroa.10.0.copyload, %.loopexit ]
-  %.653249 = phi i32 [ %.643248, %2178 ], [ %47, %.loopexit ]
-  %.652959 = phi i32 [ %.642958, %2178 ], [ %31, %.loopexit ]
-  %.652882 = phi i32 [ %.642881, %2178 ], [ %33, %.loopexit ]
-  %.652805 = phi i32 [ %.642804, %2178 ], [ %35, %.loopexit ]
-  %.752728 = phi i32 [ %.742727, %2178 ], [ %29, %.loopexit ]
-  %.642641 = phi ptr [ %.632640, %2178 ], [ %39, %.loopexit ]
-  %.832563 = phi i32 [ %.822562, %2178 ], [ %41, %.loopexit ]
-  %.702468 = phi i32 [ %.692467, %2178 ], [ %43, %.loopexit ]
-  %.762386 = phi i32 [ %.752385, %2178 ], [ %45, %.loopexit ]
-  %.652298 = phi i32 [ %.642297, %2178 ], [ %27, %.loopexit ]
-  %.202230 = phi i32 [ %.192229, %2178 ], [ %53, %.loopexit ]
-  %.130 = phi i64 [ %.129, %2178 ], [ %25, %.loopexit ]
-  %.sroa.0.147 = phi i32 [ %2176, %2178 ], [ %.sroa.0.0.copyload, %.loopexit ]
-  %.sroa.498.147 = phi i32 [ %.sroa.498.146, %2178 ], [ %.sroa.498.0.copyload, %.loopexit ]
-  %2184 = icmp ult i32 %.sroa.0.147, 16777216
-  br i1 %2184, label %2185, label %2196
+2182:                                             ; preds = %2177, %.loopexit
+  %.sroa.35.65 = phi i64 [ %.sroa.35.64, %2177 ], [ %.sroa.35.0.copyload, %.loopexit ]
+  %.sroa.10.65 = phi i64 [ %.sroa.10.64, %2177 ], [ %.sroa.10.0.copyload, %.loopexit ]
+  %.653249 = phi i32 [ %.643248, %2177 ], [ %47, %.loopexit ]
+  %.652959 = phi i32 [ %.642958, %2177 ], [ %31, %.loopexit ]
+  %.652882 = phi i32 [ %.642881, %2177 ], [ %33, %.loopexit ]
+  %.652805 = phi i32 [ %.642804, %2177 ], [ %35, %.loopexit ]
+  %.752728 = phi i32 [ %.742727, %2177 ], [ %29, %.loopexit ]
+  %.642641 = phi ptr [ %.632640, %2177 ], [ %39, %.loopexit ]
+  %.832563 = phi i32 [ %.822562, %2177 ], [ %41, %.loopexit ]
+  %.702468 = phi i32 [ %.692467, %2177 ], [ %43, %.loopexit ]
+  %.762386 = phi i32 [ %.752385, %2177 ], [ %45, %.loopexit ]
+  %.652298 = phi i32 [ %.642297, %2177 ], [ %27, %.loopexit ]
+  %.202230 = phi i32 [ %.192229, %2177 ], [ %53, %.loopexit ]
+  %.130 = phi i64 [ %.129, %2177 ], [ %25, %.loopexit ]
+  %.sroa.0.147 = phi i32 [ %2175, %2177 ], [ %.sroa.0.0.copyload, %.loopexit ]
+  %.sroa.498.147 = phi i32 [ %.sroa.498.146, %2177 ], [ %.sroa.498.0.copyload, %.loopexit ]
+  %2183 = icmp ult i32 %.sroa.0.147, 16777216
+  br i1 %2183, label %2184, label %2195
 
-2185:                                             ; preds = %2183
-  %2186 = icmp eq i64 %.130, %4
-  br i1 %2186, label %2187, label %2188
+2184:                                             ; preds = %2182
+  %2185 = icmp eq i64 %.130, %4
+  br i1 %2185, label %2186, label %2187
 
-2187:                                             ; preds = %2185
+2186:                                             ; preds = %2184
   store i32 59, ptr %60, align 8
-  br label %2628
+  br label %2627
 
-2188:                                             ; preds = %2185
-  %2189 = shl nuw i32 %.sroa.0.147, 8
-  %2190 = shl i32 %.sroa.498.147, 8
-  %2191 = add i64 %.130, 1
-  %2192 = getelementptr inbounds i8, ptr %2, i64 %.130
-  %2193 = load i8, ptr %2192, align 1
-  %2194 = zext i8 %2193 to i32
-  %2195 = or disjoint i32 %2190, %2194
-  br label %2196
+2187:                                             ; preds = %2184
+  %2188 = shl nuw i32 %.sroa.0.147, 8
+  %2189 = shl i32 %.sroa.498.147, 8
+  %2190 = add i64 %.130, 1
+  %2191 = getelementptr inbounds i8, ptr %2, i64 %.130
+  %2192 = load i8, ptr %2191, align 1
+  %2193 = zext i8 %2192 to i32
+  %2194 = or disjoint i32 %2189, %2193
+  br label %2195
 
-2196:                                             ; preds = %2183, %2188
-  %.131 = phi i64 [ %2191, %2188 ], [ %.130, %2183 ]
-  %.sroa.0.148 = phi i32 [ %2189, %2188 ], [ %.sroa.0.147, %2183 ]
-  %.sroa.498.148 = phi i32 [ %2195, %2188 ], [ %.sroa.498.147, %2183 ]
-  %2197 = lshr i32 %.sroa.0.148, 11
-  %2198 = getelementptr inbounds i8, ptr %0, i64 27500
-  %2199 = zext i32 %.202230 to i64
-  %2200 = zext i32 %.832563 to i64
-  %2201 = getelementptr inbounds [16 x [8 x i16]], ptr %2198, i64 0, i64 %2199, i64 %2200
-  %2202 = load i16, ptr %2201, align 2
-  %2203 = zext i16 %2202 to i32
-  %2204 = mul i32 %2197, %2203
-  %2205 = icmp ult i32 %.sroa.498.148, %2204
-  %2206 = shl i32 %.832563, 1
-  br i1 %2205, label %2207, label %2212
+2195:                                             ; preds = %2182, %2187
+  %.131 = phi i64 [ %2190, %2187 ], [ %.130, %2182 ]
+  %.sroa.0.148 = phi i32 [ %2188, %2187 ], [ %.sroa.0.147, %2182 ]
+  %.sroa.498.148 = phi i32 [ %2194, %2187 ], [ %.sroa.498.147, %2182 ]
+  %2196 = lshr i32 %.sroa.0.148, 11
+  %2197 = getelementptr inbounds i8, ptr %0, i64 27500
+  %2198 = zext i32 %.202230 to i64
+  %2199 = zext i32 %.832563 to i64
+  %2200 = getelementptr inbounds [16 x [8 x i16]], ptr %2197, i64 0, i64 %2198, i64 %2199
+  %2201 = load i16, ptr %2200, align 2
+  %2202 = zext i16 %2201 to i32
+  %2203 = mul i32 %2196, %2202
+  %2204 = icmp ult i32 %.sroa.498.148, %2203
+  %2205 = shl i32 %.832563, 1
+  br i1 %2204, label %2206, label %2211
 
-2207:                                             ; preds = %2196
-  %2208 = sub nsw i32 2048, %2203
-  %2209 = lshr i32 %2208, 5
-  %2210 = trunc i32 %2209 to i16
-  %2211 = add i16 %2202, %2210
-  store i16 %2211, ptr %2201, align 2
-  br label %2218
+2206:                                             ; preds = %2195
+  %2207 = sub nsw i32 2048, %2202
+  %2208 = lshr i32 %2207, 5
+  %2209 = trunc i32 %2208 to i16
+  %2210 = add i16 %2201, %2209
+  store i16 %2210, ptr %2200, align 2
+  br label %2217
 
-2212:                                             ; preds = %2196
-  %2213 = sub i32 %.sroa.0.148, %2204
-  %2214 = sub nuw i32 %.sroa.498.148, %2204
-  %2215 = lshr i16 %2202, 5
-  %2216 = sub i16 %2202, %2215
-  store i16 %2216, ptr %2201, align 2
-  %2217 = or disjoint i32 %2206, 1
-  br label %2218
+2211:                                             ; preds = %2195
+  %2212 = sub i32 %.sroa.0.148, %2203
+  %2213 = sub nuw i32 %.sroa.498.148, %2203
+  %2214 = lshr i16 %2201, 5
+  %2215 = sub i16 %2201, %2214
+  store i16 %2215, ptr %2200, align 2
+  %2216 = or disjoint i32 %2205, 1
+  br label %2217
 
-2218:                                             ; preds = %2212, %2207, %.loopexit
-  %.sroa.35.66 = phi i64 [ %.sroa.35.65, %2207 ], [ %.sroa.35.65, %2212 ], [ %.sroa.35.0.copyload, %.loopexit ]
-  %.sroa.10.66 = phi i64 [ %.sroa.10.65, %2207 ], [ %.sroa.10.65, %2212 ], [ %.sroa.10.0.copyload, %.loopexit ]
-  %.663250 = phi i32 [ %.653249, %2207 ], [ %.653249, %2212 ], [ %47, %.loopexit ]
-  %.662960 = phi i32 [ %.652959, %2207 ], [ %.652959, %2212 ], [ %31, %.loopexit ]
-  %.662883 = phi i32 [ %.652882, %2207 ], [ %.652882, %2212 ], [ %33, %.loopexit ]
-  %.662806 = phi i32 [ %.652805, %2207 ], [ %.652805, %2212 ], [ %35, %.loopexit ]
-  %.762729 = phi i32 [ %.752728, %2207 ], [ %.752728, %2212 ], [ %29, %.loopexit ]
-  %.652642 = phi ptr [ %.642641, %2207 ], [ %.642641, %2212 ], [ %39, %.loopexit ]
-  %.842564 = phi i32 [ %2206, %2207 ], [ %2217, %2212 ], [ %41, %.loopexit ]
-  %.712469 = phi i32 [ %.702468, %2207 ], [ %.702468, %2212 ], [ %43, %.loopexit ]
-  %.772387 = phi i32 [ %.762386, %2207 ], [ %.762386, %2212 ], [ %45, %.loopexit ]
-  %.662299 = phi i32 [ %.652298, %2207 ], [ %.652298, %2212 ], [ %27, %.loopexit ]
-  %.212231 = phi i32 [ %.202230, %2207 ], [ %.202230, %2212 ], [ %53, %.loopexit ]
-  %.132 = phi i64 [ %.131, %2207 ], [ %.131, %2212 ], [ %25, %.loopexit ]
-  %.sroa.0.149 = phi i32 [ %2204, %2207 ], [ %2213, %2212 ], [ %.sroa.0.0.copyload, %.loopexit ]
-  %.sroa.498.149 = phi i32 [ %.sroa.498.148, %2207 ], [ %2214, %2212 ], [ %.sroa.498.0.copyload, %.loopexit ]
-  %2219 = icmp ult i32 %.sroa.0.149, 16777216
-  br i1 %2219, label %2220, label %2231
+2217:                                             ; preds = %2211, %2206, %.loopexit
+  %.sroa.35.66 = phi i64 [ %.sroa.35.65, %2206 ], [ %.sroa.35.65, %2211 ], [ %.sroa.35.0.copyload, %.loopexit ]
+  %.sroa.10.66 = phi i64 [ %.sroa.10.65, %2206 ], [ %.sroa.10.65, %2211 ], [ %.sroa.10.0.copyload, %.loopexit ]
+  %.663250 = phi i32 [ %.653249, %2206 ], [ %.653249, %2211 ], [ %47, %.loopexit ]
+  %.662960 = phi i32 [ %.652959, %2206 ], [ %.652959, %2211 ], [ %31, %.loopexit ]
+  %.662883 = phi i32 [ %.652882, %2206 ], [ %.652882, %2211 ], [ %33, %.loopexit ]
+  %.662806 = phi i32 [ %.652805, %2206 ], [ %.652805, %2211 ], [ %35, %.loopexit ]
+  %.762729 = phi i32 [ %.752728, %2206 ], [ %.752728, %2211 ], [ %29, %.loopexit ]
+  %.652642 = phi ptr [ %.642641, %2206 ], [ %.642641, %2211 ], [ %39, %.loopexit ]
+  %.842564 = phi i32 [ %2205, %2206 ], [ %2216, %2211 ], [ %41, %.loopexit ]
+  %.712469 = phi i32 [ %.702468, %2206 ], [ %.702468, %2211 ], [ %43, %.loopexit ]
+  %.772387 = phi i32 [ %.762386, %2206 ], [ %.762386, %2211 ], [ %45, %.loopexit ]
+  %.662299 = phi i32 [ %.652298, %2206 ], [ %.652298, %2211 ], [ %27, %.loopexit ]
+  %.212231 = phi i32 [ %.202230, %2206 ], [ %.202230, %2211 ], [ %53, %.loopexit ]
+  %.132 = phi i64 [ %.131, %2206 ], [ %.131, %2211 ], [ %25, %.loopexit ]
+  %.sroa.0.149 = phi i32 [ %2203, %2206 ], [ %2212, %2211 ], [ %.sroa.0.0.copyload, %.loopexit ]
+  %.sroa.498.149 = phi i32 [ %.sroa.498.148, %2206 ], [ %2213, %2211 ], [ %.sroa.498.0.copyload, %.loopexit ]
+  %2218 = icmp ult i32 %.sroa.0.149, 16777216
+  br i1 %2218, label %2219, label %2230
 
-2220:                                             ; preds = %2218
-  %2221 = icmp eq i64 %.132, %4
-  br i1 %2221, label %2222, label %2223
+2219:                                             ; preds = %2217
+  %2220 = icmp eq i64 %.132, %4
+  br i1 %2220, label %2221, label %2222
 
-2222:                                             ; preds = %2220
+2221:                                             ; preds = %2219
   store i32 60, ptr %60, align 8
-  br label %2628
+  br label %2627
 
-2223:                                             ; preds = %2220
-  %2224 = shl nuw i32 %.sroa.0.149, 8
-  %2225 = shl i32 %.sroa.498.149, 8
-  %2226 = add i64 %.132, 1
-  %2227 = getelementptr inbounds i8, ptr %2, i64 %.132
-  %2228 = load i8, ptr %2227, align 1
-  %2229 = zext i8 %2228 to i32
-  %2230 = or disjoint i32 %2225, %2229
-  br label %2231
+2222:                                             ; preds = %2219
+  %2223 = shl nuw i32 %.sroa.0.149, 8
+  %2224 = shl i32 %.sroa.498.149, 8
+  %2225 = add i64 %.132, 1
+  %2226 = getelementptr inbounds i8, ptr %2, i64 %.132
+  %2227 = load i8, ptr %2226, align 1
+  %2228 = zext i8 %2227 to i32
+  %2229 = or disjoint i32 %2224, %2228
+  br label %2230
 
-2231:                                             ; preds = %2218, %2223
-  %.133 = phi i64 [ %2226, %2223 ], [ %.132, %2218 ]
-  %.sroa.0.150 = phi i32 [ %2224, %2223 ], [ %.sroa.0.149, %2218 ]
-  %.sroa.498.150 = phi i32 [ %2230, %2223 ], [ %.sroa.498.149, %2218 ]
-  %2232 = lshr i32 %.sroa.0.150, 11
-  %2233 = getelementptr inbounds i8, ptr %0, i64 27500
-  %2234 = zext i32 %.212231 to i64
-  %2235 = zext i32 %.842564 to i64
-  %2236 = getelementptr inbounds [16 x [8 x i16]], ptr %2233, i64 0, i64 %2234, i64 %2235
-  %2237 = load i16, ptr %2236, align 2
-  %2238 = zext i16 %2237 to i32
-  %2239 = mul i32 %2232, %2238
-  %2240 = icmp ult i32 %.sroa.498.150, %2239
-  %2241 = shl i32 %.842564, 1
-  br i1 %2240, label %2242, label %2247
+2230:                                             ; preds = %2217, %2222
+  %.133 = phi i64 [ %2225, %2222 ], [ %.132, %2217 ]
+  %.sroa.0.150 = phi i32 [ %2223, %2222 ], [ %.sroa.0.149, %2217 ]
+  %.sroa.498.150 = phi i32 [ %2229, %2222 ], [ %.sroa.498.149, %2217 ]
+  %2231 = lshr i32 %.sroa.0.150, 11
+  %2232 = getelementptr inbounds i8, ptr %0, i64 27500
+  %2233 = zext i32 %.212231 to i64
+  %2234 = zext i32 %.842564 to i64
+  %2235 = getelementptr inbounds [16 x [8 x i16]], ptr %2232, i64 0, i64 %2233, i64 %2234
+  %2236 = load i16, ptr %2235, align 2
+  %2237 = zext i16 %2236 to i32
+  %2238 = mul i32 %2231, %2237
+  %2239 = icmp ult i32 %.sroa.498.150, %2238
+  %2240 = shl i32 %.842564, 1
+  br i1 %2239, label %2241, label %2246
 
-2242:                                             ; preds = %2231
-  %2243 = sub nsw i32 2048, %2238
-  %2244 = lshr i32 %2243, 5
-  %2245 = trunc i32 %2244 to i16
-  %2246 = add i16 %2237, %2245
-  store i16 %2246, ptr %2236, align 2
-  br label %2253
+2241:                                             ; preds = %2230
+  %2242 = sub nsw i32 2048, %2237
+  %2243 = lshr i32 %2242, 5
+  %2244 = trunc i32 %2243 to i16
+  %2245 = add i16 %2236, %2244
+  store i16 %2245, ptr %2235, align 2
+  br label %2252
 
-2247:                                             ; preds = %2231
-  %2248 = sub i32 %.sroa.0.150, %2239
-  %2249 = sub nuw i32 %.sroa.498.150, %2239
-  %2250 = lshr i16 %2237, 5
-  %2251 = sub i16 %2237, %2250
-  store i16 %2251, ptr %2236, align 2
-  %2252 = or disjoint i32 %2241, 1
-  br label %2253
+2246:                                             ; preds = %2230
+  %2247 = sub i32 %.sroa.0.150, %2238
+  %2248 = sub nuw i32 %.sroa.498.150, %2238
+  %2249 = lshr i16 %2236, 5
+  %2250 = sub i16 %2236, %2249
+  store i16 %2250, ptr %2235, align 2
+  %2251 = or disjoint i32 %2240, 1
+  br label %2252
 
-2253:                                             ; preds = %2247, %2242, %.loopexit
-  %.sroa.35.67 = phi i64 [ %.sroa.35.66, %2242 ], [ %.sroa.35.66, %2247 ], [ %.sroa.35.0.copyload, %.loopexit ]
-  %.sroa.10.67 = phi i64 [ %.sroa.10.66, %2242 ], [ %.sroa.10.66, %2247 ], [ %.sroa.10.0.copyload, %.loopexit ]
-  %.673251 = phi i32 [ %.663250, %2242 ], [ %.663250, %2247 ], [ %47, %.loopexit ]
-  %.672961 = phi i32 [ %.662960, %2242 ], [ %.662960, %2247 ], [ %31, %.loopexit ]
-  %.672884 = phi i32 [ %.662883, %2242 ], [ %.662883, %2247 ], [ %33, %.loopexit ]
-  %.672807 = phi i32 [ %.662806, %2242 ], [ %.662806, %2247 ], [ %35, %.loopexit ]
-  %.772730 = phi i32 [ %.762729, %2242 ], [ %.762729, %2247 ], [ %29, %.loopexit ]
-  %.662643 = phi ptr [ %.652642, %2242 ], [ %.652642, %2247 ], [ %39, %.loopexit ]
-  %.852565 = phi i32 [ %2241, %2242 ], [ %2252, %2247 ], [ %41, %.loopexit ]
-  %.722470 = phi i32 [ %.712469, %2242 ], [ %.712469, %2247 ], [ %43, %.loopexit ]
-  %.782388 = phi i32 [ %.772387, %2242 ], [ %.772387, %2247 ], [ %45, %.loopexit ]
-  %.672300 = phi i32 [ %.662299, %2242 ], [ %.662299, %2247 ], [ %27, %.loopexit ]
-  %.222232 = phi i32 [ %.212231, %2242 ], [ %.212231, %2247 ], [ %53, %.loopexit ]
-  %.134 = phi i64 [ %.133, %2242 ], [ %.133, %2247 ], [ %25, %.loopexit ]
-  %.sroa.0.151 = phi i32 [ %2239, %2242 ], [ %2248, %2247 ], [ %.sroa.0.0.copyload, %.loopexit ]
-  %.sroa.498.151 = phi i32 [ %.sroa.498.150, %2242 ], [ %2249, %2247 ], [ %.sroa.498.0.copyload, %.loopexit ]
-  %2254 = icmp ult i32 %.sroa.0.151, 16777216
-  br i1 %2254, label %2255, label %2266
+2252:                                             ; preds = %2246, %2241, %.loopexit
+  %.sroa.35.67 = phi i64 [ %.sroa.35.66, %2241 ], [ %.sroa.35.66, %2246 ], [ %.sroa.35.0.copyload, %.loopexit ]
+  %.sroa.10.67 = phi i64 [ %.sroa.10.66, %2241 ], [ %.sroa.10.66, %2246 ], [ %.sroa.10.0.copyload, %.loopexit ]
+  %.673251 = phi i32 [ %.663250, %2241 ], [ %.663250, %2246 ], [ %47, %.loopexit ]
+  %.672961 = phi i32 [ %.662960, %2241 ], [ %.662960, %2246 ], [ %31, %.loopexit ]
+  %.672884 = phi i32 [ %.662883, %2241 ], [ %.662883, %2246 ], [ %33, %.loopexit ]
+  %.672807 = phi i32 [ %.662806, %2241 ], [ %.662806, %2246 ], [ %35, %.loopexit ]
+  %.772730 = phi i32 [ %.762729, %2241 ], [ %.762729, %2246 ], [ %29, %.loopexit ]
+  %.662643 = phi ptr [ %.652642, %2241 ], [ %.652642, %2246 ], [ %39, %.loopexit ]
+  %.852565 = phi i32 [ %2240, %2241 ], [ %2251, %2246 ], [ %41, %.loopexit ]
+  %.722470 = phi i32 [ %.712469, %2241 ], [ %.712469, %2246 ], [ %43, %.loopexit ]
+  %.782388 = phi i32 [ %.772387, %2241 ], [ %.772387, %2246 ], [ %45, %.loopexit ]
+  %.672300 = phi i32 [ %.662299, %2241 ], [ %.662299, %2246 ], [ %27, %.loopexit ]
+  %.222232 = phi i32 [ %.212231, %2241 ], [ %.212231, %2246 ], [ %53, %.loopexit ]
+  %.134 = phi i64 [ %.133, %2241 ], [ %.133, %2246 ], [ %25, %.loopexit ]
+  %.sroa.0.151 = phi i32 [ %2238, %2241 ], [ %2247, %2246 ], [ %.sroa.0.0.copyload, %.loopexit ]
+  %.sroa.498.151 = phi i32 [ %.sroa.498.150, %2241 ], [ %2248, %2246 ], [ %.sroa.498.0.copyload, %.loopexit ]
+  %2253 = icmp ult i32 %.sroa.0.151, 16777216
+  br i1 %2253, label %2254, label %2265
 
-2255:                                             ; preds = %2253
-  %2256 = icmp eq i64 %.134, %4
-  br i1 %2256, label %2257, label %2258
+2254:                                             ; preds = %2252
+  %2255 = icmp eq i64 %.134, %4
+  br i1 %2255, label %2256, label %2257
 
-2257:                                             ; preds = %2255
+2256:                                             ; preds = %2254
   store i32 61, ptr %60, align 8
-  br label %2628
+  br label %2627
 
-2258:                                             ; preds = %2255
-  %2259 = shl nuw i32 %.sroa.0.151, 8
-  %2260 = shl i32 %.sroa.498.151, 8
-  %2261 = add i64 %.134, 1
-  %2262 = getelementptr inbounds i8, ptr %2, i64 %.134
-  %2263 = load i8, ptr %2262, align 1
-  %2264 = zext i8 %2263 to i32
-  %2265 = or disjoint i32 %2260, %2264
-  br label %2266
+2257:                                             ; preds = %2254
+  %2258 = shl nuw i32 %.sroa.0.151, 8
+  %2259 = shl i32 %.sroa.498.151, 8
+  %2260 = add i64 %.134, 1
+  %2261 = getelementptr inbounds i8, ptr %2, i64 %.134
+  %2262 = load i8, ptr %2261, align 1
+  %2263 = zext i8 %2262 to i32
+  %2264 = or disjoint i32 %2259, %2263
+  br label %2265
 
-2266:                                             ; preds = %2253, %2258
-  %.135 = phi i64 [ %2261, %2258 ], [ %.134, %2253 ]
-  %.sroa.0.152 = phi i32 [ %2259, %2258 ], [ %.sroa.0.151, %2253 ]
-  %.sroa.498.152 = phi i32 [ %2265, %2258 ], [ %.sroa.498.151, %2253 ]
-  %2267 = lshr i32 %.sroa.0.152, 11
-  %2268 = getelementptr inbounds i8, ptr %0, i64 27500
-  %2269 = zext i32 %.222232 to i64
-  %2270 = zext i32 %.852565 to i64
-  %2271 = getelementptr inbounds [16 x [8 x i16]], ptr %2268, i64 0, i64 %2269, i64 %2270
-  %2272 = load i16, ptr %2271, align 2
-  %2273 = zext i16 %2272 to i32
-  %2274 = mul i32 %2267, %2273
-  %2275 = icmp ult i32 %.sroa.498.152, %2274
-  %2276 = shl i32 %.852565, 1
-  br i1 %2275, label %2277, label %2282
+2265:                                             ; preds = %2252, %2257
+  %.135 = phi i64 [ %2260, %2257 ], [ %.134, %2252 ]
+  %.sroa.0.152 = phi i32 [ %2258, %2257 ], [ %.sroa.0.151, %2252 ]
+  %.sroa.498.152 = phi i32 [ %2264, %2257 ], [ %.sroa.498.151, %2252 ]
+  %2266 = lshr i32 %.sroa.0.152, 11
+  %2267 = getelementptr inbounds i8, ptr %0, i64 27500
+  %2268 = zext i32 %.222232 to i64
+  %2269 = zext i32 %.852565 to i64
+  %2270 = getelementptr inbounds [16 x [8 x i16]], ptr %2267, i64 0, i64 %2268, i64 %2269
+  %2271 = load i16, ptr %2270, align 2
+  %2272 = zext i16 %2271 to i32
+  %2273 = mul i32 %2266, %2272
+  %2274 = icmp ult i32 %.sroa.498.152, %2273
+  %2275 = shl i32 %.852565, 1
+  br i1 %2274, label %2276, label %2281
 
-2277:                                             ; preds = %2266
-  %2278 = sub nsw i32 2048, %2273
-  %2279 = lshr i32 %2278, 5
-  %2280 = trunc i32 %2279 to i16
-  %2281 = add i16 %2272, %2280
-  br label %2288
+2276:                                             ; preds = %2265
+  %2277 = sub nsw i32 2048, %2272
+  %2278 = lshr i32 %2277, 5
+  %2279 = trunc i32 %2278 to i16
+  %2280 = add i16 %2271, %2279
+  br label %2287
 
-2282:                                             ; preds = %2266
-  %2283 = sub i32 %.sroa.0.152, %2274
-  %2284 = sub nuw i32 %.sroa.498.152, %2274
-  %2285 = lshr i16 %2272, 5
-  %2286 = sub i16 %2272, %2285
-  %2287 = or disjoint i32 %2276, 1
-  br label %2288
+2281:                                             ; preds = %2265
+  %2282 = sub i32 %.sroa.0.152, %2273
+  %2283 = sub nuw i32 %.sroa.498.152, %2273
+  %2284 = lshr i16 %2271, 5
+  %2285 = sub i16 %2271, %2284
+  %2286 = or disjoint i32 %2275, 1
+  br label %2287
 
-2288:                                             ; preds = %2277, %2282
-  %.sink3313 = phi i16 [ %2281, %2277 ], [ %2286, %2282 ]
-  %.862566 = phi i32 [ %2276, %2277 ], [ %2287, %2282 ]
-  %.sroa.0.153 = phi i32 [ %2274, %2277 ], [ %2283, %2282 ]
-  %.sroa.498.153 = phi i32 [ %.sroa.498.152, %2277 ], [ %2284, %2282 ]
-  store i16 %.sink3313, ptr %2271, align 2
-  %2289 = add i32 %.862566, 2
-  br label %2569
+2287:                                             ; preds = %2276, %2281
+  %.sink3313 = phi i16 [ %2280, %2276 ], [ %2285, %2281 ]
+  %.862566 = phi i32 [ %2275, %2276 ], [ %2286, %2281 ]
+  %.sroa.0.153 = phi i32 [ %2273, %2276 ], [ %2282, %2281 ]
+  %.sroa.498.153 = phi i32 [ %.sroa.498.152, %2276 ], [ %2283, %2281 ]
+  store i16 %.sink3313, ptr %2270, align 2
+  %2288 = add i32 %.862566, 2
+  br label %2568
 
-2290:                                             ; preds = %2171
-  %2291 = sub i32 %.sroa.0.146, %2176
-  %2292 = sub nuw i32 %.sroa.498.146, %2176
-  %2293 = lshr i16 %2174, 5
-  %2294 = sub i16 %2174, %2293
-  store i16 %2294, ptr %2173, align 2
-  br label %2295
+2289:                                             ; preds = %2170
+  %2290 = sub i32 %.sroa.0.146, %2175
+  %2291 = sub nuw i32 %.sroa.498.146, %2175
+  %2292 = lshr i16 %2173, 5
+  %2293 = sub i16 %2173, %2292
+  store i16 %2293, ptr %2172, align 2
+  br label %2294
 
-2295:                                             ; preds = %2290, %.loopexit
-  %.sroa.35.68 = phi i64 [ %.sroa.35.64, %2290 ], [ %.sroa.35.0.copyload, %.loopexit ]
-  %.sroa.10.68 = phi i64 [ %.sroa.10.64, %2290 ], [ %.sroa.10.0.copyload, %.loopexit ]
-  %.683252 = phi i32 [ %.643248, %2290 ], [ %47, %.loopexit ]
-  %.682962 = phi i32 [ %.642958, %2290 ], [ %31, %.loopexit ]
-  %.682885 = phi i32 [ %.642881, %2290 ], [ %33, %.loopexit ]
-  %.682808 = phi i32 [ %.642804, %2290 ], [ %35, %.loopexit ]
-  %.782731 = phi i32 [ %.742727, %2290 ], [ %29, %.loopexit ]
-  %.672644 = phi ptr [ %.632640, %2290 ], [ %39, %.loopexit ]
-  %.872567 = phi i32 [ %.822562, %2290 ], [ %41, %.loopexit ]
-  %.732471 = phi i32 [ %.692467, %2290 ], [ %43, %.loopexit ]
-  %.792389 = phi i32 [ %.752385, %2290 ], [ %45, %.loopexit ]
-  %.682301 = phi i32 [ %.642297, %2290 ], [ %27, %.loopexit ]
-  %.136 = phi i64 [ %.129, %2290 ], [ %25, %.loopexit ]
-  %.sroa.0.154 = phi i32 [ %2291, %2290 ], [ %.sroa.0.0.copyload, %.loopexit ]
-  %.sroa.498.154 = phi i32 [ %2292, %2290 ], [ %.sroa.498.0.copyload, %.loopexit ]
-  %2296 = icmp ult i32 %.sroa.0.154, 16777216
-  br i1 %2296, label %2297, label %2308
+2294:                                             ; preds = %2289, %.loopexit
+  %.sroa.35.68 = phi i64 [ %.sroa.35.64, %2289 ], [ %.sroa.35.0.copyload, %.loopexit ]
+  %.sroa.10.68 = phi i64 [ %.sroa.10.64, %2289 ], [ %.sroa.10.0.copyload, %.loopexit ]
+  %.683252 = phi i32 [ %.643248, %2289 ], [ %47, %.loopexit ]
+  %.682962 = phi i32 [ %.642958, %2289 ], [ %31, %.loopexit ]
+  %.682885 = phi i32 [ %.642881, %2289 ], [ %33, %.loopexit ]
+  %.682808 = phi i32 [ %.642804, %2289 ], [ %35, %.loopexit ]
+  %.782731 = phi i32 [ %.742727, %2289 ], [ %29, %.loopexit ]
+  %.672644 = phi ptr [ %.632640, %2289 ], [ %39, %.loopexit ]
+  %.872567 = phi i32 [ %.822562, %2289 ], [ %41, %.loopexit ]
+  %.732471 = phi i32 [ %.692467, %2289 ], [ %43, %.loopexit ]
+  %.792389 = phi i32 [ %.752385, %2289 ], [ %45, %.loopexit ]
+  %.682301 = phi i32 [ %.642297, %2289 ], [ %27, %.loopexit ]
+  %.136 = phi i64 [ %.129, %2289 ], [ %25, %.loopexit ]
+  %.sroa.0.154 = phi i32 [ %2290, %2289 ], [ %.sroa.0.0.copyload, %.loopexit ]
+  %.sroa.498.154 = phi i32 [ %2291, %2289 ], [ %.sroa.498.0.copyload, %.loopexit ]
+  %2295 = icmp ult i32 %.sroa.0.154, 16777216
+  br i1 %2295, label %2296, label %2307
 
-2297:                                             ; preds = %2295
-  %2298 = icmp eq i64 %.136, %4
-  br i1 %2298, label %2299, label %2300
+2296:                                             ; preds = %2294
+  %2297 = icmp eq i64 %.136, %4
+  br i1 %2297, label %2298, label %2299
 
-2299:                                             ; preds = %2297
+2298:                                             ; preds = %2296
   store i32 62, ptr %60, align 8
-  br label %2628
+  br label %2627
 
-2300:                                             ; preds = %2297
-  %2301 = shl nuw i32 %.sroa.0.154, 8
-  %2302 = shl i32 %.sroa.498.154, 8
-  %2303 = add i64 %.136, 1
-  %2304 = getelementptr inbounds i8, ptr %2, i64 %.136
-  %2305 = load i8, ptr %2304, align 1
-  %2306 = zext i8 %2305 to i32
-  %2307 = or disjoint i32 %2302, %2306
-  br label %2308
+2299:                                             ; preds = %2296
+  %2300 = shl nuw i32 %.sroa.0.154, 8
+  %2301 = shl i32 %.sroa.498.154, 8
+  %2302 = add i64 %.136, 1
+  %2303 = getelementptr inbounds i8, ptr %2, i64 %.136
+  %2304 = load i8, ptr %2303, align 1
+  %2305 = zext i8 %2304 to i32
+  %2306 = or disjoint i32 %2301, %2305
+  br label %2307
 
-2308:                                             ; preds = %2295, %2300
-  %.137 = phi i64 [ %2303, %2300 ], [ %.136, %2295 ]
-  %.sroa.0.155 = phi i32 [ %2301, %2300 ], [ %.sroa.0.154, %2295 ]
-  %.sroa.498.155 = phi i32 [ %2307, %2300 ], [ %.sroa.498.154, %2295 ]
-  %2309 = lshr i32 %.sroa.0.155, 11
-  %2310 = getelementptr inbounds i8, ptr %0, i64 27756
-  %2311 = zext i32 %.872567 to i64
-  %2312 = getelementptr inbounds [256 x i16], ptr %2310, i64 0, i64 %2311
-  %2313 = load i16, ptr %2312, align 2
-  %2314 = zext i16 %2313 to i32
-  %2315 = mul i32 %2309, %2314
-  %2316 = icmp ult i32 %.sroa.498.155, %2315
-  %2317 = shl i32 %.872567, 1
-  br i1 %2316, label %2318, label %2323
+2307:                                             ; preds = %2294, %2299
+  %.137 = phi i64 [ %2302, %2299 ], [ %.136, %2294 ]
+  %.sroa.0.155 = phi i32 [ %2300, %2299 ], [ %.sroa.0.154, %2294 ]
+  %.sroa.498.155 = phi i32 [ %2306, %2299 ], [ %.sroa.498.154, %2294 ]
+  %2308 = lshr i32 %.sroa.0.155, 11
+  %2309 = getelementptr inbounds i8, ptr %0, i64 27756
+  %2310 = zext i32 %.872567 to i64
+  %2311 = getelementptr inbounds [256 x i16], ptr %2309, i64 0, i64 %2310
+  %2312 = load i16, ptr %2311, align 2
+  %2313 = zext i16 %2312 to i32
+  %2314 = mul i32 %2308, %2313
+  %2315 = icmp ult i32 %.sroa.498.155, %2314
+  %2316 = shl i32 %.872567, 1
+  br i1 %2315, label %2317, label %2322
 
-2318:                                             ; preds = %2308
-  %2319 = sub nsw i32 2048, %2314
-  %2320 = lshr i32 %2319, 5
-  %2321 = trunc i32 %2320 to i16
-  %2322 = add i16 %2313, %2321
-  store i16 %2322, ptr %2312, align 2
-  br label %2329
+2317:                                             ; preds = %2307
+  %2318 = sub nsw i32 2048, %2313
+  %2319 = lshr i32 %2318, 5
+  %2320 = trunc i32 %2319 to i16
+  %2321 = add i16 %2312, %2320
+  store i16 %2321, ptr %2311, align 2
+  br label %2328
 
-2323:                                             ; preds = %2308
-  %2324 = sub i32 %.sroa.0.155, %2315
-  %2325 = sub nuw i32 %.sroa.498.155, %2315
-  %2326 = lshr i16 %2313, 5
-  %2327 = sub i16 %2313, %2326
-  store i16 %2327, ptr %2312, align 2
-  %2328 = or disjoint i32 %2317, 1
-  br label %2329
+2322:                                             ; preds = %2307
+  %2323 = sub i32 %.sroa.0.155, %2314
+  %2324 = sub nuw i32 %.sroa.498.155, %2314
+  %2325 = lshr i16 %2312, 5
+  %2326 = sub i16 %2312, %2325
+  store i16 %2326, ptr %2311, align 2
+  %2327 = or disjoint i32 %2316, 1
+  br label %2328
 
-2329:                                             ; preds = %2323, %2318, %.loopexit
-  %.sroa.35.69 = phi i64 [ %.sroa.35.68, %2318 ], [ %.sroa.35.68, %2323 ], [ %.sroa.35.0.copyload, %.loopexit ]
-  %.sroa.10.69 = phi i64 [ %.sroa.10.68, %2318 ], [ %.sroa.10.68, %2323 ], [ %.sroa.10.0.copyload, %.loopexit ]
-  %.693253 = phi i32 [ %.683252, %2318 ], [ %.683252, %2323 ], [ %47, %.loopexit ]
-  %.692963 = phi i32 [ %.682962, %2318 ], [ %.682962, %2323 ], [ %31, %.loopexit ]
-  %.692886 = phi i32 [ %.682885, %2318 ], [ %.682885, %2323 ], [ %33, %.loopexit ]
-  %.692809 = phi i32 [ %.682808, %2318 ], [ %.682808, %2323 ], [ %35, %.loopexit ]
-  %.792732 = phi i32 [ %.782731, %2318 ], [ %.782731, %2323 ], [ %29, %.loopexit ]
-  %.682645 = phi ptr [ %.672644, %2318 ], [ %.672644, %2323 ], [ %39, %.loopexit ]
-  %.882568 = phi i32 [ %2317, %2318 ], [ %2328, %2323 ], [ %41, %.loopexit ]
-  %.742472 = phi i32 [ %.732471, %2318 ], [ %.732471, %2323 ], [ %43, %.loopexit ]
-  %.802390 = phi i32 [ %.792389, %2318 ], [ %.792389, %2323 ], [ %45, %.loopexit ]
-  %.692302 = phi i32 [ %.682301, %2318 ], [ %.682301, %2323 ], [ %27, %.loopexit ]
-  %.138 = phi i64 [ %.137, %2318 ], [ %.137, %2323 ], [ %25, %.loopexit ]
-  %.sroa.0.156 = phi i32 [ %2315, %2318 ], [ %2324, %2323 ], [ %.sroa.0.0.copyload, %.loopexit ]
-  %.sroa.498.156 = phi i32 [ %.sroa.498.155, %2318 ], [ %2325, %2323 ], [ %.sroa.498.0.copyload, %.loopexit ]
-  %2330 = icmp ult i32 %.sroa.0.156, 16777216
-  br i1 %2330, label %2331, label %2342
+2328:                                             ; preds = %2322, %2317, %.loopexit
+  %.sroa.35.69 = phi i64 [ %.sroa.35.68, %2317 ], [ %.sroa.35.68, %2322 ], [ %.sroa.35.0.copyload, %.loopexit ]
+  %.sroa.10.69 = phi i64 [ %.sroa.10.68, %2317 ], [ %.sroa.10.68, %2322 ], [ %.sroa.10.0.copyload, %.loopexit ]
+  %.693253 = phi i32 [ %.683252, %2317 ], [ %.683252, %2322 ], [ %47, %.loopexit ]
+  %.692963 = phi i32 [ %.682962, %2317 ], [ %.682962, %2322 ], [ %31, %.loopexit ]
+  %.692886 = phi i32 [ %.682885, %2317 ], [ %.682885, %2322 ], [ %33, %.loopexit ]
+  %.692809 = phi i32 [ %.682808, %2317 ], [ %.682808, %2322 ], [ %35, %.loopexit ]
+  %.792732 = phi i32 [ %.782731, %2317 ], [ %.782731, %2322 ], [ %29, %.loopexit ]
+  %.682645 = phi ptr [ %.672644, %2317 ], [ %.672644, %2322 ], [ %39, %.loopexit ]
+  %.882568 = phi i32 [ %2316, %2317 ], [ %2327, %2322 ], [ %41, %.loopexit ]
+  %.742472 = phi i32 [ %.732471, %2317 ], [ %.732471, %2322 ], [ %43, %.loopexit ]
+  %.802390 = phi i32 [ %.792389, %2317 ], [ %.792389, %2322 ], [ %45, %.loopexit ]
+  %.692302 = phi i32 [ %.682301, %2317 ], [ %.682301, %2322 ], [ %27, %.loopexit ]
+  %.138 = phi i64 [ %.137, %2317 ], [ %.137, %2322 ], [ %25, %.loopexit ]
+  %.sroa.0.156 = phi i32 [ %2314, %2317 ], [ %2323, %2322 ], [ %.sroa.0.0.copyload, %.loopexit ]
+  %.sroa.498.156 = phi i32 [ %.sroa.498.155, %2317 ], [ %2324, %2322 ], [ %.sroa.498.0.copyload, %.loopexit ]
+  %2329 = icmp ult i32 %.sroa.0.156, 16777216
+  br i1 %2329, label %2330, label %2341
 
-2331:                                             ; preds = %2329
-  %2332 = icmp eq i64 %.138, %4
-  br i1 %2332, label %2333, label %2334
+2330:                                             ; preds = %2328
+  %2331 = icmp eq i64 %.138, %4
+  br i1 %2331, label %2332, label %2333
 
-2333:                                             ; preds = %2331
+2332:                                             ; preds = %2330
   store i32 63, ptr %60, align 8
-  br label %2628
+  br label %2627
 
-2334:                                             ; preds = %2331
-  %2335 = shl nuw i32 %.sroa.0.156, 8
-  %2336 = shl i32 %.sroa.498.156, 8
-  %2337 = add i64 %.138, 1
-  %2338 = getelementptr inbounds i8, ptr %2, i64 %.138
-  %2339 = load i8, ptr %2338, align 1
-  %2340 = zext i8 %2339 to i32
-  %2341 = or disjoint i32 %2336, %2340
-  br label %2342
+2333:                                             ; preds = %2330
+  %2334 = shl nuw i32 %.sroa.0.156, 8
+  %2335 = shl i32 %.sroa.498.156, 8
+  %2336 = add i64 %.138, 1
+  %2337 = getelementptr inbounds i8, ptr %2, i64 %.138
+  %2338 = load i8, ptr %2337, align 1
+  %2339 = zext i8 %2338 to i32
+  %2340 = or disjoint i32 %2335, %2339
+  br label %2341
 
-2342:                                             ; preds = %2329, %2334
-  %.139 = phi i64 [ %2337, %2334 ], [ %.138, %2329 ]
-  %.sroa.0.157 = phi i32 [ %2335, %2334 ], [ %.sroa.0.156, %2329 ]
-  %.sroa.498.157 = phi i32 [ %2341, %2334 ], [ %.sroa.498.156, %2329 ]
-  %2343 = lshr i32 %.sroa.0.157, 11
-  %2344 = getelementptr inbounds i8, ptr %0, i64 27756
-  %2345 = zext i32 %.882568 to i64
-  %2346 = getelementptr inbounds [256 x i16], ptr %2344, i64 0, i64 %2345
-  %2347 = load i16, ptr %2346, align 2
-  %2348 = zext i16 %2347 to i32
-  %2349 = mul i32 %2343, %2348
-  %2350 = icmp ult i32 %.sroa.498.157, %2349
-  %2351 = shl i32 %.882568, 1
-  br i1 %2350, label %2352, label %2357
+2341:                                             ; preds = %2328, %2333
+  %.139 = phi i64 [ %2336, %2333 ], [ %.138, %2328 ]
+  %.sroa.0.157 = phi i32 [ %2334, %2333 ], [ %.sroa.0.156, %2328 ]
+  %.sroa.498.157 = phi i32 [ %2340, %2333 ], [ %.sroa.498.156, %2328 ]
+  %2342 = lshr i32 %.sroa.0.157, 11
+  %2343 = getelementptr inbounds i8, ptr %0, i64 27756
+  %2344 = zext i32 %.882568 to i64
+  %2345 = getelementptr inbounds [256 x i16], ptr %2343, i64 0, i64 %2344
+  %2346 = load i16, ptr %2345, align 2
+  %2347 = zext i16 %2346 to i32
+  %2348 = mul i32 %2342, %2347
+  %2349 = icmp ult i32 %.sroa.498.157, %2348
+  %2350 = shl i32 %.882568, 1
+  br i1 %2349, label %2351, label %2356
 
-2352:                                             ; preds = %2342
-  %2353 = sub nsw i32 2048, %2348
-  %2354 = lshr i32 %2353, 5
-  %2355 = trunc i32 %2354 to i16
-  %2356 = add i16 %2347, %2355
-  store i16 %2356, ptr %2346, align 2
-  br label %2363
+2351:                                             ; preds = %2341
+  %2352 = sub nsw i32 2048, %2347
+  %2353 = lshr i32 %2352, 5
+  %2354 = trunc i32 %2353 to i16
+  %2355 = add i16 %2346, %2354
+  store i16 %2355, ptr %2345, align 2
+  br label %2362
 
-2357:                                             ; preds = %2342
-  %2358 = sub i32 %.sroa.0.157, %2349
-  %2359 = sub nuw i32 %.sroa.498.157, %2349
-  %2360 = lshr i16 %2347, 5
-  %2361 = sub i16 %2347, %2360
-  store i16 %2361, ptr %2346, align 2
-  %2362 = or disjoint i32 %2351, 1
-  br label %2363
+2356:                                             ; preds = %2341
+  %2357 = sub i32 %.sroa.0.157, %2348
+  %2358 = sub nuw i32 %.sroa.498.157, %2348
+  %2359 = lshr i16 %2346, 5
+  %2360 = sub i16 %2346, %2359
+  store i16 %2360, ptr %2345, align 2
+  %2361 = or disjoint i32 %2350, 1
+  br label %2362
 
-2363:                                             ; preds = %2357, %2352, %.loopexit
-  %.sroa.35.70 = phi i64 [ %.sroa.35.69, %2352 ], [ %.sroa.35.69, %2357 ], [ %.sroa.35.0.copyload, %.loopexit ]
-  %.sroa.10.70 = phi i64 [ %.sroa.10.69, %2352 ], [ %.sroa.10.69, %2357 ], [ %.sroa.10.0.copyload, %.loopexit ]
-  %.703254 = phi i32 [ %.693253, %2352 ], [ %.693253, %2357 ], [ %47, %.loopexit ]
-  %.702964 = phi i32 [ %.692963, %2352 ], [ %.692963, %2357 ], [ %31, %.loopexit ]
-  %.702887 = phi i32 [ %.692886, %2352 ], [ %.692886, %2357 ], [ %33, %.loopexit ]
-  %.702810 = phi i32 [ %.692809, %2352 ], [ %.692809, %2357 ], [ %35, %.loopexit ]
-  %.802733 = phi i32 [ %.792732, %2352 ], [ %.792732, %2357 ], [ %29, %.loopexit ]
-  %.692646 = phi ptr [ %.682645, %2352 ], [ %.682645, %2357 ], [ %39, %.loopexit ]
-  %.892569 = phi i32 [ %2351, %2352 ], [ %2362, %2357 ], [ %41, %.loopexit ]
-  %.752473 = phi i32 [ %.742472, %2352 ], [ %.742472, %2357 ], [ %43, %.loopexit ]
-  %.812391 = phi i32 [ %.802390, %2352 ], [ %.802390, %2357 ], [ %45, %.loopexit ]
-  %.702303 = phi i32 [ %.692302, %2352 ], [ %.692302, %2357 ], [ %27, %.loopexit ]
-  %.140 = phi i64 [ %.139, %2352 ], [ %.139, %2357 ], [ %25, %.loopexit ]
-  %.sroa.0.158 = phi i32 [ %2349, %2352 ], [ %2358, %2357 ], [ %.sroa.0.0.copyload, %.loopexit ]
-  %.sroa.498.158 = phi i32 [ %.sroa.498.157, %2352 ], [ %2359, %2357 ], [ %.sroa.498.0.copyload, %.loopexit ]
-  %2364 = icmp ult i32 %.sroa.0.158, 16777216
-  br i1 %2364, label %2365, label %2376
+2362:                                             ; preds = %2356, %2351, %.loopexit
+  %.sroa.35.70 = phi i64 [ %.sroa.35.69, %2351 ], [ %.sroa.35.69, %2356 ], [ %.sroa.35.0.copyload, %.loopexit ]
+  %.sroa.10.70 = phi i64 [ %.sroa.10.69, %2351 ], [ %.sroa.10.69, %2356 ], [ %.sroa.10.0.copyload, %.loopexit ]
+  %.703254 = phi i32 [ %.693253, %2351 ], [ %.693253, %2356 ], [ %47, %.loopexit ]
+  %.702964 = phi i32 [ %.692963, %2351 ], [ %.692963, %2356 ], [ %31, %.loopexit ]
+  %.702887 = phi i32 [ %.692886, %2351 ], [ %.692886, %2356 ], [ %33, %.loopexit ]
+  %.702810 = phi i32 [ %.692809, %2351 ], [ %.692809, %2356 ], [ %35, %.loopexit ]
+  %.802733 = phi i32 [ %.792732, %2351 ], [ %.792732, %2356 ], [ %29, %.loopexit ]
+  %.692646 = phi ptr [ %.682645, %2351 ], [ %.682645, %2356 ], [ %39, %.loopexit ]
+  %.892569 = phi i32 [ %2350, %2351 ], [ %2361, %2356 ], [ %41, %.loopexit ]
+  %.752473 = phi i32 [ %.742472, %2351 ], [ %.742472, %2356 ], [ %43, %.loopexit ]
+  %.812391 = phi i32 [ %.802390, %2351 ], [ %.802390, %2356 ], [ %45, %.loopexit ]
+  %.702303 = phi i32 [ %.692302, %2351 ], [ %.692302, %2356 ], [ %27, %.loopexit ]
+  %.140 = phi i64 [ %.139, %2351 ], [ %.139, %2356 ], [ %25, %.loopexit ]
+  %.sroa.0.158 = phi i32 [ %2348, %2351 ], [ %2357, %2356 ], [ %.sroa.0.0.copyload, %.loopexit ]
+  %.sroa.498.158 = phi i32 [ %.sroa.498.157, %2351 ], [ %2358, %2356 ], [ %.sroa.498.0.copyload, %.loopexit ]
+  %2363 = icmp ult i32 %.sroa.0.158, 16777216
+  br i1 %2363, label %2364, label %2375
 
-2365:                                             ; preds = %2363
-  %2366 = icmp eq i64 %.140, %4
-  br i1 %2366, label %2367, label %2368
+2364:                                             ; preds = %2362
+  %2365 = icmp eq i64 %.140, %4
+  br i1 %2365, label %2366, label %2367
 
-2367:                                             ; preds = %2365
+2366:                                             ; preds = %2364
   store i32 64, ptr %60, align 8
-  br label %2628
+  br label %2627
 
-2368:                                             ; preds = %2365
-  %2369 = shl nuw i32 %.sroa.0.158, 8
-  %2370 = shl i32 %.sroa.498.158, 8
-  %2371 = add i64 %.140, 1
-  %2372 = getelementptr inbounds i8, ptr %2, i64 %.140
-  %2373 = load i8, ptr %2372, align 1
-  %2374 = zext i8 %2373 to i32
-  %2375 = or disjoint i32 %2370, %2374
-  br label %2376
+2367:                                             ; preds = %2364
+  %2368 = shl nuw i32 %.sroa.0.158, 8
+  %2369 = shl i32 %.sroa.498.158, 8
+  %2370 = add i64 %.140, 1
+  %2371 = getelementptr inbounds i8, ptr %2, i64 %.140
+  %2372 = load i8, ptr %2371, align 1
+  %2373 = zext i8 %2372 to i32
+  %2374 = or disjoint i32 %2369, %2373
+  br label %2375
 
-2376:                                             ; preds = %2363, %2368
-  %.141 = phi i64 [ %2371, %2368 ], [ %.140, %2363 ]
-  %.sroa.0.159 = phi i32 [ %2369, %2368 ], [ %.sroa.0.158, %2363 ]
-  %.sroa.498.159 = phi i32 [ %2375, %2368 ], [ %.sroa.498.158, %2363 ]
-  %2377 = lshr i32 %.sroa.0.159, 11
-  %2378 = getelementptr inbounds i8, ptr %0, i64 27756
-  %2379 = zext i32 %.892569 to i64
-  %2380 = getelementptr inbounds [256 x i16], ptr %2378, i64 0, i64 %2379
-  %2381 = load i16, ptr %2380, align 2
-  %2382 = zext i16 %2381 to i32
-  %2383 = mul i32 %2377, %2382
-  %2384 = icmp ult i32 %.sroa.498.159, %2383
-  %2385 = shl i32 %.892569, 1
-  br i1 %2384, label %2386, label %2391
+2375:                                             ; preds = %2362, %2367
+  %.141 = phi i64 [ %2370, %2367 ], [ %.140, %2362 ]
+  %.sroa.0.159 = phi i32 [ %2368, %2367 ], [ %.sroa.0.158, %2362 ]
+  %.sroa.498.159 = phi i32 [ %2374, %2367 ], [ %.sroa.498.158, %2362 ]
+  %2376 = lshr i32 %.sroa.0.159, 11
+  %2377 = getelementptr inbounds i8, ptr %0, i64 27756
+  %2378 = zext i32 %.892569 to i64
+  %2379 = getelementptr inbounds [256 x i16], ptr %2377, i64 0, i64 %2378
+  %2380 = load i16, ptr %2379, align 2
+  %2381 = zext i16 %2380 to i32
+  %2382 = mul i32 %2376, %2381
+  %2383 = icmp ult i32 %.sroa.498.159, %2382
+  %2384 = shl i32 %.892569, 1
+  br i1 %2383, label %2385, label %2390
 
-2386:                                             ; preds = %2376
-  %2387 = sub nsw i32 2048, %2382
-  %2388 = lshr i32 %2387, 5
-  %2389 = trunc i32 %2388 to i16
-  %2390 = add i16 %2381, %2389
-  store i16 %2390, ptr %2380, align 2
-  br label %2397
+2385:                                             ; preds = %2375
+  %2386 = sub nsw i32 2048, %2381
+  %2387 = lshr i32 %2386, 5
+  %2388 = trunc i32 %2387 to i16
+  %2389 = add i16 %2380, %2388
+  store i16 %2389, ptr %2379, align 2
+  br label %2396
 
-2391:                                             ; preds = %2376
-  %2392 = sub i32 %.sroa.0.159, %2383
-  %2393 = sub nuw i32 %.sroa.498.159, %2383
-  %2394 = lshr i16 %2381, 5
-  %2395 = sub i16 %2381, %2394
-  store i16 %2395, ptr %2380, align 2
-  %2396 = or disjoint i32 %2385, 1
-  br label %2397
+2390:                                             ; preds = %2375
+  %2391 = sub i32 %.sroa.0.159, %2382
+  %2392 = sub nuw i32 %.sroa.498.159, %2382
+  %2393 = lshr i16 %2380, 5
+  %2394 = sub i16 %2380, %2393
+  store i16 %2394, ptr %2379, align 2
+  %2395 = or disjoint i32 %2384, 1
+  br label %2396
 
-2397:                                             ; preds = %2391, %2386, %.loopexit
-  %.sroa.35.71 = phi i64 [ %.sroa.35.70, %2386 ], [ %.sroa.35.70, %2391 ], [ %.sroa.35.0.copyload, %.loopexit ]
-  %.sroa.10.71 = phi i64 [ %.sroa.10.70, %2386 ], [ %.sroa.10.70, %2391 ], [ %.sroa.10.0.copyload, %.loopexit ]
-  %.713255 = phi i32 [ %.703254, %2386 ], [ %.703254, %2391 ], [ %47, %.loopexit ]
-  %.712965 = phi i32 [ %.702964, %2386 ], [ %.702964, %2391 ], [ %31, %.loopexit ]
-  %.712888 = phi i32 [ %.702887, %2386 ], [ %.702887, %2391 ], [ %33, %.loopexit ]
-  %.712811 = phi i32 [ %.702810, %2386 ], [ %.702810, %2391 ], [ %35, %.loopexit ]
-  %.812734 = phi i32 [ %.802733, %2386 ], [ %.802733, %2391 ], [ %29, %.loopexit ]
-  %.702647 = phi ptr [ %.692646, %2386 ], [ %.692646, %2391 ], [ %39, %.loopexit ]
-  %.902570 = phi i32 [ %2385, %2386 ], [ %2396, %2391 ], [ %41, %.loopexit ]
-  %.762474 = phi i32 [ %.752473, %2386 ], [ %.752473, %2391 ], [ %43, %.loopexit ]
-  %.822392 = phi i32 [ %.812391, %2386 ], [ %.812391, %2391 ], [ %45, %.loopexit ]
-  %.712304 = phi i32 [ %.702303, %2386 ], [ %.702303, %2391 ], [ %27, %.loopexit ]
-  %.142 = phi i64 [ %.141, %2386 ], [ %.141, %2391 ], [ %25, %.loopexit ]
-  %.sroa.0.160 = phi i32 [ %2383, %2386 ], [ %2392, %2391 ], [ %.sroa.0.0.copyload, %.loopexit ]
-  %.sroa.498.160 = phi i32 [ %.sroa.498.159, %2386 ], [ %2393, %2391 ], [ %.sroa.498.0.copyload, %.loopexit ]
-  %2398 = icmp ult i32 %.sroa.0.160, 16777216
-  br i1 %2398, label %2399, label %2410
+2396:                                             ; preds = %2390, %2385, %.loopexit
+  %.sroa.35.71 = phi i64 [ %.sroa.35.70, %2385 ], [ %.sroa.35.70, %2390 ], [ %.sroa.35.0.copyload, %.loopexit ]
+  %.sroa.10.71 = phi i64 [ %.sroa.10.70, %2385 ], [ %.sroa.10.70, %2390 ], [ %.sroa.10.0.copyload, %.loopexit ]
+  %.713255 = phi i32 [ %.703254, %2385 ], [ %.703254, %2390 ], [ %47, %.loopexit ]
+  %.712965 = phi i32 [ %.702964, %2385 ], [ %.702964, %2390 ], [ %31, %.loopexit ]
+  %.712888 = phi i32 [ %.702887, %2385 ], [ %.702887, %2390 ], [ %33, %.loopexit ]
+  %.712811 = phi i32 [ %.702810, %2385 ], [ %.702810, %2390 ], [ %35, %.loopexit ]
+  %.812734 = phi i32 [ %.802733, %2385 ], [ %.802733, %2390 ], [ %29, %.loopexit ]
+  %.702647 = phi ptr [ %.692646, %2385 ], [ %.692646, %2390 ], [ %39, %.loopexit ]
+  %.902570 = phi i32 [ %2384, %2385 ], [ %2395, %2390 ], [ %41, %.loopexit ]
+  %.762474 = phi i32 [ %.752473, %2385 ], [ %.752473, %2390 ], [ %43, %.loopexit ]
+  %.822392 = phi i32 [ %.812391, %2385 ], [ %.812391, %2390 ], [ %45, %.loopexit ]
+  %.712304 = phi i32 [ %.702303, %2385 ], [ %.702303, %2390 ], [ %27, %.loopexit ]
+  %.142 = phi i64 [ %.141, %2385 ], [ %.141, %2390 ], [ %25, %.loopexit ]
+  %.sroa.0.160 = phi i32 [ %2382, %2385 ], [ %2391, %2390 ], [ %.sroa.0.0.copyload, %.loopexit ]
+  %.sroa.498.160 = phi i32 [ %.sroa.498.159, %2385 ], [ %2392, %2390 ], [ %.sroa.498.0.copyload, %.loopexit ]
+  %2397 = icmp ult i32 %.sroa.0.160, 16777216
+  br i1 %2397, label %2398, label %2409
 
-2399:                                             ; preds = %2397
-  %2400 = icmp eq i64 %.142, %4
-  br i1 %2400, label %2401, label %2402
+2398:                                             ; preds = %2396
+  %2399 = icmp eq i64 %.142, %4
+  br i1 %2399, label %2400, label %2401
 
-2401:                                             ; preds = %2399
+2400:                                             ; preds = %2398
   store i32 65, ptr %60, align 8
-  br label %2628
+  br label %2627
 
-2402:                                             ; preds = %2399
-  %2403 = shl nuw i32 %.sroa.0.160, 8
-  %2404 = shl i32 %.sroa.498.160, 8
-  %2405 = add i64 %.142, 1
-  %2406 = getelementptr inbounds i8, ptr %2, i64 %.142
-  %2407 = load i8, ptr %2406, align 1
-  %2408 = zext i8 %2407 to i32
-  %2409 = or disjoint i32 %2404, %2408
-  br label %2410
+2401:                                             ; preds = %2398
+  %2402 = shl nuw i32 %.sroa.0.160, 8
+  %2403 = shl i32 %.sroa.498.160, 8
+  %2404 = add i64 %.142, 1
+  %2405 = getelementptr inbounds i8, ptr %2, i64 %.142
+  %2406 = load i8, ptr %2405, align 1
+  %2407 = zext i8 %2406 to i32
+  %2408 = or disjoint i32 %2403, %2407
+  br label %2409
 
-2410:                                             ; preds = %2397, %2402
-  %.143 = phi i64 [ %2405, %2402 ], [ %.142, %2397 ]
-  %.sroa.0.161 = phi i32 [ %2403, %2402 ], [ %.sroa.0.160, %2397 ]
-  %.sroa.498.161 = phi i32 [ %2409, %2402 ], [ %.sroa.498.160, %2397 ]
-  %2411 = lshr i32 %.sroa.0.161, 11
-  %2412 = getelementptr inbounds i8, ptr %0, i64 27756
-  %2413 = zext i32 %.902570 to i64
-  %2414 = getelementptr inbounds [256 x i16], ptr %2412, i64 0, i64 %2413
-  %2415 = load i16, ptr %2414, align 2
-  %2416 = zext i16 %2415 to i32
-  %2417 = mul i32 %2411, %2416
-  %2418 = icmp ult i32 %.sroa.498.161, %2417
-  %2419 = shl i32 %.902570, 1
-  br i1 %2418, label %2420, label %2425
+2409:                                             ; preds = %2396, %2401
+  %.143 = phi i64 [ %2404, %2401 ], [ %.142, %2396 ]
+  %.sroa.0.161 = phi i32 [ %2402, %2401 ], [ %.sroa.0.160, %2396 ]
+  %.sroa.498.161 = phi i32 [ %2408, %2401 ], [ %.sroa.498.160, %2396 ]
+  %2410 = lshr i32 %.sroa.0.161, 11
+  %2411 = getelementptr inbounds i8, ptr %0, i64 27756
+  %2412 = zext i32 %.902570 to i64
+  %2413 = getelementptr inbounds [256 x i16], ptr %2411, i64 0, i64 %2412
+  %2414 = load i16, ptr %2413, align 2
+  %2415 = zext i16 %2414 to i32
+  %2416 = mul i32 %2410, %2415
+  %2417 = icmp ult i32 %.sroa.498.161, %2416
+  %2418 = shl i32 %.902570, 1
+  br i1 %2417, label %2419, label %2424
 
-2420:                                             ; preds = %2410
-  %2421 = sub nsw i32 2048, %2416
-  %2422 = lshr i32 %2421, 5
-  %2423 = trunc i32 %2422 to i16
-  %2424 = add i16 %2415, %2423
-  store i16 %2424, ptr %2414, align 2
-  br label %2431
+2419:                                             ; preds = %2409
+  %2420 = sub nsw i32 2048, %2415
+  %2421 = lshr i32 %2420, 5
+  %2422 = trunc i32 %2421 to i16
+  %2423 = add i16 %2414, %2422
+  store i16 %2423, ptr %2413, align 2
+  br label %2430
 
-2425:                                             ; preds = %2410
-  %2426 = sub i32 %.sroa.0.161, %2417
-  %2427 = sub nuw i32 %.sroa.498.161, %2417
-  %2428 = lshr i16 %2415, 5
-  %2429 = sub i16 %2415, %2428
-  store i16 %2429, ptr %2414, align 2
-  %2430 = or disjoint i32 %2419, 1
-  br label %2431
+2424:                                             ; preds = %2409
+  %2425 = sub i32 %.sroa.0.161, %2416
+  %2426 = sub nuw i32 %.sroa.498.161, %2416
+  %2427 = lshr i16 %2414, 5
+  %2428 = sub i16 %2414, %2427
+  store i16 %2428, ptr %2413, align 2
+  %2429 = or disjoint i32 %2418, 1
+  br label %2430
 
-2431:                                             ; preds = %2425, %2420, %.loopexit
-  %.sroa.35.72 = phi i64 [ %.sroa.35.71, %2420 ], [ %.sroa.35.71, %2425 ], [ %.sroa.35.0.copyload, %.loopexit ]
-  %.sroa.10.72 = phi i64 [ %.sroa.10.71, %2420 ], [ %.sroa.10.71, %2425 ], [ %.sroa.10.0.copyload, %.loopexit ]
-  %.723256 = phi i32 [ %.713255, %2420 ], [ %.713255, %2425 ], [ %47, %.loopexit ]
-  %.722966 = phi i32 [ %.712965, %2420 ], [ %.712965, %2425 ], [ %31, %.loopexit ]
-  %.722889 = phi i32 [ %.712888, %2420 ], [ %.712888, %2425 ], [ %33, %.loopexit ]
-  %.722812 = phi i32 [ %.712811, %2420 ], [ %.712811, %2425 ], [ %35, %.loopexit ]
-  %.822735 = phi i32 [ %.812734, %2420 ], [ %.812734, %2425 ], [ %29, %.loopexit ]
-  %.712648 = phi ptr [ %.702647, %2420 ], [ %.702647, %2425 ], [ %39, %.loopexit ]
-  %.912571 = phi i32 [ %2419, %2420 ], [ %2430, %2425 ], [ %41, %.loopexit ]
-  %.772475 = phi i32 [ %.762474, %2420 ], [ %.762474, %2425 ], [ %43, %.loopexit ]
-  %.832393 = phi i32 [ %.822392, %2420 ], [ %.822392, %2425 ], [ %45, %.loopexit ]
-  %.722305 = phi i32 [ %.712304, %2420 ], [ %.712304, %2425 ], [ %27, %.loopexit ]
-  %.144 = phi i64 [ %.143, %2420 ], [ %.143, %2425 ], [ %25, %.loopexit ]
-  %.sroa.0.162 = phi i32 [ %2417, %2420 ], [ %2426, %2425 ], [ %.sroa.0.0.copyload, %.loopexit ]
-  %.sroa.498.162 = phi i32 [ %.sroa.498.161, %2420 ], [ %2427, %2425 ], [ %.sroa.498.0.copyload, %.loopexit ]
-  %2432 = icmp ult i32 %.sroa.0.162, 16777216
-  br i1 %2432, label %2433, label %2444
+2430:                                             ; preds = %2424, %2419, %.loopexit
+  %.sroa.35.72 = phi i64 [ %.sroa.35.71, %2419 ], [ %.sroa.35.71, %2424 ], [ %.sroa.35.0.copyload, %.loopexit ]
+  %.sroa.10.72 = phi i64 [ %.sroa.10.71, %2419 ], [ %.sroa.10.71, %2424 ], [ %.sroa.10.0.copyload, %.loopexit ]
+  %.723256 = phi i32 [ %.713255, %2419 ], [ %.713255, %2424 ], [ %47, %.loopexit ]
+  %.722966 = phi i32 [ %.712965, %2419 ], [ %.712965, %2424 ], [ %31, %.loopexit ]
+  %.722889 = phi i32 [ %.712888, %2419 ], [ %.712888, %2424 ], [ %33, %.loopexit ]
+  %.722812 = phi i32 [ %.712811, %2419 ], [ %.712811, %2424 ], [ %35, %.loopexit ]
+  %.822735 = phi i32 [ %.812734, %2419 ], [ %.812734, %2424 ], [ %29, %.loopexit ]
+  %.712648 = phi ptr [ %.702647, %2419 ], [ %.702647, %2424 ], [ %39, %.loopexit ]
+  %.912571 = phi i32 [ %2418, %2419 ], [ %2429, %2424 ], [ %41, %.loopexit ]
+  %.772475 = phi i32 [ %.762474, %2419 ], [ %.762474, %2424 ], [ %43, %.loopexit ]
+  %.832393 = phi i32 [ %.822392, %2419 ], [ %.822392, %2424 ], [ %45, %.loopexit ]
+  %.722305 = phi i32 [ %.712304, %2419 ], [ %.712304, %2424 ], [ %27, %.loopexit ]
+  %.144 = phi i64 [ %.143, %2419 ], [ %.143, %2424 ], [ %25, %.loopexit ]
+  %.sroa.0.162 = phi i32 [ %2416, %2419 ], [ %2425, %2424 ], [ %.sroa.0.0.copyload, %.loopexit ]
+  %.sroa.498.162 = phi i32 [ %.sroa.498.161, %2419 ], [ %2426, %2424 ], [ %.sroa.498.0.copyload, %.loopexit ]
+  %2431 = icmp ult i32 %.sroa.0.162, 16777216
+  br i1 %2431, label %2432, label %2443
 
-2433:                                             ; preds = %2431
-  %2434 = icmp eq i64 %.144, %4
-  br i1 %2434, label %2435, label %2436
+2432:                                             ; preds = %2430
+  %2433 = icmp eq i64 %.144, %4
+  br i1 %2433, label %2434, label %2435
 
-2435:                                             ; preds = %2433
+2434:                                             ; preds = %2432
   store i32 66, ptr %60, align 8
-  br label %2628
+  br label %2627
 
-2436:                                             ; preds = %2433
-  %2437 = shl nuw i32 %.sroa.0.162, 8
-  %2438 = shl i32 %.sroa.498.162, 8
-  %2439 = add i64 %.144, 1
-  %2440 = getelementptr inbounds i8, ptr %2, i64 %.144
-  %2441 = load i8, ptr %2440, align 1
-  %2442 = zext i8 %2441 to i32
-  %2443 = or disjoint i32 %2438, %2442
-  br label %2444
+2435:                                             ; preds = %2432
+  %2436 = shl nuw i32 %.sroa.0.162, 8
+  %2437 = shl i32 %.sroa.498.162, 8
+  %2438 = add i64 %.144, 1
+  %2439 = getelementptr inbounds i8, ptr %2, i64 %.144
+  %2440 = load i8, ptr %2439, align 1
+  %2441 = zext i8 %2440 to i32
+  %2442 = or disjoint i32 %2437, %2441
+  br label %2443
 
-2444:                                             ; preds = %2431, %2436
-  %.145 = phi i64 [ %2439, %2436 ], [ %.144, %2431 ]
-  %.sroa.0.163 = phi i32 [ %2437, %2436 ], [ %.sroa.0.162, %2431 ]
-  %.sroa.498.163 = phi i32 [ %2443, %2436 ], [ %.sroa.498.162, %2431 ]
-  %2445 = lshr i32 %.sroa.0.163, 11
-  %2446 = getelementptr inbounds i8, ptr %0, i64 27756
-  %2447 = zext i32 %.912571 to i64
-  %2448 = getelementptr inbounds [256 x i16], ptr %2446, i64 0, i64 %2447
-  %2449 = load i16, ptr %2448, align 2
-  %2450 = zext i16 %2449 to i32
-  %2451 = mul i32 %2445, %2450
-  %2452 = icmp ult i32 %.sroa.498.163, %2451
-  %2453 = shl i32 %.912571, 1
-  br i1 %2452, label %2454, label %2459
+2443:                                             ; preds = %2430, %2435
+  %.145 = phi i64 [ %2438, %2435 ], [ %.144, %2430 ]
+  %.sroa.0.163 = phi i32 [ %2436, %2435 ], [ %.sroa.0.162, %2430 ]
+  %.sroa.498.163 = phi i32 [ %2442, %2435 ], [ %.sroa.498.162, %2430 ]
+  %2444 = lshr i32 %.sroa.0.163, 11
+  %2445 = getelementptr inbounds i8, ptr %0, i64 27756
+  %2446 = zext i32 %.912571 to i64
+  %2447 = getelementptr inbounds [256 x i16], ptr %2445, i64 0, i64 %2446
+  %2448 = load i16, ptr %2447, align 2
+  %2449 = zext i16 %2448 to i32
+  %2450 = mul i32 %2444, %2449
+  %2451 = icmp ult i32 %.sroa.498.163, %2450
+  %2452 = shl i32 %.912571, 1
+  br i1 %2451, label %2453, label %2458
 
-2454:                                             ; preds = %2444
-  %2455 = sub nsw i32 2048, %2450
-  %2456 = lshr i32 %2455, 5
-  %2457 = trunc i32 %2456 to i16
-  %2458 = add i16 %2449, %2457
-  store i16 %2458, ptr %2448, align 2
-  br label %2465
+2453:                                             ; preds = %2443
+  %2454 = sub nsw i32 2048, %2449
+  %2455 = lshr i32 %2454, 5
+  %2456 = trunc i32 %2455 to i16
+  %2457 = add i16 %2448, %2456
+  store i16 %2457, ptr %2447, align 2
+  br label %2464
 
-2459:                                             ; preds = %2444
-  %2460 = sub i32 %.sroa.0.163, %2451
-  %2461 = sub nuw i32 %.sroa.498.163, %2451
-  %2462 = lshr i16 %2449, 5
-  %2463 = sub i16 %2449, %2462
-  store i16 %2463, ptr %2448, align 2
-  %2464 = or disjoint i32 %2453, 1
-  br label %2465
+2458:                                             ; preds = %2443
+  %2459 = sub i32 %.sroa.0.163, %2450
+  %2460 = sub nuw i32 %.sroa.498.163, %2450
+  %2461 = lshr i16 %2448, 5
+  %2462 = sub i16 %2448, %2461
+  store i16 %2462, ptr %2447, align 2
+  %2463 = or disjoint i32 %2452, 1
+  br label %2464
 
-2465:                                             ; preds = %2459, %2454, %.loopexit
-  %.sroa.35.73 = phi i64 [ %.sroa.35.72, %2454 ], [ %.sroa.35.72, %2459 ], [ %.sroa.35.0.copyload, %.loopexit ]
-  %.sroa.10.73 = phi i64 [ %.sroa.10.72, %2454 ], [ %.sroa.10.72, %2459 ], [ %.sroa.10.0.copyload, %.loopexit ]
-  %.733257 = phi i32 [ %.723256, %2454 ], [ %.723256, %2459 ], [ %47, %.loopexit ]
-  %.732967 = phi i32 [ %.722966, %2454 ], [ %.722966, %2459 ], [ %31, %.loopexit ]
-  %.732890 = phi i32 [ %.722889, %2454 ], [ %.722889, %2459 ], [ %33, %.loopexit ]
-  %.732813 = phi i32 [ %.722812, %2454 ], [ %.722812, %2459 ], [ %35, %.loopexit ]
-  %.832736 = phi i32 [ %.822735, %2454 ], [ %.822735, %2459 ], [ %29, %.loopexit ]
-  %.722649 = phi ptr [ %.712648, %2454 ], [ %.712648, %2459 ], [ %39, %.loopexit ]
-  %.922572 = phi i32 [ %2453, %2454 ], [ %2464, %2459 ], [ %41, %.loopexit ]
-  %.782476 = phi i32 [ %.772475, %2454 ], [ %.772475, %2459 ], [ %43, %.loopexit ]
-  %.842394 = phi i32 [ %.832393, %2454 ], [ %.832393, %2459 ], [ %45, %.loopexit ]
-  %.732306 = phi i32 [ %.722305, %2454 ], [ %.722305, %2459 ], [ %27, %.loopexit ]
-  %.146 = phi i64 [ %.145, %2454 ], [ %.145, %2459 ], [ %25, %.loopexit ]
-  %.sroa.0.164 = phi i32 [ %2451, %2454 ], [ %2460, %2459 ], [ %.sroa.0.0.copyload, %.loopexit ]
-  %.sroa.498.164 = phi i32 [ %.sroa.498.163, %2454 ], [ %2461, %2459 ], [ %.sroa.498.0.copyload, %.loopexit ]
-  %2466 = icmp ult i32 %.sroa.0.164, 16777216
-  br i1 %2466, label %2467, label %2478
+2464:                                             ; preds = %2458, %2453, %.loopexit
+  %.sroa.35.73 = phi i64 [ %.sroa.35.72, %2453 ], [ %.sroa.35.72, %2458 ], [ %.sroa.35.0.copyload, %.loopexit ]
+  %.sroa.10.73 = phi i64 [ %.sroa.10.72, %2453 ], [ %.sroa.10.72, %2458 ], [ %.sroa.10.0.copyload, %.loopexit ]
+  %.733257 = phi i32 [ %.723256, %2453 ], [ %.723256, %2458 ], [ %47, %.loopexit ]
+  %.732967 = phi i32 [ %.722966, %2453 ], [ %.722966, %2458 ], [ %31, %.loopexit ]
+  %.732890 = phi i32 [ %.722889, %2453 ], [ %.722889, %2458 ], [ %33, %.loopexit ]
+  %.732813 = phi i32 [ %.722812, %2453 ], [ %.722812, %2458 ], [ %35, %.loopexit ]
+  %.832736 = phi i32 [ %.822735, %2453 ], [ %.822735, %2458 ], [ %29, %.loopexit ]
+  %.722649 = phi ptr [ %.712648, %2453 ], [ %.712648, %2458 ], [ %39, %.loopexit ]
+  %.922572 = phi i32 [ %2452, %2453 ], [ %2463, %2458 ], [ %41, %.loopexit ]
+  %.782476 = phi i32 [ %.772475, %2453 ], [ %.772475, %2458 ], [ %43, %.loopexit ]
+  %.842394 = phi i32 [ %.832393, %2453 ], [ %.832393, %2458 ], [ %45, %.loopexit ]
+  %.732306 = phi i32 [ %.722305, %2453 ], [ %.722305, %2458 ], [ %27, %.loopexit ]
+  %.146 = phi i64 [ %.145, %2453 ], [ %.145, %2458 ], [ %25, %.loopexit ]
+  %.sroa.0.164 = phi i32 [ %2450, %2453 ], [ %2459, %2458 ], [ %.sroa.0.0.copyload, %.loopexit ]
+  %.sroa.498.164 = phi i32 [ %.sroa.498.163, %2453 ], [ %2460, %2458 ], [ %.sroa.498.0.copyload, %.loopexit ]
+  %2465 = icmp ult i32 %.sroa.0.164, 16777216
+  br i1 %2465, label %2466, label %2477
 
-2467:                                             ; preds = %2465
-  %2468 = icmp eq i64 %.146, %4
-  br i1 %2468, label %2469, label %2470
+2466:                                             ; preds = %2464
+  %2467 = icmp eq i64 %.146, %4
+  br i1 %2467, label %2468, label %2469
 
-2469:                                             ; preds = %2467
+2468:                                             ; preds = %2466
   store i32 67, ptr %60, align 8
-  br label %2628
+  br label %2627
 
-2470:                                             ; preds = %2467
-  %2471 = shl nuw i32 %.sroa.0.164, 8
-  %2472 = shl i32 %.sroa.498.164, 8
-  %2473 = add i64 %.146, 1
-  %2474 = getelementptr inbounds i8, ptr %2, i64 %.146
-  %2475 = load i8, ptr %2474, align 1
-  %2476 = zext i8 %2475 to i32
-  %2477 = or disjoint i32 %2472, %2476
-  br label %2478
+2469:                                             ; preds = %2466
+  %2470 = shl nuw i32 %.sroa.0.164, 8
+  %2471 = shl i32 %.sroa.498.164, 8
+  %2472 = add i64 %.146, 1
+  %2473 = getelementptr inbounds i8, ptr %2, i64 %.146
+  %2474 = load i8, ptr %2473, align 1
+  %2475 = zext i8 %2474 to i32
+  %2476 = or disjoint i32 %2471, %2475
+  br label %2477
 
-2478:                                             ; preds = %2465, %2470
-  %.147 = phi i64 [ %2473, %2470 ], [ %.146, %2465 ]
-  %.sroa.0.165 = phi i32 [ %2471, %2470 ], [ %.sroa.0.164, %2465 ]
-  %.sroa.498.165 = phi i32 [ %2477, %2470 ], [ %.sroa.498.164, %2465 ]
-  %2479 = lshr i32 %.sroa.0.165, 11
-  %2480 = getelementptr inbounds i8, ptr %0, i64 27756
-  %2481 = zext i32 %.922572 to i64
-  %2482 = getelementptr inbounds [256 x i16], ptr %2480, i64 0, i64 %2481
-  %2483 = load i16, ptr %2482, align 2
-  %2484 = zext i16 %2483 to i32
-  %2485 = mul i32 %2479, %2484
-  %2486 = icmp ult i32 %.sroa.498.165, %2485
-  %2487 = shl i32 %.922572, 1
-  br i1 %2486, label %2488, label %2493
+2477:                                             ; preds = %2464, %2469
+  %.147 = phi i64 [ %2472, %2469 ], [ %.146, %2464 ]
+  %.sroa.0.165 = phi i32 [ %2470, %2469 ], [ %.sroa.0.164, %2464 ]
+  %.sroa.498.165 = phi i32 [ %2476, %2469 ], [ %.sroa.498.164, %2464 ]
+  %2478 = lshr i32 %.sroa.0.165, 11
+  %2479 = getelementptr inbounds i8, ptr %0, i64 27756
+  %2480 = zext i32 %.922572 to i64
+  %2481 = getelementptr inbounds [256 x i16], ptr %2479, i64 0, i64 %2480
+  %2482 = load i16, ptr %2481, align 2
+  %2483 = zext i16 %2482 to i32
+  %2484 = mul i32 %2478, %2483
+  %2485 = icmp ult i32 %.sroa.498.165, %2484
+  %2486 = shl i32 %.922572, 1
+  br i1 %2485, label %2487, label %2492
 
-2488:                                             ; preds = %2478
-  %2489 = sub nsw i32 2048, %2484
-  %2490 = lshr i32 %2489, 5
-  %2491 = trunc i32 %2490 to i16
-  %2492 = add i16 %2483, %2491
-  store i16 %2492, ptr %2482, align 2
-  br label %2499
+2487:                                             ; preds = %2477
+  %2488 = sub nsw i32 2048, %2483
+  %2489 = lshr i32 %2488, 5
+  %2490 = trunc i32 %2489 to i16
+  %2491 = add i16 %2482, %2490
+  store i16 %2491, ptr %2481, align 2
+  br label %2498
 
-2493:                                             ; preds = %2478
-  %2494 = sub i32 %.sroa.0.165, %2485
-  %2495 = sub nuw i32 %.sroa.498.165, %2485
-  %2496 = lshr i16 %2483, 5
-  %2497 = sub i16 %2483, %2496
-  store i16 %2497, ptr %2482, align 2
-  %2498 = or disjoint i32 %2487, 1
-  br label %2499
+2492:                                             ; preds = %2477
+  %2493 = sub i32 %.sroa.0.165, %2484
+  %2494 = sub nuw i32 %.sroa.498.165, %2484
+  %2495 = lshr i16 %2482, 5
+  %2496 = sub i16 %2482, %2495
+  store i16 %2496, ptr %2481, align 2
+  %2497 = or disjoint i32 %2486, 1
+  br label %2498
 
-2499:                                             ; preds = %2493, %2488, %.loopexit
-  %.sroa.35.74 = phi i64 [ %.sroa.35.73, %2488 ], [ %.sroa.35.73, %2493 ], [ %.sroa.35.0.copyload, %.loopexit ]
-  %.sroa.10.74 = phi i64 [ %.sroa.10.73, %2488 ], [ %.sroa.10.73, %2493 ], [ %.sroa.10.0.copyload, %.loopexit ]
-  %.743258 = phi i32 [ %.733257, %2488 ], [ %.733257, %2493 ], [ %47, %.loopexit ]
-  %.742968 = phi i32 [ %.732967, %2488 ], [ %.732967, %2493 ], [ %31, %.loopexit ]
-  %.742891 = phi i32 [ %.732890, %2488 ], [ %.732890, %2493 ], [ %33, %.loopexit ]
-  %.742814 = phi i32 [ %.732813, %2488 ], [ %.732813, %2493 ], [ %35, %.loopexit ]
-  %.842737 = phi i32 [ %.832736, %2488 ], [ %.832736, %2493 ], [ %29, %.loopexit ]
-  %.732650 = phi ptr [ %.722649, %2488 ], [ %.722649, %2493 ], [ %39, %.loopexit ]
-  %.932573 = phi i32 [ %2487, %2488 ], [ %2498, %2493 ], [ %41, %.loopexit ]
-  %.792477 = phi i32 [ %.782476, %2488 ], [ %.782476, %2493 ], [ %43, %.loopexit ]
-  %.852395 = phi i32 [ %.842394, %2488 ], [ %.842394, %2493 ], [ %45, %.loopexit ]
-  %.742307 = phi i32 [ %.732306, %2488 ], [ %.732306, %2493 ], [ %27, %.loopexit ]
-  %.148 = phi i64 [ %.147, %2488 ], [ %.147, %2493 ], [ %25, %.loopexit ]
-  %.sroa.0.166 = phi i32 [ %2485, %2488 ], [ %2494, %2493 ], [ %.sroa.0.0.copyload, %.loopexit ]
-  %.sroa.498.166 = phi i32 [ %.sroa.498.165, %2488 ], [ %2495, %2493 ], [ %.sroa.498.0.copyload, %.loopexit ]
-  %2500 = icmp ult i32 %.sroa.0.166, 16777216
-  br i1 %2500, label %2501, label %2512
+2498:                                             ; preds = %2492, %2487, %.loopexit
+  %.sroa.35.74 = phi i64 [ %.sroa.35.73, %2487 ], [ %.sroa.35.73, %2492 ], [ %.sroa.35.0.copyload, %.loopexit ]
+  %.sroa.10.74 = phi i64 [ %.sroa.10.73, %2487 ], [ %.sroa.10.73, %2492 ], [ %.sroa.10.0.copyload, %.loopexit ]
+  %.743258 = phi i32 [ %.733257, %2487 ], [ %.733257, %2492 ], [ %47, %.loopexit ]
+  %.742968 = phi i32 [ %.732967, %2487 ], [ %.732967, %2492 ], [ %31, %.loopexit ]
+  %.742891 = phi i32 [ %.732890, %2487 ], [ %.732890, %2492 ], [ %33, %.loopexit ]
+  %.742814 = phi i32 [ %.732813, %2487 ], [ %.732813, %2492 ], [ %35, %.loopexit ]
+  %.842737 = phi i32 [ %.832736, %2487 ], [ %.832736, %2492 ], [ %29, %.loopexit ]
+  %.732650 = phi ptr [ %.722649, %2487 ], [ %.722649, %2492 ], [ %39, %.loopexit ]
+  %.932573 = phi i32 [ %2486, %2487 ], [ %2497, %2492 ], [ %41, %.loopexit ]
+  %.792477 = phi i32 [ %.782476, %2487 ], [ %.782476, %2492 ], [ %43, %.loopexit ]
+  %.852395 = phi i32 [ %.842394, %2487 ], [ %.842394, %2492 ], [ %45, %.loopexit ]
+  %.742307 = phi i32 [ %.732306, %2487 ], [ %.732306, %2492 ], [ %27, %.loopexit ]
+  %.148 = phi i64 [ %.147, %2487 ], [ %.147, %2492 ], [ %25, %.loopexit ]
+  %.sroa.0.166 = phi i32 [ %2484, %2487 ], [ %2493, %2492 ], [ %.sroa.0.0.copyload, %.loopexit ]
+  %.sroa.498.166 = phi i32 [ %.sroa.498.165, %2487 ], [ %2494, %2492 ], [ %.sroa.498.0.copyload, %.loopexit ]
+  %2499 = icmp ult i32 %.sroa.0.166, 16777216
+  br i1 %2499, label %2500, label %2511
 
-2501:                                             ; preds = %2499
-  %2502 = icmp eq i64 %.148, %4
-  br i1 %2502, label %2503, label %2504
+2500:                                             ; preds = %2498
+  %2501 = icmp eq i64 %.148, %4
+  br i1 %2501, label %2502, label %2503
 
-2503:                                             ; preds = %2501
+2502:                                             ; preds = %2500
   store i32 68, ptr %60, align 8
-  br label %2628
+  br label %2627
 
-2504:                                             ; preds = %2501
-  %2505 = shl nuw i32 %.sroa.0.166, 8
-  %2506 = shl i32 %.sroa.498.166, 8
-  %2507 = add i64 %.148, 1
-  %2508 = getelementptr inbounds i8, ptr %2, i64 %.148
-  %2509 = load i8, ptr %2508, align 1
-  %2510 = zext i8 %2509 to i32
-  %2511 = or disjoint i32 %2506, %2510
-  br label %2512
+2503:                                             ; preds = %2500
+  %2504 = shl nuw i32 %.sroa.0.166, 8
+  %2505 = shl i32 %.sroa.498.166, 8
+  %2506 = add i64 %.148, 1
+  %2507 = getelementptr inbounds i8, ptr %2, i64 %.148
+  %2508 = load i8, ptr %2507, align 1
+  %2509 = zext i8 %2508 to i32
+  %2510 = or disjoint i32 %2505, %2509
+  br label %2511
 
-2512:                                             ; preds = %2499, %2504
-  %.149 = phi i64 [ %2507, %2504 ], [ %.148, %2499 ]
-  %.sroa.0.167 = phi i32 [ %2505, %2504 ], [ %.sroa.0.166, %2499 ]
-  %.sroa.498.167 = phi i32 [ %2511, %2504 ], [ %.sroa.498.166, %2499 ]
-  %2513 = lshr i32 %.sroa.0.167, 11
-  %2514 = getelementptr inbounds i8, ptr %0, i64 27756
-  %2515 = zext i32 %.932573 to i64
-  %2516 = getelementptr inbounds [256 x i16], ptr %2514, i64 0, i64 %2515
-  %2517 = load i16, ptr %2516, align 2
-  %2518 = zext i16 %2517 to i32
-  %2519 = mul i32 %2513, %2518
-  %2520 = icmp ult i32 %.sroa.498.167, %2519
-  %2521 = shl i32 %.932573, 1
-  br i1 %2520, label %2522, label %2527
+2511:                                             ; preds = %2498, %2503
+  %.149 = phi i64 [ %2506, %2503 ], [ %.148, %2498 ]
+  %.sroa.0.167 = phi i32 [ %2504, %2503 ], [ %.sroa.0.166, %2498 ]
+  %.sroa.498.167 = phi i32 [ %2510, %2503 ], [ %.sroa.498.166, %2498 ]
+  %2512 = lshr i32 %.sroa.0.167, 11
+  %2513 = getelementptr inbounds i8, ptr %0, i64 27756
+  %2514 = zext i32 %.932573 to i64
+  %2515 = getelementptr inbounds [256 x i16], ptr %2513, i64 0, i64 %2514
+  %2516 = load i16, ptr %2515, align 2
+  %2517 = zext i16 %2516 to i32
+  %2518 = mul i32 %2512, %2517
+  %2519 = icmp ult i32 %.sroa.498.167, %2518
+  %2520 = shl i32 %.932573, 1
+  br i1 %2519, label %2521, label %2526
 
-2522:                                             ; preds = %2512
-  %2523 = sub nsw i32 2048, %2518
-  %2524 = lshr i32 %2523, 5
-  %2525 = trunc i32 %2524 to i16
-  %2526 = add i16 %2517, %2525
-  store i16 %2526, ptr %2516, align 2
-  br label %2533
+2521:                                             ; preds = %2511
+  %2522 = sub nsw i32 2048, %2517
+  %2523 = lshr i32 %2522, 5
+  %2524 = trunc i32 %2523 to i16
+  %2525 = add i16 %2516, %2524
+  store i16 %2525, ptr %2515, align 2
+  br label %2532
 
-2527:                                             ; preds = %2512
-  %2528 = sub i32 %.sroa.0.167, %2519
-  %2529 = sub nuw i32 %.sroa.498.167, %2519
-  %2530 = lshr i16 %2517, 5
-  %2531 = sub i16 %2517, %2530
-  store i16 %2531, ptr %2516, align 2
-  %2532 = or disjoint i32 %2521, 1
-  br label %2533
+2526:                                             ; preds = %2511
+  %2527 = sub i32 %.sroa.0.167, %2518
+  %2528 = sub nuw i32 %.sroa.498.167, %2518
+  %2529 = lshr i16 %2516, 5
+  %2530 = sub i16 %2516, %2529
+  store i16 %2530, ptr %2515, align 2
+  %2531 = or disjoint i32 %2520, 1
+  br label %2532
 
-2533:                                             ; preds = %2527, %2522, %.loopexit
-  %.sroa.35.75 = phi i64 [ %.sroa.35.74, %2522 ], [ %.sroa.35.74, %2527 ], [ %.sroa.35.0.copyload, %.loopexit ]
-  %.sroa.10.75 = phi i64 [ %.sroa.10.74, %2522 ], [ %.sroa.10.74, %2527 ], [ %.sroa.10.0.copyload, %.loopexit ]
-  %.753259 = phi i32 [ %.743258, %2522 ], [ %.743258, %2527 ], [ %47, %.loopexit ]
-  %.752969 = phi i32 [ %.742968, %2522 ], [ %.742968, %2527 ], [ %31, %.loopexit ]
-  %.752892 = phi i32 [ %.742891, %2522 ], [ %.742891, %2527 ], [ %33, %.loopexit ]
-  %.752815 = phi i32 [ %.742814, %2522 ], [ %.742814, %2527 ], [ %35, %.loopexit ]
-  %.852738 = phi i32 [ %.842737, %2522 ], [ %.842737, %2527 ], [ %29, %.loopexit ]
-  %.742651 = phi ptr [ %.732650, %2522 ], [ %.732650, %2527 ], [ %39, %.loopexit ]
-  %.942574 = phi i32 [ %2521, %2522 ], [ %2532, %2527 ], [ %41, %.loopexit ]
-  %.802478 = phi i32 [ %.792477, %2522 ], [ %.792477, %2527 ], [ %43, %.loopexit ]
-  %.862396 = phi i32 [ %.852395, %2522 ], [ %.852395, %2527 ], [ %45, %.loopexit ]
-  %.752308 = phi i32 [ %.742307, %2522 ], [ %.742307, %2527 ], [ %27, %.loopexit ]
-  %.150 = phi i64 [ %.149, %2522 ], [ %.149, %2527 ], [ %25, %.loopexit ]
-  %.sroa.0.168 = phi i32 [ %2519, %2522 ], [ %2528, %2527 ], [ %.sroa.0.0.copyload, %.loopexit ]
-  %.sroa.498.168 = phi i32 [ %.sroa.498.167, %2522 ], [ %2529, %2527 ], [ %.sroa.498.0.copyload, %.loopexit ]
-  %2534 = icmp ult i32 %.sroa.0.168, 16777216
-  br i1 %2534, label %2535, label %2546
+2532:                                             ; preds = %2526, %2521, %.loopexit
+  %.sroa.35.75 = phi i64 [ %.sroa.35.74, %2521 ], [ %.sroa.35.74, %2526 ], [ %.sroa.35.0.copyload, %.loopexit ]
+  %.sroa.10.75 = phi i64 [ %.sroa.10.74, %2521 ], [ %.sroa.10.74, %2526 ], [ %.sroa.10.0.copyload, %.loopexit ]
+  %.753259 = phi i32 [ %.743258, %2521 ], [ %.743258, %2526 ], [ %47, %.loopexit ]
+  %.752969 = phi i32 [ %.742968, %2521 ], [ %.742968, %2526 ], [ %31, %.loopexit ]
+  %.752892 = phi i32 [ %.742891, %2521 ], [ %.742891, %2526 ], [ %33, %.loopexit ]
+  %.752815 = phi i32 [ %.742814, %2521 ], [ %.742814, %2526 ], [ %35, %.loopexit ]
+  %.852738 = phi i32 [ %.842737, %2521 ], [ %.842737, %2526 ], [ %29, %.loopexit ]
+  %.742651 = phi ptr [ %.732650, %2521 ], [ %.732650, %2526 ], [ %39, %.loopexit ]
+  %.942574 = phi i32 [ %2520, %2521 ], [ %2531, %2526 ], [ %41, %.loopexit ]
+  %.802478 = phi i32 [ %.792477, %2521 ], [ %.792477, %2526 ], [ %43, %.loopexit ]
+  %.862396 = phi i32 [ %.852395, %2521 ], [ %.852395, %2526 ], [ %45, %.loopexit ]
+  %.752308 = phi i32 [ %.742307, %2521 ], [ %.742307, %2526 ], [ %27, %.loopexit ]
+  %.150 = phi i64 [ %.149, %2521 ], [ %.149, %2526 ], [ %25, %.loopexit ]
+  %.sroa.0.168 = phi i32 [ %2518, %2521 ], [ %2527, %2526 ], [ %.sroa.0.0.copyload, %.loopexit ]
+  %.sroa.498.168 = phi i32 [ %.sroa.498.167, %2521 ], [ %2528, %2526 ], [ %.sroa.498.0.copyload, %.loopexit ]
+  %2533 = icmp ult i32 %.sroa.0.168, 16777216
+  br i1 %2533, label %2534, label %2545
 
-2535:                                             ; preds = %2533
-  %2536 = icmp eq i64 %.150, %4
-  br i1 %2536, label %2537, label %2538
+2534:                                             ; preds = %2532
+  %2535 = icmp eq i64 %.150, %4
+  br i1 %2535, label %2536, label %2537
 
-2537:                                             ; preds = %2535
+2536:                                             ; preds = %2534
   store i32 69, ptr %60, align 8
-  br label %2628
+  br label %2627
 
-2538:                                             ; preds = %2535
-  %2539 = shl nuw i32 %.sroa.0.168, 8
-  %2540 = shl i32 %.sroa.498.168, 8
-  %2541 = add i64 %.150, 1
-  %2542 = getelementptr inbounds i8, ptr %2, i64 %.150
-  %2543 = load i8, ptr %2542, align 1
-  %2544 = zext i8 %2543 to i32
-  %2545 = or disjoint i32 %2540, %2544
-  br label %2546
+2537:                                             ; preds = %2534
+  %2538 = shl nuw i32 %.sroa.0.168, 8
+  %2539 = shl i32 %.sroa.498.168, 8
+  %2540 = add i64 %.150, 1
+  %2541 = getelementptr inbounds i8, ptr %2, i64 %.150
+  %2542 = load i8, ptr %2541, align 1
+  %2543 = zext i8 %2542 to i32
+  %2544 = or disjoint i32 %2539, %2543
+  br label %2545
 
-2546:                                             ; preds = %2533, %2538
-  %.151 = phi i64 [ %2541, %2538 ], [ %.150, %2533 ]
-  %.sroa.0.169 = phi i32 [ %2539, %2538 ], [ %.sroa.0.168, %2533 ]
-  %.sroa.498.169 = phi i32 [ %2545, %2538 ], [ %.sroa.498.168, %2533 ]
-  %2547 = lshr i32 %.sroa.0.169, 11
-  %2548 = getelementptr inbounds i8, ptr %0, i64 27756
-  %2549 = zext i32 %.942574 to i64
-  %2550 = getelementptr inbounds [256 x i16], ptr %2548, i64 0, i64 %2549
-  %2551 = load i16, ptr %2550, align 2
-  %2552 = zext i16 %2551 to i32
-  %2553 = mul i32 %2547, %2552
-  %2554 = icmp ult i32 %.sroa.498.169, %2553
-  %2555 = shl i32 %.942574, 1
-  br i1 %2554, label %2556, label %2561
+2545:                                             ; preds = %2532, %2537
+  %.151 = phi i64 [ %2540, %2537 ], [ %.150, %2532 ]
+  %.sroa.0.169 = phi i32 [ %2538, %2537 ], [ %.sroa.0.168, %2532 ]
+  %.sroa.498.169 = phi i32 [ %2544, %2537 ], [ %.sroa.498.168, %2532 ]
+  %2546 = lshr i32 %.sroa.0.169, 11
+  %2547 = getelementptr inbounds i8, ptr %0, i64 27756
+  %2548 = zext i32 %.942574 to i64
+  %2549 = getelementptr inbounds [256 x i16], ptr %2547, i64 0, i64 %2548
+  %2550 = load i16, ptr %2549, align 2
+  %2551 = zext i16 %2550 to i32
+  %2552 = mul i32 %2546, %2551
+  %2553 = icmp ult i32 %.sroa.498.169, %2552
+  %2554 = shl i32 %.942574, 1
+  br i1 %2553, label %2555, label %2560
 
-2556:                                             ; preds = %2546
-  %2557 = sub nsw i32 2048, %2552
-  %2558 = lshr i32 %2557, 5
-  %2559 = trunc i32 %2558 to i16
-  %2560 = add i16 %2551, %2559
-  br label %2567
+2555:                                             ; preds = %2545
+  %2556 = sub nsw i32 2048, %2551
+  %2557 = lshr i32 %2556, 5
+  %2558 = trunc i32 %2557 to i16
+  %2559 = add i16 %2550, %2558
+  br label %2566
 
-2561:                                             ; preds = %2546
-  %2562 = sub i32 %.sroa.0.169, %2553
-  %2563 = sub nuw i32 %.sroa.498.169, %2553
-  %2564 = lshr i16 %2551, 5
-  %2565 = sub i16 %2551, %2564
-  %2566 = or disjoint i32 %2555, 1
-  br label %2567
+2560:                                             ; preds = %2545
+  %2561 = sub i32 %.sroa.0.169, %2552
+  %2562 = sub nuw i32 %.sroa.498.169, %2552
+  %2563 = lshr i16 %2550, 5
+  %2564 = sub i16 %2550, %2563
+  %2565 = or disjoint i32 %2554, 1
+  br label %2566
 
-2567:                                             ; preds = %2556, %2561
-  %.sink3314 = phi i16 [ %2560, %2556 ], [ %2565, %2561 ]
-  %.952575 = phi i32 [ %2555, %2556 ], [ %2566, %2561 ]
-  %.sroa.0.170 = phi i32 [ %2553, %2556 ], [ %2562, %2561 ]
-  %.sroa.498.170 = phi i32 [ %.sroa.498.169, %2556 ], [ %2563, %2561 ]
-  store i16 %.sink3314, ptr %2550, align 2
-  %2568 = add i32 %.952575, -238
-  br label %2569
+2566:                                             ; preds = %2555, %2560
+  %.sink3314 = phi i16 [ %2559, %2555 ], [ %2564, %2560 ]
+  %.952575 = phi i32 [ %2554, %2555 ], [ %2565, %2560 ]
+  %.sroa.0.170 = phi i32 [ %2552, %2555 ], [ %2561, %2560 ]
+  %.sroa.498.170 = phi i32 [ %.sroa.498.169, %2555 ], [ %2562, %2560 ]
+  store i16 %.sink3314, ptr %2549, align 2
+  %2567 = add i32 %.952575, -238
+  br label %2568
 
-2569:                                             ; preds = %1869, %2151, %2567, %2288, %.loopexit
-  %.sroa.35.13 = phi i64 [ %.sroa.35.0.copyload, %.loopexit ], [ %.sroa.35.49, %1869 ], [ %.sroa.35.63, %2151 ], [ %.sroa.35.67, %2288 ], [ %.sroa.35.75, %2567 ]
-  %.sroa.10.13 = phi i64 [ %.sroa.10.0.copyload, %.loopexit ], [ %.sroa.10.49, %1869 ], [ %.sroa.10.63, %2151 ], [ %.sroa.10.67, %2288 ], [ %.sroa.10.75, %2567 ]
-  %.133197 = phi i32 [ %47, %.loopexit ], [ %.493233, %1869 ], [ %2152, %2151 ], [ %2289, %2288 ], [ %2568, %2567 ]
-  %.132907 = phi i32 [ %31, %.loopexit ], [ %.492943, %1869 ], [ %.632957, %2151 ], [ %.672961, %2288 ], [ %.752969, %2567 ]
-  %.132830 = phi i32 [ %33, %.loopexit ], [ %.492866, %1869 ], [ %.632880, %2151 ], [ %.672884, %2288 ], [ %.752892, %2567 ]
-  %.132753 = phi i32 [ %35, %.loopexit ], [ %.492789, %1869 ], [ %.632803, %2151 ], [ %.672807, %2288 ], [ %.752815, %2567 ]
-  %.132666 = phi i32 [ %29, %.loopexit ], [ %.492702, %1869 ], [ %.732726, %2151 ], [ %.772730, %2288 ], [ %.852738, %2567 ]
-  %.132590 = phi ptr [ %39, %.loopexit ], [ %.482625, %1869 ], [ %.622639, %2151 ], [ %.662643, %2288 ], [ %.742651, %2567 ]
-  %.132493 = phi i32 [ %41, %.loopexit ], [ %.592539, %1869 ], [ %.812561, %2151 ], [ %.862566, %2288 ], [ %.952575, %2567 ]
-  %.132411 = phi i32 [ %43, %.loopexit ], [ %.492447, %1869 ], [ %.682466, %2151 ], [ %.722470, %2288 ], [ %.802478, %2567 ]
-  %.132323 = phi i32 [ %45, %.loopexit ], [ %.562366, %1869 ], [ %.742384, %2151 ], [ %.782388, %2288 ], [ %.862396, %2567 ]
-  %.132246 = phi i32 [ %27, %.loopexit ], [ %.492282, %1869 ], [ %.632296, %2151 ], [ %.672300, %2288 ], [ %.752308, %2567 ]
-  %.13 = phi i64 [ %25, %.loopexit ], [ %.89, %1869 ], [ %.127, %2151 ], [ %.135, %2288 ], [ %.151, %2567 ]
-  %.sroa.0.13 = phi i32 [ %.sroa.0.0.copyload, %.loopexit ], [ %.sroa.0.100, %1869 ], [ %.sroa.0.144, %2151 ], [ %.sroa.0.153, %2288 ], [ %.sroa.0.170, %2567 ]
-  %.sroa.498.13 = phi i32 [ %.sroa.498.0.copyload, %.loopexit ], [ %.sroa.498.100, %1869 ], [ %.sroa.498.144, %2151 ], [ %.sroa.498.153, %2288 ], [ %.sroa.498.170, %2567 ]
-  %2570 = sub i64 %.sroa.44.0, %.sroa.10.13
-  %2571 = zext i32 %.133197 to i64
-  %2572 = icmp ult i64 %2570, %2571
-  %2573 = trunc nuw i64 %2570 to i32
-  %2574 = select i1 %2572, i32 %2573, i32 %.133197
-  %2575 = sub i32 %.133197, %2574
-  %2576 = icmp ult i32 %.132666, %2574
-  %2577 = zext i32 %.132666 to i64
-  br i1 %2576, label %.preheader.i, label %2586
+2568:                                             ; preds = %1868, %2150, %2566, %2287, %.loopexit
+  %.sroa.35.13 = phi i64 [ %.sroa.35.0.copyload, %.loopexit ], [ %.sroa.35.49, %1868 ], [ %.sroa.35.63, %2150 ], [ %.sroa.35.67, %2287 ], [ %.sroa.35.75, %2566 ]
+  %.sroa.10.13 = phi i64 [ %.sroa.10.0.copyload, %.loopexit ], [ %.sroa.10.49, %1868 ], [ %.sroa.10.63, %2150 ], [ %.sroa.10.67, %2287 ], [ %.sroa.10.75, %2566 ]
+  %.133197 = phi i32 [ %47, %.loopexit ], [ %.493233, %1868 ], [ %2151, %2150 ], [ %2288, %2287 ], [ %2567, %2566 ]
+  %.132907 = phi i32 [ %31, %.loopexit ], [ %.492943, %1868 ], [ %.632957, %2150 ], [ %.672961, %2287 ], [ %.752969, %2566 ]
+  %.132830 = phi i32 [ %33, %.loopexit ], [ %.492866, %1868 ], [ %.632880, %2150 ], [ %.672884, %2287 ], [ %.752892, %2566 ]
+  %.132753 = phi i32 [ %35, %.loopexit ], [ %.492789, %1868 ], [ %.632803, %2150 ], [ %.672807, %2287 ], [ %.752815, %2566 ]
+  %.132666 = phi i32 [ %29, %.loopexit ], [ %.492702, %1868 ], [ %.732726, %2150 ], [ %.772730, %2287 ], [ %.852738, %2566 ]
+  %.132590 = phi ptr [ %39, %.loopexit ], [ %.482625, %1868 ], [ %.622639, %2150 ], [ %.662643, %2287 ], [ %.742651, %2566 ]
+  %.132493 = phi i32 [ %41, %.loopexit ], [ %.592539, %1868 ], [ %.812561, %2150 ], [ %.862566, %2287 ], [ %.952575, %2566 ]
+  %.132411 = phi i32 [ %43, %.loopexit ], [ %.492447, %1868 ], [ %.682466, %2150 ], [ %.722470, %2287 ], [ %.802478, %2566 ]
+  %.132323 = phi i32 [ %45, %.loopexit ], [ %.562366, %1868 ], [ %.742384, %2150 ], [ %.782388, %2287 ], [ %.862396, %2566 ]
+  %.132246 = phi i32 [ %27, %.loopexit ], [ %.492282, %1868 ], [ %.632296, %2150 ], [ %.672300, %2287 ], [ %.752308, %2566 ]
+  %.13 = phi i64 [ %25, %.loopexit ], [ %.89, %1868 ], [ %.127, %2150 ], [ %.135, %2287 ], [ %.151, %2566 ]
+  %.sroa.0.13 = phi i32 [ %.sroa.0.0.copyload, %.loopexit ], [ %.sroa.0.100, %1868 ], [ %.sroa.0.144, %2150 ], [ %.sroa.0.153, %2287 ], [ %.sroa.0.170, %2566 ]
+  %.sroa.498.13 = phi i32 [ %.sroa.498.0.copyload, %.loopexit ], [ %.sroa.498.100, %1868 ], [ %.sroa.498.144, %2150 ], [ %.sroa.498.153, %2287 ], [ %.sroa.498.170, %2566 ]
+  %2569 = sub i64 %.sroa.44.0, %.sroa.10.13
+  %2570 = zext i32 %.133197 to i64
+  %2571 = icmp ult i64 %2569, %2570
+  %2572 = trunc nuw i64 %2569 to i32
+  %2573 = select i1 %2571, i32 %2572, i32 %.133197
+  %2574 = sub i32 %.133197, %2573
+  %2575 = icmp ult i32 %.132666, %2573
+  %2576 = zext i32 %.132666 to i64
+  br i1 %2575, label %.preheader.i, label %2585
 
-.preheader.i:                                     ; preds = %2569
-  %2578 = xor i64 %2577, -1
+.preheader.i:                                     ; preds = %2568
+  %2577 = xor i64 %2576, -1
   br label %dict_get.exit.i
 
 dict_get.exit.i:                                  ; preds = %dict_get.exit.i, %.preheader.i
-  %.sroa.10.81 = phi i64 [ %.sroa.10.13, %.preheader.i ], [ %2584, %dict_get.exit.i ]
-  %.0.i3126 = phi i32 [ %2574, %.preheader.i ], [ %2585, %dict_get.exit.i ]
-  %2579 = icmp ugt i64 %.sroa.10.81, %2577
-  %spec.select3277 = select i1 %2579, i64 0, i64 %.sroa.50.0.copyload
-  %2580 = getelementptr i8, ptr %.sroa.0.0.copyload3154, i64 %.sroa.10.81
-  %2581 = getelementptr i8, ptr %2580, i64 %2578
-  %2582 = getelementptr i8, ptr %2581, i64 %spec.select3277
-  %2583 = load i8, ptr %2582, align 1
-  store i8 %2583, ptr %2580, align 1
-  %2584 = add i64 %.sroa.10.81, 1
-  %2585 = add i32 %.0.i3126, -1
-  %.not.i3127 = icmp eq i32 %2585, 0
+  %.sroa.10.81 = phi i64 [ %.sroa.10.13, %.preheader.i ], [ %2583, %dict_get.exit.i ]
+  %.0.i3126 = phi i32 [ %2573, %.preheader.i ], [ %2584, %dict_get.exit.i ]
+  %2578 = icmp ugt i64 %.sroa.10.81, %2576
+  %spec.select3277 = select i1 %2578, i64 0, i64 %.sroa.50.0.copyload
+  %2579 = getelementptr i8, ptr %.sroa.0.0.copyload3154, i64 %.sroa.10.81
+  %2580 = getelementptr i8, ptr %2579, i64 %2577
+  %2581 = getelementptr i8, ptr %2580, i64 %spec.select3277
+  %2582 = load i8, ptr %2581, align 1
+  store i8 %2582, ptr %2579, align 1
+  %2583 = add i64 %.sroa.10.81, 1
+  %2584 = add i32 %.0.i3126, -1
+  %.not.i3127 = icmp eq i32 %2584, 0
   br i1 %.not.i3127, label %.loopexit.i, label %dict_get.exit.i, !llvm.loop !14
 
-2586:                                             ; preds = %2569
-  %2587 = icmp ugt i64 %.sroa.10.13, %2577
-  br i1 %2587, label %2588, label %2594
+2585:                                             ; preds = %2568
+  %2586 = icmp ugt i64 %.sroa.10.13, %2576
+  br i1 %2586, label %2587, label %2593
 
-2588:                                             ; preds = %2586
-  %2589 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload3154, i64 %.sroa.10.13
-  %2590 = sub nsw i64 0, %2577
-  %2591 = getelementptr inbounds i8, ptr %2589, i64 %2590
-  %2592 = getelementptr inbounds i8, ptr %2591, i64 -1
-  %2593 = zext i32 %2574 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %2589, ptr nonnull align 1 %2592, i64 %2593, i1 false)
+2587:                                             ; preds = %2585
+  %2588 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload3154, i64 %.sroa.10.13
+  %2589 = sub nsw i64 0, %2576
+  %2590 = getelementptr inbounds i8, ptr %2588, i64 %2589
+  %2591 = getelementptr inbounds i8, ptr %2590, i64 -1
+  %2592 = zext i32 %2573 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %2588, ptr nonnull align 1 %2591, i64 %2592, i1 false)
   br label %.loopexit.sink.split.i
 
-2594:                                             ; preds = %2586
-  %2595 = xor i64 %2577, -1
-  %2596 = add nsw i64 %.sroa.10.13, %2595
-  %2597 = add i64 %2596, %.sroa.50.0.copyload
-  %2598 = and i64 %2597, 4294967295
-  %2599 = trunc i64 %2596 to i32
-  %2600 = sub i32 0, %2599
-  %2601 = icmp ugt i32 %2574, %2600
-  %2602 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload3154, i64 %.sroa.10.13
-  %2603 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload3154, i64 %2598
-  br i1 %2601, label %2604, label %2610
+2593:                                             ; preds = %2585
+  %2594 = xor i64 %2576, -1
+  %2595 = add nsw i64 %.sroa.10.13, %2594
+  %2596 = add i64 %2595, %.sroa.50.0.copyload
+  %2597 = and i64 %2596, 4294967295
+  %2598 = trunc i64 %2595 to i32
+  %2599 = sub i32 0, %2598
+  %2600 = icmp ugt i32 %2573, %2599
+  %2601 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload3154, i64 %.sroa.10.13
+  %2602 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload3154, i64 %2597
+  br i1 %2600, label %2603, label %2609
 
-2604:                                             ; preds = %2594
-  %2605 = zext i32 %2600 to i64
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %2602, ptr align 1 %2603, i64 %2605, i1 false)
-  %2606 = add nuw nsw i64 %.sroa.10.13, %2605
-  %2607 = add i32 %2574, %2599
-  %2608 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload3154, i64 %2606
-  %2609 = zext i32 %2607 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2608, ptr align 1 %.sroa.0.0.copyload3154, i64 %2609, i1 false)
+2603:                                             ; preds = %2593
+  %2604 = zext i32 %2599 to i64
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %2601, ptr align 1 %2602, i64 %2604, i1 false)
+  %2605 = add nuw nsw i64 %.sroa.10.13, %2604
+  %2606 = add i32 %2573, %2598
+  %2607 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload3154, i64 %2605
+  %2608 = zext i32 %2606 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2607, ptr align 1 %.sroa.0.0.copyload3154, i64 %2608, i1 false)
   br label %.loopexit.sink.split.i
 
-2610:                                             ; preds = %2594
-  %2611 = zext i32 %2574 to i64
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %2602, ptr align 1 %2603, i64 %2611, i1 false)
+2609:                                             ; preds = %2593
+  %2610 = zext i32 %2573 to i64
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %2601, ptr align 1 %2602, i64 %2610, i1 false)
   br label %.loopexit.sink.split.i
 
-.loopexit.sink.split.i:                           ; preds = %2610, %2604, %2588
-  %.sroa.10.79 = phi i64 [ %.sroa.10.13, %2588 ], [ %2606, %2604 ], [ %.sroa.10.13, %2610 ]
-  %.sink70.i = phi i64 [ %2593, %2588 ], [ %2609, %2604 ], [ %2611, %2610 ]
-  %2612 = add i64 %.sink70.i, %.sroa.10.79
+.loopexit.sink.split.i:                           ; preds = %2609, %2603, %2587
+  %.sroa.10.79 = phi i64 [ %.sroa.10.13, %2587 ], [ %2605, %2603 ], [ %.sroa.10.13, %2609 ]
+  %.sink70.i = phi i64 [ %2592, %2587 ], [ %2608, %2603 ], [ %2610, %2609 ]
+  %2611 = add i64 %.sink70.i, %.sroa.10.79
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %dict_get.exit.i, %.loopexit.sink.split.i
-  %.sroa.10.80 = phi i64 [ %2612, %.loopexit.sink.split.i ], [ %2584, %dict_get.exit.i ]
+  %.sroa.10.80 = phi i64 [ %2611, %.loopexit.sink.split.i ], [ %2583, %dict_get.exit.i ]
   %spec.select3278 = tail call i64 @llvm.umax.i64(i64 %.sroa.35.13, i64 %.sroa.10.80)
-  %.not3279 = icmp eq i32 %2575, 0
-  br i1 %.not3279, label %dict_put.exit.thread, label %2613
+  %.not3279 = icmp eq i32 %2574, 0
+  br i1 %.not3279, label %dict_put.exit.thread, label %2612
 
-2613:                                             ; preds = %.loopexit.i
+2612:                                             ; preds = %.loopexit.i
   store i32 70, ptr %60, align 8
-  br label %2628
+  br label %2627
 
-2614:                                             ; preds = %.loopexit, %64
+2613:                                             ; preds = %.loopexit, %64
   %.sroa.35.76 = phi i64 [ %.sroa.35.0.copyload, %.loopexit ], [ %.sroa.35.0, %64 ]
   %.sroa.10.76 = phi i64 [ %.sroa.10.0.copyload, %.loopexit ], [ %.sroa.44.0, %64 ]
   %.763260 = phi i32 [ %47, %.loopexit ], [ %.03184, %64 ]
@@ -5585,53 +5584,53 @@ dict_get.exit.i:                                  ; preds = %dict_get.exit.i, %.
   %.152 = phi i64 [ %25, %.loopexit ], [ %.02205, %64 ]
   %.sroa.0.171 = phi i32 [ %.sroa.0.0.copyload, %.loopexit ], [ %.sroa.0.0, %64 ]
   %.sroa.498.171 = phi i32 [ %.sroa.498.0.copyload, %.loopexit ], [ %.sroa.498.0, %64 ]
-  %2615 = icmp ult i32 %.sroa.0.171, 16777216
-  br i1 %2615, label %2616, label %2627
+  %2614 = icmp ult i32 %.sroa.0.171, 16777216
+  br i1 %2614, label %2615, label %2626
 
-2616:                                             ; preds = %2614
-  %2617 = icmp eq i64 %.152, %4
-  br i1 %2617, label %2618, label %2619
+2615:                                             ; preds = %2613
+  %2616 = icmp eq i64 %.152, %4
+  br i1 %2616, label %2617, label %2618
 
-2618:                                             ; preds = %2616
+2617:                                             ; preds = %2615
   store i32 0, ptr %60, align 8
-  br label %2628
-
-2619:                                             ; preds = %2616
-  %2620 = shl nuw i32 %.sroa.0.171, 8
-  %2621 = shl i32 %.sroa.498.171, 8
-  %2622 = add i64 %.152, 1
-  %2623 = getelementptr inbounds i8, ptr %2, i64 %.152
-  %2624 = load i8, ptr %2623, align 1
-  %2625 = zext i8 %2624 to i32
-  %2626 = or disjoint i32 %2621, %2625
   br label %2627
 
-2627:                                             ; preds = %2614, %2619
-  %.153 = phi i64 [ %2622, %2619 ], [ %.152, %2614 ]
-  %.sroa.0.172 = phi i32 [ %2620, %2619 ], [ %.sroa.0.171, %2614 ]
-  %.sroa.498.172 = phi i32 [ %2626, %2619 ], [ %.sroa.498.171, %2614 ]
-  store i32 1, ptr %60, align 8
-  br label %2628
+2618:                                             ; preds = %2615
+  %2619 = shl nuw i32 %.sroa.0.171, 8
+  %2620 = shl i32 %.sroa.498.171, 8
+  %2621 = add i64 %.152, 1
+  %2622 = getelementptr inbounds i8, ptr %2, i64 %.152
+  %2623 = load i8, ptr %2622, align 1
+  %2624 = zext i8 %2623 to i32
+  %2625 = or disjoint i32 %2620, %2624
+  br label %2626
 
-2628:                                             ; preds = %1872, %1869, %1861, %1856, %1854, %2627, %2618, %2613, %2537, %2503, %2469, %2435, %2401, %2367, %2333, %2299, %2257, %2222, %2187, %2162, %2120, %2085, %2050, %2025, %1990, %1958, %dict_put.exit3125, %1908, %1881, %1860, %1823, %1788, %1753, %1718, %1694, %1658, %1621, %1584, %1547, %1511, %1459, %1426, %1393, %1360, %1327, %1294, %1251, %1217, %1183, %1149, %1115, %1081, %1047, %1013, %971, %936, %901, %876, %834, %799, %764, %739, %710, %dict_put.exit, %661, %622, %583, %544, %505, %466, %427, %388, %344, %311, %278, %245, %212, %179, %146, %113, %71
-  %.sroa.35.15 = phi i64 [ %.sroa.35.76, %2618 ], [ %.sroa.35.76, %2627 ], [ %spec.select3278, %2613 ], [ %.sroa.35.0, %71 ], [ %.sroa.35.16, %113 ], [ %.sroa.35.17, %146 ], [ %.sroa.35.18, %179 ], [ %.sroa.35.19, %212 ], [ %.sroa.35.20, %245 ], [ %.sroa.35.21, %278 ], [ %.sroa.35.22, %311 ], [ %.sroa.35.23, %344 ], [ %.sroa.35.9, %dict_put.exit ], [ %.sroa.35.1, %388 ], [ %.sroa.35.2, %427 ], [ %.sroa.35.3, %466 ], [ %.sroa.35.4, %505 ], [ %.sroa.35.5, %544 ], [ %.sroa.35.6, %583 ], [ %.sroa.35.7, %622 ], [ %.sroa.35.8, %661 ], [ %.sroa.35.25, %710 ], [ %.sroa.35.26, %739 ], [ %.sroa.35.27, %764 ], [ %.sroa.35.28, %799 ], [ %.sroa.35.29, %834 ], [ %.sroa.35.43, %1294 ], [ %.sroa.35.44, %1327 ], [ %.sroa.35.45, %1360 ], [ %.sroa.35.46, %1393 ], [ %.sroa.35.47, %1426 ], [ %.sroa.35.48, %1459 ], [ %.sroa.35.49, %1869 ], [ %.sroa.35.10, %1658 ], [ %.sroa.35.10, %1621 ], [ %.sroa.35.10, %1584 ], [ %.sroa.35.10, %1547 ], [ %.sroa.35.10, %1511 ], [ %.sroa.35.11, %1694 ], [ %.sroa.35.50, %1718 ], [ %.sroa.35.51, %1753 ], [ %.sroa.35.52, %1788 ], [ %.sroa.35.53, %1823 ], [ %.sroa.35.54, %1860 ], [ %.sroa.35.54, %1861 ], [ %.sroa.35.54, %1856 ], [ %.sroa.35.53, %1854 ], [ %.sroa.35.30, %876 ], [ %.sroa.35.31, %901 ], [ %.sroa.35.32, %936 ], [ %.sroa.35.33, %971 ], [ %.sroa.35.34, %1013 ], [ %.sroa.35.35, %1047 ], [ %.sroa.35.36, %1081 ], [ %.sroa.35.37, %1115 ], [ %.sroa.35.38, %1149 ], [ %.sroa.35.39, %1183 ], [ %.sroa.35.40, %1217 ], [ %.sroa.35.41, %1251 ], [ %.sroa.35.55, %1881 ], [ %.sroa.35.56, %1908 ], [ %.sroa.35.12, %dict_put.exit3125 ], [ %.sroa.35.60, %2025 ], [ %.sroa.35.61, %2050 ], [ %.sroa.35.62, %2085 ], [ %.sroa.35.63, %2120 ], [ %.sroa.35.64, %2162 ], [ %.sroa.35.65, %2187 ], [ %.sroa.35.66, %2222 ], [ %.sroa.35.67, %2257 ], [ %.sroa.35.68, %2299 ], [ %.sroa.35.69, %2333 ], [ %.sroa.35.70, %2367 ], [ %.sroa.35.71, %2401 ], [ %.sroa.35.72, %2435 ], [ %.sroa.35.73, %2469 ], [ %.sroa.35.74, %2503 ], [ %.sroa.35.75, %2537 ], [ %.sroa.35.58, %1958 ], [ %.sroa.35.59, %1990 ], [ 0, %1872 ]
-  %.sroa.10.15 = phi i64 [ %.sroa.10.76, %2618 ], [ %.sroa.10.76, %2627 ], [ %.sroa.10.80, %2613 ], [ %.sroa.10.0, %71 ], [ %.sroa.10.16, %113 ], [ %.sroa.10.17, %146 ], [ %.sroa.10.18, %179 ], [ %.sroa.10.19, %212 ], [ %.sroa.10.20, %245 ], [ %.sroa.10.21, %278 ], [ %.sroa.10.22, %311 ], [ %.sroa.10.23, %344 ], [ %.sroa.44.0, %dict_put.exit ], [ %.sroa.10.1, %388 ], [ %.sroa.10.2, %427 ], [ %.sroa.10.3, %466 ], [ %.sroa.10.4, %505 ], [ %.sroa.10.5, %544 ], [ %.sroa.10.6, %583 ], [ %.sroa.10.7, %622 ], [ %.sroa.10.8, %661 ], [ %.sroa.10.25, %710 ], [ %.sroa.10.26, %739 ], [ %.sroa.10.27, %764 ], [ %.sroa.10.28, %799 ], [ %.sroa.10.29, %834 ], [ %.sroa.10.43, %1294 ], [ %.sroa.10.44, %1327 ], [ %.sroa.10.45, %1360 ], [ %.sroa.10.46, %1393 ], [ %.sroa.10.47, %1426 ], [ %.sroa.10.48, %1459 ], [ %.sroa.10.49, %1869 ], [ %.sroa.10.10, %1658 ], [ %.sroa.10.10, %1621 ], [ %.sroa.10.10, %1584 ], [ %.sroa.10.10, %1547 ], [ %.sroa.10.10, %1511 ], [ %.sroa.10.11, %1694 ], [ %.sroa.10.50, %1718 ], [ %.sroa.10.51, %1753 ], [ %.sroa.10.52, %1788 ], [ %.sroa.10.53, %1823 ], [ %.sroa.10.54, %1860 ], [ %.sroa.10.54, %1861 ], [ %.sroa.10.54, %1856 ], [ %.sroa.10.53, %1854 ], [ %.sroa.10.30, %876 ], [ %.sroa.10.31, %901 ], [ %.sroa.10.32, %936 ], [ %.sroa.10.33, %971 ], [ %.sroa.10.34, %1013 ], [ %.sroa.10.35, %1047 ], [ %.sroa.10.36, %1081 ], [ %.sroa.10.37, %1115 ], [ %.sroa.10.38, %1149 ], [ %.sroa.10.39, %1183 ], [ %.sroa.10.40, %1217 ], [ %.sroa.10.41, %1251 ], [ %.sroa.10.55, %1881 ], [ %.sroa.10.56, %1908 ], [ %.sroa.44.0, %dict_put.exit3125 ], [ %.sroa.10.60, %2025 ], [ %.sroa.10.61, %2050 ], [ %.sroa.10.62, %2085 ], [ %.sroa.10.63, %2120 ], [ %.sroa.10.64, %2162 ], [ %.sroa.10.65, %2187 ], [ %.sroa.10.66, %2222 ], [ %.sroa.10.67, %2257 ], [ %.sroa.10.68, %2299 ], [ %.sroa.10.69, %2333 ], [ %.sroa.10.70, %2367 ], [ %.sroa.10.71, %2401 ], [ %.sroa.10.72, %2435 ], [ %.sroa.10.73, %2469 ], [ %.sroa.10.74, %2503 ], [ %.sroa.10.75, %2537 ], [ %.sroa.10.58, %1958 ], [ %.sroa.10.59, %1990 ], [ %.sroa.10.25, %1872 ]
-  %.153199 = phi i32 [ %.763260, %2618 ], [ %.763260, %2627 ], [ %2575, %2613 ], [ %.03184, %71 ], [ %.163200, %113 ], [ %.173201, %146 ], [ %.183202, %179 ], [ %.193203, %212 ], [ %.203204, %245 ], [ %.213205, %278 ], [ %.223206, %311 ], [ %.233207, %344 ], [ %.93193, %dict_put.exit ], [ %.13185, %388 ], [ %.23186, %427 ], [ %.33187, %466 ], [ %.43188, %505 ], [ %.53189, %544 ], [ %.63190, %583 ], [ %.73191, %622 ], [ %.83192, %661 ], [ %.253209, %710 ], [ %.263210, %739 ], [ %.273211, %764 ], [ %.283212, %799 ], [ %.293213, %834 ], [ %.433227, %1294 ], [ %.443228, %1327 ], [ %.453229, %1360 ], [ %.463230, %1393 ], [ %.473231, %1426 ], [ %.483232, %1459 ], [ %.493233, %1869 ], [ %.103194, %1658 ], [ %.103194, %1621 ], [ %.103194, %1584 ], [ %.103194, %1547 ], [ %.103194, %1511 ], [ %.113195, %1694 ], [ %.503234, %1718 ], [ %.513235, %1753 ], [ %.523236, %1788 ], [ %.533237, %1823 ], [ %.543238, %1860 ], [ %.543238, %1861 ], [ %.543238, %1856 ], [ %.533237, %1854 ], [ %.303214, %876 ], [ %.313215, %901 ], [ %.323216, %936 ], [ %.333217, %971 ], [ %.343218, %1013 ], [ %.353219, %1047 ], [ %.363220, %1081 ], [ %.373221, %1115 ], [ %.383222, %1149 ], [ %.393223, %1183 ], [ %.403224, %1217 ], [ %.413225, %1251 ], [ %.553239, %1881 ], [ %.563240, %1908 ], [ %.123196, %dict_put.exit3125 ], [ %.603244, %2025 ], [ %.613245, %2050 ], [ %.623246, %2085 ], [ %.633247, %2120 ], [ %.643248, %2162 ], [ %.653249, %2187 ], [ %.663250, %2222 ], [ %.673251, %2257 ], [ %.683252, %2299 ], [ %.693253, %2333 ], [ %.703254, %2367 ], [ %.713255, %2401 ], [ %.723256, %2435 ], [ %.733257, %2469 ], [ %.743258, %2503 ], [ %.753259, %2537 ], [ %.583242, %1958 ], [ %.593243, %1990 ], [ %.253209, %1872 ]
-  %.152909 = phi i32 [ %.762970, %2618 ], [ %.762970, %2627 ], [ %.132907, %2613 ], [ %.02894, %71 ], [ %.162910, %113 ], [ %.172911, %146 ], [ %.182912, %179 ], [ %.192913, %212 ], [ %.202914, %245 ], [ %.212915, %278 ], [ %.222916, %311 ], [ %.232917, %344 ], [ %.92903, %dict_put.exit ], [ %.12895, %388 ], [ %.22896, %427 ], [ %.32897, %466 ], [ %.42898, %505 ], [ %.52899, %544 ], [ %.62900, %583 ], [ %.72901, %622 ], [ %.82902, %661 ], [ %.252919, %710 ], [ %.262920, %739 ], [ %.272921, %764 ], [ %.282922, %799 ], [ %.292923, %834 ], [ %.432937, %1294 ], [ %.442938, %1327 ], [ %.452939, %1360 ], [ %.462940, %1393 ], [ %.472941, %1426 ], [ %.482942, %1459 ], [ %.492943, %1869 ], [ %.102904, %1658 ], [ %.102904, %1621 ], [ %.102904, %1584 ], [ %.102904, %1547 ], [ %.102904, %1511 ], [ %.112905, %1694 ], [ %.502944, %1718 ], [ %.512945, %1753 ], [ %.522946, %1788 ], [ %.532947, %1823 ], [ %.542948, %1860 ], [ %.542948, %1861 ], [ %.542948, %1856 ], [ %.532947, %1854 ], [ %.302924, %876 ], [ %.312925, %901 ], [ %.322926, %936 ], [ %.332927, %971 ], [ %.342928, %1013 ], [ %.352929, %1047 ], [ %.362930, %1081 ], [ %.372931, %1115 ], [ %.382932, %1149 ], [ %.392933, %1183 ], [ %.402934, %1217 ], [ %.412935, %1251 ], [ %.552949, %1881 ], [ %.562950, %1908 ], [ %.122906, %dict_put.exit3125 ], [ %.602954, %2025 ], [ %.612955, %2050 ], [ %.622956, %2085 ], [ %.632957, %2120 ], [ %.642958, %2162 ], [ %.652959, %2187 ], [ %.662960, %2222 ], [ %.672961, %2257 ], [ %.682962, %2299 ], [ %.692963, %2333 ], [ %.702964, %2367 ], [ %.712965, %2401 ], [ %.722966, %2435 ], [ %.732967, %2469 ], [ %.742968, %2503 ], [ %.752969, %2537 ], [ %.582952, %1958 ], [ %.592953, %1990 ], [ %.252919, %1872 ]
-  %.152832 = phi i32 [ %.762893, %2618 ], [ %.762893, %2627 ], [ %.132830, %2613 ], [ %.02817, %71 ], [ %.162833, %113 ], [ %.172834, %146 ], [ %.182835, %179 ], [ %.192836, %212 ], [ %.202837, %245 ], [ %.212838, %278 ], [ %.222839, %311 ], [ %.232840, %344 ], [ %.92826, %dict_put.exit ], [ %.12818, %388 ], [ %.22819, %427 ], [ %.32820, %466 ], [ %.42821, %505 ], [ %.52822, %544 ], [ %.62823, %583 ], [ %.72824, %622 ], [ %.82825, %661 ], [ %.252842, %710 ], [ %.262843, %739 ], [ %.272844, %764 ], [ %.282845, %799 ], [ %.292846, %834 ], [ %.432860, %1294 ], [ %.442861, %1327 ], [ %.452862, %1360 ], [ %.462863, %1393 ], [ %.472864, %1426 ], [ %.482865, %1459 ], [ %.492866, %1869 ], [ %.102827, %1658 ], [ %.102827, %1621 ], [ %.102827, %1584 ], [ %.102827, %1547 ], [ %.102827, %1511 ], [ %.112828, %1694 ], [ %.502867, %1718 ], [ %.512868, %1753 ], [ %.522869, %1788 ], [ %.532870, %1823 ], [ %.542871, %1860 ], [ %.542871, %1861 ], [ %.542871, %1856 ], [ %.532870, %1854 ], [ %.302847, %876 ], [ %.312848, %901 ], [ %.322849, %936 ], [ %.332850, %971 ], [ %.342851, %1013 ], [ %.352852, %1047 ], [ %.362853, %1081 ], [ %.372854, %1115 ], [ %.382855, %1149 ], [ %.392856, %1183 ], [ %.402857, %1217 ], [ %.412858, %1251 ], [ %.552872, %1881 ], [ %.562873, %1908 ], [ %.122829, %dict_put.exit3125 ], [ %.602877, %2025 ], [ %.612878, %2050 ], [ %.622879, %2085 ], [ %.632880, %2120 ], [ %.642881, %2162 ], [ %.652882, %2187 ], [ %.662883, %2222 ], [ %.672884, %2257 ], [ %.682885, %2299 ], [ %.692886, %2333 ], [ %.702887, %2367 ], [ %.712888, %2401 ], [ %.722889, %2435 ], [ %.732890, %2469 ], [ %.742891, %2503 ], [ %.752892, %2537 ], [ %.582875, %1958 ], [ %.592876, %1990 ], [ %.252842, %1872 ]
-  %.152755 = phi i32 [ %.762816, %2618 ], [ %.762816, %2627 ], [ %.132753, %2613 ], [ %.02740, %71 ], [ %.162756, %113 ], [ %.172757, %146 ], [ %.182758, %179 ], [ %.192759, %212 ], [ %.202760, %245 ], [ %.212761, %278 ], [ %.222762, %311 ], [ %.232763, %344 ], [ %.92749, %dict_put.exit ], [ %.12741, %388 ], [ %.22742, %427 ], [ %.32743, %466 ], [ %.42744, %505 ], [ %.52745, %544 ], [ %.62746, %583 ], [ %.72747, %622 ], [ %.82748, %661 ], [ %.252765, %710 ], [ %.262766, %739 ], [ %.272767, %764 ], [ %.282768, %799 ], [ %.292769, %834 ], [ %.432783, %1294 ], [ %.442784, %1327 ], [ %.452785, %1360 ], [ %.462786, %1393 ], [ %.472787, %1426 ], [ %.482788, %1459 ], [ %.492789, %1869 ], [ %.102750, %1658 ], [ %.102750, %1621 ], [ %.102750, %1584 ], [ %.102750, %1547 ], [ %.102750, %1511 ], [ %.112751, %1694 ], [ %.502790, %1718 ], [ %.512791, %1753 ], [ %.522792, %1788 ], [ %.532793, %1823 ], [ %.542794, %1860 ], [ %.542794, %1861 ], [ %.542794, %1856 ], [ %.532793, %1854 ], [ %.302770, %876 ], [ %.312771, %901 ], [ %.322772, %936 ], [ %.332773, %971 ], [ %.342774, %1013 ], [ %.352775, %1047 ], [ %.362776, %1081 ], [ %.372777, %1115 ], [ %.382778, %1149 ], [ %.392779, %1183 ], [ %.402780, %1217 ], [ %.412781, %1251 ], [ %.552795, %1881 ], [ %.562796, %1908 ], [ %.122752, %dict_put.exit3125 ], [ %.602800, %2025 ], [ %.612801, %2050 ], [ %.622802, %2085 ], [ %.632803, %2120 ], [ %.642804, %2162 ], [ %.652805, %2187 ], [ %.662806, %2222 ], [ %.672807, %2257 ], [ %.682808, %2299 ], [ %.692809, %2333 ], [ %.702810, %2367 ], [ %.712811, %2401 ], [ %.722812, %2435 ], [ %.732813, %2469 ], [ %.742814, %2503 ], [ %.752815, %2537 ], [ %.582798, %1958 ], [ %.592799, %1990 ], [ %.252765, %1872 ]
-  %.152668 = phi i32 [ %.862739, %2618 ], [ %.862739, %2627 ], [ %.132666, %2613 ], [ %.02653, %71 ], [ %.162669, %113 ], [ %.172670, %146 ], [ %.182671, %179 ], [ %.192672, %212 ], [ %.202673, %245 ], [ %.212674, %278 ], [ %.222675, %311 ], [ %.232676, %344 ], [ %.92662, %dict_put.exit ], [ %.12654, %388 ], [ %.22655, %427 ], [ %.32656, %466 ], [ %.42657, %505 ], [ %.52658, %544 ], [ %.62659, %583 ], [ %.72660, %622 ], [ %.82661, %661 ], [ %.252678, %710 ], [ %.262679, %739 ], [ %.272680, %764 ], [ %.282681, %799 ], [ %.292682, %834 ], [ %.432696, %1294 ], [ %.442697, %1327 ], [ %.452698, %1360 ], [ %.462699, %1393 ], [ %.472700, %1426 ], [ %.482701, %1459 ], [ %.492702, %1869 ], [ %.572710, %1658 ], [ %.552708, %1621 ], [ %.532706, %1584 ], [ %.512704, %1547 ], [ %.102663, %1511 ], [ %.582711, %1694 ], [ %.592712, %1718 ], [ %.602713, %1753 ], [ %.612714, %1788 ], [ %.622715, %1823 ], [ %.642717, %1860 ], [ %.642717, %1861 ], [ %.642717, %1856 ], [ -1, %1854 ], [ %.302683, %876 ], [ %.312684, %901 ], [ %.322685, %936 ], [ %.332686, %971 ], [ %.342687, %1013 ], [ %.352688, %1047 ], [ %.362689, %1081 ], [ %.372690, %1115 ], [ %.382691, %1149 ], [ %.392692, %1183 ], [ %.402693, %1217 ], [ %.412694, %1251 ], [ %.652718, %1881 ], [ %.662719, %1908 ], [ %.122665, %dict_put.exit3125 ], [ %.702723, %2025 ], [ %.712724, %2050 ], [ %.722725, %2085 ], [ %.732726, %2120 ], [ %.742727, %2162 ], [ %.752728, %2187 ], [ %.762729, %2222 ], [ %.772730, %2257 ], [ %.782731, %2299 ], [ %.792732, %2333 ], [ %.802733, %2367 ], [ %.812734, %2401 ], [ %.822735, %2435 ], [ %.832736, %2469 ], [ %.842737, %2503 ], [ %.852738, %2537 ], [ %.682721, %1958 ], [ %.692722, %1990 ], [ %.252678, %1872 ]
-  %.152592 = phi ptr [ %.752652, %2618 ], [ %.752652, %2627 ], [ %.132590, %2613 ], [ %.02577, %71 ], [ %.162593, %113 ], [ %.172594, %146 ], [ %.182595, %179 ], [ %.192596, %212 ], [ %.202597, %245 ], [ %.212598, %278 ], [ %.222599, %311 ], [ %.232600, %344 ], [ %.92586, %dict_put.exit ], [ %.12578, %388 ], [ %.22579, %427 ], [ %.32580, %466 ], [ %.42581, %505 ], [ %.52582, %544 ], [ %.62583, %583 ], [ %.72584, %622 ], [ %.82585, %661 ], [ %.252602, %710 ], [ %.262603, %739 ], [ %.272604, %764 ], [ %.282605, %799 ], [ %.292606, %834 ], [ %.422619, %1294 ], [ %.432620, %1327 ], [ %.442621, %1360 ], [ %.452622, %1393 ], [ %.462623, %1426 ], [ %.472624, %1459 ], [ %.482625, %1869 ], [ %.102587, %1658 ], [ %.102587, %1621 ], [ %.102587, %1584 ], [ %.102587, %1547 ], [ %.102587, %1511 ], [ %.112588, %1694 ], [ %.492626, %1718 ], [ %.502627, %1753 ], [ %.512628, %1788 ], [ %.522629, %1823 ], [ %.532630, %1860 ], [ %.532630, %1861 ], [ %.532630, %1856 ], [ %.522629, %1854 ], [ %.302607, %876 ], [ %.312608, %901 ], [ %.322609, %936 ], [ %.332610, %971 ], [ %.342611, %1013 ], [ %.352612, %1047 ], [ %.362613, %1081 ], [ %.372614, %1115 ], [ %.382615, %1149 ], [ %.392616, %1183 ], [ %.402617, %1217 ], [ %.412618, %1251 ], [ %.542631, %1881 ], [ %.552632, %1908 ], [ %.122589, %dict_put.exit3125 ], [ %.592636, %2025 ], [ %.602637, %2050 ], [ %.612638, %2085 ], [ %.622639, %2120 ], [ %.632640, %2162 ], [ %.642641, %2187 ], [ %.652642, %2222 ], [ %.662643, %2257 ], [ %.672644, %2299 ], [ %.682645, %2333 ], [ %.692646, %2367 ], [ %.702647, %2401 ], [ %.712648, %2435 ], [ %.722649, %2469 ], [ %.732650, %2503 ], [ %.742651, %2537 ], [ %.572634, %1958 ], [ %.582635, %1990 ], [ %.252602, %1872 ]
-  %.152495 = phi i32 [ %.962576, %2618 ], [ %.962576, %2627 ], [ %.132493, %2613 ], [ %.02480, %71 ], [ %.162496, %113 ], [ %.172497, %146 ], [ %.182498, %179 ], [ %.192499, %212 ], [ %.202500, %245 ], [ %.212501, %278 ], [ %.222502, %311 ], [ %.232503, %344 ], [ %.92489, %dict_put.exit ], [ %.12481, %388 ], [ %.22482, %427 ], [ %.32483, %466 ], [ %.42484, %505 ], [ %.52485, %544 ], [ %.62486, %583 ], [ %.72487, %622 ], [ %.82488, %661 ], [ %.322512, %710 ], [ %.332513, %739 ], [ %.342514, %764 ], [ %.352515, %799 ], [ %.362516, %834 ], [ %.522532, %1294 ], [ %.532533, %1327 ], [ %.542534, %1360 ], [ %.552535, %1393 ], [ %.562536, %1426 ], [ %.572537, %1459 ], [ %.592539, %1869 ], [ %.672547, %1658 ], [ %.652545, %1621 ], [ %.632543, %1584 ], [ %.612541, %1547 ], [ %.102490, %1511 ], [ %.112491, %1694 ], [ %.682548, %1718 ], [ %.692549, %1753 ], [ %.702550, %1788 ], [ %.712551, %1823 ], [ %.722552, %1860 ], [ %.722552, %1861 ], [ %.722552, %1856 ], [ %.712551, %1854 ], [ %.382518, %876 ], [ %.392519, %901 ], [ %.402520, %936 ], [ %.412521, %971 ], [ %.432523, %1013 ], [ %.442524, %1047 ], [ %.452525, %1081 ], [ %.462526, %1115 ], [ %.472527, %1149 ], [ %.482528, %1183 ], [ %.492529, %1217 ], [ %.502530, %1251 ], [ %.732553, %1881 ], [ %.742554, %1908 ], [ %.122492, %dict_put.exit3125 ], [ %.772557, %2025 ], [ %.782558, %2050 ], [ %.792559, %2085 ], [ %.802560, %2120 ], [ %.822562, %2162 ], [ %.832563, %2187 ], [ %.842564, %2222 ], [ %.852565, %2257 ], [ %.872567, %2299 ], [ %.882568, %2333 ], [ %.892569, %2367 ], [ %.902570, %2401 ], [ %.912571, %2435 ], [ %.922572, %2469 ], [ %.932573, %2503 ], [ %.942574, %2537 ], [ %.752555, %1958 ], [ %.762556, %1990 ], [ %.322512, %1872 ]
-  %.152413 = phi i32 [ %.812479, %2618 ], [ %.812479, %2627 ], [ %.132411, %2613 ], [ %.02398, %71 ], [ %.162414, %113 ], [ %.172415, %146 ], [ %.182416, %179 ], [ %.192417, %212 ], [ %.202418, %245 ], [ %.212419, %278 ], [ %.222420, %311 ], [ %.232421, %344 ], [ %.92407, %dict_put.exit ], [ %.12399, %388 ], [ %.22400, %427 ], [ %.32401, %466 ], [ %.42402, %505 ], [ %.52403, %544 ], [ %.62404, %583 ], [ %.72405, %622 ], [ %.82406, %661 ], [ %.252423, %710 ], [ %.262424, %739 ], [ %.272425, %764 ], [ %.282426, %799 ], [ %.292427, %834 ], [ %.432441, %1294 ], [ %.442442, %1327 ], [ %.452443, %1360 ], [ %.462444, %1393 ], [ %.472445, %1426 ], [ %.482446, %1459 ], [ %.492447, %1869 ], [ 1, %1658 ], [ 2, %1621 ], [ 3, %1584 ], [ 4, %1547 ], [ 5, %1511 ], [ %.542452, %1694 ], [ %.552453, %1718 ], [ %.562454, %1753 ], [ %.572455, %1788 ], [ %.582456, %1823 ], [ %.592457, %1860 ], [ %.592457, %1861 ], [ %.592457, %1856 ], [ %.582456, %1854 ], [ %.302428, %876 ], [ %.312429, %901 ], [ %.322430, %936 ], [ %.332431, %971 ], [ %.342432, %1013 ], [ %.352433, %1047 ], [ %.362434, %1081 ], [ %.372435, %1115 ], [ %.382436, %1149 ], [ %.392437, %1183 ], [ %.402438, %1217 ], [ %.412439, %1251 ], [ %.602458, %1881 ], [ %.612459, %1908 ], [ %.122410, %dict_put.exit3125 ], [ %.652463, %2025 ], [ %.662464, %2050 ], [ %.672465, %2085 ], [ %.682466, %2120 ], [ %.692467, %2162 ], [ %.702468, %2187 ], [ %.712469, %2222 ], [ %.722470, %2257 ], [ %.732471, %2299 ], [ %.742472, %2333 ], [ %.752473, %2367 ], [ %.762474, %2401 ], [ %.772475, %2435 ], [ %.782476, %2469 ], [ %.792477, %2503 ], [ %.802478, %2537 ], [ %.632461, %1958 ], [ %.642462, %1990 ], [ %.252423, %1872 ]
-  %.152325 = phi i32 [ %.872397, %2618 ], [ %.872397, %2627 ], [ %.132323, %2613 ], [ %.02310, %71 ], [ %.162326, %113 ], [ %.172327, %146 ], [ %.182328, %179 ], [ %.192329, %212 ], [ %.202330, %245 ], [ %.212331, %278 ], [ %.222332, %311 ], [ %.232333, %344 ], [ %.92319, %dict_put.exit ], [ %.12311, %388 ], [ %.22312, %427 ], [ %.32313, %466 ], [ %.42314, %505 ], [ %.52315, %544 ], [ %.62316, %583 ], [ %.72317, %622 ], [ %.82318, %661 ], [ %.322342, %710 ], [ %.332343, %739 ], [ %.342344, %764 ], [ %.352345, %799 ], [ %.362346, %834 ], [ %.502360, %1294 ], [ %.512361, %1327 ], [ %.522362, %1360 ], [ %.532363, %1393 ], [ %.542364, %1426 ], [ %.552365, %1459 ], [ %.562366, %1869 ], [ %.602370, %1658 ], [ %.592369, %1621 ], [ %.582368, %1584 ], [ %.572367, %1547 ], [ %.102320, %1511 ], [ %.112321, %1694 ], [ %.612371, %1718 ], [ %.622372, %1753 ], [ %.632373, %1788 ], [ %.642374, %1823 ], [ %.652375, %1860 ], [ %.652375, %1861 ], [ %.652375, %1856 ], [ %.642374, %1854 ], [ %.372347, %876 ], [ %.382348, %901 ], [ %.392349, %936 ], [ %.402350, %971 ], [ %.412351, %1013 ], [ %.422352, %1047 ], [ %.432353, %1081 ], [ %.442354, %1115 ], [ %.452355, %1149 ], [ %.462356, %1183 ], [ %.472357, %1217 ], [ %.482358, %1251 ], [ %.662376, %1881 ], [ %.672377, %1908 ], [ %.122322, %dict_put.exit3125 ], [ %.712381, %2025 ], [ %.722382, %2050 ], [ %.732383, %2085 ], [ %.742384, %2120 ], [ %.752385, %2162 ], [ %.762386, %2187 ], [ %.772387, %2222 ], [ %.782388, %2257 ], [ %.792389, %2299 ], [ %.802390, %2333 ], [ %.812391, %2367 ], [ %.822392, %2401 ], [ %.832393, %2435 ], [ %.842394, %2469 ], [ %.852395, %2503 ], [ %.862396, %2537 ], [ %.692379, %1958 ], [ %.702380, %1990 ], [ %.322342, %1872 ]
-  %.152248 = phi i32 [ %.762309, %2618 ], [ %.762309, %2627 ], [ %.132246, %2613 ], [ %.02233, %71 ], [ %.162249, %113 ], [ %.172250, %146 ], [ %.182251, %179 ], [ %.192252, %212 ], [ %.202253, %245 ], [ %.212254, %278 ], [ %.222255, %311 ], [ %.232256, %344 ], [ %.92242, %dict_put.exit ], [ %.12234, %388 ], [ %.22235, %427 ], [ %.32236, %466 ], [ %.42237, %505 ], [ %.52238, %544 ], [ %.62239, %583 ], [ %.72240, %622 ], [ %.82241, %661 ], [ %.252258, %710 ], [ %.262259, %739 ], [ %.272260, %764 ], [ %.282261, %799 ], [ %.292262, %834 ], [ %.432276, %1294 ], [ %.442277, %1327 ], [ %.452278, %1360 ], [ %.462279, %1393 ], [ %.472280, %1426 ], [ %.482281, %1459 ], [ %.492282, %1869 ], [ %.102243, %1658 ], [ %.102243, %1621 ], [ %.102243, %1584 ], [ %.102243, %1547 ], [ %.102243, %1511 ], [ %.112244, %1694 ], [ %.502283, %1718 ], [ %.512284, %1753 ], [ %.522285, %1788 ], [ %.532286, %1823 ], [ %.542287, %1860 ], [ %.542287, %1861 ], [ %.542287, %1856 ], [ %.532286, %1854 ], [ %.302263, %876 ], [ %.312264, %901 ], [ %.322265, %936 ], [ %.332266, %971 ], [ %.342267, %1013 ], [ %.352268, %1047 ], [ %.362269, %1081 ], [ %.372270, %1115 ], [ %.382271, %1149 ], [ %.392272, %1183 ], [ %.402273, %1217 ], [ %.412274, %1251 ], [ %.552288, %1881 ], [ %.562289, %1908 ], [ %.122245, %dict_put.exit3125 ], [ %.602293, %2025 ], [ %.612294, %2050 ], [ %.622295, %2085 ], [ %.632296, %2120 ], [ %.642297, %2162 ], [ %.652298, %2187 ], [ %.662299, %2222 ], [ %.672300, %2257 ], [ %.682301, %2299 ], [ %.692302, %2333 ], [ %.702303, %2367 ], [ %.712304, %2401 ], [ %.722305, %2435 ], [ %.732306, %2469 ], [ %.742307, %2503 ], [ %.752308, %2537 ], [ %.582291, %1958 ], [ %.592292, %1990 ], [ %.252258, %1872 ]
-  %2629 = phi i1 [ true, %2618 ], [ true, %2627 ], [ true, %2613 ], [ true, %71 ], [ true, %113 ], [ true, %146 ], [ true, %179 ], [ true, %212 ], [ true, %245 ], [ true, %278 ], [ true, %311 ], [ true, %344 ], [ true, %dict_put.exit ], [ true, %388 ], [ true, %427 ], [ true, %466 ], [ true, %505 ], [ true, %544 ], [ true, %583 ], [ true, %622 ], [ true, %661 ], [ true, %710 ], [ true, %739 ], [ true, %764 ], [ true, %799 ], [ true, %834 ], [ true, %1294 ], [ true, %1327 ], [ true, %1360 ], [ true, %1393 ], [ true, %1426 ], [ true, %1459 ], [ false, %1869 ], [ true, %1658 ], [ true, %1621 ], [ true, %1584 ], [ true, %1547 ], [ true, %1511 ], [ true, %1694 ], [ true, %1718 ], [ true, %1753 ], [ true, %1788 ], [ true, %1823 ], [ true, %1860 ], [ false, %1861 ], [ false, %1856 ], [ false, %1854 ], [ true, %876 ], [ true, %901 ], [ true, %936 ], [ true, %971 ], [ true, %1013 ], [ true, %1047 ], [ true, %1081 ], [ true, %1115 ], [ true, %1149 ], [ true, %1183 ], [ true, %1217 ], [ true, %1251 ], [ true, %1881 ], [ true, %1908 ], [ true, %dict_put.exit3125 ], [ true, %2025 ], [ true, %2050 ], [ true, %2085 ], [ true, %2120 ], [ true, %2162 ], [ true, %2187 ], [ true, %2222 ], [ true, %2257 ], [ true, %2299 ], [ true, %2333 ], [ true, %2367 ], [ true, %2401 ], [ true, %2435 ], [ true, %2469 ], [ true, %2503 ], [ true, %2537 ], [ true, %1958 ], [ true, %1990 ], [ false, %1872 ]
-  %2630 = phi i1 [ false, %2618 ], [ false, %2627 ], [ false, %2613 ], [ false, %71 ], [ false, %113 ], [ false, %146 ], [ false, %179 ], [ false, %212 ], [ false, %245 ], [ false, %278 ], [ false, %311 ], [ false, %344 ], [ false, %dict_put.exit ], [ false, %388 ], [ false, %427 ], [ false, %466 ], [ false, %505 ], [ false, %544 ], [ false, %583 ], [ false, %622 ], [ false, %661 ], [ false, %710 ], [ false, %739 ], [ false, %764 ], [ false, %799 ], [ false, %834 ], [ false, %1294 ], [ false, %1327 ], [ false, %1360 ], [ false, %1393 ], [ false, %1426 ], [ false, %1459 ], [ false, %1869 ], [ false, %1658 ], [ false, %1621 ], [ false, %1584 ], [ false, %1547 ], [ false, %1511 ], [ false, %1694 ], [ false, %1718 ], [ false, %1753 ], [ false, %1788 ], [ false, %1823 ], [ false, %1860 ], [ true, %1861 ], [ true, %1856 ], [ false, %1854 ], [ false, %876 ], [ false, %901 ], [ false, %936 ], [ false, %971 ], [ false, %1013 ], [ false, %1047 ], [ false, %1081 ], [ false, %1115 ], [ false, %1149 ], [ false, %1183 ], [ false, %1217 ], [ false, %1251 ], [ false, %1881 ], [ false, %1908 ], [ false, %dict_put.exit3125 ], [ false, %2025 ], [ false, %2050 ], [ false, %2085 ], [ false, %2120 ], [ false, %2162 ], [ false, %2187 ], [ false, %2222 ], [ false, %2257 ], [ false, %2299 ], [ false, %2333 ], [ false, %2367 ], [ false, %2401 ], [ false, %2435 ], [ false, %2469 ], [ false, %2503 ], [ false, %2537 ], [ false, %1958 ], [ false, %1990 ], [ false, %1872 ]
-  %.02206 = phi i32 [ 0, %2618 ], [ 0, %2627 ], [ 0, %2613 ], [ 0, %71 ], [ 0, %113 ], [ 0, %146 ], [ 0, %179 ], [ 0, %212 ], [ 0, %245 ], [ 0, %278 ], [ 0, %311 ], [ 0, %344 ], [ 0, %dict_put.exit ], [ 0, %388 ], [ 0, %427 ], [ 0, %466 ], [ 0, %505 ], [ 0, %544 ], [ 0, %583 ], [ 0, %622 ], [ 0, %661 ], [ 0, %710 ], [ 0, %739 ], [ 0, %764 ], [ 0, %799 ], [ 0, %834 ], [ 0, %1294 ], [ 0, %1327 ], [ 0, %1360 ], [ 0, %1393 ], [ 0, %1426 ], [ 0, %1459 ], [ 9, %1869 ], [ 0, %1658 ], [ 0, %1621 ], [ 0, %1584 ], [ 0, %1547 ], [ 0, %1511 ], [ 0, %1694 ], [ 0, %1718 ], [ 0, %1753 ], [ 0, %1788 ], [ 0, %1823 ], [ 0, %1860 ], [ 1, %1861 ], [ 1, %1856 ], [ 9, %1854 ], [ 0, %876 ], [ 0, %901 ], [ 0, %936 ], [ 0, %971 ], [ 0, %1013 ], [ 0, %1047 ], [ 0, %1081 ], [ 0, %1115 ], [ 0, %1149 ], [ 0, %1183 ], [ 0, %1217 ], [ 0, %1251 ], [ 0, %1881 ], [ 0, %1908 ], [ 0, %dict_put.exit3125 ], [ 0, %2025 ], [ 0, %2050 ], [ 0, %2085 ], [ 0, %2120 ], [ 0, %2162 ], [ 0, %2187 ], [ 0, %2222 ], [ 0, %2257 ], [ 0, %2299 ], [ 0, %2333 ], [ 0, %2367 ], [ 0, %2401 ], [ 0, %2435 ], [ 0, %2469 ], [ 0, %2503 ], [ 0, %2537 ], [ 0, %1958 ], [ 0, %1990 ], [ 9, %1872 ]
-  %.15 = phi i64 [ %4, %2618 ], [ %.153, %2627 ], [ %.13, %2613 ], [ %4, %71 ], [ %4, %113 ], [ %4, %146 ], [ %4, %179 ], [ %4, %212 ], [ %4, %245 ], [ %4, %278 ], [ %4, %311 ], [ %4, %344 ], [ %.9, %dict_put.exit ], [ %4, %388 ], [ %4, %427 ], [ %4, %466 ], [ %4, %505 ], [ %4, %544 ], [ %4, %583 ], [ %4, %622 ], [ %4, %661 ], [ %4, %710 ], [ %4, %739 ], [ %4, %764 ], [ %4, %799 ], [ %4, %834 ], [ %4, %1294 ], [ %4, %1327 ], [ %4, %1360 ], [ %4, %1393 ], [ %4, %1426 ], [ %4, %1459 ], [ %.89, %1869 ], [ %4, %1658 ], [ %4, %1621 ], [ %4, %1584 ], [ %4, %1547 ], [ %4, %1511 ], [ %4, %1694 ], [ %4, %1718 ], [ %4, %1753 ], [ %4, %1788 ], [ %4, %1823 ], [ %4, %1860 ], [ %1864, %1861 ], [ %.109, %1856 ], [ %.108, %1854 ], [ %4, %876 ], [ %4, %901 ], [ %4, %936 ], [ %4, %971 ], [ %4, %1013 ], [ %4, %1047 ], [ %4, %1081 ], [ %4, %1115 ], [ %4, %1149 ], [ %4, %1183 ], [ %4, %1217 ], [ %4, %1251 ], [ %4, %1881 ], [ %4, %1908 ], [ %.12, %dict_put.exit3125 ], [ %4, %2025 ], [ %4, %2050 ], [ %4, %2085 ], [ %4, %2120 ], [ %4, %2162 ], [ %4, %2187 ], [ %4, %2222 ], [ %4, %2257 ], [ %4, %2299 ], [ %4, %2333 ], [ %4, %2367 ], [ %4, %2401 ], [ %4, %2435 ], [ %4, %2469 ], [ %4, %2503 ], [ %4, %2537 ], [ %4, %1958 ], [ %4, %1990 ], [ %.43, %1872 ]
-  %.sroa.0.15 = phi i32 [ %.sroa.0.171, %2618 ], [ %.sroa.0.172, %2627 ], [ %.sroa.0.13, %2613 ], [ %.sroa.0.0, %71 ], [ %.sroa.0.17, %113 ], [ %.sroa.0.19, %146 ], [ %.sroa.0.21, %179 ], [ %.sroa.0.23, %212 ], [ %.sroa.0.25, %245 ], [ %.sroa.0.27, %278 ], [ %.sroa.0.29, %311 ], [ %.sroa.0.31, %344 ], [ %.sroa.0.9, %dict_put.exit ], [ %.sroa.0.1, %388 ], [ %.sroa.0.2, %427 ], [ %.sroa.0.3, %466 ], [ %.sroa.0.4, %505 ], [ %.sroa.0.5, %544 ], [ %.sroa.0.6, %583 ], [ %.sroa.0.7, %622 ], [ %.sroa.0.8, %661 ], [ %.sroa.0.49, %710 ], [ %.sroa.0.51, %739 ], [ %.sroa.0.53, %764 ], [ %.sroa.0.55, %799 ], [ %.sroa.0.57, %834 ], [ %.sroa.0.87, %1294 ], [ %.sroa.0.89, %1327 ], [ %.sroa.0.91, %1360 ], [ %.sroa.0.93, %1393 ], [ %.sroa.0.95, %1426 ], [ %.sroa.0.97, %1459 ], [ %.sroa.0.100, %1869 ], [ %.sroa.0.112, %1658 ], [ %.sroa.0.109, %1621 ], [ %.sroa.0.106, %1584 ], [ %.sroa.0.103, %1547 ], [ %.sroa.0.10, %1511 ], [ %.sroa.0.114, %1694 ], [ %.sroa.0.116, %1718 ], [ %.sroa.0.118, %1753 ], [ %.sroa.0.120, %1788 ], [ %.sroa.0.122, %1823 ], [ %.sroa.0.125, %1860 ], [ %1862, %1861 ], [ %.sroa.0.125, %1856 ], [ %.sroa.0.124, %1854 ], [ %.sroa.0.60, %876 ], [ %.sroa.0.62, %901 ], [ %.sroa.0.64, %936 ], [ %.sroa.0.66, %971 ], [ %.sroa.0.69, %1013 ], [ %.sroa.0.71, %1047 ], [ %.sroa.0.73, %1081 ], [ %.sroa.0.75, %1115 ], [ %.sroa.0.77, %1149 ], [ %.sroa.0.79, %1183 ], [ %.sroa.0.81, %1217 ], [ %.sroa.0.83, %1251 ], [ %.sroa.0.127, %1881 ], [ %.sroa.0.129, %1908 ], [ %.sroa.0.12, %dict_put.exit3125 ], [ %.sroa.0.136, %2025 ], [ %.sroa.0.138, %2050 ], [ %.sroa.0.140, %2085 ], [ %.sroa.0.142, %2120 ], [ %.sroa.0.145, %2162 ], [ %.sroa.0.147, %2187 ], [ %.sroa.0.149, %2222 ], [ %.sroa.0.151, %2257 ], [ %.sroa.0.154, %2299 ], [ %.sroa.0.156, %2333 ], [ %.sroa.0.158, %2367 ], [ %.sroa.0.160, %2401 ], [ %.sroa.0.162, %2435 ], [ %.sroa.0.164, %2469 ], [ %.sroa.0.166, %2503 ], [ %.sroa.0.168, %2537 ], [ %.sroa.0.132, %1958 ], [ %.sroa.0.134, %1990 ], [ %1873, %1872 ]
-  %.sroa.498.15 = phi i32 [ %.sroa.498.171, %2618 ], [ %.sroa.498.172, %2627 ], [ %.sroa.498.13, %2613 ], [ %.sroa.498.0, %71 ], [ %.sroa.498.17, %113 ], [ %.sroa.498.19, %146 ], [ %.sroa.498.21, %179 ], [ %.sroa.498.23, %212 ], [ %.sroa.498.25, %245 ], [ %.sroa.498.27, %278 ], [ %.sroa.498.29, %311 ], [ %.sroa.498.31, %344 ], [ %.sroa.498.9, %dict_put.exit ], [ %.sroa.498.1, %388 ], [ %.sroa.498.2, %427 ], [ %.sroa.498.3, %466 ], [ %.sroa.498.4, %505 ], [ %.sroa.498.5, %544 ], [ %.sroa.498.6, %583 ], [ %.sroa.498.7, %622 ], [ %.sroa.498.8, %661 ], [ %.sroa.498.49, %710 ], [ %.sroa.498.51, %739 ], [ %.sroa.498.53, %764 ], [ %.sroa.498.55, %799 ], [ %.sroa.498.57, %834 ], [ %.sroa.498.87, %1294 ], [ %.sroa.498.89, %1327 ], [ %.sroa.498.91, %1360 ], [ %.sroa.498.93, %1393 ], [ %.sroa.498.95, %1426 ], [ %.sroa.498.97, %1459 ], [ %.sroa.498.100, %1869 ], [ %.sroa.498.112, %1658 ], [ %.sroa.498.109, %1621 ], [ %.sroa.498.106, %1584 ], [ %.sroa.498.103, %1547 ], [ %.sroa.498.10, %1511 ], [ %.sroa.498.114, %1694 ], [ %.sroa.498.116, %1718 ], [ %.sroa.498.118, %1753 ], [ %.sroa.498.120, %1788 ], [ %.sroa.498.122, %1823 ], [ %.sroa.498.125, %1860 ], [ %1868, %1861 ], [ %.sroa.498.125, %1856 ], [ %.sroa.498.124, %1854 ], [ %.sroa.498.60, %876 ], [ %.sroa.498.62, %901 ], [ %.sroa.498.64, %936 ], [ %.sroa.498.66, %971 ], [ %.sroa.498.69, %1013 ], [ %.sroa.498.71, %1047 ], [ %.sroa.498.73, %1081 ], [ %.sroa.498.75, %1115 ], [ %.sroa.498.77, %1149 ], [ %.sroa.498.79, %1183 ], [ %.sroa.498.81, %1217 ], [ %.sroa.498.83, %1251 ], [ %.sroa.498.127, %1881 ], [ %.sroa.498.129, %1908 ], [ %.sroa.498.12, %dict_put.exit3125 ], [ %.sroa.498.136, %2025 ], [ %.sroa.498.138, %2050 ], [ %.sroa.498.140, %2085 ], [ %.sroa.498.142, %2120 ], [ %.sroa.498.145, %2162 ], [ %.sroa.498.147, %2187 ], [ %.sroa.498.149, %2222 ], [ %.sroa.498.151, %2257 ], [ %.sroa.498.154, %2299 ], [ %.sroa.498.156, %2333 ], [ %.sroa.498.158, %2367 ], [ %.sroa.498.160, %2401 ], [ %.sroa.498.162, %2435 ], [ %.sroa.498.164, %2469 ], [ %.sroa.498.166, %2503 ], [ %.sroa.498.168, %2537 ], [ %.sroa.498.132, %1958 ], [ %.sroa.498.134, %1990 ], [ %1874, %1872 ]
+2626:                                             ; preds = %2613, %2618
+  %.153 = phi i64 [ %2621, %2618 ], [ %.152, %2613 ]
+  %.sroa.0.172 = phi i32 [ %2619, %2618 ], [ %.sroa.0.171, %2613 ]
+  %.sroa.498.172 = phi i32 [ %2625, %2618 ], [ %.sroa.498.171, %2613 ]
+  store i32 1, ptr %60, align 8
+  br label %2627
+
+2627:                                             ; preds = %1871, %1868, %1860, %1855, %1853, %2626, %2617, %2612, %2536, %2502, %2468, %2434, %2400, %2366, %2332, %2298, %2256, %2221, %2186, %2161, %2119, %2084, %2049, %2024, %1989, %1957, %dict_put.exit3125, %1907, %1880, %1859, %1822, %1787, %1752, %1717, %1693, %1657, %1620, %1583, %1546, %1510, %1458, %1425, %1392, %1359, %1326, %1293, %1251, %1217, %1183, %1149, %1115, %1081, %1047, %1013, %971, %936, %901, %876, %834, %799, %764, %739, %710, %dict_put.exit, %661, %622, %583, %544, %505, %466, %427, %388, %344, %311, %278, %245, %212, %179, %146, %113, %71
+  %.sroa.35.15 = phi i64 [ %.sroa.35.76, %2617 ], [ %.sroa.35.76, %2626 ], [ %spec.select3278, %2612 ], [ %.sroa.35.0, %71 ], [ %.sroa.35.16, %113 ], [ %.sroa.35.17, %146 ], [ %.sroa.35.18, %179 ], [ %.sroa.35.19, %212 ], [ %.sroa.35.20, %245 ], [ %.sroa.35.21, %278 ], [ %.sroa.35.22, %311 ], [ %.sroa.35.23, %344 ], [ %.sroa.35.9, %dict_put.exit ], [ %.sroa.35.1, %388 ], [ %.sroa.35.2, %427 ], [ %.sroa.35.3, %466 ], [ %.sroa.35.4, %505 ], [ %.sroa.35.5, %544 ], [ %.sroa.35.6, %583 ], [ %.sroa.35.7, %622 ], [ %.sroa.35.8, %661 ], [ %.sroa.35.25, %710 ], [ %.sroa.35.26, %739 ], [ %.sroa.35.27, %764 ], [ %.sroa.35.28, %799 ], [ %.sroa.35.29, %834 ], [ %.sroa.35.43, %1293 ], [ %.sroa.35.44, %1326 ], [ %.sroa.35.45, %1359 ], [ %.sroa.35.46, %1392 ], [ %.sroa.35.47, %1425 ], [ %.sroa.35.48, %1458 ], [ %.sroa.35.49, %1868 ], [ %.sroa.35.10, %1657 ], [ %.sroa.35.10, %1620 ], [ %.sroa.35.10, %1583 ], [ %.sroa.35.10, %1546 ], [ %.sroa.35.10, %1510 ], [ %.sroa.35.11, %1693 ], [ %.sroa.35.50, %1717 ], [ %.sroa.35.51, %1752 ], [ %.sroa.35.52, %1787 ], [ %.sroa.35.53, %1822 ], [ %.sroa.35.54, %1859 ], [ %.sroa.35.54, %1860 ], [ %.sroa.35.54, %1855 ], [ %.sroa.35.53, %1853 ], [ %.sroa.35.30, %876 ], [ %.sroa.35.31, %901 ], [ %.sroa.35.32, %936 ], [ %.sroa.35.33, %971 ], [ %.sroa.35.34, %1013 ], [ %.sroa.35.35, %1047 ], [ %.sroa.35.36, %1081 ], [ %.sroa.35.37, %1115 ], [ %.sroa.35.38, %1149 ], [ %.sroa.35.39, %1183 ], [ %.sroa.35.40, %1217 ], [ %.sroa.35.41, %1251 ], [ %.sroa.35.55, %1880 ], [ %.sroa.35.56, %1907 ], [ %.sroa.35.12, %dict_put.exit3125 ], [ %.sroa.35.60, %2024 ], [ %.sroa.35.61, %2049 ], [ %.sroa.35.62, %2084 ], [ %.sroa.35.63, %2119 ], [ %.sroa.35.64, %2161 ], [ %.sroa.35.65, %2186 ], [ %.sroa.35.66, %2221 ], [ %.sroa.35.67, %2256 ], [ %.sroa.35.68, %2298 ], [ %.sroa.35.69, %2332 ], [ %.sroa.35.70, %2366 ], [ %.sroa.35.71, %2400 ], [ %.sroa.35.72, %2434 ], [ %.sroa.35.73, %2468 ], [ %.sroa.35.74, %2502 ], [ %.sroa.35.75, %2536 ], [ %.sroa.35.58, %1957 ], [ %.sroa.35.59, %1989 ], [ 0, %1871 ]
+  %.sroa.10.15 = phi i64 [ %.sroa.10.76, %2617 ], [ %.sroa.10.76, %2626 ], [ %.sroa.10.80, %2612 ], [ %.sroa.10.0, %71 ], [ %.sroa.10.16, %113 ], [ %.sroa.10.17, %146 ], [ %.sroa.10.18, %179 ], [ %.sroa.10.19, %212 ], [ %.sroa.10.20, %245 ], [ %.sroa.10.21, %278 ], [ %.sroa.10.22, %311 ], [ %.sroa.10.23, %344 ], [ %.sroa.44.0, %dict_put.exit ], [ %.sroa.10.1, %388 ], [ %.sroa.10.2, %427 ], [ %.sroa.10.3, %466 ], [ %.sroa.10.4, %505 ], [ %.sroa.10.5, %544 ], [ %.sroa.10.6, %583 ], [ %.sroa.10.7, %622 ], [ %.sroa.10.8, %661 ], [ %.sroa.10.25, %710 ], [ %.sroa.10.26, %739 ], [ %.sroa.10.27, %764 ], [ %.sroa.10.28, %799 ], [ %.sroa.10.29, %834 ], [ %.sroa.10.43, %1293 ], [ %.sroa.10.44, %1326 ], [ %.sroa.10.45, %1359 ], [ %.sroa.10.46, %1392 ], [ %.sroa.10.47, %1425 ], [ %.sroa.10.48, %1458 ], [ %.sroa.10.49, %1868 ], [ %.sroa.10.10, %1657 ], [ %.sroa.10.10, %1620 ], [ %.sroa.10.10, %1583 ], [ %.sroa.10.10, %1546 ], [ %.sroa.10.10, %1510 ], [ %.sroa.10.11, %1693 ], [ %.sroa.10.50, %1717 ], [ %.sroa.10.51, %1752 ], [ %.sroa.10.52, %1787 ], [ %.sroa.10.53, %1822 ], [ %.sroa.10.54, %1859 ], [ %.sroa.10.54, %1860 ], [ %.sroa.10.54, %1855 ], [ %.sroa.10.53, %1853 ], [ %.sroa.10.30, %876 ], [ %.sroa.10.31, %901 ], [ %.sroa.10.32, %936 ], [ %.sroa.10.33, %971 ], [ %.sroa.10.34, %1013 ], [ %.sroa.10.35, %1047 ], [ %.sroa.10.36, %1081 ], [ %.sroa.10.37, %1115 ], [ %.sroa.10.38, %1149 ], [ %.sroa.10.39, %1183 ], [ %.sroa.10.40, %1217 ], [ %.sroa.10.41, %1251 ], [ %.sroa.10.55, %1880 ], [ %.sroa.10.56, %1907 ], [ %.sroa.44.0, %dict_put.exit3125 ], [ %.sroa.10.60, %2024 ], [ %.sroa.10.61, %2049 ], [ %.sroa.10.62, %2084 ], [ %.sroa.10.63, %2119 ], [ %.sroa.10.64, %2161 ], [ %.sroa.10.65, %2186 ], [ %.sroa.10.66, %2221 ], [ %.sroa.10.67, %2256 ], [ %.sroa.10.68, %2298 ], [ %.sroa.10.69, %2332 ], [ %.sroa.10.70, %2366 ], [ %.sroa.10.71, %2400 ], [ %.sroa.10.72, %2434 ], [ %.sroa.10.73, %2468 ], [ %.sroa.10.74, %2502 ], [ %.sroa.10.75, %2536 ], [ %.sroa.10.58, %1957 ], [ %.sroa.10.59, %1989 ], [ %.sroa.10.25, %1871 ]
+  %.153199 = phi i32 [ %.763260, %2617 ], [ %.763260, %2626 ], [ %2574, %2612 ], [ %.03184, %71 ], [ %.163200, %113 ], [ %.173201, %146 ], [ %.183202, %179 ], [ %.193203, %212 ], [ %.203204, %245 ], [ %.213205, %278 ], [ %.223206, %311 ], [ %.233207, %344 ], [ %.93193, %dict_put.exit ], [ %.13185, %388 ], [ %.23186, %427 ], [ %.33187, %466 ], [ %.43188, %505 ], [ %.53189, %544 ], [ %.63190, %583 ], [ %.73191, %622 ], [ %.83192, %661 ], [ %.253209, %710 ], [ %.263210, %739 ], [ %.273211, %764 ], [ %.283212, %799 ], [ %.293213, %834 ], [ %.433227, %1293 ], [ %.443228, %1326 ], [ %.453229, %1359 ], [ %.463230, %1392 ], [ %.473231, %1425 ], [ %.483232, %1458 ], [ %.493233, %1868 ], [ %.103194, %1657 ], [ %.103194, %1620 ], [ %.103194, %1583 ], [ %.103194, %1546 ], [ %.103194, %1510 ], [ %.113195, %1693 ], [ %.503234, %1717 ], [ %.513235, %1752 ], [ %.523236, %1787 ], [ %.533237, %1822 ], [ %.543238, %1859 ], [ %.543238, %1860 ], [ %.543238, %1855 ], [ %.533237, %1853 ], [ %.303214, %876 ], [ %.313215, %901 ], [ %.323216, %936 ], [ %.333217, %971 ], [ %.343218, %1013 ], [ %.353219, %1047 ], [ %.363220, %1081 ], [ %.373221, %1115 ], [ %.383222, %1149 ], [ %.393223, %1183 ], [ %.403224, %1217 ], [ %.413225, %1251 ], [ %.553239, %1880 ], [ %.563240, %1907 ], [ %.123196, %dict_put.exit3125 ], [ %.603244, %2024 ], [ %.613245, %2049 ], [ %.623246, %2084 ], [ %.633247, %2119 ], [ %.643248, %2161 ], [ %.653249, %2186 ], [ %.663250, %2221 ], [ %.673251, %2256 ], [ %.683252, %2298 ], [ %.693253, %2332 ], [ %.703254, %2366 ], [ %.713255, %2400 ], [ %.723256, %2434 ], [ %.733257, %2468 ], [ %.743258, %2502 ], [ %.753259, %2536 ], [ %.583242, %1957 ], [ %.593243, %1989 ], [ %.253209, %1871 ]
+  %.152909 = phi i32 [ %.762970, %2617 ], [ %.762970, %2626 ], [ %.132907, %2612 ], [ %.02894, %71 ], [ %.162910, %113 ], [ %.172911, %146 ], [ %.182912, %179 ], [ %.192913, %212 ], [ %.202914, %245 ], [ %.212915, %278 ], [ %.222916, %311 ], [ %.232917, %344 ], [ %.92903, %dict_put.exit ], [ %.12895, %388 ], [ %.22896, %427 ], [ %.32897, %466 ], [ %.42898, %505 ], [ %.52899, %544 ], [ %.62900, %583 ], [ %.72901, %622 ], [ %.82902, %661 ], [ %.252919, %710 ], [ %.262920, %739 ], [ %.272921, %764 ], [ %.282922, %799 ], [ %.292923, %834 ], [ %.432937, %1293 ], [ %.442938, %1326 ], [ %.452939, %1359 ], [ %.462940, %1392 ], [ %.472941, %1425 ], [ %.482942, %1458 ], [ %.492943, %1868 ], [ %.102904, %1657 ], [ %.102904, %1620 ], [ %.102904, %1583 ], [ %.102904, %1546 ], [ %.102904, %1510 ], [ %.112905, %1693 ], [ %.502944, %1717 ], [ %.512945, %1752 ], [ %.522946, %1787 ], [ %.532947, %1822 ], [ %.542948, %1859 ], [ %.542948, %1860 ], [ %.542948, %1855 ], [ %.532947, %1853 ], [ %.302924, %876 ], [ %.312925, %901 ], [ %.322926, %936 ], [ %.332927, %971 ], [ %.342928, %1013 ], [ %.352929, %1047 ], [ %.362930, %1081 ], [ %.372931, %1115 ], [ %.382932, %1149 ], [ %.392933, %1183 ], [ %.402934, %1217 ], [ %.412935, %1251 ], [ %.552949, %1880 ], [ %.562950, %1907 ], [ %.122906, %dict_put.exit3125 ], [ %.602954, %2024 ], [ %.612955, %2049 ], [ %.622956, %2084 ], [ %.632957, %2119 ], [ %.642958, %2161 ], [ %.652959, %2186 ], [ %.662960, %2221 ], [ %.672961, %2256 ], [ %.682962, %2298 ], [ %.692963, %2332 ], [ %.702964, %2366 ], [ %.712965, %2400 ], [ %.722966, %2434 ], [ %.732967, %2468 ], [ %.742968, %2502 ], [ %.752969, %2536 ], [ %.582952, %1957 ], [ %.592953, %1989 ], [ %.252919, %1871 ]
+  %.152832 = phi i32 [ %.762893, %2617 ], [ %.762893, %2626 ], [ %.132830, %2612 ], [ %.02817, %71 ], [ %.162833, %113 ], [ %.172834, %146 ], [ %.182835, %179 ], [ %.192836, %212 ], [ %.202837, %245 ], [ %.212838, %278 ], [ %.222839, %311 ], [ %.232840, %344 ], [ %.92826, %dict_put.exit ], [ %.12818, %388 ], [ %.22819, %427 ], [ %.32820, %466 ], [ %.42821, %505 ], [ %.52822, %544 ], [ %.62823, %583 ], [ %.72824, %622 ], [ %.82825, %661 ], [ %.252842, %710 ], [ %.262843, %739 ], [ %.272844, %764 ], [ %.282845, %799 ], [ %.292846, %834 ], [ %.432860, %1293 ], [ %.442861, %1326 ], [ %.452862, %1359 ], [ %.462863, %1392 ], [ %.472864, %1425 ], [ %.482865, %1458 ], [ %.492866, %1868 ], [ %.102827, %1657 ], [ %.102827, %1620 ], [ %.102827, %1583 ], [ %.102827, %1546 ], [ %.102827, %1510 ], [ %.112828, %1693 ], [ %.502867, %1717 ], [ %.512868, %1752 ], [ %.522869, %1787 ], [ %.532870, %1822 ], [ %.542871, %1859 ], [ %.542871, %1860 ], [ %.542871, %1855 ], [ %.532870, %1853 ], [ %.302847, %876 ], [ %.312848, %901 ], [ %.322849, %936 ], [ %.332850, %971 ], [ %.342851, %1013 ], [ %.352852, %1047 ], [ %.362853, %1081 ], [ %.372854, %1115 ], [ %.382855, %1149 ], [ %.392856, %1183 ], [ %.402857, %1217 ], [ %.412858, %1251 ], [ %.552872, %1880 ], [ %.562873, %1907 ], [ %.122829, %dict_put.exit3125 ], [ %.602877, %2024 ], [ %.612878, %2049 ], [ %.622879, %2084 ], [ %.632880, %2119 ], [ %.642881, %2161 ], [ %.652882, %2186 ], [ %.662883, %2221 ], [ %.672884, %2256 ], [ %.682885, %2298 ], [ %.692886, %2332 ], [ %.702887, %2366 ], [ %.712888, %2400 ], [ %.722889, %2434 ], [ %.732890, %2468 ], [ %.742891, %2502 ], [ %.752892, %2536 ], [ %.582875, %1957 ], [ %.592876, %1989 ], [ %.252842, %1871 ]
+  %.152755 = phi i32 [ %.762816, %2617 ], [ %.762816, %2626 ], [ %.132753, %2612 ], [ %.02740, %71 ], [ %.162756, %113 ], [ %.172757, %146 ], [ %.182758, %179 ], [ %.192759, %212 ], [ %.202760, %245 ], [ %.212761, %278 ], [ %.222762, %311 ], [ %.232763, %344 ], [ %.92749, %dict_put.exit ], [ %.12741, %388 ], [ %.22742, %427 ], [ %.32743, %466 ], [ %.42744, %505 ], [ %.52745, %544 ], [ %.62746, %583 ], [ %.72747, %622 ], [ %.82748, %661 ], [ %.252765, %710 ], [ %.262766, %739 ], [ %.272767, %764 ], [ %.282768, %799 ], [ %.292769, %834 ], [ %.432783, %1293 ], [ %.442784, %1326 ], [ %.452785, %1359 ], [ %.462786, %1392 ], [ %.472787, %1425 ], [ %.482788, %1458 ], [ %.492789, %1868 ], [ %.102750, %1657 ], [ %.102750, %1620 ], [ %.102750, %1583 ], [ %.102750, %1546 ], [ %.102750, %1510 ], [ %.112751, %1693 ], [ %.502790, %1717 ], [ %.512791, %1752 ], [ %.522792, %1787 ], [ %.532793, %1822 ], [ %.542794, %1859 ], [ %.542794, %1860 ], [ %.542794, %1855 ], [ %.532793, %1853 ], [ %.302770, %876 ], [ %.312771, %901 ], [ %.322772, %936 ], [ %.332773, %971 ], [ %.342774, %1013 ], [ %.352775, %1047 ], [ %.362776, %1081 ], [ %.372777, %1115 ], [ %.382778, %1149 ], [ %.392779, %1183 ], [ %.402780, %1217 ], [ %.412781, %1251 ], [ %.552795, %1880 ], [ %.562796, %1907 ], [ %.122752, %dict_put.exit3125 ], [ %.602800, %2024 ], [ %.612801, %2049 ], [ %.622802, %2084 ], [ %.632803, %2119 ], [ %.642804, %2161 ], [ %.652805, %2186 ], [ %.662806, %2221 ], [ %.672807, %2256 ], [ %.682808, %2298 ], [ %.692809, %2332 ], [ %.702810, %2366 ], [ %.712811, %2400 ], [ %.722812, %2434 ], [ %.732813, %2468 ], [ %.742814, %2502 ], [ %.752815, %2536 ], [ %.582798, %1957 ], [ %.592799, %1989 ], [ %.252765, %1871 ]
+  %.152668 = phi i32 [ %.862739, %2617 ], [ %.862739, %2626 ], [ %.132666, %2612 ], [ %.02653, %71 ], [ %.162669, %113 ], [ %.172670, %146 ], [ %.182671, %179 ], [ %.192672, %212 ], [ %.202673, %245 ], [ %.212674, %278 ], [ %.222675, %311 ], [ %.232676, %344 ], [ %.92662, %dict_put.exit ], [ %.12654, %388 ], [ %.22655, %427 ], [ %.32656, %466 ], [ %.42657, %505 ], [ %.52658, %544 ], [ %.62659, %583 ], [ %.72660, %622 ], [ %.82661, %661 ], [ %.252678, %710 ], [ %.262679, %739 ], [ %.272680, %764 ], [ %.282681, %799 ], [ %.292682, %834 ], [ %.432696, %1293 ], [ %.442697, %1326 ], [ %.452698, %1359 ], [ %.462699, %1392 ], [ %.472700, %1425 ], [ %.482701, %1458 ], [ %.492702, %1868 ], [ %.572710, %1657 ], [ %.552708, %1620 ], [ %.532706, %1583 ], [ %.512704, %1546 ], [ %.102663, %1510 ], [ %.582711, %1693 ], [ %.592712, %1717 ], [ %.602713, %1752 ], [ %.612714, %1787 ], [ %.622715, %1822 ], [ %.642717, %1859 ], [ %.642717, %1860 ], [ %.642717, %1855 ], [ -1, %1853 ], [ %.302683, %876 ], [ %.312684, %901 ], [ %.322685, %936 ], [ %.332686, %971 ], [ %.342687, %1013 ], [ %.352688, %1047 ], [ %.362689, %1081 ], [ %.372690, %1115 ], [ %.382691, %1149 ], [ %.392692, %1183 ], [ %.402693, %1217 ], [ %.412694, %1251 ], [ %.652718, %1880 ], [ %.662719, %1907 ], [ %.122665, %dict_put.exit3125 ], [ %.702723, %2024 ], [ %.712724, %2049 ], [ %.722725, %2084 ], [ %.732726, %2119 ], [ %.742727, %2161 ], [ %.752728, %2186 ], [ %.762729, %2221 ], [ %.772730, %2256 ], [ %.782731, %2298 ], [ %.792732, %2332 ], [ %.802733, %2366 ], [ %.812734, %2400 ], [ %.822735, %2434 ], [ %.832736, %2468 ], [ %.842737, %2502 ], [ %.852738, %2536 ], [ %.682721, %1957 ], [ %.692722, %1989 ], [ %.252678, %1871 ]
+  %.152592 = phi ptr [ %.752652, %2617 ], [ %.752652, %2626 ], [ %.132590, %2612 ], [ %.02577, %71 ], [ %.162593, %113 ], [ %.172594, %146 ], [ %.182595, %179 ], [ %.192596, %212 ], [ %.202597, %245 ], [ %.212598, %278 ], [ %.222599, %311 ], [ %.232600, %344 ], [ %.92586, %dict_put.exit ], [ %.12578, %388 ], [ %.22579, %427 ], [ %.32580, %466 ], [ %.42581, %505 ], [ %.52582, %544 ], [ %.62583, %583 ], [ %.72584, %622 ], [ %.82585, %661 ], [ %.252602, %710 ], [ %.262603, %739 ], [ %.272604, %764 ], [ %.282605, %799 ], [ %.292606, %834 ], [ %.422619, %1293 ], [ %.432620, %1326 ], [ %.442621, %1359 ], [ %.452622, %1392 ], [ %.462623, %1425 ], [ %.472624, %1458 ], [ %.482625, %1868 ], [ %.102587, %1657 ], [ %.102587, %1620 ], [ %.102587, %1583 ], [ %.102587, %1546 ], [ %.102587, %1510 ], [ %.112588, %1693 ], [ %.492626, %1717 ], [ %.502627, %1752 ], [ %.512628, %1787 ], [ %.522629, %1822 ], [ %.532630, %1859 ], [ %.532630, %1860 ], [ %.532630, %1855 ], [ %.522629, %1853 ], [ %.302607, %876 ], [ %.312608, %901 ], [ %.322609, %936 ], [ %.332610, %971 ], [ %.342611, %1013 ], [ %.352612, %1047 ], [ %.362613, %1081 ], [ %.372614, %1115 ], [ %.382615, %1149 ], [ %.392616, %1183 ], [ %.402617, %1217 ], [ %.412618, %1251 ], [ %.542631, %1880 ], [ %.552632, %1907 ], [ %.122589, %dict_put.exit3125 ], [ %.592636, %2024 ], [ %.602637, %2049 ], [ %.612638, %2084 ], [ %.622639, %2119 ], [ %.632640, %2161 ], [ %.642641, %2186 ], [ %.652642, %2221 ], [ %.662643, %2256 ], [ %.672644, %2298 ], [ %.682645, %2332 ], [ %.692646, %2366 ], [ %.702647, %2400 ], [ %.712648, %2434 ], [ %.722649, %2468 ], [ %.732650, %2502 ], [ %.742651, %2536 ], [ %.572634, %1957 ], [ %.582635, %1989 ], [ %.252602, %1871 ]
+  %.152495 = phi i32 [ %.962576, %2617 ], [ %.962576, %2626 ], [ %.132493, %2612 ], [ %.02480, %71 ], [ %.162496, %113 ], [ %.172497, %146 ], [ %.182498, %179 ], [ %.192499, %212 ], [ %.202500, %245 ], [ %.212501, %278 ], [ %.222502, %311 ], [ %.232503, %344 ], [ %.92489, %dict_put.exit ], [ %.12481, %388 ], [ %.22482, %427 ], [ %.32483, %466 ], [ %.42484, %505 ], [ %.52485, %544 ], [ %.62486, %583 ], [ %.72487, %622 ], [ %.82488, %661 ], [ %.322512, %710 ], [ %.332513, %739 ], [ %.342514, %764 ], [ %.352515, %799 ], [ %.362516, %834 ], [ %.522532, %1293 ], [ %.532533, %1326 ], [ %.542534, %1359 ], [ %.552535, %1392 ], [ %.562536, %1425 ], [ %.572537, %1458 ], [ %.592539, %1868 ], [ %.672547, %1657 ], [ %.652545, %1620 ], [ %.632543, %1583 ], [ %.612541, %1546 ], [ %.102490, %1510 ], [ %.112491, %1693 ], [ %.682548, %1717 ], [ %.692549, %1752 ], [ %.702550, %1787 ], [ %.712551, %1822 ], [ %.722552, %1859 ], [ %.722552, %1860 ], [ %.722552, %1855 ], [ %.712551, %1853 ], [ %.382518, %876 ], [ %.392519, %901 ], [ %.402520, %936 ], [ %.412521, %971 ], [ %.432523, %1013 ], [ %.442524, %1047 ], [ %.452525, %1081 ], [ %.462526, %1115 ], [ %.472527, %1149 ], [ %.482528, %1183 ], [ %.492529, %1217 ], [ %.502530, %1251 ], [ %.732553, %1880 ], [ %.742554, %1907 ], [ %.122492, %dict_put.exit3125 ], [ %.772557, %2024 ], [ %.782558, %2049 ], [ %.792559, %2084 ], [ %.802560, %2119 ], [ %.822562, %2161 ], [ %.832563, %2186 ], [ %.842564, %2221 ], [ %.852565, %2256 ], [ %.872567, %2298 ], [ %.882568, %2332 ], [ %.892569, %2366 ], [ %.902570, %2400 ], [ %.912571, %2434 ], [ %.922572, %2468 ], [ %.932573, %2502 ], [ %.942574, %2536 ], [ %.752555, %1957 ], [ %.762556, %1989 ], [ %.322512, %1871 ]
+  %.152413 = phi i32 [ %.812479, %2617 ], [ %.812479, %2626 ], [ %.132411, %2612 ], [ %.02398, %71 ], [ %.162414, %113 ], [ %.172415, %146 ], [ %.182416, %179 ], [ %.192417, %212 ], [ %.202418, %245 ], [ %.212419, %278 ], [ %.222420, %311 ], [ %.232421, %344 ], [ %.92407, %dict_put.exit ], [ %.12399, %388 ], [ %.22400, %427 ], [ %.32401, %466 ], [ %.42402, %505 ], [ %.52403, %544 ], [ %.62404, %583 ], [ %.72405, %622 ], [ %.82406, %661 ], [ %.252423, %710 ], [ %.262424, %739 ], [ %.272425, %764 ], [ %.282426, %799 ], [ %.292427, %834 ], [ %.432441, %1293 ], [ %.442442, %1326 ], [ %.452443, %1359 ], [ %.462444, %1392 ], [ %.472445, %1425 ], [ %.482446, %1458 ], [ %.492447, %1868 ], [ 1, %1657 ], [ 2, %1620 ], [ 3, %1583 ], [ 4, %1546 ], [ 5, %1510 ], [ %.542452, %1693 ], [ %.552453, %1717 ], [ %.562454, %1752 ], [ %.572455, %1787 ], [ %.582456, %1822 ], [ %.592457, %1859 ], [ %.592457, %1860 ], [ %.592457, %1855 ], [ %.582456, %1853 ], [ %.302428, %876 ], [ %.312429, %901 ], [ %.322430, %936 ], [ %.332431, %971 ], [ %.342432, %1013 ], [ %.352433, %1047 ], [ %.362434, %1081 ], [ %.372435, %1115 ], [ %.382436, %1149 ], [ %.392437, %1183 ], [ %.402438, %1217 ], [ %.412439, %1251 ], [ %.602458, %1880 ], [ %.612459, %1907 ], [ %.122410, %dict_put.exit3125 ], [ %.652463, %2024 ], [ %.662464, %2049 ], [ %.672465, %2084 ], [ %.682466, %2119 ], [ %.692467, %2161 ], [ %.702468, %2186 ], [ %.712469, %2221 ], [ %.722470, %2256 ], [ %.732471, %2298 ], [ %.742472, %2332 ], [ %.752473, %2366 ], [ %.762474, %2400 ], [ %.772475, %2434 ], [ %.782476, %2468 ], [ %.792477, %2502 ], [ %.802478, %2536 ], [ %.632461, %1957 ], [ %.642462, %1989 ], [ %.252423, %1871 ]
+  %.152325 = phi i32 [ %.872397, %2617 ], [ %.872397, %2626 ], [ %.132323, %2612 ], [ %.02310, %71 ], [ %.162326, %113 ], [ %.172327, %146 ], [ %.182328, %179 ], [ %.192329, %212 ], [ %.202330, %245 ], [ %.212331, %278 ], [ %.222332, %311 ], [ %.232333, %344 ], [ %.92319, %dict_put.exit ], [ %.12311, %388 ], [ %.22312, %427 ], [ %.32313, %466 ], [ %.42314, %505 ], [ %.52315, %544 ], [ %.62316, %583 ], [ %.72317, %622 ], [ %.82318, %661 ], [ %.322342, %710 ], [ %.332343, %739 ], [ %.342344, %764 ], [ %.352345, %799 ], [ %.362346, %834 ], [ %.502360, %1293 ], [ %.512361, %1326 ], [ %.522362, %1359 ], [ %.532363, %1392 ], [ %.542364, %1425 ], [ %.552365, %1458 ], [ %.562366, %1868 ], [ %.602370, %1657 ], [ %.592369, %1620 ], [ %.582368, %1583 ], [ %.572367, %1546 ], [ %.102320, %1510 ], [ %.112321, %1693 ], [ %.612371, %1717 ], [ %.622372, %1752 ], [ %.632373, %1787 ], [ %.642374, %1822 ], [ %.652375, %1859 ], [ %.652375, %1860 ], [ %.652375, %1855 ], [ %.642374, %1853 ], [ %.372347, %876 ], [ %.382348, %901 ], [ %.392349, %936 ], [ %.402350, %971 ], [ %.412351, %1013 ], [ %.422352, %1047 ], [ %.432353, %1081 ], [ %.442354, %1115 ], [ %.452355, %1149 ], [ %.462356, %1183 ], [ %.472357, %1217 ], [ %.482358, %1251 ], [ %.662376, %1880 ], [ %.672377, %1907 ], [ %.122322, %dict_put.exit3125 ], [ %.712381, %2024 ], [ %.722382, %2049 ], [ %.732383, %2084 ], [ %.742384, %2119 ], [ %.752385, %2161 ], [ %.762386, %2186 ], [ %.772387, %2221 ], [ %.782388, %2256 ], [ %.792389, %2298 ], [ %.802390, %2332 ], [ %.812391, %2366 ], [ %.822392, %2400 ], [ %.832393, %2434 ], [ %.842394, %2468 ], [ %.852395, %2502 ], [ %.862396, %2536 ], [ %.692379, %1957 ], [ %.702380, %1989 ], [ %.322342, %1871 ]
+  %.152248 = phi i32 [ %.762309, %2617 ], [ %.762309, %2626 ], [ %.132246, %2612 ], [ %.02233, %71 ], [ %.162249, %113 ], [ %.172250, %146 ], [ %.182251, %179 ], [ %.192252, %212 ], [ %.202253, %245 ], [ %.212254, %278 ], [ %.222255, %311 ], [ %.232256, %344 ], [ %.92242, %dict_put.exit ], [ %.12234, %388 ], [ %.22235, %427 ], [ %.32236, %466 ], [ %.42237, %505 ], [ %.52238, %544 ], [ %.62239, %583 ], [ %.72240, %622 ], [ %.82241, %661 ], [ %.252258, %710 ], [ %.262259, %739 ], [ %.272260, %764 ], [ %.282261, %799 ], [ %.292262, %834 ], [ %.432276, %1293 ], [ %.442277, %1326 ], [ %.452278, %1359 ], [ %.462279, %1392 ], [ %.472280, %1425 ], [ %.482281, %1458 ], [ %.492282, %1868 ], [ %.102243, %1657 ], [ %.102243, %1620 ], [ %.102243, %1583 ], [ %.102243, %1546 ], [ %.102243, %1510 ], [ %.112244, %1693 ], [ %.502283, %1717 ], [ %.512284, %1752 ], [ %.522285, %1787 ], [ %.532286, %1822 ], [ %.542287, %1859 ], [ %.542287, %1860 ], [ %.542287, %1855 ], [ %.532286, %1853 ], [ %.302263, %876 ], [ %.312264, %901 ], [ %.322265, %936 ], [ %.332266, %971 ], [ %.342267, %1013 ], [ %.352268, %1047 ], [ %.362269, %1081 ], [ %.372270, %1115 ], [ %.382271, %1149 ], [ %.392272, %1183 ], [ %.402273, %1217 ], [ %.412274, %1251 ], [ %.552288, %1880 ], [ %.562289, %1907 ], [ %.122245, %dict_put.exit3125 ], [ %.602293, %2024 ], [ %.612294, %2049 ], [ %.622295, %2084 ], [ %.632296, %2119 ], [ %.642297, %2161 ], [ %.652298, %2186 ], [ %.662299, %2221 ], [ %.672300, %2256 ], [ %.682301, %2298 ], [ %.692302, %2332 ], [ %.702303, %2366 ], [ %.712304, %2400 ], [ %.722305, %2434 ], [ %.732306, %2468 ], [ %.742307, %2502 ], [ %.752308, %2536 ], [ %.582291, %1957 ], [ %.592292, %1989 ], [ %.252258, %1871 ]
+  %2628 = phi i1 [ true, %2617 ], [ true, %2626 ], [ true, %2612 ], [ true, %71 ], [ true, %113 ], [ true, %146 ], [ true, %179 ], [ true, %212 ], [ true, %245 ], [ true, %278 ], [ true, %311 ], [ true, %344 ], [ true, %dict_put.exit ], [ true, %388 ], [ true, %427 ], [ true, %466 ], [ true, %505 ], [ true, %544 ], [ true, %583 ], [ true, %622 ], [ true, %661 ], [ true, %710 ], [ true, %739 ], [ true, %764 ], [ true, %799 ], [ true, %834 ], [ true, %1293 ], [ true, %1326 ], [ true, %1359 ], [ true, %1392 ], [ true, %1425 ], [ true, %1458 ], [ false, %1868 ], [ true, %1657 ], [ true, %1620 ], [ true, %1583 ], [ true, %1546 ], [ true, %1510 ], [ true, %1693 ], [ true, %1717 ], [ true, %1752 ], [ true, %1787 ], [ true, %1822 ], [ true, %1859 ], [ false, %1860 ], [ false, %1855 ], [ false, %1853 ], [ true, %876 ], [ true, %901 ], [ true, %936 ], [ true, %971 ], [ true, %1013 ], [ true, %1047 ], [ true, %1081 ], [ true, %1115 ], [ true, %1149 ], [ true, %1183 ], [ true, %1217 ], [ true, %1251 ], [ true, %1880 ], [ true, %1907 ], [ true, %dict_put.exit3125 ], [ true, %2024 ], [ true, %2049 ], [ true, %2084 ], [ true, %2119 ], [ true, %2161 ], [ true, %2186 ], [ true, %2221 ], [ true, %2256 ], [ true, %2298 ], [ true, %2332 ], [ true, %2366 ], [ true, %2400 ], [ true, %2434 ], [ true, %2468 ], [ true, %2502 ], [ true, %2536 ], [ true, %1957 ], [ true, %1989 ], [ false, %1871 ]
+  %2629 = phi i1 [ false, %2617 ], [ false, %2626 ], [ false, %2612 ], [ false, %71 ], [ false, %113 ], [ false, %146 ], [ false, %179 ], [ false, %212 ], [ false, %245 ], [ false, %278 ], [ false, %311 ], [ false, %344 ], [ false, %dict_put.exit ], [ false, %388 ], [ false, %427 ], [ false, %466 ], [ false, %505 ], [ false, %544 ], [ false, %583 ], [ false, %622 ], [ false, %661 ], [ false, %710 ], [ false, %739 ], [ false, %764 ], [ false, %799 ], [ false, %834 ], [ false, %1293 ], [ false, %1326 ], [ false, %1359 ], [ false, %1392 ], [ false, %1425 ], [ false, %1458 ], [ false, %1868 ], [ false, %1657 ], [ false, %1620 ], [ false, %1583 ], [ false, %1546 ], [ false, %1510 ], [ false, %1693 ], [ false, %1717 ], [ false, %1752 ], [ false, %1787 ], [ false, %1822 ], [ false, %1859 ], [ true, %1860 ], [ true, %1855 ], [ false, %1853 ], [ false, %876 ], [ false, %901 ], [ false, %936 ], [ false, %971 ], [ false, %1013 ], [ false, %1047 ], [ false, %1081 ], [ false, %1115 ], [ false, %1149 ], [ false, %1183 ], [ false, %1217 ], [ false, %1251 ], [ false, %1880 ], [ false, %1907 ], [ false, %dict_put.exit3125 ], [ false, %2024 ], [ false, %2049 ], [ false, %2084 ], [ false, %2119 ], [ false, %2161 ], [ false, %2186 ], [ false, %2221 ], [ false, %2256 ], [ false, %2298 ], [ false, %2332 ], [ false, %2366 ], [ false, %2400 ], [ false, %2434 ], [ false, %2468 ], [ false, %2502 ], [ false, %2536 ], [ false, %1957 ], [ false, %1989 ], [ false, %1871 ]
+  %.02206 = phi i32 [ 0, %2617 ], [ 0, %2626 ], [ 0, %2612 ], [ 0, %71 ], [ 0, %113 ], [ 0, %146 ], [ 0, %179 ], [ 0, %212 ], [ 0, %245 ], [ 0, %278 ], [ 0, %311 ], [ 0, %344 ], [ 0, %dict_put.exit ], [ 0, %388 ], [ 0, %427 ], [ 0, %466 ], [ 0, %505 ], [ 0, %544 ], [ 0, %583 ], [ 0, %622 ], [ 0, %661 ], [ 0, %710 ], [ 0, %739 ], [ 0, %764 ], [ 0, %799 ], [ 0, %834 ], [ 0, %1293 ], [ 0, %1326 ], [ 0, %1359 ], [ 0, %1392 ], [ 0, %1425 ], [ 0, %1458 ], [ 9, %1868 ], [ 0, %1657 ], [ 0, %1620 ], [ 0, %1583 ], [ 0, %1546 ], [ 0, %1510 ], [ 0, %1693 ], [ 0, %1717 ], [ 0, %1752 ], [ 0, %1787 ], [ 0, %1822 ], [ 0, %1859 ], [ 1, %1860 ], [ 1, %1855 ], [ 9, %1853 ], [ 0, %876 ], [ 0, %901 ], [ 0, %936 ], [ 0, %971 ], [ 0, %1013 ], [ 0, %1047 ], [ 0, %1081 ], [ 0, %1115 ], [ 0, %1149 ], [ 0, %1183 ], [ 0, %1217 ], [ 0, %1251 ], [ 0, %1880 ], [ 0, %1907 ], [ 0, %dict_put.exit3125 ], [ 0, %2024 ], [ 0, %2049 ], [ 0, %2084 ], [ 0, %2119 ], [ 0, %2161 ], [ 0, %2186 ], [ 0, %2221 ], [ 0, %2256 ], [ 0, %2298 ], [ 0, %2332 ], [ 0, %2366 ], [ 0, %2400 ], [ 0, %2434 ], [ 0, %2468 ], [ 0, %2502 ], [ 0, %2536 ], [ 0, %1957 ], [ 0, %1989 ], [ 9, %1871 ]
+  %.15 = phi i64 [ %4, %2617 ], [ %.153, %2626 ], [ %.13, %2612 ], [ %4, %71 ], [ %4, %113 ], [ %4, %146 ], [ %4, %179 ], [ %4, %212 ], [ %4, %245 ], [ %4, %278 ], [ %4, %311 ], [ %4, %344 ], [ %.9, %dict_put.exit ], [ %4, %388 ], [ %4, %427 ], [ %4, %466 ], [ %4, %505 ], [ %4, %544 ], [ %4, %583 ], [ %4, %622 ], [ %4, %661 ], [ %4, %710 ], [ %4, %739 ], [ %4, %764 ], [ %4, %799 ], [ %4, %834 ], [ %4, %1293 ], [ %4, %1326 ], [ %4, %1359 ], [ %4, %1392 ], [ %4, %1425 ], [ %4, %1458 ], [ %.89, %1868 ], [ %4, %1657 ], [ %4, %1620 ], [ %4, %1583 ], [ %4, %1546 ], [ %4, %1510 ], [ %4, %1693 ], [ %4, %1717 ], [ %4, %1752 ], [ %4, %1787 ], [ %4, %1822 ], [ %4, %1859 ], [ %1863, %1860 ], [ %.109, %1855 ], [ %.108, %1853 ], [ %4, %876 ], [ %4, %901 ], [ %4, %936 ], [ %4, %971 ], [ %4, %1013 ], [ %4, %1047 ], [ %4, %1081 ], [ %4, %1115 ], [ %4, %1149 ], [ %4, %1183 ], [ %4, %1217 ], [ %4, %1251 ], [ %4, %1880 ], [ %4, %1907 ], [ %.12, %dict_put.exit3125 ], [ %4, %2024 ], [ %4, %2049 ], [ %4, %2084 ], [ %4, %2119 ], [ %4, %2161 ], [ %4, %2186 ], [ %4, %2221 ], [ %4, %2256 ], [ %4, %2298 ], [ %4, %2332 ], [ %4, %2366 ], [ %4, %2400 ], [ %4, %2434 ], [ %4, %2468 ], [ %4, %2502 ], [ %4, %2536 ], [ %4, %1957 ], [ %4, %1989 ], [ %.43, %1871 ]
+  %.sroa.0.15 = phi i32 [ %.sroa.0.171, %2617 ], [ %.sroa.0.172, %2626 ], [ %.sroa.0.13, %2612 ], [ %.sroa.0.0, %71 ], [ %.sroa.0.17, %113 ], [ %.sroa.0.19, %146 ], [ %.sroa.0.21, %179 ], [ %.sroa.0.23, %212 ], [ %.sroa.0.25, %245 ], [ %.sroa.0.27, %278 ], [ %.sroa.0.29, %311 ], [ %.sroa.0.31, %344 ], [ %.sroa.0.9, %dict_put.exit ], [ %.sroa.0.1, %388 ], [ %.sroa.0.2, %427 ], [ %.sroa.0.3, %466 ], [ %.sroa.0.4, %505 ], [ %.sroa.0.5, %544 ], [ %.sroa.0.6, %583 ], [ %.sroa.0.7, %622 ], [ %.sroa.0.8, %661 ], [ %.sroa.0.49, %710 ], [ %.sroa.0.51, %739 ], [ %.sroa.0.53, %764 ], [ %.sroa.0.55, %799 ], [ %.sroa.0.57, %834 ], [ %.sroa.0.87, %1293 ], [ %.sroa.0.89, %1326 ], [ %.sroa.0.91, %1359 ], [ %.sroa.0.93, %1392 ], [ %.sroa.0.95, %1425 ], [ %.sroa.0.97, %1458 ], [ %.sroa.0.100, %1868 ], [ %.sroa.0.112, %1657 ], [ %.sroa.0.109, %1620 ], [ %.sroa.0.106, %1583 ], [ %.sroa.0.103, %1546 ], [ %.sroa.0.10, %1510 ], [ %.sroa.0.114, %1693 ], [ %.sroa.0.116, %1717 ], [ %.sroa.0.118, %1752 ], [ %.sroa.0.120, %1787 ], [ %.sroa.0.122, %1822 ], [ %.sroa.0.125, %1859 ], [ %1861, %1860 ], [ %.sroa.0.125, %1855 ], [ %.sroa.0.124, %1853 ], [ %.sroa.0.60, %876 ], [ %.sroa.0.62, %901 ], [ %.sroa.0.64, %936 ], [ %.sroa.0.66, %971 ], [ %.sroa.0.69, %1013 ], [ %.sroa.0.71, %1047 ], [ %.sroa.0.73, %1081 ], [ %.sroa.0.75, %1115 ], [ %.sroa.0.77, %1149 ], [ %.sroa.0.79, %1183 ], [ %.sroa.0.81, %1217 ], [ %.sroa.0.83, %1251 ], [ %.sroa.0.127, %1880 ], [ %.sroa.0.129, %1907 ], [ %.sroa.0.12, %dict_put.exit3125 ], [ %.sroa.0.136, %2024 ], [ %.sroa.0.138, %2049 ], [ %.sroa.0.140, %2084 ], [ %.sroa.0.142, %2119 ], [ %.sroa.0.145, %2161 ], [ %.sroa.0.147, %2186 ], [ %.sroa.0.149, %2221 ], [ %.sroa.0.151, %2256 ], [ %.sroa.0.154, %2298 ], [ %.sroa.0.156, %2332 ], [ %.sroa.0.158, %2366 ], [ %.sroa.0.160, %2400 ], [ %.sroa.0.162, %2434 ], [ %.sroa.0.164, %2468 ], [ %.sroa.0.166, %2502 ], [ %.sroa.0.168, %2536 ], [ %.sroa.0.132, %1957 ], [ %.sroa.0.134, %1989 ], [ %1872, %1871 ]
+  %.sroa.498.15 = phi i32 [ %.sroa.498.171, %2617 ], [ %.sroa.498.172, %2626 ], [ %.sroa.498.13, %2612 ], [ %.sroa.498.0, %71 ], [ %.sroa.498.17, %113 ], [ %.sroa.498.19, %146 ], [ %.sroa.498.21, %179 ], [ %.sroa.498.23, %212 ], [ %.sroa.498.25, %245 ], [ %.sroa.498.27, %278 ], [ %.sroa.498.29, %311 ], [ %.sroa.498.31, %344 ], [ %.sroa.498.9, %dict_put.exit ], [ %.sroa.498.1, %388 ], [ %.sroa.498.2, %427 ], [ %.sroa.498.3, %466 ], [ %.sroa.498.4, %505 ], [ %.sroa.498.5, %544 ], [ %.sroa.498.6, %583 ], [ %.sroa.498.7, %622 ], [ %.sroa.498.8, %661 ], [ %.sroa.498.49, %710 ], [ %.sroa.498.51, %739 ], [ %.sroa.498.53, %764 ], [ %.sroa.498.55, %799 ], [ %.sroa.498.57, %834 ], [ %.sroa.498.87, %1293 ], [ %.sroa.498.89, %1326 ], [ %.sroa.498.91, %1359 ], [ %.sroa.498.93, %1392 ], [ %.sroa.498.95, %1425 ], [ %.sroa.498.97, %1458 ], [ %.sroa.498.100, %1868 ], [ %.sroa.498.112, %1657 ], [ %.sroa.498.109, %1620 ], [ %.sroa.498.106, %1583 ], [ %.sroa.498.103, %1546 ], [ %.sroa.498.10, %1510 ], [ %.sroa.498.114, %1693 ], [ %.sroa.498.116, %1717 ], [ %.sroa.498.118, %1752 ], [ %.sroa.498.120, %1787 ], [ %.sroa.498.122, %1822 ], [ %.sroa.498.125, %1859 ], [ %1867, %1860 ], [ %.sroa.498.125, %1855 ], [ %.sroa.498.124, %1853 ], [ %.sroa.498.60, %876 ], [ %.sroa.498.62, %901 ], [ %.sroa.498.64, %936 ], [ %.sroa.498.66, %971 ], [ %.sroa.498.69, %1013 ], [ %.sroa.498.71, %1047 ], [ %.sroa.498.73, %1081 ], [ %.sroa.498.75, %1115 ], [ %.sroa.498.77, %1149 ], [ %.sroa.498.79, %1183 ], [ %.sroa.498.81, %1217 ], [ %.sroa.498.83, %1251 ], [ %.sroa.498.127, %1880 ], [ %.sroa.498.129, %1907 ], [ %.sroa.498.12, %dict_put.exit3125 ], [ %.sroa.498.136, %2024 ], [ %.sroa.498.138, %2049 ], [ %.sroa.498.140, %2084 ], [ %.sroa.498.142, %2119 ], [ %.sroa.498.145, %2161 ], [ %.sroa.498.147, %2186 ], [ %.sroa.498.149, %2221 ], [ %.sroa.498.151, %2256 ], [ %.sroa.498.154, %2298 ], [ %.sroa.498.156, %2332 ], [ %.sroa.498.158, %2366 ], [ %.sroa.498.160, %2400 ], [ %.sroa.498.162, %2434 ], [ %.sroa.498.164, %2468 ], [ %.sroa.498.166, %2502 ], [ %.sroa.498.168, %2536 ], [ %.sroa.498.132, %1957 ], [ %.sroa.498.134, %1989 ], [ %1873, %1871 ]
   store i64 %.sroa.10.15, ptr %.sroa.10.0..sroa_idx, align 8
   store i64 %.sroa.35.15, ptr %.sroa.35.0..sroa_idx, align 8
   store i32 %.sroa.0.15, ptr %6, align 4
@@ -5648,41 +5647,41 @@ dict_get.exit.i:                                  ; preds = %dict_get.exit.i, %.
   store i32 %.152413, ptr %42, align 4
   store i32 %.152325, ptr %44, align 8
   store i32 %.153199, ptr %46, align 4
-  %2631 = load i64, ptr %54, align 8
-  %.not3119 = icmp eq i64 %2631, -1
-  br i1 %.not3119, label %2637, label %2632
+  %2630 = load i64, ptr %54, align 8
+  %.not3119 = icmp eq i64 %2630, -1
+  br i1 %.not3119, label %2636, label %2631
 
-2632:                                             ; preds = %2628
+2631:                                             ; preds = %2627
   %.neg3120 = sub i64 %.sroa.10.0.copyload, %.sroa.10.15
-  %2633 = add i64 %2631, %.neg3120
-  store i64 %2633, ptr %54, align 8
-  %2634 = icmp eq i64 %2633, 0
-  %or.cond = and i1 %2629, %2634
-  br i1 %or.cond, label %2635, label %2637
+  %2632 = add i64 %2630, %.neg3120
+  store i64 %2632, ptr %54, align 8
+  %2633 = icmp eq i64 %2632, 0
+  %or.cond = and i1 %2628, %2633
+  br i1 %or.cond, label %2634, label %2636
 
-2635:                                             ; preds = %2632
-  %2636 = load i32, ptr %60, align 8
-  switch i32 %2636, label %rc_read_init.exit.fold.split [
+2634:                                             ; preds = %2631
+  %2635 = load i32, ptr %60, align 8
+  switch i32 %2635, label %rc_read_init.exit.fold.split [
     i32 0, label %rc_read_init.exit
     i32 1, label %.thread3268
   ]
 
-2637:                                             ; preds = %2632, %2628
-  br i1 %2630, label %.thread3268, label %rc_read_init.exit
+2636:                                             ; preds = %2631, %2627
+  br i1 %2629, label %.thread3268, label %rc_read_init.exit
 
-.thread3268:                                      ; preds = %2635, %2637
-  %2638 = icmp eq i32 %.sroa.498.15, 0
-  %spec.select = select i1 %2638, i32 1, i32 9
+.thread3268:                                      ; preds = %2634, %2636
+  %2637 = icmp eq i32 %.sroa.498.15, 0
+  %spec.select = select i1 %2637, i32 1, i32 9
   store i32 -1, ptr %6, align 4
   store i32 0, ptr %.sroa.498.0..sroa_idx, align 4
   store i32 5, ptr %7, align 4
   br label %rc_read_init.exit
 
-rc_read_init.exit.fold.split:                     ; preds = %2635
+rc_read_init.exit.fold.split:                     ; preds = %2634
   br label %rc_read_init.exit
 
-rc_read_init.exit:                                ; preds = %17, %8, %2635, %rc_read_init.exit.fold.split, %2637, %.thread3268
-  %.0 = phi i32 [ %spec.select, %.thread3268 ], [ %.02206, %2637 ], [ %2636, %2635 ], [ 9, %rc_read_init.exit.fold.split ], [ 0, %8 ], [ 9, %17 ]
+rc_read_init.exit:                                ; preds = %17, %8, %2634, %rc_read_init.exit.fold.split, %2636, %.thread3268
+  %.0 = phi i32 [ %spec.select, %.thread3268 ], [ %.02206, %2636 ], [ %2635, %2634 ], [ 9, %rc_read_init.exit.fold.split ], [ 0, %8 ], [ 9, %17 ]
   ret i32 %.0
 }
 
@@ -6134,14 +6133,17 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #5
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #6
+
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #7
+declare void @llvm.experimental.noalias.scope.decl(metadata) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #8
+declare i64 @llvm.umax.i64(i64, i64) #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -6149,9 +6151,9 @@ attributes #2 = { nofree norecurse nosync nounwind uwtable "frame-pointer"="all"
 attributes #3 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #8 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #9 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}

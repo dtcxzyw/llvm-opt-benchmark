@@ -4244,9 +4244,7 @@ entry:
   store ptr %gcScope, ptr %topGCScope_.i, align 8
   %argCount_.i = getelementptr inbounds i8, ptr %args, i64 8
   %2 = load i32, ptr %argCount_.i, align 8
-  %cmp = icmp ult i32 %2, 2
-  %sub = add i32 %2, -1
-  %narrow = select i1 %cmp, i32 0, i32 %sub
+  %narrow = call i32 @llvm.usub.sat.i32(i32 %2, i32 1)
   %cond = zext i32 %narrow to i64
   %cmp.i.not = icmp eq i32 %2, 0
   %3 = load ptr, ptr %args, align 8
@@ -13074,6 +13072,9 @@ declare i32 @llvm.umin.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #11
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.usub.sat.i32(i32, i32) #11
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #14

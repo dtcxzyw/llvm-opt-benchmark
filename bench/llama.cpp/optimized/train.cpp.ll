@@ -10459,7 +10459,7 @@ _ZNSt8__detail8_AdaptorISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm256
   br i1 %29, label %do.body, label %do.end, !llvm.loop !53
 
 do.end:                                           ; preds = %_ZNSt8__detail8_AdaptorISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEfEclEv.exit33
-  %call.i = tail call noundef float @logf(float noundef %28) #36
+  %call.i = tail call float @llvm.log.f32(float %28)
   %mul15 = fmul float %call.i, -2.000000e+00
   %div = fdiv float %mul15, %28
   %call.i34 = tail call noundef float @sqrtf(float noundef %div) #36
@@ -10481,9 +10481,6 @@ if.end:                                           ; preds = %do.end, %if.then
 
 ; Function Attrs: nounwind
 declare float @nextafterf(float noundef, float noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare float @logf(float noundef) local_unnamed_addr #12
 
 declare noundef nonnull align 8 dereferenceable(16) ptr @_ZNSirsERm(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
@@ -11336,6 +11333,9 @@ declare x86_fp80 @llvm.log.f80(x86_fp80) #33
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #33
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.log.f32(float) #33
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #33

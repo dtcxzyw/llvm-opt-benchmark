@@ -15820,7 +15820,7 @@ define linkonce_odr hidden noundef double @_ZN6cephes7rlgammaEdd(double noundef 
   br i1 %11, label %73, label %12
 
 12:                                               ; preds = %10
-  %13 = tail call double @log(double noundef %1) #31
+  %13 = tail call double @llvm.log.f64(double %1)
   %14 = fneg double %1
   %15 = tail call double @llvm.fmuladd.f64(double %0, double %13, double %14)
   %16 = tail call double @lgamma(double noundef %0) #31
@@ -15927,9 +15927,6 @@ define linkonce_odr hidden noundef double @_ZN6cephes7rlgammaEdd(double noundef 
   %.0 = phi double [ %21, %19 ], [ %34, %31 ], [ %72, %69 ], [ 0.000000e+00, %10 ]
   ret double %.0
 }
-
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @log(double noundef) local_unnamed_addr #21
 
 ; Function Attrs: nounwind
 declare double @lgamma(double noundef) local_unnamed_addr #1
@@ -16616,6 +16613,9 @@ declare i64 @llvm.smin.i64(i64, i64) #27
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fabs.f32(float) #27
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.log.f64(double) #27
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #28

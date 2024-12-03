@@ -2139,13 +2139,13 @@ define linkonce_odr hidden void @_ZN8AlgoWrap4evalERKN2cv3MatERKNS0_5Rect_IdEEb(
 52:                                               ; preds = %49, %._crit_edge.i
   %.sroa.speculated52.pre-phi.i = phi double [ %.pre64.i, %._crit_edge.i ], [ %.sroa.speculated49.i, %49 ]
   %.sroa.speculated47.i = select i1 %39, double %.sroa.11.0.copyload.i, double %27
-  %53 = fsub double %41, %40
-  %54 = fsub double %.sroa.speculated47.i, %53
+  %53 = fsub double %40, %41
+  %54 = fadd double %.sroa.speculated47.i, %53
   %.sroa.speculated41.i = select i1 %39, double %27, double %.sroa.11.0.copyload.i
   %55 = fcmp olt double %.sroa.speculated41.i, %54
   %.sroa.speculated55.i.i = select i1 %55, double %.sroa.speculated41.i, double %54
-  %56 = fsub double %.sroa.speculated52.pre-phi.i, %.sroa.speculated58.i
-  %57 = fsub double %.sroa.speculated36.i, %56
+  %56 = fsub double %.sroa.speculated58.i, %.sroa.speculated52.pre-phi.i
+  %57 = fadd double %.sroa.speculated36.i, %56
   %.sroa.speculated.i = select i1 %42, double %30, double %.sroa.16.0.copyload.i
   %58 = fcmp olt double %.sroa.speculated.i, %57
   %.sroa.speculated.i.i = select i1 %58, double %.sroa.speculated.i, double %57

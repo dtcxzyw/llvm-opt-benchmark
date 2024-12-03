@@ -5700,12 +5700,11 @@ define linkonce_odr hidden noundef i32 @_ZNK16MetaspaceClosure6MSORefI6SymbolE4s
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 4
   %6 = load i16, ptr %5, align 4
-  %7 = zext i16 %6 to i32
-  %8 = icmp ugt i16 %6, 2
-  %9 = add nuw nsw i32 %7, 13
+  %7 = tail call i16 @llvm.umax.i16(i16 %6, i16 2)
+  %8 = zext i16 %7 to i32
+  %9 = add nuw nsw i32 %8, 13
   %10 = lshr i32 %9, 3
-  %11 = select i1 %8, i32 %10, i32 1
-  ret i32 %11
+  ret i32 %10
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -6189,6 +6188,9 @@ declare i64 @llvm.fshr.i64(i64, i64, i64) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #19
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i16 @llvm.umax.i16(i16, i16) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.cttz.i32(i32, i1 immarg) #19

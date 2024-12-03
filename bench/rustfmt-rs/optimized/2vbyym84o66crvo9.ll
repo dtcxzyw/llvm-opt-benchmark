@@ -24737,8 +24737,7 @@ define hidden void @_ZN15rustfmt_nightly8vertical22rewrite_with_alignment17h1018
   %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %46, i64 32
   %120 = getelementptr inbounds i8, ptr %48, i64 8
   %121 = getelementptr inbounds i8, ptr %48, i64 16
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %2, i64 1)
-  %122 = add i64 %umax.i, -1
+  %122 = tail call i64 @llvm.usub.sat.i64(i64 %2, i64 1)
   br label %123
 
 123:                                              ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h65321bb4306ac23aE.exit.i", %.lr.ph.i
@@ -27476,8 +27475,7 @@ define hidden void @_ZN15rustfmt_nightly8vertical22rewrite_with_alignment17h2334
   %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %46, i64 32
   %120 = getelementptr inbounds i8, ptr %48, i64 8
   %121 = getelementptr inbounds i8, ptr %48, i64 16
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %2, i64 1)
-  %122 = add i64 %umax.i, -1
+  %122 = tail call i64 @llvm.usub.sat.i64(i64 %2, i64 1)
   br label %123
 
 123:                                              ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h65321bb4306ac23aE.exit.i", %.lr.ph.i

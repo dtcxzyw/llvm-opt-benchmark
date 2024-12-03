@@ -51378,57 +51378,56 @@ define linkonce_odr dso_local void @_ZN4crow6detail10task_timerC2ERN4asio10io_co
   %25 = getelementptr inbounds i8, ptr %0, i64 168
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, i8 0, i64 16, i1 false)
   %26 = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #36
-  %27 = icmp sgt i64 %26, 9223372035854775807
-  %28 = add nsw i64 %26, 1000000000
-  %29 = select i1 %27, i64 9223372036854775807, i64 %28
-  %30 = load i8, ptr %20, align 8, !tbaa !1196, !range !131, !noundef !132
-  %31 = trunc nuw i8 %30 to i1
-  br i1 %31, label %32, label %38
+  %27 = call i64 @llvm.smin.i64(i64 %26, i64 9223372035854775807)
+  %28 = add nsw i64 %27, 1000000000
+  %29 = load i8, ptr %20, align 8, !tbaa !1196, !range !131, !noundef !132
+  %30 = trunc nuw i8 %29 to i1
+  br i1 %30, label %31, label %37
 
-32:                                               ; preds = %2
-  %33 = getelementptr inbounds i8, ptr %9, i64 88
-  %34 = load ptr, ptr %33, align 8, !tbaa !1198
-  %35 = getelementptr inbounds i8, ptr %9, i64 40
-  %36 = invoke noundef i64 @_ZN4asio6detail13epoll_reactor12cancel_timerINS0_18chrono_time_traitsINSt6chrono3_V212steady_clockENS_11wait_traitsIS6_EEEEEEmRNS0_11timer_queueIT_EERNSC_14per_timer_dataEm(ptr noundef nonnull align 8 dereferenceable(208) %34, ptr noundef nonnull align 8 dereferenceable(48) %35, ptr noundef nonnull align 8 dereferenceable(40) %11, i64 noundef -1)
-          to label %37 unwind label %43
+31:                                               ; preds = %2
+  %32 = getelementptr inbounds i8, ptr %9, i64 88
+  %33 = load ptr, ptr %32, align 8, !tbaa !1198
+  %34 = getelementptr inbounds i8, ptr %9, i64 40
+  %35 = invoke noundef i64 @_ZN4asio6detail13epoll_reactor12cancel_timerINS0_18chrono_time_traitsINSt6chrono3_V212steady_clockENS_11wait_traitsIS6_EEEEEEmRNS0_11timer_queueIT_EERNSC_14per_timer_dataEm(ptr noundef nonnull align 8 dereferenceable(208) %33, ptr noundef nonnull align 8 dereferenceable(48) %34, ptr noundef nonnull align 8 dereferenceable(40) %11, i64 noundef -1)
+          to label %36 unwind label %42
 
-37:                                               ; preds = %32
+36:                                               ; preds = %31
   store i8 0, ptr %20, align 8, !tbaa !1196
-  br label %38
+  br label %37
 
-38:                                               ; preds = %37, %2
-  store i64 %29, ptr %10, align 8, !tbaa !10
+37:                                               ; preds = %36, %2
+  store i64 %28, ptr %10, align 8, !tbaa !10
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #36
   store i64 ptrtoint (ptr @_ZN4crow6detail10task_timer12tick_handlerERKSt10error_code to i64), ptr %4, align 8, !tbaa !1211, !alias.scope !1216
-  %39 = getelementptr inbounds i8, ptr %4, i64 8
-  store i64 0, ptr %39, align 8, !tbaa !1211, !alias.scope !1216
-  %40 = getelementptr inbounds i8, ptr %4, i64 16
-  store ptr %0, ptr %40, align 8, !tbaa !1219, !alias.scope !1216
-  %41 = load ptr, ptr %6, align 8, !tbaa !1197
-  invoke void @_ZN4asio6detail22deadline_timer_serviceINS0_18chrono_time_traitsINSt6chrono3_V212steady_clockENS_11wait_traitsIS5_EEEEE10async_waitISt5_BindIFMN4crow6detail10task_timerEFvRKSt10error_codeEPSE_St12_PlaceholderILi1EEEENS_9execution12any_executorIJNSP_12context_as_tIRNS_17execution_contextEEENSP_6detail8blocking7never_tILi0EEENSP_11prefer_onlyINSW_10possibly_tILi0EEEEENSZ_INSV_16outstanding_work9tracked_tILi0EEEEENSZ_INS13_11untracked_tILi0EEEEENSZ_INSV_12relationship6fork_tILi0EEEEENSZ_INS1A_14continuation_tILi0EEEEEEEEEEvRNS9_19implementation_typeERT_RKT0_(ptr noundef nonnull align 8 dereferenceable(96) %41, ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(48) %14)
-          to label %42 unwind label %45
+  %38 = getelementptr inbounds i8, ptr %4, i64 8
+  store i64 0, ptr %38, align 8, !tbaa !1211, !alias.scope !1216
+  %39 = getelementptr inbounds i8, ptr %4, i64 16
+  store ptr %0, ptr %39, align 8, !tbaa !1219, !alias.scope !1216
+  %40 = load ptr, ptr %6, align 8, !tbaa !1197
+  invoke void @_ZN4asio6detail22deadline_timer_serviceINS0_18chrono_time_traitsINSt6chrono3_V212steady_clockENS_11wait_traitsIS5_EEEEE10async_waitISt5_BindIFMN4crow6detail10task_timerEFvRKSt10error_codeEPSE_St12_PlaceholderILi1EEEENS_9execution12any_executorIJNSP_12context_as_tIRNS_17execution_contextEEENSP_6detail8blocking7never_tILi0EEENSP_11prefer_onlyINSW_10possibly_tILi0EEEEENSZ_INSV_16outstanding_work9tracked_tILi0EEEEENSZ_INS13_11untracked_tILi0EEEEENSZ_INSV_12relationship6fork_tILi0EEEEENSZ_INS1A_14continuation_tILi0EEEEEEEEEEvRNS9_19implementation_typeERT_RKT0_(ptr noundef nonnull align 8 dereferenceable(96) %40, ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(48) %14)
+          to label %41 unwind label %44
 
-42:                                               ; preds = %38
+41:                                               ; preds = %37
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #36
   ret void
 
-43:                                               ; preds = %32
-  %44 = landingpad { ptr, i32 }
+42:                                               ; preds = %31
+  %43 = landingpad { ptr, i32 }
           cleanup
-  br label %47
+  br label %46
 
-45:                                               ; preds = %38
-  %46 = landingpad { ptr, i32 }
+44:                                               ; preds = %37
+  %45 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #36
-  br label %47
+  br label %46
 
-47:                                               ; preds = %45, %43
-  %48 = phi { ptr, i32 } [ %46, %45 ], [ %44, %43 ]
-  %49 = getelementptr inbounds i8, ptr %0, i64 128
-  call void @_ZNSt3mapImSt4pairINSt6chrono10time_pointINS1_3_V212steady_clockENS1_8durationIlSt5ratioILl1ELl1000000000EEEEEESt8functionIFvvEEESt4lessImESaIS0_IKmSD_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %49) #36
+46:                                               ; preds = %44, %42
+  %47 = phi { ptr, i32 } [ %45, %44 ], [ %43, %42 ]
+  %48 = getelementptr inbounds i8, ptr %0, i64 128
+  call void @_ZNSt3mapImSt4pairINSt6chrono10time_pointINS1_3_V212steady_clockENS1_8durationIlSt5ratioILl1ELl1000000000EEEEEESt8functionIFvvEEESt4lessImESaIS0_IKmSD_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %48) #36
   call void @_ZN4asio6detail14io_object_implINS0_22deadline_timer_serviceINS0_18chrono_time_traitsINSt6chrono3_V212steady_clockENS_11wait_traitsIS6_EEEEEENS_9execution12any_executorIJNSB_12context_as_tIRNS_17execution_contextEEENSB_6detail8blocking7never_tILi0EEENSB_11prefer_onlyINSI_10possibly_tILi0EEEEENSL_INSH_16outstanding_work9tracked_tILi0EEEEENSL_INSP_11untracked_tILi0EEEEENSL_INSH_12relationship6fork_tILi0EEEEENSL_INSW_14continuation_tILi0EEEEEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %6) #36
-  resume { ptr, i32 } %48
+  resume { ptr, i32 } %47
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -51626,46 +51625,45 @@ define linkonce_odr dso_local void @_ZN4crow6detail10task_timer12tick_handlerERK
   %3 = alloca %"class.std::_Bind", align 8
   %4 = load i32, ptr %1, align 8, !tbaa !334
   %5 = icmp eq i32 %4, 0
-  br i1 %5, label %6, label %28
+  br i1 %5, label %6, label %27
 
 6:                                                ; preds = %2
   tail call void @_ZN4crow6detail10task_timer13process_tasksEv(ptr noundef nonnull align 8 dereferenceable(184) %0)
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !1197
   %9 = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #36
-  %10 = icmp sgt i64 %9, 9223372035854775807
-  %11 = add nsw i64 %9, 1000000000
-  %12 = select i1 %10, i64 9223372036854775807, i64 %11
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
-  %14 = load i8, ptr %13, align 8, !tbaa !1196, !range !131, !noundef !132
-  %15 = trunc nuw i8 %14 to i1
-  br i1 %15, label %16, label %22
+  %10 = tail call i64 @llvm.smin.i64(i64 %9, i64 9223372035854775807)
+  %11 = add nsw i64 %10, 1000000000
+  %12 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = load i8, ptr %12, align 8, !tbaa !1196, !range !131, !noundef !132
+  %14 = trunc nuw i8 %13 to i1
+  br i1 %14, label %15, label %21
 
-16:                                               ; preds = %6
-  %17 = getelementptr inbounds i8, ptr %8, i64 88
-  %18 = load ptr, ptr %17, align 8, !tbaa !1198
-  %19 = getelementptr inbounds i8, ptr %8, i64 40
-  %20 = getelementptr inbounds i8, ptr %0, i64 40
-  %21 = tail call noundef i64 @_ZN4asio6detail13epoll_reactor12cancel_timerINS0_18chrono_time_traitsINSt6chrono3_V212steady_clockENS_11wait_traitsIS6_EEEEEEmRNS0_11timer_queueIT_EERNSC_14per_timer_dataEm(ptr noundef nonnull align 8 dereferenceable(208) %18, ptr noundef nonnull align 8 dereferenceable(48) %19, ptr noundef nonnull align 8 dereferenceable(40) %20, i64 noundef -1)
-  store i8 0, ptr %13, align 8, !tbaa !1196
-  br label %22
+15:                                               ; preds = %6
+  %16 = getelementptr inbounds i8, ptr %8, i64 88
+  %17 = load ptr, ptr %16, align 8, !tbaa !1198
+  %18 = getelementptr inbounds i8, ptr %8, i64 40
+  %19 = getelementptr inbounds i8, ptr %0, i64 40
+  %20 = tail call noundef i64 @_ZN4asio6detail13epoll_reactor12cancel_timerINS0_18chrono_time_traitsINSt6chrono3_V212steady_clockENS_11wait_traitsIS6_EEEEEEmRNS0_11timer_queueIT_EERNSC_14per_timer_dataEm(ptr noundef nonnull align 8 dereferenceable(208) %17, ptr noundef nonnull align 8 dereferenceable(48) %18, ptr noundef nonnull align 8 dereferenceable(40) %19, i64 noundef -1)
+  store i8 0, ptr %12, align 8, !tbaa !1196
+  br label %21
 
-22:                                               ; preds = %16, %6
-  %23 = getelementptr inbounds i8, ptr %0, i64 24
-  store i64 %12, ptr %23, align 8, !tbaa !10
+21:                                               ; preds = %15, %6
+  %22 = getelementptr inbounds i8, ptr %0, i64 24
+  store i64 %11, ptr %22, align 8, !tbaa !10
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #36
   store i64 ptrtoint (ptr @_ZN4crow6detail10task_timer12tick_handlerERKSt10error_code to i64), ptr %3, align 8, !tbaa !1211, !alias.scope !1225
-  %24 = getelementptr inbounds i8, ptr %3, i64 8
-  store i64 0, ptr %24, align 8, !tbaa !1211, !alias.scope !1225
-  %25 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr %0, ptr %25, align 8, !tbaa !1219, !alias.scope !1225
-  %26 = load ptr, ptr %7, align 8, !tbaa !1197
-  %27 = getelementptr inbounds i8, ptr %0, i64 80
-  call void @_ZN4asio6detail22deadline_timer_serviceINS0_18chrono_time_traitsINSt6chrono3_V212steady_clockENS_11wait_traitsIS5_EEEEE10async_waitISt5_BindIFMN4crow6detail10task_timerEFvRKSt10error_codeEPSE_St12_PlaceholderILi1EEEENS_9execution12any_executorIJNSP_12context_as_tIRNS_17execution_contextEEENSP_6detail8blocking7never_tILi0EEENSP_11prefer_onlyINSW_10possibly_tILi0EEEEENSZ_INSV_16outstanding_work9tracked_tILi0EEEEENSZ_INS13_11untracked_tILi0EEEEENSZ_INSV_12relationship6fork_tILi0EEEEENSZ_INS1A_14continuation_tILi0EEEEEEEEEEvRNS9_19implementation_typeERT_RKT0_(ptr noundef nonnull align 8 dereferenceable(96) %26, ptr noundef nonnull align 8 dereferenceable(56) %23, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(48) %27)
+  %23 = getelementptr inbounds i8, ptr %3, i64 8
+  store i64 0, ptr %23, align 8, !tbaa !1211, !alias.scope !1225
+  %24 = getelementptr inbounds i8, ptr %3, i64 16
+  store ptr %0, ptr %24, align 8, !tbaa !1219, !alias.scope !1225
+  %25 = load ptr, ptr %7, align 8, !tbaa !1197
+  %26 = getelementptr inbounds i8, ptr %0, i64 80
+  call void @_ZN4asio6detail22deadline_timer_serviceINS0_18chrono_time_traitsINSt6chrono3_V212steady_clockENS_11wait_traitsIS5_EEEEE10async_waitISt5_BindIFMN4crow6detail10task_timerEFvRKSt10error_codeEPSE_St12_PlaceholderILi1EEEENS_9execution12any_executorIJNSP_12context_as_tIRNS_17execution_contextEEENSP_6detail8blocking7never_tILi0EEENSP_11prefer_onlyINSW_10possibly_tILi0EEEEENSZ_INSV_16outstanding_work9tracked_tILi0EEEEENSZ_INS13_11untracked_tILi0EEEEENSZ_INSV_12relationship6fork_tILi0EEEEENSZ_INS1A_14continuation_tILi0EEEEEEEEEEvRNS9_19implementation_typeERT_RKT0_(ptr noundef nonnull align 8 dereferenceable(96) %25, ptr noundef nonnull align 8 dereferenceable(56) %22, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(48) %26)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #36
-  br label %28
+  br label %27
 
-28:                                               ; preds = %22, %2
+27:                                               ; preds = %21, %2
   ret void
 }
 

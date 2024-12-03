@@ -380,84 +380,83 @@ define dso_local void @_ZN4llvm11parallelForEmmNS_12function_refIFvmEEE(i64 noun
 
 11:                                               ; preds = %4
   %12 = sub i64 %1, %0
-  %13 = lshr i64 %12, 10
-  %14 = icmp ult i64 %12, 1024
-  %spec.store.select = select i1 %14, i64 1, i64 %13
+  %13 = tail call i64 @llvm.umax.i64(i64 %12, i64 1024)
+  %spec.store.select = lshr i64 %13, 10
   call void @_ZN4llvm8parallel9TaskGroupC1Ev(ptr noundef nonnull align 8 dereferenceable(97) %6) #18
-  %15 = add i64 %0, %spec.store.select
-  %16 = icmp ult i64 %15, %1
-  br i1 %16, label %.lr.ph, label %._crit_edge
+  %14 = add i64 %0, %spec.store.select
+  %15 = icmp ult i64 %14, %1
+  br i1 %15, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %11
-  %17 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %18 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %19 = getelementptr inbounds i8, ptr %7, i64 8
-  br label %20
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %18 = getelementptr inbounds i8, ptr %7, i64 8
+  br label %19
 
-20:                                               ; preds = %.lr.ph, %_ZNSt8functionIFvvEED2Ev.exit
-  %21 = phi i64 [ %15, %.lr.ph ], [ %26, %_ZNSt8functionIFvvEED2Ev.exit ]
-  %.028 = phi i64 [ %0, %.lr.ph ], [ %21, %_ZNSt8functionIFvvEED2Ev.exit ]
-  store i64 0, ptr %19, align 8
-  %22 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #20
-  store ptr %5, ptr %22, align 16
-  %.sroa.226.0..sroa_idx = getelementptr inbounds i8, ptr %22, i64 8
+19:                                               ; preds = %.lr.ph, %_ZNSt8functionIFvvEED2Ev.exit
+  %20 = phi i64 [ %14, %.lr.ph ], [ %25, %_ZNSt8functionIFvvEED2Ev.exit ]
+  %.028 = phi i64 [ %0, %.lr.ph ], [ %20, %_ZNSt8functionIFvvEED2Ev.exit ]
+  store i64 0, ptr %18, align 8
+  %21 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #20
+  store ptr %5, ptr %21, align 16
+  %.sroa.226.0..sroa_idx = getelementptr inbounds i8, ptr %21, i64 8
   store i64 %.028, ptr %.sroa.226.0..sroa_idx, align 8
-  %.sroa.327.0..sroa_idx = getelementptr inbounds i8, ptr %22, i64 16
+  %.sroa.327.0..sroa_idx = getelementptr inbounds i8, ptr %21, i64 16
   store i64 %spec.store.select, ptr %.sroa.327.0..sroa_idx, align 16
-  store ptr %22, ptr %7, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvvEZN4llvm11parallelForEmmNS1_12function_refIFvmEEEE3$_0E9_M_invokeERKSt9_Any_data", ptr %18, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvvEZN4llvm11parallelForEmmNS1_12function_refIFvmEEEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation", ptr %17, align 8
+  store ptr %21, ptr %7, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvvEZN4llvm11parallelForEmmNS1_12function_refIFvmEEEE3$_0E9_M_invokeERKSt9_Any_data", ptr %17, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvvEZN4llvm11parallelForEmmNS1_12function_refIFvmEEEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation", ptr %16, align 8
   call void @_ZN4llvm8parallel9TaskGroup5spawnESt8functionIFvvEEb(ptr noundef nonnull align 8 dereferenceable(97) %6, ptr noundef nonnull %7, i1 noundef zeroext false)
-  %23 = load ptr, ptr %17, align 8
-  %.not.i.i = icmp eq ptr %23, null
-  br i1 %.not.i.i, label %_ZNSt8functionIFvvEED2Ev.exit, label %24
+  %22 = load ptr, ptr %16, align 8
+  %.not.i.i = icmp eq ptr %22, null
+  br i1 %.not.i.i, label %_ZNSt8functionIFvvEED2Ev.exit, label %23
 
-24:                                               ; preds = %20
-  %25 = call noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 3) #18
+23:                                               ; preds = %19
+  %24 = call noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 3) #18
   br label %_ZNSt8functionIFvvEED2Ev.exit
 
-_ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %20, %24
-  %26 = add i64 %21, %spec.store.select
-  %27 = icmp ult i64 %26, %1
-  br i1 %27, label %20, label %._crit_edge, !llvm.loop !7
+_ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %19, %23
+  %25 = add i64 %20, %spec.store.select
+  %26 = icmp ult i64 %25, %1
+  br i1 %26, label %19, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %_ZNSt8functionIFvvEED2Ev.exit, %11
-  %.0.lcssa = phi i64 [ %0, %11 ], [ %21, %_ZNSt8functionIFvvEED2Ev.exit ]
+  %.0.lcssa = phi i64 [ %0, %11 ], [ %20, %_ZNSt8functionIFvvEED2Ev.exit ]
   %.not22 = icmp eq i64 %.0.lcssa, %1
-  br i1 %.not22, label %_ZNSt8functionIFvvEED2Ev.exit24, label %28
+  br i1 %.not22, label %_ZNSt8functionIFvvEED2Ev.exit24, label %27
 
-28:                                               ; preds = %._crit_edge
-  %29 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %30 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %31 = getelementptr inbounds i8, ptr %8, i64 8
-  store i64 0, ptr %31, align 8
-  %32 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #20
-  store ptr %5, ptr %32, align 16
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %32, i64 8
+27:                                               ; preds = %._crit_edge
+  %28 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %30 = getelementptr inbounds i8, ptr %8, i64 8
+  store i64 0, ptr %30, align 8
+  %31 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #20
+  store ptr %5, ptr %31, align 16
+  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %31, i64 8
   store i64 %.0.lcssa, ptr %.sroa.2.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %32, i64 16
+  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %31, i64 16
   store i64 %1, ptr %.sroa.3.0..sroa_idx, align 16
-  store ptr %32, ptr %8, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvvEZN4llvm11parallelForEmmNS1_12function_refIFvmEEEE3$_1E9_M_invokeERKSt9_Any_data", ptr %30, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvvEZN4llvm11parallelForEmmNS1_12function_refIFvmEEEE3$_1E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation", ptr %29, align 8
+  store ptr %31, ptr %8, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvvEZN4llvm11parallelForEmmNS1_12function_refIFvmEEEE3$_1E9_M_invokeERKSt9_Any_data", ptr %29, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvvEZN4llvm11parallelForEmmNS1_12function_refIFvmEEEE3$_1E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation", ptr %28, align 8
   call void @_ZN4llvm8parallel9TaskGroup5spawnESt8functionIFvvEEb(ptr noundef nonnull align 8 dereferenceable(97) %6, ptr noundef nonnull %8, i1 noundef zeroext false)
-  %33 = load ptr, ptr %29, align 8
-  %.not.i.i23 = icmp eq ptr %33, null
-  br i1 %.not.i.i23, label %_ZNSt8functionIFvvEED2Ev.exit24, label %34
+  %32 = load ptr, ptr %28, align 8
+  %.not.i.i23 = icmp eq ptr %32, null
+  br i1 %.not.i.i23, label %_ZNSt8functionIFvvEED2Ev.exit24, label %33
 
-34:                                               ; preds = %28
-  %35 = call noundef zeroext i1 %33(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 3) #18
+33:                                               ; preds = %27
+  %34 = call noundef zeroext i1 %32(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 3) #18
   br label %_ZNSt8functionIFvvEED2Ev.exit24
 
-_ZNSt8functionIFvvEED2Ev.exit24:                  ; preds = %34, %28, %._crit_edge
+_ZNSt8functionIFvvEED2Ev.exit24:                  ; preds = %33, %27, %._crit_edge
   call void @_ZN4llvm8parallel9TaskGroupD1Ev(ptr noundef nonnull align 8 dereferenceable(97) %6) #18
   br label %.loopexit
 
 .lr.ph31:                                         ; preds = %.preheader, %.lr.ph31
-  %.130 = phi i64 [ %36, %.lr.ph31 ], [ %0, %.preheader ]
+  %.130 = phi i64 [ %35, %.lr.ph31 ], [ %0, %.preheader ]
   tail call void %2(i64 noundef %3, i64 noundef %.130) #18
-  %36 = add i64 %.130, 1
-  %.not21 = icmp eq i64 %36, %1
+  %35 = add i64 %.130, 1
+  %.not21 = icmp eq i64 %35, %1
   br i1 %.not21, label %.loopexit, label %.lr.ph31, !llvm.loop !8
 
 .loopexit:                                        ; preds = %.lr.ph31, %.preheader, %_ZNSt8functionIFvvEED2Ev.exit24

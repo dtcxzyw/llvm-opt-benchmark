@@ -107679,8 +107679,8 @@ define void @_ZNK8QCPGraph21getChannelFillPolygonEPK5QListI7QPointFE12QCPDataRan
   %22 = getelementptr inbounds i8, ptr %1, i64 304
   %23 = load ptr, ptr %22, align 8
   %.not = icmp eq ptr %23, null
-  %or.cond315 = select i1 %21, i1 true, i1 %.not
-  br i1 %or.cond315, label %_ZNK8QPointerI8QCPGraphEcvPS0_Ev.exit.thread, label %24
+  %or.cond314 = select i1 %21, i1 true, i1 %.not
+  br i1 %or.cond314, label %_ZNK8QPointerI8QCPGraphEcvPS0_Ev.exit.thread, label %24
 
 _ZNK8QPointerI8QCPGraphEcvPS0_Ev.exit.thread:     ; preds = %6, %18
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
@@ -107829,9 +107829,9 @@ _ZNK8QPointerI8QCPGraphE4dataEv.exit76:           ; preds = %_ZNK8QPointerI7QCPA
   br label %_ZN5QListI7QPointFED2Ev.exit141
 
 95:                                               ; preds = %90
-  %.sroa.3235.0.extract.shift332 = mul i64 %3, -4294967295
-  %sext317 = and i64 %.sroa.3235.0.extract.shift332, -4294967296
-  %96 = ashr i64 %.sroa.3235.0.extract.shift332, 32
+  %.sroa.3235.0.extract.shift328 = mul i64 %3, -4294967295
+  %sext315 = and i64 %.sroa.3235.0.extract.shift328, -4294967296
+  %96 = ashr i64 %.sroa.3235.0.extract.shift328, 32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   %97 = call noalias noundef ptr @_ZN10QArrayData8allocateEPPS_xxxNS_16AllocationOptionE(ptr noundef nonnull %8, i64 noundef 16, i64 noundef 8, i64 noundef %96, i32 noundef 1) #48
   call void @llvm.assume(i1 true) [ "align"(ptr %97, i64 8) ]
@@ -107840,19 +107840,19 @@ _ZNK8QPointerI8QCPGraphE4dataEv.exit76:           ; preds = %_ZNK8QPointerI7QCPA
   store ptr %98, ptr %13, align 8
   store ptr %97, ptr %.0237.sroa.gep244, align 8
   store i64 0, ptr %.0237.sroa.gep, align 8
-  %.not.i = icmp eq i64 %sext317, 0
+  %.not.i = icmp eq i64 %sext315, 0
   br i1 %.not.i, label %_ZN5QListI7QPointFEC2Ex.exit, label %.lr.ph.i.preheader.i
 
 .lr.ph.i.preheader.i:                             ; preds = %95
   store i64 %96, ptr %.0237.sroa.gep, align 8
-  %.idx6.i.i = ashr exact i64 %sext317, 28
+  %.idx6.i.i = ashr exact i64 %sext315, 28
   call void @llvm.memset.p0.i64(ptr align 8 %97, i8 0, i64 %.idx6.i.i, i1 false)
   br label %_ZN5QListI7QPointFEC2Ex.exit
 
 _ZN5QListI7QPointFEC2Ex.exit:                     ; preds = %95, %.lr.ph.i.preheader.i
-  %.sroa.3.0.extract.shift333 = mul i64 %5, -4294967295
-  %sext318 = and i64 %.sroa.3.0.extract.shift333, -4294967296
-  %99 = ashr i64 %.sroa.3.0.extract.shift333, 32
+  %.sroa.3.0.extract.shift329 = mul i64 %5, -4294967295
+  %sext316 = and i64 %.sroa.3.0.extract.shift329, -4294967296
+  %99 = ashr i64 %.sroa.3.0.extract.shift329, 32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   %100 = call noalias noundef ptr @_ZN10QArrayData8allocateEPPS_xxxNS_16AllocationOptionE(ptr noundef nonnull %7, i64 noundef 16, i64 noundef 8, i64 noundef %99, i32 noundef 1) #48
   call void @llvm.assume(i1 true) [ "align"(ptr %100, i64 8) ]
@@ -107861,20 +107861,20 @@ _ZN5QListI7QPointFEC2Ex.exit:                     ; preds = %95, %.lr.ph.i.prehe
   store ptr %101, ptr %14, align 8
   store ptr %100, ptr %.0237.sroa.gep245, align 8
   store i64 0, ptr %.0237.sroa.gep242, align 8
-  %.not.i78 = icmp eq i64 %sext318, 0
+  %.not.i78 = icmp eq i64 %sext316, 0
   br i1 %.not.i78, label %102, label %.lr.ph.i.preheader.i81
 
 .lr.ph.i.preheader.i81:                           ; preds = %_ZN5QListI7QPointFEC2Ex.exit
   store i64 %99, ptr %.0237.sroa.gep242, align 8
-  %.idx6.i.i79 = ashr exact i64 %sext318, 28
+  %.idx6.i.i79 = ashr exact i64 %sext316, 28
   call void @llvm.memset.p0.i64(ptr align 8 %100, i8 0, i64 %.idx6.i.i79, i1 false)
   br label %102
 
 102:                                              ; preds = %.lr.ph.i.preheader.i81, %_ZN5QListI7QPointFEC2Ex.exit
   %103 = getelementptr inbounds i8, ptr %2, i64 8
   %104 = load ptr, ptr %103, align 8
-  %sext319 = shl i64 %3, 32
-  %105 = ashr exact i64 %sext319, 28
+  %sext317 = shl i64 %3, 32
+  %105 = ashr exact i64 %sext317, 28
   %106 = getelementptr i8, ptr %104, i64 %105
   %107 = ashr i64 %3, 28
   %108 = load ptr, ptr %13, align 8
@@ -107894,7 +107894,7 @@ _ZNK17QArrayDataPointerI7QPointFE11needsDetachEv.exit.thread.i.i.i: ; preds = %_
   %gepdiff = sub nsw i64 %107, %105
   %112 = ashr i64 %gepdiff, 4
   %113 = icmp sgt i64 %112, 0
-  br i1 %113, label %.lr.ph.i.i.i.i.i.preheader, label %.loopexit326
+  br i1 %113, label %.lr.ph.i.i.i.i.i.preheader, label %.loopexit322
 
 .lr.ph.i.i.i.i.i.preheader:                       ; preds = %111
   %114 = load ptr, ptr %.0237.sroa.gep244, align 8
@@ -107909,31 +107909,31 @@ _ZNK17QArrayDataPointerI7QPointFE11needsDetachEv.exit.thread.i.i.i: ; preds = %_
   %116 = getelementptr i8, ptr %.sroa.0.08.i.i.i.i.i, i64 16
   %117 = add nsw i64 %.09.i.i.i.i.i, -1
   %118 = icmp samesign ugt i64 %.09.i.i.i.i.i, 1
-  br i1 %118, label %.lr.ph.i.i.i.i.i, label %.loopexit326, !llvm.loop !934
+  br i1 %118, label %.lr.ph.i.i.i.i.i, label %.loopexit322, !llvm.loop !934
 
-.loopexit326:                                     ; preds = %.lr.ph.i.i.i.i.i, %111
+.loopexit322:                                     ; preds = %.lr.ph.i.i.i.i.i, %111
   %119 = getelementptr inbounds i8, ptr %4, i64 8
   %120 = load ptr, ptr %119, align 8
-  %sext321 = shl i64 %5, 32
-  %121 = ashr exact i64 %sext321, 28
+  %sext319 = shl i64 %5, 32
+  %121 = ashr exact i64 %sext319, 28
   %122 = getelementptr i8, ptr %120, i64 %121
   %123 = ashr i64 %5, 28
   %124 = load ptr, ptr %14, align 8
   %.not.i.i.i.i83 = icmp eq ptr %124, null
   br i1 %.not.i.i.i.i83, label %_ZNK17QArrayDataPointerI7QPointFE11needsDetachEv.exit.thread.i.i.i85, label %_ZNK17QArrayDataPointerI7QPointFE11needsDetachEv.exit.i.i.i84
 
-_ZNK17QArrayDataPointerI7QPointFE11needsDetachEv.exit.i.i.i84: ; preds = %.loopexit326
+_ZNK17QArrayDataPointerI7QPointFE11needsDetachEv.exit.i.i.i84: ; preds = %.loopexit322
   %125 = load atomic i32, ptr %124 monotonic, align 4
   %126 = icmp sgt i32 %125, 1
   br i1 %126, label %_ZNK17QArrayDataPointerI7QPointFE11needsDetachEv.exit.thread.i.i.i85, label %127
 
-_ZNK17QArrayDataPointerI7QPointFE11needsDetachEv.exit.thread.i.i.i85: ; preds = %_ZNK17QArrayDataPointerI7QPointFE11needsDetachEv.exit.i.i.i84, %.loopexit326
+_ZNK17QArrayDataPointerI7QPointFE11needsDetachEv.exit.thread.i.i.i85: ; preds = %_ZNK17QArrayDataPointerI7QPointFE11needsDetachEv.exit.i.i.i84, %.loopexit322
   invoke void @_ZN17QArrayDataPointerI7QPointFE17reallocateAndGrowEN10QArrayData14GrowthPositionExPS1_(ptr noundef nonnull align 8 dereferenceable(24) %14, i32 noundef 0, i64 noundef 0, ptr noundef null)
           to label %127 unwind label %.loopexit.split-lp
 
 127:                                              ; preds = %_ZNK17QArrayDataPointerI7QPointFE11needsDetachEv.exit.i.i.i84, %_ZNK17QArrayDataPointerI7QPointFE11needsDetachEv.exit.thread.i.i.i85
-  %gepdiff323 = sub nsw i64 %123, %121
-  %128 = ashr i64 %gepdiff323, 4
+  %gepdiff321 = sub nsw i64 %123, %121
+  %128 = ashr i64 %gepdiff321, 4
   %129 = icmp sgt i64 %128, 0
   br i1 %129, label %.lr.ph.i.i.i.i.i89.preheader, label %_ZSt4copyIN5QListI7QPointFE14const_iteratorENS2_8iteratorEET0_T_S6_S5_.exit93
 
@@ -107957,7 +107957,7 @@ _ZSt4copyIN5QListI7QPointFE14const_iteratorENS2_8iteratorEET0_T_S6_S5_.exit93: ;
   %136 = icmp eq i32 %135, 1
   %137 = load ptr, ptr %13, align 8
   %.not.i.i.i.i.i = icmp eq ptr %137, null
-  br i1 %136, label %138, label %310
+  br i1 %136, label %138, label %309
 
 138:                                              ; preds = %_ZSt4copyIN5QListI7QPointFE14const_iteratorENS2_8iteratorEET0_T_S6_S5_.exit93
   br i1 %.not.i.i.i.i.i, label %_ZNK17QArrayDataPointerI7QPointFE11needsDetachEv.exit.thread.i.i.i.i, label %_ZNK17QArrayDataPointerI7QPointFE11needsDetachEv.exit.i.i.i.i
@@ -107996,12 +107996,12 @@ _ZNK17QArrayDataPointerI7QPointFE11needsDetachEv.exit.thread.i.i.i.i97: ; preds 
 151:                                              ; preds = %147
   br label %157
 
-.loopexit:                                        ; preds = %492
+.loopexit:                                        ; preds = %490
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %152
 
-.loopexit.split-lp:                               ; preds = %_ZNK8QCPGraph15findIndexBelowXEPK5QListI7QPointFEd.exit, %208, %210, %215, %223, %225, %228, %231, %253, %290, %292, %297, %306, %_ZNK8QCPGraph15findIndexBelowYEPK5QListI7QPointFEd.exit, %378, %380, %384, %393, %395, %400, %404, %428, %465, %467, %472, %481, %_ZNK17QArrayDataPointerI7QPointFE11needsDetachEv.exit.thread.i.i.i, %_ZNK17QArrayDataPointerI7QPointFE11needsDetachEv.exit.thread.i.i.i85, %_ZNK17QArrayDataPointerI7QPointFE11needsDetachEv.exit.thread.i.i.i.i, %_ZNK17QArrayDataPointerI7QPointFE11needsDetachEv.exit.thread.i.i.i.i97, %_ZNK17QArrayDataPointerI7QPointFE11needsDetachEv.exit.thread.i.i.i.i102, %_ZNK17QArrayDataPointerI7QPointFE11needsDetachEv.exit.thread.i.i.i.i109, %_ZNK17QArrayDataPointerI7QPointFE11needsDetachEv.exit.thread.i.i.i.i114, %_ZNK17QArrayDataPointerI7QPointFE11needsDetachEv.exit.thread.i.i.i.i119
+.loopexit.split-lp:                               ; preds = %_ZNK8QCPGraph15findIndexBelowXEPK5QListI7QPointFEd.exit, %207, %209, %214, %222, %224, %227, %230, %252, %289, %291, %296, %305, %_ZNK8QCPGraph15findIndexBelowYEPK5QListI7QPointFEd.exit, %376, %378, %382, %391, %393, %398, %402, %426, %463, %465, %470, %479, %_ZNK17QArrayDataPointerI7QPointFE11needsDetachEv.exit.thread.i.i.i, %_ZNK17QArrayDataPointerI7QPointFE11needsDetachEv.exit.thread.i.i.i85, %_ZNK17QArrayDataPointerI7QPointFE11needsDetachEv.exit.thread.i.i.i.i, %_ZNK17QArrayDataPointerI7QPointFE11needsDetachEv.exit.thread.i.i.i.i97, %_ZNK17QArrayDataPointerI7QPointFE11needsDetachEv.exit.thread.i.i.i.i102, %_ZNK17QArrayDataPointerI7QPointFE11needsDetachEv.exit.thread.i.i.i.i109, %_ZNK17QArrayDataPointerI7QPointFE11needsDetachEv.exit.thread.i.i.i.i114, %_ZNK17QArrayDataPointerI7QPointFE11needsDetachEv.exit.thread.i.i.i.i119
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %152
@@ -108024,7 +108024,7 @@ _ZN17QArrayDataPointerI7QPointFE5derefEv.exit.i.i: ; preds = %152
 
 157:                                              ; preds = %151, %147
   %.0238.sroa.phi = phi ptr [ %.0237.sroa.gep245, %151 ], [ %.0237.sroa.gep244, %147 ]
-  %.0238.sroa.phi361 = phi ptr [ %.0237.sroa.gep242, %151 ], [ %.0237.sroa.gep, %147 ]
+  %.0238.sroa.phi357 = phi ptr [ %.0237.sroa.gep242, %151 ], [ %.0237.sroa.gep, %147 ]
   %.0238 = phi ptr [ %14, %151 ], [ %13, %147 ]
   %.0237.sroa.phi = phi ptr [ %.0237.sroa.gep, %151 ], [ %.0237.sroa.gep242, %147 ]
   %.0237.sroa.phi243 = phi ptr [ %.0237.sroa.gep244, %151 ], [ %.0237.sroa.gep245, %147 ]
@@ -108047,640 +108047,638 @@ _ZNK17QArrayDataPointerI7QPointFE11needsDetachEv.exit.thread.i.i.i.i102: ; preds
   %163 = load double, ptr %162, align 8
   %164 = load i64, ptr %.0237.sroa.phi, align 8
   %165 = icmp sgt i64 %164, 0
-  br i1 %165, label %.lr.ph.i, label %.loopexit324
+  br i1 %165, label %.lr.ph.i, label %_ZNK8QCPGraph15findIndexBelowXEPK5QListI7QPointFEd.exit.thread
 
 .lr.ph.i:                                         ; preds = %161
   %166 = load ptr, ptr %.0237.sroa.phi243, align 8
   br label %167
 
-167:                                              ; preds = %175, %.lr.ph.i
-  %168 = phi i64 [ 0, %.lr.ph.i ], [ %177, %175 ]
-  %.011.i = phi i32 [ 0, %.lr.ph.i ], [ %176, %175 ]
+167:                                              ; preds = %172, %.lr.ph.i
+  %168 = phi i64 [ 0, %.lr.ph.i ], [ %174, %172 ]
+  %.011.i = phi i32 [ 0, %.lr.ph.i ], [ %173, %172 ]
   %169 = getelementptr %class.QPointF, ptr %166, i64 %168
   %170 = load double, ptr %169, align 8
   %171 = fcmp ogt double %170, %163
-  br i1 %171, label %_ZNK8QCPGraph15findIndexBelowXEPK5QListI7QPointFEd.exit, label %175
+  br i1 %171, label %_ZNK8QCPGraph15findIndexBelowXEPK5QListI7QPointFEd.exit, label %172
+
+172:                                              ; preds = %167
+  %173 = add i32 %.011.i, 1
+  %174 = sext i32 %173 to i64
+  %175 = icmp sgt i64 %164, %174
+  br i1 %175, label %167, label %_ZNK8QCPGraph15findIndexBelowXEPK5QListI7QPointFEd.exit.thread, !llvm.loop !936
 
 _ZNK8QCPGraph15findIndexBelowXEPK5QListI7QPointFEd.exit: ; preds = %167
-  %172 = icmp sgt i32 %.011.i, 0
-  %173 = add nsw i32 %.011.i, -1
-  %spec.select = select i1 %172, i32 %173, i32 0
-  %174 = zext nneg i32 %spec.select to i64
-  invoke void @_ZN5QListI7QPointFE6removeExx(ptr noundef nonnull align 8 dereferenceable(24) %.0237, i64 noundef 0, i64 noundef %174)
-          to label %179 unwind label %.loopexit.split-lp
+  %176 = call i32 @llvm.smax.i32(i32 %.011.i, i32 1)
+  %spec.select.i = add nsw i32 %176, -1
+  %177 = zext nneg i32 %spec.select.i to i64
+  invoke void @_ZN5QListI7QPointFE6removeExx(ptr noundef nonnull align 8 dereferenceable(24) %.0237, i64 noundef 0, i64 noundef %177)
+          to label %178 unwind label %.loopexit.split-lp
 
-175:                                              ; preds = %167
-  %176 = add i32 %.011.i, 1
-  %177 = sext i32 %176 to i64
-  %178 = icmp sgt i64 %164, %177
-  br i1 %178, label %167, label %.loopexit324, !llvm.loop !936
-
-.loopexit324:                                     ; preds = %175, %161
+_ZNK8QCPGraph15findIndexBelowXEPK5QListI7QPointFEd.exit.thread: ; preds = %172, %161
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   br label %_ZN9QPolygonFC2ERK5QListI7QPointFE.exit
 
-179:                                              ; preds = %_ZNK8QCPGraph15findIndexBelowXEPK5QListI7QPointFEd.exit
-  %180 = load i64, ptr %.0237.sroa.phi, align 8
-  %181 = icmp slt i64 %180, 2
-  br i1 %181, label %182, label %183
+178:                                              ; preds = %_ZNK8QCPGraph15findIndexBelowXEPK5QListI7QPointFEd.exit
+  %179 = load i64, ptr %.0237.sroa.phi, align 8
+  %180 = icmp slt i64 %179, 2
+  br i1 %180, label %181, label %182
 
-182:                                              ; preds = %179
+181:                                              ; preds = %178
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   br label %_ZN9QPolygonFC2ERK5QListI7QPointFE.exit
 
-183:                                              ; preds = %179
-  %184 = load ptr, ptr %.0237.sroa.phi243, align 8
-  %185 = getelementptr i8, ptr %184, i64 16
-  %186 = load double, ptr %185, align 8
-  %187 = load double, ptr %184, align 8
-  %188 = fsub double %186, %187
-  %189 = fcmp ult double %188, 0.000000e+00
-  %190 = fneg double %188
-  %191 = select i1 %189, double %190, double %188
-  %192 = fmul double %191, 1.000000e+12
-  %193 = fcmp ult double %186, 0.000000e+00
-  %194 = fneg double %186
-  %195 = select i1 %193, double %194, double %186
-  %196 = fcmp ult double %187, 0.000000e+00
-  %197 = fneg double %187
-  %198 = select i1 %196, double %197, double %187
-  %199 = fcmp olt double %195, %198
-  %.sroa.speculated.i = select i1 %199, double %195, double %198
-  %200 = fcmp ugt double %192, %.sroa.speculated.i
-  br i1 %200, label %201, label %208
+182:                                              ; preds = %178
+  %183 = load ptr, ptr %.0237.sroa.phi243, align 8
+  %184 = getelementptr i8, ptr %183, i64 16
+  %185 = load double, ptr %184, align 8
+  %186 = load double, ptr %183, align 8
+  %187 = fsub double %185, %186
+  %188 = fcmp ult double %187, 0.000000e+00
+  %189 = fneg double %187
+  %190 = select i1 %188, double %189, double %187
+  %191 = fmul double %190, 1.000000e+12
+  %192 = fcmp ult double %185, 0.000000e+00
+  %193 = fneg double %185
+  %194 = select i1 %192, double %193, double %185
+  %195 = fcmp ult double %186, 0.000000e+00
+  %196 = fneg double %186
+  %197 = select i1 %195, double %196, double %186
+  %198 = fcmp olt double %194, %197
+  %.sroa.speculated.i = select i1 %198, double %194, double %197
+  %199 = fcmp ugt double %191, %.sroa.speculated.i
+  br i1 %199, label %200, label %207
 
-201:                                              ; preds = %183
-  %202 = getelementptr i8, ptr %184, i64 24
-  %203 = load double, ptr %202, align 8
-  %204 = getelementptr inbounds i8, ptr %184, i64 8
-  %205 = load double, ptr %204, align 8
-  %206 = fsub double %203, %205
-  %207 = fdiv double %206, %188
-  br label %208
+200:                                              ; preds = %182
+  %201 = getelementptr i8, ptr %183, i64 24
+  %202 = load double, ptr %201, align 8
+  %203 = getelementptr inbounds i8, ptr %183, i64 8
+  %204 = load double, ptr %203, align 8
+  %205 = fsub double %202, %204
+  %206 = fdiv double %205, %187
+  br label %207
 
-208:                                              ; preds = %183, %201
-  %.061 = phi double [ %207, %201 ], [ 0.000000e+00, %183 ]
-  %209 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5QListI7QPointFEixEx(ptr noundef nonnull align 8 dereferenceable(24) %.0237, i64 noundef 0)
-          to label %210 unwind label %.loopexit.split-lp
+207:                                              ; preds = %182, %200
+  %.061 = phi double [ %206, %200 ], [ 0.000000e+00, %182 ]
+  %208 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5QListI7QPointFEixEx(ptr noundef nonnull align 8 dereferenceable(24) %.0237, i64 noundef 0)
+          to label %209 unwind label %.loopexit.split-lp
 
-210:                                              ; preds = %208
-  %211 = load ptr, ptr %.0237.sroa.phi243, align 8
-  %212 = getelementptr inbounds i8, ptr %211, i64 8
-  %213 = load double, ptr %212, align 8
-  %214 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5QListI7QPointFE5firstEv(ptr noundef nonnull align 8 dereferenceable(24) %.0238)
-          to label %215 unwind label %.loopexit.split-lp
+209:                                              ; preds = %207
+  %210 = load ptr, ptr %.0237.sroa.phi243, align 8
+  %211 = getelementptr inbounds i8, ptr %210, i64 8
+  %212 = load double, ptr %211, align 8
+  %213 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5QListI7QPointFE5firstEv(ptr noundef nonnull align 8 dereferenceable(24) %.0238)
+          to label %214 unwind label %.loopexit.split-lp
 
-215:                                              ; preds = %210
-  %216 = load double, ptr %214, align 8
-  %217 = load ptr, ptr %.0237.sroa.phi243, align 8
-  %218 = load double, ptr %217, align 8
-  %219 = fsub double %216, %218
-  %220 = call double @llvm.fmuladd.f64(double %.061, double %219, double %213)
-  %221 = getelementptr inbounds i8, ptr %209, i64 8
-  store double %220, ptr %221, align 8
-  %222 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5QListI7QPointFEixEx(ptr noundef nonnull align 8 dereferenceable(24) %.0237, i64 noundef 0)
-          to label %223 unwind label %.loopexit.split-lp
+214:                                              ; preds = %209
+  %215 = load double, ptr %213, align 8
+  %216 = load ptr, ptr %.0237.sroa.phi243, align 8
+  %217 = load double, ptr %216, align 8
+  %218 = fsub double %215, %217
+  %219 = call double @llvm.fmuladd.f64(double %.061, double %218, double %212)
+  %220 = getelementptr inbounds i8, ptr %208, i64 8
+  store double %219, ptr %220, align 8
+  %221 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5QListI7QPointFEixEx(ptr noundef nonnull align 8 dereferenceable(24) %.0237, i64 noundef 0)
+          to label %222 unwind label %.loopexit.split-lp
 
-223:                                              ; preds = %215
-  %224 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5QListI7QPointFE5firstEv(ptr noundef nonnull align 8 dereferenceable(24) %.0238)
-          to label %225 unwind label %.loopexit.split-lp
+222:                                              ; preds = %214
+  %223 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5QListI7QPointFE5firstEv(ptr noundef nonnull align 8 dereferenceable(24) %.0238)
+          to label %224 unwind label %.loopexit.split-lp
 
-225:                                              ; preds = %223
-  %226 = load double, ptr %224, align 8
-  store double %226, ptr %222, align 8
-  %227 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5QListI7QPointFE4lastEv(ptr noundef nonnull align 8 dereferenceable(24) %.0238)
-          to label %228 unwind label %.loopexit.split-lp
+224:                                              ; preds = %222
+  %225 = load double, ptr %223, align 8
+  store double %225, ptr %221, align 8
+  %226 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5QListI7QPointFE4lastEv(ptr noundef nonnull align 8 dereferenceable(24) %.0238)
+          to label %227 unwind label %.loopexit.split-lp
 
-228:                                              ; preds = %225
-  %229 = load double, ptr %227, align 8
-  %230 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5QListI7QPointFE4lastEv(ptr noundef nonnull align 8 dereferenceable(24) %.0237)
-          to label %231 unwind label %.loopexit.split-lp
+227:                                              ; preds = %224
+  %228 = load double, ptr %226, align 8
+  %229 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5QListI7QPointFE4lastEv(ptr noundef nonnull align 8 dereferenceable(24) %.0237)
+          to label %230 unwind label %.loopexit.split-lp
 
-231:                                              ; preds = %228
-  %232 = load double, ptr %230, align 8
-  %233 = fcmp ogt double %229, %232
-  %.1239 = select i1 %233, ptr %.0237, ptr %.0238
-  %.1 = select i1 %233, ptr %.0238, ptr %.0237
-  %234 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5QListI7QPointFE4lastEv(ptr noundef nonnull align 8 dereferenceable(24) %.1239)
-          to label %235 unwind label %.loopexit.split-lp
+230:                                              ; preds = %227
+  %231 = load double, ptr %229, align 8
+  %232 = fcmp ogt double %228, %231
+  %.1239 = select i1 %232, ptr %.0237, ptr %.0238
+  %.1 = select i1 %232, ptr %.0238, ptr %.0237
+  %233 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5QListI7QPointFE4lastEv(ptr noundef nonnull align 8 dereferenceable(24) %.1239)
+          to label %234 unwind label %.loopexit.split-lp
 
-235:                                              ; preds = %231
-  %236 = load double, ptr %234, align 8
-  %.1.sroa.sel343 = select i1 %233, ptr %.0238.sroa.phi361, ptr %.0237.sroa.phi
-  %237 = load i64, ptr %.1.sroa.sel343, align 8
-  %238 = trunc i64 %237 to i32
-  %.1.sroa.sel = select i1 %233, ptr %.0238.sroa.phi, ptr %.0237.sroa.phi243
-  br label %239
+234:                                              ; preds = %230
+  %235 = load double, ptr %233, align 8
+  %.1.sroa.sel339 = select i1 %232, ptr %.0238.sroa.phi357, ptr %.0237.sroa.phi
+  %236 = load i64, ptr %.1.sroa.sel339, align 8
+  %237 = trunc i64 %236 to i32
+  %.1.sroa.sel = select i1 %232, ptr %.0238.sroa.phi, ptr %.0237.sroa.phi243
+  br label %238
 
-239:                                              ; preds = %242, %235
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %242 ], [ %237, %235 ]
+238:                                              ; preds = %241, %234
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %241 ], [ %236, %234 ]
   %indvars.iv.next.i = add i64 %indvars.iv.i, -1
-  %240 = and i64 %indvars.iv.next.i, 2147483648
-  %241 = icmp eq i64 %240, 0
-  br i1 %241, label %242, label %_ZNK8QCPGraph15findIndexAboveXEPK5QListI7QPointFEd.exit.thread
+  %239 = and i64 %indvars.iv.next.i, 2147483648
+  %240 = icmp eq i64 %239, 0
+  br i1 %240, label %241, label %_ZNK8QCPGraph15findIndexAboveXEPK5QListI7QPointFEd.exit.thread
 
-242:                                              ; preds = %239
-  %243 = and i64 %indvars.iv.next.i, 2147483647
-  %244 = load ptr, ptr %.1.sroa.sel, align 8
-  %245 = getelementptr %class.QPointF, ptr %244, i64 %243
-  %246 = load double, ptr %245, align 8
-  %247 = fcmp olt double %246, %236
-  br i1 %247, label %_ZNK8QCPGraph15findIndexAboveXEPK5QListI7QPointFEd.exit, label %239, !llvm.loop !937
+241:                                              ; preds = %238
+  %242 = and i64 %indvars.iv.next.i, 2147483647
+  %243 = load ptr, ptr %.1.sroa.sel, align 8
+  %244 = getelementptr %class.QPointF, ptr %243, i64 %242
+  %245 = load double, ptr %244, align 8
+  %246 = fcmp olt double %245, %235
+  br i1 %246, label %_ZNK8QCPGraph15findIndexAboveXEPK5QListI7QPointFEd.exit, label %238, !llvm.loop !937
 
-_ZNK8QCPGraph15findIndexAboveXEPK5QListI7QPointFEd.exit: ; preds = %242
-  %248 = trunc i64 %indvars.iv.i to i32
-  %249 = add i64 %237, -1
-  %250 = icmp sgt i64 %249, %243
-  %251 = add i32 %238, -1
-  %spec.select.i105 = select i1 %250, i32 %248, i32 %251
-  %252 = icmp eq i32 %spec.select.i105, -1
-  br i1 %252, label %_ZNK8QCPGraph15findIndexAboveXEPK5QListI7QPointFEd.exit.thread, label %253
+_ZNK8QCPGraph15findIndexAboveXEPK5QListI7QPointFEd.exit: ; preds = %241
+  %247 = trunc i64 %indvars.iv.i to i32
+  %248 = add i64 %236, -1
+  %249 = icmp sgt i64 %248, %242
+  %250 = add i32 %237, -1
+  %spec.select.i105 = select i1 %249, i32 %247, i32 %250
+  %251 = icmp eq i32 %spec.select.i105, -1
+  br i1 %251, label %_ZNK8QCPGraph15findIndexAboveXEPK5QListI7QPointFEd.exit.thread, label %252
 
-_ZNK8QCPGraph15findIndexAboveXEPK5QListI7QPointFEd.exit.thread: ; preds = %239, %_ZNK8QCPGraph15findIndexAboveXEPK5QListI7QPointFEd.exit
+_ZNK8QCPGraph15findIndexAboveXEPK5QListI7QPointFEd.exit.thread: ; preds = %238, %_ZNK8QCPGraph15findIndexAboveXEPK5QListI7QPointFEd.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   br label %_ZN9QPolygonFC2ERK5QListI7QPointFE.exit
 
-253:                                              ; preds = %_ZNK8QCPGraph15findIndexAboveXEPK5QListI7QPointFEd.exit
-  %254 = add nuw i32 %spec.select.i105, 1
-  %255 = sext i32 %254 to i64
-  %256 = sub i64 %237, %255
-  invoke void @_ZN5QListI7QPointFE6removeExx(ptr noundef nonnull align 8 dereferenceable(24) %.1, i64 noundef %255, i64 noundef %256)
-          to label %257 unwind label %.loopexit.split-lp
+252:                                              ; preds = %_ZNK8QCPGraph15findIndexAboveXEPK5QListI7QPointFEd.exit
+  %253 = add nuw i32 %spec.select.i105, 1
+  %254 = sext i32 %253 to i64
+  %255 = sub i64 %236, %254
+  invoke void @_ZN5QListI7QPointFE6removeExx(ptr noundef nonnull align 8 dereferenceable(24) %.1, i64 noundef %254, i64 noundef %255)
+          to label %256 unwind label %.loopexit.split-lp
 
-257:                                              ; preds = %253
-  %258 = load i64, ptr %.1.sroa.sel343, align 8
-  %259 = icmp slt i64 %258, 2
-  br i1 %259, label %260, label %261
+256:                                              ; preds = %252
+  %257 = load i64, ptr %.1.sroa.sel339, align 8
+  %258 = icmp slt i64 %257, 2
+  br i1 %258, label %259, label %260
 
-260:                                              ; preds = %257
+259:                                              ; preds = %256
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   br label %_ZN9QPolygonFC2ERK5QListI7QPointFE.exit
 
-261:                                              ; preds = %257
-  %262 = shl i64 %258, 32
-  %sext71 = add i64 %262, -4294967296
-  %263 = ashr exact i64 %sext71, 32
-  %264 = load ptr, ptr %.1.sroa.sel, align 8
-  %265 = getelementptr %class.QPointF, ptr %264, i64 %263
-  %266 = load double, ptr %265, align 8
-  %sext72 = add i64 %262, -8589934592
-  %267 = ashr exact i64 %sext72, 32
-  %268 = getelementptr %class.QPointF, ptr %264, i64 %267
-  %269 = load double, ptr %268, align 8
-  %270 = fsub double %266, %269
-  %271 = fcmp ult double %270, 0.000000e+00
-  %272 = fneg double %270
-  %273 = select i1 %271, double %272, double %270
-  %274 = fmul double %273, 1.000000e+12
-  %275 = fcmp ult double %266, 0.000000e+00
-  %276 = fneg double %266
-  %277 = select i1 %275, double %276, double %266
-  %278 = fcmp ult double %269, 0.000000e+00
-  %279 = fneg double %269
-  %280 = select i1 %278, double %279, double %269
-  %281 = fcmp olt double %277, %280
-  %.sroa.speculated.i106 = select i1 %281, double %277, double %280
-  %282 = fcmp ugt double %274, %.sroa.speculated.i106
-  br i1 %282, label %283, label %290
+260:                                              ; preds = %256
+  %261 = shl i64 %257, 32
+  %sext71 = add i64 %261, -4294967296
+  %262 = ashr exact i64 %sext71, 32
+  %263 = load ptr, ptr %.1.sroa.sel, align 8
+  %264 = getelementptr %class.QPointF, ptr %263, i64 %262
+  %265 = load double, ptr %264, align 8
+  %sext72 = add i64 %261, -8589934592
+  %266 = ashr exact i64 %sext72, 32
+  %267 = getelementptr %class.QPointF, ptr %263, i64 %266
+  %268 = load double, ptr %267, align 8
+  %269 = fsub double %265, %268
+  %270 = fcmp ult double %269, 0.000000e+00
+  %271 = fneg double %269
+  %272 = select i1 %270, double %271, double %269
+  %273 = fmul double %272, 1.000000e+12
+  %274 = fcmp ult double %265, 0.000000e+00
+  %275 = fneg double %265
+  %276 = select i1 %274, double %275, double %265
+  %277 = fcmp ult double %268, 0.000000e+00
+  %278 = fneg double %268
+  %279 = select i1 %277, double %278, double %268
+  %280 = fcmp olt double %276, %279
+  %.sroa.speculated.i106 = select i1 %280, double %276, double %279
+  %281 = fcmp ugt double %273, %.sroa.speculated.i106
+  br i1 %281, label %282, label %289
 
-283:                                              ; preds = %261
-  %284 = getelementptr inbounds i8, ptr %265, i64 8
-  %285 = load double, ptr %284, align 8
-  %286 = getelementptr inbounds i8, ptr %268, i64 8
-  %287 = load double, ptr %286, align 8
-  %288 = fsub double %285, %287
-  %289 = fdiv double %288, %270
-  br label %290
+282:                                              ; preds = %260
+  %283 = getelementptr inbounds i8, ptr %264, i64 8
+  %284 = load double, ptr %283, align 8
+  %285 = getelementptr inbounds i8, ptr %267, i64 8
+  %286 = load double, ptr %285, align 8
+  %287 = fsub double %284, %286
+  %288 = fdiv double %287, %269
+  br label %289
 
-290:                                              ; preds = %261, %283
-  %.162 = phi double [ %289, %283 ], [ 0.000000e+00, %261 ]
-  %291 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5QListI7QPointFEixEx(ptr noundef nonnull align 8 dereferenceable(24) %.1, i64 noundef %263)
-          to label %292 unwind label %.loopexit.split-lp
+289:                                              ; preds = %260, %282
+  %.162 = phi double [ %288, %282 ], [ 0.000000e+00, %260 ]
+  %290 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5QListI7QPointFEixEx(ptr noundef nonnull align 8 dereferenceable(24) %.1, i64 noundef %262)
+          to label %291 unwind label %.loopexit.split-lp
 
-292:                                              ; preds = %290
-  %293 = load ptr, ptr %.1.sroa.sel, align 8
-  %294 = getelementptr %class.QPointF, ptr %293, i64 %267, i32 1
-  %295 = load double, ptr %294, align 8
-  %296 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5QListI7QPointFE4lastEv(ptr noundef nonnull align 8 dereferenceable(24) %.1239)
-          to label %297 unwind label %.loopexit.split-lp
+291:                                              ; preds = %289
+  %292 = load ptr, ptr %.1.sroa.sel, align 8
+  %293 = getelementptr %class.QPointF, ptr %292, i64 %266, i32 1
+  %294 = load double, ptr %293, align 8
+  %295 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5QListI7QPointFE4lastEv(ptr noundef nonnull align 8 dereferenceable(24) %.1239)
+          to label %296 unwind label %.loopexit.split-lp
 
-297:                                              ; preds = %292
-  %298 = load double, ptr %296, align 8
-  %299 = load ptr, ptr %.1.sroa.sel, align 8
-  %300 = getelementptr %class.QPointF, ptr %299, i64 %267
-  %301 = load double, ptr %300, align 8
-  %302 = fsub double %298, %301
-  %303 = call double @llvm.fmuladd.f64(double %.162, double %302, double %295)
-  %304 = getelementptr inbounds i8, ptr %291, i64 8
-  store double %303, ptr %304, align 8
-  %305 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5QListI7QPointFEixEx(ptr noundef nonnull align 8 dereferenceable(24) %.1, i64 noundef %263)
-          to label %306 unwind label %.loopexit.split-lp
+296:                                              ; preds = %291
+  %297 = load double, ptr %295, align 8
+  %298 = load ptr, ptr %.1.sroa.sel, align 8
+  %299 = getelementptr %class.QPointF, ptr %298, i64 %266
+  %300 = load double, ptr %299, align 8
+  %301 = fsub double %297, %300
+  %302 = call double @llvm.fmuladd.f64(double %.162, double %301, double %294)
+  %303 = getelementptr inbounds i8, ptr %290, i64 8
+  store double %302, ptr %303, align 8
+  %304 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5QListI7QPointFEixEx(ptr noundef nonnull align 8 dereferenceable(24) %.1, i64 noundef %262)
+          to label %305 unwind label %.loopexit.split-lp
 
-306:                                              ; preds = %297
-  %307 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5QListI7QPointFE4lastEv(ptr noundef nonnull align 8 dereferenceable(24) %.1239)
-          to label %308 unwind label %.loopexit.split-lp
+305:                                              ; preds = %296
+  %306 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5QListI7QPointFE4lastEv(ptr noundef nonnull align 8 dereferenceable(24) %.1239)
+          to label %307 unwind label %.loopexit.split-lp
 
-308:                                              ; preds = %306
-  %309 = load double, ptr %307, align 8
-  store double %309, ptr %305, align 8
-  br label %487
+307:                                              ; preds = %305
+  %308 = load double, ptr %306, align 8
+  store double %308, ptr %304, align 8
+  br label %485
 
-310:                                              ; preds = %_ZSt4copyIN5QListI7QPointFE14const_iteratorENS2_8iteratorEET0_T_S6_S5_.exit93
+309:                                              ; preds = %_ZSt4copyIN5QListI7QPointFE14const_iteratorENS2_8iteratorEET0_T_S6_S5_.exit93
   br i1 %.not.i.i.i.i.i, label %_ZNK17QArrayDataPointerI7QPointFE11needsDetachEv.exit.thread.i.i.i.i109, label %_ZNK17QArrayDataPointerI7QPointFE11needsDetachEv.exit.i.i.i.i108
 
-_ZNK17QArrayDataPointerI7QPointFE11needsDetachEv.exit.i.i.i.i108: ; preds = %310
-  %311 = load atomic i32, ptr %137 monotonic, align 4
-  %312 = icmp sgt i32 %311, 1
-  br i1 %312, label %_ZNK17QArrayDataPointerI7QPointFE11needsDetachEv.exit.thread.i.i.i.i109, label %313
+_ZNK17QArrayDataPointerI7QPointFE11needsDetachEv.exit.i.i.i.i108: ; preds = %309
+  %310 = load atomic i32, ptr %137 monotonic, align 4
+  %311 = icmp sgt i32 %310, 1
+  br i1 %311, label %_ZNK17QArrayDataPointerI7QPointFE11needsDetachEv.exit.thread.i.i.i.i109, label %312
 
-_ZNK17QArrayDataPointerI7QPointFE11needsDetachEv.exit.thread.i.i.i.i109: ; preds = %_ZNK17QArrayDataPointerI7QPointFE11needsDetachEv.exit.i.i.i.i108, %310
+_ZNK17QArrayDataPointerI7QPointFE11needsDetachEv.exit.thread.i.i.i.i109: ; preds = %_ZNK17QArrayDataPointerI7QPointFE11needsDetachEv.exit.i.i.i.i108, %309
   invoke void @_ZN17QArrayDataPointerI7QPointFE17reallocateAndGrowEN10QArrayData14GrowthPositionExPS1_(ptr noundef nonnull align 8 dereferenceable(24) %13, i32 noundef 0, i64 noundef 0, ptr noundef null)
-          to label %313 unwind label %.loopexit.split-lp
+          to label %312 unwind label %.loopexit.split-lp
 
-313:                                              ; preds = %_ZNK17QArrayDataPointerI7QPointFE11needsDetachEv.exit.i.i.i.i108, %_ZNK17QArrayDataPointerI7QPointFE11needsDetachEv.exit.thread.i.i.i.i109
-  %314 = load ptr, ptr %.0237.sroa.gep244, align 8
-  %315 = getelementptr inbounds i8, ptr %314, i64 8
-  %316 = load double, ptr %315, align 8
-  %317 = load ptr, ptr %14, align 8
-  %.not.i.i.i.i.i112 = icmp eq ptr %317, null
+312:                                              ; preds = %_ZNK17QArrayDataPointerI7QPointFE11needsDetachEv.exit.i.i.i.i108, %_ZNK17QArrayDataPointerI7QPointFE11needsDetachEv.exit.thread.i.i.i.i109
+  %313 = load ptr, ptr %.0237.sroa.gep244, align 8
+  %314 = getelementptr inbounds i8, ptr %313, i64 8
+  %315 = load double, ptr %314, align 8
+  %316 = load ptr, ptr %14, align 8
+  %.not.i.i.i.i.i112 = icmp eq ptr %316, null
   br i1 %.not.i.i.i.i.i112, label %_ZNK17QArrayDataPointerI7QPointFE11needsDetachEv.exit.thread.i.i.i.i114, label %_ZNK17QArrayDataPointerI7QPointFE11needsDetachEv.exit.i.i.i.i113
 
-_ZNK17QArrayDataPointerI7QPointFE11needsDetachEv.exit.i.i.i.i113: ; preds = %313
-  %318 = load atomic i32, ptr %317 monotonic, align 4
-  %319 = icmp sgt i32 %318, 1
-  br i1 %319, label %_ZNK17QArrayDataPointerI7QPointFE11needsDetachEv.exit.thread.i.i.i.i114, label %320
+_ZNK17QArrayDataPointerI7QPointFE11needsDetachEv.exit.i.i.i.i113: ; preds = %312
+  %317 = load atomic i32, ptr %316 monotonic, align 4
+  %318 = icmp sgt i32 %317, 1
+  br i1 %318, label %_ZNK17QArrayDataPointerI7QPointFE11needsDetachEv.exit.thread.i.i.i.i114, label %319
 
-_ZNK17QArrayDataPointerI7QPointFE11needsDetachEv.exit.thread.i.i.i.i114: ; preds = %_ZNK17QArrayDataPointerI7QPointFE11needsDetachEv.exit.i.i.i.i113, %313
+_ZNK17QArrayDataPointerI7QPointFE11needsDetachEv.exit.thread.i.i.i.i114: ; preds = %_ZNK17QArrayDataPointerI7QPointFE11needsDetachEv.exit.i.i.i.i113, %312
   invoke void @_ZN17QArrayDataPointerI7QPointFE17reallocateAndGrowEN10QArrayData14GrowthPositionExPS1_(ptr noundef nonnull align 8 dereferenceable(24) %14, i32 noundef 0, i64 noundef 0, ptr noundef null)
-          to label %320 unwind label %.loopexit.split-lp
+          to label %319 unwind label %.loopexit.split-lp
 
-320:                                              ; preds = %_ZNK17QArrayDataPointerI7QPointFE11needsDetachEv.exit.i.i.i.i113, %_ZNK17QArrayDataPointerI7QPointFE11needsDetachEv.exit.thread.i.i.i.i114
-  %321 = load ptr, ptr %.0237.sroa.gep245, align 8
-  %322 = getelementptr inbounds i8, ptr %321, i64 8
-  %323 = load double, ptr %322, align 8
-  %324 = fcmp olt double %316, %323
-  br i1 %324, label %325, label %326
+319:                                              ; preds = %_ZNK17QArrayDataPointerI7QPointFE11needsDetachEv.exit.i.i.i.i113, %_ZNK17QArrayDataPointerI7QPointFE11needsDetachEv.exit.thread.i.i.i.i114
+  %320 = load ptr, ptr %.0237.sroa.gep245, align 8
+  %321 = getelementptr inbounds i8, ptr %320, i64 8
+  %322 = load double, ptr %321, align 8
+  %323 = fcmp olt double %315, %322
+  br i1 %323, label %324, label %325
 
-325:                                              ; preds = %320
-  br label %326
+324:                                              ; preds = %319
+  br label %325
 
-326:                                              ; preds = %325, %320
-  %.2240.sroa.phi = phi ptr [ %.0237.sroa.gep245, %325 ], [ %.0237.sroa.gep244, %320 ]
-  %.2240.sroa.phi366 = phi ptr [ %.0237.sroa.gep242, %325 ], [ %.0237.sroa.gep, %320 ]
-  %.2240 = phi ptr [ %14, %325 ], [ %13, %320 ]
-  %.2.sroa.phi = phi ptr [ %.0237.sroa.gep, %325 ], [ %.0237.sroa.gep242, %320 ]
-  %.2.sroa.phi275 = phi ptr [ %.0237.sroa.gep244, %325 ], [ %.0237.sroa.gep245, %320 ]
-  %.2 = phi ptr [ %13, %325 ], [ %14, %320 ]
-  %327 = load ptr, ptr %.2240, align 8
-  %.not.i.i.i.i.i117 = icmp eq ptr %327, null
+325:                                              ; preds = %324, %319
+  %.2240.sroa.phi = phi ptr [ %.0237.sroa.gep245, %324 ], [ %.0237.sroa.gep244, %319 ]
+  %.2240.sroa.phi362 = phi ptr [ %.0237.sroa.gep242, %324 ], [ %.0237.sroa.gep, %319 ]
+  %.2240 = phi ptr [ %14, %324 ], [ %13, %319 ]
+  %.2.sroa.phi = phi ptr [ %.0237.sroa.gep, %324 ], [ %.0237.sroa.gep242, %319 ]
+  %.2.sroa.phi275 = phi ptr [ %.0237.sroa.gep244, %324 ], [ %.0237.sroa.gep245, %319 ]
+  %.2 = phi ptr [ %13, %324 ], [ %14, %319 ]
+  %326 = load ptr, ptr %.2240, align 8
+  %.not.i.i.i.i.i117 = icmp eq ptr %326, null
   br i1 %.not.i.i.i.i.i117, label %_ZNK17QArrayDataPointerI7QPointFE11needsDetachEv.exit.thread.i.i.i.i119, label %_ZNK17QArrayDataPointerI7QPointFE11needsDetachEv.exit.i.i.i.i118
 
-_ZNK17QArrayDataPointerI7QPointFE11needsDetachEv.exit.i.i.i.i118: ; preds = %326
-  %328 = load atomic i32, ptr %327 monotonic, align 4
-  %329 = icmp sgt i32 %328, 1
-  br i1 %329, label %_ZNK17QArrayDataPointerI7QPointFE11needsDetachEv.exit.thread.i.i.i.i119, label %330
+_ZNK17QArrayDataPointerI7QPointFE11needsDetachEv.exit.i.i.i.i118: ; preds = %325
+  %327 = load atomic i32, ptr %326 monotonic, align 4
+  %328 = icmp sgt i32 %327, 1
+  br i1 %328, label %_ZNK17QArrayDataPointerI7QPointFE11needsDetachEv.exit.thread.i.i.i.i119, label %329
 
-_ZNK17QArrayDataPointerI7QPointFE11needsDetachEv.exit.thread.i.i.i.i119: ; preds = %_ZNK17QArrayDataPointerI7QPointFE11needsDetachEv.exit.i.i.i.i118, %326
+_ZNK17QArrayDataPointerI7QPointFE11needsDetachEv.exit.thread.i.i.i.i119: ; preds = %_ZNK17QArrayDataPointerI7QPointFE11needsDetachEv.exit.i.i.i.i118, %325
   invoke void @_ZN17QArrayDataPointerI7QPointFE17reallocateAndGrowEN10QArrayData14GrowthPositionExPS1_(ptr noundef nonnull align 8 dereferenceable(24) %.2240, i32 noundef 0, i64 noundef 0, ptr noundef null)
-          to label %330 unwind label %.loopexit.split-lp
+          to label %329 unwind label %.loopexit.split-lp
 
-330:                                              ; preds = %_ZNK17QArrayDataPointerI7QPointFE11needsDetachEv.exit.i.i.i.i118, %_ZNK17QArrayDataPointerI7QPointFE11needsDetachEv.exit.thread.i.i.i.i119
-  %331 = load ptr, ptr %.2240.sroa.phi, align 8
-  %332 = getelementptr inbounds i8, ptr %331, i64 8
-  %333 = load double, ptr %332, align 8
-  %334 = load i64, ptr %.2.sroa.phi, align 8
-  %335 = icmp sgt i64 %334, 0
-  br i1 %335, label %.lr.ph.i123, label %.loopexit325
+329:                                              ; preds = %_ZNK17QArrayDataPointerI7QPointFE11needsDetachEv.exit.i.i.i.i118, %_ZNK17QArrayDataPointerI7QPointFE11needsDetachEv.exit.thread.i.i.i.i119
+  %330 = load ptr, ptr %.2240.sroa.phi, align 8
+  %331 = getelementptr inbounds i8, ptr %330, i64 8
+  %332 = load double, ptr %331, align 8
+  %333 = load i64, ptr %.2.sroa.phi, align 8
+  %334 = icmp sgt i64 %333, 0
+  br i1 %334, label %.lr.ph.i123, label %_ZNK8QCPGraph15findIndexBelowYEPK5QListI7QPointFEd.exit.thread
 
-.lr.ph.i123:                                      ; preds = %330
-  %336 = load ptr, ptr %.2.sroa.phi275, align 8
-  br label %337
+.lr.ph.i123:                                      ; preds = %329
+  %335 = load ptr, ptr %.2.sroa.phi275, align 8
+  br label %336
 
-337:                                              ; preds = %345, %.lr.ph.i123
-  %338 = phi i64 [ 0, %.lr.ph.i123 ], [ %347, %345 ]
-  %.011.i124 = phi i32 [ 0, %.lr.ph.i123 ], [ %346, %345 ]
-  %339 = getelementptr %class.QPointF, ptr %336, i64 %338, i32 1
-  %340 = load double, ptr %339, align 8
-  %341 = fcmp ogt double %340, %333
-  br i1 %341, label %_ZNK8QCPGraph15findIndexBelowYEPK5QListI7QPointFEd.exit, label %345
+336:                                              ; preds = %341, %.lr.ph.i123
+  %337 = phi i64 [ 0, %.lr.ph.i123 ], [ %343, %341 ]
+  %.011.i124 = phi i32 [ 0, %.lr.ph.i123 ], [ %342, %341 ]
+  %338 = getelementptr %class.QPointF, ptr %335, i64 %337, i32 1
+  %339 = load double, ptr %338, align 8
+  %340 = fcmp ogt double %339, %332
+  br i1 %340, label %_ZNK8QCPGraph15findIndexBelowYEPK5QListI7QPointFEd.exit, label %341
 
-_ZNK8QCPGraph15findIndexBelowYEPK5QListI7QPointFEd.exit: ; preds = %337
-  %342 = icmp sgt i32 %.011.i124, 0
-  %343 = add nsw i32 %.011.i124, -1
-  %spec.select316 = select i1 %342, i32 %343, i32 0
-  %344 = zext nneg i32 %spec.select316 to i64
-  invoke void @_ZN5QListI7QPointFE6removeExx(ptr noundef nonnull align 8 dereferenceable(24) %.2, i64 noundef 0, i64 noundef %344)
-          to label %349 unwind label %.loopexit.split-lp
+341:                                              ; preds = %336
+  %342 = add i32 %.011.i124, 1
+  %343 = sext i32 %342 to i64
+  %344 = icmp sgt i64 %333, %343
+  br i1 %344, label %336, label %_ZNK8QCPGraph15findIndexBelowYEPK5QListI7QPointFEd.exit.thread, !llvm.loop !938
 
-345:                                              ; preds = %337
-  %346 = add i32 %.011.i124, 1
-  %347 = sext i32 %346 to i64
-  %348 = icmp sgt i64 %334, %347
-  br i1 %348, label %337, label %.loopexit325, !llvm.loop !938
+_ZNK8QCPGraph15findIndexBelowYEPK5QListI7QPointFEd.exit: ; preds = %336
+  %345 = call i32 @llvm.smax.i32(i32 %.011.i124, i32 1)
+  %spec.select.i125 = add nsw i32 %345, -1
+  %346 = zext nneg i32 %spec.select.i125 to i64
+  invoke void @_ZN5QListI7QPointFE6removeExx(ptr noundef nonnull align 8 dereferenceable(24) %.2, i64 noundef 0, i64 noundef %346)
+          to label %347 unwind label %.loopexit.split-lp
 
-.loopexit325:                                     ; preds = %345, %330
+_ZNK8QCPGraph15findIndexBelowYEPK5QListI7QPointFEd.exit.thread: ; preds = %341, %329
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   br label %_ZN9QPolygonFC2ERK5QListI7QPointFE.exit
 
-349:                                              ; preds = %_ZNK8QCPGraph15findIndexBelowYEPK5QListI7QPointFEd.exit
-  %350 = load i64, ptr %.2.sroa.phi, align 8
-  %351 = icmp slt i64 %350, 2
-  br i1 %351, label %352, label %353
+347:                                              ; preds = %_ZNK8QCPGraph15findIndexBelowYEPK5QListI7QPointFEd.exit
+  %348 = load i64, ptr %.2.sroa.phi, align 8
+  %349 = icmp slt i64 %348, 2
+  br i1 %349, label %350, label %351
 
-352:                                              ; preds = %349
+350:                                              ; preds = %347
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   br label %_ZN9QPolygonFC2ERK5QListI7QPointFE.exit
 
-353:                                              ; preds = %349
-  %354 = load ptr, ptr %.2.sroa.phi275, align 8
-  %355 = getelementptr i8, ptr %354, i64 24
+351:                                              ; preds = %347
+  %352 = load ptr, ptr %.2.sroa.phi275, align 8
+  %353 = getelementptr i8, ptr %352, i64 24
+  %354 = load double, ptr %353, align 8
+  %355 = getelementptr inbounds i8, ptr %352, i64 8
   %356 = load double, ptr %355, align 8
-  %357 = getelementptr inbounds i8, ptr %354, i64 8
-  %358 = load double, ptr %357, align 8
-  %359 = fsub double %356, %358
-  %360 = fcmp ult double %359, 0.000000e+00
-  %361 = fneg double %359
-  %362 = select i1 %360, double %361, double %359
-  %363 = fmul double %362, 1.000000e+12
-  %364 = fcmp ult double %356, 0.000000e+00
-  %365 = fneg double %356
-  %366 = select i1 %364, double %365, double %356
-  %367 = fcmp ult double %358, 0.000000e+00
-  %368 = fneg double %358
-  %369 = select i1 %367, double %368, double %358
-  %370 = fcmp olt double %366, %369
-  %.sroa.speculated.i126 = select i1 %370, double %366, double %369
-  %371 = fcmp ugt double %363, %.sroa.speculated.i126
-  br i1 %371, label %372, label %378
+  %357 = fsub double %354, %356
+  %358 = fcmp ult double %357, 0.000000e+00
+  %359 = fneg double %357
+  %360 = select i1 %358, double %359, double %357
+  %361 = fmul double %360, 1.000000e+12
+  %362 = fcmp ult double %354, 0.000000e+00
+  %363 = fneg double %354
+  %364 = select i1 %362, double %363, double %354
+  %365 = fcmp ult double %356, 0.000000e+00
+  %366 = fneg double %356
+  %367 = select i1 %365, double %366, double %356
+  %368 = fcmp olt double %364, %367
+  %.sroa.speculated.i126 = select i1 %368, double %364, double %367
+  %369 = fcmp ugt double %361, %.sroa.speculated.i126
+  br i1 %369, label %370, label %376
 
-372:                                              ; preds = %353
-  %373 = getelementptr i8, ptr %354, i64 16
-  %374 = load double, ptr %373, align 8
-  %375 = load double, ptr %354, align 8
-  %376 = fsub double %374, %375
-  %377 = fdiv double %376, %359
-  br label %378
+370:                                              ; preds = %351
+  %371 = getelementptr i8, ptr %352, i64 16
+  %372 = load double, ptr %371, align 8
+  %373 = load double, ptr %352, align 8
+  %374 = fsub double %372, %373
+  %375 = fdiv double %374, %357
+  br label %376
 
-378:                                              ; preds = %353, %372
-  %.059 = phi double [ %377, %372 ], [ 0.000000e+00, %353 ]
-  %379 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5QListI7QPointFEixEx(ptr noundef nonnull align 8 dereferenceable(24) %.2, i64 noundef 0)
-          to label %380 unwind label %.loopexit.split-lp
+376:                                              ; preds = %351, %370
+  %.059 = phi double [ %375, %370 ], [ 0.000000e+00, %351 ]
+  %377 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5QListI7QPointFEixEx(ptr noundef nonnull align 8 dereferenceable(24) %.2, i64 noundef 0)
+          to label %378 unwind label %.loopexit.split-lp
 
-380:                                              ; preds = %378
-  %381 = load ptr, ptr %.2.sroa.phi275, align 8
-  %382 = load double, ptr %381, align 8
-  %383 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5QListI7QPointFE5firstEv(ptr noundef nonnull align 8 dereferenceable(24) %.2240)
-          to label %384 unwind label %.loopexit.split-lp
+378:                                              ; preds = %376
+  %379 = load ptr, ptr %.2.sroa.phi275, align 8
+  %380 = load double, ptr %379, align 8
+  %381 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5QListI7QPointFE5firstEv(ptr noundef nonnull align 8 dereferenceable(24) %.2240)
+          to label %382 unwind label %.loopexit.split-lp
 
-384:                                              ; preds = %380
-  %385 = getelementptr inbounds i8, ptr %383, i64 8
-  %386 = load double, ptr %385, align 8
-  %387 = load ptr, ptr %.2.sroa.phi275, align 8
-  %388 = getelementptr inbounds i8, ptr %387, i64 8
-  %389 = load double, ptr %388, align 8
-  %390 = fsub double %386, %389
-  %391 = call double @llvm.fmuladd.f64(double %.059, double %390, double %382)
-  store double %391, ptr %379, align 8
-  %392 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5QListI7QPointFEixEx(ptr noundef nonnull align 8 dereferenceable(24) %.2, i64 noundef 0)
+382:                                              ; preds = %378
+  %383 = getelementptr inbounds i8, ptr %381, i64 8
+  %384 = load double, ptr %383, align 8
+  %385 = load ptr, ptr %.2.sroa.phi275, align 8
+  %386 = getelementptr inbounds i8, ptr %385, i64 8
+  %387 = load double, ptr %386, align 8
+  %388 = fsub double %384, %387
+  %389 = call double @llvm.fmuladd.f64(double %.059, double %388, double %380)
+  store double %389, ptr %377, align 8
+  %390 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5QListI7QPointFEixEx(ptr noundef nonnull align 8 dereferenceable(24) %.2, i64 noundef 0)
+          to label %391 unwind label %.loopexit.split-lp
+
+391:                                              ; preds = %382
+  %392 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5QListI7QPointFE5firstEv(ptr noundef nonnull align 8 dereferenceable(24) %.2240)
           to label %393 unwind label %.loopexit.split-lp
 
-393:                                              ; preds = %384
-  %394 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5QListI7QPointFE5firstEv(ptr noundef nonnull align 8 dereferenceable(24) %.2240)
-          to label %395 unwind label %.loopexit.split-lp
+393:                                              ; preds = %391
+  %394 = getelementptr inbounds i8, ptr %392, i64 8
+  %395 = load double, ptr %394, align 8
+  %396 = getelementptr inbounds i8, ptr %390, i64 8
+  store double %395, ptr %396, align 8
+  %397 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5QListI7QPointFE4lastEv(ptr noundef nonnull align 8 dereferenceable(24) %.2240)
+          to label %398 unwind label %.loopexit.split-lp
 
-395:                                              ; preds = %393
-  %396 = getelementptr inbounds i8, ptr %394, i64 8
-  %397 = load double, ptr %396, align 8
-  %398 = getelementptr inbounds i8, ptr %392, i64 8
-  store double %397, ptr %398, align 8
-  %399 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5QListI7QPointFE4lastEv(ptr noundef nonnull align 8 dereferenceable(24) %.2240)
-          to label %400 unwind label %.loopexit.split-lp
+398:                                              ; preds = %393
+  %399 = getelementptr inbounds i8, ptr %397, i64 8
+  %400 = load double, ptr %399, align 8
+  %401 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5QListI7QPointFE4lastEv(ptr noundef nonnull align 8 dereferenceable(24) %.2)
+          to label %402 unwind label %.loopexit.split-lp
 
-400:                                              ; preds = %395
-  %401 = getelementptr inbounds i8, ptr %399, i64 8
-  %402 = load double, ptr %401, align 8
-  %403 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5QListI7QPointFE4lastEv(ptr noundef nonnull align 8 dereferenceable(24) %.2)
-          to label %404 unwind label %.loopexit.split-lp
+402:                                              ; preds = %398
+  %403 = getelementptr inbounds i8, ptr %401, i64 8
+  %404 = load double, ptr %403, align 8
+  %405 = fcmp ogt double %400, %404
+  %.3241 = select i1 %405, ptr %.2, ptr %.2240
+  %.3 = select i1 %405, ptr %.2240, ptr %.2
+  %406 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5QListI7QPointFE4lastEv(ptr noundef nonnull align 8 dereferenceable(24) %.3241)
+          to label %407 unwind label %.loopexit.split-lp
 
-404:                                              ; preds = %400
-  %405 = getelementptr inbounds i8, ptr %403, i64 8
-  %406 = load double, ptr %405, align 8
-  %407 = fcmp ogt double %402, %406
-  %.3241 = select i1 %407, ptr %.2, ptr %.2240
-  %.3 = select i1 %407, ptr %.2240, ptr %.2
-  %408 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5QListI7QPointFE4lastEv(ptr noundef nonnull align 8 dereferenceable(24) %.3241)
-          to label %409 unwind label %.loopexit.split-lp
+407:                                              ; preds = %402
+  %408 = getelementptr inbounds i8, ptr %406, i64 8
+  %409 = load double, ptr %408, align 8
+  %.3.sroa.sel348 = select i1 %405, ptr %.2240.sroa.phi362, ptr %.2.sroa.phi
+  %410 = load i64, ptr %.3.sroa.sel348, align 8
+  %411 = trunc i64 %410 to i32
+  %.3.sroa.sel = select i1 %405, ptr %.2240.sroa.phi, ptr %.2.sroa.phi275
+  br label %412
 
-409:                                              ; preds = %404
-  %410 = getelementptr inbounds i8, ptr %408, i64 8
-  %411 = load double, ptr %410, align 8
-  %.3.sroa.sel352 = select i1 %407, ptr %.2240.sroa.phi366, ptr %.2.sroa.phi
-  %412 = load i64, ptr %.3.sroa.sel352, align 8
-  %413 = trunc i64 %412 to i32
-  %.3.sroa.sel = select i1 %407, ptr %.2240.sroa.phi, ptr %.2.sroa.phi275
-  br label %414
-
-414:                                              ; preds = %417, %409
-  %indvars.iv.i127 = phi i64 [ %indvars.iv.next.i128, %417 ], [ %412, %409 ]
+412:                                              ; preds = %415, %407
+  %indvars.iv.i127 = phi i64 [ %indvars.iv.next.i128, %415 ], [ %410, %407 ]
   %indvars.iv.next.i128 = add i64 %indvars.iv.i127, -1
-  %415 = and i64 %indvars.iv.next.i128, 2147483648
-  %416 = icmp eq i64 %415, 0
-  br i1 %416, label %417, label %_ZNK8QCPGraph15findIndexAboveYEPK5QListI7QPointFEd.exit.thread
+  %413 = and i64 %indvars.iv.next.i128, 2147483648
+  %414 = icmp eq i64 %413, 0
+  br i1 %414, label %415, label %_ZNK8QCPGraph15findIndexAboveYEPK5QListI7QPointFEd.exit.thread
 
-417:                                              ; preds = %414
-  %418 = and i64 %indvars.iv.next.i128, 2147483647
-  %419 = load ptr, ptr %.3.sroa.sel, align 8
-  %420 = getelementptr %class.QPointF, ptr %419, i64 %418, i32 1
-  %421 = load double, ptr %420, align 8
-  %422 = fcmp olt double %421, %411
-  br i1 %422, label %_ZNK8QCPGraph15findIndexAboveYEPK5QListI7QPointFEd.exit, label %414, !llvm.loop !939
+415:                                              ; preds = %412
+  %416 = and i64 %indvars.iv.next.i128, 2147483647
+  %417 = load ptr, ptr %.3.sroa.sel, align 8
+  %418 = getelementptr %class.QPointF, ptr %417, i64 %416, i32 1
+  %419 = load double, ptr %418, align 8
+  %420 = fcmp olt double %419, %409
+  br i1 %420, label %_ZNK8QCPGraph15findIndexAboveYEPK5QListI7QPointFEd.exit, label %412, !llvm.loop !939
 
-_ZNK8QCPGraph15findIndexAboveYEPK5QListI7QPointFEd.exit: ; preds = %417
-  %423 = trunc i64 %indvars.iv.i127 to i32
-  %424 = add i64 %412, -1
-  %425 = icmp sgt i64 %424, %418
-  %426 = add i32 %413, -1
-  %spec.select.i130 = select i1 %425, i32 %423, i32 %426
-  %427 = icmp eq i32 %spec.select.i130, -1
-  br i1 %427, label %_ZNK8QCPGraph15findIndexAboveYEPK5QListI7QPointFEd.exit.thread, label %428
+_ZNK8QCPGraph15findIndexAboveYEPK5QListI7QPointFEd.exit: ; preds = %415
+  %421 = trunc i64 %indvars.iv.i127 to i32
+  %422 = add i64 %410, -1
+  %423 = icmp sgt i64 %422, %416
+  %424 = add i32 %411, -1
+  %spec.select.i130 = select i1 %423, i32 %421, i32 %424
+  %425 = icmp eq i32 %spec.select.i130, -1
+  br i1 %425, label %_ZNK8QCPGraph15findIndexAboveYEPK5QListI7QPointFEd.exit.thread, label %426
 
-_ZNK8QCPGraph15findIndexAboveYEPK5QListI7QPointFEd.exit.thread: ; preds = %414, %_ZNK8QCPGraph15findIndexAboveYEPK5QListI7QPointFEd.exit
+_ZNK8QCPGraph15findIndexAboveYEPK5QListI7QPointFEd.exit.thread: ; preds = %412, %_ZNK8QCPGraph15findIndexAboveYEPK5QListI7QPointFEd.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   br label %_ZN9QPolygonFC2ERK5QListI7QPointFE.exit
 
-428:                                              ; preds = %_ZNK8QCPGraph15findIndexAboveYEPK5QListI7QPointFEd.exit
-  %429 = add nuw i32 %spec.select.i130, 1
-  %430 = sext i32 %429 to i64
-  %431 = sub i64 %412, %430
-  invoke void @_ZN5QListI7QPointFE6removeExx(ptr noundef nonnull align 8 dereferenceable(24) %.3, i64 noundef %430, i64 noundef %431)
-          to label %432 unwind label %.loopexit.split-lp
+426:                                              ; preds = %_ZNK8QCPGraph15findIndexAboveYEPK5QListI7QPointFEd.exit
+  %427 = add nuw i32 %spec.select.i130, 1
+  %428 = sext i32 %427 to i64
+  %429 = sub i64 %410, %428
+  invoke void @_ZN5QListI7QPointFE6removeExx(ptr noundef nonnull align 8 dereferenceable(24) %.3, i64 noundef %428, i64 noundef %429)
+          to label %430 unwind label %.loopexit.split-lp
 
-432:                                              ; preds = %428
-  %433 = load i64, ptr %.3.sroa.sel352, align 8
-  %434 = icmp slt i64 %433, 2
-  br i1 %434, label %435, label %436
+430:                                              ; preds = %426
+  %431 = load i64, ptr %.3.sroa.sel348, align 8
+  %432 = icmp slt i64 %431, 2
+  br i1 %432, label %433, label %434
 
-435:                                              ; preds = %432
+433:                                              ; preds = %430
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   br label %_ZN9QPolygonFC2ERK5QListI7QPointFE.exit
 
-436:                                              ; preds = %432
-  %437 = shl i64 %433, 32
-  %sext = add i64 %437, -4294967296
-  %438 = ashr exact i64 %sext, 32
-  %439 = load ptr, ptr %.3.sroa.sel, align 8
-  %440 = getelementptr %class.QPointF, ptr %439, i64 %438
-  %441 = getelementptr inbounds i8, ptr %440, i64 8
-  %442 = load double, ptr %441, align 8
-  %sext70 = add i64 %437, -8589934592
-  %443 = ashr exact i64 %sext70, 32
-  %444 = getelementptr %class.QPointF, ptr %439, i64 %443
-  %445 = getelementptr inbounds i8, ptr %444, i64 8
-  %446 = load double, ptr %445, align 8
-  %447 = fsub double %442, %446
-  %448 = fcmp ult double %447, 0.000000e+00
-  %449 = fneg double %447
-  %450 = select i1 %448, double %449, double %447
-  %451 = fmul double %450, 1.000000e+12
-  %452 = fcmp ult double %442, 0.000000e+00
-  %453 = fneg double %442
-  %454 = select i1 %452, double %453, double %442
-  %455 = fcmp ult double %446, 0.000000e+00
-  %456 = fneg double %446
-  %457 = select i1 %455, double %456, double %446
-  %458 = fcmp olt double %454, %457
-  %.sroa.speculated.i131 = select i1 %458, double %454, double %457
-  %459 = fcmp ugt double %451, %.sroa.speculated.i131
-  br i1 %459, label %460, label %465
+434:                                              ; preds = %430
+  %435 = shl i64 %431, 32
+  %sext = add i64 %435, -4294967296
+  %436 = ashr exact i64 %sext, 32
+  %437 = load ptr, ptr %.3.sroa.sel, align 8
+  %438 = getelementptr %class.QPointF, ptr %437, i64 %436
+  %439 = getelementptr inbounds i8, ptr %438, i64 8
+  %440 = load double, ptr %439, align 8
+  %sext70 = add i64 %435, -8589934592
+  %441 = ashr exact i64 %sext70, 32
+  %442 = getelementptr %class.QPointF, ptr %437, i64 %441
+  %443 = getelementptr inbounds i8, ptr %442, i64 8
+  %444 = load double, ptr %443, align 8
+  %445 = fsub double %440, %444
+  %446 = fcmp ult double %445, 0.000000e+00
+  %447 = fneg double %445
+  %448 = select i1 %446, double %447, double %445
+  %449 = fmul double %448, 1.000000e+12
+  %450 = fcmp ult double %440, 0.000000e+00
+  %451 = fneg double %440
+  %452 = select i1 %450, double %451, double %440
+  %453 = fcmp ult double %444, 0.000000e+00
+  %454 = fneg double %444
+  %455 = select i1 %453, double %454, double %444
+  %456 = fcmp olt double %452, %455
+  %.sroa.speculated.i131 = select i1 %456, double %452, double %455
+  %457 = fcmp ugt double %449, %.sroa.speculated.i131
+  br i1 %457, label %458, label %463
 
-460:                                              ; preds = %436
-  %461 = load double, ptr %440, align 8
-  %462 = load double, ptr %444, align 8
-  %463 = fsub double %461, %462
-  %464 = fdiv double %463, %447
-  br label %465
+458:                                              ; preds = %434
+  %459 = load double, ptr %438, align 8
+  %460 = load double, ptr %442, align 8
+  %461 = fsub double %459, %460
+  %462 = fdiv double %461, %445
+  br label %463
 
-465:                                              ; preds = %436, %460
-  %.160 = phi double [ %464, %460 ], [ 0.000000e+00, %436 ]
-  %466 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5QListI7QPointFEixEx(ptr noundef nonnull align 8 dereferenceable(24) %.3, i64 noundef %438)
-          to label %467 unwind label %.loopexit.split-lp
+463:                                              ; preds = %434, %458
+  %.160 = phi double [ %462, %458 ], [ 0.000000e+00, %434 ]
+  %464 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5QListI7QPointFEixEx(ptr noundef nonnull align 8 dereferenceable(24) %.3, i64 noundef %436)
+          to label %465 unwind label %.loopexit.split-lp
 
-467:                                              ; preds = %465
-  %468 = load ptr, ptr %.3.sroa.sel, align 8
-  %469 = getelementptr %class.QPointF, ptr %468, i64 %443
-  %470 = load double, ptr %469, align 8
-  %471 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5QListI7QPointFE4lastEv(ptr noundef nonnull align 8 dereferenceable(24) %.3241)
-          to label %472 unwind label %.loopexit.split-lp
+465:                                              ; preds = %463
+  %466 = load ptr, ptr %.3.sroa.sel, align 8
+  %467 = getelementptr %class.QPointF, ptr %466, i64 %441
+  %468 = load double, ptr %467, align 8
+  %469 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5QListI7QPointFE4lastEv(ptr noundef nonnull align 8 dereferenceable(24) %.3241)
+          to label %470 unwind label %.loopexit.split-lp
 
-472:                                              ; preds = %467
-  %473 = getelementptr inbounds i8, ptr %471, i64 8
-  %474 = load double, ptr %473, align 8
-  %475 = load ptr, ptr %.3.sroa.sel, align 8
-  %476 = getelementptr %class.QPointF, ptr %475, i64 %443, i32 1
-  %477 = load double, ptr %476, align 8
-  %478 = fsub double %474, %477
-  %479 = call double @llvm.fmuladd.f64(double %.160, double %478, double %470)
-  store double %479, ptr %466, align 8
-  %480 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5QListI7QPointFEixEx(ptr noundef nonnull align 8 dereferenceable(24) %.3, i64 noundef %438)
+470:                                              ; preds = %465
+  %471 = getelementptr inbounds i8, ptr %469, i64 8
+  %472 = load double, ptr %471, align 8
+  %473 = load ptr, ptr %.3.sroa.sel, align 8
+  %474 = getelementptr %class.QPointF, ptr %473, i64 %441, i32 1
+  %475 = load double, ptr %474, align 8
+  %476 = fsub double %472, %475
+  %477 = call double @llvm.fmuladd.f64(double %.160, double %476, double %468)
+  store double %477, ptr %464, align 8
+  %478 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5QListI7QPointFEixEx(ptr noundef nonnull align 8 dereferenceable(24) %.3, i64 noundef %436)
+          to label %479 unwind label %.loopexit.split-lp
+
+479:                                              ; preds = %470
+  %480 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5QListI7QPointFE4lastEv(ptr noundef nonnull align 8 dereferenceable(24) %.3241)
           to label %481 unwind label %.loopexit.split-lp
 
-481:                                              ; preds = %472
-  %482 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5QListI7QPointFE4lastEv(ptr noundef nonnull align 8 dereferenceable(24) %.3241)
-          to label %483 unwind label %.loopexit.split-lp
+481:                                              ; preds = %479
+  %482 = getelementptr inbounds i8, ptr %480, i64 8
+  %483 = load double, ptr %482, align 8
+  %484 = getelementptr inbounds i8, ptr %478, i64 8
+  store double %483, ptr %484, align 8
+  br label %485
 
-483:                                              ; preds = %481
-  %484 = getelementptr inbounds i8, ptr %482, i64 8
-  %485 = load double, ptr %484, align 8
-  %486 = getelementptr inbounds i8, ptr %480, i64 8
-  store double %485, ptr %486, align 8
-  br label %487
-
-487:                                              ; preds = %483, %308
-  %488 = load i64, ptr %.0237.sroa.gep242, align 8
-  %489 = and i64 %488, 4294967295
+485:                                              ; preds = %481, %307
+  %486 = load i64, ptr %.0237.sroa.gep242, align 8
+  %487 = and i64 %486, 4294967295
   br label %_ZN5QListI7QPointFElsERKS0_.exit
 
-_ZN5QListI7QPointFElsERKS0_.exit:                 ; preds = %492, %487
-  %indvars.iv = phi i64 [ %indvars.iv.next, %492 ], [ %489, %487 ]
+_ZN5QListI7QPointFElsERKS0_.exit:                 ; preds = %490, %485
+  %indvars.iv = phi i64 [ %indvars.iv.next, %490 ], [ %487, %485 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %490 = and i64 %indvars.iv.next, 2147483648
-  %491 = icmp eq i64 %490, 0
-  br i1 %491, label %492, label %497
+  %488 = and i64 %indvars.iv.next, 2147483648
+  %489 = icmp eq i64 %488, 0
+  br i1 %489, label %490, label %495
 
-492:                                              ; preds = %_ZN5QListI7QPointFElsERKS0_.exit
-  %493 = and i64 %indvars.iv.next, 2147483647
-  %494 = load ptr, ptr %.0237.sroa.gep245, align 8
-  %495 = getelementptr %class.QPointF, ptr %494, i64 %493
-  %496 = load i64, ptr %.0237.sroa.gep, align 8
-  invoke void @_ZN9QtPrivate12QPodArrayOpsI7QPointFE7emplaceIJRKS1_EEEvxDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %13, i64 noundef %496, ptr noundef nonnull align 8 dereferenceable(16) %495)
+490:                                              ; preds = %_ZN5QListI7QPointFElsERKS0_.exit
+  %491 = and i64 %indvars.iv.next, 2147483647
+  %492 = load ptr, ptr %.0237.sroa.gep245, align 8
+  %493 = getelementptr %class.QPointF, ptr %492, i64 %491
+  %494 = load i64, ptr %.0237.sroa.gep, align 8
+  invoke void @_ZN9QtPrivate12QPodArrayOpsI7QPointFE7emplaceIJRKS1_EEEvxDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %13, i64 noundef %494, ptr noundef nonnull align 8 dereferenceable(16) %493)
           to label %_ZN5QListI7QPointFElsERKS0_.exit unwind label %.loopexit
 
-497:                                              ; preds = %_ZN5QListI7QPointFElsERKS0_.exit
-  %498 = load ptr, ptr %13, align 8
-  store ptr %498, ptr %0, align 8
-  %499 = getelementptr inbounds i8, ptr %0, i64 8
-  %500 = load ptr, ptr %.0237.sroa.gep244, align 8
-  store ptr %500, ptr %499, align 8
-  %501 = getelementptr inbounds i8, ptr %0, i64 16
-  %502 = load i64, ptr %.0237.sroa.gep, align 8
-  store i64 %502, ptr %501, align 8
-  %.not.i.i.i.i133 = icmp eq ptr %498, null
-  br i1 %.not.i.i.i.i133, label %_ZN9QPolygonFC2ERK5QListI7QPointFE.exit, label %503
+495:                                              ; preds = %_ZN5QListI7QPointFElsERKS0_.exit
+  %496 = load ptr, ptr %13, align 8
+  store ptr %496, ptr %0, align 8
+  %497 = getelementptr inbounds i8, ptr %0, i64 8
+  %498 = load ptr, ptr %.0237.sroa.gep244, align 8
+  store ptr %498, ptr %497, align 8
+  %499 = getelementptr inbounds i8, ptr %0, i64 16
+  %500 = load i64, ptr %.0237.sroa.gep, align 8
+  store i64 %500, ptr %499, align 8
+  %.not.i.i.i.i133 = icmp eq ptr %496, null
+  br i1 %.not.i.i.i.i133, label %_ZN9QPolygonFC2ERK5QListI7QPointFE.exit, label %501
 
-503:                                              ; preds = %497
-  %504 = atomicrmw add ptr %498, i32 1 seq_cst, align 4
+501:                                              ; preds = %495
+  %502 = atomicrmw add ptr %496, i32 1 seq_cst, align 4
   br label %_ZN9QPolygonFC2ERK5QListI7QPointFE.exit
 
-_ZN9QPolygonFC2ERK5QListI7QPointFE.exit:          ; preds = %503, %497, %435, %_ZNK8QCPGraph15findIndexAboveYEPK5QListI7QPointFEd.exit.thread, %352, %.loopexit325, %260, %_ZNK8QCPGraph15findIndexAboveXEPK5QListI7QPointFEd.exit.thread, %182, %.loopexit324
-  %505 = load ptr, ptr %14, align 8
-  %.not.i.i.i134 = icmp eq ptr %505, null
+_ZN9QPolygonFC2ERK5QListI7QPointFE.exit:          ; preds = %501, %495, %433, %_ZNK8QCPGraph15findIndexAboveYEPK5QListI7QPointFEd.exit.thread, %350, %_ZNK8QCPGraph15findIndexBelowYEPK5QListI7QPointFEd.exit.thread, %259, %_ZNK8QCPGraph15findIndexAboveXEPK5QListI7QPointFEd.exit.thread, %181, %_ZNK8QCPGraph15findIndexBelowXEPK5QListI7QPointFEd.exit.thread
+  %503 = load ptr, ptr %14, align 8
+  %.not.i.i.i134 = icmp eq ptr %503, null
   br i1 %.not.i.i.i134, label %_ZN5QListI7QPointFED2Ev.exit137, label %_ZN17QArrayDataPointerI7QPointFE5derefEv.exit.i.i135
 
 _ZN17QArrayDataPointerI7QPointFE5derefEv.exit.i.i135: ; preds = %_ZN9QPolygonFC2ERK5QListI7QPointFE.exit
-  %506 = atomicrmw sub ptr %505, i32 1 seq_cst, align 4
-  %.not.i.i136 = icmp eq i32 %506, 1
-  br i1 %.not.i.i136, label %507, label %_ZN5QListI7QPointFED2Ev.exit137
+  %504 = atomicrmw sub ptr %503, i32 1 seq_cst, align 4
+  %.not.i.i136 = icmp eq i32 %504, 1
+  br i1 %.not.i.i136, label %505, label %_ZN5QListI7QPointFED2Ev.exit137
 
-507:                                              ; preds = %_ZN17QArrayDataPointerI7QPointFE5derefEv.exit.i.i135
-  %508 = load ptr, ptr %14, align 8
-  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %508, i64 noundef 16, i64 noundef 8) #48
+505:                                              ; preds = %_ZN17QArrayDataPointerI7QPointFE5derefEv.exit.i.i135
+  %506 = load ptr, ptr %14, align 8
+  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %506, i64 noundef 16, i64 noundef 8) #48
   br label %_ZN5QListI7QPointFED2Ev.exit137
 
-_ZN5QListI7QPointFED2Ev.exit137:                  ; preds = %_ZN9QPolygonFC2ERK5QListI7QPointFE.exit, %_ZN17QArrayDataPointerI7QPointFE5derefEv.exit.i.i135, %507
-  %509 = load ptr, ptr %13, align 8
-  %.not.i.i.i138 = icmp eq ptr %509, null
+_ZN5QListI7QPointFED2Ev.exit137:                  ; preds = %_ZN9QPolygonFC2ERK5QListI7QPointFE.exit, %_ZN17QArrayDataPointerI7QPointFE5derefEv.exit.i.i135, %505
+  %507 = load ptr, ptr %13, align 8
+  %.not.i.i.i138 = icmp eq ptr %507, null
   br i1 %.not.i.i.i138, label %_ZN5QListI7QPointFED2Ev.exit141, label %_ZN17QArrayDataPointerI7QPointFE5derefEv.exit.i.i139
 
 _ZN17QArrayDataPointerI7QPointFE5derefEv.exit.i.i139: ; preds = %_ZN5QListI7QPointFED2Ev.exit137
-  %510 = atomicrmw sub ptr %509, i32 1 seq_cst, align 4
-  %.not.i.i140 = icmp eq i32 %510, 1
-  br i1 %.not.i.i140, label %511, label %_ZN5QListI7QPointFED2Ev.exit141
+  %508 = atomicrmw sub ptr %507, i32 1 seq_cst, align 4
+  %.not.i.i140 = icmp eq i32 %508, 1
+  br i1 %.not.i.i140, label %509, label %_ZN5QListI7QPointFED2Ev.exit141
 
-511:                                              ; preds = %_ZN17QArrayDataPointerI7QPointFE5derefEv.exit.i.i139
-  %512 = load ptr, ptr %13, align 8
-  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %512, i64 noundef 16, i64 noundef 8) #48
+509:                                              ; preds = %_ZN17QArrayDataPointerI7QPointFE5derefEv.exit.i.i139
+  %510 = load ptr, ptr %13, align 8
+  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %510, i64 noundef 16, i64 noundef 8) #48
   br label %_ZN5QListI7QPointFED2Ev.exit141
 
 _ZN5QListI7QPointFED2Ev.exit:                     ; preds = %155, %_ZN17QArrayDataPointerI7QPointFE5derefEv.exit.i.i, %152
-  %513 = load ptr, ptr %13, align 8
-  %.not.i.i.i142 = icmp eq ptr %513, null
+  %511 = load ptr, ptr %13, align 8
+  %.not.i.i.i142 = icmp eq ptr %511, null
   br i1 %.not.i.i.i142, label %_ZN5QListI7QPointFED2Ev.exit145, label %_ZN17QArrayDataPointerI7QPointFE5derefEv.exit.i.i143
 
 _ZN17QArrayDataPointerI7QPointFE5derefEv.exit.i.i143: ; preds = %_ZN5QListI7QPointFED2Ev.exit
-  %514 = atomicrmw sub ptr %513, i32 1 seq_cst, align 4
-  %.not.i.i144 = icmp eq i32 %514, 1
-  br i1 %.not.i.i144, label %515, label %_ZN5QListI7QPointFED2Ev.exit145
+  %512 = atomicrmw sub ptr %511, i32 1 seq_cst, align 4
+  %.not.i.i144 = icmp eq i32 %512, 1
+  br i1 %.not.i.i144, label %513, label %_ZN5QListI7QPointFED2Ev.exit145
 
-515:                                              ; preds = %_ZN17QArrayDataPointerI7QPointFE5derefEv.exit.i.i143
-  %516 = load ptr, ptr %13, align 8
-  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %516, i64 noundef 16, i64 noundef 8) #48
+513:                                              ; preds = %_ZN17QArrayDataPointerI7QPointFE5derefEv.exit.i.i143
+  %514 = load ptr, ptr %13, align 8
+  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %514, i64 noundef 16, i64 noundef 8) #48
   br label %_ZN5QListI7QPointFED2Ev.exit145
 
-_ZN5QListI7QPointFED2Ev.exit141:                  ; preds = %511, %_ZN17QArrayDataPointerI7QPointFE5derefEv.exit.i.i139, %_ZN5QListI7QPointFED2Ev.exit137, %94, %89, %72, %52, %_ZNK8QPointerI8QCPGraphEcvPS0_Ev.exit.thread
+_ZN5QListI7QPointFED2Ev.exit141:                  ; preds = %509, %_ZN17QArrayDataPointerI7QPointFE5derefEv.exit.i.i139, %_ZN5QListI7QPointFED2Ev.exit137, %94, %89, %72, %52, %_ZNK8QPointerI8QCPGraphEcvPS0_Ev.exit.thread
   ret void
 
-_ZN5QListI7QPointFED2Ev.exit145:                  ; preds = %515, %_ZN17QArrayDataPointerI7QPointFE5derefEv.exit.i.i143, %_ZN5QListI7QPointFED2Ev.exit, %73, %53
-  %.pn.pn = phi { ptr, i32 } [ %74, %73 ], [ %54, %53 ], [ %lpad.phi, %_ZN5QListI7QPointFED2Ev.exit ], [ %lpad.phi, %_ZN17QArrayDataPointerI7QPointFE5derefEv.exit.i.i143 ], [ %lpad.phi, %515 ]
+_ZN5QListI7QPointFED2Ev.exit145:                  ; preds = %513, %_ZN17QArrayDataPointerI7QPointFE5derefEv.exit.i.i143, %_ZN5QListI7QPointFED2Ev.exit, %73, %53
+  %.pn.pn = phi { ptr, i32 } [ %74, %73 ], [ %54, %53 ], [ %lpad.phi, %_ZN5QListI7QPointFED2Ev.exit ], [ %lpad.phi, %_ZN17QArrayDataPointerI7QPointFE5derefEv.exit.i.i143 ], [ %lpad.phi, %513 ]
   resume { ptr, i32 } %.pn.pn
 }
 
@@ -110648,7 +110646,7 @@ _ZN5QListI7QPointFE5beginEv.exit:                 ; preds = %_ZNK17QArrayDataPoi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef range(i32 -2147483648, 2147483647) i32 @_ZNK8QCPGraph15findIndexBelowXEPK5QListI7QPointFEd(ptr nocapture noundef nonnull readnone align 8 dereferenceable(313) %0, ptr nocapture noundef readonly %1, double noundef %2) local_unnamed_addr #16 align 2 {
+define noundef range(i32 -1, 2147483647) i32 @_ZNK8QCPGraph15findIndexBelowXEPK5QListI7QPointFEd(ptr nocapture noundef nonnull readnone align 8 dereferenceable(313) %0, ptr nocapture noundef readonly %1, double noundef %2) local_unnamed_addr #16 align 2 {
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   %5 = load i64, ptr %4, align 8
   %6 = icmp sgt i64 %5, 0
@@ -110659,28 +110657,27 @@ define noundef range(i32 -2147483648, 2147483647) i32 @_ZNK8QCPGraph15findIndexB
   %8 = load ptr, ptr %7, align 8
   br label %9
 
-9:                                                ; preds = %.lr.ph, %17
-  %10 = phi i64 [ 0, %.lr.ph ], [ %19, %17 ]
-  %.011 = phi i32 [ 0, %.lr.ph ], [ %18, %17 ]
+9:                                                ; preds = %.lr.ph, %16
+  %10 = phi i64 [ 0, %.lr.ph ], [ %18, %16 ]
+  %.011 = phi i32 [ 0, %.lr.ph ], [ %17, %16 ]
   %11 = getelementptr %class.QPointF, ptr %8, i64 %10
   %12 = load double, ptr %11, align 8
   %13 = fcmp ogt double %12, %2
-  br i1 %13, label %14, label %17
+  br i1 %13, label %14, label %16
 
 14:                                               ; preds = %9
-  %15 = icmp sgt i32 %.011, 0
-  %16 = add nsw i32 %.011, -1
-  %spec.select = select i1 %15, i32 %16, i32 0
+  %15 = tail call i32 @llvm.smax.i32(i32 %.011, i32 1)
+  %spec.select = add nsw i32 %15, -1
   br label %.loopexit
 
-17:                                               ; preds = %9
-  %18 = add i32 %.011, 1
-  %19 = sext i32 %18 to i64
-  %20 = icmp sgt i64 %5, %19
-  br i1 %20, label %9, label %.loopexit, !llvm.loop !936
+16:                                               ; preds = %9
+  %17 = add i32 %.011, 1
+  %18 = sext i32 %17 to i64
+  %19 = icmp sgt i64 %5, %18
+  br i1 %19, label %9, label %.loopexit, !llvm.loop !936
 
-.loopexit:                                        ; preds = %17, %3, %14
-  %.08 = phi i32 [ %spec.select, %14 ], [ -1, %3 ], [ -1, %17 ]
+.loopexit:                                        ; preds = %16, %3, %14
+  %.08 = phi i32 [ %spec.select, %14 ], [ -1, %3 ], [ -1, %16 ]
   ret i32 %.08
 }
 
@@ -110805,7 +110802,7 @@ define noundef i32 @_ZNK8QCPGraph15findIndexAboveXEPK5QListI7QPointFEd(ptr nocap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef range(i32 -2147483648, 2147483647) i32 @_ZNK8QCPGraph15findIndexBelowYEPK5QListI7QPointFEd(ptr nocapture noundef nonnull readnone align 8 dereferenceable(313) %0, ptr nocapture noundef readonly %1, double noundef %2) local_unnamed_addr #16 align 2 {
+define noundef range(i32 -1, 2147483647) i32 @_ZNK8QCPGraph15findIndexBelowYEPK5QListI7QPointFEd(ptr nocapture noundef nonnull readnone align 8 dereferenceable(313) %0, ptr nocapture noundef readonly %1, double noundef %2) local_unnamed_addr #16 align 2 {
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   %5 = load i64, ptr %4, align 8
   %6 = icmp sgt i64 %5, 0
@@ -110816,28 +110813,27 @@ define noundef range(i32 -2147483648, 2147483647) i32 @_ZNK8QCPGraph15findIndexB
   %8 = load ptr, ptr %7, align 8
   br label %9
 
-9:                                                ; preds = %.lr.ph, %17
-  %10 = phi i64 [ 0, %.lr.ph ], [ %19, %17 ]
-  %.011 = phi i32 [ 0, %.lr.ph ], [ %18, %17 ]
+9:                                                ; preds = %.lr.ph, %16
+  %10 = phi i64 [ 0, %.lr.ph ], [ %18, %16 ]
+  %.011 = phi i32 [ 0, %.lr.ph ], [ %17, %16 ]
   %11 = getelementptr %class.QPointF, ptr %8, i64 %10, i32 1
   %12 = load double, ptr %11, align 8
   %13 = fcmp ogt double %12, %2
-  br i1 %13, label %14, label %17
+  br i1 %13, label %14, label %16
 
 14:                                               ; preds = %9
-  %15 = icmp sgt i32 %.011, 0
-  %16 = add nsw i32 %.011, -1
-  %spec.select = select i1 %15, i32 %16, i32 0
+  %15 = tail call i32 @llvm.smax.i32(i32 %.011, i32 1)
+  %spec.select = add nsw i32 %15, -1
   br label %.loopexit
 
-17:                                               ; preds = %9
-  %18 = add i32 %.011, 1
-  %19 = sext i32 %18 to i64
-  %20 = icmp sgt i64 %5, %19
-  br i1 %20, label %9, label %.loopexit, !llvm.loop !938
+16:                                               ; preds = %9
+  %17 = add i32 %.011, 1
+  %18 = sext i32 %17 to i64
+  %19 = icmp sgt i64 %5, %18
+  br i1 %19, label %9, label %.loopexit, !llvm.loop !938
 
-.loopexit:                                        ; preds = %17, %3, %14
-  %.08 = phi i32 [ %spec.select, %14 ], [ -1, %3 ], [ -1, %17 ]
+.loopexit:                                        ; preds = %16, %3, %14
+  %.08 = phi i32 [ %spec.select, %14 ], [ -1, %3 ], [ -1, %16 ]
   ret i32 %.08
 }
 

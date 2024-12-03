@@ -153,7 +153,7 @@ land.rhs.i73:                                     ; preds = %lor.rhs
   br i1 %cmp9.i, label %lor.rhs.i74, label %lor.end
 
 lor.rhs.i74:                                      ; preds = %land.rhs.i73
-  %or.cond.i.i75 = fcmp ord float %sub, %lastComputedWidth
+  %or.cond.i.i75 = fcmp ord float %sub, 0.000000e+00
   br i1 %or.cond.i.i75, label %if.then.i.i76, label %lor.end
 
 if.then.i.i76:                                    ; preds = %lor.rhs.i74
@@ -234,7 +234,7 @@ land.rhs.i113:                                    ; preds = %lor.rhs59
   br i1 %cmp9.i114, label %lor.rhs.i115, label %lor.end62
 
 lor.rhs.i115:                                     ; preds = %land.rhs.i113
-  %or.cond.i.i116 = fcmp ord float %sub54, %lastComputedHeight
+  %or.cond.i.i116 = fcmp ord float %sub54, 0.000000e+00
   br i1 %or.cond.i.i116, label %if.then.i.i117, label %lor.end62
 
 if.then.i.i117:                                   ; preds = %lor.rhs.i115

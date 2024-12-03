@@ -692,8 +692,7 @@ define void @_Z4itoalPcm(i64 noundef %0, ptr nocapture noundef writeonly %1, i64
   %.lobit.neg = ashr i64 %0, 63
   %spec.select = tail call i64 @llvm.abs.i64(i64 %0, i1 true)
   %6 = add i64 %2, %.lobit.neg
-  %umax = tail call i64 @llvm.umax.i64(i64 %6, i64 1)
-  %7 = add i64 %umax, -1
+  %7 = tail call i64 @llvm.usub.sat.i64(i64 %6, i64 1)
   br label %8
 
 8:                                                ; preds = %9, %3
@@ -753,8 +752,7 @@ define void @_Z4itoalPwm(i64 noundef %0, ptr nocapture noundef writeonly %1, i64
   %.lobit.neg = ashr i64 %0, 63
   %spec.select = tail call i64 @llvm.abs.i64(i64 %0, i1 true)
   %6 = add i64 %2, %.lobit.neg
-  %umax = tail call i64 @llvm.umax.i64(i64 %6, i64 1)
-  %7 = add i64 %umax, -1
+  %7 = tail call i64 @llvm.usub.sat.i64(i64 %6, i64 1)
   br label %8
 
 8:                                                ; preds = %9, %3
@@ -1084,7 +1082,7 @@ define noundef ptr @_Z11GetCmdParamPKwPwm(ptr noundef readonly %0, ptr noundef w
 declare i64 @llvm.abs.i64(i64, i1 immarg) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #12
+declare i64 @llvm.usub.sat.i64(i64, i64) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13

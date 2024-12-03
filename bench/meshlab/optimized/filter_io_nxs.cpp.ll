@@ -6397,9 +6397,8 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i302: ; preds = %_ZN9QtPrivate8RefCo
 
 _ZN7QStringD2Ev.exit307:                          ; preds = %143, %_ZN9QtPrivate8RefCount5derefEv.exit.i303, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i302
   %148 = call noundef i32 @_ZNSt6thread20hardware_concurrencyEv() #28
-  %149 = lshr i32 %148, 1
-  %.inv = icmp ugt i32 %148, 1
-  %spec.store.select = select i1 %.inv, i32 %149, i32 1
+  %149 = call i32 @llvm.umax.i32(i32 %148, i32 2)
+  %spec.store.select = lshr i32 %149, 1
   %150 = invoke noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.59, i32 noundef 6)
           to label %161 unwind label %95
 
@@ -14672,20 +14671,23 @@ __cxx_global_var_init.5.exit:                     ; preds = %_ZNSt4pairIKN3vcg8C
 ; Function Attrs: nofree nosync nounwind memory(none)
 declare i32 @llvm.eh.typeid.for.p0(ptr) #22
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #23
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #23
+declare void @llvm.experimental.noalias.scope.decl(metadata) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #24
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #24
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #25
+declare i64 @llvm.umax.i64(i64, i64) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #25
+declare i64 @llvm.umin.i64(i64, i64) #23
 
 ; Function Attrs: nofree willreturn
 declare double @ldexp(double, i32) local_unnamed_addr #26
@@ -14713,9 +14715,9 @@ attributes #19 = { cold noreturn }
 attributes #20 = { mustprogress nofree nounwind willreturn memory(read) }
 attributes #21 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #22 = { nofree nosync nounwind memory(none) }
-attributes #23 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #24 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #25 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #23 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #24 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #25 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #26 = { nofree willreturn }
 attributes #27 = { builtin nounwind }
 attributes #28 = { nounwind }

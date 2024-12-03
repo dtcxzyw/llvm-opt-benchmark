@@ -68973,8 +68973,7 @@ define linkonce_odr void @_ZN3nix27GitFileSystemObjectSinkImpl14updateBuildersES
   %11 = ptrtoint ptr %9 to i64
   %12 = sub i64 %10, %11
   %13 = sdiv exact i64 %12, 40
-  %umax = tail call i64 @llvm.umax.i64(i64 %13, i64 1)
-  %14 = add i64 %umax, -1
+  %14 = tail call i64 @llvm.usub.sat.i64(i64 %13, i64 1)
   br label %15
 
 15:                                               ; preds = %.lr.ph, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.backedge
@@ -69593,6 +69592,9 @@ declare i64 @llvm.smin.i64(i64, i64) #23
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #26
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.usub.sat.i64(i64, i64) #23
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

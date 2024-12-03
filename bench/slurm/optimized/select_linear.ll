@@ -1149,10 +1149,9 @@ _find_job_mate.exit.thread.i:                     ; preds = %.backedge.i.i, %251
   br i1 %.not75.i.i, label %385, label %383
 
 383:                                              ; preds = %380
-  %.not76.i.i = icmp sgt i64 %379, -1
-  %384 = and i64 %379, 9223372036854775807
-  %spec.select.i.i = select i1 %.not76.i.i, i64 0, i64 %384
-  %spec.select89.i.i = select i1 %.not76.i.i, i64 %379, i64 0
+  %384 = tail call i64 @llvm.smin.i64(i64 %379, i64 0)
+  %spec.select.i.i = and i64 %384, 9223372036854775807
+  %spec.select89.i.i = tail call i64 @llvm.smax.i64(i64 %379, i64 0)
   br label %385
 
 385:                                              ; preds = %383, %380, %376
@@ -1654,10 +1653,9 @@ _add_tot_job.exit:                                ; preds = %85, %89, %._crit_ed
   br i1 %.not82, label %108, label %106
 
 106:                                              ; preds = %103
-  %.not83 = icmp sgt i64 %102, -1
-  %107 = and i64 %102, 9223372036854775807
-  %spec.select = select i1 %.not83, i64 0, i64 %107
-  %spec.select99 = select i1 %.not83, i64 %102, i64 0
+  %107 = call i64 @llvm.smin.i64(i64 %102, i64 0)
+  %spec.select = and i64 %107, 9223372036854775807
+  %spec.select99 = call i64 @llvm.smax.i64(i64 %102, i64 0)
   br label %108
 
 108:                                              ; preds = %106, %103, %100
@@ -2001,10 +1999,9 @@ define internal fastcc range(i32 -1, 1) i32 @_add_job_to_nodes(ptr noundef %0, p
   br i1 %.not83, label %21, label %19
 
 19:                                               ; preds = %16
-  %.not84 = icmp sgt i64 %15, -1
-  %20 = and i64 %15, 9223372036854775807
-  %spec.select = select i1 %.not84, i64 0, i64 %20
-  %spec.select94 = select i1 %.not84, i64 %15, i64 0
+  %20 = tail call i64 @llvm.smin.i64(i64 %15, i64 0)
+  %spec.select = and i64 %20, 9223372036854775807
+  %spec.select94 = tail call i64 @llvm.smax.i64(i64 %15, i64 0)
   br label %21
 
 21:                                               ; preds = %19, %16, %13, %10
@@ -2986,10 +2983,9 @@ _test_tot_job.exit.thread.i:                      ; preds = %_test_tot_job.exit.
   br i1 %.not75.i, label %40, label %38
 
 38:                                               ; preds = %35
-  %.not76.i = icmp sgt i64 %34, -1
-  %39 = and i64 %34, 9223372036854775807
-  %spec.select85.i = select i1 %.not76.i, i64 0, i64 %39
-  %spec.select86.i = select i1 %.not76.i, i64 %34, i64 0
+  %39 = tail call i64 @llvm.smin.i64(i64 %34, i64 0)
+  %spec.select85.i = and i64 %39, 9223372036854775807
+  %spec.select86.i = tail call i64 @llvm.smax.i64(i64 %34, i64 0)
   br label %40
 
 40:                                               ; preds = %38, %35, %32, %29
@@ -3460,10 +3456,9 @@ _rem_tot_job.exit.thread144:                      ; preds = %.thread, %_rem_tot_
   br i1 %.not104, label %46, label %44
 
 44:                                               ; preds = %41
-  %.not105 = icmp sgt i64 %40, -1
-  %45 = and i64 %40, 9223372036854775807
-  %spec.select = select i1 %.not105, i64 0, i64 %45
-  %spec.select121 = select i1 %.not105, i64 %40, i64 0
+  %45 = tail call i64 @llvm.smin.i64(i64 %40, i64 0)
+  %spec.select = and i64 %45, 9223372036854775807
+  %spec.select121 = tail call i64 @llvm.smax.i64(i64 %40, i64 0)
   br label %46
 
 46:                                               ; preds = %44, %41, %38, %35, %_rem_tot_job.exit.thread144
@@ -4414,10 +4409,9 @@ define internal fastcc i32 @_job_count_bitmap(ptr nocapture noundef readonly %0,
   br i1 %.not90, label %19, label %17
 
 17:                                               ; preds = %14
-  %.not91 = icmp sgt i64 %13, -1
-  %18 = and i64 %13, 9223372036854775807
-  %spec.select = select i1 %.not91, i64 %13, i64 0
-  %spec.select103 = select i1 %.not91, i64 0, i64 %18
+  %spec.select = tail call i64 @llvm.smax.i64(i64 %13, i64 0)
+  %18 = tail call i64 @llvm.smin.i64(i64 %13, i64 0)
+  %spec.select103 = and i64 %18, 9223372036854775807
   br label %19
 
 19:                                               ; preds = %17, %9, %14, %7
@@ -5739,6 +5733,12 @@ declare i32 @gres_ctld_job_dealloc(ptr noundef, ptr noundef, i32 noundef, i32 no
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #9
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.smin.i64(i64, i64) #9
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.smax.i64(i64, i64) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.umax.i16(i16, i16) #9

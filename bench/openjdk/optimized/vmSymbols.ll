@@ -62,16 +62,16 @@ $_ZTVN16MetaspaceClosure6MSORefI6SymbolEE = comdat any
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN9vmSymbols10initializeEv() local_unnamed_addr #0 align 2 {
-  %1 = tail call noundef zeroext i1 @_ZN9CDSConfig16is_using_archiveEv() #9
+  %1 = tail call noundef zeroext i1 @_ZN9CDSConfig16is_using_archiveEv() #10
   br i1 %1, label %.preheader31, label %.preheader
 
 .preheader:                                       ; preds = %0, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 1, %0 ]
   %.025 = phi ptr [ %6, %.preheader ], [ @.str, %0 ]
-  %2 = tail call noundef ptr @_ZN11SymbolTable20new_permanent_symbolEPKc(ptr noundef nonnull %.025) #9
+  %2 = tail call noundef ptr @_ZN11SymbolTable20new_permanent_symbolEPKc(ptr noundef nonnull %.025) #10
   %3 = getelementptr inbounds [0 x ptr], ptr @_ZN6Symbol11_vm_symbolsE, i64 0, i64 %indvars.iv
   store ptr %2, ptr %3, align 8
-  %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.025) #10
+  %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.025) #11
   %5 = getelementptr inbounds i8, ptr %.025, i64 %4
   %6 = getelementptr inbounds i8, ptr %5, i64 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -112,7 +112,7 @@ define hidden void @_ZN9vmSymbols10initializeEv() local_unnamed_addr #0 align 2 
   br i1 %.not23, label %20, label %17
 
 20:                                               ; preds = %17
-  tail call void @qsort(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZL15vm_symbol_index, i64 4), i64 noundef 1169, i64 noundef 4, ptr noundef nonnull @_ZL20compare_vmsymbol_sidPKvS0_) #9
+  tail call void @qsort(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZL15vm_symbol_index, i64 4), i64 noundef 1169, i64 noundef 4, ptr noundef nonnull @_ZL20compare_vmsymbol_sidPKvS0_) #10
   ret void
 }
 
@@ -152,7 +152,7 @@ define hidden void @_ZN9vmSymbols10symbols_doEP13SymbolClosure(ptr noundef %0) l
   %3 = getelementptr inbounds [0 x ptr], ptr @_ZN6Symbol11_vm_symbolsE, i64 0, i64 %indvars.iv
   %4 = load ptr, ptr %0, align 8
   %5 = load ptr, ptr %4, align 8
-  tail call void %5(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %3) #9
+  tail call void %5(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %3) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not = icmp eq i64 %indvars.iv.next, 1170
   br i1 %.not, label %.preheader, label %2
@@ -162,7 +162,7 @@ define hidden void @_ZN9vmSymbols10symbols_doEP13SymbolClosure(ptr noundef %0) l
   %6 = getelementptr inbounds [15 x ptr], ptr @_ZN9vmSymbols16_type_signaturesE, i64 0, i64 %indvars.iv14
   %7 = load ptr, ptr %0, align 8
   %8 = load ptr, ptr %7, align 8
-  tail call void %8(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %6) #9
+  tail call void %8(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %6) #10
   %indvars.iv.next15 = add nuw nsw i64 %indvars.iv14, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next15, 15
   br i1 %exitcond.not, label %9, label %.preheader, !llvm.loop !6
@@ -178,7 +178,7 @@ define hidden void @_ZN9vmSymbols21metaspace_pointers_doEP16MetaspaceClosure(ptr
 2:                                                ; preds = %1, %2
   %indvars.iv = phi i64 [ 1, %1 ], [ %indvars.iv.next, %2 ]
   %3 = getelementptr inbounds [0 x ptr], ptr @_ZN6Symbol11_vm_symbolsE, i64 0, i64 %indvars.iv
-  %4 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 40, i8 noundef zeroext 24, i32 noundef 0) #9
+  %4 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 40, i8 noundef zeroext 24, i32 noundef 0) #10
   %5 = getelementptr inbounds i8, ptr %4, i64 8
   store i32 2, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %4, i64 16
@@ -186,7 +186,7 @@ define hidden void @_ZN9vmSymbols21metaspace_pointers_doEP16MetaspaceClosure(ptr
   store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN16MetaspaceClosure6MSORefI6SymbolEE, i64 16), ptr %4, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 32
   store ptr %3, ptr %7, align 8
-  tail call void @_ZN16MetaspaceClosure9push_implEPNS_3RefE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %4) #9
+  tail call void @_ZN16MetaspaceClosure9push_implEPNS_3RefE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %4) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not = icmp eq i64 %indvars.iv.next, 1170
   br i1 %.not, label %.preheader, label %2
@@ -194,7 +194,7 @@ define hidden void @_ZN9vmSymbols21metaspace_pointers_doEP16MetaspaceClosure(ptr
 .preheader:                                       ; preds = %2, %.preheader
   %indvars.iv14 = phi i64 [ %indvars.iv.next15, %.preheader ], [ 0, %2 ]
   %8 = getelementptr inbounds [15 x ptr], ptr @_ZN9vmSymbols16_type_signaturesE, i64 0, i64 %indvars.iv14
-  %9 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 40, i8 noundef zeroext 24, i32 noundef 0) #9
+  %9 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 40, i8 noundef zeroext 24, i32 noundef 0) #10
   %10 = getelementptr inbounds i8, ptr %9, i64 8
   store i32 2, ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %9, i64 16
@@ -202,7 +202,7 @@ define hidden void @_ZN9vmSymbols21metaspace_pointers_doEP16MetaspaceClosure(ptr
   store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN16MetaspaceClosure6MSORefI6SymbolEE, i64 16), ptr %9, align 8
   %12 = getelementptr inbounds i8, ptr %9, i64 32
   store ptr %8, ptr %12, align 8
-  tail call void @_ZN16MetaspaceClosure9push_implEPNS_3RefE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %9) #9
+  tail call void @_ZN16MetaspaceClosure9push_implEPNS_3RefE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %9) #10
   %indvars.iv.next15 = add nuw nsw i64 %indvars.iv14, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next15, 15
   br i1 %exitcond.not, label %13, label %.preheader, !llvm.loop !8
@@ -216,7 +216,7 @@ define hidden void @_ZN9vmSymbols9serializeEP16SerializeClosure(ptr noundef %0) 
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 48
   %4 = load ptr, ptr %3, align 8
-  tail call void %4(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 9352) #9
+  tail call void %4(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 9352) #10
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %1
@@ -225,7 +225,7 @@ define hidden void @_ZN9vmSymbols9serializeEP16SerializeClosure(ptr noundef %0) 
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
-  tail call void %7(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %.057.i) #9
+  tail call void %7(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %.057.i) #10
   %8 = getelementptr inbounds i8, ptr %.057.i, i64 8
   %9 = add nsw i64 %.08.i, -8
   %.not.i = icmp eq i64 %9, 0
@@ -235,7 +235,7 @@ _ZN16SerializeClosure7do_ptrsEPPvm.exit:          ; preds = %.lr.ph.i
   %10 = load ptr, ptr %0, align 8
   %11 = getelementptr inbounds i8, ptr %10, i64 48
   %12 = load ptr, ptr %11, align 8
-  tail call void %12(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 120) #9
+  tail call void %12(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 120) #10
   br label %.lr.ph.i2
 
 .lr.ph.i2:                                        ; preds = %.lr.ph.i2, %_ZN16SerializeClosure7do_ptrsEPPvm.exit
@@ -244,7 +244,7 @@ _ZN16SerializeClosure7do_ptrsEPPvm.exit:          ; preds = %.lr.ph.i
   %13 = load ptr, ptr %0, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8
-  tail call void %15(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %.057.i4) #9
+  tail call void %15(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %.057.i4) #10
   %16 = getelementptr inbounds i8, ptr %.057.i4, i64 8
   %17 = add nsw i64 %.08.i3, -8
   %.not.i5 = icmp eq i64 %17, 0
@@ -321,10 +321,10 @@ define hidden noundef i32 @_ZN9vmSymbols8find_sidEPK6Symbol(ptr noundef readnone
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i32 @_ZN9vmSymbols8find_sidEPKc(ptr noundef %0) local_unnamed_addr #0 align 2 {
   %2 = alloca i32, align 4
-  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #10
+  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #11
   %4 = trunc i64 %3 to i32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
-  %5 = call noundef ptr @_ZN11SymbolTable11lookup_onlyEPKciRj(ptr noundef %0, i32 noundef %4, ptr noundef nonnull align 4 dereferenceable(4) %2) #9
+  %5 = call noundef ptr @_ZN11SymbolTable11lookup_onlyEPKciRj(ptr noundef %0, i32 noundef %4, ptr noundef nonnull align 4 dereferenceable(4) %2) #10
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   %6 = icmp eq ptr %5, null
   br i1 %6, label %_ZN9vmSymbols8find_sidEPK6Symbol.exit, label %7
@@ -400,7 +400,7 @@ define internal void @__cxx_global_var_init.4() #6 section ".text.startup" comda
 
 3:                                                ; preds = %0
   store i8 1, ptr @_ZGVN16LogTagSetMappingILN6LogTag4typeE49ELS1_162ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, align 8
-  tail call void @_ZN9LogTagSetC1EPFmPcmEN6LogTag4typeES4_S4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(112) @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_162ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr noundef nonnull @_ZN9LogPrefixILN6LogTag4typeE49ELS1_162ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm, i32 noundef 49, i32 noundef 162, i32 noundef 0, i32 noundef 0, i32 noundef 0) #9
+  tail call void @_ZN9LogTagSetC1EPFmPcmEN6LogTag4typeES4_S4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(112) @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_162ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr noundef nonnull @_ZN9LogPrefixILN6LogTag4typeE49ELS1_162ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm, i32 noundef 49, i32 noundef 162, i32 noundef 0, i32 noundef 0, i32 noundef 0) #10
   br label %4
 
 4:                                                ; preds = %3, %0
@@ -409,7 +409,7 @@ define internal void @__cxx_global_var_init.4() #6 section ".text.startup" comda
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i64 @_ZN9LogPrefixILN6LogTag4typeE49ELS1_162ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm(ptr noundef %0, i64 noundef %1) #0 comdat align 2 {
-  %3 = tail call noundef i64 @_ZN4GCId12print_prefixEPcm(ptr noundef %0, i64 noundef %1) #9
+  %3 = tail call noundef i64 @_ZN4GCId12print_prefixEPcm(ptr noundef %0, i64 noundef %1) #10
   ret i64 %3
 }
 
@@ -423,7 +423,7 @@ define internal void @__cxx_global_var_init.5() #6 section ".text.startup" comda
 
 3:                                                ; preds = %0
   store i8 1, ptr @_ZGVN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, align 8
-  tail call void @_ZN9LogTagSetC1EPFmPcmEN6LogTag4typeES4_S4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(112) @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr noundef nonnull @_ZN9LogPrefixILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm, i32 noundef 49, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #9
+  tail call void @_ZN9LogTagSetC1EPFmPcmEN6LogTag4typeES4_S4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(112) @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr noundef nonnull @_ZN9LogPrefixILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm, i32 noundef 49, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #10
   br label %4
 
 4:                                                ; preds = %3, %0
@@ -432,7 +432,7 @@ define internal void @__cxx_global_var_init.5() #6 section ".text.startup" comda
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i64 @_ZN9LogPrefixILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm(ptr noundef %0, i64 noundef %1) #0 comdat align 2 {
-  %3 = tail call noundef i64 @_ZN4GCId12print_prefixEPcm(ptr noundef %0, i64 noundef %1) #9
+  %3 = tail call noundef i64 @_ZN4GCId12print_prefixEPcm(ptr noundef %0, i64 noundef %1) #10
   ret i64 %3
 }
 
@@ -444,7 +444,7 @@ define internal void @__cxx_global_var_init.6() #6 section ".text.startup" comda
 
 3:                                                ; preds = %0
   store i8 1, ptr @_ZGVN16LogTagSetMappingILN6LogTag4typeE49ELS1_107ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, align 8
-  tail call void @_ZN9LogTagSetC1EPFmPcmEN6LogTag4typeES4_S4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(112) @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_107ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr noundef nonnull @_ZN9LogPrefixILN6LogTag4typeE49ELS1_107ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm, i32 noundef 49, i32 noundef 107, i32 noundef 0, i32 noundef 0, i32 noundef 0) #9
+  tail call void @_ZN9LogTagSetC1EPFmPcmEN6LogTag4typeES4_S4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(112) @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_107ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr noundef nonnull @_ZN9LogPrefixILN6LogTag4typeE49ELS1_107ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm, i32 noundef 49, i32 noundef 107, i32 noundef 0, i32 noundef 0, i32 noundef 0) #10
   br label %4
 
 4:                                                ; preds = %3, %0
@@ -453,7 +453,7 @@ define internal void @__cxx_global_var_init.6() #6 section ".text.startup" comda
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i64 @_ZN9LogPrefixILN6LogTag4typeE49ELS1_107ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm(ptr noundef %0, i64 noundef %1) #0 comdat align 2 {
-  %3 = tail call noundef i64 @_ZN4GCId12print_prefixEPcm(ptr noundef %0, i64 noundef %1) #9
+  %3 = tail call noundef i64 @_ZN4GCId12print_prefixEPcm(ptr noundef %0, i64 noundef %1) #10
   ret i64 %3
 }
 
@@ -465,7 +465,7 @@ define internal void @__cxx_global_var_init.7() #6 section ".text.startup" comda
 
 3:                                                ; preds = %0
   store i8 1, ptr @_ZGVN16LogTagSetMappingILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, align 8
-  tail call void @_ZN9LogTagSetC1EPFmPcmEN6LogTag4typeES4_S4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(112) @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr noundef nonnull @_ZN9LogPrefixILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm, i32 noundef 49, i32 noundef 80, i32 noundef 0, i32 noundef 0, i32 noundef 0) #9
+  tail call void @_ZN9LogTagSetC1EPFmPcmEN6LogTag4typeES4_S4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(112) @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr noundef nonnull @_ZN9LogPrefixILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm, i32 noundef 49, i32 noundef 80, i32 noundef 0, i32 noundef 0, i32 noundef 0) #10
   br label %4
 
 4:                                                ; preds = %3, %0
@@ -474,7 +474,7 @@ define internal void @__cxx_global_var_init.7() #6 section ".text.startup" comda
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i64 @_ZN9LogPrefixILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm(ptr noundef %0, i64 noundef %1) #0 comdat align 2 {
-  %3 = tail call noundef i64 @_ZN4GCId12print_prefixEPcm(ptr noundef %0, i64 noundef %1) #9
+  %3 = tail call noundef i64 @_ZN4GCId12print_prefixEPcm(ptr noundef %0, i64 noundef %1) #10
   ret i64 %3
 }
 
@@ -509,12 +509,11 @@ define linkonce_odr hidden noundef i32 @_ZNK16MetaspaceClosure6MSORefI6SymbolE4s
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 4
   %6 = load i16, ptr %5, align 4
-  %7 = zext i16 %6 to i32
-  %8 = icmp ugt i16 %6, 2
-  %9 = add nuw nsw i32 %7, 13
+  %7 = tail call i16 @llvm.umax.i16(i16 %6, i16 2)
+  %8 = zext i16 %7 to i32
+  %9 = add nuw nsw i32 %8, 13
   %10 = lshr i32 %9, 3
-  %11 = select i1 %8, i32 %10, i32 1
-  ret i32 %11
+  ret i32 %10
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -522,13 +521,13 @@ define linkonce_odr hidden void @_ZNK16MetaspaceClosure6MSORefI6SymbolE21metaspa
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
-  tail call void @_ZN6Symbol21metaspace_pointers_doEP16MetaspaceClosure(ptr noundef nonnull align 4 dereferenceable(8) %5, ptr noundef %1) #9
+  tail call void @_ZN6Symbol21metaspace_pointers_doEP16MetaspaceClosure(ptr noundef nonnull align 4 dereferenceable(8) %5, ptr noundef %1) #10
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK16MetaspaceClosure6MSORefI6SymbolE24metaspace_pointers_do_atEPS_Ph(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN6Symbol21metaspace_pointers_doEP16MetaspaceClosure(ptr noundef nonnull align 4 dereferenceable(8) %2, ptr noundef %1) #9
+  tail call void @_ZN6Symbol21metaspace_pointers_doEP16MetaspaceClosure(ptr noundef nonnull align 4 dereferenceable(8) %2, ptr noundef %1) #10
   ret void
 }
 
@@ -549,7 +548,7 @@ define linkonce_odr hidden void @_ZN16MetaspaceClosure6MSORefI6SymbolED2Ev(ptr n
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN16MetaspaceClosure6MSORefI6SymbolED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_Z8FreeHeapPv(ptr noundef nonnull %0) #9
+  tail call void @_Z8FreeHeapPv(ptr noundef nonnull %0) #10
   ret void
 }
 
@@ -560,11 +559,14 @@ declare void @_Z8FreeHeapPv(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i16 @llvm.umax.i16(i16, i16) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -574,9 +576,10 @@ attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #5 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #8 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { nounwind }
-attributes #10 = { nounwind willreturn memory(read) }
+attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #10 = { nounwind }
+attributes #11 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

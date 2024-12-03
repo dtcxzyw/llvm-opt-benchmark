@@ -10326,47 +10326,46 @@ _ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit: ; preds = %11, %18
   %29 = or disjoint i32 %27, %28
   %30 = getelementptr inbounds i8, ptr %0, i64 16
   %31 = load ptr, ptr %30, align 8
-  %32 = tail call i32 @llvm.umax.i32(i32 %29, i32 1)
-  %33 = add nsw i32 %32, -1
-  %34 = zext nneg i32 %33 to i64
-  %35 = shl nuw nsw i64 %34, 1
-  %36 = add nuw nsw i64 %35, 15
-  %37 = lshr i64 %36, 3
-  %38 = tail call noundef ptr @_ZN9Metaspace8allocateEP15ClassLoaderDatamN12MetaspaceObj4TypeEP10JavaThread(ptr noundef %31, i64 noundef %37, i32 noundef 3, ptr noundef %7) #23
-  %39 = icmp eq ptr %38, null
-  br i1 %39, label %_ZN15MetadataFactory9new_arrayItEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit, label %40
+  %32 = tail call i32 @llvm.usub.sat.i32(i32 %29, i32 1)
+  %33 = shl nuw nsw i32 %32, 1
+  %narrow = add nuw nsw i32 %33, 15
+  %34 = lshr i32 %narrow, 3
+  %35 = zext nneg i32 %34 to i64
+  %36 = tail call noundef ptr @_ZN9Metaspace8allocateEP15ClassLoaderDatamN12MetaspaceObj4TypeEP10JavaThread(ptr noundef %31, i64 noundef %35, i32 noundef 3, ptr noundef %7) #23
+  %37 = icmp eq ptr %36, null
+  br i1 %37, label %_ZN15MetadataFactory9new_arrayItEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit, label %38
 
-40:                                               ; preds = %25
-  store i32 %29, ptr %38, align 4
+38:                                               ; preds = %25
+  store i32 %29, ptr %36, align 4
   br label %_ZN15MetadataFactory9new_arrayItEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit
 
-_ZN15MetadataFactory9new_arrayItEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit: ; preds = %25, %40
-  %41 = getelementptr inbounds i8, ptr %7, i64 8
-  %42 = load ptr, ptr %41, align 8
-  %.not125 = icmp eq ptr %42, null
-  br i1 %.not125, label %43, label %.loopexit
+_ZN15MetadataFactory9new_arrayItEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit: ; preds = %25, %38
+  %39 = getelementptr inbounds i8, ptr %7, i64 8
+  %40 = load ptr, ptr %39, align 8
+  %.not125 = icmp eq ptr %40, null
+  br i1 %.not125, label %41, label %.loopexit
 
-43:                                               ; preds = %_ZN15MetadataFactory9new_arrayItEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit
-  %44 = getelementptr inbounds i8, ptr %0, i64 72
-  store ptr %38, ptr %44, align 8
-  %45 = shl nuw nsw i32 %26, 3
-  %46 = getelementptr inbounds i8, ptr %1, i64 16
-  %47 = load ptr, ptr %46, align 8
-  %48 = load ptr, ptr %9, align 8
-  %49 = ptrtoint ptr %47 to i64
-  %50 = ptrtoint ptr %48 to i64
-  %51 = sub i64 %49, %50
-  %52 = zext nneg i32 %45 to i64
-  %53 = icmp ult i64 %51, %52
-  br i1 %53, label %54, label %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit84
+41:                                               ; preds = %_ZN15MetadataFactory9new_arrayItEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit
+  %42 = getelementptr inbounds i8, ptr %0, i64 72
+  store ptr %36, ptr %42, align 8
+  %43 = shl nuw nsw i32 %26, 3
+  %44 = getelementptr inbounds i8, ptr %1, i64 16
+  %45 = load ptr, ptr %44, align 8
+  %46 = load ptr, ptr %9, align 8
+  %47 = ptrtoint ptr %45 to i64
+  %48 = ptrtoint ptr %46 to i64
+  %49 = sub i64 %47, %48
+  %50 = zext nneg i32 %43 to i64
+  %51 = icmp ult i64 %49, %50
+  br i1 %51, label %52, label %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit84
 
-54:                                               ; preds = %43
+52:                                               ; preds = %41
   tail call void @_ZNK15ClassFileStream20truncated_file_errorEP10JavaThread(ptr noundef nonnull align 8 dereferenceable(42) %1, ptr noundef nonnull %7) #23
   br label %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit84
 
-_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit84: ; preds = %43, %54
-  %55 = load ptr, ptr %41, align 8
-  %.not126 = icmp eq ptr %55, null
+_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit84: ; preds = %41, %52
+  %53 = load ptr, ptr %39, align 8
+  %.not126 = icmp eq ptr %53, null
   br i1 %.not126, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit84
@@ -10374,308 +10373,308 @@ _ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit84: ; preds = %43, %54
   br i1 %.not140, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %56 = getelementptr inbounds i8, ptr %0, i64 40
-  %57 = getelementptr inbounds i8, ptr %0, i64 424
-  %58 = getelementptr inbounds i8, ptr %0, i64 412
-  %59 = getelementptr inbounds i8, ptr %38, i64 4
-  br label %60
+  %54 = getelementptr inbounds i8, ptr %0, i64 40
+  %55 = getelementptr inbounds i8, ptr %0, i64 424
+  %56 = getelementptr inbounds i8, ptr %0, i64 412
+  %57 = getelementptr inbounds i8, ptr %36, i64 4
+  br label %58
 
-60:                                               ; preds = %.lr.ph, %154
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %154 ]
-  %.073139 = phi i32 [ 0, %.lr.ph ], [ %163, %154 ]
-  %61 = load ptr, ptr %9, align 8
-  %.0.i.i.i.i85 = load i16, ptr %61, align 1
-  %62 = tail call noundef i16 @llvm.bswap.i16(i16 %.0.i.i.i.i85)
-  %63 = getelementptr inbounds i8, ptr %61, i64 2
-  store ptr %63, ptr %9, align 8
-  %64 = zext i16 %62 to i32
-  %65 = load ptr, ptr %56, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 60
-  %67 = load i32, ptr %66, align 4
-  %68 = icmp sgt i32 %67, %64
-  br i1 %68, label %69, label %_ZNK15ClassFileParser24valid_klass_reference_atEi.exit
+58:                                               ; preds = %.lr.ph, %152
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %152 ]
+  %.073139 = phi i32 [ 0, %.lr.ph ], [ %161, %152 ]
+  %59 = load ptr, ptr %9, align 8
+  %.0.i.i.i.i85 = load i16, ptr %59, align 1
+  %60 = tail call noundef i16 @llvm.bswap.i16(i16 %.0.i.i.i.i85)
+  %61 = getelementptr inbounds i8, ptr %59, i64 2
+  store ptr %61, ptr %9, align 8
+  %62 = zext i16 %60 to i32
+  %63 = load ptr, ptr %54, align 8
+  %64 = getelementptr inbounds i8, ptr %63, i64 60
+  %65 = load i32, ptr %64, align 4
+  %66 = icmp sgt i32 %65, %62
+  br i1 %66, label %67, label %_ZNK15ClassFileParser24valid_klass_reference_atEi.exit
 
-69:                                               ; preds = %60
-  %70 = getelementptr inbounds i8, ptr %65, i64 8
-  %71 = load ptr, ptr %70, align 8
-  %72 = getelementptr inbounds i8, ptr %71, i64 4
-  %73 = zext i16 %62 to i64
-  %74 = getelementptr inbounds i8, ptr %72, i64 %73
-  %75 = load volatile i8, ptr %74, align 1
+67:                                               ; preds = %58
+  %68 = getelementptr inbounds i8, ptr %63, i64 8
+  %69 = load ptr, ptr %68, align 8
+  %70 = getelementptr inbounds i8, ptr %69, i64 4
+  %71 = zext i16 %60 to i64
+  %72 = getelementptr inbounds i8, ptr %70, i64 %71
+  %73 = load volatile i8, ptr %72, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !8
-  switch i8 %75, label %76 [
+  switch i8 %73, label %74 [
     i8 7, label %_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit
     i8 101, label %_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit
   ]
 
-76:                                               ; preds = %69
-  %77 = icmp eq i8 %75, 100
-  %78 = icmp eq i8 %75, 103
-  %spec.select.i.i.i.i = or i1 %77, %78
+74:                                               ; preds = %67
+  %75 = icmp eq i8 %73, 100
+  %76 = icmp eq i8 %73, 103
+  %spec.select.i.i.i.i = or i1 %75, %76
   br label %_ZNK15ClassFileParser24valid_klass_reference_atEi.exit
 
-_ZNK15ClassFileParser24valid_klass_reference_atEi.exit: ; preds = %60, %76
-  %79 = phi i1 [ false, %60 ], [ %spec.select.i.i.i.i, %76 ]
-  %80 = load i8, ptr %57, align 8
-  %81 = trunc i8 %80 to i1
-  %.not.i = xor i1 %81, true
-  %brmerge.i = or i1 %79, %.not.i
-  br i1 %brmerge.i, label %_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit, label %82
+_ZNK15ClassFileParser24valid_klass_reference_atEi.exit: ; preds = %58, %74
+  %77 = phi i1 [ false, %58 ], [ %spec.select.i.i.i.i, %74 ]
+  %78 = load i8, ptr %55, align 8
+  %79 = trunc i8 %78 to i1
+  %.not.i = xor i1 %79, true
+  %brmerge.i = or i1 %77, %.not.i
+  br i1 %brmerge.i, label %_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit, label %80
 
-82:                                               ; preds = %_ZNK15ClassFileParser24valid_klass_reference_atEi.exit
-  tail call void @_ZNK15ClassFileParser21classfile_parse_errorEPKciP10JavaThread(ptr noundef nonnull align 8 dereferenceable(440) %0, ptr noundef nonnull @.str.94, i32 noundef %64, ptr noundef nonnull %7) #23
+80:                                               ; preds = %_ZNK15ClassFileParser24valid_klass_reference_atEi.exit
+  tail call void @_ZNK15ClassFileParser21classfile_parse_errorEPKciP10JavaThread(ptr noundef nonnull align 8 dereferenceable(440) %0, ptr noundef nonnull @.str.94, i32 noundef %62, ptr noundef nonnull %7) #23
   br label %_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit
 
-_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit: ; preds = %69, %69, %_ZNK15ClassFileParser24valid_klass_reference_atEi.exit, %82
-  %83 = load ptr, ptr %41, align 8
-  %.not129 = icmp eq ptr %83, null
-  br i1 %.not129, label %84, label %.loopexit
+_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit: ; preds = %67, %67, %_ZNK15ClassFileParser24valid_klass_reference_atEi.exit, %80
+  %81 = load ptr, ptr %39, align 8
+  %.not129 = icmp eq ptr %81, null
+  br i1 %.not129, label %82, label %.loopexit
 
-84:                                               ; preds = %_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit
-  %85 = load ptr, ptr %9, align 8
-  %.0.i.i.i.i86 = load i16, ptr %85, align 1
-  %86 = tail call noundef i16 @llvm.bswap.i16(i16 %.0.i.i.i.i86)
-  %87 = getelementptr inbounds i8, ptr %85, i64 2
-  store ptr %87, ptr %9, align 8
-  %88 = icmp eq i16 %.0.i.i.i.i86, 0
-  br i1 %88, label %_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit91.thread, label %89
+82:                                               ; preds = %_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit
+  %83 = load ptr, ptr %9, align 8
+  %.0.i.i.i.i86 = load i16, ptr %83, align 1
+  %84 = tail call noundef i16 @llvm.bswap.i16(i16 %.0.i.i.i.i86)
+  %85 = getelementptr inbounds i8, ptr %83, i64 2
+  store ptr %85, ptr %9, align 8
+  %86 = icmp eq i16 %.0.i.i.i.i86, 0
+  br i1 %86, label %_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit91.thread, label %87
 
-89:                                               ; preds = %84
-  %90 = zext i16 %86 to i32
-  %91 = load ptr, ptr %56, align 8
-  %92 = getelementptr inbounds i8, ptr %91, i64 60
-  %93 = load i32, ptr %92, align 4
-  %94 = icmp sgt i32 %93, %90
-  br i1 %94, label %95, label %_ZNK15ClassFileParser24valid_klass_reference_atEi.exit88
+87:                                               ; preds = %82
+  %88 = zext i16 %84 to i32
+  %89 = load ptr, ptr %54, align 8
+  %90 = getelementptr inbounds i8, ptr %89, i64 60
+  %91 = load i32, ptr %90, align 4
+  %92 = icmp sgt i32 %91, %88
+  br i1 %92, label %93, label %_ZNK15ClassFileParser24valid_klass_reference_atEi.exit88
 
-95:                                               ; preds = %89
-  %96 = getelementptr inbounds i8, ptr %91, i64 8
-  %97 = load ptr, ptr %96, align 8
-  %98 = getelementptr inbounds i8, ptr %97, i64 4
-  %99 = zext i16 %86 to i64
-  %100 = getelementptr inbounds i8, ptr %98, i64 %99
-  %101 = load volatile i8, ptr %100, align 1
+93:                                               ; preds = %87
+  %94 = getelementptr inbounds i8, ptr %89, i64 8
+  %95 = load ptr, ptr %94, align 8
+  %96 = getelementptr inbounds i8, ptr %95, i64 4
+  %97 = zext i16 %84 to i64
+  %98 = getelementptr inbounds i8, ptr %96, i64 %97
+  %99 = load volatile i8, ptr %98, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !8
-  switch i8 %101, label %102 [
+  switch i8 %99, label %100 [
     i8 7, label %_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit91
     i8 101, label %_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit91
   ]
 
-102:                                              ; preds = %95
-  %103 = icmp eq i8 %101, 100
-  %104 = icmp eq i8 %101, 103
-  %spec.select.i.i.i.i87 = or i1 %103, %104
+100:                                              ; preds = %93
+  %101 = icmp eq i8 %99, 100
+  %102 = icmp eq i8 %99, 103
+  %spec.select.i.i.i.i87 = or i1 %101, %102
   br label %_ZNK15ClassFileParser24valid_klass_reference_atEi.exit88
 
-_ZNK15ClassFileParser24valid_klass_reference_atEi.exit88: ; preds = %102, %89
-  %105 = phi i1 [ false, %89 ], [ %spec.select.i.i.i.i87, %102 ]
-  %106 = load i8, ptr %57, align 8
-  %107 = trunc i8 %106 to i1
-  %.not.i89 = xor i1 %107, true
-  %brmerge.i90 = or i1 %105, %.not.i89
-  br i1 %brmerge.i90, label %_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit91, label %108
+_ZNK15ClassFileParser24valid_klass_reference_atEi.exit88: ; preds = %100, %87
+  %103 = phi i1 [ false, %87 ], [ %spec.select.i.i.i.i87, %100 ]
+  %104 = load i8, ptr %55, align 8
+  %105 = trunc i8 %104 to i1
+  %.not.i89 = xor i1 %105, true
+  %brmerge.i90 = or i1 %103, %.not.i89
+  br i1 %brmerge.i90, label %_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit91, label %106
 
-108:                                              ; preds = %_ZNK15ClassFileParser24valid_klass_reference_atEi.exit88
-  tail call void @_ZNK15ClassFileParser21classfile_parse_errorEPKciP10JavaThread(ptr noundef nonnull align 8 dereferenceable(440) %0, ptr noundef nonnull @.str.95, i32 noundef %90, ptr noundef nonnull %7) #23
+106:                                              ; preds = %_ZNK15ClassFileParser24valid_klass_reference_atEi.exit88
+  tail call void @_ZNK15ClassFileParser21classfile_parse_errorEPKciP10JavaThread(ptr noundef nonnull align 8 dereferenceable(440) %0, ptr noundef nonnull @.str.95, i32 noundef %88, ptr noundef nonnull %7) #23
   br label %_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit91
 
-_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit91: ; preds = %95, %95, %_ZNK15ClassFileParser24valid_klass_reference_atEi.exit88, %108
-  %109 = load ptr, ptr %41, align 8
-  %.not130 = icmp eq ptr %109, null
-  br i1 %.not130, label %111, label %.loopexit
+_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit91: ; preds = %93, %93, %_ZNK15ClassFileParser24valid_klass_reference_atEi.exit88, %106
+  %107 = load ptr, ptr %39, align 8
+  %.not130 = icmp eq ptr %107, null
+  br i1 %.not130, label %109, label %.loopexit
 
-_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit91.thread: ; preds = %84
-  %110 = load ptr, ptr %41, align 8
-  %.not130143 = icmp eq ptr %110, null
+_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit91.thread: ; preds = %82
+  %108 = load ptr, ptr %39, align 8
+  %.not130143 = icmp eq ptr %108, null
   br i1 %.not130143, label %.thread144, label %.loopexit
 
-111:                                              ; preds = %_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit91
-  %112 = tail call noundef ptr @_ZNK12ConstantPool13klass_name_atEi(ptr noundef nonnull align 8 dereferenceable(68) %2, i32 noundef %90) #23
-  %113 = getelementptr inbounds i8, ptr %112, i64 6
-  %114 = load i8, ptr %113, align 1
-  %.not131 = icmp eq i8 %114, 91
-  br i1 %.not131, label %115, label %_ZNK15ClassFileParser18guarantee_propertyEbPKcP10JavaThread.exit
+109:                                              ; preds = %_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit91
+  %110 = tail call noundef ptr @_ZNK12ConstantPool13klass_name_atEi(ptr noundef nonnull align 8 dereferenceable(68) %2, i32 noundef %88) #23
+  %111 = getelementptr inbounds i8, ptr %110, i64 6
+  %112 = load i8, ptr %111, align 1
+  %.not131 = icmp eq i8 %112, 91
+  br i1 %.not131, label %113, label %_ZNK15ClassFileParser18guarantee_propertyEbPKcP10JavaThread.exit
 
-115:                                              ; preds = %111
+113:                                              ; preds = %109
   tail call void @_ZNK15ClassFileParser21classfile_parse_errorEPKcP10JavaThread(ptr noundef nonnull align 8 dereferenceable(440) %0, ptr noundef nonnull @.str.96, ptr noundef nonnull %7) #23
   br label %_ZNK15ClassFileParser18guarantee_propertyEbPKcP10JavaThread.exit
 
-_ZNK15ClassFileParser18guarantee_propertyEbPKcP10JavaThread.exit: ; preds = %111, %115
-  %116 = load ptr, ptr %41, align 8
-  %.not132 = icmp eq ptr %116, null
+_ZNK15ClassFileParser18guarantee_propertyEbPKcP10JavaThread.exit: ; preds = %109, %113
+  %114 = load ptr, ptr %39, align 8
+  %.not132 = icmp eq ptr %114, null
   br i1 %.not132, label %.thread144, label %.loopexit
 
 .thread144:                                       ; preds = %_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit91.thread, %_ZNK15ClassFileParser18guarantee_propertyEbPKcP10JavaThread.exit
-  %117 = load ptr, ptr %9, align 8
-  %.0.i.i.i.i92 = load i16, ptr %117, align 1
-  %118 = tail call noundef i16 @llvm.bswap.i16(i16 %.0.i.i.i.i92)
-  %119 = getelementptr inbounds i8, ptr %117, i64 2
-  store ptr %119, ptr %9, align 8
-  %120 = icmp eq i16 %.0.i.i.i.i92, 0
-  br i1 %120, label %_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit95, label %121
+  %115 = load ptr, ptr %9, align 8
+  %.0.i.i.i.i92 = load i16, ptr %115, align 1
+  %116 = tail call noundef i16 @llvm.bswap.i16(i16 %.0.i.i.i.i92)
+  %117 = getelementptr inbounds i8, ptr %115, i64 2
+  store ptr %117, ptr %9, align 8
+  %118 = icmp eq i16 %.0.i.i.i.i92, 0
+  br i1 %118, label %_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit95, label %119
 
-121:                                              ; preds = %.thread144
-  %122 = zext i16 %118 to i32
-  %123 = load ptr, ptr %56, align 8
-  %124 = getelementptr inbounds i8, ptr %123, i64 60
-  %125 = load i32, ptr %124, align 4
-  %126 = icmp sgt i32 %125, %122
-  br i1 %126, label %127, label %_ZNK15ClassFileParser15valid_symbol_atEi.exit
+119:                                              ; preds = %.thread144
+  %120 = zext i16 %116 to i32
+  %121 = load ptr, ptr %54, align 8
+  %122 = getelementptr inbounds i8, ptr %121, i64 60
+  %123 = load i32, ptr %122, align 4
+  %124 = icmp sgt i32 %123, %120
+  br i1 %124, label %125, label %_ZNK15ClassFileParser15valid_symbol_atEi.exit
 
-127:                                              ; preds = %121
-  %128 = getelementptr inbounds i8, ptr %123, i64 8
-  %129 = load ptr, ptr %128, align 8
-  %130 = getelementptr inbounds i8, ptr %129, i64 4
-  %131 = zext i16 %118 to i64
-  %132 = getelementptr inbounds i8, ptr %130, i64 %131
-  %133 = load volatile i8, ptr %132, align 1
+125:                                              ; preds = %119
+  %126 = getelementptr inbounds i8, ptr %121, i64 8
+  %127 = load ptr, ptr %126, align 8
+  %128 = getelementptr inbounds i8, ptr %127, i64 4
+  %129 = zext i16 %116 to i64
+  %130 = getelementptr inbounds i8, ptr %128, i64 %129
+  %131 = load volatile i8, ptr %130, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !8
-  %134 = icmp eq i8 %133, 1
+  %132 = icmp eq i8 %131, 1
   br label %_ZNK15ClassFileParser15valid_symbol_atEi.exit
 
-_ZNK15ClassFileParser15valid_symbol_atEi.exit:    ; preds = %127, %121
-  %135 = phi i1 [ false, %121 ], [ %134, %127 ]
-  %136 = load i8, ptr %57, align 8
-  %137 = trunc i8 %136 to i1
-  %.not.i93 = xor i1 %137, true
-  %brmerge.i94 = or i1 %135, %.not.i93
-  br i1 %brmerge.i94, label %_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit95, label %138
+_ZNK15ClassFileParser15valid_symbol_atEi.exit:    ; preds = %125, %119
+  %133 = phi i1 [ false, %119 ], [ %132, %125 ]
+  %134 = load i8, ptr %55, align 8
+  %135 = trunc i8 %134 to i1
+  %.not.i93 = xor i1 %135, true
+  %brmerge.i94 = or i1 %133, %.not.i93
+  br i1 %brmerge.i94, label %_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit95, label %136
 
-138:                                              ; preds = %_ZNK15ClassFileParser15valid_symbol_atEi.exit
-  tail call void @_ZNK15ClassFileParser21classfile_parse_errorEPKciP10JavaThread(ptr noundef nonnull align 8 dereferenceable(440) %0, ptr noundef nonnull @.str.97, i32 noundef %122, ptr noundef nonnull %7) #23
+136:                                              ; preds = %_ZNK15ClassFileParser15valid_symbol_atEi.exit
+  tail call void @_ZNK15ClassFileParser21classfile_parse_errorEPKciP10JavaThread(ptr noundef nonnull align 8 dereferenceable(440) %0, ptr noundef nonnull @.str.97, i32 noundef %120, ptr noundef nonnull %7) #23
   br label %_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit95
 
-_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit95: ; preds = %.thread144, %_ZNK15ClassFileParser15valid_symbol_atEi.exit, %138
-  %139 = load ptr, ptr %41, align 8
-  %.not133 = icmp eq ptr %139, null
-  br i1 %.not133, label %140, label %.loopexit
+_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit95: ; preds = %.thread144, %_ZNK15ClassFileParser15valid_symbol_atEi.exit, %136
+  %137 = load ptr, ptr %39, align 8
+  %.not133 = icmp eq ptr %137, null
+  br i1 %.not133, label %138, label %.loopexit
 
-140:                                              ; preds = %_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit95
-  %141 = load i8, ptr %57, align 8
-  %142 = trunc i8 %141 to i1
+138:                                              ; preds = %_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit95
+  %139 = load i8, ptr %55, align 8
+  %140 = trunc i8 %139 to i1
   %.not134 = icmp eq i16 %.0.i.i.i.i85, %.0.i.i.i.i86
-  %or.cond146 = and i1 %.not134, %142
+  %or.cond146 = and i1 %.not134, %140
   br i1 %or.cond146, label %_ZNK15ClassFileParser18guarantee_propertyEbPKcP10JavaThread.exit96, label %_ZNK15ClassFileParser18guarantee_propertyEbPKcP10JavaThread.exit96.thread
 
-_ZNK15ClassFileParser18guarantee_propertyEbPKcP10JavaThread.exit96: ; preds = %140
+_ZNK15ClassFileParser18guarantee_propertyEbPKcP10JavaThread.exit96: ; preds = %138
   tail call void @_ZNK15ClassFileParser21classfile_parse_errorEPKcP10JavaThread(ptr noundef nonnull align 8 dereferenceable(440) %0, ptr noundef nonnull @.str.98, ptr noundef nonnull %7) #23
-  %.pre = load ptr, ptr %41, align 8
-  %143 = icmp eq ptr %.pre, null
-  br i1 %143, label %_ZNK15ClassFileParser18guarantee_propertyEbPKcP10JavaThread.exit96.thread, label %.loopexit
+  %.pre = load ptr, ptr %39, align 8
+  %141 = icmp eq ptr %.pre, null
+  br i1 %141, label %_ZNK15ClassFileParser18guarantee_propertyEbPKcP10JavaThread.exit96.thread, label %.loopexit
 
-_ZNK15ClassFileParser18guarantee_propertyEbPKcP10JavaThread.exit96.thread: ; preds = %_ZNK15ClassFileParser18guarantee_propertyEbPKcP10JavaThread.exit96, %140
-  %144 = load i16, ptr %58, align 4
-  %145 = icmp ugt i16 %144, 52
-  %146 = load ptr, ptr %9, align 8
-  %.0.i.i.i.i97 = load i16, ptr %146, align 1
-  %. = select i1 %145, i16 16374, i16 16246
-  %147 = and i16 %.0.i.i.i.i97, %.
-  %148 = tail call i16 @llvm.bswap.i16(i16 %147)
-  %.sink = getelementptr inbounds i8, ptr %146, i64 2
+_ZNK15ClassFileParser18guarantee_propertyEbPKcP10JavaThread.exit96.thread: ; preds = %_ZNK15ClassFileParser18guarantee_propertyEbPKcP10JavaThread.exit96, %138
+  %142 = load i16, ptr %56, align 4
+  %143 = icmp ugt i16 %142, 52
+  %144 = load ptr, ptr %9, align 8
+  %.0.i.i.i.i97 = load i16, ptr %144, align 1
+  %. = select i1 %143, i16 16374, i16 16246
+  %145 = and i16 %.0.i.i.i.i97, %.
+  %146 = tail call i16 @llvm.bswap.i16(i16 %145)
+  %.sink = getelementptr inbounds i8, ptr %144, i64 2
   store ptr %.sink, ptr %9, align 8
-  %.0 = zext i16 %148 to i32
-  %149 = and i32 %.0, 512
-  %.not82 = icmp ne i32 %149, 0
-  %150 = load i16, ptr %58, align 4
-  %151 = icmp ult i16 %150, 50
-  %or.cond = select i1 %.not82, i1 %151, i1 false
-  %152 = or i32 %.0, 1024
-  %.1 = select i1 %or.cond, i32 %152, i32 %.0
+  %.0 = zext i16 %146 to i32
+  %147 = and i32 %.0, 512
+  %.not82 = icmp ne i32 %147, 0
+  %148 = load i16, ptr %56, align 4
+  %149 = icmp ult i16 %148, 50
+  %or.cond = select i1 %.not82, i1 %149, i1 false
+  %150 = or i32 %.0, 1024
+  %.1 = select i1 %or.cond, i32 %150, i32 %.0
   tail call void @_ZNK15ClassFileParser28verify_legal_class_modifiersEiP10JavaThread(ptr noundef nonnull align 8 dereferenceable(440) %0, i32 noundef %.1, ptr noundef nonnull %7)
-  %153 = load ptr, ptr %41, align 8
-  %.not136 = icmp eq ptr %153, null
-  br i1 %.not136, label %154, label %.loopexit
+  %151 = load ptr, ptr %39, align 8
+  %.not136 = icmp eq ptr %151, null
+  br i1 %.not136, label %152, label %.loopexit
 
-154:                                              ; preds = %_ZNK15ClassFileParser18guarantee_propertyEbPKcP10JavaThread.exit96.thread
-  %155 = or disjoint i64 %indvars.iv, 1
-  %156 = getelementptr inbounds i16, ptr %59, i64 %indvars.iv
-  store i16 %62, ptr %156, align 2
-  %157 = or disjoint i64 %indvars.iv, 2
-  %158 = getelementptr inbounds i16, ptr %59, i64 %155
-  store i16 %86, ptr %158, align 2
-  %159 = or disjoint i64 %indvars.iv, 3
-  %160 = getelementptr inbounds i16, ptr %59, i64 %157
-  store i16 %118, ptr %160, align 2
+152:                                              ; preds = %_ZNK15ClassFileParser18guarantee_propertyEbPKcP10JavaThread.exit96.thread
+  %153 = or disjoint i64 %indvars.iv, 1
+  %154 = getelementptr inbounds i16, ptr %57, i64 %indvars.iv
+  store i16 %60, ptr %154, align 2
+  %155 = or disjoint i64 %indvars.iv, 2
+  %156 = getelementptr inbounds i16, ptr %57, i64 %153
+  store i16 %84, ptr %156, align 2
+  %157 = or disjoint i64 %indvars.iv, 3
+  %158 = getelementptr inbounds i16, ptr %57, i64 %155
+  store i16 %116, ptr %158, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
-  %161 = trunc nuw i32 %.1 to i16
-  %162 = getelementptr inbounds i16, ptr %59, i64 %159
-  store i16 %161, ptr %162, align 2
-  %163 = add nuw nsw i32 %.073139, 1
-  %exitcond.not = icmp eq i32 %163, %26
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %60, !llvm.loop !53
+  %159 = trunc nuw i32 %.1 to i16
+  %160 = getelementptr inbounds i16, ptr %57, i64 %157
+  store i16 %159, ptr %160, align 2
+  %161 = add nuw nsw i32 %.073139, 1
+  %exitcond.not = icmp eq i32 %161, %26
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %58, !llvm.loop !53
 
-._crit_edge.loopexit:                             ; preds = %154
-  %164 = trunc nuw nsw i64 %indvars.iv.next to i32
+._crit_edge.loopexit:                             ; preds = %152
+  %162 = trunc nuw nsw i64 %indvars.iv.next to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
-  %.074.lcssa = phi i32 [ 0, %.preheader ], [ %164, %._crit_edge.loopexit ]
-  %165 = getelementptr inbounds i8, ptr %0, i64 424
-  %166 = load i8, ptr %165, align 8
-  %167 = trunc i8 %166 to i1
-  br i1 %167, label %168, label %182
+  %.074.lcssa = phi i32 [ 0, %.preheader ], [ %162, %._crit_edge.loopexit ]
+  %163 = getelementptr inbounds i8, ptr %0, i64 424
+  %164 = load i8, ptr %163, align 8
+  %165 = trunc i8 %164 to i1
+  br i1 %165, label %166, label %180
 
-168:                                              ; preds = %._crit_edge
-  %169 = tail call noundef zeroext i1 @_ZN15ClassFileParser31check_inner_classes_circularityEPK12ConstantPooliP10JavaThread(ptr noundef nonnull align 8 dereferenceable(440) %0, ptr noundef %2, i32 noundef %27, ptr noundef nonnull %7)
-  %170 = load ptr, ptr %41, align 8
-  %.not127 = icmp eq ptr %170, null
-  br i1 %.not127, label %171, label %.loopexit
+166:                                              ; preds = %._crit_edge
+  %167 = tail call noundef zeroext i1 @_ZN15ClassFileParser31check_inner_classes_circularityEPK12ConstantPooliP10JavaThread(ptr noundef nonnull align 8 dereferenceable(440) %0, ptr noundef %2, i32 noundef %27, ptr noundef nonnull %7)
+  %168 = load ptr, ptr %39, align 8
+  %.not127 = icmp eq ptr %168, null
+  br i1 %.not127, label %169, label %.loopexit
 
-171:                                              ; preds = %168
-  br i1 %169, label %172, label %182
+169:                                              ; preds = %166
+  br i1 %167, label %170, label %180
 
-172:                                              ; preds = %171
-  %173 = load ptr, ptr %30, align 8
-  %174 = load ptr, ptr %44, align 8
-  tail call void @_ZN15MetadataFactory10free_arrayItEEvP15ClassLoaderDataP5ArrayIT_E(ptr noundef %173, ptr noundef %174)
-  br i1 %4, label %175, label %.thread121
+170:                                              ; preds = %169
+  %171 = load ptr, ptr %30, align 8
+  %172 = load ptr, ptr %42, align 8
+  tail call void @_ZN15MetadataFactory10free_arrayItEEvP15ClassLoaderDataP5ArrayIT_E(ptr noundef %171, ptr noundef %172)
+  br i1 %4, label %173, label %.thread121
 
-175:                                              ; preds = %172
-  %176 = load ptr, ptr %30, align 8
-  %177 = tail call noundef ptr @_ZN9Metaspace8allocateEP15ClassLoaderDatamN12MetaspaceObj4TypeEP10JavaThread(ptr noundef %176, i64 noundef 2, i32 noundef 3, ptr noundef nonnull %7) #23
-  %178 = icmp eq ptr %177, null
-  br i1 %178, label %_ZN15MetadataFactory9new_arrayItEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit99, label %179
+173:                                              ; preds = %170
+  %174 = load ptr, ptr %30, align 8
+  %175 = tail call noundef ptr @_ZN9Metaspace8allocateEP15ClassLoaderDatamN12MetaspaceObj4TypeEP10JavaThread(ptr noundef %174, i64 noundef 2, i32 noundef 3, ptr noundef nonnull %7) #23
+  %176 = icmp eq ptr %175, null
+  br i1 %176, label %_ZN15MetadataFactory9new_arrayItEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit99, label %177
 
-179:                                              ; preds = %175
-  store i32 2, ptr %177, align 4
+177:                                              ; preds = %173
+  store i32 2, ptr %175, align 4
   br label %_ZN15MetadataFactory9new_arrayItEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit99
 
-_ZN15MetadataFactory9new_arrayItEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit99: ; preds = %175, %179
-  %180 = load ptr, ptr %41, align 8
-  %.not128 = icmp eq ptr %180, null
+_ZN15MetadataFactory9new_arrayItEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit99: ; preds = %173, %177
+  %178 = load ptr, ptr %39, align 8
+  %.not128 = icmp eq ptr %178, null
   br i1 %.not128, label %.thread, label %.loopexit
 
 .thread:                                          ; preds = %_ZN15MetadataFactory9new_arrayItEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit99
-  store ptr %177, ptr %44, align 8
-  br label %183
+  store ptr %175, ptr %42, align 8
+  br label %181
 
-.thread121:                                       ; preds = %172
-  %181 = load ptr, ptr @_ZN8Universe22_the_empty_short_arrayE, align 8
-  store ptr %181, ptr %44, align 8
-  br label %190
+.thread121:                                       ; preds = %170
+  %179 = load ptr, ptr @_ZN8Universe22_the_empty_short_arrayE, align 8
+  store ptr %179, ptr %42, align 8
+  br label %188
 
-182:                                              ; preds = %171, %._crit_edge
-  br i1 %4, label %183, label %190
+180:                                              ; preds = %169, %._crit_edge
+  br i1 %4, label %181, label %188
 
-183:                                              ; preds = %.thread, %182
-  %.175120 = phi i32 [ 0, %.thread ], [ %.074.lcssa, %182 ]
-  %.076119 = phi ptr [ %177, %.thread ], [ %38, %182 ]
-  %184 = or disjoint i32 %.175120, 1
-  %185 = getelementptr inbounds i8, ptr %.076119, i64 4
-  %186 = zext nneg i32 %.175120 to i64
-  %187 = getelementptr inbounds i16, ptr %185, i64 %186
-  store i16 %5, ptr %187, align 2
-  %188 = zext nneg i32 %184 to i64
-  %189 = getelementptr inbounds i16, ptr %185, i64 %188
-  store i16 %6, ptr %189, align 2
-  br label %190
+181:                                              ; preds = %.thread, %180
+  %.175120 = phi i32 [ 0, %.thread ], [ %.074.lcssa, %180 ]
+  %.076119 = phi ptr [ %175, %.thread ], [ %36, %180 ]
+  %182 = or disjoint i32 %.175120, 1
+  %183 = getelementptr inbounds i8, ptr %.076119, i64 4
+  %184 = zext nneg i32 %.175120 to i64
+  %185 = getelementptr inbounds i16, ptr %183, i64 %184
+  store i16 %5, ptr %185, align 2
+  %186 = zext nneg i32 %182 to i64
+  %187 = getelementptr inbounds i16, ptr %183, i64 %186
+  store i16 %6, ptr %187, align 2
+  br label %188
 
-190:                                              ; preds = %.thread121, %183, %182
+188:                                              ; preds = %.thread121, %181, %180
   store ptr %10, ptr %9, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %_ZNK15ClassFileParser18guarantee_propertyEbPKcP10JavaThread.exit96.thread, %_ZNK15ClassFileParser18guarantee_propertyEbPKcP10JavaThread.exit96, %_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit95, %_ZNK15ClassFileParser18guarantee_propertyEbPKcP10JavaThread.exit, %_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit91, %_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit, %_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit91.thread, %_ZN15MetadataFactory9new_arrayItEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit99, %168, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit84, %_ZN15MetadataFactory9new_arrayItEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit, %190
-  %.071 = phi i16 [ %.072, %190 ], [ 0, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit ], [ 0, %_ZN15MetadataFactory9new_arrayItEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit ], [ 0, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit84 ], [ 0, %168 ], [ 0, %_ZN15MetadataFactory9new_arrayItEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit99 ], [ 0, %_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit91.thread ], [ 0, %_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit ], [ 0, %_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit91 ], [ 0, %_ZNK15ClassFileParser18guarantee_propertyEbPKcP10JavaThread.exit ], [ 0, %_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit95 ], [ 0, %_ZNK15ClassFileParser18guarantee_propertyEbPKcP10JavaThread.exit96 ], [ 0, %_ZNK15ClassFileParser18guarantee_propertyEbPKcP10JavaThread.exit96.thread ]
+.loopexit:                                        ; preds = %_ZNK15ClassFileParser18guarantee_propertyEbPKcP10JavaThread.exit96.thread, %_ZNK15ClassFileParser18guarantee_propertyEbPKcP10JavaThread.exit96, %_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit95, %_ZNK15ClassFileParser18guarantee_propertyEbPKcP10JavaThread.exit, %_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit91, %_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit, %_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit91.thread, %_ZN15MetadataFactory9new_arrayItEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit99, %166, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit84, %_ZN15MetadataFactory9new_arrayItEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit, %188
+  %.071 = phi i16 [ %.072, %188 ], [ 0, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit ], [ 0, %_ZN15MetadataFactory9new_arrayItEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit ], [ 0, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit84 ], [ 0, %166 ], [ 0, %_ZN15MetadataFactory9new_arrayItEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit99 ], [ 0, %_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit91.thread ], [ 0, %_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit ], [ 0, %_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit91 ], [ 0, %_ZNK15ClassFileParser18guarantee_propertyEbPKcP10JavaThread.exit ], [ 0, %_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit95 ], [ 0, %_ZNK15ClassFileParser18guarantee_propertyEbPKcP10JavaThread.exit96 ], [ 0, %_ZNK15ClassFileParser18guarantee_propertyEbPKcP10JavaThread.exit96.thread ]
   ret i16 %.071
 }
 
@@ -10858,47 +10857,46 @@ _ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit: ; preds = %7, %14
   %22 = zext i16 %.031 to i32
   %23 = getelementptr inbounds i8, ptr %0, i64 16
   %24 = load ptr, ptr %23, align 8
-  %25 = tail call i32 @llvm.umax.i32(i32 %22, i32 1)
-  %26 = add nsw i32 %25, -1
-  %27 = zext nneg i32 %26 to i64
-  %28 = shl nuw nsw i64 %27, 1
-  %29 = add nuw nsw i64 %28, 15
-  %30 = lshr i64 %29, 3
-  %31 = tail call noundef ptr @_ZN9Metaspace8allocateEP15ClassLoaderDatamN12MetaspaceObj4TypeEP10JavaThread(ptr noundef %24, i64 noundef %30, i32 noundef 3, ptr noundef %3) #23
-  %32 = icmp eq ptr %31, null
-  br i1 %32, label %_ZN15MetadataFactory9new_arrayItEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit, label %33
+  %25 = tail call i32 @llvm.usub.sat.i32(i32 %22, i32 1)
+  %26 = shl nuw nsw i32 %25, 1
+  %narrow = add nuw nsw i32 %26, 15
+  %27 = lshr i32 %narrow, 3
+  %28 = zext nneg i32 %27 to i64
+  %29 = tail call noundef ptr @_ZN9Metaspace8allocateEP15ClassLoaderDatamN12MetaspaceObj4TypeEP10JavaThread(ptr noundef %24, i64 noundef %28, i32 noundef 3, ptr noundef %3) #23
+  %30 = icmp eq ptr %29, null
+  br i1 %30, label %_ZN15MetadataFactory9new_arrayItEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit, label %31
 
-33:                                               ; preds = %21
-  store i32 %22, ptr %31, align 4
+31:                                               ; preds = %21
+  store i32 %22, ptr %29, align 4
   br label %_ZN15MetadataFactory9new_arrayItEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit
 
-_ZN15MetadataFactory9new_arrayItEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit: ; preds = %21, %33
-  %34 = getelementptr inbounds i8, ptr %3, i64 8
-  %35 = load ptr, ptr %34, align 8
-  %.not39 = icmp eq ptr %35, null
-  br i1 %.not39, label %36, label %.loopexit
+_ZN15MetadataFactory9new_arrayItEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit: ; preds = %21, %31
+  %32 = getelementptr inbounds i8, ptr %3, i64 8
+  %33 = load ptr, ptr %32, align 8
+  %.not39 = icmp eq ptr %33, null
+  br i1 %.not39, label %34, label %.loopexit
 
-36:                                               ; preds = %_ZN15MetadataFactory9new_arrayItEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit
-  %37 = getelementptr inbounds i8, ptr %0, i64 80
-  store ptr %31, ptr %37, align 8
-  %38 = shl nuw nsw i32 %22, 1
-  %39 = getelementptr inbounds i8, ptr %1, i64 16
-  %40 = load ptr, ptr %39, align 8
-  %41 = load ptr, ptr %5, align 8
-  %42 = ptrtoint ptr %40 to i64
-  %43 = ptrtoint ptr %41 to i64
-  %44 = sub i64 %42, %43
-  %45 = zext nneg i32 %38 to i64
-  %46 = icmp ult i64 %44, %45
-  br i1 %46, label %47, label %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit33
+34:                                               ; preds = %_ZN15MetadataFactory9new_arrayItEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit
+  %35 = getelementptr inbounds i8, ptr %0, i64 80
+  store ptr %29, ptr %35, align 8
+  %36 = shl nuw nsw i32 %22, 1
+  %37 = getelementptr inbounds i8, ptr %1, i64 16
+  %38 = load ptr, ptr %37, align 8
+  %39 = load ptr, ptr %5, align 8
+  %40 = ptrtoint ptr %38 to i64
+  %41 = ptrtoint ptr %39 to i64
+  %42 = sub i64 %40, %41
+  %43 = zext nneg i32 %36 to i64
+  %44 = icmp ult i64 %42, %43
+  br i1 %44, label %45, label %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit33
 
-47:                                               ; preds = %36
+45:                                               ; preds = %34
   tail call void @_ZNK15ClassFileStream20truncated_file_errorEP10JavaThread(ptr noundef nonnull align 8 dereferenceable(42) %1, ptr noundef nonnull %3) #23
   br label %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit33
 
-_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit33: ; preds = %36, %47
-  %48 = load ptr, ptr %34, align 8
-  %.not40 = icmp eq ptr %48, null
+_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit33: ; preds = %34, %45
+  %46 = load ptr, ptr %32, align 8
+  %.not40 = icmp eq ptr %46, null
   br i1 %.not40, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit33
@@ -10906,70 +10904,70 @@ _ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit33: ; preds = %36, %47
   br i1 %.not44, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %49 = getelementptr inbounds i8, ptr %0, i64 40
-  %50 = getelementptr inbounds i8, ptr %0, i64 424
-  %51 = getelementptr inbounds i8, ptr %31, i64 4
+  %47 = getelementptr inbounds i8, ptr %0, i64 40
+  %48 = getelementptr inbounds i8, ptr %0, i64 424
+  %49 = getelementptr inbounds i8, ptr %29, i64 4
   %wide.trip.count = zext i16 %.031 to i64
-  br label %52
+  br label %50
 
-52:                                               ; preds = %.lr.ph, %76
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %76 ]
-  %53 = load ptr, ptr %5, align 8
-  %.0.i.i.i.i34 = load i16, ptr %53, align 1
-  %54 = tail call noundef i16 @llvm.bswap.i16(i16 %.0.i.i.i.i34)
-  %55 = getelementptr inbounds i8, ptr %53, i64 2
-  store ptr %55, ptr %5, align 8
-  %56 = zext i16 %54 to i32
-  %57 = load ptr, ptr %49, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 60
-  %59 = load i32, ptr %58, align 4
-  %60 = icmp sgt i32 %59, %56
-  br i1 %60, label %61, label %_ZNK15ClassFileParser24valid_klass_reference_atEi.exit
+50:                                               ; preds = %.lr.ph, %74
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %74 ]
+  %51 = load ptr, ptr %5, align 8
+  %.0.i.i.i.i34 = load i16, ptr %51, align 1
+  %52 = tail call noundef i16 @llvm.bswap.i16(i16 %.0.i.i.i.i34)
+  %53 = getelementptr inbounds i8, ptr %51, i64 2
+  store ptr %53, ptr %5, align 8
+  %54 = zext i16 %52 to i32
+  %55 = load ptr, ptr %47, align 8
+  %56 = getelementptr inbounds i8, ptr %55, i64 60
+  %57 = load i32, ptr %56, align 4
+  %58 = icmp sgt i32 %57, %54
+  br i1 %58, label %59, label %_ZNK15ClassFileParser24valid_klass_reference_atEi.exit
 
-61:                                               ; preds = %52
-  %62 = getelementptr inbounds i8, ptr %57, i64 8
-  %63 = load ptr, ptr %62, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 4
-  %65 = zext i16 %54 to i64
-  %66 = getelementptr inbounds i8, ptr %64, i64 %65
-  %67 = load volatile i8, ptr %66, align 1
+59:                                               ; preds = %50
+  %60 = getelementptr inbounds i8, ptr %55, i64 8
+  %61 = load ptr, ptr %60, align 8
+  %62 = getelementptr inbounds i8, ptr %61, i64 4
+  %63 = zext i16 %52 to i64
+  %64 = getelementptr inbounds i8, ptr %62, i64 %63
+  %65 = load volatile i8, ptr %64, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !8
-  switch i8 %67, label %68 [
+  switch i8 %65, label %66 [
     i8 7, label %_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit
     i8 101, label %_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit
   ]
 
-68:                                               ; preds = %61
-  %69 = icmp eq i8 %67, 100
-  %70 = icmp eq i8 %67, 103
-  %spec.select.i.i.i.i = or i1 %69, %70
+66:                                               ; preds = %59
+  %67 = icmp eq i8 %65, 100
+  %68 = icmp eq i8 %65, 103
+  %spec.select.i.i.i.i = or i1 %67, %68
   br label %_ZNK15ClassFileParser24valid_klass_reference_atEi.exit
 
-_ZNK15ClassFileParser24valid_klass_reference_atEi.exit: ; preds = %52, %68
-  %71 = phi i1 [ false, %52 ], [ %spec.select.i.i.i.i, %68 ]
-  %72 = load i8, ptr %50, align 8
-  %73 = trunc i8 %72 to i1
-  %.not.i = xor i1 %73, true
-  %brmerge.i = or i1 %71, %.not.i
-  br i1 %brmerge.i, label %_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit, label %74
+_ZNK15ClassFileParser24valid_klass_reference_atEi.exit: ; preds = %50, %66
+  %69 = phi i1 [ false, %50 ], [ %spec.select.i.i.i.i, %66 ]
+  %70 = load i8, ptr %48, align 8
+  %71 = trunc i8 %70 to i1
+  %.not.i = xor i1 %71, true
+  %brmerge.i = or i1 %69, %.not.i
+  br i1 %brmerge.i, label %_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit, label %72
 
-74:                                               ; preds = %_ZNK15ClassFileParser24valid_klass_reference_atEi.exit
-  tail call void @_ZNK15ClassFileParser21classfile_parse_errorEPKciP10JavaThread(ptr noundef nonnull align 8 dereferenceable(440) %0, ptr noundef nonnull @.str.99, i32 noundef %56, ptr noundef nonnull %3) #23
+72:                                               ; preds = %_ZNK15ClassFileParser24valid_klass_reference_atEi.exit
+  tail call void @_ZNK15ClassFileParser21classfile_parse_errorEPKciP10JavaThread(ptr noundef nonnull align 8 dereferenceable(440) %0, ptr noundef nonnull @.str.99, i32 noundef %54, ptr noundef nonnull %3) #23
   br label %_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit
 
-_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit: ; preds = %61, %61, %_ZNK15ClassFileParser24valid_klass_reference_atEi.exit, %74
-  %75 = load ptr, ptr %34, align 8
-  %.not41 = icmp eq ptr %75, null
-  br i1 %.not41, label %76, label %.loopexit
+_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit: ; preds = %59, %59, %_ZNK15ClassFileParser24valid_klass_reference_atEi.exit, %72
+  %73 = load ptr, ptr %32, align 8
+  %.not41 = icmp eq ptr %73, null
+  br i1 %.not41, label %74, label %.loopexit
 
-76:                                               ; preds = %_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit
+74:                                               ; preds = %_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %77 = getelementptr inbounds i16, ptr %51, i64 %indvars.iv
-  store i16 %54, ptr %77, align 2
+  %75 = getelementptr inbounds i16, ptr %49, i64 %indvars.iv
+  store i16 %52, ptr %75, align 2
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %52, !llvm.loop !54
+  br i1 %exitcond.not, label %._crit_edge, label %50, !llvm.loop !54
 
-._crit_edge:                                      ; preds = %76, %.preheader
+._crit_edge:                                      ; preds = %74, %.preheader
   store ptr %6, ptr %5, align 8
   br label %.loopexit
 
@@ -11018,118 +11016,118 @@ _ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit: ; preds = %7, %14
   %22 = zext i16 %.032 to i32
   %23 = getelementptr inbounds i8, ptr %0, i64 16
   %24 = load ptr, ptr %23, align 8
-  %25 = tail call i32 @llvm.umax.i32(i32 %22, i32 1)
-  %26 = add nsw i32 %25, -1
-  %27 = zext nneg i32 %26 to i64
-  %28 = shl nuw nsw i64 %27, 1
-  %29 = add nuw nsw i64 %28, 15
-  %30 = lshr i64 %29, 3
-  %31 = tail call noundef ptr @_ZN9Metaspace8allocateEP15ClassLoaderDatamN12MetaspaceObj4TypeEP10JavaThread(ptr noundef %24, i64 noundef %30, i32 noundef 3, ptr noundef %3) #23
-  %32 = icmp eq ptr %31, null
-  br i1 %32, label %_ZN15MetadataFactory9new_arrayItEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit, label %33
+  %25 = tail call i32 @llvm.usub.sat.i32(i32 %22, i32 1)
+  %26 = shl nuw nsw i32 %25, 1
+  %narrow = add nuw nsw i32 %26, 15
+  %27 = lshr i32 %narrow, 3
+  %28 = zext nneg i32 %27 to i64
+  %29 = tail call noundef ptr @_ZN9Metaspace8allocateEP15ClassLoaderDatamN12MetaspaceObj4TypeEP10JavaThread(ptr noundef %24, i64 noundef %28, i32 noundef 3, ptr noundef %3) #23
+  %30 = icmp eq ptr %29, null
+  br i1 %30, label %_ZN15MetadataFactory9new_arrayItEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit, label %31
 
-33:                                               ; preds = %21
-  store i32 %22, ptr %31, align 4
+31:                                               ; preds = %21
+  store i32 %22, ptr %29, align 4
   br label %_ZN15MetadataFactory9new_arrayItEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit
 
-_ZN15MetadataFactory9new_arrayItEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit: ; preds = %21, %33
-  %34 = getelementptr inbounds i8, ptr %3, i64 8
-  %35 = load ptr, ptr %34, align 8
-  %.not42 = icmp eq ptr %35, null
-  br i1 %.not42, label %36, label %.loopexit45
+_ZN15MetadataFactory9new_arrayItEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit: ; preds = %21, %31
+  %32 = getelementptr inbounds i8, ptr %3, i64 8
+  %33 = load ptr, ptr %32, align 8
+  %.not42 = icmp eq ptr %33, null
+  br i1 %.not42, label %34, label %.loopexit45
 
-36:                                               ; preds = %_ZN15MetadataFactory9new_arrayItEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit
-  %37 = getelementptr inbounds i8, ptr %0, i64 96
-  store ptr %31, ptr %37, align 8
+34:                                               ; preds = %_ZN15MetadataFactory9new_arrayItEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit
+  %35 = getelementptr inbounds i8, ptr %0, i64 96
+  store ptr %29, ptr %35, align 8
   %.not35 = icmp eq i16 %.032, 0
-  br i1 %.not35, label %.loopexit, label %38
+  br i1 %.not35, label %.loopexit, label %36
 
-38:                                               ; preds = %36
-  %39 = shl nuw nsw i32 %22, 1
-  %40 = getelementptr inbounds i8, ptr %1, i64 16
-  %41 = load ptr, ptr %40, align 8
-  %42 = load ptr, ptr %5, align 8
-  %43 = ptrtoint ptr %41 to i64
-  %44 = ptrtoint ptr %42 to i64
-  %45 = sub i64 %43, %44
-  %46 = zext nneg i32 %39 to i64
-  %47 = icmp ult i64 %45, %46
-  br i1 %47, label %48, label %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit36
+36:                                               ; preds = %34
+  %37 = shl nuw nsw i32 %22, 1
+  %38 = getelementptr inbounds i8, ptr %1, i64 16
+  %39 = load ptr, ptr %38, align 8
+  %40 = load ptr, ptr %5, align 8
+  %41 = ptrtoint ptr %39 to i64
+  %42 = ptrtoint ptr %40 to i64
+  %43 = sub i64 %41, %42
+  %44 = zext nneg i32 %37 to i64
+  %45 = icmp ult i64 %43, %44
+  br i1 %45, label %46, label %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit36
 
-48:                                               ; preds = %38
+46:                                               ; preds = %36
   tail call void @_ZNK15ClassFileStream20truncated_file_errorEP10JavaThread(ptr noundef nonnull align 8 dereferenceable(42) %1, ptr noundef nonnull %3) #23
   br label %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit36
 
-_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit36: ; preds = %38, %48
-  %49 = load ptr, ptr %34, align 8
-  %.not43 = icmp eq ptr %49, null
+_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit36: ; preds = %36, %46
+  %47 = load ptr, ptr %32, align 8
+  %.not43 = icmp eq ptr %47, null
   br i1 %.not43, label %.preheader, label %.loopexit45
 
 .preheader:                                       ; preds = %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit36
-  %50 = getelementptr inbounds i8, ptr %0, i64 40
-  %51 = getelementptr inbounds i8, ptr %0, i64 424
-  %52 = getelementptr inbounds i8, ptr %31, i64 4
-  %wide.trip.count = zext nneg i32 %25 to i64
-  br label %53
+  %48 = getelementptr inbounds i8, ptr %0, i64 40
+  %49 = getelementptr inbounds i8, ptr %0, i64 424
+  %50 = getelementptr inbounds i8, ptr %29, i64 4
+  %umax = tail call i32 @llvm.umax.i32(i32 %22, i32 1)
+  %wide.trip.count = zext nneg i32 %umax to i64
+  br label %51
 
-53:                                               ; preds = %.preheader, %77
-  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %77 ]
-  %54 = load ptr, ptr %5, align 8
-  %.0.i.i.i.i37 = load i16, ptr %54, align 1
-  %55 = tail call noundef i16 @llvm.bswap.i16(i16 %.0.i.i.i.i37)
-  %56 = getelementptr inbounds i8, ptr %54, i64 2
-  store ptr %56, ptr %5, align 8
-  %57 = zext i16 %55 to i32
-  %58 = load ptr, ptr %50, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 60
-  %60 = load i32, ptr %59, align 4
-  %61 = icmp sgt i32 %60, %57
-  br i1 %61, label %62, label %_ZNK15ClassFileParser24valid_klass_reference_atEi.exit
+51:                                               ; preds = %.preheader, %75
+  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %75 ]
+  %52 = load ptr, ptr %5, align 8
+  %.0.i.i.i.i37 = load i16, ptr %52, align 1
+  %53 = tail call noundef i16 @llvm.bswap.i16(i16 %.0.i.i.i.i37)
+  %54 = getelementptr inbounds i8, ptr %52, i64 2
+  store ptr %54, ptr %5, align 8
+  %55 = zext i16 %53 to i32
+  %56 = load ptr, ptr %48, align 8
+  %57 = getelementptr inbounds i8, ptr %56, i64 60
+  %58 = load i32, ptr %57, align 4
+  %59 = icmp sgt i32 %58, %55
+  br i1 %59, label %60, label %_ZNK15ClassFileParser24valid_klass_reference_atEi.exit
 
-62:                                               ; preds = %53
-  %63 = getelementptr inbounds i8, ptr %58, i64 8
-  %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 4
-  %66 = zext i16 %55 to i64
-  %67 = getelementptr inbounds i8, ptr %65, i64 %66
-  %68 = load volatile i8, ptr %67, align 1
+60:                                               ; preds = %51
+  %61 = getelementptr inbounds i8, ptr %56, i64 8
+  %62 = load ptr, ptr %61, align 8
+  %63 = getelementptr inbounds i8, ptr %62, i64 4
+  %64 = zext i16 %53 to i64
+  %65 = getelementptr inbounds i8, ptr %63, i64 %64
+  %66 = load volatile i8, ptr %65, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !8
-  switch i8 %68, label %69 [
+  switch i8 %66, label %67 [
     i8 7, label %_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit
     i8 101, label %_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit
   ]
 
-69:                                               ; preds = %62
-  %70 = icmp eq i8 %68, 100
-  %71 = icmp eq i8 %68, 103
-  %spec.select.i.i.i.i = or i1 %70, %71
+67:                                               ; preds = %60
+  %68 = icmp eq i8 %66, 100
+  %69 = icmp eq i8 %66, 103
+  %spec.select.i.i.i.i = or i1 %68, %69
   br label %_ZNK15ClassFileParser24valid_klass_reference_atEi.exit
 
-_ZNK15ClassFileParser24valid_klass_reference_atEi.exit: ; preds = %53, %69
-  %72 = phi i1 [ false, %53 ], [ %spec.select.i.i.i.i, %69 ]
-  %73 = load i8, ptr %51, align 8
-  %74 = trunc i8 %73 to i1
-  %.not.i = xor i1 %74, true
-  %brmerge.i = or i1 %72, %.not.i
-  br i1 %brmerge.i, label %_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit, label %75
+_ZNK15ClassFileParser24valid_klass_reference_atEi.exit: ; preds = %51, %67
+  %70 = phi i1 [ false, %51 ], [ %spec.select.i.i.i.i, %67 ]
+  %71 = load i8, ptr %49, align 8
+  %72 = trunc i8 %71 to i1
+  %.not.i = xor i1 %72, true
+  %brmerge.i = or i1 %70, %.not.i
+  br i1 %brmerge.i, label %_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit, label %73
 
-75:                                               ; preds = %_ZNK15ClassFileParser24valid_klass_reference_atEi.exit
-  tail call void @_ZNK15ClassFileParser21classfile_parse_errorEPKciP10JavaThread(ptr noundef nonnull align 8 dereferenceable(440) %0, ptr noundef nonnull @.str.100, i32 noundef %57, ptr noundef nonnull %3) #23
+73:                                               ; preds = %_ZNK15ClassFileParser24valid_klass_reference_atEi.exit
+  tail call void @_ZNK15ClassFileParser21classfile_parse_errorEPKciP10JavaThread(ptr noundef nonnull align 8 dereferenceable(440) %0, ptr noundef nonnull @.str.100, i32 noundef %55, ptr noundef nonnull %3) #23
   br label %_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit
 
-_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit: ; preds = %62, %62, %_ZNK15ClassFileParser24valid_klass_reference_atEi.exit, %75
-  %76 = load ptr, ptr %34, align 8
-  %.not44 = icmp eq ptr %76, null
-  br i1 %.not44, label %77, label %.loopexit45
+_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit: ; preds = %60, %60, %_ZNK15ClassFileParser24valid_klass_reference_atEi.exit, %73
+  %74 = load ptr, ptr %32, align 8
+  %.not44 = icmp eq ptr %74, null
+  br i1 %.not44, label %75, label %.loopexit45
 
-77:                                               ; preds = %_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit
+75:                                               ; preds = %_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %78 = getelementptr inbounds i16, ptr %52, i64 %indvars.iv
-  store i16 %55, ptr %78, align 2
+  %76 = getelementptr inbounds i16, ptr %50, i64 %indvars.iv
+  store i16 %53, ptr %76, align 2
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %53, !llvm.loop !55
+  br i1 %exitcond.not, label %.loopexit, label %51, !llvm.loop !55
 
-.loopexit:                                        ; preds = %77, %36
+.loopexit:                                        ; preds = %75, %34
   store ptr %6, ptr %5, align 8
   br label %.loopexit45
 
@@ -19854,6 +19852,9 @@ declare i16 @llvm.umax.i16(i16, i16) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshl.i32(i32, i32, i32) #20
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.usub.sat.i32(i32, i32) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #22

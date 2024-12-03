@@ -165955,8 +165955,7 @@ _ZNK4llvm3EVTeqES0_.exit.thread261:               ; preds = %76
 
 80:                                               ; preds = %76
   %81 = udiv i32 64, %50
-  %.sroa.speculated229 = call i32 @llvm.umax.i32(i32 %81, i32 8)
-  %82 = add nsw i32 %.sroa.speculated229, -8
+  %82 = call i32 @llvm.usub.sat.i32(i32 %81, i32 8)
   %83 = call i32 @llvm.fshl.i32(i32 %82, i32 %82, i32 29)
   %84 = icmp ult i32 %83, 8
   br i1 %84, label %switch.lookup, label %_ZN4llvm3MVT12getIntegerVTEj.exit
@@ -174625,6 +174624,9 @@ declare i32 @llvm.umin.i32(i32, i32) #29
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #29
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.usub.sat.i32(i32, i32) #29
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.umax.i8(i8, i8) #29

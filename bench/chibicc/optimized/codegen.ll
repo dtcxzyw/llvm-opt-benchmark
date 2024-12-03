@@ -3269,18 +3269,17 @@ if.else7:                                         ; preds = %entry
   tail call void (ptr, ...) @println(ptr noundef nonnull @.str.44)
   %size8 = getelementptr inbounds i8, ptr %2, i64 4
   %4 = load i32, ptr %size8, align 4
-  %cmp9 = icmp sgt i32 %4, 8
-  %5 = add nsw i32 %4, -1
-  %spec.select = select i1 %cmp9, i32 7, i32 %5
-  %cmp1428 = icmp sgt i32 %spec.select, -1
-  br i1 %cmp1428, label %for.body, label %if.end16
+  %5 = tail call i32 @llvm.smin.i32(i32 %4, i32 8)
+  %i.028 = add i32 %5, -1
+  %cmp1429 = icmp sgt i32 %i.028, -1
+  br i1 %cmp1429, label %for.body, label %if.end16
 
 for.body:                                         ; preds = %if.else7, %for.body
-  %i.029 = phi i32 [ %dec, %for.body ], [ %spec.select, %if.else7 ]
+  %i.030 = phi i32 [ %i.0, %for.body ], [ %i.028, %if.else7 ]
   tail call void (ptr, ...) @println(ptr noundef nonnull @.str.275)
-  tail call void (ptr, ...) @println(ptr noundef nonnull @.str.276, i32 noundef %i.029)
-  %dec = add nsw i32 %i.029, -1
-  %cmp14.not = icmp eq i32 %i.029, 0
+  tail call void (ptr, ...) @println(ptr noundef nonnull @.str.276, i32 noundef %i.030)
+  %i.0 = add nsw i32 %i.030, -1
+  %cmp14.not = icmp eq i32 %i.030, 0
   br i1 %cmp14.not, label %if.end16, label %for.body, !llvm.loop !25
 
 if.end16:                                         ; preds = %for.body, %cond.end, %if.else7
@@ -3313,18 +3312,17 @@ if.else35:                                        ; preds = %if.then19
   %cond39 = select i1 %call, ptr @.str.87, ptr @.str.74
   tail call void (ptr, ...) @println(ptr noundef nonnull @.str.184, ptr noundef nonnull %cond39)
   %7 = load i32, ptr %size17, align 4
-  %cmp42 = icmp sgt i32 %7, 16
-  %8 = add nsw i32 %7, -1
-  %spec.select27 = select i1 %cmp42, i32 15, i32 %8
-  %cmp5030 = icmp sgt i32 %spec.select27, 7
-  br i1 %cmp5030, label %for.body51, label %if.end56
+  %8 = tail call i32 @llvm.smin.i32(i32 %7, i32 16)
+  %i40.031 = add i32 %8, -1
+  %cmp5032 = icmp sgt i32 %i40.031, 7
+  br i1 %cmp5032, label %for.body51, label %if.end56
 
 for.body51:                                       ; preds = %if.else35, %for.body51
-  %i40.031 = phi i32 [ %dec53, %for.body51 ], [ %spec.select27, %if.else35 ]
+  %i40.033 = phi i32 [ %i40.0, %for.body51 ], [ %i40.031, %if.else35 ]
   tail call void (ptr, ...) @println(ptr noundef nonnull @.str.279, ptr noundef nonnull %cond39)
-  tail call void (ptr, ...) @println(ptr noundef nonnull @.str.280, i32 noundef %i40.031, ptr noundef nonnull %cond37)
-  %dec53 = add nsw i32 %i40.031, -1
-  %cmp50 = icmp samesign ugt i32 %i40.031, 8
+  tail call void (ptr, ...) @println(ptr noundef nonnull @.str.280, i32 noundef %i40.033, ptr noundef nonnull %cond37)
+  %i40.0 = add nsw i32 %i40.033, -1
+  %cmp50 = icmp samesign ugt i32 %i40.033, 8
   br i1 %cmp50, label %for.body51, label %if.end56, !llvm.loop !26
 
 if.end56:                                         ; preds = %for.body51, %if.else35, %if.else33, %if.end16

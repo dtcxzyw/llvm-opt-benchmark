@@ -1484,23 +1484,22 @@ entry:
   %add.ptr = getelementptr inbounds i8, ptr %call, i64 24
   %2 = load i64, ptr %o, align 8
   %shr = ashr i64 %2, 47
-  %cmp = icmp ult i64 %shr, -13
-  %not = xor i64 %shr, -1
-  %spec.select = select i1 %cmp, i64 13, i64 %not
+  %3 = tail call i64 @llvm.umax.i64(i64 %shr, i64 -14)
+  %spec.select = xor i64 %3, -1
   %arrayidx = getelementptr inbounds [14 x ptr], ptr @lj_obj_itypename, i64 0, i64 %spec.select
-  %3 = load ptr, ptr %arrayidx, align 8
+  %4 = load ptr, ptr %arrayidx, align 8
   %tobool.not = icmp ult i32 %flags, 256
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
   %shr5 = lshr i32 %flags, 8
-  %4 = load ptr, ptr %L, align 8
-  tail call void (ptr, i32, i32, ...) @lj_err_argv(ptr noundef %4, i32 noundef %shr5, i32 noundef 3219, ptr noundef %3, ptr noundef nonnull %add.ptr) #11
+  %5 = load ptr, ptr %L, align 8
+  tail call void (ptr, i32, i32, ...) @lj_err_argv(ptr noundef %5, i32 noundef %shr5, i32 noundef 3219, ptr noundef %4, ptr noundef nonnull %add.ptr) #11
   unreachable
 
 if.else:                                          ; preds = %entry
-  %5 = load ptr, ptr %L, align 8
-  tail call void (ptr, i32, ...) @lj_err_callerv(ptr noundef %5, i32 noundef 3219, ptr noundef %3, ptr noundef nonnull %add.ptr) #11
+  %6 = load ptr, ptr %L, align 8
+  tail call void (ptr, i32, ...) @lj_err_callerv(ptr noundef %6, i32 noundef 3219, ptr noundef %4, ptr noundef nonnull %add.ptr) #11
   unreachable
 }
 
@@ -2119,14 +2118,17 @@ while.end:                                        ; preds = %while.cond.backedge
   ret void
 }
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #8
+declare i32 @llvm.umin.i32(i32, i32) #7
 
 attributes #0 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2135,8 +2137,8 @@ attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #4 = { noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { noreturn }
 attributes #10 = { nounwind }
 attributes #11 = { noreturn nounwind }

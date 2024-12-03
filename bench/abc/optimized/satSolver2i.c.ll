@@ -807,13 +807,12 @@ Abc_Clock.exit:                                   ; preds = %1, %9
   call void @Cnf_DataLift(ptr noundef nonnull %14, i32 noundef %89) #19
   %90 = getelementptr i8, ptr %13, i64 140
   %.val87 = load i32, ptr %90, align 4
-  %91 = add nsw i32 %.val87, 1
-  %92 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #18
-  %or.cond.i = icmp ult i32 %.val87, 15
-  %spec.store.select.i = select i1 %or.cond.i, i32 16, i32 %91
-  %93 = getelementptr inbounds i8, ptr %92, i64 4
+  %91 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #18
+  %92 = call i32 @llvm.umax.i32(i32 %.val87, i32 15)
+  %spec.store.select.i = add i32 %92, 1
+  %93 = getelementptr inbounds i8, ptr %91, i64 4
   store i32 0, ptr %93, align 4
-  store i32 %spec.store.select.i, ptr %92, align 8
+  store i32 %spec.store.select.i, ptr %91, align 8
   %.not.i = icmp eq i32 %spec.store.select.i, 0
   br i1 %.not.i, label %Vec_IntAlloc.exit, label %94
 
@@ -825,7 +824,7 @@ Abc_Clock.exit:                                   ; preds = %1, %9
 
 Vec_IntAlloc.exit:                                ; preds = %._crit_edge, %94
   %98 = phi ptr [ %97, %94 ], [ null, %._crit_edge ]
-  %99 = getelementptr inbounds i8, ptr %92, i64 8
+  %99 = getelementptr inbounds i8, ptr %91, i64 8
   store ptr %98, ptr %99, align 8
   %100 = getelementptr inbounds i8, ptr %13, i64 16
   %101 = load ptr, ptr %100, align 8
@@ -868,7 +867,7 @@ Vec_IntAlloc.exit:                                ; preds = %._crit_edge, %94
   %125 = call i32 @sat_solver2_addclause(ptr noundef %15, ptr noundef nonnull %4, ptr noundef nonnull %106, i32 noundef -1) #19
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %126 = load i32, ptr %93, align 4
-  %127 = load i32, ptr %92, align 8
+  %127 = load i32, ptr %91, align 8
   %128 = icmp eq i32 %126, %127
   br i1 %128, label %129, label %.Vec_IntGrow.exit10_crit_edge.i
 
@@ -896,7 +895,7 @@ Vec_IntAlloc.exit:                                ; preds = %._crit_edge, %94
 Vec_IntGrow.exit.i:                               ; preds = %135, %133
   %137 = phi ptr [ %134, %133 ], [ %136, %135 ]
   store ptr %137, ptr %99, align 8
-  store i32 16, ptr %92, align 8
+  store i32 16, ptr %91, align 8
   br label %Vec_IntPush.exit
 
 138:                                              ; preds = %129
@@ -918,7 +917,7 @@ Vec_IntGrow.exit.i:                               ; preds = %135, %133
 147:                                              ; preds = %145, %143
   %148 = phi ptr [ %144, %143 ], [ %146, %145 ]
   store ptr %148, ptr %99, align 8
-  store i32 %139, ptr %92, align 8
+  store i32 %139, ptr %91, align 8
   br label %Vec_IntPush.exit
 
 Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10_crit_edge.i, %Vec_IntGrow.exit.i, %147
@@ -979,7 +978,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %180 = call i32 @sat_solver2_addclause(ptr noundef %15, ptr noundef nonnull %3, ptr noundef nonnull %176, i32 noundef -1) #19
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3)
   %181 = load i32, ptr %93, align 4
-  %182 = load i32, ptr %92, align 8
+  %182 = load i32, ptr %91, align 8
   %183 = icmp eq i32 %181, %182
   br i1 %183, label %184, label %.Vec_IntGrow.exit10_crit_edge.i90
 
@@ -1007,7 +1006,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 Vec_IntGrow.exit.i95:                             ; preds = %190, %188
   %192 = phi ptr [ %189, %188 ], [ %191, %190 ]
   store ptr %192, ptr %99, align 8
-  store i32 16, ptr %92, align 8
+  store i32 16, ptr %91, align 8
   br label %Vec_IntPush.exit96
 
 193:                                              ; preds = %184
@@ -1029,7 +1028,7 @@ Vec_IntGrow.exit.i95:                             ; preds = %190, %188
 202:                                              ; preds = %200, %198
   %203 = phi ptr [ %199, %198 ], [ %201, %200 ]
   store ptr %203, ptr %99, align 8
-  store i32 %194, ptr %92, align 8
+  store i32 %194, ptr %91, align 8
   br label %Vec_IntPush.exit96
 
 Vec_IntPush.exit96:                               ; preds = %.Vec_IntGrow.exit10_crit_edge.i90, %Vec_IntGrow.exit.i95, %202
@@ -1083,7 +1082,7 @@ Abc_Clock.exit98:                                 ; preds = %Vec_IntPush.exit96,
   br label %Vec_IntFree.exit
 
 Vec_IntFree.exit:                                 ; preds = %Abc_Clock.exit98, %228
-  call void @free(ptr noundef nonnull %92) #19
+  call void @free(ptr noundef nonnull %91) #19
   call void @Cnf_DataFree(ptr noundef nonnull %14) #19
   call void @Aig_ManStop(ptr noundef nonnull %13) #19
   call void @sat_solver2_delete(ptr noundef nonnull %15) #19
@@ -1375,6 +1374,9 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #14
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

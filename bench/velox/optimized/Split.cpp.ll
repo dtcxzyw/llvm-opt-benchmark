@@ -14332,10 +14332,10 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #26
 declare i32 @llvm.eh.typeid.for.p0(ptr) #27
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #28
+declare i64 @llvm.umin.i64(i64, i64) #28
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #28
+declare i64 @llvm.umax.i64(i64, i64) #28
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #29

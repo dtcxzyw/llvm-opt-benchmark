@@ -27922,7 +27922,7 @@ define internal fastcc range(i32 -1, 2) i32 @x_endian_match(ptr noundef %0, i32 
   br i1 %.not53, label %consistentWithOrder.exit.thread45, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %consistentWithOrder.exit.thread
-  %.01554 = phi i32 [ %319, %consistentWithOrder.exit.thread ], [ 0, %2 ]
+  %.01554 = phi i32 [ %318, %consistentWithOrder.exit.thread ], [ 0, %2 ]
   %4 = or disjoint i32 %.01554, 2
   %5 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %4, i32 noundef %1) #10
   %.not17 = icmp eq i16 %5, 0
@@ -28026,31 +28026,31 @@ define internal fastcc range(i32 -1, 2) i32 @x_endian_match(ptr noundef %0, i32 
     i8 66, label %207
     i8 67, label %207
     i8 70, label %207
-    i8 62, label %210
-    i8 63, label %213
-    i8 93, label %213
-    i8 94, label %213
-    i8 64, label %216
-    i8 65, label %216
-    i8 88, label %216
-    i8 68, label %219
-    i8 71, label %219
-    i8 69, label %225
-    i8 76, label %225
-    i8 72, label %228
-    i8 73, label %231
-    i8 96, label %231
-    i8 74, label %234
-    i8 75, label %236
-    i8 77, label %238
-    i8 89, label %241
-    i8 90, label %247
-    i8 91, label %258
-    i8 100, label %261
-    i8 102, label %272
-    i8 114, label %294
-    i8 116, label %303
-    i8 118, label %311
+    i8 62, label %209
+    i8 63, label %212
+    i8 93, label %212
+    i8 94, label %212
+    i8 64, label %215
+    i8 65, label %215
+    i8 88, label %215
+    i8 68, label %218
+    i8 71, label %218
+    i8 69, label %224
+    i8 76, label %224
+    i8 72, label %227
+    i8 73, label %230
+    i8 96, label %230
+    i8 74, label %233
+    i8 75, label %235
+    i8 77, label %237
+    i8 89, label %240
+    i8 90, label %246
+    i8 91, label %257
+    i8 100, label %260
+    i8 102, label %271
+    i8 114, label %293
+    i8 116, label %302
+    i8 118, label %310
   ]
 
 9:                                                ; preds = %6
@@ -28408,203 +28408,203 @@ numberOfBitSet.exit24:                            ; preds = %178
   br label %consistentWithOrder.exit
 
 207:                                              ; preds = %6, %6, %6, %6
-  %208 = icmp ugt i16 %5, 2
-  %209 = and i32 %7, 1
-  br i1 %208, label %consistentWithOrder.exit, label %consistentWithOrder.exit.thread45
-
-210:                                              ; preds = %6
-  %211 = icmp eq i16 %5, 7
-  %212 = zext i1 %211 to i32
+  %208 = tail call i32 @llvm.umax.i32(i32 range(i32 1, 65536) %7, i32 2)
+  %spec.select.i = and i32 %208, 1
   br label %consistentWithOrder.exit
 
-213:                                              ; preds = %6, %6, %6
-  %214 = icmp eq i16 %5, 8
-  %215 = zext i1 %214 to i32
+209:                                              ; preds = %6
+  %210 = icmp eq i16 %5, 7
+  %211 = zext i1 %210 to i32
   br label %consistentWithOrder.exit
 
-216:                                              ; preds = %6, %6, %6
-  %217 = icmp ugt i16 %5, 2
-  %218 = zext i1 %217 to i32
+212:                                              ; preds = %6, %6, %6
+  %213 = icmp eq i16 %5, 8
+  %214 = zext i1 %213 to i32
   br label %consistentWithOrder.exit
 
-219:                                              ; preds = %6, %6
-  %220 = icmp ugt i16 %5, 2
-  br i1 %220, label %221, label %consistentWithOrder.exit.thread45
+215:                                              ; preds = %6, %6, %6
+  %216 = icmp ugt i16 %5, 2
+  %217 = zext i1 %216 to i32
+  br label %consistentWithOrder.exit
 
-221:                                              ; preds = %219
+218:                                              ; preds = %6, %6
+  %219 = icmp ugt i16 %5, 2
+  br i1 %219, label %220, label %consistentWithOrder.exit.thread45
+
+220:                                              ; preds = %218
   %.lhs.trunc157.i = add i16 %5, -3
-  %222 = urem i16 %.lhs.trunc157.i, 3
-  %223 = icmp eq i16 %222, 0
-  %224 = zext i1 %223 to i32
+  %221 = urem i16 %.lhs.trunc157.i, 3
+  %222 = icmp eq i16 %221, 0
+  %223 = zext i1 %222 to i32
   br label %consistentWithOrder.exit
 
-225:                                              ; preds = %6, %6
-  %226 = icmp ugt i16 %5, 3
-  %227 = zext i1 %226 to i32
+224:                                              ; preds = %6, %6
+  %225 = icmp ugt i16 %5, 3
+  %226 = zext i1 %225 to i32
   br label %consistentWithOrder.exit
 
-228:                                              ; preds = %6
-  %229 = icmp ugt i16 %5, 5
-  %230 = zext i1 %229 to i32
+227:                                              ; preds = %6
+  %228 = icmp ugt i16 %5, 5
+  %229 = zext i1 %228 to i32
   br label %consistentWithOrder.exit
 
-231:                                              ; preds = %6, %6
-  %232 = icmp eq i16 %5, 5
-  %233 = zext i1 %232 to i32
+230:                                              ; preds = %6, %6
+  %231 = icmp eq i16 %5, 5
+  %232 = zext i1 %231 to i32
   br label %consistentWithOrder.exit
 
-234:                                              ; preds = %6
-  %235 = icmp ugt i16 %5, 3
-  %..i = zext i1 %235 to i32
+233:                                              ; preds = %6
+  %234 = icmp ugt i16 %5, 3
+  %..i = zext i1 %234 to i32
   br label %consistentWithOrder.exit
 
-236:                                              ; preds = %6
-  %237 = icmp ugt i16 %5, 3
-  %.138.i = zext i1 %237 to i32
+235:                                              ; preds = %6
+  %236 = icmp ugt i16 %5, 3
+  %.138.i = zext i1 %236 to i32
   br label %consistentWithOrder.exit
 
-238:                                              ; preds = %6
-  %239 = icmp ugt i16 %5, 3
-  %240 = zext i1 %239 to i32
+237:                                              ; preds = %6
+  %238 = icmp ugt i16 %5, 3
+  %239 = zext i1 %238 to i32
   br label %consistentWithOrder.exit
 
-241:                                              ; preds = %6
-  %242 = icmp ugt i16 %5, 2
-  br i1 %242, label %243, label %consistentWithOrder.exit.thread45
+240:                                              ; preds = %6
+  %241 = icmp ugt i16 %5, 2
+  br i1 %241, label %242, label %consistentWithOrder.exit.thread45
 
-243:                                              ; preds = %241
+242:                                              ; preds = %240
   %.lhs.trunc159.i = add i16 %5, -2
-  %244 = urem i16 %.lhs.trunc159.i, 3
-  %245 = icmp eq i16 %244, 0
-  %246 = zext i1 %245 to i32
+  %243 = urem i16 %.lhs.trunc159.i, 3
+  %244 = icmp eq i16 %243, 0
+  %245 = zext i1 %244 to i32
   br label %consistentWithOrder.exit
 
-247:                                              ; preds = %6
-  %248 = tail call i32 @tvb_bytes_exist(ptr noundef %0, i32 noundef %.01554, i32 noundef 14) #10
-  %.not126.i = icmp eq i32 %248, 0
-  br i1 %.not126.i, label %consistentWithOrder.exit.thread, label %249
+246:                                              ; preds = %6
+  %247 = tail call i32 @tvb_bytes_exist(ptr noundef %0, i32 noundef %.01554, i32 noundef 14) #10
+  %.not126.i = icmp eq i32 %247, 0
+  br i1 %.not126.i, label %consistentWithOrder.exit.thread, label %248
 
-249:                                              ; preds = %247
-  %250 = add i32 %.01554, 12
-  %251 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %250, i32 noundef range(i32 0, -2147483647) %1) #10
-  %252 = lshr i16 %251, 2
-  %253 = and i16 %251, 3
-  %.not.i147.i = icmp ne i16 %253, 0
-  %254 = zext i1 %.not.i147.i to i32
-  %narrow165.i = add nuw nsw i16 %252, 4
+248:                                              ; preds = %246
+  %249 = add i32 %.01554, 12
+  %250 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %249, i32 noundef range(i32 0, -2147483647) %1) #10
+  %251 = lshr i16 %250, 2
+  %252 = and i16 %250, 3
+  %.not.i147.i = icmp ne i16 %252, 0
+  %253 = zext i1 %.not.i147.i to i32
+  %narrow165.i = add nuw nsw i16 %251, 4
   %spec.select.i148.i = zext nneg i16 %narrow165.i to i32
-  %255 = add nuw nsw i32 %spec.select.i148.i, %254
-  %256 = icmp eq i32 %255, %7
-  %257 = zext i1 %256 to i32
+  %254 = add nuw nsw i32 %spec.select.i148.i, %253
+  %255 = icmp eq i32 %254, %7
+  %256 = zext i1 %255 to i32
   br label %consistentWithOrder.exit
 
-258:                                              ; preds = %6
-  %259 = icmp ne i16 %5, 1
-  %260 = zext i1 %259 to i32
+257:                                              ; preds = %6
+  %258 = icmp ne i16 %5, 1
+  %259 = zext i1 %258 to i32
   br label %consistentWithOrder.exit
 
-261:                                              ; preds = %6
-  %262 = tail call i32 @tvb_bytes_exist(ptr noundef %0, i32 noundef %.01554, i32 noundef 6) #10
-  %.not125.i = icmp eq i32 %262, 0
-  br i1 %.not125.i, label %consistentWithOrder.exit.thread, label %263
+260:                                              ; preds = %6
+  %261 = tail call i32 @tvb_bytes_exist(ptr noundef %0, i32 noundef %.01554, i32 noundef 6) #10
+  %.not125.i = icmp eq i32 %261, 0
+  br i1 %.not125.i, label %consistentWithOrder.exit.thread, label %262
 
-263:                                              ; preds = %261
-  %264 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #10
-  %265 = zext i8 %264 to i32
-  %266 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 5) #10
-  %267 = zext i8 %266 to i32
-  %268 = mul nuw nsw i32 %267, %265
-  %269 = add nuw nsw i32 %268, 2
-  %270 = icmp eq i32 %269, %7
-  %271 = zext i1 %270 to i32
+262:                                              ; preds = %260
+  %263 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #10
+  %264 = zext i8 %263 to i32
+  %265 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 5) #10
+  %266 = zext i8 %265 to i32
+  %267 = mul nuw nsw i32 %266, %264
+  %268 = add nuw nsw i32 %267, 2
+  %269 = icmp eq i32 %268, %7
+  %270 = zext i1 %269 to i32
   br label %consistentWithOrder.exit
 
-272:                                              ; preds = %6
-  %273 = tail call i32 @tvb_bytes_exist(ptr noundef %0, i32 noundef %.01554, i32 noundef 6) #10
-  %.not124.i = icmp eq i32 %273, 0
-  br i1 %.not124.i, label %consistentWithOrder.exit.thread, label %274
+271:                                              ; preds = %6
+  %272 = tail call i32 @tvb_bytes_exist(ptr noundef %0, i32 noundef %.01554, i32 noundef 6) #10
+  %.not124.i = icmp eq i32 %272, 0
+  br i1 %.not124.i, label %consistentWithOrder.exit.thread, label %273
 
-274:                                              ; preds = %272
-  %275 = add i32 %.01554, 4
-  br label %276
+273:                                              ; preds = %271
+  %274 = add i32 %.01554, 4
+  br label %275
 
-276:                                              ; preds = %276, %274
-  %.011.i = phi i32 [ %275, %274 ], [ %280, %276 ]
-  %.0710.i = phi i32 [ 0, %274 ], [ %290, %276 ]
-  %.089.i = phi i32 [ 2, %274 ], [ %277, %276 ]
-  %277 = add nsw i32 %.089.i, -1
-  %278 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.011.i) #10
-  %279 = zext i8 %278 to i32
-  %280 = add nuw nsw i32 %.011.i, 1
-  %281 = and i32 %279, 15
-  %282 = zext nneg i32 %281 to i64
-  %283 = getelementptr [16 x i32], ptr @numberOfBitSetTable, i64 0, i64 %282
-  %284 = load i32, ptr %283, align 4
-  %285 = lshr i32 %279, 4
-  %286 = zext nneg i32 %285 to i64
-  %287 = getelementptr [16 x i32], ptr @numberOfBitSetTable, i64 0, i64 %286
-  %288 = load i32, ptr %287, align 4
-  %289 = add i32 %284, %.0710.i
-  %290 = add i32 %289, %288
-  %.not.i19 = icmp eq i32 %277, 0
-  br i1 %.not.i19, label %numberOfBitSet.exit, label %276, !llvm.loop !22
+275:                                              ; preds = %275, %273
+  %.011.i = phi i32 [ %274, %273 ], [ %279, %275 ]
+  %.0710.i = phi i32 [ 0, %273 ], [ %289, %275 ]
+  %.089.i = phi i32 [ 2, %273 ], [ %276, %275 ]
+  %276 = add nsw i32 %.089.i, -1
+  %277 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.011.i) #10
+  %278 = zext i8 %277 to i32
+  %279 = add nuw nsw i32 %.011.i, 1
+  %280 = and i32 %278, 15
+  %281 = zext nneg i32 %280 to i64
+  %282 = getelementptr [16 x i32], ptr @numberOfBitSetTable, i64 0, i64 %281
+  %283 = load i32, ptr %282, align 4
+  %284 = lshr i32 %278, 4
+  %285 = zext nneg i32 %284 to i64
+  %286 = getelementptr [16 x i32], ptr @numberOfBitSetTable, i64 0, i64 %285
+  %287 = load i32, ptr %286, align 4
+  %288 = add i32 %283, %.0710.i
+  %289 = add i32 %288, %287
+  %.not.i19 = icmp eq i32 %276, 0
+  br i1 %.not.i19, label %numberOfBitSet.exit, label %275, !llvm.loop !22
 
-numberOfBitSet.exit:                              ; preds = %276
-  %291 = add i32 %290, 2
-  %292 = icmp eq i32 %291, %7
-  %293 = zext i1 %292 to i32
+numberOfBitSet.exit:                              ; preds = %275
+  %290 = add i32 %289, 2
+  %291 = icmp eq i32 %290, %7
+  %292 = zext i1 %291 to i32
   br label %consistentWithOrder.exit
 
-294:                                              ; preds = %6
-  %295 = tail call i32 @tvb_bytes_exist(ptr noundef %0, i32 noundef %.01554, i32 noundef 10) #10
-  %.not.i = icmp eq i32 %295, 0
-  br i1 %.not.i, label %consistentWithOrder.exit.thread, label %296
+293:                                              ; preds = %6
+  %294 = tail call i32 @tvb_bytes_exist(ptr noundef %0, i32 noundef %.01554, i32 noundef 10) #10
+  %.not.i = icmp eq i32 %294, 0
+  br i1 %.not.i, label %consistentWithOrder.exit.thread, label %295
 
-296:                                              ; preds = %294
-  %297 = add i32 %.01554, 8
-  %298 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %297, i32 noundef range(i32 0, -2147483647) %1) #10
-  %299 = zext i16 %298 to i32
-  %300 = add nuw nsw i32 %299, 3
-  %301 = icmp eq i32 %300, %7
-  %302 = zext i1 %301 to i32
+295:                                              ; preds = %293
+  %296 = add i32 %.01554, 8
+  %297 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %296, i32 noundef range(i32 0, -2147483647) %1) #10
+  %298 = zext i16 %297 to i32
+  %299 = add nuw nsw i32 %298, 3
+  %300 = icmp eq i32 %299, %7
+  %301 = zext i1 %300 to i32
   br label %consistentWithOrder.exit
 
-303:                                              ; preds = %6
-  %304 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #10
-  %305 = lshr i8 %304, 2
-  %306 = and i8 %304, 3
-  %.not.i149.i = icmp ne i8 %306, 0
-  %307 = zext i1 %.not.i149.i to i32
-  %narrow.i = add nuw nsw i8 %305, 1
+302:                                              ; preds = %6
+  %303 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #10
+  %304 = lshr i8 %303, 2
+  %305 = and i8 %303, 3
+  %.not.i149.i = icmp ne i8 %305, 0
+  %306 = zext i1 %.not.i149.i to i32
+  %narrow.i = add nuw nsw i8 %304, 1
   %spec.select.i150.i = zext nneg i8 %narrow.i to i32
-  %308 = add nuw nsw i32 %spec.select.i150.i, %307
-  %309 = icmp eq i32 %308, %7
-  %310 = zext i1 %309 to i32
+  %307 = add nuw nsw i32 %spec.select.i150.i, %306
+  %308 = icmp eq i32 %307, %7
+  %309 = zext i1 %308 to i32
   br label %consistentWithOrder.exit
 
-311:                                              ; preds = %6
-  %312 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #10
-  %313 = zext i8 %312 to i32
-  %314 = shl nuw nsw i32 %313, 1
-  %315 = or disjoint i32 %314, 1
-  %316 = icmp eq i32 %315, %7
-  %317 = zext i1 %316 to i32
+310:                                              ; preds = %6
+  %311 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #10
+  %312 = zext i8 %311 to i32
+  %313 = shl nuw nsw i32 %312, 1
+  %314 = or disjoint i32 %313, 1
+  %315 = icmp eq i32 %314, %7
+  %316 = zext i1 %315 to i32
   br label %consistentWithOrder.exit
 
-consistentWithOrder.exit:                         ; preds = %207, %._crit_edge.i, %numberOfBitSet.exit41, %numberOfBitSet.exit36, %53, %56, %numberOfBitSet.exit31, %83, %98, %112, %115, %118, %121, %126, %135, %140, %numberOfBitSet.exit24, %198, %210, %213, %216, %221, %225, %228, %231, %234, %236, %238, %243, %249, %258, %263, %numberOfBitSet.exit, %296, %303, %311
-  %.0.i = phi i32 [ %317, %311 ], [ %310, %303 ], [ %260, %258 ], [ %240, %238 ], [ %233, %231 ], [ %230, %228 ], [ %227, %225 ], [ %218, %216 ], [ %215, %213 ], [ %212, %210 ], [ %137, %135 ], [ %123, %121 ], [ %120, %118 ], [ %117, %115 ], [ %114, %112 ], [ %111, %98 ], [ %58, %56 ], [ %55, %53 ], [ %30, %numberOfBitSet.exit41 ], [ %52, %numberOfBitSet.exit36 ], [ %80, %numberOfBitSet.exit31 ], [ %91, %83 ], [ %134, %126 ], [ %148, %140 ], [ %195, %numberOfBitSet.exit24 ], [ %206, %198 ], [ %224, %221 ], [ %..i, %234 ], [ %.138.i, %236 ], [ %246, %243 ], [ %257, %249 ], [ %271, %263 ], [ %293, %numberOfBitSet.exit ], [ %302, %296 ], [ %..i26, %._crit_edge.i ], [ %209, %207 ]
+consistentWithOrder.exit:                         ; preds = %._crit_edge.i, %numberOfBitSet.exit41, %numberOfBitSet.exit36, %53, %56, %numberOfBitSet.exit31, %83, %98, %112, %115, %118, %121, %126, %135, %140, %numberOfBitSet.exit24, %198, %207, %209, %212, %215, %220, %224, %227, %230, %233, %235, %237, %242, %248, %257, %262, %numberOfBitSet.exit, %295, %302, %310
+  %.0.i = phi i32 [ %316, %310 ], [ %309, %302 ], [ %259, %257 ], [ %239, %237 ], [ %232, %230 ], [ %229, %227 ], [ %226, %224 ], [ %217, %215 ], [ %214, %212 ], [ %211, %209 ], [ %spec.select.i, %207 ], [ %137, %135 ], [ %123, %121 ], [ %120, %118 ], [ %117, %115 ], [ %114, %112 ], [ %111, %98 ], [ %58, %56 ], [ %55, %53 ], [ %30, %numberOfBitSet.exit41 ], [ %52, %numberOfBitSet.exit36 ], [ %80, %numberOfBitSet.exit31 ], [ %91, %83 ], [ %134, %126 ], [ %148, %140 ], [ %195, %numberOfBitSet.exit24 ], [ %206, %198 ], [ %223, %220 ], [ %..i, %233 ], [ %.138.i, %235 ], [ %245, %242 ], [ %256, %248 ], [ %270, %262 ], [ %292, %numberOfBitSet.exit ], [ %301, %295 ], [ %..i26, %._crit_edge.i ]
   %.not18 = icmp eq i32 %.0.i, 0
   br i1 %.not18, label %consistentWithOrder.exit.thread45, label %consistentWithOrder.exit.thread
 
-consistentWithOrder.exit.thread:                  ; preds = %.lr.ph.i, %168, %6, %294, %272, %261, %247, %196, %174, %151, %138, %124, %96, %92, %81, %59, %31, %9, %consistentWithOrder.exit
-  %318 = shl nuw nsw i32 %7, 2
-  %319 = add i32 %318, %.01554
-  %320 = tail call i32 @tvb_bytes_exist(ptr noundef %0, i32 noundef %319, i32 noundef 4) #10
-  %.not = icmp eq i32 %320, 0
+consistentWithOrder.exit.thread:                  ; preds = %.lr.ph.i, %168, %6, %293, %271, %260, %246, %196, %174, %151, %138, %124, %96, %92, %81, %59, %31, %9, %consistentWithOrder.exit
+  %317 = shl nuw nsw i32 %7, 2
+  %318 = add i32 %317, %.01554
+  %319 = tail call i32 @tvb_bytes_exist(ptr noundef %0, i32 noundef %318, i32 noundef 4) #10
+  %.not = icmp eq i32 %319, 0
   br i1 %.not, label %consistentWithOrder.exit.thread45, label %.lr.ph, !llvm.loop !24
 
-consistentWithOrder.exit.thread45:                ; preds = %.lr.ph, %consistentWithOrder.exit, %consistentWithOrder.exit.thread, %207, %94, %149, %219, %241, %153, %165, %2
-  %.0 = phi i32 [ 0, %2 ], [ -1, %165 ], [ -1, %.lr.ph ], [ -1, %consistentWithOrder.exit ], [ 1, %consistentWithOrder.exit.thread ], [ -1, %207 ], [ -1, %94 ], [ -1, %149 ], [ -1, %219 ], [ -1, %241 ], [ -1, %153 ]
+consistentWithOrder.exit.thread45:                ; preds = %.lr.ph, %consistentWithOrder.exit, %consistentWithOrder.exit.thread, %94, %149, %218, %240, %153, %165, %2
+  %.0 = phi i32 [ 0, %2 ], [ -1, %165 ], [ -1, %.lr.ph ], [ -1, %consistentWithOrder.exit ], [ 1, %consistentWithOrder.exit.thread ], [ -1, %94 ], [ -1, %149 ], [ -1, %218 ], [ -1, %240 ], [ -1, %153 ]
   ret i32 %.0
 }
 

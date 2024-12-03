@@ -4240,33 +4240,32 @@ if.end.if.end11_crit_edge:                        ; preds = %if.end
   br label %if.end11
 
 if.then1:                                         ; preds = %if.end
-  %mul = shl nsw i32 %1, 1
-  %cmp4 = icmp slt i32 %1, 8
-  %spec.select = select i1 %cmp4, i32 16, i32 %mul
+  %3 = tail call i32 @llvm.smax.i32(i32 %1, i32 8)
+  %spec.select = shl nuw i32 %3, 1
   store i32 %spec.select, ptr %amqueue_len, align 8
   %amqueue = getelementptr inbounds i8, ptr %ctx, i64 32
-  %3 = load ptr, ptr %amqueue, align 8
+  %4 = load ptr, ptr %amqueue, align 8
   %conv = sext i32 %spec.select to i64
   %mul9 = shl nsw i64 %conv, 4
-  %call = tail call ptr @zrealloc(ptr noundef %3, i64 noundef %mul9) #36
+  %call = tail call ptr @zrealloc(ptr noundef %4, i64 noundef %mul9) #36
   store ptr %call, ptr %amqueue, align 8
   %.pre14 = load i32, ptr %amqueue_used, align 4
   br label %if.end11
 
 if.end11:                                         ; preds = %if.end.if.end11_crit_edge, %if.then1
-  %4 = phi i32 [ %1, %if.end.if.end11_crit_edge ], [ %.pre14, %if.then1 ]
-  %5 = phi ptr [ %.pre, %if.end.if.end11_crit_edge ], [ %call, %if.then1 ]
+  %5 = phi i32 [ %1, %if.end.if.end11_crit_edge ], [ %.pre14, %if.then1 ]
+  %6 = phi ptr [ %.pre, %if.end.if.end11_crit_edge ], [ %call, %if.then1 ]
   %amqueue12 = getelementptr inbounds i8, ptr %ctx, i64 32
-  %idxprom = sext i32 %4 to i64
-  %type14 = getelementptr inbounds %struct.AutoMemEntry, ptr %5, i64 %idxprom, i32 1
+  %idxprom = sext i32 %5 to i64
+  %type14 = getelementptr inbounds %struct.AutoMemEntry, ptr %6, i64 %idxprom, i32 1
   store i32 %type, ptr %type14, align 8
-  %6 = load ptr, ptr %amqueue12, align 8
-  %7 = load i32, ptr %amqueue_used, align 4
-  %idxprom17 = sext i32 %7 to i64
-  %arrayidx18 = getelementptr inbounds %struct.AutoMemEntry, ptr %6, i64 %idxprom17
-  store ptr %ptr, ptr %arrayidx18, align 8
+  %7 = load ptr, ptr %amqueue12, align 8
   %8 = load i32, ptr %amqueue_used, align 4
-  %inc = add nsw i32 %8, 1
+  %idxprom17 = sext i32 %8 to i64
+  %arrayidx18 = getelementptr inbounds %struct.AutoMemEntry, ptr %7, i64 %idxprom17
+  store ptr %ptr, ptr %arrayidx18, align 8
+  %9 = load i32, ptr %amqueue_used, align 4
+  %inc = add nsw i32 %9, 1
   store i32 %inc, ptr %amqueue_used, align 4
   br label %return
 
@@ -4758,33 +4757,32 @@ if.end.if.end11_crit_edge.i:                      ; preds = %if.end.i
   br label %if.end11.i
 
 if.then1.i:                                       ; preds = %if.end.i
-  %mul.i = shl nsw i32 %1, 1
-  %cmp4.i = icmp slt i32 %1, 8
-  %spec.select.i = select i1 %cmp4.i, i32 16, i32 %mul.i
+  %3 = tail call i32 @llvm.smax.i32(i32 %1, i32 8)
+  %spec.select.i = shl nuw i32 %3, 1
   store i32 %spec.select.i, ptr %amqueue_len.i, align 8
   %amqueue.i = getelementptr inbounds i8, ptr %ctx, i64 32
-  %3 = load ptr, ptr %amqueue.i, align 8
+  %4 = load ptr, ptr %amqueue.i, align 8
   %conv.i = sext i32 %spec.select.i to i64
   %mul9.i = shl nsw i64 %conv.i, 4
-  %call.i = tail call ptr @zrealloc(ptr noundef %3, i64 noundef %mul9.i) #36
+  %call.i = tail call ptr @zrealloc(ptr noundef %4, i64 noundef %mul9.i) #36
   store ptr %call.i, ptr %amqueue.i, align 8
   %.pre14.i = load i32, ptr %amqueue_used.i, align 4
   br label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.then1.i, %if.end.if.end11_crit_edge.i
-  %4 = phi i32 [ %1, %if.end.if.end11_crit_edge.i ], [ %.pre14.i, %if.then1.i ]
-  %5 = phi ptr [ %.pre.i, %if.end.if.end11_crit_edge.i ], [ %call.i, %if.then1.i ]
+  %5 = phi i32 [ %1, %if.end.if.end11_crit_edge.i ], [ %.pre14.i, %if.then1.i ]
+  %6 = phi ptr [ %.pre.i, %if.end.if.end11_crit_edge.i ], [ %call.i, %if.then1.i ]
   %amqueue12.i = getelementptr inbounds i8, ptr %ctx, i64 32
-  %idxprom.i = sext i32 %4 to i64
-  %type14.i = getelementptr inbounds %struct.AutoMemEntry, ptr %5, i64 %idxprom.i, i32 1
+  %idxprom.i = sext i32 %5 to i64
+  %type14.i = getelementptr inbounds %struct.AutoMemEntry, ptr %6, i64 %idxprom.i, i32 1
   store i32 1, ptr %type14.i, align 8
-  %6 = load ptr, ptr %amqueue12.i, align 8
-  %7 = load i32, ptr %amqueue_used.i, align 4
-  %idxprom17.i = sext i32 %7 to i64
-  %arrayidx18.i = getelementptr inbounds %struct.AutoMemEntry, ptr %6, i64 %idxprom17.i
-  store ptr %call, ptr %arrayidx18.i, align 8
+  %7 = load ptr, ptr %amqueue12.i, align 8
   %8 = load i32, ptr %amqueue_used.i, align 4
-  %inc.i = add nsw i32 %8, 1
+  %idxprom17.i = sext i32 %8 to i64
+  %arrayidx18.i = getelementptr inbounds %struct.AutoMemEntry, ptr %7, i64 %idxprom17.i
+  store ptr %call, ptr %arrayidx18.i, align 8
+  %9 = load i32, ptr %amqueue_used.i, align 4
+  %inc.i = add nsw i32 %9, 1
   store i32 %inc.i, ptr %amqueue_used.i, align 4
   br label %if.end
 
@@ -4827,33 +4825,32 @@ if.end.if.end11_crit_edge.i:                      ; preds = %if.end.i
   br label %if.end11.i
 
 if.then1.i:                                       ; preds = %if.end.i
-  %mul.i = shl nsw i32 %1, 1
-  %cmp4.i = icmp slt i32 %1, 8
-  %spec.select.i = select i1 %cmp4.i, i32 16, i32 %mul.i
+  %3 = call i32 @llvm.smax.i32(i32 %1, i32 8)
+  %spec.select.i = shl nuw i32 %3, 1
   store i32 %spec.select.i, ptr %amqueue_len.i, align 8
   %amqueue.i = getelementptr inbounds i8, ptr %ctx, i64 32
-  %3 = load ptr, ptr %amqueue.i, align 8
+  %4 = load ptr, ptr %amqueue.i, align 8
   %conv.i = sext i32 %spec.select.i to i64
   %mul9.i = shl nsw i64 %conv.i, 4
-  %call.i = call ptr @zrealloc(ptr noundef %3, i64 noundef %mul9.i) #36
+  %call.i = call ptr @zrealloc(ptr noundef %4, i64 noundef %mul9.i) #36
   store ptr %call.i, ptr %amqueue.i, align 8
   %.pre14.i = load i32, ptr %amqueue_used.i, align 4
   br label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.then1.i, %if.end.if.end11_crit_edge.i
-  %4 = phi i32 [ %1, %if.end.if.end11_crit_edge.i ], [ %.pre14.i, %if.then1.i ]
-  %5 = phi ptr [ %.pre.i, %if.end.if.end11_crit_edge.i ], [ %call.i, %if.then1.i ]
+  %5 = phi i32 [ %1, %if.end.if.end11_crit_edge.i ], [ %.pre14.i, %if.then1.i ]
+  %6 = phi ptr [ %.pre.i, %if.end.if.end11_crit_edge.i ], [ %call.i, %if.then1.i ]
   %amqueue12.i = getelementptr inbounds i8, ptr %ctx, i64 32
-  %idxprom.i = sext i32 %4 to i64
-  %type14.i = getelementptr inbounds %struct.AutoMemEntry, ptr %5, i64 %idxprom.i, i32 1
+  %idxprom.i = sext i32 %5 to i64
+  %type14.i = getelementptr inbounds %struct.AutoMemEntry, ptr %6, i64 %idxprom.i, i32 1
   store i32 1, ptr %type14.i, align 8
-  %6 = load ptr, ptr %amqueue12.i, align 8
-  %7 = load i32, ptr %amqueue_used.i, align 4
-  %idxprom17.i = sext i32 %7 to i64
-  %arrayidx18.i = getelementptr inbounds %struct.AutoMemEntry, ptr %6, i64 %idxprom17.i
-  store ptr %call4, ptr %arrayidx18.i, align 8
+  %7 = load ptr, ptr %amqueue12.i, align 8
   %8 = load i32, ptr %amqueue_used.i, align 4
-  %inc.i = add nsw i32 %8, 1
+  %idxprom17.i = sext i32 %8 to i64
+  %arrayidx18.i = getelementptr inbounds %struct.AutoMemEntry, ptr %7, i64 %idxprom17.i
+  store ptr %call4, ptr %arrayidx18.i, align 8
+  %9 = load i32, ptr %amqueue_used.i, align 4
+  %inc.i = add nsw i32 %9, 1
   store i32 %inc.i, ptr %amqueue_used.i, align 4
   br label %if.end
 
@@ -4904,33 +4901,32 @@ if.end.if.end11_crit_edge.i.i:                    ; preds = %if.end.i.i
   br label %if.end11.i.i
 
 if.then1.i.i:                                     ; preds = %if.end.i.i
-  %mul.i.i = shl nsw i32 %1, 1
-  %cmp4.i.i = icmp slt i32 %1, 8
-  %spec.select.i.i = select i1 %cmp4.i.i, i32 16, i32 %mul.i.i
+  %3 = call i32 @llvm.smax.i32(i32 %1, i32 8)
+  %spec.select.i.i = shl nuw i32 %3, 1
   store i32 %spec.select.i.i, ptr %amqueue_len.i.i, align 8
   %amqueue.i.i = getelementptr inbounds i8, ptr %ctx, i64 32
-  %3 = load ptr, ptr %amqueue.i.i, align 8
+  %4 = load ptr, ptr %amqueue.i.i, align 8
   %conv.i.i = sext i32 %spec.select.i.i to i64
   %mul9.i.i = shl nsw i64 %conv.i.i, 4
-  %call.i.i = call ptr @zrealloc(ptr noundef %3, i64 noundef %mul9.i.i) #36
+  %call.i.i = call ptr @zrealloc(ptr noundef %4, i64 noundef %mul9.i.i) #36
   store ptr %call.i.i, ptr %amqueue.i.i, align 8
   %.pre14.i.i = load i32, ptr %amqueue_used.i.i, align 4
   br label %if.end11.i.i
 
 if.end11.i.i:                                     ; preds = %if.then1.i.i, %if.end.if.end11_crit_edge.i.i
-  %4 = phi i32 [ %1, %if.end.if.end11_crit_edge.i.i ], [ %.pre14.i.i, %if.then1.i.i ]
-  %5 = phi ptr [ %.pre.i.i, %if.end.if.end11_crit_edge.i.i ], [ %call.i.i, %if.then1.i.i ]
+  %5 = phi i32 [ %1, %if.end.if.end11_crit_edge.i.i ], [ %.pre14.i.i, %if.then1.i.i ]
+  %6 = phi ptr [ %.pre.i.i, %if.end.if.end11_crit_edge.i.i ], [ %call.i.i, %if.then1.i.i ]
   %amqueue12.i.i = getelementptr inbounds i8, ptr %ctx, i64 32
-  %idxprom.i.i = sext i32 %4 to i64
-  %type14.i.i = getelementptr inbounds %struct.AutoMemEntry, ptr %5, i64 %idxprom.i.i, i32 1
+  %idxprom.i.i = sext i32 %5 to i64
+  %type14.i.i = getelementptr inbounds %struct.AutoMemEntry, ptr %6, i64 %idxprom.i.i, i32 1
   store i32 1, ptr %type14.i.i, align 8
-  %6 = load ptr, ptr %amqueue12.i.i, align 8
-  %7 = load i32, ptr %amqueue_used.i.i, align 4
-  %idxprom17.i.i = sext i32 %7 to i64
-  %arrayidx18.i.i = getelementptr inbounds %struct.AutoMemEntry, ptr %6, i64 %idxprom17.i.i
-  store ptr %call.i, ptr %arrayidx18.i.i, align 8
+  %7 = load ptr, ptr %amqueue12.i.i, align 8
   %8 = load i32, ptr %amqueue_used.i.i, align 4
-  %inc.i.i = add nsw i32 %8, 1
+  %idxprom17.i.i = sext i32 %8 to i64
+  %arrayidx18.i.i = getelementptr inbounds %struct.AutoMemEntry, ptr %7, i64 %idxprom17.i.i
+  store ptr %call.i, ptr %arrayidx18.i.i, align 8
+  %9 = load i32, ptr %amqueue_used.i.i, align 4
+  %inc.i.i = add nsw i32 %9, 1
   store i32 %inc.i.i, ptr %amqueue_used.i.i, align 4
   br label %RM_CreateString.exit
 
@@ -4971,33 +4967,32 @@ if.end.if.end11_crit_edge.i.i:                    ; preds = %if.end.i.i
   br label %if.end11.i.i
 
 if.then1.i.i:                                     ; preds = %if.end.i.i
-  %mul.i.i = shl nsw i32 %1, 1
-  %cmp4.i.i = icmp slt i32 %1, 8
-  %spec.select.i.i = select i1 %cmp4.i.i, i32 16, i32 %mul.i.i
+  %3 = call i32 @llvm.smax.i32(i32 %1, i32 8)
+  %spec.select.i.i = shl nuw i32 %3, 1
   store i32 %spec.select.i.i, ptr %amqueue_len.i.i, align 8
   %amqueue.i.i = getelementptr inbounds i8, ptr %ctx, i64 32
-  %3 = load ptr, ptr %amqueue.i.i, align 8
+  %4 = load ptr, ptr %amqueue.i.i, align 8
   %conv.i.i = sext i32 %spec.select.i.i to i64
   %mul9.i.i = shl nsw i64 %conv.i.i, 4
-  %call.i.i = call ptr @zrealloc(ptr noundef %3, i64 noundef %mul9.i.i) #36
+  %call.i.i = call ptr @zrealloc(ptr noundef %4, i64 noundef %mul9.i.i) #36
   store ptr %call.i.i, ptr %amqueue.i.i, align 8
   %.pre14.i.i = load i32, ptr %amqueue_used.i.i, align 4
   br label %if.end11.i.i
 
 if.end11.i.i:                                     ; preds = %if.then1.i.i, %if.end.if.end11_crit_edge.i.i
-  %4 = phi i32 [ %1, %if.end.if.end11_crit_edge.i.i ], [ %.pre14.i.i, %if.then1.i.i ]
-  %5 = phi ptr [ %.pre.i.i, %if.end.if.end11_crit_edge.i.i ], [ %call.i.i, %if.then1.i.i ]
+  %5 = phi i32 [ %1, %if.end.if.end11_crit_edge.i.i ], [ %.pre14.i.i, %if.then1.i.i ]
+  %6 = phi ptr [ %.pre.i.i, %if.end.if.end11_crit_edge.i.i ], [ %call.i.i, %if.then1.i.i ]
   %amqueue12.i.i = getelementptr inbounds i8, ptr %ctx, i64 32
-  %idxprom.i.i = sext i32 %4 to i64
-  %type14.i.i = getelementptr inbounds %struct.AutoMemEntry, ptr %5, i64 %idxprom.i.i, i32 1
+  %idxprom.i.i = sext i32 %5 to i64
+  %type14.i.i = getelementptr inbounds %struct.AutoMemEntry, ptr %6, i64 %idxprom.i.i, i32 1
   store i32 1, ptr %type14.i.i, align 8
-  %6 = load ptr, ptr %amqueue12.i.i, align 8
-  %7 = load i32, ptr %amqueue_used.i.i, align 4
-  %idxprom17.i.i = sext i32 %7 to i64
-  %arrayidx18.i.i = getelementptr inbounds %struct.AutoMemEntry, ptr %6, i64 %idxprom17.i.i
-  store ptr %call.i, ptr %arrayidx18.i.i, align 8
+  %7 = load ptr, ptr %amqueue12.i.i, align 8
   %8 = load i32, ptr %amqueue_used.i.i, align 4
-  %inc.i.i = add nsw i32 %8, 1
+  %idxprom17.i.i = sext i32 %8 to i64
+  %arrayidx18.i.i = getelementptr inbounds %struct.AutoMemEntry, ptr %7, i64 %idxprom17.i.i
+  store ptr %call.i, ptr %arrayidx18.i.i, align 8
+  %9 = load i32, ptr %amqueue_used.i.i, align 4
+  %inc.i.i = add nsw i32 %9, 1
   store i32 %inc.i.i, ptr %amqueue_used.i.i, align 4
   br label %RM_CreateString.exit
 
@@ -5038,33 +5033,32 @@ if.end.if.end11_crit_edge.i.i:                    ; preds = %if.end.i.i
   br label %if.end11.i.i
 
 if.then1.i.i:                                     ; preds = %if.end.i.i
-  %mul.i.i = shl nsw i32 %1, 1
-  %cmp4.i.i = icmp slt i32 %1, 8
-  %spec.select.i.i = select i1 %cmp4.i.i, i32 16, i32 %mul.i.i
+  %3 = call i32 @llvm.smax.i32(i32 %1, i32 8)
+  %spec.select.i.i = shl nuw i32 %3, 1
   store i32 %spec.select.i.i, ptr %amqueue_len.i.i, align 8
   %amqueue.i.i = getelementptr inbounds i8, ptr %ctx, i64 32
-  %3 = load ptr, ptr %amqueue.i.i, align 8
+  %4 = load ptr, ptr %amqueue.i.i, align 8
   %conv.i.i = sext i32 %spec.select.i.i to i64
   %mul9.i.i = shl nsw i64 %conv.i.i, 4
-  %call.i.i = call ptr @zrealloc(ptr noundef %3, i64 noundef %mul9.i.i) #36
+  %call.i.i = call ptr @zrealloc(ptr noundef %4, i64 noundef %mul9.i.i) #36
   store ptr %call.i.i, ptr %amqueue.i.i, align 8
   %.pre14.i.i = load i32, ptr %amqueue_used.i.i, align 4
   br label %if.end11.i.i
 
 if.end11.i.i:                                     ; preds = %if.then1.i.i, %if.end.if.end11_crit_edge.i.i
-  %4 = phi i32 [ %1, %if.end.if.end11_crit_edge.i.i ], [ %.pre14.i.i, %if.then1.i.i ]
-  %5 = phi ptr [ %.pre.i.i, %if.end.if.end11_crit_edge.i.i ], [ %call.i.i, %if.then1.i.i ]
+  %5 = phi i32 [ %1, %if.end.if.end11_crit_edge.i.i ], [ %.pre14.i.i, %if.then1.i.i ]
+  %6 = phi ptr [ %.pre.i.i, %if.end.if.end11_crit_edge.i.i ], [ %call.i.i, %if.then1.i.i ]
   %amqueue12.i.i = getelementptr inbounds i8, ptr %ctx, i64 32
-  %idxprom.i.i = sext i32 %4 to i64
-  %type14.i.i = getelementptr inbounds %struct.AutoMemEntry, ptr %5, i64 %idxprom.i.i, i32 1
+  %idxprom.i.i = sext i32 %5 to i64
+  %type14.i.i = getelementptr inbounds %struct.AutoMemEntry, ptr %6, i64 %idxprom.i.i, i32 1
   store i32 1, ptr %type14.i.i, align 8
-  %6 = load ptr, ptr %amqueue12.i.i, align 8
-  %7 = load i32, ptr %amqueue_used.i.i, align 4
-  %idxprom17.i.i = sext i32 %7 to i64
-  %arrayidx18.i.i = getelementptr inbounds %struct.AutoMemEntry, ptr %6, i64 %idxprom17.i.i
-  store ptr %call.i, ptr %arrayidx18.i.i, align 8
+  %7 = load ptr, ptr %amqueue12.i.i, align 8
   %8 = load i32, ptr %amqueue_used.i.i, align 4
-  %inc.i.i = add nsw i32 %8, 1
+  %idxprom17.i.i = sext i32 %8 to i64
+  %arrayidx18.i.i = getelementptr inbounds %struct.AutoMemEntry, ptr %7, i64 %idxprom17.i.i
+  store ptr %call.i, ptr %arrayidx18.i.i, align 8
+  %9 = load i32, ptr %amqueue_used.i.i, align 4
+  %inc.i.i = add nsw i32 %9, 1
   store i32 %inc.i.i, ptr %amqueue_used.i.i, align 4
   br label %RM_CreateString.exit
 
@@ -5107,33 +5101,32 @@ if.end.if.end11_crit_edge.i.i:                    ; preds = %if.end.i.i
   br label %if.end11.i.i
 
 if.then1.i.i:                                     ; preds = %if.end.i.i
-  %mul.i.i = shl nsw i32 %1, 1
-  %cmp4.i.i = icmp slt i32 %1, 8
-  %spec.select.i.i = select i1 %cmp4.i.i, i32 16, i32 %mul.i.i
+  %3 = call i32 @llvm.smax.i32(i32 %1, i32 8)
+  %spec.select.i.i = shl nuw i32 %3, 1
   store i32 %spec.select.i.i, ptr %amqueue_len.i.i, align 8
   %amqueue.i.i = getelementptr inbounds i8, ptr %ctx, i64 32
-  %3 = load ptr, ptr %amqueue.i.i, align 8
+  %4 = load ptr, ptr %amqueue.i.i, align 8
   %conv.i.i = sext i32 %spec.select.i.i to i64
   %mul9.i.i = shl nsw i64 %conv.i.i, 4
-  %call.i.i = call ptr @zrealloc(ptr noundef %3, i64 noundef %mul9.i.i) #36
+  %call.i.i = call ptr @zrealloc(ptr noundef %4, i64 noundef %mul9.i.i) #36
   store ptr %call.i.i, ptr %amqueue.i.i, align 8
   %.pre14.i.i = load i32, ptr %amqueue_used.i.i, align 4
   br label %if.end11.i.i
 
 if.end11.i.i:                                     ; preds = %if.then1.i.i, %if.end.if.end11_crit_edge.i.i
-  %4 = phi i32 [ %1, %if.end.if.end11_crit_edge.i.i ], [ %.pre14.i.i, %if.then1.i.i ]
-  %5 = phi ptr [ %.pre.i.i, %if.end.if.end11_crit_edge.i.i ], [ %call.i.i, %if.then1.i.i ]
+  %5 = phi i32 [ %1, %if.end.if.end11_crit_edge.i.i ], [ %.pre14.i.i, %if.then1.i.i ]
+  %6 = phi ptr [ %.pre.i.i, %if.end.if.end11_crit_edge.i.i ], [ %call.i.i, %if.then1.i.i ]
   %amqueue12.i.i = getelementptr inbounds i8, ptr %ctx, i64 32
-  %idxprom.i.i = sext i32 %4 to i64
-  %type14.i.i = getelementptr inbounds %struct.AutoMemEntry, ptr %5, i64 %idxprom.i.i, i32 1
+  %idxprom.i.i = sext i32 %5 to i64
+  %type14.i.i = getelementptr inbounds %struct.AutoMemEntry, ptr %6, i64 %idxprom.i.i, i32 1
   store i32 1, ptr %type14.i.i, align 8
-  %6 = load ptr, ptr %amqueue12.i.i, align 8
-  %7 = load i32, ptr %amqueue_used.i.i, align 4
-  %idxprom17.i.i = sext i32 %7 to i64
-  %arrayidx18.i.i = getelementptr inbounds %struct.AutoMemEntry, ptr %6, i64 %idxprom17.i.i
-  store ptr %call.i, ptr %arrayidx18.i.i, align 8
+  %7 = load ptr, ptr %amqueue12.i.i, align 8
   %8 = load i32, ptr %amqueue_used.i.i, align 4
-  %inc.i.i = add nsw i32 %8, 1
+  %idxprom17.i.i = sext i32 %8 to i64
+  %arrayidx18.i.i = getelementptr inbounds %struct.AutoMemEntry, ptr %7, i64 %idxprom17.i.i
+  store ptr %call.i, ptr %arrayidx18.i.i, align 8
+  %9 = load i32, ptr %amqueue_used.i.i, align 4
+  %inc.i.i = add nsw i32 %9, 1
   store i32 %inc.i.i, ptr %amqueue_used.i.i, align 4
   br label %RM_CreateString.exit
 
@@ -5171,33 +5164,32 @@ if.end.if.end11_crit_edge.i:                      ; preds = %if.end.i
   br label %if.end11.i
 
 if.then1.i:                                       ; preds = %if.end.i
-  %mul.i = shl nsw i32 %1, 1
-  %cmp4.i = icmp slt i32 %1, 8
-  %spec.select.i = select i1 %cmp4.i, i32 16, i32 %mul.i
+  %3 = tail call i32 @llvm.smax.i32(i32 %1, i32 8)
+  %spec.select.i = shl nuw i32 %3, 1
   store i32 %spec.select.i, ptr %amqueue_len.i, align 8
   %amqueue.i = getelementptr inbounds i8, ptr %ctx, i64 32
-  %3 = load ptr, ptr %amqueue.i, align 8
+  %4 = load ptr, ptr %amqueue.i, align 8
   %conv.i = sext i32 %spec.select.i to i64
   %mul9.i = shl nsw i64 %conv.i, 4
-  %call.i = tail call ptr @zrealloc(ptr noundef %3, i64 noundef %mul9.i) #36
+  %call.i = tail call ptr @zrealloc(ptr noundef %4, i64 noundef %mul9.i) #36
   store ptr %call.i, ptr %amqueue.i, align 8
   %.pre14.i = load i32, ptr %amqueue_used.i, align 4
   br label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.then1.i, %if.end.if.end11_crit_edge.i
-  %4 = phi i32 [ %1, %if.end.if.end11_crit_edge.i ], [ %.pre14.i, %if.then1.i ]
-  %5 = phi ptr [ %.pre.i, %if.end.if.end11_crit_edge.i ], [ %call.i, %if.then1.i ]
+  %5 = phi i32 [ %1, %if.end.if.end11_crit_edge.i ], [ %.pre14.i, %if.then1.i ]
+  %6 = phi ptr [ %.pre.i, %if.end.if.end11_crit_edge.i ], [ %call.i, %if.then1.i ]
   %amqueue12.i = getelementptr inbounds i8, ptr %ctx, i64 32
-  %idxprom.i = sext i32 %4 to i64
-  %type14.i = getelementptr inbounds %struct.AutoMemEntry, ptr %5, i64 %idxprom.i, i32 1
+  %idxprom.i = sext i32 %5 to i64
+  %type14.i = getelementptr inbounds %struct.AutoMemEntry, ptr %6, i64 %idxprom.i, i32 1
   store i32 1, ptr %type14.i, align 8
-  %6 = load ptr, ptr %amqueue12.i, align 8
-  %7 = load i32, ptr %amqueue_used.i, align 4
-  %idxprom17.i = sext i32 %7 to i64
-  %arrayidx18.i = getelementptr inbounds %struct.AutoMemEntry, ptr %6, i64 %idxprom17.i
-  store ptr %call, ptr %arrayidx18.i, align 8
+  %7 = load ptr, ptr %amqueue12.i, align 8
   %8 = load i32, ptr %amqueue_used.i, align 4
-  %inc.i = add nsw i32 %8, 1
+  %idxprom17.i = sext i32 %8 to i64
+  %arrayidx18.i = getelementptr inbounds %struct.AutoMemEntry, ptr %7, i64 %idxprom17.i
+  store ptr %call, ptr %arrayidx18.i, align 8
+  %9 = load i32, ptr %amqueue_used.i, align 4
+  %inc.i = add nsw i32 %9, 1
   store i32 %inc.i, ptr %amqueue_used.i, align 4
   br label %if.end
 
@@ -5242,33 +5234,32 @@ if.end.if.end11_crit_edge.i:                      ; preds = %if.end.i
   br label %if.end11.i
 
 if.then1.i:                                       ; preds = %if.end.i
-  %mul.i = shl nsw i32 %3, 1
-  %cmp4.i = icmp slt i32 %3, 8
-  %spec.select.i = select i1 %cmp4.i, i32 16, i32 %mul.i
+  %5 = call i32 @llvm.smax.i32(i32 %3, i32 8)
+  %spec.select.i = shl nuw i32 %5, 1
   store i32 %spec.select.i, ptr %amqueue_len.i, align 8
   %amqueue.i = getelementptr inbounds i8, ptr %ctx, i64 32
-  %5 = load ptr, ptr %amqueue.i, align 8
+  %6 = load ptr, ptr %amqueue.i, align 8
   %conv.i = sext i32 %spec.select.i to i64
   %mul9.i = shl nsw i64 %conv.i, 4
-  %call.i = call ptr @zrealloc(ptr noundef %5, i64 noundef %mul9.i) #36
+  %call.i = call ptr @zrealloc(ptr noundef %6, i64 noundef %mul9.i) #36
   store ptr %call.i, ptr %amqueue.i, align 8
   %.pre14.i = load i32, ptr %amqueue_used.i, align 4
   br label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.then1.i, %if.end.if.end11_crit_edge.i
-  %6 = phi i32 [ %3, %if.end.if.end11_crit_edge.i ], [ %.pre14.i, %if.then1.i ]
-  %7 = phi ptr [ %.pre.i, %if.end.if.end11_crit_edge.i ], [ %call.i, %if.then1.i ]
+  %7 = phi i32 [ %3, %if.end.if.end11_crit_edge.i ], [ %.pre14.i, %if.then1.i ]
+  %8 = phi ptr [ %.pre.i, %if.end.if.end11_crit_edge.i ], [ %call.i, %if.then1.i ]
   %amqueue12.i = getelementptr inbounds i8, ptr %ctx, i64 32
-  %idxprom.i = sext i32 %6 to i64
-  %type14.i = getelementptr inbounds %struct.AutoMemEntry, ptr %7, i64 %idxprom.i, i32 1
+  %idxprom.i = sext i32 %7 to i64
+  %type14.i = getelementptr inbounds %struct.AutoMemEntry, ptr %8, i64 %idxprom.i, i32 1
   store i32 1, ptr %type14.i, align 8
-  %8 = load ptr, ptr %amqueue12.i, align 8
-  %9 = load i32, ptr %amqueue_used.i, align 4
-  %idxprom17.i = sext i32 %9 to i64
-  %arrayidx18.i = getelementptr inbounds %struct.AutoMemEntry, ptr %8, i64 %idxprom17.i
-  store ptr %call, ptr %arrayidx18.i, align 8
+  %9 = load ptr, ptr %amqueue12.i, align 8
   %10 = load i32, ptr %amqueue_used.i, align 4
-  %inc.i = add nsw i32 %10, 1
+  %idxprom17.i = sext i32 %10 to i64
+  %arrayidx18.i = getelementptr inbounds %struct.AutoMemEntry, ptr %9, i64 %idxprom17.i
+  store ptr %call, ptr %arrayidx18.i, align 8
+  %11 = load i32, ptr %amqueue_used.i, align 4
+  %inc.i = add nsw i32 %11, 1
   store i32 %inc.i, ptr %amqueue_used.i, align 4
   br label %if.end
 
@@ -5483,33 +5474,32 @@ if.end.if.end11_crit_edge.i.i:                    ; preds = %if.end.i.i
   br label %if.end11.i.i
 
 if.then1.i.i:                                     ; preds = %if.end.i.i
-  %mul.i.i = shl nsw i32 %2, 1
-  %cmp4.i.i = icmp slt i32 %2, 8
-  %spec.select.i.i = select i1 %cmp4.i.i, i32 16, i32 %mul.i.i
+  %4 = tail call i32 @llvm.smax.i32(i32 %2, i32 8)
+  %spec.select.i.i = shl nuw i32 %4, 1
   store i32 %spec.select.i.i, ptr %amqueue_len.i.i, align 8
   %amqueue.i.i = getelementptr inbounds i8, ptr %ctx, i64 32
-  %4 = load ptr, ptr %amqueue.i.i, align 8
+  %5 = load ptr, ptr %amqueue.i.i, align 8
   %conv.i.i = sext i32 %spec.select.i.i to i64
   %mul9.i.i = shl nsw i64 %conv.i.i, 4
-  %call.i.i = tail call ptr @zrealloc(ptr noundef %4, i64 noundef %mul9.i.i) #36
+  %call.i.i = tail call ptr @zrealloc(ptr noundef %5, i64 noundef %mul9.i.i) #36
   store ptr %call.i.i, ptr %amqueue.i.i, align 8
   %.pre14.i.i = load i32, ptr %amqueue_used.i.i, align 4
   br label %if.end11.i.i
 
 if.end11.i.i:                                     ; preds = %if.then1.i.i, %if.end.if.end11_crit_edge.i.i
-  %5 = phi i32 [ %2, %if.end.if.end11_crit_edge.i.i ], [ %.pre14.i.i, %if.then1.i.i ]
-  %6 = phi ptr [ %.pre.i.i, %if.end.if.end11_crit_edge.i.i ], [ %call.i.i, %if.then1.i.i ]
+  %6 = phi i32 [ %2, %if.end.if.end11_crit_edge.i.i ], [ %.pre14.i.i, %if.then1.i.i ]
+  %7 = phi ptr [ %.pre.i.i, %if.end.if.end11_crit_edge.i.i ], [ %call.i.i, %if.then1.i.i ]
   %amqueue12.i.i = getelementptr inbounds i8, ptr %ctx, i64 32
-  %idxprom.i.i = sext i32 %5 to i64
-  %type14.i.i = getelementptr inbounds %struct.AutoMemEntry, ptr %6, i64 %idxprom.i.i, i32 1
+  %idxprom.i.i = sext i32 %6 to i64
+  %type14.i.i = getelementptr inbounds %struct.AutoMemEntry, ptr %7, i64 %idxprom.i.i, i32 1
   store i32 1, ptr %type14.i.i, align 8
-  %7 = load ptr, ptr %amqueue12.i.i, align 8
-  %8 = load i32, ptr %amqueue_used.i.i, align 4
-  %idxprom17.i.i = sext i32 %8 to i64
-  %arrayidx18.i.i = getelementptr inbounds %struct.AutoMemEntry, ptr %7, i64 %idxprom17.i.i
-  store ptr %call.i, ptr %arrayidx18.i.i, align 8
+  %8 = load ptr, ptr %amqueue12.i.i, align 8
   %9 = load i32, ptr %amqueue_used.i.i, align 4
-  %inc.i.i = add nsw i32 %9, 1
+  %idxprom17.i.i = sext i32 %9 to i64
+  %arrayidx18.i.i = getelementptr inbounds %struct.AutoMemEntry, ptr %8, i64 %idxprom17.i.i
+  store ptr %call.i, ptr %arrayidx18.i.i, align 8
+  %10 = load i32, ptr %amqueue_used.i.i, align 4
+  %inc.i.i = add nsw i32 %10, 1
   store i32 %inc.i.i, ptr %amqueue_used.i.i, align 4
   br label %return
 
@@ -5519,17 +5509,17 @@ if.end:                                           ; preds = %entry
 
 if.then2:                                         ; preds = %if.end
   %flags.i = getelementptr inbounds i8, ptr %ctx, i64 48
-  %10 = load i32, ptr %flags.i, align 8
-  %and.i = and i32 %10, 1
+  %11 = load i32, ptr %flags.i, align 8
+  %and.i = and i32 %11, 1
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then2
   %amqueue_used.i = getelementptr inbounds i8, ptr %ctx, i64 44
-  %11 = load i32, ptr %amqueue_used.i, align 4
+  %12 = load i32, ptr %amqueue_used.i, align 4
   %amqueue_len.i = getelementptr inbounds i8, ptr %ctx, i64 40
-  %12 = load i32, ptr %amqueue_len.i, align 8
-  %cmp.i = icmp eq i32 %11, %12
+  %13 = load i32, ptr %amqueue_len.i, align 8
+  %cmp.i = icmp eq i32 %12, %13
   br i1 %cmp.i, label %if.then1.i, label %if.end.if.end11_crit_edge.i
 
 if.end.if.end11_crit_edge.i:                      ; preds = %if.end.i
@@ -5538,33 +5528,32 @@ if.end.if.end11_crit_edge.i:                      ; preds = %if.end.i
   br label %if.end11.i
 
 if.then1.i:                                       ; preds = %if.end.i
-  %mul.i = shl nsw i32 %11, 1
-  %cmp4.i = icmp slt i32 %11, 8
-  %spec.select.i = select i1 %cmp4.i, i32 16, i32 %mul.i
+  %14 = tail call i32 @llvm.smax.i32(i32 %12, i32 8)
+  %spec.select.i = shl nuw i32 %14, 1
   store i32 %spec.select.i, ptr %amqueue_len.i, align 8
   %amqueue.i = getelementptr inbounds i8, ptr %ctx, i64 32
-  %13 = load ptr, ptr %amqueue.i, align 8
+  %15 = load ptr, ptr %amqueue.i, align 8
   %conv.i = sext i32 %spec.select.i to i64
   %mul9.i = shl nsw i64 %conv.i, 4
-  %call.i7 = tail call ptr @zrealloc(ptr noundef %13, i64 noundef %mul9.i) #36
+  %call.i7 = tail call ptr @zrealloc(ptr noundef %15, i64 noundef %mul9.i) #36
   store ptr %call.i7, ptr %amqueue.i, align 8
   %.pre14.i = load i32, ptr %amqueue_used.i, align 4
   br label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.then1.i, %if.end.if.end11_crit_edge.i
-  %14 = phi i32 [ %11, %if.end.if.end11_crit_edge.i ], [ %.pre14.i, %if.then1.i ]
-  %15 = phi ptr [ %.pre.i, %if.end.if.end11_crit_edge.i ], [ %call.i7, %if.then1.i ]
+  %16 = phi i32 [ %12, %if.end.if.end11_crit_edge.i ], [ %.pre14.i, %if.then1.i ]
+  %17 = phi ptr [ %.pre.i, %if.end.if.end11_crit_edge.i ], [ %call.i7, %if.then1.i ]
   %amqueue12.i = getelementptr inbounds i8, ptr %ctx, i64 32
-  %idxprom.i = sext i32 %14 to i64
-  %type14.i = getelementptr inbounds %struct.AutoMemEntry, ptr %15, i64 %idxprom.i, i32 1
+  %idxprom.i = sext i32 %16 to i64
+  %type14.i = getelementptr inbounds %struct.AutoMemEntry, ptr %17, i64 %idxprom.i, i32 1
   store i32 1, ptr %type14.i, align 8
-  %16 = load ptr, ptr %amqueue12.i, align 8
-  %17 = load i32, ptr %amqueue_used.i, align 4
-  %idxprom17.i = sext i32 %17 to i64
-  %arrayidx18.i = getelementptr inbounds %struct.AutoMemEntry, ptr %16, i64 %idxprom17.i
+  %18 = load ptr, ptr %amqueue12.i, align 8
+  %19 = load i32, ptr %amqueue_used.i, align 4
+  %idxprom17.i = sext i32 %19 to i64
+  %arrayidx18.i = getelementptr inbounds %struct.AutoMemEntry, ptr %18, i64 %idxprom17.i
   store ptr %str, ptr %arrayidx18.i, align 8
-  %18 = load i32, ptr %amqueue_used.i, align 4
-  %inc.i = add nsw i32 %18, 1
+  %20 = load i32, ptr %amqueue_used.i, align 4
+  %inc.i = add nsw i32 %20, 1
   store i32 %inc.i, ptr %amqueue_used.i, align 4
   br label %return
 
@@ -8022,33 +8011,32 @@ if.end.if.end11_crit_edge.i:                      ; preds = %if.end.i
   br label %if.end11.i
 
 if.then1.i:                                       ; preds = %if.end.i
-  %mul.i = shl nsw i32 %3, 1
-  %cmp4.i = icmp slt i32 %3, 8
-  %spec.select.i = select i1 %cmp4.i, i32 16, i32 %mul.i
+  %5 = tail call i32 @llvm.smax.i32(i32 %3, i32 8)
+  %spec.select.i = shl nuw i32 %5, 1
   store i32 %spec.select.i, ptr %amqueue_len.i, align 8
   %amqueue.i = getelementptr inbounds i8, ptr %ctx, i64 32
-  %5 = load ptr, ptr %amqueue.i, align 8
+  %6 = load ptr, ptr %amqueue.i, align 8
   %conv.i = sext i32 %spec.select.i to i64
   %mul9.i = shl nsw i64 %conv.i, 4
-  %call.i = tail call ptr @zrealloc(ptr noundef %5, i64 noundef %mul9.i) #36
+  %call.i = tail call ptr @zrealloc(ptr noundef %6, i64 noundef %mul9.i) #36
   store ptr %call.i, ptr %amqueue.i, align 8
   %.pre14.i = load i32, ptr %amqueue_used.i, align 4
   br label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.then1.i, %if.end.if.end11_crit_edge.i
-  %6 = phi i32 [ %3, %if.end.if.end11_crit_edge.i ], [ %.pre14.i, %if.then1.i ]
-  %7 = phi ptr [ %.pre.i, %if.end.if.end11_crit_edge.i ], [ %call.i, %if.then1.i ]
+  %7 = phi i32 [ %3, %if.end.if.end11_crit_edge.i ], [ %.pre14.i, %if.then1.i ]
+  %8 = phi ptr [ %.pre.i, %if.end.if.end11_crit_edge.i ], [ %call.i, %if.then1.i ]
   %amqueue12.i = getelementptr inbounds i8, ptr %ctx, i64 32
-  %idxprom.i = sext i32 %6 to i64
-  %type14.i = getelementptr inbounds %struct.AutoMemEntry, ptr %7, i64 %idxprom.i, i32 1
+  %idxprom.i = sext i32 %7 to i64
+  %type14.i = getelementptr inbounds %struct.AutoMemEntry, ptr %8, i64 %idxprom.i, i32 1
   store i32 1, ptr %type14.i, align 8
-  %8 = load ptr, ptr %amqueue12.i, align 8
-  %9 = load i32, ptr %amqueue_used.i, align 4
-  %idxprom17.i = sext i32 %9 to i64
-  %arrayidx18.i = getelementptr inbounds %struct.AutoMemEntry, ptr %8, i64 %idxprom17.i
-  store ptr %call9, ptr %arrayidx18.i, align 8
+  %9 = load ptr, ptr %amqueue12.i, align 8
   %10 = load i32, ptr %amqueue_used.i, align 4
-  %inc.i = add nsw i32 %10, 1
+  %idxprom17.i = sext i32 %10 to i64
+  %arrayidx18.i = getelementptr inbounds %struct.AutoMemEntry, ptr %9, i64 %idxprom17.i
+  store ptr %call9, ptr %arrayidx18.i, align 8
+  %11 = load i32, ptr %amqueue_used.i, align 4
+  %inc.i = add nsw i32 %11, 1
   store i32 %inc.i, ptr %amqueue_used.i, align 4
   br label %return
 
@@ -8291,33 +8279,32 @@ if.end.if.end11_crit_edge.i:                      ; preds = %if.end.i
   br label %if.end11.i
 
 if.then1.i:                                       ; preds = %if.end.i
-  %mul.i = shl nsw i32 %2, 1
-  %cmp4.i = icmp slt i32 %2, 8
-  %spec.select.i = select i1 %cmp4.i, i32 16, i32 %mul.i
+  %4 = tail call i32 @llvm.smax.i32(i32 %2, i32 8)
+  %spec.select.i = shl nuw i32 %4, 1
   store i32 %spec.select.i, ptr %amqueue_len.i, align 8
   %amqueue.i = getelementptr inbounds i8, ptr %ctx, i64 32
-  %4 = load ptr, ptr %amqueue.i, align 8
+  %5 = load ptr, ptr %amqueue.i, align 8
   %conv.i = sext i32 %spec.select.i to i64
   %mul9.i = shl nsw i64 %conv.i, 4
-  %call.i = tail call ptr @zrealloc(ptr noundef %4, i64 noundef %mul9.i) #36
+  %call.i = tail call ptr @zrealloc(ptr noundef %5, i64 noundef %mul9.i) #36
   store ptr %call.i, ptr %amqueue.i, align 8
   %.pre14.i = load i32, ptr %amqueue_used.i, align 4
   br label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.then1.i, %if.end.if.end11_crit_edge.i
-  %5 = phi i32 [ %2, %if.end.if.end11_crit_edge.i ], [ %.pre14.i, %if.then1.i ]
-  %6 = phi ptr [ %.pre.i, %if.end.if.end11_crit_edge.i ], [ %call.i, %if.then1.i ]
+  %6 = phi i32 [ %2, %if.end.if.end11_crit_edge.i ], [ %.pre14.i, %if.then1.i ]
+  %7 = phi ptr [ %.pre.i, %if.end.if.end11_crit_edge.i ], [ %call.i, %if.then1.i ]
   %amqueue12.i = getelementptr inbounds i8, ptr %ctx, i64 32
-  %idxprom.i = sext i32 %5 to i64
-  %type14.i = getelementptr inbounds %struct.AutoMemEntry, ptr %6, i64 %idxprom.i, i32 1
+  %idxprom.i = sext i32 %6 to i64
+  %type14.i = getelementptr inbounds %struct.AutoMemEntry, ptr %7, i64 %idxprom.i, i32 1
   store i32 1, ptr %type14.i, align 8
-  %7 = load ptr, ptr %amqueue12.i, align 8
-  %8 = load i32, ptr %amqueue_used.i, align 4
-  %idxprom17.i = sext i32 %8 to i64
-  %arrayidx18.i = getelementptr inbounds %struct.AutoMemEntry, ptr %7, i64 %idxprom17.i
-  store ptr %0, ptr %arrayidx18.i, align 8
+  %8 = load ptr, ptr %amqueue12.i, align 8
   %9 = load i32, ptr %amqueue_used.i, align 4
-  %inc.i = add nsw i32 %9, 1
+  %idxprom17.i = sext i32 %9 to i64
+  %arrayidx18.i = getelementptr inbounds %struct.AutoMemEntry, ptr %8, i64 %idxprom17.i
+  store ptr %0, ptr %arrayidx18.i, align 8
+  %10 = load i32, ptr %amqueue_used.i, align 4
+  %inc.i = add nsw i32 %10, 1
   store i32 %inc.i, ptr %amqueue_used.i, align 4
   br label %return
 
@@ -8691,33 +8678,32 @@ if.end.if.end11_crit_edge.i:                      ; preds = %if.end.i
   br label %if.end11.i
 
 if.then1.i:                                       ; preds = %if.end.i
-  %mul.i = shl nsw i32 %5, 1
-  %cmp4.i = icmp slt i32 %5, 8
-  %spec.select.i = select i1 %cmp4.i, i32 16, i32 %mul.i
+  %7 = tail call i32 @llvm.smax.i32(i32 %5, i32 8)
+  %spec.select.i = shl nuw i32 %7, 1
   store i32 %spec.select.i, ptr %amqueue_len.i, align 8
   %amqueue.i = getelementptr inbounds i8, ptr %ctx, i64 32
-  %7 = load ptr, ptr %amqueue.i, align 8
+  %8 = load ptr, ptr %amqueue.i, align 8
   %conv.i = sext i32 %spec.select.i to i64
   %mul9.i = shl nsw i64 %conv.i, 4
-  %call.i = tail call ptr @zrealloc(ptr noundef %7, i64 noundef %mul9.i) #36
+  %call.i = tail call ptr @zrealloc(ptr noundef %8, i64 noundef %mul9.i) #36
   store ptr %call.i, ptr %amqueue.i, align 8
   %.pre14.i = load i32, ptr %amqueue_used.i, align 4
   br label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.then1.i, %if.end.if.end11_crit_edge.i
-  %8 = phi i32 [ %5, %if.end.if.end11_crit_edge.i ], [ %.pre14.i, %if.then1.i ]
-  %9 = phi ptr [ %.pre.i, %if.end.if.end11_crit_edge.i ], [ %call.i, %if.then1.i ]
+  %9 = phi i32 [ %5, %if.end.if.end11_crit_edge.i ], [ %.pre14.i, %if.then1.i ]
+  %10 = phi ptr [ %.pre.i, %if.end.if.end11_crit_edge.i ], [ %call.i, %if.then1.i ]
   %amqueue12.i = getelementptr inbounds i8, ptr %ctx, i64 32
-  %idxprom.i = sext i32 %8 to i64
-  %type14.i = getelementptr inbounds %struct.AutoMemEntry, ptr %9, i64 %idxprom.i, i32 1
+  %idxprom.i = sext i32 %9 to i64
+  %type14.i = getelementptr inbounds %struct.AutoMemEntry, ptr %10, i64 %idxprom.i, i32 1
   store i32 0, ptr %type14.i, align 8
-  %10 = load ptr, ptr %amqueue12.i, align 8
-  %11 = load i32, ptr %amqueue_used.i, align 4
-  %idxprom17.i = sext i32 %11 to i64
-  %arrayidx18.i = getelementptr inbounds %struct.AutoMemEntry, ptr %10, i64 %idxprom17.i
-  store ptr %call24, ptr %arrayidx18.i, align 8
+  %11 = load ptr, ptr %amqueue12.i, align 8
   %12 = load i32, ptr %amqueue_used.i, align 4
-  %inc.i = add nsw i32 %12, 1
+  %idxprom17.i = sext i32 %12 to i64
+  %arrayidx18.i = getelementptr inbounds %struct.AutoMemEntry, ptr %11, i64 %idxprom17.i
+  store ptr %call24, ptr %arrayidx18.i, align 8
+  %13 = load i32, ptr %amqueue_used.i, align 4
+  %inc.i = add nsw i32 %13, 1
   store i32 %inc.i, ptr %amqueue_used.i, align 4
   br label %return
 
@@ -9219,33 +9205,32 @@ if.end.if.end11_crit_edge.i:                      ; preds = %if.end.i
   br label %if.end11.i
 
 if.then1.i:                                       ; preds = %if.end.i
-  %mul.i = shl nsw i32 %3, 1
-  %cmp4.i = icmp slt i32 %3, 8
-  %spec.select.i = select i1 %cmp4.i, i32 16, i32 %mul.i
+  %5 = tail call i32 @llvm.smax.i32(i32 %3, i32 8)
+  %spec.select.i = shl nuw i32 %5, 1
   store i32 %spec.select.i, ptr %amqueue_len.i, align 8
   %amqueue.i = getelementptr inbounds i8, ptr %ctx, i64 32
-  %5 = load ptr, ptr %amqueue.i, align 8
+  %6 = load ptr, ptr %amqueue.i, align 8
   %conv.i = sext i32 %spec.select.i to i64
   %mul9.i = shl nsw i64 %conv.i, 4
-  %call.i = tail call ptr @zrealloc(ptr noundef %5, i64 noundef %mul9.i) #36
+  %call.i = tail call ptr @zrealloc(ptr noundef %6, i64 noundef %mul9.i) #36
   store ptr %call.i, ptr %amqueue.i, align 8
   %.pre14.i = load i32, ptr %amqueue_used.i, align 4
   br label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.then1.i, %if.end.if.end11_crit_edge.i
-  %6 = phi i32 [ %3, %if.end.if.end11_crit_edge.i ], [ %.pre14.i, %if.then1.i ]
-  %7 = phi ptr [ %.pre.i, %if.end.if.end11_crit_edge.i ], [ %call.i, %if.then1.i ]
+  %7 = phi i32 [ %3, %if.end.if.end11_crit_edge.i ], [ %.pre14.i, %if.then1.i ]
+  %8 = phi ptr [ %.pre.i, %if.end.if.end11_crit_edge.i ], [ %call.i, %if.then1.i ]
   %amqueue12.i = getelementptr inbounds i8, ptr %ctx, i64 32
-  %idxprom.i = sext i32 %6 to i64
-  %type14.i = getelementptr inbounds %struct.AutoMemEntry, ptr %7, i64 %idxprom.i, i32 1
+  %idxprom.i = sext i32 %7 to i64
+  %type14.i = getelementptr inbounds %struct.AutoMemEntry, ptr %8, i64 %idxprom.i, i32 1
   store i32 1, ptr %type14.i, align 8
-  %8 = load ptr, ptr %amqueue12.i, align 8
-  %9 = load i32, ptr %amqueue_used.i, align 4
-  %idxprom17.i = sext i32 %9 to i64
-  %arrayidx18.i = getelementptr inbounds %struct.AutoMemEntry, ptr %8, i64 %idxprom17.i
-  store ptr %call, ptr %arrayidx18.i, align 8
+  %9 = load ptr, ptr %amqueue12.i, align 8
   %10 = load i32, ptr %amqueue_used.i, align 4
-  %inc.i = add nsw i32 %10, 1
+  %idxprom17.i = sext i32 %10 to i64
+  %arrayidx18.i = getelementptr inbounds %struct.AutoMemEntry, ptr %9, i64 %idxprom17.i
+  store ptr %call, ptr %arrayidx18.i, align 8
+  %11 = load i32, ptr %amqueue_used.i, align 4
+  %inc.i = add nsw i32 %11, 1
   store i32 %inc.i, ptr %amqueue_used.i, align 4
   br label %autoMemoryAdd.exit
 
@@ -10005,33 +9990,32 @@ if.end.if.end11_crit_edge.i:                      ; preds = %if.end.i
   br label %if.end11.i
 
 if.then1.i:                                       ; preds = %if.end.i
-  %mul.i = shl nsw i32 %7, 1
-  %cmp4.i = icmp slt i32 %7, 8
-  %spec.select.i = select i1 %cmp4.i, i32 16, i32 %mul.i
+  %9 = tail call i32 @llvm.smax.i32(i32 %7, i32 8)
+  %spec.select.i = shl nuw i32 %9, 1
   store i32 %spec.select.i, ptr %amqueue_len.i, align 8
   %amqueue.i = getelementptr inbounds i8, ptr %5, i64 32
-  %9 = load ptr, ptr %amqueue.i, align 8
+  %10 = load ptr, ptr %amqueue.i, align 8
   %conv.i = sext i32 %spec.select.i to i64
   %mul9.i = shl nsw i64 %conv.i, 4
-  %call.i = tail call ptr @zrealloc(ptr noundef %9, i64 noundef %mul9.i) #36
+  %call.i = tail call ptr @zrealloc(ptr noundef %10, i64 noundef %mul9.i) #36
   store ptr %call.i, ptr %amqueue.i, align 8
   %.pre14.i = load i32, ptr %amqueue_used.i, align 4
   br label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.then1.i, %if.end.if.end11_crit_edge.i
-  %10 = phi i32 [ %7, %if.end.if.end11_crit_edge.i ], [ %.pre14.i, %if.then1.i ]
-  %11 = phi ptr [ %.pre.i, %if.end.if.end11_crit_edge.i ], [ %call.i, %if.then1.i ]
+  %11 = phi i32 [ %7, %if.end.if.end11_crit_edge.i ], [ %.pre14.i, %if.then1.i ]
+  %12 = phi ptr [ %.pre.i, %if.end.if.end11_crit_edge.i ], [ %call.i, %if.then1.i ]
   %amqueue12.i = getelementptr inbounds i8, ptr %5, i64 32
-  %idxprom.i = sext i32 %10 to i64
-  %type14.i = getelementptr inbounds %struct.AutoMemEntry, ptr %11, i64 %idxprom.i, i32 1
+  %idxprom.i = sext i32 %11 to i64
+  %type14.i = getelementptr inbounds %struct.AutoMemEntry, ptr %12, i64 %idxprom.i, i32 1
   store i32 1, ptr %type14.i, align 8
-  %12 = load ptr, ptr %amqueue12.i, align 8
-  %13 = load i32, ptr %amqueue_used.i, align 4
-  %idxprom17.i = sext i32 %13 to i64
-  %arrayidx18.i = getelementptr inbounds %struct.AutoMemEntry, ptr %12, i64 %idxprom17.i
-  store ptr %call17, ptr %arrayidx18.i, align 8
+  %13 = load ptr, ptr %amqueue12.i, align 8
   %14 = load i32, ptr %amqueue_used.i, align 4
-  %inc.i = add nsw i32 %14, 1
+  %idxprom17.i = sext i32 %14 to i64
+  %arrayidx18.i = getelementptr inbounds %struct.AutoMemEntry, ptr %13, i64 %idxprom17.i
+  store ptr %call17, ptr %arrayidx18.i, align 8
+  %15 = load i32, ptr %amqueue_used.i, align 4
+  %inc.i = add nsw i32 %15, 1
   store i32 %inc.i, ptr %amqueue_used.i, align 4
   br label %return
 
@@ -10079,33 +10063,32 @@ if.end.if.end11_crit_edge.i:                      ; preds = %if.end.i
   br label %if.end11.i
 
 if.then1.i:                                       ; preds = %if.end.i
-  %mul.i = shl nsw i32 %2, 1
-  %cmp4.i = icmp slt i32 %2, 8
-  %spec.select.i = select i1 %cmp4.i, i32 16, i32 %mul.i
+  %4 = tail call i32 @llvm.smax.i32(i32 %2, i32 8)
+  %spec.select.i = shl nuw i32 %4, 1
   store i32 %spec.select.i, ptr %amqueue_len.i, align 8
   %amqueue.i = getelementptr inbounds i8, ptr %0, i64 32
-  %4 = load ptr, ptr %amqueue.i, align 8
+  %5 = load ptr, ptr %amqueue.i, align 8
   %conv.i = sext i32 %spec.select.i to i64
   %mul9.i = shl nsw i64 %conv.i, 4
-  %call.i = tail call ptr @zrealloc(ptr noundef %4, i64 noundef %mul9.i) #36
+  %call.i = tail call ptr @zrealloc(ptr noundef %5, i64 noundef %mul9.i) #36
   store ptr %call.i, ptr %amqueue.i, align 8
   %.pre14.i = load i32, ptr %amqueue_used.i, align 4
   br label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.then1.i, %if.end.if.end11_crit_edge.i
-  %5 = phi i32 [ %2, %if.end.if.end11_crit_edge.i ], [ %.pre14.i, %if.then1.i ]
-  %6 = phi ptr [ %.pre.i, %if.end.if.end11_crit_edge.i ], [ %call.i, %if.then1.i ]
+  %6 = phi i32 [ %2, %if.end.if.end11_crit_edge.i ], [ %.pre14.i, %if.then1.i ]
+  %7 = phi ptr [ %.pre.i, %if.end.if.end11_crit_edge.i ], [ %call.i, %if.then1.i ]
   %amqueue12.i = getelementptr inbounds i8, ptr %0, i64 32
-  %idxprom.i = sext i32 %5 to i64
-  %type14.i = getelementptr inbounds %struct.AutoMemEntry, ptr %6, i64 %idxprom.i, i32 1
+  %idxprom.i = sext i32 %6 to i64
+  %type14.i = getelementptr inbounds %struct.AutoMemEntry, ptr %7, i64 %idxprom.i, i32 1
   store i32 1, ptr %type14.i, align 8
-  %7 = load ptr, ptr %amqueue12.i, align 8
-  %8 = load i32, ptr %amqueue_used.i, align 4
-  %idxprom17.i = sext i32 %8 to i64
-  %arrayidx18.i = getelementptr inbounds %struct.AutoMemEntry, ptr %7, i64 %idxprom17.i
-  store ptr %call3, ptr %arrayidx18.i, align 8
+  %8 = load ptr, ptr %amqueue12.i, align 8
   %9 = load i32, ptr %amqueue_used.i, align 4
-  %inc.i = add nsw i32 %9, 1
+  %idxprom17.i = sext i32 %9 to i64
+  %arrayidx18.i = getelementptr inbounds %struct.AutoMemEntry, ptr %8, i64 %idxprom17.i
+  store ptr %call3, ptr %arrayidx18.i, align 8
+  %10 = load i32, ptr %amqueue_used.i, align 4
+  %inc.i = add nsw i32 %10, 1
   store i32 %inc.i, ptr %amqueue_used.i, align 4
   br label %return
 
@@ -11072,33 +11055,32 @@ if.end.if.end11_crit_edge.i:                      ; preds = %if.end.i
   br label %if.end11.i
 
 if.then1.i:                                       ; preds = %if.end.i
-  %mul.i = shl nsw i32 %13, 1
-  %cmp4.i = icmp slt i32 %13, 8
-  %spec.select.i = select i1 %cmp4.i, i32 16, i32 %mul.i
+  %15 = tail call i32 @llvm.smax.i32(i32 %13, i32 8)
+  %spec.select.i = shl nuw i32 %15, 1
   store i32 %spec.select.i, ptr %amqueue_len.i, align 8
   %amqueue.i = getelementptr inbounds i8, ptr %11, i64 32
-  %15 = load ptr, ptr %amqueue.i, align 8
+  %16 = load ptr, ptr %amqueue.i, align 8
   %conv.i18 = sext i32 %spec.select.i to i64
   %mul9.i = shl nsw i64 %conv.i18, 4
-  %call.i = tail call ptr @zrealloc(ptr noundef %15, i64 noundef %mul9.i) #36
+  %call.i = tail call ptr @zrealloc(ptr noundef %16, i64 noundef %mul9.i) #36
   store ptr %call.i, ptr %amqueue.i, align 8
   %.pre14.i = load i32, ptr %amqueue_used.i, align 4
   br label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.then1.i, %if.end.if.end11_crit_edge.i
-  %16 = phi i32 [ %13, %if.end.if.end11_crit_edge.i ], [ %.pre14.i, %if.then1.i ]
-  %17 = phi ptr [ %.pre.i, %if.end.if.end11_crit_edge.i ], [ %call.i, %if.then1.i ]
+  %17 = phi i32 [ %13, %if.end.if.end11_crit_edge.i ], [ %.pre14.i, %if.then1.i ]
+  %18 = phi ptr [ %.pre.i, %if.end.if.end11_crit_edge.i ], [ %call.i, %if.then1.i ]
   %amqueue12.i = getelementptr inbounds i8, ptr %11, i64 32
-  %idxprom.i = sext i32 %16 to i64
-  %type14.i = getelementptr inbounds %struct.AutoMemEntry, ptr %17, i64 %idxprom.i, i32 1
+  %idxprom.i = sext i32 %17 to i64
+  %type14.i = getelementptr inbounds %struct.AutoMemEntry, ptr %18, i64 %idxprom.i, i32 1
   store i32 1, ptr %type14.i, align 8
-  %18 = load ptr, ptr %amqueue12.i, align 8
-  %19 = load i32, ptr %amqueue_used.i, align 4
-  %idxprom17.i = sext i32 %19 to i64
-  %arrayidx18.i = getelementptr inbounds %struct.AutoMemEntry, ptr %18, i64 %idxprom17.i
-  store ptr %str.0, ptr %arrayidx18.i, align 8
+  %19 = load ptr, ptr %amqueue12.i, align 8
   %20 = load i32, ptr %amqueue_used.i, align 4
-  %inc.i = add nsw i32 %20, 1
+  %idxprom17.i = sext i32 %20 to i64
+  %arrayidx18.i = getelementptr inbounds %struct.AutoMemEntry, ptr %19, i64 %idxprom17.i
+  store ptr %str.0, ptr %arrayidx18.i, align 8
+  %21 = load i32, ptr %amqueue_used.i, align 4
+  %inc.i = add nsw i32 %21, 1
   store i32 %inc.i, ptr %amqueue_used.i, align 4
   br label %return
 
@@ -12148,33 +12130,32 @@ if.end.if.end11_crit_edge.i.us:                   ; preds = %if.end.i.us
   br label %if.end11.i.us
 
 if.then1.i.us:                                    ; preds = %if.end.i.us
-  %mul.i.us = shl nsw i32 %19, 1
-  %cmp4.i.us = icmp slt i32 %19, 8
-  %spec.select.i.us = select i1 %cmp4.i.us, i32 16, i32 %mul.i.us
+  %21 = call i32 @llvm.smax.i32(i32 %19, i32 8)
+  %spec.select.i.us = shl nuw i32 %21, 1
   store i32 %spec.select.i.us, ptr %amqueue_len.i.us, align 8
   %amqueue.i.us = getelementptr inbounds i8, ptr %17, i64 32
-  %21 = load ptr, ptr %amqueue.i.us, align 8
+  %22 = load ptr, ptr %amqueue.i.us, align 8
   %conv.i.us = sext i32 %spec.select.i.us to i64
   %mul9.i.us = shl nsw i64 %conv.i.us, 4
-  %call.i.us = call ptr @zrealloc(ptr noundef %21, i64 noundef %mul9.i.us) #36
+  %call.i.us = call ptr @zrealloc(ptr noundef %22, i64 noundef %mul9.i.us) #36
   store ptr %call.i.us, ptr %amqueue.i.us, align 8
   %.pre14.i.us = load i32, ptr %amqueue_used.i.us, align 4
   br label %if.end11.i.us
 
 if.end11.i.us:                                    ; preds = %if.then1.i.us, %if.end.if.end11_crit_edge.i.us
-  %22 = phi i32 [ %19, %if.end.if.end11_crit_edge.i.us ], [ %.pre14.i.us, %if.then1.i.us ]
-  %23 = phi ptr [ %.pre.i.us, %if.end.if.end11_crit_edge.i.us ], [ %call.i.us, %if.then1.i.us ]
+  %23 = phi i32 [ %19, %if.end.if.end11_crit_edge.i.us ], [ %.pre14.i.us, %if.then1.i.us ]
+  %24 = phi ptr [ %.pre.i.us, %if.end.if.end11_crit_edge.i.us ], [ %call.i.us, %if.then1.i.us ]
   %amqueue12.i.us = getelementptr inbounds i8, ptr %17, i64 32
-  %idxprom.i.us = sext i32 %22 to i64
-  %type14.i.us = getelementptr inbounds %struct.AutoMemEntry, ptr %23, i64 %idxprom.i.us, i32 1
+  %idxprom.i.us = sext i32 %23 to i64
+  %type14.i.us = getelementptr inbounds %struct.AutoMemEntry, ptr %24, i64 %idxprom.i.us, i32 1
   store i32 1, ptr %type14.i.us, align 8
-  %24 = load ptr, ptr %amqueue12.i.us, align 8
-  %25 = load i32, ptr %amqueue_used.i.us, align 4
-  %idxprom17.i.us = sext i32 %25 to i64
-  %arrayidx18.i.us = getelementptr inbounds %struct.AutoMemEntry, ptr %24, i64 %idxprom17.i.us
-  store ptr %call68.us, ptr %arrayidx18.i.us, align 8
+  %25 = load ptr, ptr %amqueue12.i.us, align 8
   %26 = load i32, ptr %amqueue_used.i.us, align 4
-  %inc.i.us = add nsw i32 %26, 1
+  %idxprom17.i.us = sext i32 %26 to i64
+  %arrayidx18.i.us = getelementptr inbounds %struct.AutoMemEntry, ptr %25, i64 %idxprom17.i.us
+  store ptr %call68.us, ptr %arrayidx18.i.us, align 8
+  %27 = load i32, ptr %amqueue_used.i.us, align 4
+  %inc.i.us = add nsw i32 %27, 1
   store i32 %inc.i.us, ptr %amqueue_used.i.us, align 4
   br label %if.end75.us
 
@@ -12208,17 +12189,17 @@ vaarg.in_mem15.us32:                              ; preds = %while.body.us28
 
 vaarg.in_reg13.us35:                              ; preds = %while.body.us28
   %reg_save_area14.us36 = load ptr, ptr %1, align 16
-  %27 = zext nneg i32 %gp_offset11.us30 to i64
-  %28 = getelementptr i8, ptr %reg_save_area14.us36, i64 %27
-  %29 = add nuw nsw i32 %gp_offset11.us30, 8
-  store i32 %29, ptr %ap, align 16
+  %28 = zext nneg i32 %gp_offset11.us30 to i64
+  %29 = getelementptr i8, ptr %reg_save_area14.us36, i64 %28
+  %30 = add nuw nsw i32 %gp_offset11.us30, 8
+  store i32 %30, ptr %ap, align 16
   br label %vaarg.end19.us37
 
 vaarg.end19.us37:                                 ; preds = %vaarg.in_reg13.us35, %vaarg.in_mem15.us32
-  %gp_offset30.us = phi i32 [ %29, %vaarg.in_reg13.us35 ], [ %gp_offset11.us30, %vaarg.in_mem15.us32 ]
-  %vaarg.addr20.us38 = phi ptr [ %28, %vaarg.in_reg13.us35 ], [ %overflow_arg_area17.us33, %vaarg.in_mem15.us32 ]
-  %30 = load ptr, ptr %vaarg.addr20.us38, align 8
-  %cmp21.us39 = icmp eq ptr %30, null
+  %gp_offset30.us = phi i32 [ %30, %vaarg.in_reg13.us35 ], [ %gp_offset11.us30, %vaarg.in_mem15.us32 ]
+  %vaarg.addr20.us38 = phi ptr [ %29, %vaarg.in_reg13.us35 ], [ %overflow_arg_area17.us33, %vaarg.in_mem15.us32 ]
+  %31 = load ptr, ptr %vaarg.addr20.us38, align 8
+  %cmp21.us39 = icmp eq ptr %31, null
   br i1 %cmp21.us39, label %while.end, label %if.end24.us40
 
 if.end24.us40:                                    ; preds = %vaarg.end19.us37
@@ -12233,28 +12214,28 @@ vaarg.in_mem34.us:                                ; preds = %if.end24.us40
 
 vaarg.in_reg32.us:                                ; preds = %if.end24.us40
   %reg_save_area33.us = load ptr, ptr %1, align 16
-  %31 = zext nneg i32 %gp_offset30.us to i64
-  %32 = getelementptr i8, ptr %reg_save_area33.us, i64 %31
-  %33 = add nuw nsw i32 %gp_offset30.us, 8
-  store i32 %33, ptr %ap, align 16
+  %32 = zext nneg i32 %gp_offset30.us to i64
+  %33 = getelementptr i8, ptr %reg_save_area33.us, i64 %32
+  %34 = add nuw nsw i32 %gp_offset30.us, 8
+  store i32 %34, ptr %ap, align 16
   br label %vaarg.end38.us
 
 vaarg.end38.us:                                   ; preds = %vaarg.in_reg32.us, %vaarg.in_mem34.us
-  %vaarg.addr39.us = phi ptr [ %32, %vaarg.in_reg32.us ], [ %overflow_arg_area36.us, %vaarg.in_mem34.us ]
-  %34 = load ptr, ptr %vaarg.addr39.us, align 8
-  %35 = load ptr, ptr %value, align 8
-  %tobool41.not.us = icmp eq ptr %35, null
+  %vaarg.addr39.us = phi ptr [ %33, %vaarg.in_reg32.us ], [ %overflow_arg_area36.us, %vaarg.in_mem34.us ]
+  %35 = load ptr, ptr %vaarg.addr39.us, align 8
+  %36 = load ptr, ptr %value, align 8
+  %tobool41.not.us = icmp eq ptr %36, null
   br i1 %tobool41.not.us, label %if.end75.us42, label %if.then42.us
 
 if.then42.us:                                     ; preds = %vaarg.end38.us
-  %ptr.us = getelementptr inbounds i8, ptr %30, i64 8
-  %36 = load ptr, ptr %ptr.us, align 8
-  %call44.us = call i32 @hashTypeExists(ptr noundef nonnull %35, ptr noundef %36) #34
+  %ptr.us = getelementptr inbounds i8, ptr %31, i64 8
+  %37 = load ptr, ptr %ptr.us, align 8
+  %call44.us = call i32 @hashTypeExists(ptr noundef nonnull %36, ptr noundef %37) #34
   br label %if.end75.us42
 
 if.end75.us42:                                    ; preds = %vaarg.end38.us, %if.then42.us
   %storemerge45 = phi i32 [ %call44.us, %if.then42.us ], [ 0, %vaarg.end38.us ]
-  store i32 %storemerge45, ptr %34, align 4
+  store i32 %storemerge45, ptr %35, align 4
   br label %while.body.us28
 
 while.body:                                       ; preds = %if.end.split, %if.end75
@@ -12264,10 +12245,10 @@ while.body:                                       ; preds = %if.end.split, %if.e
 
 vaarg.in_reg:                                     ; preds = %while.body
   %reg_save_area = load ptr, ptr %1, align 16
-  %37 = zext nneg i32 %gp_offset to i64
-  %38 = getelementptr i8, ptr %reg_save_area, i64 %37
-  %39 = add nuw nsw i32 %gp_offset, 8
-  store i32 %39, ptr %ap, align 16
+  %38 = zext nneg i32 %gp_offset to i64
+  %39 = getelementptr i8, ptr %reg_save_area, i64 %38
+  %40 = add nuw nsw i32 %gp_offset, 8
+  store i32 %40, ptr %ap, align 16
   br label %vaarg.end
 
 vaarg.in_mem:                                     ; preds = %while.body
@@ -12277,24 +12258,24 @@ vaarg.in_mem:                                     ; preds = %while.body
   br label %vaarg.end
 
 vaarg.end:                                        ; preds = %vaarg.in_mem, %vaarg.in_reg
-  %vaarg.addr = phi ptr [ %38, %vaarg.in_reg ], [ %overflow_arg_area, %vaarg.in_mem ]
-  %40 = load ptr, ptr %vaarg.addr, align 8
-  %cmp5 = icmp eq ptr %40, null
+  %vaarg.addr = phi ptr [ %39, %vaarg.in_reg ], [ %overflow_arg_area, %vaarg.in_mem ]
+  %41 = load ptr, ptr %vaarg.addr, align 8
+  %cmp5 = icmp eq ptr %41, null
   br i1 %cmp5, label %while.end, label %if.end7
 
 if.end7:                                          ; preds = %vaarg.end
-  %call = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %40) #38
-  %call8 = call ptr @createRawStringObject(ptr noundef nonnull %40, i64 noundef %call) #34
+  %call = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %41) #38
+  %call8 = call ptr @createRawStringObject(ptr noundef nonnull %41, i64 noundef %call) #34
   %gp_offset30 = load i32, ptr %ap, align 16
   %fits_in_gp31 = icmp ult i32 %gp_offset30, 41
   br i1 %fits_in_gp31, label %vaarg.in_reg32, label %vaarg.in_mem34
 
 vaarg.in_reg32:                                   ; preds = %if.end7
   %reg_save_area33 = load ptr, ptr %1, align 16
-  %41 = zext nneg i32 %gp_offset30 to i64
-  %42 = getelementptr i8, ptr %reg_save_area33, i64 %41
-  %43 = add nuw nsw i32 %gp_offset30, 8
-  store i32 %43, ptr %ap, align 16
+  %42 = zext nneg i32 %gp_offset30 to i64
+  %43 = getelementptr i8, ptr %reg_save_area33, i64 %42
+  %44 = add nuw nsw i32 %gp_offset30, 8
+  store i32 %44, ptr %ap, align 16
   br label %vaarg.end38
 
 vaarg.in_mem34:                                   ; preds = %if.end7
@@ -12304,21 +12285,21 @@ vaarg.in_mem34:                                   ; preds = %if.end7
   br label %vaarg.end38
 
 vaarg.end38:                                      ; preds = %vaarg.in_mem34, %vaarg.in_reg32
-  %vaarg.addr39 = phi ptr [ %42, %vaarg.in_reg32 ], [ %overflow_arg_area36, %vaarg.in_mem34 ]
-  %44 = load ptr, ptr %vaarg.addr39, align 8
-  %45 = load ptr, ptr %value, align 8
-  %tobool41.not = icmp eq ptr %45, null
+  %vaarg.addr39 = phi ptr [ %43, %vaarg.in_reg32 ], [ %overflow_arg_area36, %vaarg.in_mem34 ]
+  %45 = load ptr, ptr %vaarg.addr39, align 8
+  %46 = load ptr, ptr %value, align 8
+  %tobool41.not = icmp eq ptr %46, null
   br i1 %tobool41.not, label %if.end75, label %if.then42
 
 if.then42:                                        ; preds = %vaarg.end38
   %ptr = getelementptr inbounds i8, ptr %call8, i64 8
-  %46 = load ptr, ptr %ptr, align 8
-  %call44 = call i32 @hashTypeExists(ptr noundef nonnull %45, ptr noundef %46) #34
+  %47 = load ptr, ptr %ptr, align 8
+  %call44 = call i32 @hashTypeExists(ptr noundef nonnull %46, ptr noundef %47) #34
   br label %if.end75
 
 if.end75:                                         ; preds = %vaarg.end38, %if.then42
   %storemerge = phi i32 [ %call44, %if.then42 ], [ 0, %vaarg.end38 ]
-  store i32 %storemerge, ptr %44, align 4
+  store i32 %storemerge, ptr %45, align 4
   call void @decrRefCount(ptr noundef %call8) #34
   br label %while.body
 
@@ -12887,33 +12868,32 @@ if.end.if.end11_crit_edge.i:                      ; preds = %if.end.i
   br label %if.end11.i
 
 if.then1.i:                                       ; preds = %if.end.i
-  %mul.i = shl nsw i32 %7, 1
-  %cmp4.i = icmp slt i32 %7, 8
-  %spec.select.i = select i1 %cmp4.i, i32 16, i32 %mul.i
+  %9 = call i32 @llvm.smax.i32(i32 %7, i32 8)
+  %spec.select.i = shl nuw i32 %9, 1
   store i32 %spec.select.i, ptr %amqueue_len.i, align 8
   %amqueue.i = getelementptr inbounds i8, ptr %5, i64 32
-  %9 = load ptr, ptr %amqueue.i, align 8
+  %10 = load ptr, ptr %amqueue.i, align 8
   %conv.i = sext i32 %spec.select.i to i64
   %mul9.i = shl nsw i64 %conv.i, 4
-  %call.i = call ptr @zrealloc(ptr noundef %9, i64 noundef %mul9.i) #36
+  %call.i = call ptr @zrealloc(ptr noundef %10, i64 noundef %mul9.i) #36
   store ptr %call.i, ptr %amqueue.i, align 8
   %.pre14.i = load i32, ptr %amqueue_used.i, align 4
   br label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.then1.i, %if.end.if.end11_crit_edge.i
-  %10 = phi i32 [ %7, %if.end.if.end11_crit_edge.i ], [ %.pre14.i, %if.then1.i ]
-  %11 = phi ptr [ %.pre.i, %if.end.if.end11_crit_edge.i ], [ %call.i, %if.then1.i ]
+  %11 = phi i32 [ %7, %if.end.if.end11_crit_edge.i ], [ %.pre14.i, %if.then1.i ]
+  %12 = phi ptr [ %.pre.i, %if.end.if.end11_crit_edge.i ], [ %call.i, %if.then1.i ]
   %amqueue12.i = getelementptr inbounds i8, ptr %5, i64 32
-  %idxprom.i = sext i32 %10 to i64
-  %type14.i = getelementptr inbounds %struct.AutoMemEntry, ptr %11, i64 %idxprom.i, i32 1
+  %idxprom.i = sext i32 %11 to i64
+  %type14.i = getelementptr inbounds %struct.AutoMemEntry, ptr %12, i64 %idxprom.i, i32 1
   store i32 1, ptr %type14.i, align 8
-  %12 = load ptr, ptr %amqueue12.i, align 8
-  %13 = load i32, ptr %amqueue_used.i, align 4
-  %idxprom17.i = sext i32 %13 to i64
-  %arrayidx18.i = getelementptr inbounds %struct.AutoMemEntry, ptr %12, i64 %idxprom17.i
-  store ptr %call20, ptr %arrayidx18.i, align 8
+  %13 = load ptr, ptr %amqueue12.i, align 8
   %14 = load i32, ptr %amqueue_used.i, align 4
-  %inc.i = add nsw i32 %14, 1
+  %idxprom17.i = sext i32 %14 to i64
+  %arrayidx18.i = getelementptr inbounds %struct.AutoMemEntry, ptr %13, i64 %idxprom17.i
+  store ptr %call20, ptr %arrayidx18.i, align 8
+  %15 = load i32, ptr %amqueue_used.i, align 4
+  %inc.i = add nsw i32 %15, 1
   store i32 %inc.i, ptr %amqueue_used.i, align 4
   br label %if.end21
 
@@ -12922,64 +12902,63 @@ if.end21:                                         ; preds = %if.end11.i, %if.the
   br i1 %tobool22.not, label %if.end26, label %if.then23
 
 if.then23:                                        ; preds = %if.end21
-  %15 = load ptr, ptr %value17, align 8
-  %16 = load i64, ptr %value_len, align 8
-  %call24 = call ptr @createRawStringObject(ptr noundef %15, i64 noundef %16) #34
+  %16 = load ptr, ptr %value17, align 8
+  %17 = load i64, ptr %value_len, align 8
+  %call24 = call ptr @createRawStringObject(ptr noundef %16, i64 noundef %17) #34
   store ptr %call24, ptr %value_ptr, align 8
-  %17 = load ptr, ptr %key, align 8
-  %flags.i14 = getelementptr inbounds i8, ptr %17, i64 48
-  %18 = load i32, ptr %flags.i14, align 8
-  %and.i15 = and i32 %18, 1
+  %18 = load ptr, ptr %key, align 8
+  %flags.i14 = getelementptr inbounds i8, ptr %18, i64 48
+  %19 = load i32, ptr %flags.i14, align 8
+  %and.i15 = and i32 %19, 1
   %tobool.not.i16 = icmp eq i32 %and.i15, 0
   br i1 %tobool.not.i16, label %if.end26, label %if.end.i17
 
 if.end.i17:                                       ; preds = %if.then23
-  %amqueue_used.i18 = getelementptr inbounds i8, ptr %17, i64 44
-  %19 = load i32, ptr %amqueue_used.i18, align 4
-  %amqueue_len.i19 = getelementptr inbounds i8, ptr %17, i64 40
-  %20 = load i32, ptr %amqueue_len.i19, align 8
-  %cmp.i20 = icmp eq i32 %19, %20
+  %amqueue_used.i18 = getelementptr inbounds i8, ptr %18, i64 44
+  %20 = load i32, ptr %amqueue_used.i18, align 4
+  %amqueue_len.i19 = getelementptr inbounds i8, ptr %18, i64 40
+  %21 = load i32, ptr %amqueue_len.i19, align 8
+  %cmp.i20 = icmp eq i32 %20, %21
   br i1 %cmp.i20, label %if.then1.i31, label %if.end.if.end11_crit_edge.i21
 
 if.end.if.end11_crit_edge.i21:                    ; preds = %if.end.i17
-  %amqueue12.phi.trans.insert.i22 = getelementptr inbounds i8, ptr %17, i64 32
+  %amqueue12.phi.trans.insert.i22 = getelementptr inbounds i8, ptr %18, i64 32
   %.pre.i23 = load ptr, ptr %amqueue12.phi.trans.insert.i22, align 8
   br label %if.end11.i24
 
 if.then1.i31:                                     ; preds = %if.end.i17
-  %mul.i32 = shl nsw i32 %19, 1
-  %cmp4.i33 = icmp slt i32 %19, 8
-  %spec.select.i34 = select i1 %cmp4.i33, i32 16, i32 %mul.i32
-  store i32 %spec.select.i34, ptr %amqueue_len.i19, align 8
-  %amqueue.i35 = getelementptr inbounds i8, ptr %17, i64 32
-  %21 = load ptr, ptr %amqueue.i35, align 8
-  %conv.i36 = sext i32 %spec.select.i34 to i64
-  %mul9.i37 = shl nsw i64 %conv.i36, 4
-  %call.i38 = call ptr @zrealloc(ptr noundef %21, i64 noundef %mul9.i37) #36
-  store ptr %call.i38, ptr %amqueue.i35, align 8
-  %.pre14.i39 = load i32, ptr %amqueue_used.i18, align 4
+  %22 = call i32 @llvm.smax.i32(i32 %20, i32 8)
+  %spec.select.i32 = shl nuw i32 %22, 1
+  store i32 %spec.select.i32, ptr %amqueue_len.i19, align 8
+  %amqueue.i33 = getelementptr inbounds i8, ptr %18, i64 32
+  %23 = load ptr, ptr %amqueue.i33, align 8
+  %conv.i34 = sext i32 %spec.select.i32 to i64
+  %mul9.i35 = shl nsw i64 %conv.i34, 4
+  %call.i36 = call ptr @zrealloc(ptr noundef %23, i64 noundef %mul9.i35) #36
+  store ptr %call.i36, ptr %amqueue.i33, align 8
+  %.pre14.i37 = load i32, ptr %amqueue_used.i18, align 4
   br label %if.end11.i24
 
 if.end11.i24:                                     ; preds = %if.then1.i31, %if.end.if.end11_crit_edge.i21
-  %22 = phi i32 [ %19, %if.end.if.end11_crit_edge.i21 ], [ %.pre14.i39, %if.then1.i31 ]
-  %23 = phi ptr [ %.pre.i23, %if.end.if.end11_crit_edge.i21 ], [ %call.i38, %if.then1.i31 ]
-  %amqueue12.i25 = getelementptr inbounds i8, ptr %17, i64 32
-  %idxprom.i26 = sext i32 %22 to i64
-  %type14.i27 = getelementptr inbounds %struct.AutoMemEntry, ptr %23, i64 %idxprom.i26, i32 1
+  %24 = phi i32 [ %20, %if.end.if.end11_crit_edge.i21 ], [ %.pre14.i37, %if.then1.i31 ]
+  %25 = phi ptr [ %.pre.i23, %if.end.if.end11_crit_edge.i21 ], [ %call.i36, %if.then1.i31 ]
+  %amqueue12.i25 = getelementptr inbounds i8, ptr %18, i64 32
+  %idxprom.i26 = sext i32 %24 to i64
+  %type14.i27 = getelementptr inbounds %struct.AutoMemEntry, ptr %25, i64 %idxprom.i26, i32 1
   store i32 1, ptr %type14.i27, align 8
-  %24 = load ptr, ptr %amqueue12.i25, align 8
-  %25 = load i32, ptr %amqueue_used.i18, align 4
-  %idxprom17.i28 = sext i32 %25 to i64
-  %arrayidx18.i29 = getelementptr inbounds %struct.AutoMemEntry, ptr %24, i64 %idxprom17.i28
+  %26 = load ptr, ptr %amqueue12.i25, align 8
+  %27 = load i32, ptr %amqueue_used.i18, align 4
+  %idxprom17.i28 = sext i32 %27 to i64
+  %arrayidx18.i29 = getelementptr inbounds %struct.AutoMemEntry, ptr %26, i64 %idxprom17.i28
   store ptr %call24, ptr %arrayidx18.i29, align 8
-  %26 = load i32, ptr %amqueue_used.i18, align 4
-  %inc.i30 = add nsw i32 %26, 1
+  %28 = load i32, ptr %amqueue_used.i18, align 4
+  %inc.i30 = add nsw i32 %28, 1
   store i32 %inc.i30, ptr %amqueue_used.i18, align 4
   br label %if.end26
 
 if.end26:                                         ; preds = %if.end11.i24, %if.then23, %if.end21
-  %27 = load i64, ptr %numfieldsleft, align 8
-  %dec = add nsw i64 %27, -1
+  %29 = load i64, ptr %numfieldsleft, align 8
+  %dec = add nsw i64 %29, -1
   store i64 %dec, ptr %numfieldsleft, align 8
   br label %return
 
@@ -13411,33 +13390,32 @@ if.end.if.end11_crit_edge.i.i:                    ; preds = %if.end.i.i
   br label %if.end11.i.i
 
 if.then1.i.i:                                     ; preds = %if.end.i.i
-  %mul.i.i = shl nsw i32 %2, 1
-  %cmp4.i.i = icmp slt i32 %2, 8
-  %spec.select.i.i = select i1 %cmp4.i.i, i32 16, i32 %mul.i.i
+  %4 = call i32 @llvm.smax.i32(i32 %2, i32 8)
+  %spec.select.i.i = shl nuw i32 %4, 1
   store i32 %spec.select.i.i, ptr %amqueue_len.i.i, align 8
   %amqueue.i.i = getelementptr inbounds i8, ptr %call, i64 32
-  %4 = load ptr, ptr %amqueue.i.i, align 8
+  %5 = load ptr, ptr %amqueue.i.i, align 8
   %conv.i.i = sext i32 %spec.select.i.i to i64
   %mul9.i.i = shl nsw i64 %conv.i.i, 4
-  %call.i.i = call ptr @zrealloc(ptr noundef %4, i64 noundef %mul9.i.i) #36
+  %call.i.i = call ptr @zrealloc(ptr noundef %5, i64 noundef %mul9.i.i) #36
   store ptr %call.i.i, ptr %amqueue.i.i, align 8
   %.pre14.i.i = load i32, ptr %amqueue_used.i.i, align 4
   br label %if.end11.i.i
 
 if.end11.i.i:                                     ; preds = %if.then1.i.i, %if.end.if.end11_crit_edge.i.i
-  %5 = phi i32 [ %2, %if.end.if.end11_crit_edge.i.i ], [ %.pre14.i.i, %if.then1.i.i ]
-  %6 = phi ptr [ %.pre.i.i, %if.end.if.end11_crit_edge.i.i ], [ %call.i.i, %if.then1.i.i ]
+  %6 = phi i32 [ %2, %if.end.if.end11_crit_edge.i.i ], [ %.pre14.i.i, %if.then1.i.i ]
+  %7 = phi ptr [ %.pre.i.i, %if.end.if.end11_crit_edge.i.i ], [ %call.i.i, %if.then1.i.i ]
   %amqueue12.i.i = getelementptr inbounds i8, ptr %call, i64 32
-  %idxprom.i.i = sext i32 %5 to i64
-  %type14.i.i = getelementptr inbounds %struct.AutoMemEntry, ptr %6, i64 %idxprom.i.i, i32 1
+  %idxprom.i.i = sext i32 %6 to i64
+  %type14.i.i = getelementptr inbounds %struct.AutoMemEntry, ptr %7, i64 %idxprom.i.i, i32 1
   store i32 1, ptr %type14.i.i, align 8
-  %7 = load ptr, ptr %amqueue12.i.i, align 8
-  %8 = load i32, ptr %amqueue_used.i.i, align 4
-  %idxprom17.i.i = sext i32 %8 to i64
-  %arrayidx18.i.i = getelementptr inbounds %struct.AutoMemEntry, ptr %7, i64 %idxprom17.i.i
-  store ptr %call.i, ptr %arrayidx18.i.i, align 8
+  %8 = load ptr, ptr %amqueue12.i.i, align 8
   %9 = load i32, ptr %amqueue_used.i.i, align 4
-  %inc.i.i = add nsw i32 %9, 1
+  %idxprom17.i.i = sext i32 %9 to i64
+  %arrayidx18.i.i = getelementptr inbounds %struct.AutoMemEntry, ptr %8, i64 %idxprom17.i.i
+  store ptr %call.i, ptr %arrayidx18.i.i, align 8
+  %10 = load i32, ptr %amqueue_used.i.i, align 4
+  %inc.i.i = add nsw i32 %10, 1
   store i32 %inc.i.i, ptr %amqueue_used.i.i, align 4
   br label %return
 
@@ -13451,17 +13429,17 @@ sw.bb4:                                           ; preds = %entry
 
 if.then.i7:                                       ; preds = %sw.bb4
   %flags.i.i8 = getelementptr inbounds i8, ptr %call, i64 48
-  %10 = load i32, ptr %flags.i.i8, align 8
-  %and.i.i9 = and i32 %10, 1
+  %11 = load i32, ptr %flags.i.i8, align 8
+  %and.i.i9 = and i32 %11, 1
   %tobool.not.i.i10 = icmp eq i32 %and.i.i9, 0
   br i1 %tobool.not.i.i10, label %return, label %if.end.i.i11
 
 if.end.i.i11:                                     ; preds = %if.then.i7
   %amqueue_used.i.i12 = getelementptr inbounds i8, ptr %call, i64 44
-  %11 = load i32, ptr %amqueue_used.i.i12, align 4
+  %12 = load i32, ptr %amqueue_used.i.i12, align 4
   %amqueue_len.i.i13 = getelementptr inbounds i8, ptr %call, i64 40
-  %12 = load i32, ptr %amqueue_len.i.i13, align 8
-  %cmp.i.i14 = icmp eq i32 %11, %12
+  %13 = load i32, ptr %amqueue_len.i.i13, align 8
+  %cmp.i.i14 = icmp eq i32 %12, %13
   br i1 %cmp.i.i14, label %if.then1.i.i25, label %if.end.if.end11_crit_edge.i.i15
 
 if.end.if.end11_crit_edge.i.i15:                  ; preds = %if.end.i.i11
@@ -13470,33 +13448,32 @@ if.end.if.end11_crit_edge.i.i15:                  ; preds = %if.end.i.i11
   br label %if.end11.i.i18
 
 if.then1.i.i25:                                   ; preds = %if.end.i.i11
-  %mul.i.i26 = shl nsw i32 %11, 1
-  %cmp4.i.i27 = icmp slt i32 %11, 8
-  %spec.select.i.i28 = select i1 %cmp4.i.i27, i32 16, i32 %mul.i.i26
-  store i32 %spec.select.i.i28, ptr %amqueue_len.i.i13, align 8
-  %amqueue.i.i29 = getelementptr inbounds i8, ptr %call, i64 32
-  %13 = load ptr, ptr %amqueue.i.i29, align 8
-  %conv.i.i30 = sext i32 %spec.select.i.i28 to i64
-  %mul9.i.i31 = shl nsw i64 %conv.i.i30, 4
-  %call.i.i32 = call ptr @zrealloc(ptr noundef %13, i64 noundef %mul9.i.i31) #36
-  store ptr %call.i.i32, ptr %amqueue.i.i29, align 8
-  %.pre14.i.i33 = load i32, ptr %amqueue_used.i.i12, align 4
+  %14 = call i32 @llvm.smax.i32(i32 %12, i32 8)
+  %spec.select.i.i26 = shl nuw i32 %14, 1
+  store i32 %spec.select.i.i26, ptr %amqueue_len.i.i13, align 8
+  %amqueue.i.i27 = getelementptr inbounds i8, ptr %call, i64 32
+  %15 = load ptr, ptr %amqueue.i.i27, align 8
+  %conv.i.i28 = sext i32 %spec.select.i.i26 to i64
+  %mul9.i.i29 = shl nsw i64 %conv.i.i28, 4
+  %call.i.i30 = call ptr @zrealloc(ptr noundef %15, i64 noundef %mul9.i.i29) #36
+  store ptr %call.i.i30, ptr %amqueue.i.i27, align 8
+  %.pre14.i.i31 = load i32, ptr %amqueue_used.i.i12, align 4
   br label %if.end11.i.i18
 
 if.end11.i.i18:                                   ; preds = %if.then1.i.i25, %if.end.if.end11_crit_edge.i.i15
-  %14 = phi i32 [ %11, %if.end.if.end11_crit_edge.i.i15 ], [ %.pre14.i.i33, %if.then1.i.i25 ]
-  %15 = phi ptr [ %.pre.i.i17, %if.end.if.end11_crit_edge.i.i15 ], [ %call.i.i32, %if.then1.i.i25 ]
+  %16 = phi i32 [ %12, %if.end.if.end11_crit_edge.i.i15 ], [ %.pre14.i.i31, %if.then1.i.i25 ]
+  %17 = phi ptr [ %.pre.i.i17, %if.end.if.end11_crit_edge.i.i15 ], [ %call.i.i30, %if.then1.i.i25 ]
   %amqueue12.i.i19 = getelementptr inbounds i8, ptr %call, i64 32
-  %idxprom.i.i20 = sext i32 %14 to i64
-  %type14.i.i21 = getelementptr inbounds %struct.AutoMemEntry, ptr %15, i64 %idxprom.i.i20, i32 1
+  %idxprom.i.i20 = sext i32 %16 to i64
+  %type14.i.i21 = getelementptr inbounds %struct.AutoMemEntry, ptr %17, i64 %idxprom.i.i20, i32 1
   store i32 1, ptr %type14.i.i21, align 8
-  %16 = load ptr, ptr %amqueue12.i.i19, align 8
-  %17 = load i32, ptr %amqueue_used.i.i12, align 4
-  %idxprom17.i.i22 = sext i32 %17 to i64
-  %arrayidx18.i.i23 = getelementptr inbounds %struct.AutoMemEntry, ptr %16, i64 %idxprom17.i.i22
+  %18 = load ptr, ptr %amqueue12.i.i19, align 8
+  %19 = load i32, ptr %amqueue_used.i.i12, align 4
+  %idxprom17.i.i22 = sext i32 %19 to i64
+  %arrayidx18.i.i23 = getelementptr inbounds %struct.AutoMemEntry, ptr %18, i64 %idxprom17.i.i22
   store ptr %call.i5, ptr %arrayidx18.i.i23, align 8
-  %18 = load i32, ptr %amqueue_used.i.i12, align 4
-  %inc.i.i24 = add nsw i32 %18, 1
+  %20 = load i32, ptr %amqueue_used.i.i12, align 4
+  %inc.i.i24 = add nsw i32 %20, 1
   store i32 %inc.i.i24, ptr %amqueue_used.i.i12, align 4
   br label %return
 
@@ -14208,47 +14185,46 @@ if.end.if.end11_crit_edge.i:                      ; preds = %if.end.i
   br label %if.end11.i
 
 if.then1.i:                                       ; preds = %if.end.i
-  %mul.i = shl nsw i32 %90, 1
-  %cmp4.i = icmp slt i32 %90, 8
-  %spec.select.i = select i1 %cmp4.i, i32 16, i32 %mul.i
+  %92 = call i32 @llvm.smax.i32(i32 %90, i32 8)
+  %spec.select.i = shl nuw i32 %92, 1
   store i32 %spec.select.i, ptr %amqueue_len.i, align 8
   %amqueue.i = getelementptr inbounds i8, ptr %ctx, i64 32
-  %92 = load ptr, ptr %amqueue.i, align 8
+  %93 = load ptr, ptr %amqueue.i, align 8
   %conv.i = sext i32 %spec.select.i to i64
   %mul9.i = shl nsw i64 %conv.i, 4
-  %call.i130 = call ptr @zrealloc(ptr noundef %92, i64 noundef %mul9.i) #36
+  %call.i130 = call ptr @zrealloc(ptr noundef %93, i64 noundef %mul9.i) #36
   store ptr %call.i130, ptr %amqueue.i, align 8
   %.pre14.i = load i32, ptr %amqueue_used.i, align 4
   br label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.then1.i, %if.end.if.end11_crit_edge.i
-  %93 = phi i32 [ %90, %if.end.if.end11_crit_edge.i ], [ %.pre14.i, %if.then1.i ]
-  %94 = phi ptr [ %.pre.i, %if.end.if.end11_crit_edge.i ], [ %call.i130, %if.then1.i ]
+  %94 = phi i32 [ %90, %if.end.if.end11_crit_edge.i ], [ %.pre14.i, %if.then1.i ]
+  %95 = phi ptr [ %.pre.i, %if.end.if.end11_crit_edge.i ], [ %call.i130, %if.then1.i ]
   %amqueue12.i = getelementptr inbounds i8, ptr %ctx, i64 32
-  %idxprom.i = sext i32 %93 to i64
-  %type14.i = getelementptr inbounds %struct.AutoMemEntry, ptr %94, i64 %idxprom.i, i32 1
+  %idxprom.i = sext i32 %94 to i64
+  %type14.i = getelementptr inbounds %struct.AutoMemEntry, ptr %95, i64 %idxprom.i, i32 1
   store i32 2, ptr %type14.i, align 8
-  %95 = load ptr, ptr %amqueue12.i, align 8
-  %96 = load i32, ptr %amqueue_used.i, align 4
-  %idxprom17.i = sext i32 %96 to i64
-  %arrayidx18.i = getelementptr inbounds %struct.AutoMemEntry, ptr %95, i64 %idxprom17.i
-  store ptr %reply.0, ptr %arrayidx18.i, align 8
+  %96 = load ptr, ptr %amqueue12.i, align 8
   %97 = load i32, ptr %amqueue_used.i, align 4
-  %inc.i = add nsw i32 %97, 1
+  %idxprom17.i = sext i32 %97 to i64
+  %arrayidx18.i = getelementptr inbounds %struct.AutoMemEntry, ptr %96, i64 %idxprom17.i
+  store ptr %reply.0, ptr %arrayidx18.i, align 8
+  %98 = load i32, ptr %amqueue_used.i, align 4
+  %inc.i = add nsw i32 %98, 1
   store i32 %inc.i, ptr %amqueue_used.i, align 4
   br label %if.end400
 
 if.end400:                                        ; preds = %if.then36, %if.then59, %if.then73, %if.then154, %if.then172, %if.then186, %if.then207, %if.end311, %if.end317, %if.then133, %if.then114, %if.then86, %if.then46, %if.end11.i, %if.then399, %cleanup
   %c.0135 = phi ptr [ %c.0, %cleanup ], [ %c.0, %if.then399 ], [ %c.0, %if.end11.i ], [ %c.0.i, %if.then46 ], [ %c.0.i, %if.then86 ], [ %c.0.i, %if.then114 ], [ %c.0.i, %if.then133 ], [ %c.0.i, %if.end317 ], [ %c.0.i, %if.end311 ], [ %c.0.i, %if.then207 ], [ %c.0.i, %if.then186 ], [ %c.0.i, %if.then172 ], [ %c.0.i, %if.then154 ], [ %c.0.i, %if.then73 ], [ %c.0.i, %if.then59 ], [ %c.0.i, %if.then36 ]
   %reply.0134 = phi ptr [ null, %cleanup ], [ %reply.0, %if.then399 ], [ %reply.0, %if.end11.i ], [ null, %if.then46 ], [ null, %if.then86 ], [ null, %if.then114 ], [ null, %if.then133 ], [ null, %if.end317 ], [ null, %if.end311 ], [ null, %if.then207 ], [ null, %if.then186 ], [ null, %if.then172 ], [ null, %if.then154 ], [ null, %if.then73 ], [ null, %if.then59 ], [ null, %if.then36 ]
-  %98 = load ptr, ptr %module, align 8
-  %tobool402.not = icmp eq ptr %98, null
+  %99 = load ptr, ptr %module, align 8
+  %tobool402.not = icmp eq ptr %99, null
   br i1 %tobool402.not, label %if.end406, label %if.then403
 
 if.then403:                                       ; preds = %if.end400
-  %in_call405 = getelementptr inbounds i8, ptr %98, i64 68
-  %99 = load i32, ptr %in_call405, align 4
-  %dec = add nsw i32 %99, -1
+  %in_call405 = getelementptr inbounds i8, ptr %99, i64 68
+  %100 = load i32, ptr %in_call405, align 4
+  %dec = add nsw i32 %100, -1
   store i32 %dec, ptr %in_call405, align 4
   br label %if.end406
 
@@ -16415,33 +16391,32 @@ if.end.if.end11_crit_edge.i:                      ; preds = %if.end.i
   br label %if.end11.i
 
 if.then1.i:                                       ; preds = %if.end.i
-  %mul.i = shl nsw i32 %6, 1
-  %cmp4.i = icmp slt i32 %6, 8
-  %spec.select.i = select i1 %cmp4.i, i32 16, i32 %mul.i
+  %8 = call i32 @llvm.smax.i32(i32 %6, i32 8)
+  %spec.select.i = shl nuw i32 %8, 1
   store i32 %spec.select.i, ptr %amqueue_len.i, align 8
   %amqueue.i = getelementptr inbounds i8, ptr %ctx, i64 32
-  %8 = load ptr, ptr %amqueue.i, align 8
+  %9 = load ptr, ptr %amqueue.i, align 8
   %conv.i = sext i32 %spec.select.i to i64
   %mul9.i = shl nsw i64 %conv.i, 4
-  %call.i = call ptr @zrealloc(ptr noundef %8, i64 noundef %mul9.i) #36
+  %call.i = call ptr @zrealloc(ptr noundef %9, i64 noundef %mul9.i) #36
   store ptr %call.i, ptr %amqueue.i, align 8
   %.pre14.i = load i32, ptr %amqueue_used.i, align 4
   br label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.then1.i, %if.end.if.end11_crit_edge.i
-  %9 = phi i32 [ %6, %if.end.if.end11_crit_edge.i ], [ %.pre14.i, %if.then1.i ]
-  %10 = phi ptr [ %.pre.i, %if.end.if.end11_crit_edge.i ], [ %call.i, %if.then1.i ]
+  %10 = phi i32 [ %6, %if.end.if.end11_crit_edge.i ], [ %.pre14.i, %if.then1.i ]
+  %11 = phi ptr [ %.pre.i, %if.end.if.end11_crit_edge.i ], [ %call.i, %if.then1.i ]
   %amqueue12.i = getelementptr inbounds i8, ptr %ctx, i64 32
-  %idxprom.i = sext i32 %9 to i64
-  %type14.i = getelementptr inbounds %struct.AutoMemEntry, ptr %10, i64 %idxprom.i, i32 1
+  %idxprom.i = sext i32 %10 to i64
+  %type14.i = getelementptr inbounds %struct.AutoMemEntry, ptr %11, i64 %idxprom.i, i32 1
   store i32 1, ptr %type14.i, align 8
-  %11 = load ptr, ptr %amqueue12.i, align 8
-  %12 = load i32, ptr %amqueue_used.i, align 4
-  %idxprom17.i = sext i32 %12 to i64
-  %arrayidx18.i = getelementptr inbounds %struct.AutoMemEntry, ptr %11, i64 %idxprom17.i
-  store ptr %call9, ptr %arrayidx18.i, align 8
+  %12 = load ptr, ptr %amqueue12.i, align 8
   %13 = load i32, ptr %amqueue_used.i, align 4
-  %inc.i = add nsw i32 %13, 1
+  %idxprom17.i = sext i32 %13 to i64
+  %arrayidx18.i = getelementptr inbounds %struct.AutoMemEntry, ptr %12, i64 %idxprom17.i
+  store ptr %call9, ptr %arrayidx18.i, align 8
+  %14 = load i32, ptr %amqueue_used.i, align 4
+  %inc.i = add nsw i32 %14, 1
   store i32 %inc.i, ptr %amqueue_used.i, align 4
   br label %return
 
@@ -20197,33 +20172,32 @@ if.end.if.end11_crit_edge.i:                      ; preds = %if.end.i
   br label %if.end11.i
 
 if.then1.i:                                       ; preds = %if.end.i
-  %mul.i = shl nsw i32 %4, 1
-  %cmp4.i = icmp slt i32 %4, 8
-  %spec.select.i = select i1 %cmp4.i, i32 16, i32 %mul.i
+  %6 = call i32 @llvm.smax.i32(i32 %4, i32 8)
+  %spec.select.i = shl nuw i32 %6, 1
   store i32 %spec.select.i, ptr %amqueue_len.i, align 8
   %amqueue.i = getelementptr inbounds i8, ptr %ctx, i64 32
-  %6 = load ptr, ptr %amqueue.i, align 8
+  %7 = load ptr, ptr %amqueue.i, align 8
   %conv.i = sext i32 %spec.select.i to i64
   %mul9.i = shl nsw i64 %conv.i, 4
-  %call.i = call ptr @zrealloc(ptr noundef %6, i64 noundef %mul9.i) #36
+  %call.i = call ptr @zrealloc(ptr noundef %7, i64 noundef %mul9.i) #36
   store ptr %call.i, ptr %amqueue.i, align 8
   %.pre14.i = load i32, ptr %amqueue_used.i, align 4
   br label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.then1.i, %if.end.if.end11_crit_edge.i
-  %7 = phi i32 [ %4, %if.end.if.end11_crit_edge.i ], [ %.pre14.i, %if.then1.i ]
-  %8 = phi ptr [ %.pre.i, %if.end.if.end11_crit_edge.i ], [ %call.i, %if.then1.i ]
+  %8 = phi i32 [ %4, %if.end.if.end11_crit_edge.i ], [ %.pre14.i, %if.then1.i ]
+  %9 = phi ptr [ %.pre.i, %if.end.if.end11_crit_edge.i ], [ %call.i, %if.then1.i ]
   %amqueue12.i = getelementptr inbounds i8, ptr %ctx, i64 32
-  %idxprom.i = sext i32 %7 to i64
-  %type14.i = getelementptr inbounds %struct.AutoMemEntry, ptr %8, i64 %idxprom.i, i32 1
+  %idxprom.i = sext i32 %8 to i64
+  %type14.i = getelementptr inbounds %struct.AutoMemEntry, ptr %9, i64 %idxprom.i, i32 1
   store i32 1, ptr %type14.i, align 8
-  %9 = load ptr, ptr %amqueue12.i, align 8
-  %10 = load i32, ptr %amqueue_used.i, align 4
-  %idxprom17.i = sext i32 %10 to i64
-  %arrayidx18.i = getelementptr inbounds %struct.AutoMemEntry, ptr %9, i64 %idxprom17.i
-  store ptr %call7, ptr %arrayidx18.i, align 8
+  %10 = load ptr, ptr %amqueue12.i, align 8
   %11 = load i32, ptr %amqueue_used.i, align 4
-  %inc.i = add nsw i32 %11, 1
+  %idxprom17.i = sext i32 %11 to i64
+  %arrayidx18.i = getelementptr inbounds %struct.AutoMemEntry, ptr %10, i64 %idxprom17.i
+  store ptr %call7, ptr %arrayidx18.i, align 8
+  %12 = load i32, ptr %amqueue_used.i, align 4
+  %inc.i = add nsw i32 %12, 1
   store i32 %inc.i, ptr %amqueue_used.i, align 4
   br label %return
 
@@ -20330,33 +20304,32 @@ if.end.if.end11_crit_edge.i.i:                    ; preds = %if.end.i.i
   br label %if.end11.i.i
 
 if.then1.i.i:                                     ; preds = %if.end.i.i
-  %mul.i.i = shl nsw i32 %9, 1
-  %cmp4.i.i = icmp slt i32 %9, 8
-  %spec.select.i.i = select i1 %cmp4.i.i, i32 16, i32 %mul.i.i
+  %11 = tail call i32 @llvm.smax.i32(i32 %9, i32 8)
+  %spec.select.i.i = shl nuw i32 %11, 1
   store i32 %spec.select.i.i, ptr %amqueue_len.i.i, align 8
   %amqueue.i.i = getelementptr inbounds i8, ptr %ctx, i64 32
-  %11 = load ptr, ptr %amqueue.i.i, align 8
+  %12 = load ptr, ptr %amqueue.i.i, align 8
   %conv.i.i = sext i32 %spec.select.i.i to i64
   %mul9.i.i = shl nsw i64 %conv.i.i, 4
-  %call.i.i = tail call ptr @zrealloc(ptr noundef %11, i64 noundef %mul9.i.i) #36
+  %call.i.i = tail call ptr @zrealloc(ptr noundef %12, i64 noundef %mul9.i.i) #36
   store ptr %call.i.i, ptr %amqueue.i.i, align 8
   %.pre14.i.i = load i32, ptr %amqueue_used.i.i, align 4
   br label %if.end11.i.i
 
 if.end11.i.i:                                     ; preds = %if.then1.i.i, %if.end.if.end11_crit_edge.i.i
-  %12 = phi i32 [ %9, %if.end.if.end11_crit_edge.i.i ], [ %.pre14.i.i, %if.then1.i.i ]
-  %13 = phi ptr [ %.pre.i.i, %if.end.if.end11_crit_edge.i.i ], [ %call.i.i, %if.then1.i.i ]
+  %13 = phi i32 [ %9, %if.end.if.end11_crit_edge.i.i ], [ %.pre14.i.i, %if.then1.i.i ]
+  %14 = phi ptr [ %.pre.i.i, %if.end.if.end11_crit_edge.i.i ], [ %call.i.i, %if.then1.i.i ]
   %amqueue12.i.i = getelementptr inbounds i8, ptr %ctx, i64 32
-  %idxprom.i.i = sext i32 %12 to i64
-  %type14.i.i = getelementptr inbounds %struct.AutoMemEntry, ptr %13, i64 %idxprom.i.i, i32 1
+  %idxprom.i.i = sext i32 %13 to i64
+  %type14.i.i = getelementptr inbounds %struct.AutoMemEntry, ptr %14, i64 %idxprom.i.i, i32 1
   store i32 1, ptr %type14.i.i, align 8
-  %14 = load ptr, ptr %amqueue12.i.i, align 8
-  %15 = load i32, ptr %amqueue_used.i.i, align 4
-  %idxprom17.i.i = sext i32 %15 to i64
-  %arrayidx18.i.i = getelementptr inbounds %struct.AutoMemEntry, ptr %14, i64 %idxprom17.i.i
-  store ptr %call.i, ptr %arrayidx18.i.i, align 8
+  %15 = load ptr, ptr %amqueue12.i.i, align 8
   %16 = load i32, ptr %amqueue_used.i.i, align 4
-  %inc.i.i = add nsw i32 %16, 1
+  %idxprom17.i.i = sext i32 %16 to i64
+  %arrayidx18.i.i = getelementptr inbounds %struct.AutoMemEntry, ptr %15, i64 %idxprom17.i.i
+  store ptr %call.i, ptr %arrayidx18.i.i, align 8
+  %17 = load i32, ptr %amqueue_used.i.i, align 4
+  %inc.i.i = add nsw i32 %17, 1
   store i32 %inc.i.i, ptr %amqueue_used.i.i, align 4
   br label %RM_CreateString.exit
 
@@ -20961,33 +20934,32 @@ if.end.if.end11_crit_edge.i:                      ; preds = %if.end.i
   br label %if.end11.i
 
 if.then1.i:                                       ; preds = %if.end.i
-  %mul.i = shl nsw i32 %4, 1
-  %cmp4.i = icmp slt i32 %4, 8
-  %spec.select.i = select i1 %cmp4.i, i32 16, i32 %mul.i
+  %6 = tail call i32 @llvm.smax.i32(i32 %4, i32 8)
+  %spec.select.i = shl nuw i32 %6, 1
   store i32 %spec.select.i, ptr %amqueue_len.i, align 8
   %amqueue.i = getelementptr inbounds i8, ptr %ctx, i64 32
-  %6 = load ptr, ptr %amqueue.i, align 8
+  %7 = load ptr, ptr %amqueue.i, align 8
   %conv.i = sext i32 %spec.select.i to i64
   %mul9.i = shl nsw i64 %conv.i, 4
-  %call.i6 = tail call ptr @zrealloc(ptr noundef %6, i64 noundef %mul9.i) #36
+  %call.i6 = tail call ptr @zrealloc(ptr noundef %7, i64 noundef %mul9.i) #36
   store ptr %call.i6, ptr %amqueue.i, align 8
   %.pre14.i = load i32, ptr %amqueue_used.i, align 4
   br label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.then1.i, %if.end.if.end11_crit_edge.i
-  %7 = phi i32 [ %4, %if.end.if.end11_crit_edge.i ], [ %.pre14.i, %if.then1.i ]
-  %8 = phi ptr [ %.pre.i, %if.end.if.end11_crit_edge.i ], [ %call.i6, %if.then1.i ]
+  %8 = phi i32 [ %4, %if.end.if.end11_crit_edge.i ], [ %.pre14.i, %if.then1.i ]
+  %9 = phi ptr [ %.pre.i, %if.end.if.end11_crit_edge.i ], [ %call.i6, %if.then1.i ]
   %amqueue12.i = getelementptr inbounds i8, ptr %ctx, i64 32
-  %idxprom.i = sext i32 %7 to i64
-  %type14.i = getelementptr inbounds %struct.AutoMemEntry, ptr %8, i64 %idxprom.i, i32 1
+  %idxprom.i = sext i32 %8 to i64
+  %type14.i = getelementptr inbounds %struct.AutoMemEntry, ptr %9, i64 %idxprom.i, i32 1
   store i32 1, ptr %type14.i, align 8
-  %9 = load ptr, ptr %amqueue12.i, align 8
-  %10 = load i32, ptr %amqueue_used.i, align 4
-  %idxprom17.i = sext i32 %10 to i64
-  %arrayidx18.i = getelementptr inbounds %struct.AutoMemEntry, ptr %9, i64 %idxprom17.i
-  store ptr %call4, ptr %arrayidx18.i, align 8
+  %10 = load ptr, ptr %amqueue12.i, align 8
   %11 = load i32, ptr %amqueue_used.i, align 4
-  %inc.i = add nsw i32 %11, 1
+  %idxprom17.i = sext i32 %11 to i64
+  %arrayidx18.i = getelementptr inbounds %struct.AutoMemEntry, ptr %10, i64 %idxprom17.i
+  store ptr %call4, ptr %arrayidx18.i, align 8
+  %12 = load i32, ptr %amqueue_used.i, align 4
+  %inc.i = add nsw i32 %12, 1
   store i32 %inc.i, ptr %amqueue_used.i, align 4
   br label %return
 
@@ -21026,33 +20998,32 @@ if.end.if.end11_crit_edge.i:                      ; preds = %if.end.i
   br label %if.end11.i
 
 if.then1.i:                                       ; preds = %if.end.i
-  %mul.i = shl nsw i32 %1, 1
-  %cmp4.i = icmp slt i32 %1, 8
-  %spec.select.i = select i1 %cmp4.i, i32 16, i32 %mul.i
+  %3 = tail call i32 @llvm.smax.i32(i32 %1, i32 8)
+  %spec.select.i = shl nuw i32 %3, 1
   store i32 %spec.select.i, ptr %amqueue_len.i, align 8
   %amqueue.i = getelementptr inbounds i8, ptr %ctx, i64 32
-  %3 = load ptr, ptr %amqueue.i, align 8
+  %4 = load ptr, ptr %amqueue.i, align 8
   %conv.i = sext i32 %spec.select.i to i64
   %mul9.i = shl nsw i64 %conv.i, 4
-  %call.i = tail call ptr @zrealloc(ptr noundef %3, i64 noundef %mul9.i) #36
+  %call.i = tail call ptr @zrealloc(ptr noundef %4, i64 noundef %mul9.i) #36
   store ptr %call.i, ptr %amqueue.i, align 8
   %.pre14.i = load i32, ptr %amqueue_used.i, align 4
   br label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.then1.i, %if.end.if.end11_crit_edge.i
-  %4 = phi i32 [ %1, %if.end.if.end11_crit_edge.i ], [ %.pre14.i, %if.then1.i ]
-  %5 = phi ptr [ %.pre.i, %if.end.if.end11_crit_edge.i ], [ %call.i, %if.then1.i ]
+  %5 = phi i32 [ %1, %if.end.if.end11_crit_edge.i ], [ %.pre14.i, %if.then1.i ]
+  %6 = phi ptr [ %.pre.i, %if.end.if.end11_crit_edge.i ], [ %call.i, %if.then1.i ]
   %amqueue12.i = getelementptr inbounds i8, ptr %ctx, i64 32
-  %idxprom.i = sext i32 %4 to i64
-  %type14.i = getelementptr inbounds %struct.AutoMemEntry, ptr %5, i64 %idxprom.i, i32 1
+  %idxprom.i = sext i32 %5 to i64
+  %type14.i = getelementptr inbounds %struct.AutoMemEntry, ptr %6, i64 %idxprom.i, i32 1
   store i32 4, ptr %type14.i, align 8
-  %6 = load ptr, ptr %amqueue12.i, align 8
-  %7 = load i32, ptr %amqueue_used.i, align 4
-  %idxprom17.i = sext i32 %7 to i64
-  %arrayidx18.i = getelementptr inbounds %struct.AutoMemEntry, ptr %6, i64 %idxprom17.i
-  store ptr %call, ptr %arrayidx18.i, align 8
+  %7 = load ptr, ptr %amqueue12.i, align 8
   %8 = load i32, ptr %amqueue_used.i, align 4
-  %inc.i = add nsw i32 %8, 1
+  %idxprom17.i = sext i32 %8 to i64
+  %arrayidx18.i = getelementptr inbounds %struct.AutoMemEntry, ptr %7, i64 %idxprom17.i
+  store ptr %call, ptr %arrayidx18.i, align 8
+  %9 = load i32, ptr %amqueue_used.i, align 4
+  %inc.i = add nsw i32 %9, 1
   store i32 %inc.i, ptr %amqueue_used.i, align 4
   br label %if.end
 
@@ -21621,33 +21592,32 @@ if.end.if.end11_crit_edge.i.i:                    ; preds = %if.end.i.i
   br label %if.end11.i.i
 
 if.then1.i.i:                                     ; preds = %if.end.i.i
-  %mul.i.i = shl nsw i32 %4, 1
-  %cmp4.i.i = icmp slt i32 %4, 8
-  %spec.select.i.i = select i1 %cmp4.i.i, i32 16, i32 %mul.i.i
+  %6 = tail call i32 @llvm.smax.i32(i32 %4, i32 8)
+  %spec.select.i.i = shl nuw i32 %6, 1
   store i32 %spec.select.i.i, ptr %amqueue_len.i.i, align 8
   %amqueue.i.i = getelementptr inbounds i8, ptr %ctx, i64 32
-  %6 = load ptr, ptr %amqueue.i.i, align 8
+  %7 = load ptr, ptr %amqueue.i.i, align 8
   %conv.i.i = sext i32 %spec.select.i.i to i64
   %mul9.i.i = shl nsw i64 %conv.i.i, 4
-  %call.i.i = tail call ptr @zrealloc(ptr noundef %6, i64 noundef %mul9.i.i) #36
+  %call.i.i = tail call ptr @zrealloc(ptr noundef %7, i64 noundef %mul9.i.i) #36
   store ptr %call.i.i, ptr %amqueue.i.i, align 8
   %.pre14.i.i = load i32, ptr %amqueue_used.i.i, align 4
   br label %if.end11.i.i
 
 if.end11.i.i:                                     ; preds = %if.then1.i.i, %if.end.if.end11_crit_edge.i.i
-  %7 = phi i32 [ %4, %if.end.if.end11_crit_edge.i.i ], [ %.pre14.i.i, %if.then1.i.i ]
-  %8 = phi ptr [ %.pre.i.i, %if.end.if.end11_crit_edge.i.i ], [ %call.i.i, %if.then1.i.i ]
+  %8 = phi i32 [ %4, %if.end.if.end11_crit_edge.i.i ], [ %.pre14.i.i, %if.then1.i.i ]
+  %9 = phi ptr [ %.pre.i.i, %if.end.if.end11_crit_edge.i.i ], [ %call.i.i, %if.then1.i.i ]
   %amqueue12.i.i = getelementptr inbounds i8, ptr %ctx, i64 32
-  %idxprom.i.i = sext i32 %7 to i64
-  %type14.i.i = getelementptr inbounds %struct.AutoMemEntry, ptr %8, i64 %idxprom.i.i, i32 1
+  %idxprom.i.i = sext i32 %8 to i64
+  %type14.i.i = getelementptr inbounds %struct.AutoMemEntry, ptr %9, i64 %idxprom.i.i, i32 1
   store i32 1, ptr %type14.i.i, align 8
-  %9 = load ptr, ptr %amqueue12.i.i, align 8
-  %10 = load i32, ptr %amqueue_used.i.i, align 4
-  %idxprom17.i.i = sext i32 %10 to i64
-  %arrayidx18.i.i = getelementptr inbounds %struct.AutoMemEntry, ptr %9, i64 %idxprom17.i.i
-  store ptr %call.i2, ptr %arrayidx18.i.i, align 8
+  %10 = load ptr, ptr %amqueue12.i.i, align 8
   %11 = load i32, ptr %amqueue_used.i.i, align 4
-  %inc.i.i = add nsw i32 %11, 1
+  %idxprom17.i.i = sext i32 %11 to i64
+  %arrayidx18.i.i = getelementptr inbounds %struct.AutoMemEntry, ptr %10, i64 %idxprom17.i.i
+  store ptr %call.i2, ptr %arrayidx18.i.i, align 8
+  %12 = load i32, ptr %amqueue_used.i.i, align 4
+  %inc.i.i = add nsw i32 %12, 1
   store i32 %inc.i.i, ptr %amqueue_used.i.i, align 4
   br label %return
 
@@ -21708,33 +21678,32 @@ if.end.if.end11_crit_edge.i.i:                    ; preds = %if.end.i.i
   br label %if.end11.i.i
 
 if.then1.i.i:                                     ; preds = %if.end.i.i
-  %mul.i.i = shl nsw i32 %4, 1
-  %cmp4.i.i = icmp slt i32 %4, 8
-  %spec.select.i.i = select i1 %cmp4.i.i, i32 16, i32 %mul.i.i
+  %6 = tail call i32 @llvm.smax.i32(i32 %4, i32 8)
+  %spec.select.i.i = shl nuw i32 %6, 1
   store i32 %spec.select.i.i, ptr %amqueue_len.i.i, align 8
   %amqueue.i.i = getelementptr inbounds i8, ptr %ctx, i64 32
-  %6 = load ptr, ptr %amqueue.i.i, align 8
+  %7 = load ptr, ptr %amqueue.i.i, align 8
   %conv.i.i = sext i32 %spec.select.i.i to i64
   %mul9.i.i = shl nsw i64 %conv.i.i, 4
-  %call.i.i = tail call ptr @zrealloc(ptr noundef %6, i64 noundef %mul9.i.i) #36
+  %call.i.i = tail call ptr @zrealloc(ptr noundef %7, i64 noundef %mul9.i.i) #36
   store ptr %call.i.i, ptr %amqueue.i.i, align 8
   %.pre14.i.i = load i32, ptr %amqueue_used.i.i, align 4
   br label %if.end11.i.i
 
 if.end11.i.i:                                     ; preds = %if.then1.i.i, %if.end.if.end11_crit_edge.i.i
-  %7 = phi i32 [ %4, %if.end.if.end11_crit_edge.i.i ], [ %.pre14.i.i, %if.then1.i.i ]
-  %8 = phi ptr [ %.pre.i.i, %if.end.if.end11_crit_edge.i.i ], [ %call.i.i, %if.then1.i.i ]
+  %8 = phi i32 [ %4, %if.end.if.end11_crit_edge.i.i ], [ %.pre14.i.i, %if.then1.i.i ]
+  %9 = phi ptr [ %.pre.i.i, %if.end.if.end11_crit_edge.i.i ], [ %call.i.i, %if.then1.i.i ]
   %amqueue12.i.i = getelementptr inbounds i8, ptr %ctx, i64 32
-  %idxprom.i.i = sext i32 %7 to i64
-  %type14.i.i = getelementptr inbounds %struct.AutoMemEntry, ptr %8, i64 %idxprom.i.i, i32 1
+  %idxprom.i.i = sext i32 %8 to i64
+  %type14.i.i = getelementptr inbounds %struct.AutoMemEntry, ptr %9, i64 %idxprom.i.i, i32 1
   store i32 1, ptr %type14.i.i, align 8
-  %9 = load ptr, ptr %amqueue12.i.i, align 8
-  %10 = load i32, ptr %amqueue_used.i.i, align 4
-  %idxprom17.i.i = sext i32 %10 to i64
-  %arrayidx18.i.i = getelementptr inbounds %struct.AutoMemEntry, ptr %9, i64 %idxprom17.i.i
-  store ptr %call.i2, ptr %arrayidx18.i.i, align 8
+  %10 = load ptr, ptr %amqueue12.i.i, align 8
   %11 = load i32, ptr %amqueue_used.i.i, align 4
-  %inc.i.i = add nsw i32 %11, 1
+  %idxprom17.i.i = sext i32 %11 to i64
+  %arrayidx18.i.i = getelementptr inbounds %struct.AutoMemEntry, ptr %10, i64 %idxprom17.i.i
+  store ptr %call.i2, ptr %arrayidx18.i.i, align 8
+  %12 = load i32, ptr %amqueue_used.i.i, align 4
+  %inc.i.i = add nsw i32 %12, 1
   store i32 %inc.i.i, ptr %amqueue_used.i.i, align 4
   br label %return
 
@@ -22530,33 +22499,32 @@ if.end.if.end11_crit_edge.i:                      ; preds = %if.end.i
   br label %if.end11.i
 
 if.then1.i:                                       ; preds = %if.end.i
-  %mul.i = shl nsw i32 %1, 1
-  %cmp4.i = icmp slt i32 %1, 8
-  %spec.select.i = select i1 %cmp4.i, i32 16, i32 %mul.i
+  %3 = tail call i32 @llvm.smax.i32(i32 %1, i32 8)
+  %spec.select.i = shl nuw i32 %3, 1
   store i32 %spec.select.i, ptr %amqueue_len.i, align 8
   %amqueue.i = getelementptr inbounds i8, ptr %ctx, i64 32
-  %3 = load ptr, ptr %amqueue.i, align 8
+  %4 = load ptr, ptr %amqueue.i, align 8
   %conv.i = sext i32 %spec.select.i to i64
   %mul9.i = shl nsw i64 %conv.i, 4
-  %call.i = tail call ptr @zrealloc(ptr noundef %3, i64 noundef %mul9.i) #36
+  %call.i = tail call ptr @zrealloc(ptr noundef %4, i64 noundef %mul9.i) #36
   store ptr %call.i, ptr %amqueue.i, align 8
   %.pre14.i = load i32, ptr %amqueue_used.i, align 4
   br label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.then1.i, %if.end.if.end11_crit_edge.i
-  %4 = phi i32 [ %1, %if.end.if.end11_crit_edge.i ], [ %.pre14.i, %if.then1.i ]
-  %5 = phi ptr [ %.pre.i, %if.end.if.end11_crit_edge.i ], [ %call.i, %if.then1.i ]
+  %5 = phi i32 [ %1, %if.end.if.end11_crit_edge.i ], [ %.pre14.i, %if.then1.i ]
+  %6 = phi ptr [ %.pre.i, %if.end.if.end11_crit_edge.i ], [ %call.i, %if.then1.i ]
   %amqueue12.i = getelementptr inbounds i8, ptr %ctx, i64 32
-  %idxprom.i = sext i32 %4 to i64
-  %type14.i = getelementptr inbounds %struct.AutoMemEntry, ptr %5, i64 %idxprom.i, i32 1
+  %idxprom.i = sext i32 %5 to i64
+  %type14.i = getelementptr inbounds %struct.AutoMemEntry, ptr %6, i64 %idxprom.i, i32 1
   store i32 5, ptr %type14.i, align 8
-  %6 = load ptr, ptr %amqueue12.i, align 8
-  %7 = load i32, ptr %amqueue_used.i, align 4
-  %idxprom17.i = sext i32 %7 to i64
-  %arrayidx18.i = getelementptr inbounds %struct.AutoMemEntry, ptr %6, i64 %idxprom17.i
-  store ptr %call, ptr %arrayidx18.i, align 8
+  %7 = load ptr, ptr %amqueue12.i, align 8
   %8 = load i32, ptr %amqueue_used.i, align 4
-  %inc.i = add nsw i32 %8, 1
+  %idxprom17.i = sext i32 %8 to i64
+  %arrayidx18.i = getelementptr inbounds %struct.AutoMemEntry, ptr %7, i64 %idxprom17.i
+  store ptr %call, ptr %arrayidx18.i, align 8
+  %9 = load i32, ptr %amqueue_used.i, align 4
+  %inc.i = add nsw i32 %9, 1
   store i32 %inc.i, ptr %amqueue_used.i, align 4
   br label %if.end
 
@@ -22576,12 +22544,12 @@ cond.end:                                         ; preds = %if.end, %cond.true
   store ptr %cond, ptr %argv, align 8
   %cond5 = zext i1 %tobool.not to i32
   %call6 = call ptr @genInfoSectionDict(ptr noundef nonnull %argv, i32 noundef %cond5, ptr noundef null, ptr noundef nonnull %all, ptr noundef nonnull %everything) #34
-  %9 = load i32, ptr %all, align 4
-  %10 = load i32, ptr %everything, align 4
-  %call7 = call ptr @genRedisInfoString(ptr noundef %call6, i32 noundef %9, i32 noundef %10) #34
+  %10 = load i32, ptr %all, align 4
+  %11 = load i32, ptr %everything, align 4
+  %call7 = call ptr @genRedisInfoString(ptr noundef %call6, i32 noundef %10, i32 noundef %11) #34
   %arrayidx.i = getelementptr inbounds i8, ptr %call7, i64 -1
-  %11 = load i8, ptr %arrayidx.i, align 1
-  %conv.i23 = zext i8 %11 to i32
+  %12 = load i8, ptr %arrayidx.i, align 1
+  %conv.i23 = zext i8 %12 to i32
   %and.i24 = and i32 %conv.i23, 7
   switch i32 %and.i24, label %sdslen.exit [
     i32 0, label %sw.bb.i
@@ -22598,55 +22566,55 @@ sw.bb.i:                                          ; preds = %cond.end
 
 sw.bb3.i:                                         ; preds = %cond.end
   %add.ptr.i = getelementptr inbounds i8, ptr %call7, i64 -3
-  %12 = load i8, ptr %add.ptr.i, align 1
-  %conv4.i = zext i8 %12 to i64
+  %13 = load i8, ptr %add.ptr.i, align 1
+  %conv4.i = zext i8 %13 to i64
   br label %sdslen.exit
 
 sw.bb5.i:                                         ; preds = %cond.end
   %add.ptr6.i = getelementptr inbounds i8, ptr %call7, i64 -5
-  %13 = load i16, ptr %add.ptr6.i, align 1
-  %conv8.i = zext i16 %13 to i64
+  %14 = load i16, ptr %add.ptr6.i, align 1
+  %conv8.i = zext i16 %14 to i64
   br label %sdslen.exit
 
 sw.bb9.i:                                         ; preds = %cond.end
   %add.ptr10.i = getelementptr inbounds i8, ptr %call7, i64 -9
-  %14 = load i32, ptr %add.ptr10.i, align 1
-  %conv12.i = zext i32 %14 to i64
+  %15 = load i32, ptr %add.ptr10.i, align 1
+  %conv12.i = zext i32 %15 to i64
   br label %sdslen.exit
 
 sw.bb13.i:                                        ; preds = %cond.end
   %add.ptr14.i = getelementptr inbounds i8, ptr %call7, i64 -17
-  %15 = load i64, ptr %add.ptr14.i, align 1
+  %16 = load i64, ptr %add.ptr14.i, align 1
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %cond.end, %sw.bb.i, %sw.bb3.i, %sw.bb5.i, %sw.bb9.i, %sw.bb13.i
-  %retval.0.i = phi i64 [ %15, %sw.bb13.i ], [ %conv12.i, %sw.bb9.i ], [ %conv8.i, %sw.bb5.i ], [ %conv4.i, %sw.bb3.i ], [ %conv2.i, %sw.bb.i ], [ 0, %cond.end ]
+  %retval.0.i = phi i64 [ %16, %sw.bb13.i ], [ %conv12.i, %sw.bb9.i ], [ %conv8.i, %sw.bb5.i ], [ %conv4.i, %sw.bb3.i ], [ %conv2.i, %sw.bb.i ], [ 0, %cond.end ]
   %call9 = call ptr @sdssplitlen(ptr noundef nonnull %call7, i64 noundef %retval.0.i, ptr noundef nonnull @.str.36, i32 noundef 2, ptr noundef nonnull %totlines) #34
-  %16 = load i32, ptr %totlines, align 4
-  %cmp1044 = icmp sgt i32 %16, 0
+  %17 = load i32, ptr %totlines, align 4
+  %cmp1044 = icmp sgt i32 %17, 0
   br i1 %cmp1044, label %for.body, label %for.end
 
 for.body:                                         ; preds = %sdslen.exit, %for.inc
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %sdslen.exit ]
   %arrayidx11 = getelementptr inbounds ptr, ptr %call9, i64 %indvars.iv
-  %17 = load ptr, ptr %arrayidx11, align 8
-  %18 = load i8, ptr %17, align 1
-  %cmp13 = icmp eq i8 %18, 35
+  %18 = load ptr, ptr %arrayidx11, align 8
+  %19 = load i8, ptr %18, align 1
+  %cmp13 = icmp eq i8 %19, 35
   br i1 %cmp13, label %for.inc, label %if.end16
 
 if.end16:                                         ; preds = %for.body
-  %call17 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %17, i32 noundef 58) #38
+  %call17 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %18, i32 noundef 58) #38
   %tobool18.not = icmp eq ptr %call17, null
   br i1 %tobool18.not, label %for.inc, label %if.end20
 
 if.end20:                                         ; preds = %if.end16
-  %19 = ptrtoint ptr %call17 to i64
-  %20 = ptrtoint ptr %17 to i64
-  %sub = sub nsw i64 %19, %20
+  %20 = ptrtoint ptr %call17 to i64
+  %21 = ptrtoint ptr %18 to i64
+  %sub = sub nsw i64 %20, %21
   %add.ptr = getelementptr inbounds i8, ptr %call17, i64 1
-  %arrayidx.i25 = getelementptr inbounds i8, ptr %17, i64 -1
-  %21 = load i8, ptr %arrayidx.i25, align 1
-  %conv.i26 = zext i8 %21 to i32
+  %arrayidx.i25 = getelementptr inbounds i8, ptr %18, i64 -1
+  %22 = load i8, ptr %arrayidx.i25, align 1
+  %conv.i26 = zext i8 %22 to i32
   %and.i27 = and i32 %conv.i26, 7
   switch i32 %and.i27, label %sdslen.exit43 [
     i32 0, label %sw.bb.i40
@@ -22662,35 +22630,35 @@ sw.bb.i40:                                        ; preds = %if.end20
   br label %sdslen.exit43
 
 sw.bb3.i37:                                       ; preds = %if.end20
-  %add.ptr.i38 = getelementptr inbounds i8, ptr %17, i64 -3
-  %22 = load i8, ptr %add.ptr.i38, align 1
-  %conv4.i39 = zext i8 %22 to i64
+  %add.ptr.i38 = getelementptr inbounds i8, ptr %18, i64 -3
+  %23 = load i8, ptr %add.ptr.i38, align 1
+  %conv4.i39 = zext i8 %23 to i64
   br label %sdslen.exit43
 
 sw.bb5.i34:                                       ; preds = %if.end20
-  %add.ptr6.i35 = getelementptr inbounds i8, ptr %17, i64 -5
-  %23 = load i16, ptr %add.ptr6.i35, align 1
-  %conv8.i36 = zext i16 %23 to i64
+  %add.ptr6.i35 = getelementptr inbounds i8, ptr %18, i64 -5
+  %24 = load i16, ptr %add.ptr6.i35, align 1
+  %conv8.i36 = zext i16 %24 to i64
   br label %sdslen.exit43
 
 sw.bb9.i31:                                       ; preds = %if.end20
-  %add.ptr10.i32 = getelementptr inbounds i8, ptr %17, i64 -9
-  %24 = load i32, ptr %add.ptr10.i32, align 1
-  %conv12.i33 = zext i32 %24 to i64
+  %add.ptr10.i32 = getelementptr inbounds i8, ptr %18, i64 -9
+  %25 = load i32, ptr %add.ptr10.i32, align 1
+  %conv12.i33 = zext i32 %25 to i64
   br label %sdslen.exit43
 
 sw.bb13.i28:                                      ; preds = %if.end20
-  %add.ptr14.i29 = getelementptr inbounds i8, ptr %17, i64 -17
-  %25 = load i64, ptr %add.ptr14.i29, align 1
+  %add.ptr14.i29 = getelementptr inbounds i8, ptr %18, i64 -17
+  %26 = load i64, ptr %add.ptr14.i29, align 1
   br label %sdslen.exit43
 
 sdslen.exit43:                                    ; preds = %if.end20, %sw.bb.i40, %sw.bb3.i37, %sw.bb5.i34, %sw.bb9.i31, %sw.bb13.i28
-  %retval.0.i30 = phi i64 [ %25, %sw.bb13.i28 ], [ %conv12.i33, %sw.bb9.i31 ], [ %conv8.i36, %sw.bb5.i34 ], [ %conv4.i39, %sw.bb3.i37 ], [ %conv2.i42, %sw.bb.i40 ], [ 0, %if.end20 ]
-  %26 = xor i64 %sub, -1
-  %sub24 = add i64 %retval.0.i30, %26
+  %retval.0.i30 = phi i64 [ %26, %sw.bb13.i28 ], [ %conv12.i33, %sw.bb9.i31 ], [ %conv8.i36, %sw.bb5.i34 ], [ %conv4.i39, %sw.bb3.i37 ], [ %conv2.i42, %sw.bb.i40 ], [ 0, %if.end20 ]
+  %27 = xor i64 %sub, -1
+  %sub24 = add i64 %retval.0.i30, %27
   %call25 = call ptr @sdsnewlen(ptr noundef nonnull %add.ptr, i64 noundef %sub24) #34
-  %27 = load ptr, ptr %call, align 8
-  %call27 = call i32 @raxTryInsert(ptr noundef %27, ptr noundef nonnull %17, i64 noundef %sub, ptr noundef %call25, ptr noundef null) #34
+  %28 = load ptr, ptr %call, align 8
+  %call27 = call i32 @raxTryInsert(ptr noundef %28, ptr noundef nonnull %18, i64 noundef %sub, ptr noundef %call25, ptr noundef null) #34
   %tobool28.not = icmp eq i32 %call27, 0
   br i1 %tobool28.not, label %if.then29, label %for.inc
 
@@ -22700,22 +22668,22 @@ if.then29:                                        ; preds = %sdslen.exit43
 
 for.inc:                                          ; preds = %sdslen.exit43, %if.then29, %if.end16, %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %28 = load i32, ptr %totlines, align 4
-  %29 = sext i32 %28 to i64
-  %cmp10 = icmp slt i64 %indvars.iv.next, %29
+  %29 = load i32, ptr %totlines, align 4
+  %30 = sext i32 %29 to i64
+  %cmp10 = icmp slt i64 %indvars.iv.next, %30
   br i1 %cmp10, label %for.body, label %for.end, !llvm.loop !56
 
 for.end:                                          ; preds = %for.inc, %sdslen.exit
   call void @sdsfree(ptr noundef %call7) #34
-  %30 = load i32, ptr %totlines, align 4
-  call void @sdsfreesplitres(ptr noundef %call9, i32 noundef %30) #34
+  %31 = load i32, ptr %totlines, align 4
+  call void @sdsfreesplitres(ptr noundef %call9, i32 noundef %31) #34
   call void @releaseInfoSectionDict(ptr noundef %call6) #34
-  %31 = load ptr, ptr %argv, align 8
-  %tobool32.not = icmp eq ptr %31, null
+  %32 = load ptr, ptr %argv, align 8
+  %tobool32.not = icmp eq ptr %32, null
   br i1 %tobool32.not, label %if.end35, label %if.then33
 
 if.then33:                                        ; preds = %for.end
-  call void @decrRefCount(ptr noundef nonnull %31) #34
+  call void @decrRefCount(ptr noundef nonnull %32) #34
   br label %if.end35
 
 if.end35:                                         ; preds = %if.then33, %for.end
@@ -22809,33 +22777,32 @@ if.end.if.end11_crit_edge.i:                      ; preds = %if.end.i
   br label %if.end11.i
 
 if.then1.i:                                       ; preds = %if.end.i
-  %mul.i = shl nsw i32 %8, 1
-  %cmp4.i = icmp slt i32 %8, 8
-  %spec.select.i = select i1 %cmp4.i, i32 16, i32 %mul.i
+  %10 = call i32 @llvm.smax.i32(i32 %8, i32 8)
+  %spec.select.i = shl nuw i32 %10, 1
   store i32 %spec.select.i, ptr %amqueue_len.i, align 8
   %amqueue.i = getelementptr inbounds i8, ptr %ctx, i64 32
-  %10 = load ptr, ptr %amqueue.i, align 8
+  %11 = load ptr, ptr %amqueue.i, align 8
   %conv.i6 = sext i32 %spec.select.i to i64
   %mul9.i = shl nsw i64 %conv.i6, 4
-  %call.i = call ptr @zrealloc(ptr noundef %10, i64 noundef %mul9.i) #36
+  %call.i = call ptr @zrealloc(ptr noundef %11, i64 noundef %mul9.i) #36
   store ptr %call.i, ptr %amqueue.i, align 8
   %.pre14.i = load i32, ptr %amqueue_used.i, align 4
   br label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.then1.i, %if.end.if.end11_crit_edge.i
-  %11 = phi i32 [ %8, %if.end.if.end11_crit_edge.i ], [ %.pre14.i, %if.then1.i ]
-  %12 = phi ptr [ %.pre.i, %if.end.if.end11_crit_edge.i ], [ %call.i, %if.then1.i ]
+  %12 = phi i32 [ %8, %if.end.if.end11_crit_edge.i ], [ %.pre14.i, %if.then1.i ]
+  %13 = phi ptr [ %.pre.i, %if.end.if.end11_crit_edge.i ], [ %call.i, %if.then1.i ]
   %amqueue12.i = getelementptr inbounds i8, ptr %ctx, i64 32
-  %idxprom.i = sext i32 %11 to i64
-  %type14.i = getelementptr inbounds %struct.AutoMemEntry, ptr %12, i64 %idxprom.i, i32 1
+  %idxprom.i = sext i32 %12 to i64
+  %type14.i = getelementptr inbounds %struct.AutoMemEntry, ptr %13, i64 %idxprom.i, i32 1
   store i32 1, ptr %type14.i, align 8
-  %13 = load ptr, ptr %amqueue12.i, align 8
-  %14 = load i32, ptr %amqueue_used.i, align 4
-  %idxprom17.i = sext i32 %14 to i64
-  %arrayidx18.i = getelementptr inbounds %struct.AutoMemEntry, ptr %13, i64 %idxprom17.i
-  store ptr %call3, ptr %arrayidx18.i, align 8
+  %14 = load ptr, ptr %amqueue12.i, align 8
   %15 = load i32, ptr %amqueue_used.i, align 4
-  %inc.i = add nsw i32 %15, 1
+  %idxprom17.i = sext i32 %15 to i64
+  %arrayidx18.i = getelementptr inbounds %struct.AutoMemEntry, ptr %14, i64 %idxprom17.i
+  store ptr %call3, ptr %arrayidx18.i, align 8
+  %16 = load i32, ptr %amqueue_used.i, align 4
+  %inc.i = add nsw i32 %16, 1
   store i32 %inc.i, ptr %amqueue_used.i, align 4
   br label %return
 
@@ -29613,6 +29580,9 @@ declare i32 @llvm.usub.sat.i32(i32, i32) #31
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #31
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #31
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #31

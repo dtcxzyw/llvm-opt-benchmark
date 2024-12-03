@@ -1595,9 +1595,8 @@ define dso_local range(i64 0, -7) i64 @SpGistGetLeafTupleSize(ptr noundef %0, pt
 .loopexit:
   %3 = tail call i64 @heap_compute_data_size(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2) #9
   %4 = add i64 %3, 23
-  %5 = and i64 %4, -8
-  %6 = icmp ult i64 %4, 16
-  %spec.store.select = select i1 %6, i64 16, i64 %5
+  %5 = tail call i64 @llvm.umax.i64(i64 %4, i64 16)
+  %spec.store.select = and i64 %5, -8
   ret i64 %spec.store.select
 }
 
@@ -1631,29 +1630,29 @@ define dso_local noundef ptr @spgFormLeafTuple(ptr nocapture noundef readonly %0
   %.0 = phi i1 [ false, %4 ], [ %12, %.preheader ]
   %13 = tail call i64 @heap_compute_data_size(ptr noundef nonnull %7, ptr noundef %2, ptr noundef %3) #9
   %14 = add i64 %13, 23
-  %15 = and i64 %14, -8
-  %16 = icmp ult i64 %14, 16
-  %spec.store.select = select i1 %16, i64 16, i64 %15
-  %17 = tail call ptr @palloc0(i64 noundef %spec.store.select) #9
-  %18 = trunc i64 %spec.store.select to i32
-  %19 = load i32, ptr %17, align 4
-  %20 = shl i32 %18, 2
-  %21 = and i32 %19, 3
+  %15 = tail call i64 @llvm.umax.i64(i64 %14, i64 16)
+  %spec.store.select = and i64 %15, -8
+  %16 = tail call ptr @palloc0(i64 noundef %spec.store.select) #9
+  %17 = trunc i64 %15 to i32
+  %18 = load i32, ptr %16, align 4
+  %19 = shl i32 %17, 2
+  %20 = and i32 %19, -32
+  %21 = and i32 %18, 3
   %22 = or disjoint i32 %20, %21
-  store i32 %22, ptr %17, align 4
-  %23 = getelementptr inbounds i8, ptr %17, i64 4
+  store i32 %22, ptr %16, align 4
+  %23 = getelementptr inbounds i8, ptr %16, i64 4
   %24 = load i16, ptr %23, align 4
   %25 = and i16 %24, -16384
   store i16 %25, ptr %23, align 4
-  %26 = getelementptr inbounds i8, ptr %17, i64 6
+  %26 = getelementptr inbounds i8, ptr %16, i64 6
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %26, ptr noundef nonnull align 2 dereferenceable(6) %1, i64 6, i1 false)
-  %27 = getelementptr i8, ptr %17, i64 16
+  %27 = getelementptr i8, ptr %16, i64 16
   br i1 %.0, label %28, label %31
 
 28:                                               ; preds = %.loopexit
   %29 = or i16 %25, -32768
   store i16 %29, ptr %23, align 4
-  %30 = getelementptr i8, ptr %17, i64 12
+  %30 = getelementptr i8, ptr %16, i64 12
   br label %.sink.split
 
 31:                                               ; preds = %.loopexit
@@ -1670,7 +1669,7 @@ define dso_local noundef ptr @spgFormLeafTuple(ptr nocapture noundef readonly %0
   br label %35
 
 35:                                               ; preds = %.sink.split, %32
-  ret ptr %17
+  ret ptr %16
 }
 
 declare void @heap_fill_tuple(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -2421,6 +2420,9 @@ declare void @llvm.assume(i1 noundef) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #8
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #8

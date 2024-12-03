@@ -12,16 +12,15 @@ target triple = "x86_64-pc-linux-gnu"
 define noalias noundef ptr @Aig_MmFixedStart(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %calloc = tail call dereferenceable_or_null(56) ptr @calloc(i64 1, i64 56)
   store i32 %0, ptr %calloc, align 8
-  %3 = lshr i32 %1, 3
-  %4 = icmp slt i32 %1, 64
-  %spec.select = select i1 %4, i32 8, i32 %3
-  %5 = getelementptr inbounds i8, ptr %calloc, i64 24
-  store i32 %spec.select, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %calloc, i64 28
-  store i32 64, ptr %6, align 4
-  %7 = tail call noalias dereferenceable_or_null(512) ptr @malloc(i64 noundef 512) #13
-  %8 = getelementptr inbounds i8, ptr %calloc, i64 40
-  store ptr %7, ptr %8, align 8
+  %3 = tail call i32 @llvm.smax.i32(i32 %1, i32 64)
+  %spec.select = lshr i32 %3, 3
+  %4 = getelementptr inbounds i8, ptr %calloc, i64 24
+  store i32 %spec.select, ptr %4, align 8
+  %5 = getelementptr inbounds i8, ptr %calloc, i64 28
+  store i32 64, ptr %5, align 4
+  %6 = tail call noalias dereferenceable_or_null(512) ptr @malloc(i64 noundef 512) #14
+  %7 = getelementptr inbounds i8, ptr %calloc, i64 40
+  store ptr %6, ptr %7, align 8
   ret ptr %calloc
 }
 
@@ -75,7 +74,7 @@ define void @Aig_MmFixedStop(ptr noundef %0, i32 noundef %1) local_unnamed_addr 
   br i1 %.not27, label %34, label %31
 
 31:                                               ; preds = %26
-  tail call void @free(ptr noundef nonnull %30) #14
+  tail call void @free(ptr noundef nonnull %30) #15
   %32 = load ptr, ptr %25, align 8
   %33 = getelementptr inbounds ptr, ptr %32, i64 %indvars.iv
   store ptr null, ptr %33, align 8
@@ -96,11 +95,11 @@ define void @Aig_MmFixedStop(ptr noundef %0, i32 noundef %1) local_unnamed_addr 
   br i1 %.not26, label %41, label %40
 
 40:                                               ; preds = %._crit_edge
-  tail call void @free(ptr noundef nonnull %39) #14
+  tail call void @free(ptr noundef nonnull %39) #15
   br label %41
 
 41:                                               ; preds = %40, %._crit_edge
-  tail call void @free(ptr noundef nonnull %0) #14
+  tail call void @free(ptr noundef nonnull %0) #15
   br label %42
 
 42:                                               ; preds = %41, %2
@@ -141,11 +140,11 @@ define noundef ptr @Aig_MmFixedEntryFetch(ptr nocapture noundef %0) local_unname
   br i1 %.not, label %21, label %19
 
 19:                                               ; preds = %13
-  %20 = tail call ptr @realloc(ptr noundef nonnull %16, i64 noundef %18) #15
+  %20 = tail call ptr @realloc(ptr noundef nonnull %16, i64 noundef %18) #16
   br label %23
 
 21:                                               ; preds = %13
-  %22 = tail call noalias ptr @malloc(i64 noundef %18) #13
+  %22 = tail call noalias ptr @malloc(i64 noundef %18) #14
   br label %23
 
 23:                                               ; preds = %21, %19
@@ -159,7 +158,7 @@ define noundef ptr @Aig_MmFixedEntryFetch(ptr nocapture noundef %0) local_unname
   %28 = load i32, ptr %27, align 8
   %29 = mul nsw i32 %28, %26
   %30 = sext i32 %29 to i64
-  %31 = tail call noalias ptr @malloc(i64 noundef %30) #13
+  %31 = tail call noalias ptr @malloc(i64 noundef %30) #14
   %32 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %31, ptr %32, align 8
   %33 = getelementptr inbounds i8, ptr %0, i64 52
@@ -262,7 +261,7 @@ define void @Aig_MmFixedRestart(ptr nocapture noundef %0) local_unnamed_addr #2 
   br i1 %.not, label %15, label %12
 
 12:                                               ; preds = %7
-  tail call void @free(ptr noundef nonnull %11) #14
+  tail call void @free(ptr noundef nonnull %11) #15
   %13 = load ptr, ptr %6, align 8
   %14 = getelementptr inbounds ptr, ptr %13, i64 %indvars.iv
   store ptr null, ptr %14, align 8
@@ -350,7 +349,7 @@ define noalias noundef ptr @Aig_MmFlexStart() local_unnamed_addr #0 {
   store i32 262144, ptr %1, align 8
   %2 = getelementptr inbounds i8, ptr %calloc, i64 28
   store i32 64, ptr %2, align 4
-  %3 = tail call noalias dereferenceable_or_null(512) ptr @malloc(i64 noundef 512) #13
+  %3 = tail call noalias dereferenceable_or_null(512) ptr @malloc(i64 noundef 512) #14
   %4 = getelementptr inbounds i8, ptr %calloc, i64 40
   store ptr %3, ptr %4, align 8
   ret ptr %calloc
@@ -399,7 +398,7 @@ define void @Aig_MmFlexStop(ptr noundef %0, i32 noundef %1) local_unnamed_addr #
   br i1 %.not24, label %30, label %27
 
 27:                                               ; preds = %22
-  tail call void @free(ptr noundef nonnull %26) #14
+  tail call void @free(ptr noundef nonnull %26) #15
   %28 = load ptr, ptr %21, align 8
   %29 = getelementptr inbounds ptr, ptr %28, i64 %indvars.iv
   store ptr null, ptr %29, align 8
@@ -420,11 +419,11 @@ define void @Aig_MmFlexStop(ptr noundef %0, i32 noundef %1) local_unnamed_addr #
   br i1 %.not23, label %37, label %36
 
 36:                                               ; preds = %._crit_edge
-  tail call void @free(ptr noundef nonnull %35) #14
+  tail call void @free(ptr noundef nonnull %35) #15
   br label %37
 
 37:                                               ; preds = %36, %._crit_edge
-  tail call void @free(ptr noundef nonnull %0) #14
+  tail call void @free(ptr noundef nonnull %0) #15
   br label %38
 
 38:                                               ; preds = %37, %2
@@ -465,11 +464,11 @@ define ptr @Aig_MmFlexEntryFetch(ptr nocapture noundef %0, i32 noundef %1) local
   br i1 %.not, label %26, label %24
 
 24:                                               ; preds = %18
-  %25 = tail call ptr @realloc(ptr noundef nonnull %21, i64 noundef %23) #15
+  %25 = tail call ptr @realloc(ptr noundef nonnull %21, i64 noundef %23) #16
   br label %28
 
 26:                                               ; preds = %18
-  %27 = tail call noalias ptr @malloc(i64 noundef %23) #13
+  %27 = tail call noalias ptr @malloc(i64 noundef %23) #14
   br label %28
 
 28:                                               ; preds = %26, %24
@@ -491,7 +490,7 @@ define ptr @Aig_MmFlexEntryFetch(ptr nocapture noundef %0, i32 noundef %1) local
 36:                                               ; preds = %34, %30
   %37 = phi i32 [ %35, %34 ], [ %32, %30 ]
   %38 = sext i32 %37 to i64
-  %39 = tail call noalias ptr @malloc(i64 noundef %38) #13
+  %39 = tail call noalias ptr @malloc(i64 noundef %38) #14
   store ptr %39, ptr %3, align 8
   %40 = getelementptr inbounds i8, ptr %39, i64 %38
   %41 = getelementptr inbounds i8, ptr %0, i64 16
@@ -552,7 +551,7 @@ define void @Aig_MmFlexRestart(ptr nocapture noundef %0) local_unnamed_addr #2 {
   br i1 %.not, label %15, label %12
 
 12:                                               ; preds = %7
-  tail call void @free(ptr noundef nonnull %11) #14
+  tail call void @free(ptr noundef nonnull %11) #15
   %13 = load ptr, ptr %6, align 8
   %14 = getelementptr inbounds ptr, ptr %13, i64 %indvars.iv
   store ptr null, ptr %14, align 8
@@ -603,7 +602,7 @@ define noalias noundef ptr @Aig_MmStepStart(i32 noundef %0) local_unnamed_addr #
   store i32 %0, ptr %calloc, align 8
   %2 = sext i32 %0 to i64
   %3 = shl nsw i64 %2, 3
-  %4 = tail call noalias ptr @malloc(i64 noundef %3) #13
+  %4 = tail call noalias ptr @malloc(i64 noundef %3) #14
   %5 = getelementptr inbounds i8, ptr %calloc, i64 8
   store ptr %4, ptr %5, align 8
   %6 = icmp sgt i32 %0, 0
@@ -623,7 +622,7 @@ define noalias noundef ptr @Aig_MmStepStart(i32 noundef %0) local_unnamed_addr #
   store i32 1024, ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %calloc.i, i64 28
   store i32 64, ptr %10, align 4
-  %11 = tail call noalias dereferenceable_or_null(512) ptr @malloc(i64 noundef 512) #13
+  %11 = tail call noalias dereferenceable_or_null(512) ptr @malloc(i64 noundef 512) #14
   %12 = getelementptr inbounds i8, ptr %calloc.i, i64 40
   store ptr %11, ptr %12, align 8
   %13 = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv
@@ -644,7 +643,7 @@ define noalias noundef ptr @Aig_MmStepStart(i32 noundef %0) local_unnamed_addr #
   %17 = or disjoint i32 %15, 1
   %18 = sext i32 %17 to i64
   %19 = shl nsw i64 %18, 3
-  %20 = tail call noalias ptr @malloc(i64 noundef %19) #13
+  %20 = tail call noalias ptr @malloc(i64 noundef %19) #14
   %21 = getelementptr inbounds i8, ptr %calloc, i64 24
   store ptr %20, ptr %21, align 8
   store ptr null, ptr %20, align 8
@@ -700,7 +699,7 @@ define noalias noundef ptr @Aig_MmStepStart(i32 noundef %0) local_unnamed_addr #
   store i32 64, ptr %34, align 8
   %35 = getelementptr inbounds i8, ptr %calloc, i64 36
   store i32 0, ptr %35, align 4
-  %36 = tail call noalias dereferenceable_or_null(512) ptr @malloc(i64 noundef 512) #13
+  %36 = tail call noalias dereferenceable_or_null(512) ptr @malloc(i64 noundef 512) #14
   %37 = getelementptr inbounds i8, ptr %calloc, i64 40
   store ptr %36, ptr %37, align 8
   ret ptr %calloc
@@ -754,7 +753,7 @@ define void @Aig_MmStepStop(ptr nocapture noundef %0, i32 noundef %1) local_unna
   br i1 %.not33, label %27, label %24
 
 24:                                               ; preds = %19
-  tail call void @free(ptr noundef nonnull %23) #14
+  tail call void @free(ptr noundef nonnull %23) #15
   %25 = load ptr, ptr %18, align 8
   %26 = getelementptr inbounds ptr, ptr %25, i64 %indvars.iv39
   store ptr null, ptr %26, align 8
@@ -775,7 +774,7 @@ define void @Aig_MmStepStop(ptr nocapture noundef %0, i32 noundef %1) local_unna
   br i1 %.not30, label %34, label %33
 
 33:                                               ; preds = %._crit_edge37
-  tail call void @free(ptr noundef nonnull %32) #14
+  tail call void @free(ptr noundef nonnull %32) #15
   store ptr null, ptr %31, align 8
   br label %34
 
@@ -786,7 +785,7 @@ define void @Aig_MmStepStop(ptr nocapture noundef %0, i32 noundef %1) local_unna
   br i1 %.not31, label %38, label %37
 
 37:                                               ; preds = %34
-  tail call void @free(ptr noundef nonnull %36) #14
+  tail call void @free(ptr noundef nonnull %36) #15
   store ptr null, ptr %35, align 8
   br label %38
 
@@ -797,11 +796,11 @@ define void @Aig_MmStepStop(ptr nocapture noundef %0, i32 noundef %1) local_unna
   br i1 %.not32, label %42, label %41
 
 41:                                               ; preds = %38
-  tail call void @free(ptr noundef nonnull %40) #14
+  tail call void @free(ptr noundef nonnull %40) #15
   br label %42
 
 42:                                               ; preds = %41, %38
-  tail call void @free(ptr noundef nonnull %0) #14
+  tail call void @free(ptr noundef nonnull %0) #15
   ret void
 }
 
@@ -840,12 +839,12 @@ define ptr @Aig_MmStepEntryFetch(ptr nocapture noundef %0, i32 noundef %1) local
   br i1 %.not, label %22, label %20
 
 20:                                               ; preds = %14
-  %21 = tail call ptr @realloc(ptr noundef nonnull %17, i64 noundef %19) #15
+  %21 = tail call ptr @realloc(ptr noundef nonnull %17, i64 noundef %19) #16
   %.pre21.pre = load i32, ptr %9, align 4
   br label %24
 
 22:                                               ; preds = %14
-  %23 = tail call noalias ptr @malloc(i64 noundef %19) #13
+  %23 = tail call noalias ptr @malloc(i64 noundef %19) #14
   br label %24
 
 24:                                               ; preds = %22, %20
@@ -858,7 +857,7 @@ define ptr @Aig_MmStepEntryFetch(ptr nocapture noundef %0, i32 noundef %1) local
   %27 = phi i32 [ %10, %._crit_edge ], [ %.pre21, %24 ]
   %28 = phi ptr [ %.pre, %._crit_edge ], [ %25, %24 ]
   %29 = sext i32 %1 to i64
-  %30 = tail call noalias ptr @malloc(i64 noundef %29) #13
+  %30 = tail call noalias ptr @malloc(i64 noundef %29) #14
   %31 = getelementptr inbounds i8, ptr %0, i64 40
   %32 = add nsw i32 %27, 1
   store i32 %32, ptr %9, align 4
@@ -947,8 +946,11 @@ define i32 @Aig_MmStepReadMemUsage(ptr nocapture noundef readonly %0) local_unna
   ret i32 %.0.lcssa
 }
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #12
+
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #12
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #13
 
 attributes #0 = { mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -962,10 +964,11 @@ attributes #8 = { mustprogress nounwind willreturn uwtable "frame-pointer"="all"
 attributes #9 = { nofree nounwind memory(readwrite, argmem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
-attributes #13 = { nounwind allocsize(0) }
-attributes #14 = { nounwind }
-attributes #15 = { nounwind allocsize(1) }
+attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #13 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
+attributes #14 = { nounwind allocsize(0) }
+attributes #15 = { nounwind }
+attributes #16 = { nounwind allocsize(1) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

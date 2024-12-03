@@ -60863,9 +60863,7 @@ _ZN5typst6layout5frame5Frame10push_frame17ha7067a63bf81698cE.exit206.i: ; preds 
   br label %1169
 
 1166:                                             ; preds = %1141
-  %.0.i.inv.i.i.i1.i211.i = fcmp ord double %.1272.i, 0.000000e+00
-  %.0.i.i.i2.i212.i = select i1 %.0.i.inv.i.i.i1.i211.i, double %.1272.i, double 0.000000e+00
-  %1167 = fmul double %.0.i.i.i2.i212.i, 5.000000e-01
+  %1167 = fmul double %.1272.i, 5.000000e-01
   %1168 = fsub double %1167, %.0.i.i.i169.i
   %.0.i.inv.i.i.i1.i217.i = fcmp ord double %1168, 0.000000e+00
   %.0.i.i.i2.i218.i = select i1 %.0.i.inv.i.i.i1.i217.i, double %1168, double 0.000000e+00

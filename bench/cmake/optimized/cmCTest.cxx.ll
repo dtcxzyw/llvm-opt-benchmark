@@ -10961,7 +10961,7 @@ define dso_local noundef zeroext i1 @_ZN7cmCTest7RunTestERKSt6vectorINSt7__cxx11
   %54 = tail call double @_ZN20cmCTestScriptHandler23GetRemainingTimeAllowedEv(ptr noundef nonnull align 8 dereferenceable(824) %53)
   %55 = fcmp une double %54, 1.000000e+07
   %56 = fadd double %54, -1.200000e+02
-  %storemerge = select i1 %55, double %56, double %54
+  %storemerge = select i1 %55, double %56, double 1.000000e+07
   store double %storemerge, ptr %13, align 8
   %57 = load ptr, ptr %0, align 8
   %58 = getelementptr inbounds i8, ptr %57, i64 14976

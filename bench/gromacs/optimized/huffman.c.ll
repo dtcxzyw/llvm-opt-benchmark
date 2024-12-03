@@ -246,9 +246,8 @@ define void @Ptngc_comp_conv_to_huffman(ptr nocapture noundef readonly %0, i32 n
   %indvars.iv487 = phi i64 [ %indvars.iv.next488, %.lr.ph412 ], [ 0, %._crit_edge409 ]
   %105 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv487
   %106 = load i32, ptr %105, align 4
-  %107 = lshr i32 %106, 1
-  %.inv = icmp ugt i32 %106, 1
-  %spec.select204 = select i1 %.inv, i32 %107, i32 1
+  %107 = tail call i32 @llvm.umax.i32(i32 %106, i32 2)
+  %spec.select204 = lshr i32 %107, 1
   store i32 %spec.select204, ptr %105, align 4
   %indvars.iv.next488 = add nuw nsw i64 %indvars.iv487, 1
   %exitcond491.not = icmp eq i64 %indvars.iv.next488, %19
@@ -1195,6 +1194,9 @@ readbits.exit121:                                 ; preds = %126, %108
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ucmp.i32.i32(i32, i32) #6
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }

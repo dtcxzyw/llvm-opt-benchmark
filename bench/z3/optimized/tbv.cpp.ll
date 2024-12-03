@@ -1040,8 +1040,7 @@ entry:
   %call = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK24fixed_bit_vector_manager7set_andER16fixed_bit_vectorRKS0_(ptr noundef nonnull align 8 dereferenceable(540) %this, ptr noundef nonnull align 4 dereferenceable(4) %dst, ptr noundef nonnull align 4 dereferenceable(4) %src)
   %m_num_words.i.i = getelementptr inbounds i8, ptr %this, i64 528
   %0 = load i32, ptr %m_num_words.i.i, align 8
-  %umax.i = tail call i32 @llvm.umax.i32(i32 %0, i32 1)
-  %1 = add i32 %umax.i, -1
+  %1 = tail call i32 @llvm.usub.sat.i32(i32 %0, i32 1)
   %wide.trip.count.i = zext i32 %1 to i64
   br label %for.cond.i
 
@@ -1091,8 +1090,7 @@ define hidden noundef zeroext i1 @_ZNK11tbv_manager14is_well_formedERK3tbv(ptr n
 entry:
   %m_num_words.i = getelementptr inbounds i8, ptr %this, i64 528
   %0 = load i32, ptr %m_num_words.i, align 8
-  %umax = tail call i32 @llvm.umax.i32(i32 %0, i32 1)
-  %1 = add i32 %umax, -1
+  %1 = tail call i32 @llvm.usub.sat.i32(i32 %0, i32 1)
   %wide.trip.count = zext i32 %1 to i64
   br label %for.cond
 
@@ -1352,8 +1350,7 @@ entry:
   %call.i = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK24fixed_bit_vector_manager7set_andER16fixed_bit_vectorRKS0_(ptr noundef nonnull align 8 dereferenceable(552) %this, ptr noundef nonnull align 4 dereferenceable(4) %result, ptr noundef nonnull align 4 dereferenceable(4) %b)
   %m_num_words.i.i.i = getelementptr inbounds i8, ptr %this, i64 528
   %0 = load i32, ptr %m_num_words.i.i.i, align 8
-  %umax.i.i = tail call i32 @llvm.umax.i32(i32 %0, i32 1)
-  %1 = add i32 %umax.i.i, -1
+  %1 = tail call i32 @llvm.usub.sat.i32(i32 %0, i32 1)
   %wide.trip.count.i.i = zext i32 %1 to i64
   br label %for.cond.i.i
 
@@ -1773,6 +1770,9 @@ declare i32 @llvm.umax.i32(i32, i32) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #17
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.usub.sat.i32(i32, i32) #16
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

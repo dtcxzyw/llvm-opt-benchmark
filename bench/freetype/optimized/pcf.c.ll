@@ -1442,9 +1442,8 @@ pcf_has_table_type.exit:                          ; preds = %.lr.ph.i206, %.loop
   br i1 %or.cond.not.i, label %273, label %pcf_get_metrics.exit.thread
 
 273:                                              ; preds = %271, %269
-  %274 = add nuw nsw i64 %.039.i, 1
-  %.inv.i = icmp samesign ult i64 %.039.i, 65535
-  %.040.i = select i1 %.inv.i, i64 %274, i64 65535
+  %274 = call i64 @llvm.umin.i64(i64 %.039.i, i64 65534)
+  %.040.i = add nuw nsw i64 %274, 1
   %275 = getelementptr inbounds i8, ptr %1, i64 520
   store i64 %.040.i, ptr %275, align 8
   %276 = call ptr @ft_mem_qrealloc(ptr noundef %225, i64 noundef 24, i64 noundef 0, i64 noundef %.040.i, ptr noundef null, ptr noundef nonnull %6) #15

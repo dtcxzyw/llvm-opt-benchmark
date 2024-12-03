@@ -11076,63 +11076,61 @@ define hidden void @"_ZN4core3ptr252drop_in_place$LT$tokio_tungstenite..handshak
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr253drop_in_place$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hfcf6188169a6b24bE.llvm.12663281897316000666"(ptr noundef nonnull align 8 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !1203, !noundef !4
-  %.not = icmp samesign ult i64 %2, 2
-  %3 = add nsw i64 %2, -1
-  %4 = select i1 %.not, i64 0, i64 %3
-  switch i64 %4, label %"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$tokio..runtime..task..error..JoinError$GT$$GT$17h9b9ab90adff27aaeE.llvm.12663281897316000666.exit" [
-    i64 0, label %5
-    i64 1, label %6
+  %3 = tail call i64 @llvm.usub.sat.i64(i64 %2, i64 1)
+  switch i64 %3, label %"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$tokio..runtime..task..error..JoinError$GT$$GT$17h9b9ab90adff27aaeE.llvm.12663281897316000666.exit" [
+    i64 0, label %4
+    i64 1, label %5
   ]
 
-"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$tokio..runtime..task..error..JoinError$GT$$GT$17h9b9ab90adff27aaeE.llvm.12663281897316000666.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i", %20, %10, %6, %5, %1
+"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$tokio..runtime..task..error..JoinError$GT$$GT$17h9b9ab90adff27aaeE.llvm.12663281897316000666.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i", %19, %9, %5, %4, %1
   ret void
 
-5:                                                ; preds = %1
+4:                                                ; preds = %1
   tail call void @"_ZN4core3ptr212drop_in_place$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd822a6ce9dd2a859E.llvm.12663281897316000666"(ptr noundef nonnull align 8 %0)
   br label %"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$tokio..runtime..task..error..JoinError$GT$$GT$17h9b9ab90adff27aaeE.llvm.12663281897316000666.exit"
 
-6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+5:                                                ; preds = %1
+  %6 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3998)
-  %8 = load i64, ptr %7, align 8, !range !711, !alias.scope !3998, !noundef !4
-  %9 = icmp eq i64 %8, 0
-  br i1 %9, label %"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$tokio..runtime..task..error..JoinError$GT$$GT$17h9b9ab90adff27aaeE.llvm.12663281897316000666.exit", label %10
+  %7 = load i64, ptr %6, align 8, !range !711, !alias.scope !3998, !noundef !4
+  %8 = icmp eq i64 %7, 0
+  br i1 %8, label %"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$tokio..runtime..task..error..JoinError$GT$$GT$17h9b9ab90adff27aaeE.llvm.12663281897316000666.exit", label %9
 
-10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+9:                                                ; preds = %5
+  %10 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4001)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4004)
-  %12 = load ptr, ptr %11, align 8, !alias.scope !4007, !noundef !4
-  %13 = icmp eq ptr %12, null
-  br i1 %13, label %"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$tokio..runtime..task..error..JoinError$GT$$GT$17h9b9ab90adff27aaeE.llvm.12663281897316000666.exit", label %14
+  %11 = load ptr, ptr %10, align 8, !alias.scope !4007, !noundef !4
+  %12 = icmp eq ptr %11, null
+  br i1 %12, label %"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$tokio..runtime..task..error..JoinError$GT$$GT$17h9b9ab90adff27aaeE.llvm.12663281897316000666.exit", label %13
 
-14:                                               ; preds = %10
+13:                                               ; preds = %9
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4008)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4011)
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
-  %16 = load ptr, ptr %15, align 8, !alias.scope !4014, !nonnull !4, !align !5, !noundef !4
-  %17 = load ptr, ptr %16, align 8, !invariant.load !4, !noalias !4014, !nonnull !4
-  invoke void %17(ptr noundef nonnull align 1 %12)
-          to label %20 unwind label %18, !noalias !4014
+  %14 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = load ptr, ptr %14, align 8, !alias.scope !4014, !nonnull !4, !align !5, !noundef !4
+  %16 = load ptr, ptr %15, align 8, !invariant.load !4, !noalias !4014, !nonnull !4
+  invoke void %16(ptr noundef nonnull align 1 %11)
+          to label %19 unwind label %17, !noalias !4014
 
-18:                                               ; preds = %14
-  %19 = landingpad { ptr, i32 }
+17:                                               ; preds = %13
+  %18 = landingpad { ptr, i32 }
           cleanup
-  tail call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7c29042d83fb166aE.llvm.12663281897316000666"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %11) #21
-  resume { ptr, i32 } %19
+  tail call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7c29042d83fb166aE.llvm.12663281897316000666"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %10) #21
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %14
-  %21 = getelementptr inbounds i8, ptr %16, i64 8
-  %22 = load i64, ptr %21, align 8, !range !75, !invariant.load !4, !noalias !4015
-  %23 = getelementptr inbounds i8, ptr %16, i64 16
-  %24 = load i64, ptr %23, align 8, !range !79, !invariant.load !4, !noalias !4015
-  %25 = icmp ult i64 %24, -9223372036854775807
-  tail call void @llvm.assume(i1 %25)
-  %26 = icmp eq i64 %22, 0
-  br i1 %26, label %"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$tokio..runtime..task..error..JoinError$GT$$GT$17h9b9ab90adff27aaeE.llvm.12663281897316000666.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i"
+19:                                               ; preds = %13
+  %20 = getelementptr inbounds i8, ptr %15, i64 8
+  %21 = load i64, ptr %20, align 8, !range !75, !invariant.load !4, !noalias !4015
+  %22 = getelementptr inbounds i8, ptr %15, i64 16
+  %23 = load i64, ptr %22, align 8, !range !79, !invariant.load !4, !noalias !4015
+  %24 = icmp ult i64 %23, -9223372036854775807
+  tail call void @llvm.assume(i1 %24)
+  %25 = icmp eq i64 %21, 0
+  br i1 %25, label %"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$tokio..runtime..task..error..JoinError$GT$$GT$17h9b9ab90adff27aaeE.llvm.12663281897316000666.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i"
 
-"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i": ; preds = %20
-  tail call void @__rust_dealloc(ptr noundef nonnull %12, i64 noundef %22, i64 noundef %24) #23, !noalias !4015
+"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i": ; preds = %19
+  tail call void @__rust_dealloc(ptr noundef nonnull %11, i64 noundef %21, i64 noundef %23) #23, !noalias !4015
   br label %"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$tokio..runtime..task..error..JoinError$GT$$GT$17h9b9ab90adff27aaeE.llvm.12663281897316000666.exit"
 }
 
@@ -11228,63 +11226,61 @@ define hidden void @"_ZN4core3ptr257drop_in_place$LT$std..collections..hash..map
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr257drop_in_place$LT$tokio..runtime..task..core..CoreStage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h2c8533a2f6f393dcE.llvm.12663281897316000666"(ptr noundef nonnull align 8 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !1203, !noundef !4
-  %.not.i.i.i = icmp samesign ult i64 %2, 2
-  %3 = add nsw i64 %2, -1
-  %4 = select i1 %.not.i.i.i, i64 0, i64 %3
-  switch i64 %4, label %"_ZN4core3ptr302drop_in_place$LT$tokio..loom..std..unsafe_cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hc6b54d17a395b337E.llvm.12663281897316000666.exit" [
-    i64 0, label %5
-    i64 1, label %6
+  %3 = tail call i64 @llvm.usub.sat.i64(i64 %2, i64 1)
+  switch i64 %3, label %"_ZN4core3ptr302drop_in_place$LT$tokio..loom..std..unsafe_cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hc6b54d17a395b337E.llvm.12663281897316000666.exit" [
+    i64 0, label %4
+    i64 1, label %5
   ]
 
-5:                                                ; preds = %1
+4:                                                ; preds = %1
   tail call void @"_ZN4core3ptr212drop_in_place$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd822a6ce9dd2a859E.llvm.12663281897316000666"(ptr noundef nonnull align 8 %0)
   br label %"_ZN4core3ptr302drop_in_place$LT$tokio..loom..std..unsafe_cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hc6b54d17a395b337E.llvm.12663281897316000666.exit"
 
-6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+5:                                                ; preds = %1
+  %6 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4042)
-  %8 = load i64, ptr %7, align 8, !range !711, !alias.scope !4042, !noundef !4
-  %9 = icmp eq i64 %8, 0
-  br i1 %9, label %"_ZN4core3ptr302drop_in_place$LT$tokio..loom..std..unsafe_cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hc6b54d17a395b337E.llvm.12663281897316000666.exit", label %10
+  %7 = load i64, ptr %6, align 8, !range !711, !alias.scope !4042, !noundef !4
+  %8 = icmp eq i64 %7, 0
+  br i1 %8, label %"_ZN4core3ptr302drop_in_place$LT$tokio..loom..std..unsafe_cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hc6b54d17a395b337E.llvm.12663281897316000666.exit", label %9
 
-10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+9:                                                ; preds = %5
+  %10 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4045)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4048)
-  %12 = load ptr, ptr %11, align 8, !alias.scope !4051, !noundef !4
-  %13 = icmp eq ptr %12, null
-  br i1 %13, label %"_ZN4core3ptr302drop_in_place$LT$tokio..loom..std..unsafe_cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hc6b54d17a395b337E.llvm.12663281897316000666.exit", label %14
+  %11 = load ptr, ptr %10, align 8, !alias.scope !4051, !noundef !4
+  %12 = icmp eq ptr %11, null
+  br i1 %12, label %"_ZN4core3ptr302drop_in_place$LT$tokio..loom..std..unsafe_cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hc6b54d17a395b337E.llvm.12663281897316000666.exit", label %13
 
-14:                                               ; preds = %10
+13:                                               ; preds = %9
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4052)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4055)
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
-  %16 = load ptr, ptr %15, align 8, !alias.scope !4058, !nonnull !4, !align !5, !noundef !4
-  %17 = load ptr, ptr %16, align 8, !invariant.load !4, !noalias !4058, !nonnull !4
-  invoke void %17(ptr noundef nonnull align 1 %12)
-          to label %20 unwind label %18, !noalias !4058
+  %14 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = load ptr, ptr %14, align 8, !alias.scope !4058, !nonnull !4, !align !5, !noundef !4
+  %16 = load ptr, ptr %15, align 8, !invariant.load !4, !noalias !4058, !nonnull !4
+  invoke void %16(ptr noundef nonnull align 1 %11)
+          to label %19 unwind label %17, !noalias !4058
 
-18:                                               ; preds = %14
-  %19 = landingpad { ptr, i32 }
+17:                                               ; preds = %13
+  %18 = landingpad { ptr, i32 }
           cleanup
-  tail call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7c29042d83fb166aE.llvm.12663281897316000666"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %11) #21
-  resume { ptr, i32 } %19
+  tail call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7c29042d83fb166aE.llvm.12663281897316000666"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %10) #21
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %14
-  %21 = getelementptr inbounds i8, ptr %16, i64 8
-  %22 = load i64, ptr %21, align 8, !range !75, !invariant.load !4, !noalias !4059
-  %23 = getelementptr inbounds i8, ptr %16, i64 16
-  %24 = load i64, ptr %23, align 8, !range !79, !invariant.load !4, !noalias !4059
-  %25 = icmp ult i64 %24, -9223372036854775807
-  tail call void @llvm.assume(i1 %25)
-  %26 = icmp eq i64 %22, 0
-  br i1 %26, label %"_ZN4core3ptr302drop_in_place$LT$tokio..loom..std..unsafe_cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hc6b54d17a395b337E.llvm.12663281897316000666.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i.i.i.i"
+19:                                               ; preds = %13
+  %20 = getelementptr inbounds i8, ptr %15, i64 8
+  %21 = load i64, ptr %20, align 8, !range !75, !invariant.load !4, !noalias !4059
+  %22 = getelementptr inbounds i8, ptr %15, i64 16
+  %23 = load i64, ptr %22, align 8, !range !79, !invariant.load !4, !noalias !4059
+  %24 = icmp ult i64 %23, -9223372036854775807
+  tail call void @llvm.assume(i1 %24)
+  %25 = icmp eq i64 %21, 0
+  br i1 %25, label %"_ZN4core3ptr302drop_in_place$LT$tokio..loom..std..unsafe_cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hc6b54d17a395b337E.llvm.12663281897316000666.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i.i.i.i"
 
-"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i.i.i.i": ; preds = %20
-  tail call void @__rust_dealloc(ptr noundef nonnull %12, i64 noundef %22, i64 noundef %24) #23, !noalias !4059
+"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i.i.i.i": ; preds = %19
+  tail call void @__rust_dealloc(ptr noundef nonnull %11, i64 noundef %21, i64 noundef %23) #23, !noalias !4059
   br label %"_ZN4core3ptr302drop_in_place$LT$tokio..loom..std..unsafe_cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hc6b54d17a395b337E.llvm.12663281897316000666.exit"
 
-"_ZN4core3ptr302drop_in_place$LT$tokio..loom..std..unsafe_cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hc6b54d17a395b337E.llvm.12663281897316000666.exit": ; preds = %1, %5, %6, %10, %20, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i.i.i.i"
+"_ZN4core3ptr302drop_in_place$LT$tokio..loom..std..unsafe_cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hc6b54d17a395b337E.llvm.12663281897316000666.exit": ; preds = %1, %4, %5, %9, %19, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i.i.i.i"
   ret void
 }
 
@@ -11788,63 +11784,61 @@ define hidden void @"_ZN4core3ptr264drop_in_place$LT$tokio..loom..std..parking_l
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr264drop_in_place$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h866809f040c38ee3E.llvm.12663281897316000666"(ptr noundef nonnull align 8 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !1203, !noundef !4
-  %.not = icmp samesign ult i64 %2, 2
-  %3 = add nsw i64 %2, -1
-  %4 = select i1 %.not, i64 0, i64 %3
-  switch i64 %4, label %"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$tokio..runtime..task..error..JoinError$GT$$GT$17h9b9ab90adff27aaeE.llvm.12663281897316000666.exit" [
-    i64 0, label %5
-    i64 1, label %6
+  %3 = tail call i64 @llvm.usub.sat.i64(i64 %2, i64 1)
+  switch i64 %3, label %"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$tokio..runtime..task..error..JoinError$GT$$GT$17h9b9ab90adff27aaeE.llvm.12663281897316000666.exit" [
+    i64 0, label %4
+    i64 1, label %5
   ]
 
-"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$tokio..runtime..task..error..JoinError$GT$$GT$17h9b9ab90adff27aaeE.llvm.12663281897316000666.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i", %20, %10, %6, %5, %1
+"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$tokio..runtime..task..error..JoinError$GT$$GT$17h9b9ab90adff27aaeE.llvm.12663281897316000666.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i", %19, %9, %5, %4, %1
   ret void
 
-5:                                                ; preds = %1
+4:                                                ; preds = %1
   tail call void @"_ZN4core3ptr223drop_in_place$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$17h30b51412548f3a76E.llvm.12663281897316000666"(ptr noundef nonnull align 8 %0)
   br label %"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$tokio..runtime..task..error..JoinError$GT$$GT$17h9b9ab90adff27aaeE.llvm.12663281897316000666.exit"
 
-6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+5:                                                ; preds = %1
+  %6 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4166)
-  %8 = load i64, ptr %7, align 8, !range !711, !alias.scope !4166, !noundef !4
-  %9 = icmp eq i64 %8, 0
-  br i1 %9, label %"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$tokio..runtime..task..error..JoinError$GT$$GT$17h9b9ab90adff27aaeE.llvm.12663281897316000666.exit", label %10
+  %7 = load i64, ptr %6, align 8, !range !711, !alias.scope !4166, !noundef !4
+  %8 = icmp eq i64 %7, 0
+  br i1 %8, label %"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$tokio..runtime..task..error..JoinError$GT$$GT$17h9b9ab90adff27aaeE.llvm.12663281897316000666.exit", label %9
 
-10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+9:                                                ; preds = %5
+  %10 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4169)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4172)
-  %12 = load ptr, ptr %11, align 8, !alias.scope !4175, !noundef !4
-  %13 = icmp eq ptr %12, null
-  br i1 %13, label %"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$tokio..runtime..task..error..JoinError$GT$$GT$17h9b9ab90adff27aaeE.llvm.12663281897316000666.exit", label %14
+  %11 = load ptr, ptr %10, align 8, !alias.scope !4175, !noundef !4
+  %12 = icmp eq ptr %11, null
+  br i1 %12, label %"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$tokio..runtime..task..error..JoinError$GT$$GT$17h9b9ab90adff27aaeE.llvm.12663281897316000666.exit", label %13
 
-14:                                               ; preds = %10
+13:                                               ; preds = %9
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4176)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4179)
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
-  %16 = load ptr, ptr %15, align 8, !alias.scope !4182, !nonnull !4, !align !5, !noundef !4
-  %17 = load ptr, ptr %16, align 8, !invariant.load !4, !noalias !4182, !nonnull !4
-  invoke void %17(ptr noundef nonnull align 1 %12)
-          to label %20 unwind label %18, !noalias !4182
+  %14 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = load ptr, ptr %14, align 8, !alias.scope !4182, !nonnull !4, !align !5, !noundef !4
+  %16 = load ptr, ptr %15, align 8, !invariant.load !4, !noalias !4182, !nonnull !4
+  invoke void %16(ptr noundef nonnull align 1 %11)
+          to label %19 unwind label %17, !noalias !4182
 
-18:                                               ; preds = %14
-  %19 = landingpad { ptr, i32 }
+17:                                               ; preds = %13
+  %18 = landingpad { ptr, i32 }
           cleanup
-  tail call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7c29042d83fb166aE.llvm.12663281897316000666"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %11) #21
-  resume { ptr, i32 } %19
+  tail call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7c29042d83fb166aE.llvm.12663281897316000666"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %10) #21
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %14
-  %21 = getelementptr inbounds i8, ptr %16, i64 8
-  %22 = load i64, ptr %21, align 8, !range !75, !invariant.load !4, !noalias !4183
-  %23 = getelementptr inbounds i8, ptr %16, i64 16
-  %24 = load i64, ptr %23, align 8, !range !79, !invariant.load !4, !noalias !4183
-  %25 = icmp ult i64 %24, -9223372036854775807
-  tail call void @llvm.assume(i1 %25)
-  %26 = icmp eq i64 %22, 0
-  br i1 %26, label %"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$tokio..runtime..task..error..JoinError$GT$$GT$17h9b9ab90adff27aaeE.llvm.12663281897316000666.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i"
+19:                                               ; preds = %13
+  %20 = getelementptr inbounds i8, ptr %15, i64 8
+  %21 = load i64, ptr %20, align 8, !range !75, !invariant.load !4, !noalias !4183
+  %22 = getelementptr inbounds i8, ptr %15, i64 16
+  %23 = load i64, ptr %22, align 8, !range !79, !invariant.load !4, !noalias !4183
+  %24 = icmp ult i64 %23, -9223372036854775807
+  tail call void @llvm.assume(i1 %24)
+  %25 = icmp eq i64 %21, 0
+  br i1 %25, label %"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$tokio..runtime..task..error..JoinError$GT$$GT$17h9b9ab90adff27aaeE.llvm.12663281897316000666.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i"
 
-"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i": ; preds = %20
-  tail call void @__rust_dealloc(ptr noundef nonnull %12, i64 noundef %22, i64 noundef %24) #23, !noalias !4183
+"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i": ; preds = %19
+  tail call void @__rust_dealloc(ptr noundef nonnull %11, i64 noundef %21, i64 noundef %23) #23, !noalias !4183
   br label %"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$tokio..runtime..task..error..JoinError$GT$$GT$17h9b9ab90adff27aaeE.llvm.12663281897316000666.exit"
 }
 
@@ -11936,63 +11930,61 @@ define hidden void @"_ZN4core3ptr268drop_in_place$LT$core..cell..UnsafeCell$LT$t
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr268drop_in_place$LT$tokio..runtime..task..core..CoreStage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hf0bee90d08d4da4dE.llvm.12663281897316000666"(ptr noundef nonnull align 8 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !1203, !noundef !4
-  %.not.i.i.i = icmp samesign ult i64 %2, 2
-  %3 = add nsw i64 %2, -1
-  %4 = select i1 %.not.i.i.i, i64 0, i64 %3
-  switch i64 %4, label %"_ZN4core3ptr313drop_in_place$LT$tokio..loom..std..unsafe_cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h18c49a14d57461a9E.llvm.12663281897316000666.exit" [
-    i64 0, label %5
-    i64 1, label %6
+  %3 = tail call i64 @llvm.usub.sat.i64(i64 %2, i64 1)
+  switch i64 %3, label %"_ZN4core3ptr313drop_in_place$LT$tokio..loom..std..unsafe_cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h18c49a14d57461a9E.llvm.12663281897316000666.exit" [
+    i64 0, label %4
+    i64 1, label %5
   ]
 
-5:                                                ; preds = %1
+4:                                                ; preds = %1
   tail call void @"_ZN4core3ptr223drop_in_place$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$17h30b51412548f3a76E.llvm.12663281897316000666"(ptr noundef nonnull align 8 %0)
   br label %"_ZN4core3ptr313drop_in_place$LT$tokio..loom..std..unsafe_cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h18c49a14d57461a9E.llvm.12663281897316000666.exit"
 
-6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+5:                                                ; preds = %1
+  %6 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4208)
-  %8 = load i64, ptr %7, align 8, !range !711, !alias.scope !4208, !noundef !4
-  %9 = icmp eq i64 %8, 0
-  br i1 %9, label %"_ZN4core3ptr313drop_in_place$LT$tokio..loom..std..unsafe_cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h18c49a14d57461a9E.llvm.12663281897316000666.exit", label %10
+  %7 = load i64, ptr %6, align 8, !range !711, !alias.scope !4208, !noundef !4
+  %8 = icmp eq i64 %7, 0
+  br i1 %8, label %"_ZN4core3ptr313drop_in_place$LT$tokio..loom..std..unsafe_cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h18c49a14d57461a9E.llvm.12663281897316000666.exit", label %9
 
-10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+9:                                                ; preds = %5
+  %10 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4211)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4214)
-  %12 = load ptr, ptr %11, align 8, !alias.scope !4217, !noundef !4
-  %13 = icmp eq ptr %12, null
-  br i1 %13, label %"_ZN4core3ptr313drop_in_place$LT$tokio..loom..std..unsafe_cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h18c49a14d57461a9E.llvm.12663281897316000666.exit", label %14
+  %11 = load ptr, ptr %10, align 8, !alias.scope !4217, !noundef !4
+  %12 = icmp eq ptr %11, null
+  br i1 %12, label %"_ZN4core3ptr313drop_in_place$LT$tokio..loom..std..unsafe_cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h18c49a14d57461a9E.llvm.12663281897316000666.exit", label %13
 
-14:                                               ; preds = %10
+13:                                               ; preds = %9
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4218)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4221)
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
-  %16 = load ptr, ptr %15, align 8, !alias.scope !4224, !nonnull !4, !align !5, !noundef !4
-  %17 = load ptr, ptr %16, align 8, !invariant.load !4, !noalias !4224, !nonnull !4
-  invoke void %17(ptr noundef nonnull align 1 %12)
-          to label %20 unwind label %18, !noalias !4224
+  %14 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = load ptr, ptr %14, align 8, !alias.scope !4224, !nonnull !4, !align !5, !noundef !4
+  %16 = load ptr, ptr %15, align 8, !invariant.load !4, !noalias !4224, !nonnull !4
+  invoke void %16(ptr noundef nonnull align 1 %11)
+          to label %19 unwind label %17, !noalias !4224
 
-18:                                               ; preds = %14
-  %19 = landingpad { ptr, i32 }
+17:                                               ; preds = %13
+  %18 = landingpad { ptr, i32 }
           cleanup
-  tail call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7c29042d83fb166aE.llvm.12663281897316000666"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %11) #21
-  resume { ptr, i32 } %19
+  tail call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7c29042d83fb166aE.llvm.12663281897316000666"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %10) #21
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %14
-  %21 = getelementptr inbounds i8, ptr %16, i64 8
-  %22 = load i64, ptr %21, align 8, !range !75, !invariant.load !4, !noalias !4225
-  %23 = getelementptr inbounds i8, ptr %16, i64 16
-  %24 = load i64, ptr %23, align 8, !range !79, !invariant.load !4, !noalias !4225
-  %25 = icmp ult i64 %24, -9223372036854775807
-  tail call void @llvm.assume(i1 %25)
-  %26 = icmp eq i64 %22, 0
-  br i1 %26, label %"_ZN4core3ptr313drop_in_place$LT$tokio..loom..std..unsafe_cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h18c49a14d57461a9E.llvm.12663281897316000666.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i.i.i.i"
+19:                                               ; preds = %13
+  %20 = getelementptr inbounds i8, ptr %15, i64 8
+  %21 = load i64, ptr %20, align 8, !range !75, !invariant.load !4, !noalias !4225
+  %22 = getelementptr inbounds i8, ptr %15, i64 16
+  %23 = load i64, ptr %22, align 8, !range !79, !invariant.load !4, !noalias !4225
+  %24 = icmp ult i64 %23, -9223372036854775807
+  tail call void @llvm.assume(i1 %24)
+  %25 = icmp eq i64 %21, 0
+  br i1 %25, label %"_ZN4core3ptr313drop_in_place$LT$tokio..loom..std..unsafe_cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h18c49a14d57461a9E.llvm.12663281897316000666.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i.i.i.i"
 
-"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i.i.i.i": ; preds = %20
-  tail call void @__rust_dealloc(ptr noundef nonnull %12, i64 noundef %22, i64 noundef %24) #23, !noalias !4225
+"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i.i.i.i": ; preds = %19
+  tail call void @__rust_dealloc(ptr noundef nonnull %11, i64 noundef %21, i64 noundef %23) #23, !noalias !4225
   br label %"_ZN4core3ptr313drop_in_place$LT$tokio..loom..std..unsafe_cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h18c49a14d57461a9E.llvm.12663281897316000666.exit"
 
-"_ZN4core3ptr313drop_in_place$LT$tokio..loom..std..unsafe_cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h18c49a14d57461a9E.llvm.12663281897316000666.exit": ; preds = %1, %5, %6, %10, %20, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i.i.i.i"
+"_ZN4core3ptr313drop_in_place$LT$tokio..loom..std..unsafe_cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h18c49a14d57461a9E.llvm.12663281897316000666.exit": ; preds = %1, %4, %5, %9, %19, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i.i.i.i"
   ret void
 }
 
@@ -12655,63 +12647,61 @@ define hidden void @"_ZN4core3ptr283drop_in_place$LT$alloc..sync..Weak$LT$std..s
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr283drop_in_place$LT$core..cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h63b8096638b2d627E.llvm.12663281897316000666"(ptr noundef nonnull align 8 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !1203, !noundef !4
-  %.not.i = icmp samesign ult i64 %2, 2
-  %3 = add nsw i64 %2, -1
-  %4 = select i1 %.not.i, i64 0, i64 %3
-  switch i64 %4, label %"_ZN4core3ptr253drop_in_place$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hfcf6188169a6b24bE.llvm.12663281897316000666.exit" [
-    i64 0, label %5
-    i64 1, label %6
+  %3 = tail call i64 @llvm.usub.sat.i64(i64 %2, i64 1)
+  switch i64 %3, label %"_ZN4core3ptr253drop_in_place$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hfcf6188169a6b24bE.llvm.12663281897316000666.exit" [
+    i64 0, label %4
+    i64 1, label %5
   ]
 
-5:                                                ; preds = %1
+4:                                                ; preds = %1
   tail call void @"_ZN4core3ptr212drop_in_place$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd822a6ce9dd2a859E.llvm.12663281897316000666"(ptr noundef nonnull align 8 %0)
   br label %"_ZN4core3ptr253drop_in_place$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hfcf6188169a6b24bE.llvm.12663281897316000666.exit"
 
-6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+5:                                                ; preds = %1
+  %6 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4433)
-  %8 = load i64, ptr %7, align 8, !range !711, !alias.scope !4433, !noundef !4
-  %9 = icmp eq i64 %8, 0
-  br i1 %9, label %"_ZN4core3ptr253drop_in_place$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hfcf6188169a6b24bE.llvm.12663281897316000666.exit", label %10
+  %7 = load i64, ptr %6, align 8, !range !711, !alias.scope !4433, !noundef !4
+  %8 = icmp eq i64 %7, 0
+  br i1 %8, label %"_ZN4core3ptr253drop_in_place$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hfcf6188169a6b24bE.llvm.12663281897316000666.exit", label %9
 
-10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+9:                                                ; preds = %5
+  %10 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4436)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4439)
-  %12 = load ptr, ptr %11, align 8, !alias.scope !4442, !noundef !4
-  %13 = icmp eq ptr %12, null
-  br i1 %13, label %"_ZN4core3ptr253drop_in_place$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hfcf6188169a6b24bE.llvm.12663281897316000666.exit", label %14
+  %11 = load ptr, ptr %10, align 8, !alias.scope !4442, !noundef !4
+  %12 = icmp eq ptr %11, null
+  br i1 %12, label %"_ZN4core3ptr253drop_in_place$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hfcf6188169a6b24bE.llvm.12663281897316000666.exit", label %13
 
-14:                                               ; preds = %10
+13:                                               ; preds = %9
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4443)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4446)
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
-  %16 = load ptr, ptr %15, align 8, !alias.scope !4449, !nonnull !4, !align !5, !noundef !4
-  %17 = load ptr, ptr %16, align 8, !invariant.load !4, !noalias !4449, !nonnull !4
-  invoke void %17(ptr noundef nonnull align 1 %12)
-          to label %20 unwind label %18, !noalias !4449
+  %14 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = load ptr, ptr %14, align 8, !alias.scope !4449, !nonnull !4, !align !5, !noundef !4
+  %16 = load ptr, ptr %15, align 8, !invariant.load !4, !noalias !4449, !nonnull !4
+  invoke void %16(ptr noundef nonnull align 1 %11)
+          to label %19 unwind label %17, !noalias !4449
 
-18:                                               ; preds = %14
-  %19 = landingpad { ptr, i32 }
+17:                                               ; preds = %13
+  %18 = landingpad { ptr, i32 }
           cleanup
-  tail call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7c29042d83fb166aE.llvm.12663281897316000666"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %11) #21
-  resume { ptr, i32 } %19
+  tail call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7c29042d83fb166aE.llvm.12663281897316000666"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %10) #21
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %14
-  %21 = getelementptr inbounds i8, ptr %16, i64 8
-  %22 = load i64, ptr %21, align 8, !range !75, !invariant.load !4, !noalias !4450
-  %23 = getelementptr inbounds i8, ptr %16, i64 16
-  %24 = load i64, ptr %23, align 8, !range !79, !invariant.load !4, !noalias !4450
-  %25 = icmp ult i64 %24, -9223372036854775807
-  tail call void @llvm.assume(i1 %25)
-  %26 = icmp eq i64 %22, 0
-  br i1 %26, label %"_ZN4core3ptr253drop_in_place$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hfcf6188169a6b24bE.llvm.12663281897316000666.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i.i"
+19:                                               ; preds = %13
+  %20 = getelementptr inbounds i8, ptr %15, i64 8
+  %21 = load i64, ptr %20, align 8, !range !75, !invariant.load !4, !noalias !4450
+  %22 = getelementptr inbounds i8, ptr %15, i64 16
+  %23 = load i64, ptr %22, align 8, !range !79, !invariant.load !4, !noalias !4450
+  %24 = icmp ult i64 %23, -9223372036854775807
+  tail call void @llvm.assume(i1 %24)
+  %25 = icmp eq i64 %21, 0
+  br i1 %25, label %"_ZN4core3ptr253drop_in_place$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hfcf6188169a6b24bE.llvm.12663281897316000666.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i.i"
 
-"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i.i": ; preds = %20
-  tail call void @__rust_dealloc(ptr noundef nonnull %12, i64 noundef %22, i64 noundef %24) #23, !noalias !4450
+"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i.i": ; preds = %19
+  tail call void @__rust_dealloc(ptr noundef nonnull %11, i64 noundef %21, i64 noundef %23) #23, !noalias !4450
   br label %"_ZN4core3ptr253drop_in_place$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hfcf6188169a6b24bE.llvm.12663281897316000666.exit"
 
-"_ZN4core3ptr253drop_in_place$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hfcf6188169a6b24bE.llvm.12663281897316000666.exit": ; preds = %1, %5, %6, %10, %20, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i.i"
+"_ZN4core3ptr253drop_in_place$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hfcf6188169a6b24bE.llvm.12663281897316000666.exit": ; preds = %1, %4, %5, %9, %19, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i.i"
   ret void
 }
 
@@ -12796,63 +12786,61 @@ define hidden void @"_ZN4core3ptr292drop_in_place$LT$tokio..time..timeout..Timeo
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr294drop_in_place$LT$core..cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hdbaacfdb79e74557E.llvm.12663281897316000666"(ptr noundef nonnull align 8 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !1203, !noundef !4
-  %.not.i = icmp samesign ult i64 %2, 2
-  %3 = add nsw i64 %2, -1
-  %4 = select i1 %.not.i, i64 0, i64 %3
-  switch i64 %4, label %"_ZN4core3ptr264drop_in_place$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h866809f040c38ee3E.llvm.12663281897316000666.exit" [
-    i64 0, label %5
-    i64 1, label %6
+  %3 = tail call i64 @llvm.usub.sat.i64(i64 %2, i64 1)
+  switch i64 %3, label %"_ZN4core3ptr264drop_in_place$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h866809f040c38ee3E.llvm.12663281897316000666.exit" [
+    i64 0, label %4
+    i64 1, label %5
   ]
 
-5:                                                ; preds = %1
+4:                                                ; preds = %1
   tail call void @"_ZN4core3ptr223drop_in_place$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$17h30b51412548f3a76E.llvm.12663281897316000666"(ptr noundef nonnull align 8 %0)
   br label %"_ZN4core3ptr264drop_in_place$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h866809f040c38ee3E.llvm.12663281897316000666.exit"
 
-6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+5:                                                ; preds = %1
+  %6 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4459)
-  %8 = load i64, ptr %7, align 8, !range !711, !alias.scope !4459, !noundef !4
-  %9 = icmp eq i64 %8, 0
-  br i1 %9, label %"_ZN4core3ptr264drop_in_place$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h866809f040c38ee3E.llvm.12663281897316000666.exit", label %10
+  %7 = load i64, ptr %6, align 8, !range !711, !alias.scope !4459, !noundef !4
+  %8 = icmp eq i64 %7, 0
+  br i1 %8, label %"_ZN4core3ptr264drop_in_place$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h866809f040c38ee3E.llvm.12663281897316000666.exit", label %9
 
-10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+9:                                                ; preds = %5
+  %10 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4462)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4465)
-  %12 = load ptr, ptr %11, align 8, !alias.scope !4468, !noundef !4
-  %13 = icmp eq ptr %12, null
-  br i1 %13, label %"_ZN4core3ptr264drop_in_place$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h866809f040c38ee3E.llvm.12663281897316000666.exit", label %14
+  %11 = load ptr, ptr %10, align 8, !alias.scope !4468, !noundef !4
+  %12 = icmp eq ptr %11, null
+  br i1 %12, label %"_ZN4core3ptr264drop_in_place$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h866809f040c38ee3E.llvm.12663281897316000666.exit", label %13
 
-14:                                               ; preds = %10
+13:                                               ; preds = %9
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4469)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4472)
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
-  %16 = load ptr, ptr %15, align 8, !alias.scope !4475, !nonnull !4, !align !5, !noundef !4
-  %17 = load ptr, ptr %16, align 8, !invariant.load !4, !noalias !4475, !nonnull !4
-  invoke void %17(ptr noundef nonnull align 1 %12)
-          to label %20 unwind label %18, !noalias !4475
+  %14 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = load ptr, ptr %14, align 8, !alias.scope !4475, !nonnull !4, !align !5, !noundef !4
+  %16 = load ptr, ptr %15, align 8, !invariant.load !4, !noalias !4475, !nonnull !4
+  invoke void %16(ptr noundef nonnull align 1 %11)
+          to label %19 unwind label %17, !noalias !4475
 
-18:                                               ; preds = %14
-  %19 = landingpad { ptr, i32 }
+17:                                               ; preds = %13
+  %18 = landingpad { ptr, i32 }
           cleanup
-  tail call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7c29042d83fb166aE.llvm.12663281897316000666"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %11) #21
-  resume { ptr, i32 } %19
+  tail call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7c29042d83fb166aE.llvm.12663281897316000666"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %10) #21
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %14
-  %21 = getelementptr inbounds i8, ptr %16, i64 8
-  %22 = load i64, ptr %21, align 8, !range !75, !invariant.load !4, !noalias !4476
-  %23 = getelementptr inbounds i8, ptr %16, i64 16
-  %24 = load i64, ptr %23, align 8, !range !79, !invariant.load !4, !noalias !4476
-  %25 = icmp ult i64 %24, -9223372036854775807
-  tail call void @llvm.assume(i1 %25)
-  %26 = icmp eq i64 %22, 0
-  br i1 %26, label %"_ZN4core3ptr264drop_in_place$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h866809f040c38ee3E.llvm.12663281897316000666.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i.i"
+19:                                               ; preds = %13
+  %20 = getelementptr inbounds i8, ptr %15, i64 8
+  %21 = load i64, ptr %20, align 8, !range !75, !invariant.load !4, !noalias !4476
+  %22 = getelementptr inbounds i8, ptr %15, i64 16
+  %23 = load i64, ptr %22, align 8, !range !79, !invariant.load !4, !noalias !4476
+  %24 = icmp ult i64 %23, -9223372036854775807
+  tail call void @llvm.assume(i1 %24)
+  %25 = icmp eq i64 %21, 0
+  br i1 %25, label %"_ZN4core3ptr264drop_in_place$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h866809f040c38ee3E.llvm.12663281897316000666.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i.i"
 
-"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i.i": ; preds = %20
-  tail call void @__rust_dealloc(ptr noundef nonnull %12, i64 noundef %22, i64 noundef %24) #23, !noalias !4476
+"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i.i": ; preds = %19
+  tail call void @__rust_dealloc(ptr noundef nonnull %11, i64 noundef %21, i64 noundef %23) #23, !noalias !4476
   br label %"_ZN4core3ptr264drop_in_place$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h866809f040c38ee3E.llvm.12663281897316000666.exit"
 
-"_ZN4core3ptr264drop_in_place$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h866809f040c38ee3E.llvm.12663281897316000666.exit": ; preds = %1, %5, %6, %10, %20, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i.i"
+"_ZN4core3ptr264drop_in_place$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h866809f040c38ee3E.llvm.12663281897316000666.exit": ; preds = %1, %4, %5, %9, %19, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i.i"
   ret void
 }
 
@@ -13049,189 +13037,183 @@ define internal fastcc void @"_ZN4core3ptr296drop_in_place$LT$$LT$alloc..collect
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr302drop_in_place$LT$tokio..loom..std..unsafe_cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hc6b54d17a395b337E.llvm.12663281897316000666"(ptr noundef nonnull align 8 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !1203, !noundef !4
-  %.not.i.i = icmp samesign ult i64 %2, 2
-  %3 = add nsw i64 %2, -1
-  %4 = select i1 %.not.i.i, i64 0, i64 %3
-  switch i64 %4, label %"_ZN4core3ptr283drop_in_place$LT$core..cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h63b8096638b2d627E.llvm.12663281897316000666.exit" [
-    i64 0, label %5
-    i64 1, label %6
+  %3 = tail call i64 @llvm.usub.sat.i64(i64 %2, i64 1)
+  switch i64 %3, label %"_ZN4core3ptr283drop_in_place$LT$core..cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h63b8096638b2d627E.llvm.12663281897316000666.exit" [
+    i64 0, label %4
+    i64 1, label %5
   ]
 
-5:                                                ; preds = %1
+4:                                                ; preds = %1
   tail call void @"_ZN4core3ptr212drop_in_place$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd822a6ce9dd2a859E.llvm.12663281897316000666"(ptr noundef nonnull align 8 %0)
   br label %"_ZN4core3ptr283drop_in_place$LT$core..cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h63b8096638b2d627E.llvm.12663281897316000666.exit"
 
-6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+5:                                                ; preds = %1
+  %6 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4558)
-  %8 = load i64, ptr %7, align 8, !range !711, !alias.scope !4558, !noundef !4
-  %9 = icmp eq i64 %8, 0
-  br i1 %9, label %"_ZN4core3ptr283drop_in_place$LT$core..cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h63b8096638b2d627E.llvm.12663281897316000666.exit", label %10
+  %7 = load i64, ptr %6, align 8, !range !711, !alias.scope !4558, !noundef !4
+  %8 = icmp eq i64 %7, 0
+  br i1 %8, label %"_ZN4core3ptr283drop_in_place$LT$core..cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h63b8096638b2d627E.llvm.12663281897316000666.exit", label %9
 
-10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+9:                                                ; preds = %5
+  %10 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4561)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4564)
-  %12 = load ptr, ptr %11, align 8, !alias.scope !4567, !noundef !4
-  %13 = icmp eq ptr %12, null
-  br i1 %13, label %"_ZN4core3ptr283drop_in_place$LT$core..cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h63b8096638b2d627E.llvm.12663281897316000666.exit", label %14
+  %11 = load ptr, ptr %10, align 8, !alias.scope !4567, !noundef !4
+  %12 = icmp eq ptr %11, null
+  br i1 %12, label %"_ZN4core3ptr283drop_in_place$LT$core..cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h63b8096638b2d627E.llvm.12663281897316000666.exit", label %13
 
-14:                                               ; preds = %10
+13:                                               ; preds = %9
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4568)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4571)
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
-  %16 = load ptr, ptr %15, align 8, !alias.scope !4574, !nonnull !4, !align !5, !noundef !4
-  %17 = load ptr, ptr %16, align 8, !invariant.load !4, !noalias !4574, !nonnull !4
-  invoke void %17(ptr noundef nonnull align 1 %12)
-          to label %20 unwind label %18, !noalias !4574
+  %14 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = load ptr, ptr %14, align 8, !alias.scope !4574, !nonnull !4, !align !5, !noundef !4
+  %16 = load ptr, ptr %15, align 8, !invariant.load !4, !noalias !4574, !nonnull !4
+  invoke void %16(ptr noundef nonnull align 1 %11)
+          to label %19 unwind label %17, !noalias !4574
 
-18:                                               ; preds = %14
-  %19 = landingpad { ptr, i32 }
+17:                                               ; preds = %13
+  %18 = landingpad { ptr, i32 }
           cleanup
-  tail call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7c29042d83fb166aE.llvm.12663281897316000666"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %11) #21
-  resume { ptr, i32 } %19
+  tail call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7c29042d83fb166aE.llvm.12663281897316000666"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %10) #21
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %14
-  %21 = getelementptr inbounds i8, ptr %16, i64 8
-  %22 = load i64, ptr %21, align 8, !range !75, !invariant.load !4, !noalias !4575
-  %23 = getelementptr inbounds i8, ptr %16, i64 16
-  %24 = load i64, ptr %23, align 8, !range !79, !invariant.load !4, !noalias !4575
-  %25 = icmp ult i64 %24, -9223372036854775807
-  tail call void @llvm.assume(i1 %25)
-  %26 = icmp eq i64 %22, 0
-  br i1 %26, label %"_ZN4core3ptr283drop_in_place$LT$core..cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h63b8096638b2d627E.llvm.12663281897316000666.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i.i.i"
+19:                                               ; preds = %13
+  %20 = getelementptr inbounds i8, ptr %15, i64 8
+  %21 = load i64, ptr %20, align 8, !range !75, !invariant.load !4, !noalias !4575
+  %22 = getelementptr inbounds i8, ptr %15, i64 16
+  %23 = load i64, ptr %22, align 8, !range !79, !invariant.load !4, !noalias !4575
+  %24 = icmp ult i64 %23, -9223372036854775807
+  tail call void @llvm.assume(i1 %24)
+  %25 = icmp eq i64 %21, 0
+  br i1 %25, label %"_ZN4core3ptr283drop_in_place$LT$core..cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h63b8096638b2d627E.llvm.12663281897316000666.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i.i.i"
 
-"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i.i.i": ; preds = %20
-  tail call void @__rust_dealloc(ptr noundef nonnull %12, i64 noundef %22, i64 noundef %24) #23, !noalias !4575
+"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i.i.i": ; preds = %19
+  tail call void @__rust_dealloc(ptr noundef nonnull %11, i64 noundef %21, i64 noundef %23) #23, !noalias !4575
   br label %"_ZN4core3ptr283drop_in_place$LT$core..cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h63b8096638b2d627E.llvm.12663281897316000666.exit"
 
-"_ZN4core3ptr283drop_in_place$LT$core..cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h63b8096638b2d627E.llvm.12663281897316000666.exit": ; preds = %1, %5, %6, %10, %20, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i.i.i"
+"_ZN4core3ptr283drop_in_place$LT$core..cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h63b8096638b2d627E.llvm.12663281897316000666.exit": ; preds = %1, %4, %5, %9, %19, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i.i.i"
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr302drop_in_place$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h538c7cf87ee39a5cE.llvm.12663281897316000666"(ptr noundef nonnull align 8 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !1203, !noundef !4
-  %.not = icmp samesign ult i64 %2, 2
-  %3 = add nsw i64 %2, -1
-  %4 = select i1 %.not, i64 0, i64 %3
-  switch i64 %4, label %"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$tokio..runtime..task..error..JoinError$GT$$GT$17h9b9ab90adff27aaeE.llvm.12663281897316000666.exit" [
-    i64 0, label %5
-    i64 1, label %6
+  %3 = tail call i64 @llvm.usub.sat.i64(i64 %2, i64 1)
+  switch i64 %3, label %"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$tokio..runtime..task..error..JoinError$GT$$GT$17h9b9ab90adff27aaeE.llvm.12663281897316000666.exit" [
+    i64 0, label %4
+    i64 1, label %5
   ]
 
-"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$tokio..runtime..task..error..JoinError$GT$$GT$17h9b9ab90adff27aaeE.llvm.12663281897316000666.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i", %20, %10, %6, %5, %1
+"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$tokio..runtime..task..error..JoinError$GT$$GT$17h9b9ab90adff27aaeE.llvm.12663281897316000666.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i", %19, %9, %5, %4, %1
   ret void
 
-5:                                                ; preds = %1
+4:                                                ; preds = %1
   tail call void @"_ZN4core3ptr261drop_in_place$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$17h11e6e23298e58fa8E.llvm.12663281897316000666"(ptr noundef nonnull align 8 %0)
   br label %"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$tokio..runtime..task..error..JoinError$GT$$GT$17h9b9ab90adff27aaeE.llvm.12663281897316000666.exit"
 
-6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+5:                                                ; preds = %1
+  %6 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4578)
-  %8 = load i64, ptr %7, align 8, !range !711, !alias.scope !4578, !noundef !4
-  %9 = icmp eq i64 %8, 0
-  br i1 %9, label %"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$tokio..runtime..task..error..JoinError$GT$$GT$17h9b9ab90adff27aaeE.llvm.12663281897316000666.exit", label %10
+  %7 = load i64, ptr %6, align 8, !range !711, !alias.scope !4578, !noundef !4
+  %8 = icmp eq i64 %7, 0
+  br i1 %8, label %"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$tokio..runtime..task..error..JoinError$GT$$GT$17h9b9ab90adff27aaeE.llvm.12663281897316000666.exit", label %9
 
-10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+9:                                                ; preds = %5
+  %10 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4581)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4584)
-  %12 = load ptr, ptr %11, align 8, !alias.scope !4587, !noundef !4
-  %13 = icmp eq ptr %12, null
-  br i1 %13, label %"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$tokio..runtime..task..error..JoinError$GT$$GT$17h9b9ab90adff27aaeE.llvm.12663281897316000666.exit", label %14
+  %11 = load ptr, ptr %10, align 8, !alias.scope !4587, !noundef !4
+  %12 = icmp eq ptr %11, null
+  br i1 %12, label %"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$tokio..runtime..task..error..JoinError$GT$$GT$17h9b9ab90adff27aaeE.llvm.12663281897316000666.exit", label %13
 
-14:                                               ; preds = %10
+13:                                               ; preds = %9
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4588)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4591)
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
-  %16 = load ptr, ptr %15, align 8, !alias.scope !4594, !nonnull !4, !align !5, !noundef !4
-  %17 = load ptr, ptr %16, align 8, !invariant.load !4, !noalias !4594, !nonnull !4
-  invoke void %17(ptr noundef nonnull align 1 %12)
-          to label %20 unwind label %18, !noalias !4594
+  %14 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = load ptr, ptr %14, align 8, !alias.scope !4594, !nonnull !4, !align !5, !noundef !4
+  %16 = load ptr, ptr %15, align 8, !invariant.load !4, !noalias !4594, !nonnull !4
+  invoke void %16(ptr noundef nonnull align 1 %11)
+          to label %19 unwind label %17, !noalias !4594
 
-18:                                               ; preds = %14
-  %19 = landingpad { ptr, i32 }
+17:                                               ; preds = %13
+  %18 = landingpad { ptr, i32 }
           cleanup
-  tail call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7c29042d83fb166aE.llvm.12663281897316000666"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %11) #21
-  resume { ptr, i32 } %19
+  tail call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7c29042d83fb166aE.llvm.12663281897316000666"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %10) #21
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %14
-  %21 = getelementptr inbounds i8, ptr %16, i64 8
-  %22 = load i64, ptr %21, align 8, !range !75, !invariant.load !4, !noalias !4595
-  %23 = getelementptr inbounds i8, ptr %16, i64 16
-  %24 = load i64, ptr %23, align 8, !range !79, !invariant.load !4, !noalias !4595
-  %25 = icmp ult i64 %24, -9223372036854775807
-  tail call void @llvm.assume(i1 %25)
-  %26 = icmp eq i64 %22, 0
-  br i1 %26, label %"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$tokio..runtime..task..error..JoinError$GT$$GT$17h9b9ab90adff27aaeE.llvm.12663281897316000666.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i"
+19:                                               ; preds = %13
+  %20 = getelementptr inbounds i8, ptr %15, i64 8
+  %21 = load i64, ptr %20, align 8, !range !75, !invariant.load !4, !noalias !4595
+  %22 = getelementptr inbounds i8, ptr %15, i64 16
+  %23 = load i64, ptr %22, align 8, !range !79, !invariant.load !4, !noalias !4595
+  %24 = icmp ult i64 %23, -9223372036854775807
+  tail call void @llvm.assume(i1 %24)
+  %25 = icmp eq i64 %21, 0
+  br i1 %25, label %"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$tokio..runtime..task..error..JoinError$GT$$GT$17h9b9ab90adff27aaeE.llvm.12663281897316000666.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i"
 
-"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i": ; preds = %20
-  tail call void @__rust_dealloc(ptr noundef nonnull %12, i64 noundef %22, i64 noundef %24) #23, !noalias !4595
+"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i": ; preds = %19
+  tail call void @__rust_dealloc(ptr noundef nonnull %11, i64 noundef %21, i64 noundef %23) #23, !noalias !4595
   br label %"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$tokio..runtime..task..error..JoinError$GT$$GT$17h9b9ab90adff27aaeE.llvm.12663281897316000666.exit"
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr306drop_in_place$LT$tokio..runtime..task..core..CoreStage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hcabe2dd7aafb21b9E.llvm.12663281897316000666"(ptr noundef nonnull align 8 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !1203, !noundef !4
-  %.not.i.i.i = icmp samesign ult i64 %2, 2
-  %3 = add nsw i64 %2, -1
-  %4 = select i1 %.not.i.i.i, i64 0, i64 %3
-  switch i64 %4, label %"_ZN4core3ptr351drop_in_place$LT$tokio..loom..std..unsafe_cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h2576f2ad1190197dE.llvm.12663281897316000666.exit" [
-    i64 0, label %5
-    i64 1, label %6
+  %3 = tail call i64 @llvm.usub.sat.i64(i64 %2, i64 1)
+  switch i64 %3, label %"_ZN4core3ptr351drop_in_place$LT$tokio..loom..std..unsafe_cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h2576f2ad1190197dE.llvm.12663281897316000666.exit" [
+    i64 0, label %4
+    i64 1, label %5
   ]
 
-5:                                                ; preds = %1
+4:                                                ; preds = %1
   tail call void @"_ZN4core3ptr261drop_in_place$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$17h11e6e23298e58fa8E.llvm.12663281897316000666"(ptr noundef nonnull align 8 %0)
   br label %"_ZN4core3ptr351drop_in_place$LT$tokio..loom..std..unsafe_cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h2576f2ad1190197dE.llvm.12663281897316000666.exit"
 
-6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+5:                                                ; preds = %1
+  %6 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4598)
-  %8 = load i64, ptr %7, align 8, !range !711, !alias.scope !4598, !noundef !4
-  %9 = icmp eq i64 %8, 0
-  br i1 %9, label %"_ZN4core3ptr351drop_in_place$LT$tokio..loom..std..unsafe_cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h2576f2ad1190197dE.llvm.12663281897316000666.exit", label %10
+  %7 = load i64, ptr %6, align 8, !range !711, !alias.scope !4598, !noundef !4
+  %8 = icmp eq i64 %7, 0
+  br i1 %8, label %"_ZN4core3ptr351drop_in_place$LT$tokio..loom..std..unsafe_cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h2576f2ad1190197dE.llvm.12663281897316000666.exit", label %9
 
-10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+9:                                                ; preds = %5
+  %10 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4601)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4604)
-  %12 = load ptr, ptr %11, align 8, !alias.scope !4607, !noundef !4
-  %13 = icmp eq ptr %12, null
-  br i1 %13, label %"_ZN4core3ptr351drop_in_place$LT$tokio..loom..std..unsafe_cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h2576f2ad1190197dE.llvm.12663281897316000666.exit", label %14
+  %11 = load ptr, ptr %10, align 8, !alias.scope !4607, !noundef !4
+  %12 = icmp eq ptr %11, null
+  br i1 %12, label %"_ZN4core3ptr351drop_in_place$LT$tokio..loom..std..unsafe_cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h2576f2ad1190197dE.llvm.12663281897316000666.exit", label %13
 
-14:                                               ; preds = %10
+13:                                               ; preds = %9
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4608)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4611)
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
-  %16 = load ptr, ptr %15, align 8, !alias.scope !4614, !nonnull !4, !align !5, !noundef !4
-  %17 = load ptr, ptr %16, align 8, !invariant.load !4, !noalias !4614, !nonnull !4
-  invoke void %17(ptr noundef nonnull align 1 %12)
-          to label %20 unwind label %18, !noalias !4614
+  %14 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = load ptr, ptr %14, align 8, !alias.scope !4614, !nonnull !4, !align !5, !noundef !4
+  %16 = load ptr, ptr %15, align 8, !invariant.load !4, !noalias !4614, !nonnull !4
+  invoke void %16(ptr noundef nonnull align 1 %11)
+          to label %19 unwind label %17, !noalias !4614
 
-18:                                               ; preds = %14
-  %19 = landingpad { ptr, i32 }
+17:                                               ; preds = %13
+  %18 = landingpad { ptr, i32 }
           cleanup
-  tail call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7c29042d83fb166aE.llvm.12663281897316000666"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %11) #21
-  resume { ptr, i32 } %19
+  tail call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7c29042d83fb166aE.llvm.12663281897316000666"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %10) #21
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %14
-  %21 = getelementptr inbounds i8, ptr %16, i64 8
-  %22 = load i64, ptr %21, align 8, !range !75, !invariant.load !4, !noalias !4615
-  %23 = getelementptr inbounds i8, ptr %16, i64 16
-  %24 = load i64, ptr %23, align 8, !range !79, !invariant.load !4, !noalias !4615
-  %25 = icmp ult i64 %24, -9223372036854775807
-  tail call void @llvm.assume(i1 %25)
-  %26 = icmp eq i64 %22, 0
-  br i1 %26, label %"_ZN4core3ptr351drop_in_place$LT$tokio..loom..std..unsafe_cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h2576f2ad1190197dE.llvm.12663281897316000666.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i.i.i.i"
+19:                                               ; preds = %13
+  %20 = getelementptr inbounds i8, ptr %15, i64 8
+  %21 = load i64, ptr %20, align 8, !range !75, !invariant.load !4, !noalias !4615
+  %22 = getelementptr inbounds i8, ptr %15, i64 16
+  %23 = load i64, ptr %22, align 8, !range !79, !invariant.load !4, !noalias !4615
+  %24 = icmp ult i64 %23, -9223372036854775807
+  tail call void @llvm.assume(i1 %24)
+  %25 = icmp eq i64 %21, 0
+  br i1 %25, label %"_ZN4core3ptr351drop_in_place$LT$tokio..loom..std..unsafe_cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h2576f2ad1190197dE.llvm.12663281897316000666.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i.i.i.i"
 
-"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i.i.i.i": ; preds = %20
-  tail call void @__rust_dealloc(ptr noundef nonnull %12, i64 noundef %22, i64 noundef %24) #23, !noalias !4615
+"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i.i.i.i": ; preds = %19
+  tail call void @__rust_dealloc(ptr noundef nonnull %11, i64 noundef %21, i64 noundef %23) #23, !noalias !4615
   br label %"_ZN4core3ptr351drop_in_place$LT$tokio..loom..std..unsafe_cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h2576f2ad1190197dE.llvm.12663281897316000666.exit"
 
-"_ZN4core3ptr351drop_in_place$LT$tokio..loom..std..unsafe_cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h2576f2ad1190197dE.llvm.12663281897316000666.exit": ; preds = %1, %5, %6, %10, %20, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i.i.i.i"
+"_ZN4core3ptr351drop_in_place$LT$tokio..loom..std..unsafe_cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h2576f2ad1190197dE.llvm.12663281897316000666.exit": ; preds = %1, %4, %5, %9, %19, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i.i.i.i"
   ret void
 }
 
@@ -13306,63 +13288,61 @@ define hidden void @"_ZN4core3ptr310drop_in_place$LT$tokio_tungstenite..handshak
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr313drop_in_place$LT$tokio..loom..std..unsafe_cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h18c49a14d57461a9E.llvm.12663281897316000666"(ptr noundef nonnull align 8 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !1203, !noundef !4
-  %.not.i.i = icmp samesign ult i64 %2, 2
-  %3 = add nsw i64 %2, -1
-  %4 = select i1 %.not.i.i, i64 0, i64 %3
-  switch i64 %4, label %"_ZN4core3ptr294drop_in_place$LT$core..cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hdbaacfdb79e74557E.llvm.12663281897316000666.exit" [
-    i64 0, label %5
-    i64 1, label %6
+  %3 = tail call i64 @llvm.usub.sat.i64(i64 %2, i64 1)
+  switch i64 %3, label %"_ZN4core3ptr294drop_in_place$LT$core..cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hdbaacfdb79e74557E.llvm.12663281897316000666.exit" [
+    i64 0, label %4
+    i64 1, label %5
   ]
 
-5:                                                ; preds = %1
+4:                                                ; preds = %1
   tail call void @"_ZN4core3ptr223drop_in_place$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$17h30b51412548f3a76E.llvm.12663281897316000666"(ptr noundef nonnull align 8 %0)
   br label %"_ZN4core3ptr294drop_in_place$LT$core..cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hdbaacfdb79e74557E.llvm.12663281897316000666.exit"
 
-6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+5:                                                ; preds = %1
+  %6 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4630)
-  %8 = load i64, ptr %7, align 8, !range !711, !alias.scope !4630, !noundef !4
-  %9 = icmp eq i64 %8, 0
-  br i1 %9, label %"_ZN4core3ptr294drop_in_place$LT$core..cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hdbaacfdb79e74557E.llvm.12663281897316000666.exit", label %10
+  %7 = load i64, ptr %6, align 8, !range !711, !alias.scope !4630, !noundef !4
+  %8 = icmp eq i64 %7, 0
+  br i1 %8, label %"_ZN4core3ptr294drop_in_place$LT$core..cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hdbaacfdb79e74557E.llvm.12663281897316000666.exit", label %9
 
-10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+9:                                                ; preds = %5
+  %10 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4633)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4636)
-  %12 = load ptr, ptr %11, align 8, !alias.scope !4639, !noundef !4
-  %13 = icmp eq ptr %12, null
-  br i1 %13, label %"_ZN4core3ptr294drop_in_place$LT$core..cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hdbaacfdb79e74557E.llvm.12663281897316000666.exit", label %14
+  %11 = load ptr, ptr %10, align 8, !alias.scope !4639, !noundef !4
+  %12 = icmp eq ptr %11, null
+  br i1 %12, label %"_ZN4core3ptr294drop_in_place$LT$core..cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hdbaacfdb79e74557E.llvm.12663281897316000666.exit", label %13
 
-14:                                               ; preds = %10
+13:                                               ; preds = %9
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4640)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4643)
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
-  %16 = load ptr, ptr %15, align 8, !alias.scope !4646, !nonnull !4, !align !5, !noundef !4
-  %17 = load ptr, ptr %16, align 8, !invariant.load !4, !noalias !4646, !nonnull !4
-  invoke void %17(ptr noundef nonnull align 1 %12)
-          to label %20 unwind label %18, !noalias !4646
+  %14 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = load ptr, ptr %14, align 8, !alias.scope !4646, !nonnull !4, !align !5, !noundef !4
+  %16 = load ptr, ptr %15, align 8, !invariant.load !4, !noalias !4646, !nonnull !4
+  invoke void %16(ptr noundef nonnull align 1 %11)
+          to label %19 unwind label %17, !noalias !4646
 
-18:                                               ; preds = %14
-  %19 = landingpad { ptr, i32 }
+17:                                               ; preds = %13
+  %18 = landingpad { ptr, i32 }
           cleanup
-  tail call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7c29042d83fb166aE.llvm.12663281897316000666"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %11) #21
-  resume { ptr, i32 } %19
+  tail call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7c29042d83fb166aE.llvm.12663281897316000666"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %10) #21
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %14
-  %21 = getelementptr inbounds i8, ptr %16, i64 8
-  %22 = load i64, ptr %21, align 8, !range !75, !invariant.load !4, !noalias !4647
-  %23 = getelementptr inbounds i8, ptr %16, i64 16
-  %24 = load i64, ptr %23, align 8, !range !79, !invariant.load !4, !noalias !4647
-  %25 = icmp ult i64 %24, -9223372036854775807
-  tail call void @llvm.assume(i1 %25)
-  %26 = icmp eq i64 %22, 0
-  br i1 %26, label %"_ZN4core3ptr294drop_in_place$LT$core..cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hdbaacfdb79e74557E.llvm.12663281897316000666.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i.i.i"
+19:                                               ; preds = %13
+  %20 = getelementptr inbounds i8, ptr %15, i64 8
+  %21 = load i64, ptr %20, align 8, !range !75, !invariant.load !4, !noalias !4647
+  %22 = getelementptr inbounds i8, ptr %15, i64 16
+  %23 = load i64, ptr %22, align 8, !range !79, !invariant.load !4, !noalias !4647
+  %24 = icmp ult i64 %23, -9223372036854775807
+  tail call void @llvm.assume(i1 %24)
+  %25 = icmp eq i64 %21, 0
+  br i1 %25, label %"_ZN4core3ptr294drop_in_place$LT$core..cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hdbaacfdb79e74557E.llvm.12663281897316000666.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i.i.i"
 
-"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i.i.i": ; preds = %20
-  tail call void @__rust_dealloc(ptr noundef nonnull %12, i64 noundef %22, i64 noundef %24) #23, !noalias !4647
+"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i.i.i": ; preds = %19
+  tail call void @__rust_dealloc(ptr noundef nonnull %11, i64 noundef %21, i64 noundef %23) #23, !noalias !4647
   br label %"_ZN4core3ptr294drop_in_place$LT$core..cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hdbaacfdb79e74557E.llvm.12663281897316000666.exit"
 
-"_ZN4core3ptr294drop_in_place$LT$core..cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hdbaacfdb79e74557E.llvm.12663281897316000666.exit": ; preds = %1, %5, %6, %10, %20, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i.i.i"
+"_ZN4core3ptr294drop_in_place$LT$core..cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hdbaacfdb79e74557E.llvm.12663281897316000666.exit": ; preds = %1, %4, %5, %9, %19, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i.i.i"
   ret void
 }
 
@@ -13481,63 +13461,61 @@ define hidden void @"_ZN4core3ptr313drop_in_place$LT$tokio..runtime..task..core.
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr313drop_in_place$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hc89120eba3bc0371E.llvm.12663281897316000666"(ptr noundef nonnull align 8 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !1203, !noundef !4
-  %.not = icmp samesign ult i64 %2, 2
-  %3 = add nsw i64 %2, -1
-  %4 = select i1 %.not, i64 0, i64 %3
-  switch i64 %4, label %"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$tokio..runtime..task..error..JoinError$GT$$GT$17h9b9ab90adff27aaeE.llvm.12663281897316000666.exit" [
-    i64 0, label %5
-    i64 1, label %6
+  %3 = tail call i64 @llvm.usub.sat.i64(i64 %2, i64 1)
+  switch i64 %3, label %"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$tokio..runtime..task..error..JoinError$GT$$GT$17h9b9ab90adff27aaeE.llvm.12663281897316000666.exit" [
+    i64 0, label %4
+    i64 1, label %5
   ]
 
-"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$tokio..runtime..task..error..JoinError$GT$$GT$17h9b9ab90adff27aaeE.llvm.12663281897316000666.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i", %20, %10, %6, %5, %1
+"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$tokio..runtime..task..error..JoinError$GT$$GT$17h9b9ab90adff27aaeE.llvm.12663281897316000666.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i", %19, %9, %5, %4, %1
   ret void
 
-5:                                                ; preds = %1
+4:                                                ; preds = %1
   tail call void @"_ZN4core3ptr272drop_in_place$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$17h4aa435b4be0734c2E.llvm.12663281897316000666"(ptr noundef nonnull align 8 %0)
   br label %"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$tokio..runtime..task..error..JoinError$GT$$GT$17h9b9ab90adff27aaeE.llvm.12663281897316000666.exit"
 
-6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+5:                                                ; preds = %1
+  %6 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4681)
-  %8 = load i64, ptr %7, align 8, !range !711, !alias.scope !4681, !noundef !4
-  %9 = icmp eq i64 %8, 0
-  br i1 %9, label %"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$tokio..runtime..task..error..JoinError$GT$$GT$17h9b9ab90adff27aaeE.llvm.12663281897316000666.exit", label %10
+  %7 = load i64, ptr %6, align 8, !range !711, !alias.scope !4681, !noundef !4
+  %8 = icmp eq i64 %7, 0
+  br i1 %8, label %"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$tokio..runtime..task..error..JoinError$GT$$GT$17h9b9ab90adff27aaeE.llvm.12663281897316000666.exit", label %9
 
-10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+9:                                                ; preds = %5
+  %10 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4684)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4687)
-  %12 = load ptr, ptr %11, align 8, !alias.scope !4690, !noundef !4
-  %13 = icmp eq ptr %12, null
-  br i1 %13, label %"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$tokio..runtime..task..error..JoinError$GT$$GT$17h9b9ab90adff27aaeE.llvm.12663281897316000666.exit", label %14
+  %11 = load ptr, ptr %10, align 8, !alias.scope !4690, !noundef !4
+  %12 = icmp eq ptr %11, null
+  br i1 %12, label %"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$tokio..runtime..task..error..JoinError$GT$$GT$17h9b9ab90adff27aaeE.llvm.12663281897316000666.exit", label %13
 
-14:                                               ; preds = %10
+13:                                               ; preds = %9
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4691)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4694)
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
-  %16 = load ptr, ptr %15, align 8, !alias.scope !4697, !nonnull !4, !align !5, !noundef !4
-  %17 = load ptr, ptr %16, align 8, !invariant.load !4, !noalias !4697, !nonnull !4
-  invoke void %17(ptr noundef nonnull align 1 %12)
-          to label %20 unwind label %18, !noalias !4697
+  %14 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = load ptr, ptr %14, align 8, !alias.scope !4697, !nonnull !4, !align !5, !noundef !4
+  %16 = load ptr, ptr %15, align 8, !invariant.load !4, !noalias !4697, !nonnull !4
+  invoke void %16(ptr noundef nonnull align 1 %11)
+          to label %19 unwind label %17, !noalias !4697
 
-18:                                               ; preds = %14
-  %19 = landingpad { ptr, i32 }
+17:                                               ; preds = %13
+  %18 = landingpad { ptr, i32 }
           cleanup
-  tail call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7c29042d83fb166aE.llvm.12663281897316000666"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %11) #21
-  resume { ptr, i32 } %19
+  tail call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7c29042d83fb166aE.llvm.12663281897316000666"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %10) #21
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %14
-  %21 = getelementptr inbounds i8, ptr %16, i64 8
-  %22 = load i64, ptr %21, align 8, !range !75, !invariant.load !4, !noalias !4698
-  %23 = getelementptr inbounds i8, ptr %16, i64 16
-  %24 = load i64, ptr %23, align 8, !range !79, !invariant.load !4, !noalias !4698
-  %25 = icmp ult i64 %24, -9223372036854775807
-  tail call void @llvm.assume(i1 %25)
-  %26 = icmp eq i64 %22, 0
-  br i1 %26, label %"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$tokio..runtime..task..error..JoinError$GT$$GT$17h9b9ab90adff27aaeE.llvm.12663281897316000666.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i"
+19:                                               ; preds = %13
+  %20 = getelementptr inbounds i8, ptr %15, i64 8
+  %21 = load i64, ptr %20, align 8, !range !75, !invariant.load !4, !noalias !4698
+  %22 = getelementptr inbounds i8, ptr %15, i64 16
+  %23 = load i64, ptr %22, align 8, !range !79, !invariant.load !4, !noalias !4698
+  %24 = icmp ult i64 %23, -9223372036854775807
+  tail call void @llvm.assume(i1 %24)
+  %25 = icmp eq i64 %21, 0
+  br i1 %25, label %"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$tokio..runtime..task..error..JoinError$GT$$GT$17h9b9ab90adff27aaeE.llvm.12663281897316000666.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i"
 
-"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i": ; preds = %20
-  tail call void @__rust_dealloc(ptr noundef nonnull %12, i64 noundef %22, i64 noundef %24) #23, !noalias !4698
+"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i": ; preds = %19
+  tail call void @__rust_dealloc(ptr noundef nonnull %11, i64 noundef %21, i64 noundef %23) #23, !noalias !4698
   br label %"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$tokio..runtime..task..error..JoinError$GT$$GT$17h9b9ab90adff27aaeE.llvm.12663281897316000666.exit"
 }
 
@@ -13590,63 +13568,61 @@ define hidden void @"_ZN4core3ptr315drop_in_place$LT$tokio_tungstenite..handshak
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr317drop_in_place$LT$tokio..runtime..task..core..CoreStage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17he51d6e433988a063E.llvm.12663281897316000666"(ptr noundef nonnull align 8 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !1203, !noundef !4
-  %.not.i.i.i = icmp samesign ult i64 %2, 2
-  %3 = add nsw i64 %2, -1
-  %4 = select i1 %.not.i.i.i, i64 0, i64 %3
-  switch i64 %4, label %"_ZN4core3ptr362drop_in_place$LT$tokio..loom..std..unsafe_cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hf535ab64ebf24fa8E.llvm.12663281897316000666.exit" [
-    i64 0, label %5
-    i64 1, label %6
+  %3 = tail call i64 @llvm.usub.sat.i64(i64 %2, i64 1)
+  switch i64 %3, label %"_ZN4core3ptr362drop_in_place$LT$tokio..loom..std..unsafe_cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hf535ab64ebf24fa8E.llvm.12663281897316000666.exit" [
+    i64 0, label %4
+    i64 1, label %5
   ]
 
-5:                                                ; preds = %1
+4:                                                ; preds = %1
   tail call void @"_ZN4core3ptr272drop_in_place$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$17h4aa435b4be0734c2E.llvm.12663281897316000666"(ptr noundef nonnull align 8 %0)
   br label %"_ZN4core3ptr362drop_in_place$LT$tokio..loom..std..unsafe_cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hf535ab64ebf24fa8E.llvm.12663281897316000666.exit"
 
-6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+5:                                                ; preds = %1
+  %6 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4708)
-  %8 = load i64, ptr %7, align 8, !range !711, !alias.scope !4708, !noundef !4
-  %9 = icmp eq i64 %8, 0
-  br i1 %9, label %"_ZN4core3ptr362drop_in_place$LT$tokio..loom..std..unsafe_cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hf535ab64ebf24fa8E.llvm.12663281897316000666.exit", label %10
+  %7 = load i64, ptr %6, align 8, !range !711, !alias.scope !4708, !noundef !4
+  %8 = icmp eq i64 %7, 0
+  br i1 %8, label %"_ZN4core3ptr362drop_in_place$LT$tokio..loom..std..unsafe_cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hf535ab64ebf24fa8E.llvm.12663281897316000666.exit", label %9
 
-10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+9:                                                ; preds = %5
+  %10 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4711)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4714)
-  %12 = load ptr, ptr %11, align 8, !alias.scope !4717, !noundef !4
-  %13 = icmp eq ptr %12, null
-  br i1 %13, label %"_ZN4core3ptr362drop_in_place$LT$tokio..loom..std..unsafe_cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hf535ab64ebf24fa8E.llvm.12663281897316000666.exit", label %14
+  %11 = load ptr, ptr %10, align 8, !alias.scope !4717, !noundef !4
+  %12 = icmp eq ptr %11, null
+  br i1 %12, label %"_ZN4core3ptr362drop_in_place$LT$tokio..loom..std..unsafe_cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hf535ab64ebf24fa8E.llvm.12663281897316000666.exit", label %13
 
-14:                                               ; preds = %10
+13:                                               ; preds = %9
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4718)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4721)
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
-  %16 = load ptr, ptr %15, align 8, !alias.scope !4724, !nonnull !4, !align !5, !noundef !4
-  %17 = load ptr, ptr %16, align 8, !invariant.load !4, !noalias !4724, !nonnull !4
-  invoke void %17(ptr noundef nonnull align 1 %12)
-          to label %20 unwind label %18, !noalias !4724
+  %14 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = load ptr, ptr %14, align 8, !alias.scope !4724, !nonnull !4, !align !5, !noundef !4
+  %16 = load ptr, ptr %15, align 8, !invariant.load !4, !noalias !4724, !nonnull !4
+  invoke void %16(ptr noundef nonnull align 1 %11)
+          to label %19 unwind label %17, !noalias !4724
 
-18:                                               ; preds = %14
-  %19 = landingpad { ptr, i32 }
+17:                                               ; preds = %13
+  %18 = landingpad { ptr, i32 }
           cleanup
-  tail call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7c29042d83fb166aE.llvm.12663281897316000666"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %11) #21
-  resume { ptr, i32 } %19
+  tail call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7c29042d83fb166aE.llvm.12663281897316000666"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %10) #21
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %14
-  %21 = getelementptr inbounds i8, ptr %16, i64 8
-  %22 = load i64, ptr %21, align 8, !range !75, !invariant.load !4, !noalias !4725
-  %23 = getelementptr inbounds i8, ptr %16, i64 16
-  %24 = load i64, ptr %23, align 8, !range !79, !invariant.load !4, !noalias !4725
-  %25 = icmp ult i64 %24, -9223372036854775807
-  tail call void @llvm.assume(i1 %25)
-  %26 = icmp eq i64 %22, 0
-  br i1 %26, label %"_ZN4core3ptr362drop_in_place$LT$tokio..loom..std..unsafe_cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hf535ab64ebf24fa8E.llvm.12663281897316000666.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i.i.i.i"
+19:                                               ; preds = %13
+  %20 = getelementptr inbounds i8, ptr %15, i64 8
+  %21 = load i64, ptr %20, align 8, !range !75, !invariant.load !4, !noalias !4725
+  %22 = getelementptr inbounds i8, ptr %15, i64 16
+  %23 = load i64, ptr %22, align 8, !range !79, !invariant.load !4, !noalias !4725
+  %24 = icmp ult i64 %23, -9223372036854775807
+  tail call void @llvm.assume(i1 %24)
+  %25 = icmp eq i64 %21, 0
+  br i1 %25, label %"_ZN4core3ptr362drop_in_place$LT$tokio..loom..std..unsafe_cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hf535ab64ebf24fa8E.llvm.12663281897316000666.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i.i.i.i"
 
-"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i.i.i.i": ; preds = %20
-  tail call void @__rust_dealloc(ptr noundef nonnull %12, i64 noundef %22, i64 noundef %24) #23, !noalias !4725
+"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i.i.i.i": ; preds = %19
+  tail call void @__rust_dealloc(ptr noundef nonnull %11, i64 noundef %21, i64 noundef %23) #23, !noalias !4725
   br label %"_ZN4core3ptr362drop_in_place$LT$tokio..loom..std..unsafe_cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hf535ab64ebf24fa8E.llvm.12663281897316000666.exit"
 
-"_ZN4core3ptr362drop_in_place$LT$tokio..loom..std..unsafe_cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hf535ab64ebf24fa8E.llvm.12663281897316000666.exit": ; preds = %1, %5, %6, %10, %20, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i.i.i.i"
+"_ZN4core3ptr362drop_in_place$LT$tokio..loom..std..unsafe_cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hf535ab64ebf24fa8E.llvm.12663281897316000666.exit": ; preds = %1, %4, %5, %9, %19, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i.i.i.i"
   ret void
 }
 
@@ -13854,76 +13830,74 @@ define hidden void @"_ZN4core3ptr328drop_in_place$LT$tokio..runtime..task..core.
           cleanup
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   invoke void @"_ZN4core3ptr257drop_in_place$LT$tokio..runtime..task..core..CoreStage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h2c8533a2f6f393dcE.llvm.12663281897316000666"(ptr noundef nonnull align 8 %8) #21
-          to label %common.resume unwind label %35
+          to label %common.resume unwind label %34
 
 "_ZN4core3ptr94drop_in_place$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..current_thread..Handle$GT$$GT$17h50e51af1d69e0375E.llvm.12663281897316000666.exit": ; preds = %1, %5
   %9 = getelementptr inbounds i8, ptr %0, i64 16
   %10 = load i64, ptr %9, align 8, !range !1203, !noundef !4
-  %.not.i.i.i.i = icmp samesign ult i64 %10, 2
-  %11 = add nsw i64 %10, -1
-  %12 = select i1 %.not.i.i.i.i, i64 0, i64 %11
-  switch i64 %12, label %"_ZN4core3ptr257drop_in_place$LT$tokio..runtime..task..core..CoreStage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h2c8533a2f6f393dcE.llvm.12663281897316000666.exit" [
-    i64 0, label %13
-    i64 1, label %14
+  %11 = tail call i64 @llvm.usub.sat.i64(i64 %10, i64 1)
+  switch i64 %11, label %"_ZN4core3ptr257drop_in_place$LT$tokio..runtime..task..core..CoreStage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h2c8533a2f6f393dcE.llvm.12663281897316000666.exit" [
+    i64 0, label %12
+    i64 1, label %13
   ]
 
-13:                                               ; preds = %"_ZN4core3ptr94drop_in_place$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..current_thread..Handle$GT$$GT$17h50e51af1d69e0375E.llvm.12663281897316000666.exit"
+12:                                               ; preds = %"_ZN4core3ptr94drop_in_place$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..current_thread..Handle$GT$$GT$17h50e51af1d69e0375E.llvm.12663281897316000666.exit"
   tail call void @"_ZN4core3ptr212drop_in_place$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd822a6ce9dd2a859E.llvm.12663281897316000666"(ptr noundef nonnull align 8 %9)
   br label %"_ZN4core3ptr257drop_in_place$LT$tokio..runtime..task..core..CoreStage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h2c8533a2f6f393dcE.llvm.12663281897316000666.exit"
 
-14:                                               ; preds = %"_ZN4core3ptr94drop_in_place$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..current_thread..Handle$GT$$GT$17h50e51af1d69e0375E.llvm.12663281897316000666.exit"
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
+13:                                               ; preds = %"_ZN4core3ptr94drop_in_place$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..current_thread..Handle$GT$$GT$17h50e51af1d69e0375E.llvm.12663281897316000666.exit"
+  %14 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4791)
-  %16 = load i64, ptr %15, align 8, !range !711, !alias.scope !4791, !noundef !4
-  %17 = icmp eq i64 %16, 0
-  br i1 %17, label %"_ZN4core3ptr257drop_in_place$LT$tokio..runtime..task..core..CoreStage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h2c8533a2f6f393dcE.llvm.12663281897316000666.exit", label %18
+  %15 = load i64, ptr %14, align 8, !range !711, !alias.scope !4791, !noundef !4
+  %16 = icmp eq i64 %15, 0
+  br i1 %16, label %"_ZN4core3ptr257drop_in_place$LT$tokio..runtime..task..core..CoreStage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h2c8533a2f6f393dcE.llvm.12663281897316000666.exit", label %17
 
-18:                                               ; preds = %14
-  %19 = getelementptr inbounds i8, ptr %0, i64 32
+17:                                               ; preds = %13
+  %18 = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4794)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4797)
-  %20 = load ptr, ptr %19, align 8, !alias.scope !4800, !noundef !4
-  %21 = icmp eq ptr %20, null
-  br i1 %21, label %"_ZN4core3ptr257drop_in_place$LT$tokio..runtime..task..core..CoreStage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h2c8533a2f6f393dcE.llvm.12663281897316000666.exit", label %22
+  %19 = load ptr, ptr %18, align 8, !alias.scope !4800, !noundef !4
+  %20 = icmp eq ptr %19, null
+  br i1 %20, label %"_ZN4core3ptr257drop_in_place$LT$tokio..runtime..task..core..CoreStage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h2c8533a2f6f393dcE.llvm.12663281897316000666.exit", label %21
 
-22:                                               ; preds = %18
+21:                                               ; preds = %17
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4801)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4804)
-  %23 = getelementptr inbounds i8, ptr %0, i64 40
-  %24 = load ptr, ptr %23, align 8, !alias.scope !4807, !nonnull !4, !align !5, !noundef !4
-  %25 = load ptr, ptr %24, align 8, !invariant.load !4, !noalias !4807, !nonnull !4
-  invoke void %25(ptr noundef nonnull align 1 %20)
-          to label %28 unwind label %26, !noalias !4807
+  %22 = getelementptr inbounds i8, ptr %0, i64 40
+  %23 = load ptr, ptr %22, align 8, !alias.scope !4807, !nonnull !4, !align !5, !noundef !4
+  %24 = load ptr, ptr %23, align 8, !invariant.load !4, !noalias !4807, !nonnull !4
+  invoke void %24(ptr noundef nonnull align 1 %19)
+          to label %27 unwind label %25, !noalias !4807
 
-common.resume:                                    ; preds = %6, %26
-  %common.resume.op = phi { ptr, i32 } [ %27, %26 ], [ %7, %6 ]
+common.resume:                                    ; preds = %6, %25
+  %common.resume.op = phi { ptr, i32 } [ %26, %25 ], [ %7, %6 ]
   resume { ptr, i32 } %common.resume.op
 
-26:                                               ; preds = %22
-  %27 = landingpad { ptr, i32 }
+25:                                               ; preds = %21
+  %26 = landingpad { ptr, i32 }
           cleanup
-  tail call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7c29042d83fb166aE.llvm.12663281897316000666"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %19) #21
+  tail call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7c29042d83fb166aE.llvm.12663281897316000666"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %18) #21
   br label %common.resume
 
-28:                                               ; preds = %22
-  %29 = getelementptr inbounds i8, ptr %24, i64 8
-  %30 = load i64, ptr %29, align 8, !range !75, !invariant.load !4, !noalias !4808
-  %31 = getelementptr inbounds i8, ptr %24, i64 16
-  %32 = load i64, ptr %31, align 8, !range !79, !invariant.load !4, !noalias !4808
-  %33 = icmp ult i64 %32, -9223372036854775807
-  tail call void @llvm.assume(i1 %33)
-  %34 = icmp eq i64 %30, 0
-  br i1 %34, label %"_ZN4core3ptr257drop_in_place$LT$tokio..runtime..task..core..CoreStage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h2c8533a2f6f393dcE.llvm.12663281897316000666.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i.i.i.i.i"
+27:                                               ; preds = %21
+  %28 = getelementptr inbounds i8, ptr %23, i64 8
+  %29 = load i64, ptr %28, align 8, !range !75, !invariant.load !4, !noalias !4808
+  %30 = getelementptr inbounds i8, ptr %23, i64 16
+  %31 = load i64, ptr %30, align 8, !range !79, !invariant.load !4, !noalias !4808
+  %32 = icmp ult i64 %31, -9223372036854775807
+  tail call void @llvm.assume(i1 %32)
+  %33 = icmp eq i64 %29, 0
+  br i1 %33, label %"_ZN4core3ptr257drop_in_place$LT$tokio..runtime..task..core..CoreStage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h2c8533a2f6f393dcE.llvm.12663281897316000666.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i.i.i.i.i"
 
-"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i.i.i.i.i": ; preds = %28
-  tail call void @__rust_dealloc(ptr noundef nonnull %20, i64 noundef %30, i64 noundef %32) #23, !noalias !4808
+"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i.i.i.i.i": ; preds = %27
+  tail call void @__rust_dealloc(ptr noundef nonnull %19, i64 noundef %29, i64 noundef %31) #23, !noalias !4808
   br label %"_ZN4core3ptr257drop_in_place$LT$tokio..runtime..task..core..CoreStage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h2c8533a2f6f393dcE.llvm.12663281897316000666.exit"
 
-"_ZN4core3ptr257drop_in_place$LT$tokio..runtime..task..core..CoreStage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h2c8533a2f6f393dcE.llvm.12663281897316000666.exit": ; preds = %"_ZN4core3ptr94drop_in_place$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..current_thread..Handle$GT$$GT$17h50e51af1d69e0375E.llvm.12663281897316000666.exit", %13, %14, %18, %28, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i.i.i.i.i"
+"_ZN4core3ptr257drop_in_place$LT$tokio..runtime..task..core..CoreStage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h2c8533a2f6f393dcE.llvm.12663281897316000666.exit": ; preds = %"_ZN4core3ptr94drop_in_place$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..current_thread..Handle$GT$$GT$17h50e51af1d69e0375E.llvm.12663281897316000666.exit", %12, %13, %17, %27, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i.i.i.i.i"
   ret void
 
-35:                                               ; preds = %6
-  %36 = landingpad { ptr, i32 }
+34:                                               ; preds = %6
+  %35 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #22
   unreachable
@@ -13932,63 +13906,61 @@ common.resume:                                    ; preds = %6, %26
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr332drop_in_place$LT$core..cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h8cdf10ea959de257E.llvm.12663281897316000666"(ptr noundef nonnull align 8 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !1203, !noundef !4
-  %.not.i = icmp samesign ult i64 %2, 2
-  %3 = add nsw i64 %2, -1
-  %4 = select i1 %.not.i, i64 0, i64 %3
-  switch i64 %4, label %"_ZN4core3ptr302drop_in_place$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h538c7cf87ee39a5cE.llvm.12663281897316000666.exit" [
-    i64 0, label %5
-    i64 1, label %6
+  %3 = tail call i64 @llvm.usub.sat.i64(i64 %2, i64 1)
+  switch i64 %3, label %"_ZN4core3ptr302drop_in_place$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h538c7cf87ee39a5cE.llvm.12663281897316000666.exit" [
+    i64 0, label %4
+    i64 1, label %5
   ]
 
-5:                                                ; preds = %1
+4:                                                ; preds = %1
   tail call void @"_ZN4core3ptr261drop_in_place$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$17h11e6e23298e58fa8E.llvm.12663281897316000666"(ptr noundef nonnull align 8 %0)
   br label %"_ZN4core3ptr302drop_in_place$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h538c7cf87ee39a5cE.llvm.12663281897316000666.exit"
 
-6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+5:                                                ; preds = %1
+  %6 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4811)
-  %8 = load i64, ptr %7, align 8, !range !711, !alias.scope !4811, !noundef !4
-  %9 = icmp eq i64 %8, 0
-  br i1 %9, label %"_ZN4core3ptr302drop_in_place$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h538c7cf87ee39a5cE.llvm.12663281897316000666.exit", label %10
+  %7 = load i64, ptr %6, align 8, !range !711, !alias.scope !4811, !noundef !4
+  %8 = icmp eq i64 %7, 0
+  br i1 %8, label %"_ZN4core3ptr302drop_in_place$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h538c7cf87ee39a5cE.llvm.12663281897316000666.exit", label %9
 
-10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+9:                                                ; preds = %5
+  %10 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4814)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4817)
-  %12 = load ptr, ptr %11, align 8, !alias.scope !4820, !noundef !4
-  %13 = icmp eq ptr %12, null
-  br i1 %13, label %"_ZN4core3ptr302drop_in_place$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h538c7cf87ee39a5cE.llvm.12663281897316000666.exit", label %14
+  %11 = load ptr, ptr %10, align 8, !alias.scope !4820, !noundef !4
+  %12 = icmp eq ptr %11, null
+  br i1 %12, label %"_ZN4core3ptr302drop_in_place$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h538c7cf87ee39a5cE.llvm.12663281897316000666.exit", label %13
 
-14:                                               ; preds = %10
+13:                                               ; preds = %9
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4821)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4824)
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
-  %16 = load ptr, ptr %15, align 8, !alias.scope !4827, !nonnull !4, !align !5, !noundef !4
-  %17 = load ptr, ptr %16, align 8, !invariant.load !4, !noalias !4827, !nonnull !4
-  invoke void %17(ptr noundef nonnull align 1 %12)
-          to label %20 unwind label %18, !noalias !4827
+  %14 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = load ptr, ptr %14, align 8, !alias.scope !4827, !nonnull !4, !align !5, !noundef !4
+  %16 = load ptr, ptr %15, align 8, !invariant.load !4, !noalias !4827, !nonnull !4
+  invoke void %16(ptr noundef nonnull align 1 %11)
+          to label %19 unwind label %17, !noalias !4827
 
-18:                                               ; preds = %14
-  %19 = landingpad { ptr, i32 }
+17:                                               ; preds = %13
+  %18 = landingpad { ptr, i32 }
           cleanup
-  tail call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7c29042d83fb166aE.llvm.12663281897316000666"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %11) #21
-  resume { ptr, i32 } %19
+  tail call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7c29042d83fb166aE.llvm.12663281897316000666"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %10) #21
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %14
-  %21 = getelementptr inbounds i8, ptr %16, i64 8
-  %22 = load i64, ptr %21, align 8, !range !75, !invariant.load !4, !noalias !4828
-  %23 = getelementptr inbounds i8, ptr %16, i64 16
-  %24 = load i64, ptr %23, align 8, !range !79, !invariant.load !4, !noalias !4828
-  %25 = icmp ult i64 %24, -9223372036854775807
-  tail call void @llvm.assume(i1 %25)
-  %26 = icmp eq i64 %22, 0
-  br i1 %26, label %"_ZN4core3ptr302drop_in_place$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h538c7cf87ee39a5cE.llvm.12663281897316000666.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i.i"
+19:                                               ; preds = %13
+  %20 = getelementptr inbounds i8, ptr %15, i64 8
+  %21 = load i64, ptr %20, align 8, !range !75, !invariant.load !4, !noalias !4828
+  %22 = getelementptr inbounds i8, ptr %15, i64 16
+  %23 = load i64, ptr %22, align 8, !range !79, !invariant.load !4, !noalias !4828
+  %24 = icmp ult i64 %23, -9223372036854775807
+  tail call void @llvm.assume(i1 %24)
+  %25 = icmp eq i64 %21, 0
+  br i1 %25, label %"_ZN4core3ptr302drop_in_place$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h538c7cf87ee39a5cE.llvm.12663281897316000666.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i.i"
 
-"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i.i": ; preds = %20
-  tail call void @__rust_dealloc(ptr noundef nonnull %12, i64 noundef %22, i64 noundef %24) #23, !noalias !4828
+"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i.i": ; preds = %19
+  tail call void @__rust_dealloc(ptr noundef nonnull %11, i64 noundef %21, i64 noundef %23) #23, !noalias !4828
   br label %"_ZN4core3ptr302drop_in_place$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h538c7cf87ee39a5cE.llvm.12663281897316000666.exit"
 
-"_ZN4core3ptr302drop_in_place$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h538c7cf87ee39a5cE.llvm.12663281897316000666.exit": ; preds = %1, %5, %6, %10, %20, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i.i"
+"_ZN4core3ptr302drop_in_place$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h538c7cf87ee39a5cE.llvm.12663281897316000666.exit": ; preds = %1, %4, %5, %9, %19, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i.i"
   ret void
 }
 
@@ -14056,76 +14028,74 @@ define hidden void @"_ZN4core3ptr334drop_in_place$LT$tokio..runtime..task..core.
           cleanup
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   invoke void @"_ZN4core3ptr257drop_in_place$LT$tokio..runtime..task..core..CoreStage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h2c8533a2f6f393dcE.llvm.12663281897316000666"(ptr noundef nonnull align 8 %8) #21
-          to label %common.resume unwind label %35
+          to label %common.resume unwind label %34
 
 "_ZN4core3ptr100drop_in_place$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$17h755b793a0181e77aE.llvm.12663281897316000666.exit": ; preds = %1, %5
   %9 = getelementptr inbounds i8, ptr %0, i64 16
   %10 = load i64, ptr %9, align 8, !range !1203, !noundef !4
-  %.not.i.i.i.i = icmp samesign ult i64 %10, 2
-  %11 = add nsw i64 %10, -1
-  %12 = select i1 %.not.i.i.i.i, i64 0, i64 %11
-  switch i64 %12, label %"_ZN4core3ptr257drop_in_place$LT$tokio..runtime..task..core..CoreStage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h2c8533a2f6f393dcE.llvm.12663281897316000666.exit" [
-    i64 0, label %13
-    i64 1, label %14
+  %11 = tail call i64 @llvm.usub.sat.i64(i64 %10, i64 1)
+  switch i64 %11, label %"_ZN4core3ptr257drop_in_place$LT$tokio..runtime..task..core..CoreStage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h2c8533a2f6f393dcE.llvm.12663281897316000666.exit" [
+    i64 0, label %12
+    i64 1, label %13
   ]
 
-13:                                               ; preds = %"_ZN4core3ptr100drop_in_place$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$17h755b793a0181e77aE.llvm.12663281897316000666.exit"
+12:                                               ; preds = %"_ZN4core3ptr100drop_in_place$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$17h755b793a0181e77aE.llvm.12663281897316000666.exit"
   tail call void @"_ZN4core3ptr212drop_in_place$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd822a6ce9dd2a859E.llvm.12663281897316000666"(ptr noundef nonnull align 8 %9)
   br label %"_ZN4core3ptr257drop_in_place$LT$tokio..runtime..task..core..CoreStage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h2c8533a2f6f393dcE.llvm.12663281897316000666.exit"
 
-14:                                               ; preds = %"_ZN4core3ptr100drop_in_place$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$17h755b793a0181e77aE.llvm.12663281897316000666.exit"
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
+13:                                               ; preds = %"_ZN4core3ptr100drop_in_place$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$17h755b793a0181e77aE.llvm.12663281897316000666.exit"
+  %14 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4855)
-  %16 = load i64, ptr %15, align 8, !range !711, !alias.scope !4855, !noundef !4
-  %17 = icmp eq i64 %16, 0
-  br i1 %17, label %"_ZN4core3ptr257drop_in_place$LT$tokio..runtime..task..core..CoreStage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h2c8533a2f6f393dcE.llvm.12663281897316000666.exit", label %18
+  %15 = load i64, ptr %14, align 8, !range !711, !alias.scope !4855, !noundef !4
+  %16 = icmp eq i64 %15, 0
+  br i1 %16, label %"_ZN4core3ptr257drop_in_place$LT$tokio..runtime..task..core..CoreStage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h2c8533a2f6f393dcE.llvm.12663281897316000666.exit", label %17
 
-18:                                               ; preds = %14
-  %19 = getelementptr inbounds i8, ptr %0, i64 32
+17:                                               ; preds = %13
+  %18 = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4858)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4861)
-  %20 = load ptr, ptr %19, align 8, !alias.scope !4864, !noundef !4
-  %21 = icmp eq ptr %20, null
-  br i1 %21, label %"_ZN4core3ptr257drop_in_place$LT$tokio..runtime..task..core..CoreStage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h2c8533a2f6f393dcE.llvm.12663281897316000666.exit", label %22
+  %19 = load ptr, ptr %18, align 8, !alias.scope !4864, !noundef !4
+  %20 = icmp eq ptr %19, null
+  br i1 %20, label %"_ZN4core3ptr257drop_in_place$LT$tokio..runtime..task..core..CoreStage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h2c8533a2f6f393dcE.llvm.12663281897316000666.exit", label %21
 
-22:                                               ; preds = %18
+21:                                               ; preds = %17
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4865)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4868)
-  %23 = getelementptr inbounds i8, ptr %0, i64 40
-  %24 = load ptr, ptr %23, align 8, !alias.scope !4871, !nonnull !4, !align !5, !noundef !4
-  %25 = load ptr, ptr %24, align 8, !invariant.load !4, !noalias !4871, !nonnull !4
-  invoke void %25(ptr noundef nonnull align 1 %20)
-          to label %28 unwind label %26, !noalias !4871
+  %22 = getelementptr inbounds i8, ptr %0, i64 40
+  %23 = load ptr, ptr %22, align 8, !alias.scope !4871, !nonnull !4, !align !5, !noundef !4
+  %24 = load ptr, ptr %23, align 8, !invariant.load !4, !noalias !4871, !nonnull !4
+  invoke void %24(ptr noundef nonnull align 1 %19)
+          to label %27 unwind label %25, !noalias !4871
 
-common.resume:                                    ; preds = %6, %26
-  %common.resume.op = phi { ptr, i32 } [ %27, %26 ], [ %7, %6 ]
+common.resume:                                    ; preds = %6, %25
+  %common.resume.op = phi { ptr, i32 } [ %26, %25 ], [ %7, %6 ]
   resume { ptr, i32 } %common.resume.op
 
-26:                                               ; preds = %22
-  %27 = landingpad { ptr, i32 }
+25:                                               ; preds = %21
+  %26 = landingpad { ptr, i32 }
           cleanup
-  tail call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7c29042d83fb166aE.llvm.12663281897316000666"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %19) #21
+  tail call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7c29042d83fb166aE.llvm.12663281897316000666"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %18) #21
   br label %common.resume
 
-28:                                               ; preds = %22
-  %29 = getelementptr inbounds i8, ptr %24, i64 8
-  %30 = load i64, ptr %29, align 8, !range !75, !invariant.load !4, !noalias !4872
-  %31 = getelementptr inbounds i8, ptr %24, i64 16
-  %32 = load i64, ptr %31, align 8, !range !79, !invariant.load !4, !noalias !4872
-  %33 = icmp ult i64 %32, -9223372036854775807
-  tail call void @llvm.assume(i1 %33)
-  %34 = icmp eq i64 %30, 0
-  br i1 %34, label %"_ZN4core3ptr257drop_in_place$LT$tokio..runtime..task..core..CoreStage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h2c8533a2f6f393dcE.llvm.12663281897316000666.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i.i.i.i.i"
+27:                                               ; preds = %21
+  %28 = getelementptr inbounds i8, ptr %23, i64 8
+  %29 = load i64, ptr %28, align 8, !range !75, !invariant.load !4, !noalias !4872
+  %30 = getelementptr inbounds i8, ptr %23, i64 16
+  %31 = load i64, ptr %30, align 8, !range !79, !invariant.load !4, !noalias !4872
+  %32 = icmp ult i64 %31, -9223372036854775807
+  tail call void @llvm.assume(i1 %32)
+  %33 = icmp eq i64 %29, 0
+  br i1 %33, label %"_ZN4core3ptr257drop_in_place$LT$tokio..runtime..task..core..CoreStage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h2c8533a2f6f393dcE.llvm.12663281897316000666.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i.i.i.i.i"
 
-"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i.i.i.i.i": ; preds = %28
-  tail call void @__rust_dealloc(ptr noundef nonnull %20, i64 noundef %30, i64 noundef %32) #23, !noalias !4872
+"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i.i.i.i.i": ; preds = %27
+  tail call void @__rust_dealloc(ptr noundef nonnull %19, i64 noundef %29, i64 noundef %31) #23, !noalias !4872
   br label %"_ZN4core3ptr257drop_in_place$LT$tokio..runtime..task..core..CoreStage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h2c8533a2f6f393dcE.llvm.12663281897316000666.exit"
 
-"_ZN4core3ptr257drop_in_place$LT$tokio..runtime..task..core..CoreStage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h2c8533a2f6f393dcE.llvm.12663281897316000666.exit": ; preds = %"_ZN4core3ptr100drop_in_place$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$17h755b793a0181e77aE.llvm.12663281897316000666.exit", %13, %14, %18, %28, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i.i.i.i.i"
+"_ZN4core3ptr257drop_in_place$LT$tokio..runtime..task..core..CoreStage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h2c8533a2f6f393dcE.llvm.12663281897316000666.exit": ; preds = %"_ZN4core3ptr100drop_in_place$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$17h755b793a0181e77aE.llvm.12663281897316000666.exit", %12, %13, %17, %27, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i.i.i.i.i"
   ret void
 
-35:                                               ; preds = %6
-  %36 = landingpad { ptr, i32 }
+34:                                               ; preds = %6
+  %35 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #22
   unreachable
@@ -14195,76 +14165,74 @@ define hidden void @"_ZN4core3ptr339drop_in_place$LT$tokio..runtime..task..core.
           cleanup
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   invoke void @"_ZN4core3ptr268drop_in_place$LT$tokio..runtime..task..core..CoreStage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hf0bee90d08d4da4dE.llvm.12663281897316000666"(ptr noundef nonnull align 8 %8) #21
-          to label %common.resume unwind label %35
+          to label %common.resume unwind label %34
 
 "_ZN4core3ptr94drop_in_place$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..current_thread..Handle$GT$$GT$17h50e51af1d69e0375E.llvm.12663281897316000666.exit": ; preds = %1, %5
   %9 = getelementptr inbounds i8, ptr %0, i64 16
   %10 = load i64, ptr %9, align 8, !range !1203, !noundef !4
-  %.not.i.i.i.i = icmp samesign ult i64 %10, 2
-  %11 = add nsw i64 %10, -1
-  %12 = select i1 %.not.i.i.i.i, i64 0, i64 %11
-  switch i64 %12, label %"_ZN4core3ptr268drop_in_place$LT$tokio..runtime..task..core..CoreStage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hf0bee90d08d4da4dE.llvm.12663281897316000666.exit" [
-    i64 0, label %13
-    i64 1, label %14
+  %11 = tail call i64 @llvm.usub.sat.i64(i64 %10, i64 1)
+  switch i64 %11, label %"_ZN4core3ptr268drop_in_place$LT$tokio..runtime..task..core..CoreStage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hf0bee90d08d4da4dE.llvm.12663281897316000666.exit" [
+    i64 0, label %12
+    i64 1, label %13
   ]
 
-13:                                               ; preds = %"_ZN4core3ptr94drop_in_place$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..current_thread..Handle$GT$$GT$17h50e51af1d69e0375E.llvm.12663281897316000666.exit"
+12:                                               ; preds = %"_ZN4core3ptr94drop_in_place$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..current_thread..Handle$GT$$GT$17h50e51af1d69e0375E.llvm.12663281897316000666.exit"
   tail call void @"_ZN4core3ptr223drop_in_place$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$17h30b51412548f3a76E.llvm.12663281897316000666"(ptr noundef nonnull align 8 %9)
   br label %"_ZN4core3ptr268drop_in_place$LT$tokio..runtime..task..core..CoreStage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hf0bee90d08d4da4dE.llvm.12663281897316000666.exit"
 
-14:                                               ; preds = %"_ZN4core3ptr94drop_in_place$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..current_thread..Handle$GT$$GT$17h50e51af1d69e0375E.llvm.12663281897316000666.exit"
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
+13:                                               ; preds = %"_ZN4core3ptr94drop_in_place$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..current_thread..Handle$GT$$GT$17h50e51af1d69e0375E.llvm.12663281897316000666.exit"
+  %14 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4899)
-  %16 = load i64, ptr %15, align 8, !range !711, !alias.scope !4899, !noundef !4
-  %17 = icmp eq i64 %16, 0
-  br i1 %17, label %"_ZN4core3ptr268drop_in_place$LT$tokio..runtime..task..core..CoreStage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hf0bee90d08d4da4dE.llvm.12663281897316000666.exit", label %18
+  %15 = load i64, ptr %14, align 8, !range !711, !alias.scope !4899, !noundef !4
+  %16 = icmp eq i64 %15, 0
+  br i1 %16, label %"_ZN4core3ptr268drop_in_place$LT$tokio..runtime..task..core..CoreStage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hf0bee90d08d4da4dE.llvm.12663281897316000666.exit", label %17
 
-18:                                               ; preds = %14
-  %19 = getelementptr inbounds i8, ptr %0, i64 32
+17:                                               ; preds = %13
+  %18 = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4902)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4905)
-  %20 = load ptr, ptr %19, align 8, !alias.scope !4908, !noundef !4
-  %21 = icmp eq ptr %20, null
-  br i1 %21, label %"_ZN4core3ptr268drop_in_place$LT$tokio..runtime..task..core..CoreStage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hf0bee90d08d4da4dE.llvm.12663281897316000666.exit", label %22
+  %19 = load ptr, ptr %18, align 8, !alias.scope !4908, !noundef !4
+  %20 = icmp eq ptr %19, null
+  br i1 %20, label %"_ZN4core3ptr268drop_in_place$LT$tokio..runtime..task..core..CoreStage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hf0bee90d08d4da4dE.llvm.12663281897316000666.exit", label %21
 
-22:                                               ; preds = %18
+21:                                               ; preds = %17
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4909)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4912)
-  %23 = getelementptr inbounds i8, ptr %0, i64 40
-  %24 = load ptr, ptr %23, align 8, !alias.scope !4915, !nonnull !4, !align !5, !noundef !4
-  %25 = load ptr, ptr %24, align 8, !invariant.load !4, !noalias !4915, !nonnull !4
-  invoke void %25(ptr noundef nonnull align 1 %20)
-          to label %28 unwind label %26, !noalias !4915
+  %22 = getelementptr inbounds i8, ptr %0, i64 40
+  %23 = load ptr, ptr %22, align 8, !alias.scope !4915, !nonnull !4, !align !5, !noundef !4
+  %24 = load ptr, ptr %23, align 8, !invariant.load !4, !noalias !4915, !nonnull !4
+  invoke void %24(ptr noundef nonnull align 1 %19)
+          to label %27 unwind label %25, !noalias !4915
 
-common.resume:                                    ; preds = %6, %26
-  %common.resume.op = phi { ptr, i32 } [ %27, %26 ], [ %7, %6 ]
+common.resume:                                    ; preds = %6, %25
+  %common.resume.op = phi { ptr, i32 } [ %26, %25 ], [ %7, %6 ]
   resume { ptr, i32 } %common.resume.op
 
-26:                                               ; preds = %22
-  %27 = landingpad { ptr, i32 }
+25:                                               ; preds = %21
+  %26 = landingpad { ptr, i32 }
           cleanup
-  tail call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7c29042d83fb166aE.llvm.12663281897316000666"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %19) #21
+  tail call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7c29042d83fb166aE.llvm.12663281897316000666"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %18) #21
   br label %common.resume
 
-28:                                               ; preds = %22
-  %29 = getelementptr inbounds i8, ptr %24, i64 8
-  %30 = load i64, ptr %29, align 8, !range !75, !invariant.load !4, !noalias !4916
-  %31 = getelementptr inbounds i8, ptr %24, i64 16
-  %32 = load i64, ptr %31, align 8, !range !79, !invariant.load !4, !noalias !4916
-  %33 = icmp ult i64 %32, -9223372036854775807
-  tail call void @llvm.assume(i1 %33)
-  %34 = icmp eq i64 %30, 0
-  br i1 %34, label %"_ZN4core3ptr268drop_in_place$LT$tokio..runtime..task..core..CoreStage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hf0bee90d08d4da4dE.llvm.12663281897316000666.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i.i.i.i.i"
+27:                                               ; preds = %21
+  %28 = getelementptr inbounds i8, ptr %23, i64 8
+  %29 = load i64, ptr %28, align 8, !range !75, !invariant.load !4, !noalias !4916
+  %30 = getelementptr inbounds i8, ptr %23, i64 16
+  %31 = load i64, ptr %30, align 8, !range !79, !invariant.load !4, !noalias !4916
+  %32 = icmp ult i64 %31, -9223372036854775807
+  tail call void @llvm.assume(i1 %32)
+  %33 = icmp eq i64 %29, 0
+  br i1 %33, label %"_ZN4core3ptr268drop_in_place$LT$tokio..runtime..task..core..CoreStage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hf0bee90d08d4da4dE.llvm.12663281897316000666.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i.i.i.i.i"
 
-"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i.i.i.i.i": ; preds = %28
-  tail call void @__rust_dealloc(ptr noundef nonnull %20, i64 noundef %30, i64 noundef %32) #23, !noalias !4916
+"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i.i.i.i.i": ; preds = %27
+  tail call void @__rust_dealloc(ptr noundef nonnull %19, i64 noundef %29, i64 noundef %31) #23, !noalias !4916
   br label %"_ZN4core3ptr268drop_in_place$LT$tokio..runtime..task..core..CoreStage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hf0bee90d08d4da4dE.llvm.12663281897316000666.exit"
 
-"_ZN4core3ptr268drop_in_place$LT$tokio..runtime..task..core..CoreStage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hf0bee90d08d4da4dE.llvm.12663281897316000666.exit": ; preds = %"_ZN4core3ptr94drop_in_place$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..current_thread..Handle$GT$$GT$17h50e51af1d69e0375E.llvm.12663281897316000666.exit", %13, %14, %18, %28, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i.i.i.i.i"
+"_ZN4core3ptr268drop_in_place$LT$tokio..runtime..task..core..CoreStage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hf0bee90d08d4da4dE.llvm.12663281897316000666.exit": ; preds = %"_ZN4core3ptr94drop_in_place$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..current_thread..Handle$GT$$GT$17h50e51af1d69e0375E.llvm.12663281897316000666.exit", %12, %13, %17, %27, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i.i.i.i.i"
   ret void
 
-35:                                               ; preds = %6
-  %36 = landingpad { ptr, i32 }
+34:                                               ; preds = %6
+  %35 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #22
   unreachable
@@ -14273,63 +14241,61 @@ common.resume:                                    ; preds = %6, %26
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr343drop_in_place$LT$core..cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h6b70be727e7b4158E.llvm.12663281897316000666"(ptr noundef nonnull align 8 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !1203, !noundef !4
-  %.not.i = icmp samesign ult i64 %2, 2
-  %3 = add nsw i64 %2, -1
-  %4 = select i1 %.not.i, i64 0, i64 %3
-  switch i64 %4, label %"_ZN4core3ptr313drop_in_place$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hc89120eba3bc0371E.llvm.12663281897316000666.exit" [
-    i64 0, label %5
-    i64 1, label %6
+  %3 = tail call i64 @llvm.usub.sat.i64(i64 %2, i64 1)
+  switch i64 %3, label %"_ZN4core3ptr313drop_in_place$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hc89120eba3bc0371E.llvm.12663281897316000666.exit" [
+    i64 0, label %4
+    i64 1, label %5
   ]
 
-5:                                                ; preds = %1
+4:                                                ; preds = %1
   tail call void @"_ZN4core3ptr272drop_in_place$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$17h4aa435b4be0734c2E.llvm.12663281897316000666"(ptr noundef nonnull align 8 %0)
   br label %"_ZN4core3ptr313drop_in_place$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hc89120eba3bc0371E.llvm.12663281897316000666.exit"
 
-6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+5:                                                ; preds = %1
+  %6 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4919)
-  %8 = load i64, ptr %7, align 8, !range !711, !alias.scope !4919, !noundef !4
-  %9 = icmp eq i64 %8, 0
-  br i1 %9, label %"_ZN4core3ptr313drop_in_place$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hc89120eba3bc0371E.llvm.12663281897316000666.exit", label %10
+  %7 = load i64, ptr %6, align 8, !range !711, !alias.scope !4919, !noundef !4
+  %8 = icmp eq i64 %7, 0
+  br i1 %8, label %"_ZN4core3ptr313drop_in_place$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hc89120eba3bc0371E.llvm.12663281897316000666.exit", label %9
 
-10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+9:                                                ; preds = %5
+  %10 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4922)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4925)
-  %12 = load ptr, ptr %11, align 8, !alias.scope !4928, !noundef !4
-  %13 = icmp eq ptr %12, null
-  br i1 %13, label %"_ZN4core3ptr313drop_in_place$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hc89120eba3bc0371E.llvm.12663281897316000666.exit", label %14
+  %11 = load ptr, ptr %10, align 8, !alias.scope !4928, !noundef !4
+  %12 = icmp eq ptr %11, null
+  br i1 %12, label %"_ZN4core3ptr313drop_in_place$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hc89120eba3bc0371E.llvm.12663281897316000666.exit", label %13
 
-14:                                               ; preds = %10
+13:                                               ; preds = %9
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4929)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4932)
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
-  %16 = load ptr, ptr %15, align 8, !alias.scope !4935, !nonnull !4, !align !5, !noundef !4
-  %17 = load ptr, ptr %16, align 8, !invariant.load !4, !noalias !4935, !nonnull !4
-  invoke void %17(ptr noundef nonnull align 1 %12)
-          to label %20 unwind label %18, !noalias !4935
+  %14 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = load ptr, ptr %14, align 8, !alias.scope !4935, !nonnull !4, !align !5, !noundef !4
+  %16 = load ptr, ptr %15, align 8, !invariant.load !4, !noalias !4935, !nonnull !4
+  invoke void %16(ptr noundef nonnull align 1 %11)
+          to label %19 unwind label %17, !noalias !4935
 
-18:                                               ; preds = %14
-  %19 = landingpad { ptr, i32 }
+17:                                               ; preds = %13
+  %18 = landingpad { ptr, i32 }
           cleanup
-  tail call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7c29042d83fb166aE.llvm.12663281897316000666"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %11) #21
-  resume { ptr, i32 } %19
+  tail call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7c29042d83fb166aE.llvm.12663281897316000666"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %10) #21
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %14
-  %21 = getelementptr inbounds i8, ptr %16, i64 8
-  %22 = load i64, ptr %21, align 8, !range !75, !invariant.load !4, !noalias !4936
-  %23 = getelementptr inbounds i8, ptr %16, i64 16
-  %24 = load i64, ptr %23, align 8, !range !79, !invariant.load !4, !noalias !4936
-  %25 = icmp ult i64 %24, -9223372036854775807
-  tail call void @llvm.assume(i1 %25)
-  %26 = icmp eq i64 %22, 0
-  br i1 %26, label %"_ZN4core3ptr313drop_in_place$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hc89120eba3bc0371E.llvm.12663281897316000666.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i.i"
+19:                                               ; preds = %13
+  %20 = getelementptr inbounds i8, ptr %15, i64 8
+  %21 = load i64, ptr %20, align 8, !range !75, !invariant.load !4, !noalias !4936
+  %22 = getelementptr inbounds i8, ptr %15, i64 16
+  %23 = load i64, ptr %22, align 8, !range !79, !invariant.load !4, !noalias !4936
+  %24 = icmp ult i64 %23, -9223372036854775807
+  tail call void @llvm.assume(i1 %24)
+  %25 = icmp eq i64 %21, 0
+  br i1 %25, label %"_ZN4core3ptr313drop_in_place$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hc89120eba3bc0371E.llvm.12663281897316000666.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i.i"
 
-"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i.i": ; preds = %20
-  tail call void @__rust_dealloc(ptr noundef nonnull %12, i64 noundef %22, i64 noundef %24) #23, !noalias !4936
+"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i.i": ; preds = %19
+  tail call void @__rust_dealloc(ptr noundef nonnull %11, i64 noundef %21, i64 noundef %23) #23, !noalias !4936
   br label %"_ZN4core3ptr313drop_in_place$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hc89120eba3bc0371E.llvm.12663281897316000666.exit"
 
-"_ZN4core3ptr313drop_in_place$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hc89120eba3bc0371E.llvm.12663281897316000666.exit": ; preds = %1, %5, %6, %10, %20, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i.i"
+"_ZN4core3ptr313drop_in_place$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hc89120eba3bc0371E.llvm.12663281897316000666.exit": ; preds = %1, %4, %5, %9, %19, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i.i"
   ret void
 }
 
@@ -14451,76 +14417,74 @@ define hidden void @"_ZN4core3ptr345drop_in_place$LT$tokio..runtime..task..core.
           cleanup
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   invoke void @"_ZN4core3ptr268drop_in_place$LT$tokio..runtime..task..core..CoreStage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hf0bee90d08d4da4dE.llvm.12663281897316000666"(ptr noundef nonnull align 8 %8) #21
-          to label %common.resume unwind label %35
+          to label %common.resume unwind label %34
 
 "_ZN4core3ptr100drop_in_place$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$17h755b793a0181e77aE.llvm.12663281897316000666.exit": ; preds = %1, %5
   %9 = getelementptr inbounds i8, ptr %0, i64 16
   %10 = load i64, ptr %9, align 8, !range !1203, !noundef !4
-  %.not.i.i.i.i = icmp samesign ult i64 %10, 2
-  %11 = add nsw i64 %10, -1
-  %12 = select i1 %.not.i.i.i.i, i64 0, i64 %11
-  switch i64 %12, label %"_ZN4core3ptr268drop_in_place$LT$tokio..runtime..task..core..CoreStage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hf0bee90d08d4da4dE.llvm.12663281897316000666.exit" [
-    i64 0, label %13
-    i64 1, label %14
+  %11 = tail call i64 @llvm.usub.sat.i64(i64 %10, i64 1)
+  switch i64 %11, label %"_ZN4core3ptr268drop_in_place$LT$tokio..runtime..task..core..CoreStage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hf0bee90d08d4da4dE.llvm.12663281897316000666.exit" [
+    i64 0, label %12
+    i64 1, label %13
   ]
 
-13:                                               ; preds = %"_ZN4core3ptr100drop_in_place$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$17h755b793a0181e77aE.llvm.12663281897316000666.exit"
+12:                                               ; preds = %"_ZN4core3ptr100drop_in_place$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$17h755b793a0181e77aE.llvm.12663281897316000666.exit"
   tail call void @"_ZN4core3ptr223drop_in_place$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$17h30b51412548f3a76E.llvm.12663281897316000666"(ptr noundef nonnull align 8 %9)
   br label %"_ZN4core3ptr268drop_in_place$LT$tokio..runtime..task..core..CoreStage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hf0bee90d08d4da4dE.llvm.12663281897316000666.exit"
 
-14:                                               ; preds = %"_ZN4core3ptr100drop_in_place$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$17h755b793a0181e77aE.llvm.12663281897316000666.exit"
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
+13:                                               ; preds = %"_ZN4core3ptr100drop_in_place$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$17h755b793a0181e77aE.llvm.12663281897316000666.exit"
+  %14 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4972)
-  %16 = load i64, ptr %15, align 8, !range !711, !alias.scope !4972, !noundef !4
-  %17 = icmp eq i64 %16, 0
-  br i1 %17, label %"_ZN4core3ptr268drop_in_place$LT$tokio..runtime..task..core..CoreStage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hf0bee90d08d4da4dE.llvm.12663281897316000666.exit", label %18
+  %15 = load i64, ptr %14, align 8, !range !711, !alias.scope !4972, !noundef !4
+  %16 = icmp eq i64 %15, 0
+  br i1 %16, label %"_ZN4core3ptr268drop_in_place$LT$tokio..runtime..task..core..CoreStage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hf0bee90d08d4da4dE.llvm.12663281897316000666.exit", label %17
 
-18:                                               ; preds = %14
-  %19 = getelementptr inbounds i8, ptr %0, i64 32
+17:                                               ; preds = %13
+  %18 = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4975)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4978)
-  %20 = load ptr, ptr %19, align 8, !alias.scope !4981, !noundef !4
-  %21 = icmp eq ptr %20, null
-  br i1 %21, label %"_ZN4core3ptr268drop_in_place$LT$tokio..runtime..task..core..CoreStage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hf0bee90d08d4da4dE.llvm.12663281897316000666.exit", label %22
+  %19 = load ptr, ptr %18, align 8, !alias.scope !4981, !noundef !4
+  %20 = icmp eq ptr %19, null
+  br i1 %20, label %"_ZN4core3ptr268drop_in_place$LT$tokio..runtime..task..core..CoreStage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hf0bee90d08d4da4dE.llvm.12663281897316000666.exit", label %21
 
-22:                                               ; preds = %18
+21:                                               ; preds = %17
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4982)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4985)
-  %23 = getelementptr inbounds i8, ptr %0, i64 40
-  %24 = load ptr, ptr %23, align 8, !alias.scope !4988, !nonnull !4, !align !5, !noundef !4
-  %25 = load ptr, ptr %24, align 8, !invariant.load !4, !noalias !4988, !nonnull !4
-  invoke void %25(ptr noundef nonnull align 1 %20)
-          to label %28 unwind label %26, !noalias !4988
+  %22 = getelementptr inbounds i8, ptr %0, i64 40
+  %23 = load ptr, ptr %22, align 8, !alias.scope !4988, !nonnull !4, !align !5, !noundef !4
+  %24 = load ptr, ptr %23, align 8, !invariant.load !4, !noalias !4988, !nonnull !4
+  invoke void %24(ptr noundef nonnull align 1 %19)
+          to label %27 unwind label %25, !noalias !4988
 
-common.resume:                                    ; preds = %6, %26
-  %common.resume.op = phi { ptr, i32 } [ %27, %26 ], [ %7, %6 ]
+common.resume:                                    ; preds = %6, %25
+  %common.resume.op = phi { ptr, i32 } [ %26, %25 ], [ %7, %6 ]
   resume { ptr, i32 } %common.resume.op
 
-26:                                               ; preds = %22
-  %27 = landingpad { ptr, i32 }
+25:                                               ; preds = %21
+  %26 = landingpad { ptr, i32 }
           cleanup
-  tail call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7c29042d83fb166aE.llvm.12663281897316000666"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %19) #21
+  tail call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7c29042d83fb166aE.llvm.12663281897316000666"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %18) #21
   br label %common.resume
 
-28:                                               ; preds = %22
-  %29 = getelementptr inbounds i8, ptr %24, i64 8
-  %30 = load i64, ptr %29, align 8, !range !75, !invariant.load !4, !noalias !4989
-  %31 = getelementptr inbounds i8, ptr %24, i64 16
-  %32 = load i64, ptr %31, align 8, !range !79, !invariant.load !4, !noalias !4989
-  %33 = icmp ult i64 %32, -9223372036854775807
-  tail call void @llvm.assume(i1 %33)
-  %34 = icmp eq i64 %30, 0
-  br i1 %34, label %"_ZN4core3ptr268drop_in_place$LT$tokio..runtime..task..core..CoreStage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hf0bee90d08d4da4dE.llvm.12663281897316000666.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i.i.i.i.i"
+27:                                               ; preds = %21
+  %28 = getelementptr inbounds i8, ptr %23, i64 8
+  %29 = load i64, ptr %28, align 8, !range !75, !invariant.load !4, !noalias !4989
+  %30 = getelementptr inbounds i8, ptr %23, i64 16
+  %31 = load i64, ptr %30, align 8, !range !79, !invariant.load !4, !noalias !4989
+  %32 = icmp ult i64 %31, -9223372036854775807
+  tail call void @llvm.assume(i1 %32)
+  %33 = icmp eq i64 %29, 0
+  br i1 %33, label %"_ZN4core3ptr268drop_in_place$LT$tokio..runtime..task..core..CoreStage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hf0bee90d08d4da4dE.llvm.12663281897316000666.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i.i.i.i.i"
 
-"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i.i.i.i.i": ; preds = %28
-  tail call void @__rust_dealloc(ptr noundef nonnull %20, i64 noundef %30, i64 noundef %32) #23, !noalias !4989
+"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i.i.i.i.i": ; preds = %27
+  tail call void @__rust_dealloc(ptr noundef nonnull %19, i64 noundef %29, i64 noundef %31) #23, !noalias !4989
   br label %"_ZN4core3ptr268drop_in_place$LT$tokio..runtime..task..core..CoreStage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hf0bee90d08d4da4dE.llvm.12663281897316000666.exit"
 
-"_ZN4core3ptr268drop_in_place$LT$tokio..runtime..task..core..CoreStage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hf0bee90d08d4da4dE.llvm.12663281897316000666.exit": ; preds = %"_ZN4core3ptr100drop_in_place$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$17h755b793a0181e77aE.llvm.12663281897316000666.exit", %13, %14, %18, %28, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i.i.i.i.i"
+"_ZN4core3ptr268drop_in_place$LT$tokio..runtime..task..core..CoreStage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hf0bee90d08d4da4dE.llvm.12663281897316000666.exit": ; preds = %"_ZN4core3ptr100drop_in_place$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$17h755b793a0181e77aE.llvm.12663281897316000666.exit", %12, %13, %17, %27, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i.i.i.i.i"
   ret void
 
-35:                                               ; preds = %6
-  %36 = landingpad { ptr, i32 }
+34:                                               ; preds = %6
+  %35 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #22
   unreachable
@@ -14529,63 +14493,61 @@ common.resume:                                    ; preds = %6, %26
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr351drop_in_place$LT$tokio..loom..std..unsafe_cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h2576f2ad1190197dE.llvm.12663281897316000666"(ptr noundef nonnull align 8 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !1203, !noundef !4
-  %.not.i.i = icmp samesign ult i64 %2, 2
-  %3 = add nsw i64 %2, -1
-  %4 = select i1 %.not.i.i, i64 0, i64 %3
-  switch i64 %4, label %"_ZN4core3ptr332drop_in_place$LT$core..cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h8cdf10ea959de257E.llvm.12663281897316000666.exit" [
-    i64 0, label %5
-    i64 1, label %6
+  %3 = tail call i64 @llvm.usub.sat.i64(i64 %2, i64 1)
+  switch i64 %3, label %"_ZN4core3ptr332drop_in_place$LT$core..cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h8cdf10ea959de257E.llvm.12663281897316000666.exit" [
+    i64 0, label %4
+    i64 1, label %5
   ]
 
-5:                                                ; preds = %1
+4:                                                ; preds = %1
   tail call void @"_ZN4core3ptr261drop_in_place$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$17h11e6e23298e58fa8E.llvm.12663281897316000666"(ptr noundef nonnull align 8 %0)
   br label %"_ZN4core3ptr332drop_in_place$LT$core..cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h8cdf10ea959de257E.llvm.12663281897316000666.exit"
 
-6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+5:                                                ; preds = %1
+  %6 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4992)
-  %8 = load i64, ptr %7, align 8, !range !711, !alias.scope !4992, !noundef !4
-  %9 = icmp eq i64 %8, 0
-  br i1 %9, label %"_ZN4core3ptr332drop_in_place$LT$core..cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h8cdf10ea959de257E.llvm.12663281897316000666.exit", label %10
+  %7 = load i64, ptr %6, align 8, !range !711, !alias.scope !4992, !noundef !4
+  %8 = icmp eq i64 %7, 0
+  br i1 %8, label %"_ZN4core3ptr332drop_in_place$LT$core..cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h8cdf10ea959de257E.llvm.12663281897316000666.exit", label %9
 
-10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+9:                                                ; preds = %5
+  %10 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4995)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4998)
-  %12 = load ptr, ptr %11, align 8, !alias.scope !5001, !noundef !4
-  %13 = icmp eq ptr %12, null
-  br i1 %13, label %"_ZN4core3ptr332drop_in_place$LT$core..cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h8cdf10ea959de257E.llvm.12663281897316000666.exit", label %14
+  %11 = load ptr, ptr %10, align 8, !alias.scope !5001, !noundef !4
+  %12 = icmp eq ptr %11, null
+  br i1 %12, label %"_ZN4core3ptr332drop_in_place$LT$core..cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h8cdf10ea959de257E.llvm.12663281897316000666.exit", label %13
 
-14:                                               ; preds = %10
+13:                                               ; preds = %9
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5002)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5005)
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
-  %16 = load ptr, ptr %15, align 8, !alias.scope !5008, !nonnull !4, !align !5, !noundef !4
-  %17 = load ptr, ptr %16, align 8, !invariant.load !4, !noalias !5008, !nonnull !4
-  invoke void %17(ptr noundef nonnull align 1 %12)
-          to label %20 unwind label %18, !noalias !5008
+  %14 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = load ptr, ptr %14, align 8, !alias.scope !5008, !nonnull !4, !align !5, !noundef !4
+  %16 = load ptr, ptr %15, align 8, !invariant.load !4, !noalias !5008, !nonnull !4
+  invoke void %16(ptr noundef nonnull align 1 %11)
+          to label %19 unwind label %17, !noalias !5008
 
-18:                                               ; preds = %14
-  %19 = landingpad { ptr, i32 }
+17:                                               ; preds = %13
+  %18 = landingpad { ptr, i32 }
           cleanup
-  tail call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7c29042d83fb166aE.llvm.12663281897316000666"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %11) #21
-  resume { ptr, i32 } %19
+  tail call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7c29042d83fb166aE.llvm.12663281897316000666"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %10) #21
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %14
-  %21 = getelementptr inbounds i8, ptr %16, i64 8
-  %22 = load i64, ptr %21, align 8, !range !75, !invariant.load !4, !noalias !5009
-  %23 = getelementptr inbounds i8, ptr %16, i64 16
-  %24 = load i64, ptr %23, align 8, !range !79, !invariant.load !4, !noalias !5009
-  %25 = icmp ult i64 %24, -9223372036854775807
-  tail call void @llvm.assume(i1 %25)
-  %26 = icmp eq i64 %22, 0
-  br i1 %26, label %"_ZN4core3ptr332drop_in_place$LT$core..cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h8cdf10ea959de257E.llvm.12663281897316000666.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i.i.i"
+19:                                               ; preds = %13
+  %20 = getelementptr inbounds i8, ptr %15, i64 8
+  %21 = load i64, ptr %20, align 8, !range !75, !invariant.load !4, !noalias !5009
+  %22 = getelementptr inbounds i8, ptr %15, i64 16
+  %23 = load i64, ptr %22, align 8, !range !79, !invariant.load !4, !noalias !5009
+  %24 = icmp ult i64 %23, -9223372036854775807
+  tail call void @llvm.assume(i1 %24)
+  %25 = icmp eq i64 %21, 0
+  br i1 %25, label %"_ZN4core3ptr332drop_in_place$LT$core..cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h8cdf10ea959de257E.llvm.12663281897316000666.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i.i.i"
 
-"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i.i.i": ; preds = %20
-  tail call void @__rust_dealloc(ptr noundef nonnull %12, i64 noundef %22, i64 noundef %24) #23, !noalias !5009
+"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i.i.i": ; preds = %19
+  tail call void @__rust_dealloc(ptr noundef nonnull %11, i64 noundef %21, i64 noundef %23) #23, !noalias !5009
   br label %"_ZN4core3ptr332drop_in_place$LT$core..cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h8cdf10ea959de257E.llvm.12663281897316000666.exit"
 
-"_ZN4core3ptr332drop_in_place$LT$core..cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h8cdf10ea959de257E.llvm.12663281897316000666.exit": ; preds = %1, %5, %6, %10, %20, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i.i.i"
+"_ZN4core3ptr332drop_in_place$LT$core..cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h8cdf10ea959de257E.llvm.12663281897316000666.exit": ; preds = %1, %4, %5, %9, %19, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i.i.i"
   ret void
 }
 
@@ -14741,63 +14703,61 @@ define hidden void @"_ZN4core3ptr35drop_in_place$LT$http..uri..Uri$GT$17h2b83af8
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr362drop_in_place$LT$tokio..loom..std..unsafe_cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hf535ab64ebf24fa8E.llvm.12663281897316000666"(ptr noundef nonnull align 8 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !1203, !noundef !4
-  %.not.i.i = icmp samesign ult i64 %2, 2
-  %3 = add nsw i64 %2, -1
-  %4 = select i1 %.not.i.i, i64 0, i64 %3
-  switch i64 %4, label %"_ZN4core3ptr343drop_in_place$LT$core..cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h6b70be727e7b4158E.llvm.12663281897316000666.exit" [
-    i64 0, label %5
-    i64 1, label %6
+  %3 = tail call i64 @llvm.usub.sat.i64(i64 %2, i64 1)
+  switch i64 %3, label %"_ZN4core3ptr343drop_in_place$LT$core..cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h6b70be727e7b4158E.llvm.12663281897316000666.exit" [
+    i64 0, label %4
+    i64 1, label %5
   ]
 
-5:                                                ; preds = %1
+4:                                                ; preds = %1
   tail call void @"_ZN4core3ptr272drop_in_place$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$17h4aa435b4be0734c2E.llvm.12663281897316000666"(ptr noundef nonnull align 8 %0)
   br label %"_ZN4core3ptr343drop_in_place$LT$core..cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h6b70be727e7b4158E.llvm.12663281897316000666.exit"
 
-6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+5:                                                ; preds = %1
+  %6 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5069)
-  %8 = load i64, ptr %7, align 8, !range !711, !alias.scope !5069, !noundef !4
-  %9 = icmp eq i64 %8, 0
-  br i1 %9, label %"_ZN4core3ptr343drop_in_place$LT$core..cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h6b70be727e7b4158E.llvm.12663281897316000666.exit", label %10
+  %7 = load i64, ptr %6, align 8, !range !711, !alias.scope !5069, !noundef !4
+  %8 = icmp eq i64 %7, 0
+  br i1 %8, label %"_ZN4core3ptr343drop_in_place$LT$core..cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h6b70be727e7b4158E.llvm.12663281897316000666.exit", label %9
 
-10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+9:                                                ; preds = %5
+  %10 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5072)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5075)
-  %12 = load ptr, ptr %11, align 8, !alias.scope !5078, !noundef !4
-  %13 = icmp eq ptr %12, null
-  br i1 %13, label %"_ZN4core3ptr343drop_in_place$LT$core..cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h6b70be727e7b4158E.llvm.12663281897316000666.exit", label %14
+  %11 = load ptr, ptr %10, align 8, !alias.scope !5078, !noundef !4
+  %12 = icmp eq ptr %11, null
+  br i1 %12, label %"_ZN4core3ptr343drop_in_place$LT$core..cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h6b70be727e7b4158E.llvm.12663281897316000666.exit", label %13
 
-14:                                               ; preds = %10
+13:                                               ; preds = %9
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5079)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5082)
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
-  %16 = load ptr, ptr %15, align 8, !alias.scope !5085, !nonnull !4, !align !5, !noundef !4
-  %17 = load ptr, ptr %16, align 8, !invariant.load !4, !noalias !5085, !nonnull !4
-  invoke void %17(ptr noundef nonnull align 1 %12)
-          to label %20 unwind label %18, !noalias !5085
+  %14 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = load ptr, ptr %14, align 8, !alias.scope !5085, !nonnull !4, !align !5, !noundef !4
+  %16 = load ptr, ptr %15, align 8, !invariant.load !4, !noalias !5085, !nonnull !4
+  invoke void %16(ptr noundef nonnull align 1 %11)
+          to label %19 unwind label %17, !noalias !5085
 
-18:                                               ; preds = %14
-  %19 = landingpad { ptr, i32 }
+17:                                               ; preds = %13
+  %18 = landingpad { ptr, i32 }
           cleanup
-  tail call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7c29042d83fb166aE.llvm.12663281897316000666"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %11) #21
-  resume { ptr, i32 } %19
+  tail call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7c29042d83fb166aE.llvm.12663281897316000666"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %10) #21
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %14
-  %21 = getelementptr inbounds i8, ptr %16, i64 8
-  %22 = load i64, ptr %21, align 8, !range !75, !invariant.load !4, !noalias !5086
-  %23 = getelementptr inbounds i8, ptr %16, i64 16
-  %24 = load i64, ptr %23, align 8, !range !79, !invariant.load !4, !noalias !5086
-  %25 = icmp ult i64 %24, -9223372036854775807
-  tail call void @llvm.assume(i1 %25)
-  %26 = icmp eq i64 %22, 0
-  br i1 %26, label %"_ZN4core3ptr343drop_in_place$LT$core..cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h6b70be727e7b4158E.llvm.12663281897316000666.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i.i.i"
+19:                                               ; preds = %13
+  %20 = getelementptr inbounds i8, ptr %15, i64 8
+  %21 = load i64, ptr %20, align 8, !range !75, !invariant.load !4, !noalias !5086
+  %22 = getelementptr inbounds i8, ptr %15, i64 16
+  %23 = load i64, ptr %22, align 8, !range !79, !invariant.load !4, !noalias !5086
+  %24 = icmp ult i64 %23, -9223372036854775807
+  tail call void @llvm.assume(i1 %24)
+  %25 = icmp eq i64 %21, 0
+  br i1 %25, label %"_ZN4core3ptr343drop_in_place$LT$core..cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h6b70be727e7b4158E.llvm.12663281897316000666.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i.i.i"
 
-"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i.i.i": ; preds = %20
-  tail call void @__rust_dealloc(ptr noundef nonnull %12, i64 noundef %22, i64 noundef %24) #23, !noalias !5086
+"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i.i.i": ; preds = %19
+  tail call void @__rust_dealloc(ptr noundef nonnull %11, i64 noundef %21, i64 noundef %23) #23, !noalias !5086
   br label %"_ZN4core3ptr343drop_in_place$LT$core..cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h6b70be727e7b4158E.llvm.12663281897316000666.exit"
 
-"_ZN4core3ptr343drop_in_place$LT$core..cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h6b70be727e7b4158E.llvm.12663281897316000666.exit": ; preds = %1, %5, %6, %10, %20, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i.i.i"
+"_ZN4core3ptr343drop_in_place$LT$core..cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h6b70be727e7b4158E.llvm.12663281897316000666.exit": ; preds = %1, %4, %5, %9, %19, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i.i.i"
   ret void
 }
 
@@ -14933,76 +14893,74 @@ define hidden void @"_ZN4core3ptr377drop_in_place$LT$tokio..runtime..task..core.
           cleanup
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   invoke void @"_ZN4core3ptr306drop_in_place$LT$tokio..runtime..task..core..CoreStage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hcabe2dd7aafb21b9E.llvm.12663281897316000666"(ptr noundef nonnull align 8 %8) #21
-          to label %common.resume unwind label %35
+          to label %common.resume unwind label %34
 
 "_ZN4core3ptr94drop_in_place$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..current_thread..Handle$GT$$GT$17h50e51af1d69e0375E.llvm.12663281897316000666.exit": ; preds = %1, %5
   %9 = getelementptr inbounds i8, ptr %0, i64 16
   %10 = load i64, ptr %9, align 8, !range !1203, !noundef !4
-  %.not.i.i.i.i = icmp samesign ult i64 %10, 2
-  %11 = add nsw i64 %10, -1
-  %12 = select i1 %.not.i.i.i.i, i64 0, i64 %11
-  switch i64 %12, label %"_ZN4core3ptr306drop_in_place$LT$tokio..runtime..task..core..CoreStage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hcabe2dd7aafb21b9E.llvm.12663281897316000666.exit" [
-    i64 0, label %13
-    i64 1, label %14
+  %11 = tail call i64 @llvm.usub.sat.i64(i64 %10, i64 1)
+  switch i64 %11, label %"_ZN4core3ptr306drop_in_place$LT$tokio..runtime..task..core..CoreStage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hcabe2dd7aafb21b9E.llvm.12663281897316000666.exit" [
+    i64 0, label %12
+    i64 1, label %13
   ]
 
-13:                                               ; preds = %"_ZN4core3ptr94drop_in_place$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..current_thread..Handle$GT$$GT$17h50e51af1d69e0375E.llvm.12663281897316000666.exit"
+12:                                               ; preds = %"_ZN4core3ptr94drop_in_place$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..current_thread..Handle$GT$$GT$17h50e51af1d69e0375E.llvm.12663281897316000666.exit"
   tail call void @"_ZN4core3ptr261drop_in_place$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$17h11e6e23298e58fa8E.llvm.12663281897316000666"(ptr noundef nonnull align 8 %9)
   br label %"_ZN4core3ptr306drop_in_place$LT$tokio..runtime..task..core..CoreStage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hcabe2dd7aafb21b9E.llvm.12663281897316000666.exit"
 
-14:                                               ; preds = %"_ZN4core3ptr94drop_in_place$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..current_thread..Handle$GT$$GT$17h50e51af1d69e0375E.llvm.12663281897316000666.exit"
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
+13:                                               ; preds = %"_ZN4core3ptr94drop_in_place$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..current_thread..Handle$GT$$GT$17h50e51af1d69e0375E.llvm.12663281897316000666.exit"
+  %14 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5125)
-  %16 = load i64, ptr %15, align 8, !range !711, !alias.scope !5125, !noundef !4
-  %17 = icmp eq i64 %16, 0
-  br i1 %17, label %"_ZN4core3ptr306drop_in_place$LT$tokio..runtime..task..core..CoreStage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hcabe2dd7aafb21b9E.llvm.12663281897316000666.exit", label %18
+  %15 = load i64, ptr %14, align 8, !range !711, !alias.scope !5125, !noundef !4
+  %16 = icmp eq i64 %15, 0
+  br i1 %16, label %"_ZN4core3ptr306drop_in_place$LT$tokio..runtime..task..core..CoreStage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hcabe2dd7aafb21b9E.llvm.12663281897316000666.exit", label %17
 
-18:                                               ; preds = %14
-  %19 = getelementptr inbounds i8, ptr %0, i64 32
+17:                                               ; preds = %13
+  %18 = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5128)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5131)
-  %20 = load ptr, ptr %19, align 8, !alias.scope !5134, !noundef !4
-  %21 = icmp eq ptr %20, null
-  br i1 %21, label %"_ZN4core3ptr306drop_in_place$LT$tokio..runtime..task..core..CoreStage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hcabe2dd7aafb21b9E.llvm.12663281897316000666.exit", label %22
+  %19 = load ptr, ptr %18, align 8, !alias.scope !5134, !noundef !4
+  %20 = icmp eq ptr %19, null
+  br i1 %20, label %"_ZN4core3ptr306drop_in_place$LT$tokio..runtime..task..core..CoreStage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hcabe2dd7aafb21b9E.llvm.12663281897316000666.exit", label %21
 
-22:                                               ; preds = %18
+21:                                               ; preds = %17
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5135)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5138)
-  %23 = getelementptr inbounds i8, ptr %0, i64 40
-  %24 = load ptr, ptr %23, align 8, !alias.scope !5141, !nonnull !4, !align !5, !noundef !4
-  %25 = load ptr, ptr %24, align 8, !invariant.load !4, !noalias !5141, !nonnull !4
-  invoke void %25(ptr noundef nonnull align 1 %20)
-          to label %28 unwind label %26, !noalias !5141
+  %22 = getelementptr inbounds i8, ptr %0, i64 40
+  %23 = load ptr, ptr %22, align 8, !alias.scope !5141, !nonnull !4, !align !5, !noundef !4
+  %24 = load ptr, ptr %23, align 8, !invariant.load !4, !noalias !5141, !nonnull !4
+  invoke void %24(ptr noundef nonnull align 1 %19)
+          to label %27 unwind label %25, !noalias !5141
 
-common.resume:                                    ; preds = %6, %26
-  %common.resume.op = phi { ptr, i32 } [ %27, %26 ], [ %7, %6 ]
+common.resume:                                    ; preds = %6, %25
+  %common.resume.op = phi { ptr, i32 } [ %26, %25 ], [ %7, %6 ]
   resume { ptr, i32 } %common.resume.op
 
-26:                                               ; preds = %22
-  %27 = landingpad { ptr, i32 }
+25:                                               ; preds = %21
+  %26 = landingpad { ptr, i32 }
           cleanup
-  tail call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7c29042d83fb166aE.llvm.12663281897316000666"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %19) #21
+  tail call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7c29042d83fb166aE.llvm.12663281897316000666"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %18) #21
   br label %common.resume
 
-28:                                               ; preds = %22
-  %29 = getelementptr inbounds i8, ptr %24, i64 8
-  %30 = load i64, ptr %29, align 8, !range !75, !invariant.load !4, !noalias !5142
-  %31 = getelementptr inbounds i8, ptr %24, i64 16
-  %32 = load i64, ptr %31, align 8, !range !79, !invariant.load !4, !noalias !5142
-  %33 = icmp ult i64 %32, -9223372036854775807
-  tail call void @llvm.assume(i1 %33)
-  %34 = icmp eq i64 %30, 0
-  br i1 %34, label %"_ZN4core3ptr306drop_in_place$LT$tokio..runtime..task..core..CoreStage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hcabe2dd7aafb21b9E.llvm.12663281897316000666.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i.i.i.i.i"
+27:                                               ; preds = %21
+  %28 = getelementptr inbounds i8, ptr %23, i64 8
+  %29 = load i64, ptr %28, align 8, !range !75, !invariant.load !4, !noalias !5142
+  %30 = getelementptr inbounds i8, ptr %23, i64 16
+  %31 = load i64, ptr %30, align 8, !range !79, !invariant.load !4, !noalias !5142
+  %32 = icmp ult i64 %31, -9223372036854775807
+  tail call void @llvm.assume(i1 %32)
+  %33 = icmp eq i64 %29, 0
+  br i1 %33, label %"_ZN4core3ptr306drop_in_place$LT$tokio..runtime..task..core..CoreStage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hcabe2dd7aafb21b9E.llvm.12663281897316000666.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i.i.i.i.i"
 
-"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i.i.i.i.i": ; preds = %28
-  tail call void @__rust_dealloc(ptr noundef nonnull %20, i64 noundef %30, i64 noundef %32) #23, !noalias !5142
+"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i.i.i.i.i": ; preds = %27
+  tail call void @__rust_dealloc(ptr noundef nonnull %19, i64 noundef %29, i64 noundef %31) #23, !noalias !5142
   br label %"_ZN4core3ptr306drop_in_place$LT$tokio..runtime..task..core..CoreStage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hcabe2dd7aafb21b9E.llvm.12663281897316000666.exit"
 
-"_ZN4core3ptr306drop_in_place$LT$tokio..runtime..task..core..CoreStage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hcabe2dd7aafb21b9E.llvm.12663281897316000666.exit": ; preds = %"_ZN4core3ptr94drop_in_place$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..current_thread..Handle$GT$$GT$17h50e51af1d69e0375E.llvm.12663281897316000666.exit", %13, %14, %18, %28, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i.i.i.i.i"
+"_ZN4core3ptr306drop_in_place$LT$tokio..runtime..task..core..CoreStage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hcabe2dd7aafb21b9E.llvm.12663281897316000666.exit": ; preds = %"_ZN4core3ptr94drop_in_place$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..current_thread..Handle$GT$$GT$17h50e51af1d69e0375E.llvm.12663281897316000666.exit", %12, %13, %17, %27, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i.i.i.i.i"
   ret void
 
-35:                                               ; preds = %6
-  %36 = landingpad { ptr, i32 }
+34:                                               ; preds = %6
+  %35 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #22
   unreachable
@@ -15084,76 +15042,74 @@ define hidden void @"_ZN4core3ptr383drop_in_place$LT$tokio..runtime..task..core.
           cleanup
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   invoke void @"_ZN4core3ptr306drop_in_place$LT$tokio..runtime..task..core..CoreStage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hcabe2dd7aafb21b9E.llvm.12663281897316000666"(ptr noundef nonnull align 8 %8) #21
-          to label %common.resume unwind label %35
+          to label %common.resume unwind label %34
 
 "_ZN4core3ptr100drop_in_place$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$17h755b793a0181e77aE.llvm.12663281897316000666.exit": ; preds = %1, %5
   %9 = getelementptr inbounds i8, ptr %0, i64 16
   %10 = load i64, ptr %9, align 8, !range !1203, !noundef !4
-  %.not.i.i.i.i = icmp samesign ult i64 %10, 2
-  %11 = add nsw i64 %10, -1
-  %12 = select i1 %.not.i.i.i.i, i64 0, i64 %11
-  switch i64 %12, label %"_ZN4core3ptr306drop_in_place$LT$tokio..runtime..task..core..CoreStage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hcabe2dd7aafb21b9E.llvm.12663281897316000666.exit" [
-    i64 0, label %13
-    i64 1, label %14
+  %11 = tail call i64 @llvm.usub.sat.i64(i64 %10, i64 1)
+  switch i64 %11, label %"_ZN4core3ptr306drop_in_place$LT$tokio..runtime..task..core..CoreStage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hcabe2dd7aafb21b9E.llvm.12663281897316000666.exit" [
+    i64 0, label %12
+    i64 1, label %13
   ]
 
-13:                                               ; preds = %"_ZN4core3ptr100drop_in_place$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$17h755b793a0181e77aE.llvm.12663281897316000666.exit"
+12:                                               ; preds = %"_ZN4core3ptr100drop_in_place$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$17h755b793a0181e77aE.llvm.12663281897316000666.exit"
   tail call void @"_ZN4core3ptr261drop_in_place$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$17h11e6e23298e58fa8E.llvm.12663281897316000666"(ptr noundef nonnull align 8 %9)
   br label %"_ZN4core3ptr306drop_in_place$LT$tokio..runtime..task..core..CoreStage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hcabe2dd7aafb21b9E.llvm.12663281897316000666.exit"
 
-14:                                               ; preds = %"_ZN4core3ptr100drop_in_place$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$17h755b793a0181e77aE.llvm.12663281897316000666.exit"
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
+13:                                               ; preds = %"_ZN4core3ptr100drop_in_place$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$17h755b793a0181e77aE.llvm.12663281897316000666.exit"
+  %14 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5172)
-  %16 = load i64, ptr %15, align 8, !range !711, !alias.scope !5172, !noundef !4
-  %17 = icmp eq i64 %16, 0
-  br i1 %17, label %"_ZN4core3ptr306drop_in_place$LT$tokio..runtime..task..core..CoreStage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hcabe2dd7aafb21b9E.llvm.12663281897316000666.exit", label %18
+  %15 = load i64, ptr %14, align 8, !range !711, !alias.scope !5172, !noundef !4
+  %16 = icmp eq i64 %15, 0
+  br i1 %16, label %"_ZN4core3ptr306drop_in_place$LT$tokio..runtime..task..core..CoreStage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hcabe2dd7aafb21b9E.llvm.12663281897316000666.exit", label %17
 
-18:                                               ; preds = %14
-  %19 = getelementptr inbounds i8, ptr %0, i64 32
+17:                                               ; preds = %13
+  %18 = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5175)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5178)
-  %20 = load ptr, ptr %19, align 8, !alias.scope !5181, !noundef !4
-  %21 = icmp eq ptr %20, null
-  br i1 %21, label %"_ZN4core3ptr306drop_in_place$LT$tokio..runtime..task..core..CoreStage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hcabe2dd7aafb21b9E.llvm.12663281897316000666.exit", label %22
+  %19 = load ptr, ptr %18, align 8, !alias.scope !5181, !noundef !4
+  %20 = icmp eq ptr %19, null
+  br i1 %20, label %"_ZN4core3ptr306drop_in_place$LT$tokio..runtime..task..core..CoreStage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hcabe2dd7aafb21b9E.llvm.12663281897316000666.exit", label %21
 
-22:                                               ; preds = %18
+21:                                               ; preds = %17
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5182)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5185)
-  %23 = getelementptr inbounds i8, ptr %0, i64 40
-  %24 = load ptr, ptr %23, align 8, !alias.scope !5188, !nonnull !4, !align !5, !noundef !4
-  %25 = load ptr, ptr %24, align 8, !invariant.load !4, !noalias !5188, !nonnull !4
-  invoke void %25(ptr noundef nonnull align 1 %20)
-          to label %28 unwind label %26, !noalias !5188
+  %22 = getelementptr inbounds i8, ptr %0, i64 40
+  %23 = load ptr, ptr %22, align 8, !alias.scope !5188, !nonnull !4, !align !5, !noundef !4
+  %24 = load ptr, ptr %23, align 8, !invariant.load !4, !noalias !5188, !nonnull !4
+  invoke void %24(ptr noundef nonnull align 1 %19)
+          to label %27 unwind label %25, !noalias !5188
 
-common.resume:                                    ; preds = %6, %26
-  %common.resume.op = phi { ptr, i32 } [ %27, %26 ], [ %7, %6 ]
+common.resume:                                    ; preds = %6, %25
+  %common.resume.op = phi { ptr, i32 } [ %26, %25 ], [ %7, %6 ]
   resume { ptr, i32 } %common.resume.op
 
-26:                                               ; preds = %22
-  %27 = landingpad { ptr, i32 }
+25:                                               ; preds = %21
+  %26 = landingpad { ptr, i32 }
           cleanup
-  tail call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7c29042d83fb166aE.llvm.12663281897316000666"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %19) #21
+  tail call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7c29042d83fb166aE.llvm.12663281897316000666"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %18) #21
   br label %common.resume
 
-28:                                               ; preds = %22
-  %29 = getelementptr inbounds i8, ptr %24, i64 8
-  %30 = load i64, ptr %29, align 8, !range !75, !invariant.load !4, !noalias !5189
-  %31 = getelementptr inbounds i8, ptr %24, i64 16
-  %32 = load i64, ptr %31, align 8, !range !79, !invariant.load !4, !noalias !5189
-  %33 = icmp ult i64 %32, -9223372036854775807
-  tail call void @llvm.assume(i1 %33)
-  %34 = icmp eq i64 %30, 0
-  br i1 %34, label %"_ZN4core3ptr306drop_in_place$LT$tokio..runtime..task..core..CoreStage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hcabe2dd7aafb21b9E.llvm.12663281897316000666.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i.i.i.i.i"
+27:                                               ; preds = %21
+  %28 = getelementptr inbounds i8, ptr %23, i64 8
+  %29 = load i64, ptr %28, align 8, !range !75, !invariant.load !4, !noalias !5189
+  %30 = getelementptr inbounds i8, ptr %23, i64 16
+  %31 = load i64, ptr %30, align 8, !range !79, !invariant.load !4, !noalias !5189
+  %32 = icmp ult i64 %31, -9223372036854775807
+  tail call void @llvm.assume(i1 %32)
+  %33 = icmp eq i64 %29, 0
+  br i1 %33, label %"_ZN4core3ptr306drop_in_place$LT$tokio..runtime..task..core..CoreStage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hcabe2dd7aafb21b9E.llvm.12663281897316000666.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i.i.i.i.i"
 
-"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i.i.i.i.i": ; preds = %28
-  tail call void @__rust_dealloc(ptr noundef nonnull %20, i64 noundef %30, i64 noundef %32) #23, !noalias !5189
+"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i.i.i.i.i": ; preds = %27
+  tail call void @__rust_dealloc(ptr noundef nonnull %19, i64 noundef %29, i64 noundef %31) #23, !noalias !5189
   br label %"_ZN4core3ptr306drop_in_place$LT$tokio..runtime..task..core..CoreStage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hcabe2dd7aafb21b9E.llvm.12663281897316000666.exit"
 
-"_ZN4core3ptr306drop_in_place$LT$tokio..runtime..task..core..CoreStage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hcabe2dd7aafb21b9E.llvm.12663281897316000666.exit": ; preds = %"_ZN4core3ptr100drop_in_place$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$17h755b793a0181e77aE.llvm.12663281897316000666.exit", %13, %14, %18, %28, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i.i.i.i.i"
+"_ZN4core3ptr306drop_in_place$LT$tokio..runtime..task..core..CoreStage$LT$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hcabe2dd7aafb21b9E.llvm.12663281897316000666.exit": ; preds = %"_ZN4core3ptr100drop_in_place$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$17h755b793a0181e77aE.llvm.12663281897316000666.exit", %12, %13, %17, %27, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i.i.i.i.i"
   ret void
 
-35:                                               ; preds = %6
-  %36 = landingpad { ptr, i32 }
+34:                                               ; preds = %6
+  %35 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #22
   unreachable
@@ -15235,76 +15191,74 @@ define hidden void @"_ZN4core3ptr388drop_in_place$LT$tokio..runtime..task..core.
           cleanup
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   invoke void @"_ZN4core3ptr317drop_in_place$LT$tokio..runtime..task..core..CoreStage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17he51d6e433988a063E.llvm.12663281897316000666"(ptr noundef nonnull align 8 %8) #21
-          to label %common.resume unwind label %35
+          to label %common.resume unwind label %34
 
 "_ZN4core3ptr94drop_in_place$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..current_thread..Handle$GT$$GT$17h50e51af1d69e0375E.llvm.12663281897316000666.exit": ; preds = %1, %5
   %9 = getelementptr inbounds i8, ptr %0, i64 16
   %10 = load i64, ptr %9, align 8, !range !1203, !noundef !4
-  %.not.i.i.i.i = icmp samesign ult i64 %10, 2
-  %11 = add nsw i64 %10, -1
-  %12 = select i1 %.not.i.i.i.i, i64 0, i64 %11
-  switch i64 %12, label %"_ZN4core3ptr317drop_in_place$LT$tokio..runtime..task..core..CoreStage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17he51d6e433988a063E.llvm.12663281897316000666.exit" [
-    i64 0, label %13
-    i64 1, label %14
+  %11 = tail call i64 @llvm.usub.sat.i64(i64 %10, i64 1)
+  switch i64 %11, label %"_ZN4core3ptr317drop_in_place$LT$tokio..runtime..task..core..CoreStage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17he51d6e433988a063E.llvm.12663281897316000666.exit" [
+    i64 0, label %12
+    i64 1, label %13
   ]
 
-13:                                               ; preds = %"_ZN4core3ptr94drop_in_place$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..current_thread..Handle$GT$$GT$17h50e51af1d69e0375E.llvm.12663281897316000666.exit"
+12:                                               ; preds = %"_ZN4core3ptr94drop_in_place$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..current_thread..Handle$GT$$GT$17h50e51af1d69e0375E.llvm.12663281897316000666.exit"
   tail call void @"_ZN4core3ptr272drop_in_place$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$17h4aa435b4be0734c2E.llvm.12663281897316000666"(ptr noundef nonnull align 8 %9)
   br label %"_ZN4core3ptr317drop_in_place$LT$tokio..runtime..task..core..CoreStage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17he51d6e433988a063E.llvm.12663281897316000666.exit"
 
-14:                                               ; preds = %"_ZN4core3ptr94drop_in_place$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..current_thread..Handle$GT$$GT$17h50e51af1d69e0375E.llvm.12663281897316000666.exit"
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
+13:                                               ; preds = %"_ZN4core3ptr94drop_in_place$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..current_thread..Handle$GT$$GT$17h50e51af1d69e0375E.llvm.12663281897316000666.exit"
+  %14 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5219)
-  %16 = load i64, ptr %15, align 8, !range !711, !alias.scope !5219, !noundef !4
-  %17 = icmp eq i64 %16, 0
-  br i1 %17, label %"_ZN4core3ptr317drop_in_place$LT$tokio..runtime..task..core..CoreStage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17he51d6e433988a063E.llvm.12663281897316000666.exit", label %18
+  %15 = load i64, ptr %14, align 8, !range !711, !alias.scope !5219, !noundef !4
+  %16 = icmp eq i64 %15, 0
+  br i1 %16, label %"_ZN4core3ptr317drop_in_place$LT$tokio..runtime..task..core..CoreStage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17he51d6e433988a063E.llvm.12663281897316000666.exit", label %17
 
-18:                                               ; preds = %14
-  %19 = getelementptr inbounds i8, ptr %0, i64 32
+17:                                               ; preds = %13
+  %18 = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5222)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5225)
-  %20 = load ptr, ptr %19, align 8, !alias.scope !5228, !noundef !4
-  %21 = icmp eq ptr %20, null
-  br i1 %21, label %"_ZN4core3ptr317drop_in_place$LT$tokio..runtime..task..core..CoreStage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17he51d6e433988a063E.llvm.12663281897316000666.exit", label %22
+  %19 = load ptr, ptr %18, align 8, !alias.scope !5228, !noundef !4
+  %20 = icmp eq ptr %19, null
+  br i1 %20, label %"_ZN4core3ptr317drop_in_place$LT$tokio..runtime..task..core..CoreStage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17he51d6e433988a063E.llvm.12663281897316000666.exit", label %21
 
-22:                                               ; preds = %18
+21:                                               ; preds = %17
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5229)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5232)
-  %23 = getelementptr inbounds i8, ptr %0, i64 40
-  %24 = load ptr, ptr %23, align 8, !alias.scope !5235, !nonnull !4, !align !5, !noundef !4
-  %25 = load ptr, ptr %24, align 8, !invariant.load !4, !noalias !5235, !nonnull !4
-  invoke void %25(ptr noundef nonnull align 1 %20)
-          to label %28 unwind label %26, !noalias !5235
+  %22 = getelementptr inbounds i8, ptr %0, i64 40
+  %23 = load ptr, ptr %22, align 8, !alias.scope !5235, !nonnull !4, !align !5, !noundef !4
+  %24 = load ptr, ptr %23, align 8, !invariant.load !4, !noalias !5235, !nonnull !4
+  invoke void %24(ptr noundef nonnull align 1 %19)
+          to label %27 unwind label %25, !noalias !5235
 
-common.resume:                                    ; preds = %6, %26
-  %common.resume.op = phi { ptr, i32 } [ %27, %26 ], [ %7, %6 ]
+common.resume:                                    ; preds = %6, %25
+  %common.resume.op = phi { ptr, i32 } [ %26, %25 ], [ %7, %6 ]
   resume { ptr, i32 } %common.resume.op
 
-26:                                               ; preds = %22
-  %27 = landingpad { ptr, i32 }
+25:                                               ; preds = %21
+  %26 = landingpad { ptr, i32 }
           cleanup
-  tail call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7c29042d83fb166aE.llvm.12663281897316000666"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %19) #21
+  tail call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7c29042d83fb166aE.llvm.12663281897316000666"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %18) #21
   br label %common.resume
 
-28:                                               ; preds = %22
-  %29 = getelementptr inbounds i8, ptr %24, i64 8
-  %30 = load i64, ptr %29, align 8, !range !75, !invariant.load !4, !noalias !5236
-  %31 = getelementptr inbounds i8, ptr %24, i64 16
-  %32 = load i64, ptr %31, align 8, !range !79, !invariant.load !4, !noalias !5236
-  %33 = icmp ult i64 %32, -9223372036854775807
-  tail call void @llvm.assume(i1 %33)
-  %34 = icmp eq i64 %30, 0
-  br i1 %34, label %"_ZN4core3ptr317drop_in_place$LT$tokio..runtime..task..core..CoreStage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17he51d6e433988a063E.llvm.12663281897316000666.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i.i.i.i.i"
+27:                                               ; preds = %21
+  %28 = getelementptr inbounds i8, ptr %23, i64 8
+  %29 = load i64, ptr %28, align 8, !range !75, !invariant.load !4, !noalias !5236
+  %30 = getelementptr inbounds i8, ptr %23, i64 16
+  %31 = load i64, ptr %30, align 8, !range !79, !invariant.load !4, !noalias !5236
+  %32 = icmp ult i64 %31, -9223372036854775807
+  tail call void @llvm.assume(i1 %32)
+  %33 = icmp eq i64 %29, 0
+  br i1 %33, label %"_ZN4core3ptr317drop_in_place$LT$tokio..runtime..task..core..CoreStage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17he51d6e433988a063E.llvm.12663281897316000666.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i.i.i.i.i"
 
-"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i.i.i.i.i": ; preds = %28
-  tail call void @__rust_dealloc(ptr noundef nonnull %20, i64 noundef %30, i64 noundef %32) #23, !noalias !5236
+"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i.i.i.i.i": ; preds = %27
+  tail call void @__rust_dealloc(ptr noundef nonnull %19, i64 noundef %29, i64 noundef %31) #23, !noalias !5236
   br label %"_ZN4core3ptr317drop_in_place$LT$tokio..runtime..task..core..CoreStage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17he51d6e433988a063E.llvm.12663281897316000666.exit"
 
-"_ZN4core3ptr317drop_in_place$LT$tokio..runtime..task..core..CoreStage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17he51d6e433988a063E.llvm.12663281897316000666.exit": ; preds = %"_ZN4core3ptr94drop_in_place$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..current_thread..Handle$GT$$GT$17h50e51af1d69e0375E.llvm.12663281897316000666.exit", %13, %14, %18, %28, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i.i.i.i.i"
+"_ZN4core3ptr317drop_in_place$LT$tokio..runtime..task..core..CoreStage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17he51d6e433988a063E.llvm.12663281897316000666.exit": ; preds = %"_ZN4core3ptr94drop_in_place$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..current_thread..Handle$GT$$GT$17h50e51af1d69e0375E.llvm.12663281897316000666.exit", %12, %13, %17, %27, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i.i.i.i.i"
   ret void
 
-35:                                               ; preds = %6
-  %36 = landingpad { ptr, i32 }
+34:                                               ; preds = %6
+  %35 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #22
   unreachable
@@ -15392,76 +15346,74 @@ define hidden void @"_ZN4core3ptr394drop_in_place$LT$tokio..runtime..task..core.
           cleanup
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   invoke void @"_ZN4core3ptr317drop_in_place$LT$tokio..runtime..task..core..CoreStage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17he51d6e433988a063E.llvm.12663281897316000666"(ptr noundef nonnull align 8 %8) #21
-          to label %common.resume unwind label %35
+          to label %common.resume unwind label %34
 
 "_ZN4core3ptr100drop_in_place$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$17h755b793a0181e77aE.llvm.12663281897316000666.exit": ; preds = %1, %5
   %9 = getelementptr inbounds i8, ptr %0, i64 16
   %10 = load i64, ptr %9, align 8, !range !1203, !noundef !4
-  %.not.i.i.i.i = icmp samesign ult i64 %10, 2
-  %11 = add nsw i64 %10, -1
-  %12 = select i1 %.not.i.i.i.i, i64 0, i64 %11
-  switch i64 %12, label %"_ZN4core3ptr317drop_in_place$LT$tokio..runtime..task..core..CoreStage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17he51d6e433988a063E.llvm.12663281897316000666.exit" [
-    i64 0, label %13
-    i64 1, label %14
+  %11 = tail call i64 @llvm.usub.sat.i64(i64 %10, i64 1)
+  switch i64 %11, label %"_ZN4core3ptr317drop_in_place$LT$tokio..runtime..task..core..CoreStage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17he51d6e433988a063E.llvm.12663281897316000666.exit" [
+    i64 0, label %12
+    i64 1, label %13
   ]
 
-13:                                               ; preds = %"_ZN4core3ptr100drop_in_place$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$17h755b793a0181e77aE.llvm.12663281897316000666.exit"
+12:                                               ; preds = %"_ZN4core3ptr100drop_in_place$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$17h755b793a0181e77aE.llvm.12663281897316000666.exit"
   tail call void @"_ZN4core3ptr272drop_in_place$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$17h4aa435b4be0734c2E.llvm.12663281897316000666"(ptr noundef nonnull align 8 %9)
   br label %"_ZN4core3ptr317drop_in_place$LT$tokio..runtime..task..core..CoreStage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17he51d6e433988a063E.llvm.12663281897316000666.exit"
 
-14:                                               ; preds = %"_ZN4core3ptr100drop_in_place$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$17h755b793a0181e77aE.llvm.12663281897316000666.exit"
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
+13:                                               ; preds = %"_ZN4core3ptr100drop_in_place$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$17h755b793a0181e77aE.llvm.12663281897316000666.exit"
+  %14 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5273)
-  %16 = load i64, ptr %15, align 8, !range !711, !alias.scope !5273, !noundef !4
-  %17 = icmp eq i64 %16, 0
-  br i1 %17, label %"_ZN4core3ptr317drop_in_place$LT$tokio..runtime..task..core..CoreStage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17he51d6e433988a063E.llvm.12663281897316000666.exit", label %18
+  %15 = load i64, ptr %14, align 8, !range !711, !alias.scope !5273, !noundef !4
+  %16 = icmp eq i64 %15, 0
+  br i1 %16, label %"_ZN4core3ptr317drop_in_place$LT$tokio..runtime..task..core..CoreStage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17he51d6e433988a063E.llvm.12663281897316000666.exit", label %17
 
-18:                                               ; preds = %14
-  %19 = getelementptr inbounds i8, ptr %0, i64 32
+17:                                               ; preds = %13
+  %18 = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5276)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5279)
-  %20 = load ptr, ptr %19, align 8, !alias.scope !5282, !noundef !4
-  %21 = icmp eq ptr %20, null
-  br i1 %21, label %"_ZN4core3ptr317drop_in_place$LT$tokio..runtime..task..core..CoreStage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17he51d6e433988a063E.llvm.12663281897316000666.exit", label %22
+  %19 = load ptr, ptr %18, align 8, !alias.scope !5282, !noundef !4
+  %20 = icmp eq ptr %19, null
+  br i1 %20, label %"_ZN4core3ptr317drop_in_place$LT$tokio..runtime..task..core..CoreStage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17he51d6e433988a063E.llvm.12663281897316000666.exit", label %21
 
-22:                                               ; preds = %18
+21:                                               ; preds = %17
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5283)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5286)
-  %23 = getelementptr inbounds i8, ptr %0, i64 40
-  %24 = load ptr, ptr %23, align 8, !alias.scope !5289, !nonnull !4, !align !5, !noundef !4
-  %25 = load ptr, ptr %24, align 8, !invariant.load !4, !noalias !5289, !nonnull !4
-  invoke void %25(ptr noundef nonnull align 1 %20)
-          to label %28 unwind label %26, !noalias !5289
+  %22 = getelementptr inbounds i8, ptr %0, i64 40
+  %23 = load ptr, ptr %22, align 8, !alias.scope !5289, !nonnull !4, !align !5, !noundef !4
+  %24 = load ptr, ptr %23, align 8, !invariant.load !4, !noalias !5289, !nonnull !4
+  invoke void %24(ptr noundef nonnull align 1 %19)
+          to label %27 unwind label %25, !noalias !5289
 
-common.resume:                                    ; preds = %6, %26
-  %common.resume.op = phi { ptr, i32 } [ %27, %26 ], [ %7, %6 ]
+common.resume:                                    ; preds = %6, %25
+  %common.resume.op = phi { ptr, i32 } [ %26, %25 ], [ %7, %6 ]
   resume { ptr, i32 } %common.resume.op
 
-26:                                               ; preds = %22
-  %27 = landingpad { ptr, i32 }
+25:                                               ; preds = %21
+  %26 = landingpad { ptr, i32 }
           cleanup
-  tail call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7c29042d83fb166aE.llvm.12663281897316000666"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %19) #21
+  tail call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7c29042d83fb166aE.llvm.12663281897316000666"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %18) #21
   br label %common.resume
 
-28:                                               ; preds = %22
-  %29 = getelementptr inbounds i8, ptr %24, i64 8
-  %30 = load i64, ptr %29, align 8, !range !75, !invariant.load !4, !noalias !5290
-  %31 = getelementptr inbounds i8, ptr %24, i64 16
-  %32 = load i64, ptr %31, align 8, !range !79, !invariant.load !4, !noalias !5290
-  %33 = icmp ult i64 %32, -9223372036854775807
-  tail call void @llvm.assume(i1 %33)
-  %34 = icmp eq i64 %30, 0
-  br i1 %34, label %"_ZN4core3ptr317drop_in_place$LT$tokio..runtime..task..core..CoreStage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17he51d6e433988a063E.llvm.12663281897316000666.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i.i.i.i.i"
+27:                                               ; preds = %21
+  %28 = getelementptr inbounds i8, ptr %23, i64 8
+  %29 = load i64, ptr %28, align 8, !range !75, !invariant.load !4, !noalias !5290
+  %30 = getelementptr inbounds i8, ptr %23, i64 16
+  %31 = load i64, ptr %30, align 8, !range !79, !invariant.load !4, !noalias !5290
+  %32 = icmp ult i64 %31, -9223372036854775807
+  tail call void @llvm.assume(i1 %32)
+  %33 = icmp eq i64 %29, 0
+  br i1 %33, label %"_ZN4core3ptr317drop_in_place$LT$tokio..runtime..task..core..CoreStage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17he51d6e433988a063E.llvm.12663281897316000666.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i.i.i.i.i"
 
-"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i.i.i.i.i": ; preds = %28
-  tail call void @__rust_dealloc(ptr noundef nonnull %20, i64 noundef %30, i64 noundef %32) #23, !noalias !5290
+"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i.i.i.i.i": ; preds = %27
+  tail call void @__rust_dealloc(ptr noundef nonnull %19, i64 noundef %29, i64 noundef %31) #23, !noalias !5290
   br label %"_ZN4core3ptr317drop_in_place$LT$tokio..runtime..task..core..CoreStage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17he51d6e433988a063E.llvm.12663281897316000666.exit"
 
-"_ZN4core3ptr317drop_in_place$LT$tokio..runtime..task..core..CoreStage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17he51d6e433988a063E.llvm.12663281897316000666.exit": ; preds = %"_ZN4core3ptr100drop_in_place$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$17h755b793a0181e77aE.llvm.12663281897316000666.exit", %13, %14, %18, %28, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i.i.i.i.i"
+"_ZN4core3ptr317drop_in_place$LT$tokio..runtime..task..core..CoreStage$LT$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17he51d6e433988a063E.llvm.12663281897316000666.exit": ; preds = %"_ZN4core3ptr100drop_in_place$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$17h755b793a0181e77aE.llvm.12663281897316000666.exit", %12, %13, %17, %27, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12663281897316000666.exit.i.i.i.i.i.i.i.i.i.i"
   ret void
 
-35:                                               ; preds = %6
-  %36 = landingpad { ptr, i32 }
+34:                                               ; preds = %6
+  %35 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #22
   unreachable
@@ -32393,6 +32345,9 @@ declare hidden void @_ZN9hashbrown3raw5inner13RawTableInner16drop_inner_table17h
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #19
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.usub.sat.i64(i64, i64) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #20

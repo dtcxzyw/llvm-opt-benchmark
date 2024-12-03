@@ -1021,13 +1021,12 @@ Vec_PtrPush.exit:                                 ; preds = %57
   %120 = phi ptr [ %.pre, %93 ], [ %92, %91 ]
   %121 = getelementptr i8, ptr %120, i64 4
   %.val120 = load i32, ptr %121, align 4
-  %122 = add nsw i32 %.val120, 1
-  %123 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #18
-  %or.cond.i = icmp ult i32 %.val120, 15
-  %spec.store.select.i = select i1 %or.cond.i, i32 16, i32 %122
-  %124 = getelementptr inbounds i8, ptr %123, i64 4
+  %122 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #18
+  %123 = call i32 @llvm.umax.i32(i32 %.val120, i32 15)
+  %spec.store.select.i = add i32 %123, 1
+  %124 = getelementptr inbounds i8, ptr %122, i64 4
   store i32 0, ptr %124, align 4
-  store i32 %spec.store.select.i, ptr %123, align 8
+  store i32 %spec.store.select.i, ptr %122, align 8
   %.not.i128 = icmp eq i32 %spec.store.select.i, 0
   br i1 %.not.i128, label %Vec_IntAlloc.exit, label %125
 
@@ -1039,12 +1038,12 @@ Vec_PtrPush.exit:                                 ; preds = %57
 
 Vec_IntAlloc.exit:                                ; preds = %119, %125
   %129 = phi ptr [ %128, %125 ], [ null, %119 ]
-  %130 = getelementptr inbounds i8, ptr %123, i64 8
+  %130 = getelementptr inbounds i8, ptr %122, i64 8
   store ptr %129, ptr %130, align 8
   %131 = getelementptr inbounds i8, ptr %83, i64 712
-  store ptr %123, ptr %131, align 8
+  store ptr %122, ptr %131, align 8
   %132 = load ptr, ptr %75, align 8
-  call fastcc void @Vec_IntAppend(ptr noundef nonnull %123, ptr noundef %132)
+  call fastcc void @Vec_IntAppend(ptr noundef nonnull %122, ptr noundef %132)
   %133 = load ptr, ptr %131, align 8
   %134 = shl nsw i32 %82, 1
   %135 = or disjoint i32 %134, 1
@@ -1261,13 +1260,12 @@ Vec_PtrPush.exit141:                              ; preds = %.Vec_PtrGrow.exit11
   %239 = load ptr, ptr %75, align 8
   %240 = getelementptr i8, ptr %239, i64 4
   %.val = load i32, ptr %240, align 4
-  %241 = add nsw i32 %.val, 1
-  %242 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #18
-  %or.cond.i142 = icmp ult i32 %.val, 15
-  %spec.store.select.i143 = select i1 %or.cond.i142, i32 16, i32 %241
-  %243 = getelementptr inbounds i8, ptr %242, i64 4
+  %241 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #18
+  %242 = call i32 @llvm.umax.i32(i32 %.val, i32 15)
+  %spec.store.select.i143 = add i32 %242, 1
+  %243 = getelementptr inbounds i8, ptr %241, i64 4
   store i32 0, ptr %243, align 4
-  store i32 %spec.store.select.i143, ptr %242, align 8
+  store i32 %spec.store.select.i143, ptr %241, align 8
   %.not.i144 = icmp eq i32 %spec.store.select.i143, 0
   br i1 %.not.i144, label %Vec_IntAlloc.exit145, label %244
 
@@ -1279,12 +1277,12 @@ Vec_PtrPush.exit141:                              ; preds = %.Vec_PtrGrow.exit11
 
 Vec_IntAlloc.exit145:                             ; preds = %237, %244
   %248 = phi ptr [ %247, %244 ], [ null, %237 ]
-  %249 = getelementptr inbounds i8, ptr %242, i64 8
+  %249 = getelementptr inbounds i8, ptr %241, i64 8
   store ptr %248, ptr %249, align 8
   %250 = getelementptr inbounds i8, ptr %238, i64 712
-  store ptr %242, ptr %250, align 8
+  store ptr %241, ptr %250, align 8
   %251 = load ptr, ptr %75, align 8
-  call fastcc void @Vec_IntAppend(ptr noundef nonnull %242, ptr noundef %251)
+  call fastcc void @Vec_IntAppend(ptr noundef nonnull %241, ptr noundef %251)
   %252 = load ptr, ptr %250, align 8
   %253 = getelementptr inbounds i8, ptr %252, i64 4
   %254 = load i32, ptr %253, align 4
@@ -2084,13 +2082,12 @@ Abc_Clock.exit189.us:                             ; preds = %111, %102
   %140 = load ptr, ptr %91, align 8
   %141 = getelementptr i8, ptr %140, i64 4
   %.val182.us = load i32, ptr %141, align 4
-  %142 = add nsw i32 %.val182.us, 1
-  %143 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #18
-  %or.cond.i.us = icmp ult i32 %.val182.us, 15
-  %spec.store.select.i.us = select i1 %or.cond.i.us, i32 16, i32 %142
-  %144 = getelementptr inbounds i8, ptr %143, i64 4
+  %142 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #18
+  %143 = call i32 @llvm.umax.i32(i32 %.val182.us, i32 15)
+  %spec.store.select.i.us = add i32 %143, 1
+  %144 = getelementptr inbounds i8, ptr %142, i64 4
   store i32 0, ptr %144, align 4
-  store i32 %spec.store.select.i.us, ptr %143, align 8
+  store i32 %spec.store.select.i.us, ptr %142, align 8
   %.not.i191.us = icmp eq i32 %spec.store.select.i.us, 0
   br i1 %.not.i191.us, label %Vec_IntAlloc.exit.us, label %145
 
@@ -2102,12 +2099,12 @@ Abc_Clock.exit189.us:                             ; preds = %111, %102
 
 Vec_IntAlloc.exit.us:                             ; preds = %145, %137
   %149 = phi ptr [ %148, %145 ], [ null, %137 ]
-  %150 = getelementptr inbounds i8, ptr %143, i64 8
+  %150 = getelementptr inbounds i8, ptr %142, i64 8
   store ptr %149, ptr %150, align 8
   %151 = getelementptr inbounds i8, ptr %139, i64 712
-  store ptr %143, ptr %151, align 8
+  store ptr %142, ptr %151, align 8
   %152 = load ptr, ptr %91, align 8
-  call fastcc void @Vec_IntAppend(ptr noundef nonnull %143, ptr noundef %152)
+  call fastcc void @Vec_IntAppend(ptr noundef nonnull %142, ptr noundef %152)
   %153 = load ptr, ptr %151, align 8
   %154 = shl nsw i32 %138, 1
   %155 = or disjoint i32 %154, 1
@@ -2277,13 +2274,12 @@ Vec_PtrPush.exit201.us:                           ; preds = %Vec_PtrGrow.exit.i2
   %242 = load ptr, ptr %91, align 8
   %243 = getelementptr i8, ptr %242, i64 4
   %.val.us = load i32, ptr %243, align 4
-  %244 = add nsw i32 %.val.us, 1
-  %245 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #18
-  %or.cond.i204.us = icmp ult i32 %.val.us, 15
-  %spec.store.select.i205.us = select i1 %or.cond.i204.us, i32 16, i32 %244
-  %246 = getelementptr inbounds i8, ptr %245, i64 4
+  %244 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #18
+  %245 = call i32 @llvm.umax.i32(i32 %.val.us, i32 15)
+  %spec.store.select.i205.us = add i32 %245, 1
+  %246 = getelementptr inbounds i8, ptr %244, i64 4
   store i32 0, ptr %246, align 4
-  store i32 %spec.store.select.i205.us, ptr %245, align 8
+  store i32 %spec.store.select.i205.us, ptr %244, align 8
   %.not.i206.us = icmp eq i32 %spec.store.select.i205.us, 0
   br i1 %.not.i206.us, label %Vec_IntAlloc.exit207.us, label %247
 
@@ -2295,12 +2291,12 @@ Vec_PtrPush.exit201.us:                           ; preds = %Vec_PtrGrow.exit.i2
 
 Vec_IntAlloc.exit207.us:                          ; preds = %247, %240
   %251 = phi ptr [ %250, %247 ], [ null, %240 ]
-  %252 = getelementptr inbounds i8, ptr %245, i64 8
+  %252 = getelementptr inbounds i8, ptr %244, i64 8
   store ptr %251, ptr %252, align 8
   %253 = getelementptr inbounds i8, ptr %241, i64 712
-  store ptr %245, ptr %253, align 8
+  store ptr %244, ptr %253, align 8
   %254 = load ptr, ptr %91, align 8
-  call fastcc void @Vec_IntAppend(ptr noundef nonnull %245, ptr noundef %254)
+  call fastcc void @Vec_IntAppend(ptr noundef nonnull %244, ptr noundef %254)
   %255 = load ptr, ptr %253, align 8
   %256 = getelementptr inbounds i8, ptr %255, i64 4
   %257 = load i32, ptr %256, align 4
@@ -3302,6 +3298,9 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #13
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

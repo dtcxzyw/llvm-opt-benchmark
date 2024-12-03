@@ -10,26 +10,26 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -22, 1) i32 @ext4fs_dirhash(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef %3) local_unnamed_addr #0 align 16 {
   %5 = alloca [8 x i32], align 16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %5, i8 0, i64 32, i1 false), !annotation !5
   %6 = getelementptr inbounds i8, ptr %3, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %.loopexit6, label %.preheader5
+  br i1 %8, label %.loopexit5, label %.preheader4
 
-9:                                                ; preds = %.preheader5
+9:                                                ; preds = %.preheader4
   %10 = add nuw nsw i64 %12, 1
   %11 = icmp eq i64 %10, 4
-  br i1 %11, label %.loopexit6, label %.preheader5, !llvm.loop !6
+  br i1 %11, label %.loopexit5, label %.preheader4, !llvm.loop !6
 
-.preheader5:                                      ; preds = %4, %9
+.preheader4:                                      ; preds = %4, %9
   %12 = phi i64 [ %10, %9 ], [ 0, %4 ]
   %13 = getelementptr i32, ptr %7, i64 %12
   %14 = load i32, ptr %13, align 4
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %9, label %16
 
-16:                                               ; preds = %.preheader5
+16:                                               ; preds = %.preheader4
   %17 = load i32, ptr %7, align 4
   %18 = getelementptr inbounds i8, ptr %7, i64 4
   %19 = load i32, ptr %18, align 4
@@ -37,9 +37,9 @@ define dso_local noundef range(i32 -22, 1) i32 @ext4fs_dirhash(ptr noundef %0, p
   %21 = load i32, ptr %20, align 4
   %22 = getelementptr inbounds i8, ptr %7, i64 12
   %23 = load i32, ptr %22, align 4
-  br label %.loopexit6
+  br label %.loopexit5
 
-.loopexit6:                                       ; preds = %9, %16, %4
+.loopexit5:                                       ; preds = %9, %16, %4
   %24 = phi i32 [ 1732584193, %4 ], [ %17, %16 ], [ 1732584193, %9 ]
   %25 = phi i32 [ -271733879, %4 ], [ %19, %16 ], [ -271733879, %9 ]
   %26 = phi i32 [ -1732584194, %4 ], [ %21, %16 ], [ -1732584194, %9 ]
@@ -56,9 +56,9 @@ define dso_local noundef range(i32 -22, 1) i32 @ext4fs_dirhash(ptr noundef %0, p
     i32 6, label %305
   ]
 
-30:                                               ; preds = %.loopexit6
+30:                                               ; preds = %.loopexit5
   %31 = icmp eq i32 %2, 0
-  br i1 %31, label %.thread, label %.preheader
+  br i1 %31, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %30, %.preheader
   %32 = phi ptr [ %37, %.preheader ], [ %1, %30 ]
@@ -82,15 +82,15 @@ define dso_local noundef range(i32 -22, 1) i32 @ext4fs_dirhash(ptr noundef %0, p
   %48 = shl i32 %45, 1
   br label %.loopexit
 
-49:                                               ; preds = %.loopexit6
+49:                                               ; preds = %.loopexit5
   %50 = icmp eq i32 %2, 0
-  br i1 %50, label %.thread, label %.preheader3
+  br i1 %50, label %.loopexit, label %.preheader2
 
-.preheader3:                                      ; preds = %49, %.preheader3
-  %51 = phi ptr [ %56, %.preheader3 ], [ %1, %49 ]
-  %52 = phi i32 [ %53, %.preheader3 ], [ 934013177, %49 ]
-  %53 = phi i32 [ %64, %.preheader3 ], [ 312737325, %49 ]
-  %54 = phi i32 [ %55, %.preheader3 ], [ %2, %49 ]
+.preheader2:                                      ; preds = %49, %.preheader2
+  %51 = phi ptr [ %56, %.preheader2 ], [ %1, %49 ]
+  %52 = phi i32 [ %53, %.preheader2 ], [ 934013177, %49 ]
+  %53 = phi i32 [ %64, %.preheader2 ], [ 312737325, %49 ]
+  %54 = phi i32 [ %55, %.preheader2 ], [ %2, %49 ]
   %55 = add i32 %54, -1
   %56 = getelementptr i8, ptr %51, i64 1
   %57 = load i8, ptr %51, align 1
@@ -102,17 +102,17 @@ define dso_local noundef range(i32 -22, 1) i32 @ext4fs_dirhash(ptr noundef %0, p
   %63 = icmp slt i32 %61, 0
   %64 = select i1 %63, i32 %62, i32 %61
   %65 = icmp eq i32 %55, 0
-  br i1 %65, label %66, label %.preheader3, !llvm.loop !10
+  br i1 %65, label %66, label %.preheader2, !llvm.loop !10
 
-66:                                               ; preds = %.preheader3
+66:                                               ; preds = %.preheader2
   %67 = shl i32 %64, 1
   br label %.loopexit
 
-68:                                               ; preds = %.loopexit6
+68:                                               ; preds = %.loopexit5
   br label %69
 
-69:                                               ; preds = %68, %.loopexit6
-  %70 = phi ptr [ @str2hashbuf_signed, %.loopexit6 ], [ @str2hashbuf_unsigned, %68 ]
+69:                                               ; preds = %68, %.loopexit5
+  %70 = phi ptr [ @str2hashbuf_signed, %.loopexit5 ], [ @str2hashbuf_unsigned, %68 ]
   %71 = icmp sgt i32 %2, 0
   br i1 %71, label %72, label %.loopexit
 
@@ -133,7 +133,7 @@ define dso_local noundef range(i32 -22, 1) i32 @ext4fs_dirhash(ptr noundef %0, p
   %84 = phi i32 [ %26, %72 ], [ %253, %80 ]
   %85 = phi i32 [ %25, %72 ], [ %252, %80 ]
   %86 = phi i32 [ %24, %72 ], [ %251, %80 ]
-  call void %70(ptr noundef %81, i32 noundef %82, ptr noundef nonnull %5, i32 noundef 8) #6, !callees !11
+  call void %70(ptr noundef %81, i32 noundef %82, ptr noundef nonnull %5, i32 noundef 8) #7, !callees !11
   %87 = xor i32 %84, %83
   %88 = and i32 %87, %85
   %89 = xor i32 %88, %83
@@ -307,11 +307,11 @@ define dso_local noundef range(i32 -22, 1) i32 @ext4fs_dirhash(ptr noundef %0, p
   %257 = icmp samesign ugt i32 %82, 32
   br i1 %257, label %80, label %.loopexit, !llvm.loop !12
 
-258:                                              ; preds = %.loopexit6
+258:                                              ; preds = %.loopexit5
   br label %259
 
-259:                                              ; preds = %258, %.loopexit6
-  %260 = phi ptr [ @str2hashbuf_signed, %.loopexit6 ], [ @str2hashbuf_unsigned, %258 ]
+259:                                              ; preds = %258, %.loopexit5
+  %260 = phi ptr [ @str2hashbuf_signed, %.loopexit5 ], [ @str2hashbuf_unsigned, %258 ]
   %261 = icmp sgt i32 %2, 0
   br i1 %261, label %262, label %.loopexit
 
@@ -326,7 +326,7 @@ define dso_local noundef range(i32 -22, 1) i32 @ext4fs_dirhash(ptr noundef %0, p
   %268 = phi i32 [ %2, %262 ], [ %302, %299 ]
   %269 = phi i32 [ %25, %262 ], [ %301, %299 ]
   %270 = phi i32 [ %24, %262 ], [ %300, %299 ]
-  call void %260(ptr noundef %267, i32 noundef %268, ptr noundef nonnull %5, i32 noundef 4) #6, !callees !11
+  call void %260(ptr noundef %267, i32 noundef %268, ptr noundef nonnull %5, i32 noundef 4) #7, !callees !11
   %271 = load i32, ptr %5, align 16
   %272 = load i32, ptr %263, align 4
   %273 = load i32, ptr %264, align 8
@@ -367,40 +367,33 @@ define dso_local noundef range(i32 -22, 1) i32 @ext4fs_dirhash(ptr noundef %0, p
   %304 = icmp sgt i32 %268, 16
   br i1 %304, label %266, label %.loopexit, !llvm.loop !14
 
-305:                                              ; preds = %.loopexit6
-  tail call void (ptr, ptr, i32, ptr, ...) @__ext4_warning_inode(ptr noundef %0, ptr noundef nonnull @__func__.__ext4fs_dirhash, i32 noundef 270, ptr noundef nonnull @.str) #6
-  br label %317
+305:                                              ; preds = %.loopexit5
+  tail call void (ptr, ptr, i32, ptr, ...) @__ext4_warning_inode(ptr noundef %0, ptr noundef nonnull @__func__.__ext4fs_dirhash, i32 noundef 270, ptr noundef nonnull @.str) #7
+  br label %315
 
-306:                                              ; preds = %.loopexit6
+306:                                              ; preds = %.loopexit5
   store i32 0, ptr %3, align 8
   %307 = getelementptr inbounds i8, ptr %3, i64 4
   store i32 0, ptr %307, align 4
   %308 = getelementptr inbounds i8, ptr %0, i64 40
   %309 = load ptr, ptr %308, align 8
-  tail call void (ptr, ptr, i32, ptr, ...) @__ext4_warning(ptr noundef %309, ptr noundef nonnull @__func__.__ext4fs_dirhash, i32 noundef 283, ptr noundef nonnull @.str.1, i32 noundef %29) #6
-  br label %317
+  tail call void (ptr, ptr, i32, ptr, ...) @__ext4_warning(ptr noundef %309, ptr noundef nonnull @__func__.__ext4fs_dirhash, i32 noundef 283, ptr noundef nonnull @.str.1, i32 noundef %29) #7
+  br label %315
 
-.loopexit:                                        ; preds = %299, %80, %259, %69, %66, %47
-  %310 = phi i32 [ %48, %47 ], [ %67, %66 ], [ %25, %69 ], [ %24, %259 ], [ %252, %80 ], [ %300, %299 ]
-  %311 = phi i32 [ 0, %47 ], [ 0, %66 ], [ %26, %69 ], [ %25, %259 ], [ %253, %80 ], [ %301, %299 ]
-  %.fr = freeze i32 %310
-  %312 = and i32 %.fr, -2
-  %313 = icmp ugt i32 %.fr, -3
-  %spec.select = select i1 %313, i32 -4, i32 %312
-  br label %.thread
+.loopexit:                                        ; preds = %299, %80, %259, %69, %66, %49, %47, %30
+  %310 = phi i32 [ 625474650, %30 ], [ %48, %47 ], [ 625474650, %49 ], [ %67, %66 ], [ %25, %69 ], [ %24, %259 ], [ %252, %80 ], [ %300, %299 ]
+  %311 = phi i32 [ 0, %30 ], [ 0, %47 ], [ 0, %49 ], [ 0, %66 ], [ %26, %69 ], [ %25, %259 ], [ %253, %80 ], [ %301, %299 ]
+  %312 = call i32 @llvm.umin.i32(i32 %310, i32 -3)
+  %313 = and i32 %312, -2
+  store i32 %313, ptr %3, align 8
+  %314 = getelementptr inbounds i8, ptr %3, i64 4
+  store i32 %311, ptr %314, align 4
+  br label %315
 
-.thread:                                          ; preds = %.loopexit, %49, %30
-  %314 = phi i32 [ 0, %30 ], [ 0, %49 ], [ %311, %.loopexit ]
-  %315 = phi i32 [ 625474650, %30 ], [ 625474650, %49 ], [ %spec.select, %.loopexit ]
-  store i32 %315, ptr %3, align 8
-  %316 = getelementptr inbounds i8, ptr %3, i64 4
-  store i32 %314, ptr %316, align 4
-  br label %317
-
-317:                                              ; preds = %.thread, %306, %305
-  %318 = phi i32 [ -22, %306 ], [ 0, %.thread ], [ -1, %305 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #6
-  ret i32 %318
+315:                                              ; preds = %.loopexit, %306, %305
+  %316 = phi i32 [ -22, %306 ], [ 0, %.loopexit ], [ -1, %305 ]
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #7
+  ret i32 %316
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -574,13 +567,17 @@ declare i32 @llvm.fshl.i32(i32, i32, i32) #5
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #5
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #6
+
 attributes #0 = { fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #3 = { fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #4 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { nounwind }
+attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

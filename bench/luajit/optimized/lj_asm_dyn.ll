@@ -879,9 +879,8 @@ for.body36.i:                                     ; preds = %if.end25.i, %for.bo
   %60 = load i16, ptr %prev37.i, align 2
   %incdec.ptr40.i = getelementptr inbounds i8, ptr %p.0205.i, i64 2
   store i16 %60, ptr %p.0205.i, align 2
-  %61 = or i16 %60, 128
-  %cmp42.not.inv.i = icmp ugt i16 %60, 255
-  %storemerge.i = select i1 %cmp42.not.inv.i, i16 255, i16 %61
+  %61 = call i16 @llvm.umin.i16(i16 %60, i16 255)
+  %storemerge.i = or i16 %61, 128
   store i16 %storemerge.i, ptr %prev37.i, align 2
   %incdec.ptr51.i = getelementptr inbounds i8, ptr %ir.3206.i, i64 8
   %cmp34.i = icmp ult ptr %incdec.ptr51.i, %call.i
@@ -28122,6 +28121,9 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i16 @llvm.umin.i16(i16, i16) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #12

@@ -2023,9 +2023,7 @@ if.then13:                                        ; preds = %mi_heap_malloc.exit
   br i1 %or.cond25, label %if.then19, label %if.else
 
 if.then19:                                        ; preds = %if.then13
-  %cmp20 = icmp ugt i64 %call, 7
-  %sub = add i64 %call, -8
-  %cond = select i1 %cmp20, i64 %sub, i64 0
+  %cond = tail call i64 @llvm.usub.sat.i64(i64 %call, i64 8)
   %add.ptr = getelementptr inbounds i8, ptr %retval.0.i.i.i29, i64 %cond
   %sub22 = sub i64 %newsize, %cond
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %add.ptr, i8 0, i64 %sub22, i1 false)
@@ -2318,9 +2316,7 @@ if.then13.i:                                      ; preds = %mi_heap_malloc.exit
   br i1 %cmp.not.i, label %if.then19.i, label %if.else.i
 
 if.then19.i:                                      ; preds = %if.then13.i
-  %cmp20.i = icmp ugt i64 %call.i, 7
-  %sub.i = add i64 %call.i, -8
-  %cond.i = select i1 %cmp20.i, i64 %sub.i, i64 0
+  %cond.i = tail call i64 @llvm.usub.sat.i64(i64 %call.i, i64 8)
   %add.ptr.i = getelementptr inbounds i8, ptr %retval.0.i.i.i29.i, i64 %cond.i
   %sub22.i = sub i64 %newsize, %cond.i
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %add.ptr.i, i8 0, i64 %sub22.i, i1 false)
@@ -2363,11 +2359,76 @@ mi_count_size_overflow.exit:                      ; preds = %entry
 
 if.end:                                           ; preds = %entry, %mi_count_size_overflow.exit
   %storemerge.i3 = phi i64 [ %2, %mi_count_size_overflow.exit ], [ %size, %entry ]
-  %call1 = tail call ptr @mi_heap_rezalloc(ptr noundef %heap, ptr noundef %p, i64 noundef %storemerge.i3) #15
+  %call.i.i = tail call fastcc i64 @_mi_usable_size(ptr noundef %p) #15
+  %cmp.not.i.i = icmp ugt i64 %storemerge.i3, %call.i.i
+  %div24.i.i = lshr i64 %call.i.i, 1
+  %cmp1.not.i.i = icmp ult i64 %storemerge.i3, %div24.i.i
+  %3 = add i64 %storemerge.i3, -1
+  %4 = icmp uge i64 %3, %call.i.i
+  %or.cond26.not.i.i = or i1 %4, %cmp1.not.i.i
+  br i1 %or.cond26.not.i.i, label %if.end.i.i, label %return
+
+if.end.i.i:                                       ; preds = %if.end
+  %cmp.i.i.i.i.i = icmp ult i64 %storemerge.i3, 1025
+  br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %mi_heap_malloc.exit.i.i
+
+if.then.i.i.i.i.i:                                ; preds = %if.end.i.i
+  %sub.i.i.i.i.i.i.i.i = add nuw nsw i64 %storemerge.i3, 7
+  %div1.i.i.i.i.i.i.i.i = lshr i64 %sub.i.i.i.i.i.i.i.i, 3
+  %pages_free_direct.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %heap, i64 8
+  %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds [129 x ptr], ptr %pages_free_direct.i.i.i.i.i.i.i, i64 0, i64 %div1.i.i.i.i.i.i.i.i
+  %5 = load ptr, ptr %arrayidx.i.i.i.i.i.i.i, align 8
+  %free.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = load ptr, ptr %free.i.i.i.i.i.i.i, align 8
+  %cmp.i.i.i.i.i.i.i = icmp eq ptr %6, null
+  br i1 %cmp.i.i.i.i.i.i.i, label %mi_heap_malloc.exit.i.i, label %mi_heap_malloc.exit.thread.i.i
+
+mi_heap_malloc.exit.thread.i.i:                   ; preds = %if.then.i.i.i.i.i
+  %used.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 24
+  %7 = load i32, ptr %used.i.i.i.i.i.i.i, align 8
+  %inc.i.i.i.i.i.i.i = add i32 %7, 1
+  store i32 %inc.i.i.i.i.i.i.i, ptr %used.i.i.i.i.i.i.i, align 8
+  %.val.i.i.i.i.i.i.i = load i64, ptr %6, align 8
+  %8 = inttoptr i64 %.val.i.i.i.i.i.i.i to ptr
+  store ptr %8, ptr %free.i.i.i.i.i.i.i, align 8
+  br label %if.then13.i.i
+
+mi_heap_malloc.exit.i.i:                          ; preds = %if.then.i.i.i.i.i, %if.end.i.i
+  %call.i.i.i.i.i.i.i = tail call noalias ptr @_mi_malloc_generic(ptr noundef %heap, i64 noundef %storemerge.i3, i1 noundef zeroext false, i64 noundef 0) #14
+  %cmp5.not.i.i = icmp eq ptr %call.i.i.i.i.i.i.i, null
+  br i1 %cmp5.not.i.i, label %return, label %if.then13.i.i
+
+if.then13.i.i:                                    ; preds = %mi_heap_malloc.exit.i.i, %mi_heap_malloc.exit.thread.i.i
+  %retval.0.i.i.i29.i.i = phi ptr [ %6, %mi_heap_malloc.exit.thread.i.i ], [ %call.i.i.i.i.i.i.i, %mi_heap_malloc.exit.i.i ]
+  br i1 %cmp.not.i.i, label %if.then19.i.i, label %if.else.i.i
+
+if.then19.i.i:                                    ; preds = %if.then13.i.i
+  %cond.i.i = tail call i64 @llvm.usub.sat.i64(i64 %call.i.i, i64 8)
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i29.i.i, i64 %cond.i.i
+  %sub22.i.i = sub i64 %storemerge.i3, %cond.i.i
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %add.ptr.i.i, i8 0, i64 %sub22.i.i, i1 false)
+  br label %if.end27.i.i
+
+if.else.i.i:                                      ; preds = %if.then13.i.i
+  %cmp23.i.i = icmp eq i64 %storemerge.i3, 0
+  br i1 %cmp23.i.i, label %if.then25.i.i, label %if.end27.i.i
+
+if.then25.i.i:                                    ; preds = %if.else.i.i
+  store i8 0, ptr %retval.0.i.i.i29.i.i, align 1
+  br label %if.end27.i.i
+
+if.end27.i.i:                                     ; preds = %if.then25.i.i, %if.else.i.i, %if.then19.i.i
+  %cmp28.not.i.i = icmp eq ptr %p, null
+  br i1 %cmp28.not.i.i, label %return, label %if.then36.i.i
+
+if.then36.i.i:                                    ; preds = %if.end27.i.i
+  %cond42.i.i = tail call i64 @llvm.umin.i64(i64 %storemerge.i3, i64 %call.i.i)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %retval.0.i.i.i29.i.i, ptr nonnull readonly align 1 %p, i64 %cond42.i.i, i1 false)
+  tail call void @mi_free(ptr noundef nonnull %p) #15
   br label %return
 
-return:                                           ; preds = %mi_count_size_overflow.exit, %if.end
-  %retval.0 = phi ptr [ %call1, %if.end ], [ null, %mi_count_size_overflow.exit ]
+return:                                           ; preds = %if.then36.i.i, %if.end27.i.i, %mi_heap_malloc.exit.i.i, %if.end, %mi_count_size_overflow.exit
+  %retval.0 = phi ptr [ null, %mi_count_size_overflow.exit ], [ %retval.0.i.i.i29.i.i, %if.end27.i.i ], [ %retval.0.i.i.i29.i.i, %if.then36.i.i ], [ null, %mi_heap_malloc.exit.i.i ], [ %p, %if.end ]
   ret ptr %retval.0
 }
 
@@ -2454,8 +2515,77 @@ define ptr @mi_rezalloc(ptr noundef %p, i64 noundef %newsize) local_unnamed_addr
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_mi_heap_default)
   %1 = load ptr, ptr %0, align 8
-  %call1 = tail call ptr @mi_heap_rezalloc(ptr noundef %1, ptr noundef %p, i64 noundef %newsize) #15
-  ret ptr %call1
+  %call.i.i = tail call fastcc i64 @_mi_usable_size(ptr noundef %p) #15
+  %cmp.not.i.i = icmp ugt i64 %newsize, %call.i.i
+  %div24.i.i = lshr i64 %call.i.i, 1
+  %cmp1.not.i.i = icmp ult i64 %newsize, %div24.i.i
+  %2 = add i64 %newsize, -1
+  %3 = icmp uge i64 %2, %call.i.i
+  %or.cond26.not.i.i = or i1 %3, %cmp1.not.i.i
+  br i1 %or.cond26.not.i.i, label %if.end.i.i, label %mi_heap_rezalloc.exit
+
+if.end.i.i:                                       ; preds = %entry
+  %cmp.i.i.i.i.i = icmp ult i64 %newsize, 1025
+  br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %mi_heap_malloc.exit.i.i
+
+if.then.i.i.i.i.i:                                ; preds = %if.end.i.i
+  %sub.i.i.i.i.i.i.i.i = add nuw nsw i64 %newsize, 7
+  %div1.i.i.i.i.i.i.i.i = lshr i64 %sub.i.i.i.i.i.i.i.i, 3
+  %pages_free_direct.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds [129 x ptr], ptr %pages_free_direct.i.i.i.i.i.i.i, i64 0, i64 %div1.i.i.i.i.i.i.i.i
+  %4 = load ptr, ptr %arrayidx.i.i.i.i.i.i.i, align 8
+  %free.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = load ptr, ptr %free.i.i.i.i.i.i.i, align 8
+  %cmp.i.i.i.i.i.i.i = icmp eq ptr %5, null
+  br i1 %cmp.i.i.i.i.i.i.i, label %mi_heap_malloc.exit.i.i, label %mi_heap_malloc.exit.thread.i.i
+
+mi_heap_malloc.exit.thread.i.i:                   ; preds = %if.then.i.i.i.i.i
+  %used.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 24
+  %6 = load i32, ptr %used.i.i.i.i.i.i.i, align 8
+  %inc.i.i.i.i.i.i.i = add i32 %6, 1
+  store i32 %inc.i.i.i.i.i.i.i, ptr %used.i.i.i.i.i.i.i, align 8
+  %.val.i.i.i.i.i.i.i = load i64, ptr %5, align 8
+  %7 = inttoptr i64 %.val.i.i.i.i.i.i.i to ptr
+  store ptr %7, ptr %free.i.i.i.i.i.i.i, align 8
+  br label %if.then13.i.i
+
+mi_heap_malloc.exit.i.i:                          ; preds = %if.then.i.i.i.i.i, %if.end.i.i
+  %call.i.i.i.i.i.i.i = tail call noalias ptr @_mi_malloc_generic(ptr noundef %1, i64 noundef %newsize, i1 noundef zeroext false, i64 noundef 0) #14
+  %cmp5.not.i.i = icmp eq ptr %call.i.i.i.i.i.i.i, null
+  br i1 %cmp5.not.i.i, label %mi_heap_rezalloc.exit, label %if.then13.i.i
+
+if.then13.i.i:                                    ; preds = %mi_heap_malloc.exit.i.i, %mi_heap_malloc.exit.thread.i.i
+  %retval.0.i.i.i29.i.i = phi ptr [ %5, %mi_heap_malloc.exit.thread.i.i ], [ %call.i.i.i.i.i.i.i, %mi_heap_malloc.exit.i.i ]
+  br i1 %cmp.not.i.i, label %if.then19.i.i, label %if.else.i.i
+
+if.then19.i.i:                                    ; preds = %if.then13.i.i
+  %cond.i.i = tail call i64 @llvm.usub.sat.i64(i64 %call.i.i, i64 8)
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i29.i.i, i64 %cond.i.i
+  %sub22.i.i = sub i64 %newsize, %cond.i.i
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %add.ptr.i.i, i8 0, i64 %sub22.i.i, i1 false)
+  br label %if.end27.i.i
+
+if.else.i.i:                                      ; preds = %if.then13.i.i
+  %cmp23.i.i = icmp eq i64 %newsize, 0
+  br i1 %cmp23.i.i, label %if.then25.i.i, label %if.end27.i.i
+
+if.then25.i.i:                                    ; preds = %if.else.i.i
+  store i8 0, ptr %retval.0.i.i.i29.i.i, align 1
+  br label %if.end27.i.i
+
+if.end27.i.i:                                     ; preds = %if.then25.i.i, %if.else.i.i, %if.then19.i.i
+  %cmp28.not.i.i = icmp eq ptr %p, null
+  br i1 %cmp28.not.i.i, label %mi_heap_rezalloc.exit, label %if.then36.i.i
+
+if.then36.i.i:                                    ; preds = %if.end27.i.i
+  %cond42.i.i = tail call i64 @llvm.umin.i64(i64 %newsize, i64 %call.i.i)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %retval.0.i.i.i29.i.i, ptr nonnull readonly align 1 %p, i64 %cond42.i.i, i1 false)
+  tail call void @mi_free(ptr noundef nonnull %p) #15
+  br label %mi_heap_rezalloc.exit
+
+mi_heap_rezalloc.exit:                            ; preds = %entry, %mi_heap_malloc.exit.i.i, %if.end27.i.i, %if.then36.i.i
+  %retval.0.i.i = phi ptr [ %retval.0.i.i.i29.i.i, %if.end27.i.i ], [ %retval.0.i.i.i29.i.i, %if.then36.i.i ], [ null, %mi_heap_malloc.exit.i.i ], [ %p, %entry ]
+  ret ptr %retval.0.i.i
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2463,23 +2593,8 @@ define ptr @mi_recalloc(ptr noundef %p, i64 noundef %count, i64 noundef %size) l
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_mi_heap_default)
   %1 = load ptr, ptr %0, align 8
-  %cmp.i.i = icmp eq i64 %count, 1
-  br i1 %cmp.i.i, label %if.end.i, label %mi_count_size_overflow.exit.i
-
-mi_count_size_overflow.exit.i:                    ; preds = %entry
-  %2 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 range(i64 2, 1) %count, i64 %size)
-  %3 = extractvalue { i64, i1 } %2, 1
-  %4 = extractvalue { i64, i1 } %2, 0
-  br i1 %3, label %mi_heap_recalloc.exit, label %if.end.i
-
-if.end.i:                                         ; preds = %mi_count_size_overflow.exit.i, %entry
-  %storemerge.i3.i = phi i64 [ %4, %mi_count_size_overflow.exit.i ], [ %size, %entry ]
-  %call1.i = tail call ptr @mi_heap_rezalloc(ptr noundef %1, ptr noundef %p, i64 noundef %storemerge.i3.i) #15
-  br label %mi_heap_recalloc.exit
-
-mi_heap_recalloc.exit:                            ; preds = %mi_count_size_overflow.exit.i, %if.end.i
-  %retval.0.i = phi ptr [ %call1.i, %if.end.i ], [ null, %mi_count_size_overflow.exit.i ]
-  ret ptr %retval.0.i
+  %call1 = tail call ptr @mi_heap_recalloc(ptr noundef %1, ptr noundef %p, i64 noundef %count, i64 noundef %size) #15
+  ret ptr %call1
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3282,6 +3397,9 @@ declare void @_mi_error_message(i32 noundef, ptr noundef, ...) local_unnamed_add
 
 ; Function Attrs: cold nofree noreturn nounwind
 declare void @abort() local_unnamed_addr #11
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.usub.sat.i64(i64, i64) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #12

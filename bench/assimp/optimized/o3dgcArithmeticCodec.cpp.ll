@@ -530,9 +530,8 @@ _ZN5o3dgc18Adaptive_Bit_Model6updateEv.exit:      ; preds = %entry.if.end13_crit
   %shr16.i = lshr i32 %mul.i, 18
   store i32 %shr16.i, ptr %bit_0_prob, align 4
   %mul18.i = mul i32 %13, 5
-  %shr19.i = lshr i32 %mul18.i, 2
-  %cmp22.i = icmp ugt i32 %mul18.i, 259
-  %spec.select.i = select i1 %cmp22.i, i32 64, i32 %shr19.i
+  %18 = tail call i32 @llvm.umin.i32(i32 %mul18.i, i32 259)
+  %spec.select.i = lshr i32 %18, 2
   store i32 %spec.select.i, ptr %M, align 4
   store i32 %spec.select.i, ptr %bits_until_update, align 4
   br label %if.end15
@@ -583,9 +582,8 @@ if.end13:                                         ; preds = %entry.if.end13_crit
   %bit_0_prob = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %shr16, ptr %bit_0_prob, align 4
   %mul18 = mul i32 %0, 5
-  %shr19 = lshr i32 %mul18, 2
-  %cmp22 = icmp ugt i32 %mul18, 259
-  %spec.select = select i1 %cmp22, i32 64, i32 %shr19
+  %5 = tail call i32 @llvm.umin.i32(i32 %mul18, i32 259)
+  %spec.select = lshr i32 %5, 2
   store i32 %spec.select, ptr %this, align 4
   %bits_until_update = getelementptr inbounds i8, ptr %this, i64 4
   store i32 %spec.select, ptr %bits_until_update, align 4
@@ -696,9 +694,8 @@ _ZN5o3dgc18Adaptive_Bit_Model6updateEv.exit:      ; preds = %entry.if.end13_crit
   %shr16.i = lshr i32 %mul.i, 18
   store i32 %shr16.i, ptr %bit_0_prob, align 4
   %mul18.i = mul i32 %10, 5
-  %shr19.i = lshr i32 %mul18.i, 2
-  %cmp22.i = icmp ugt i32 %mul18.i, 259
-  %spec.select.i = select i1 %cmp22.i, i32 64, i32 %shr19.i
+  %15 = tail call i32 @llvm.umin.i32(i32 %mul18.i, i32 259)
+  %spec.select.i = lshr i32 %15, 2
   store i32 %spec.select.i, ptr %M, align 4
   store i32 %spec.select.i, ptr %bits_until_update, align 4
   br label %if.end13

@@ -114606,8 +114606,7 @@ define noundef align 8 dereferenceable_or_null(40) ptr @_ZN5typst13introspection
   %14 = load ptr, ptr %13, align 8, !alias.scope !27413, !noalias !27416, !nonnull !12, !noundef !12
   %15 = getelementptr inbounds [0 x { { { { { { ptr, ptr } }, {}, {} }, i64 }, { i64, { double, double } } }, { i128, i64, i64 }, i64, [1 x i64] }], ptr %14, i64 0, i64 %5, i32 0, i32 1
   %.sroa.04.0.copyload.i.i = load i64, ptr %15, align 8, !noalias !27410
-  %spec.select.i = tail call i64 @llvm.umax.i64(i64 %.sroa.04.0.copyload.i.i, i64 1)
-  %16 = add i64 %spec.select.i, -1
+  %16 = tail call i64 @llvm.usub.sat.i64(i64 %.sroa.04.0.copyload.i.i, i64 1)
   br label %_ZN5typst13introspection12introspector12Introspector4page17h84b945d600c8e53dE.exit
 
 _ZN5typst13introspection12introspector12Introspector4page17h84b945d600c8e53dE.exit: ; preds = %2, %12

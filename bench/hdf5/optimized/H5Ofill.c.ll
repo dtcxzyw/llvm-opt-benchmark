@@ -121,14 +121,14 @@ define internal ptr @H5O__fill_shared_decode(ptr noundef %0, ptr noundef %1, i32
   br i1 %.not, label %18, label %8
 
 8:                                                ; preds = %6
-  %9 = tail call ptr @H5O__shared_decode(ptr noundef %0, ptr noundef %1, ptr noundef %3, i64 noundef %4, ptr noundef %5, ptr noundef nonnull @H5O_MSG_FILL) #8
+  %9 = tail call ptr @H5O__shared_decode(ptr noundef %0, ptr noundef %1, ptr noundef %3, i64 noundef %4, ptr noundef %5, ptr noundef nonnull @H5O_MSG_FILL) #9
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %15
 
 11:                                               ; preds = %8
   %12 = load i64, ptr @H5E_OHDR_g, align 8
   %13 = load i64, ptr @H5E_CANTDECODE_g, align 8
-  %14 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.10, ptr noundef nonnull @__func__.H5O__fill_shared_decode, i32 noundef 61, i64 noundef %12, i64 noundef %13, ptr noundef nonnull @.str.11) #8
+  %14 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.10, ptr noundef nonnull @__func__.H5O__fill_shared_decode, i32 noundef 61, i64 noundef %12, i64 noundef %13, ptr noundef nonnull @.str.11) #9
   br label %H5O__fill_old_decode.exit
 
 15:                                               ; preds = %8
@@ -140,14 +140,14 @@ define internal ptr @H5O__fill_shared_decode(ptr noundef %0, ptr noundef %1, i32
 18:                                               ; preds = %6
   %19 = getelementptr i8, ptr %5, i64 %4
   %.ptr69.i = getelementptr i8, ptr %19, i64 -1
-  %20 = tail call noalias ptr @H5FL_reg_calloc(ptr noundef nonnull @H5_H5O_fill_t_reg_free_list) #8
+  %20 = tail call noalias ptr @H5FL_reg_calloc(ptr noundef nonnull @H5_H5O_fill_t_reg_free_list) #9
   %21 = icmp eq ptr %20, null
   br i1 %21, label %22, label %26
 
 22:                                               ; preds = %18
   %23 = load i64, ptr @H5E_RESOURCE_g, align 8
   %24 = load i64, ptr @H5E_NOSPACE_g, align 8
-  %25 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.H5O__fill_old_decode, i32 noundef 342, i64 noundef %23, i64 noundef %24, ptr noundef nonnull @.str.13) #8
+  %25 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.H5O__fill_old_decode, i32 noundef 342, i64 noundef %23, i64 noundef %24, ptr noundef nonnull @.str.13) #9
   br label %104
 
 26:                                               ; preds = %18
@@ -171,7 +171,7 @@ define internal ptr @H5O__fill_shared_decode(ptr noundef %0, ptr noundef %1, i32
 36:                                               ; preds = %31, %26
   %37 = load i64, ptr @H5E_OHDR_g, align 8
   %38 = load i64, ptr @H5E_OVERFLOW_g, align 8
-  %39 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.H5O__fill_old_decode, i32 noundef 351, i64 noundef %37, i64 noundef %38, ptr noundef nonnull @.str.14) #8
+  %39 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.H5O__fill_old_decode, i32 noundef 351, i64 noundef %37, i64 noundef %38, ptr noundef nonnull @.str.14) #9
   br label %.thread.thread16.i
 
 40:                                               ; preds = %31
@@ -207,18 +207,18 @@ define internal ptr @H5O__fill_shared_decode(ptr noundef %0, ptr noundef %1, i32
 61:                                               ; preds = %57, %55
   %62 = load i64, ptr @H5E_OHDR_g, align 8
   %63 = load i64, ptr @H5E_OVERFLOW_g, align 8
-  %64 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.H5O__fill_old_decode, i32 noundef 360, i64 noundef %62, i64 noundef %63, ptr noundef nonnull @.str.14) #8
+  %64 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.H5O__fill_old_decode, i32 noundef 360, i64 noundef %62, i64 noundef %63, ptr noundef nonnull @.str.14) #9
   br label %.thread.thread16.i
 
 65:                                               ; preds = %57
-  %66 = tail call i32 @H5O_msg_exists_oh(ptr noundef %1, i32 noundef 3) #8
+  %66 = tail call i32 @H5O_msg_exists_oh(ptr noundef %1, i32 noundef 3) #9
   %67 = icmp slt i32 %66, 0
   br i1 %67, label %68, label %72
 
 68:                                               ; preds = %65
   %69 = load i64, ptr @H5E_SYM_g, align 8
   %70 = load i64, ptr @H5E_NOTFOUND_g, align 8
-  %71 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.H5O__fill_old_decode, i32 noundef 364, i64 noundef %69, i64 noundef %70, ptr noundef nonnull @.str.15) #8
+  %71 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.H5O__fill_old_decode, i32 noundef 364, i64 noundef %69, i64 noundef %70, ptr noundef nonnull @.str.15) #9
   br label %.thread.thread16.i
 
 72:                                               ; preds = %65
@@ -226,30 +226,30 @@ define internal ptr @H5O__fill_shared_decode(ptr noundef %0, ptr noundef %1, i32
   br i1 %.not70.i, label %85, label %73
 
 73:                                               ; preds = %72
-  %74 = tail call ptr @H5O_msg_read_oh(ptr noundef %0, ptr noundef %1, i32 noundef 3, ptr noundef null) #8
+  %74 = tail call ptr @H5O_msg_read_oh(ptr noundef %0, ptr noundef %1, i32 noundef 3, ptr noundef null) #9
   %75 = icmp eq ptr %74, null
   br i1 %75, label %76, label %80
 
 76:                                               ; preds = %73
   %77 = load i64, ptr @H5E_SYM_g, align 8
   %78 = load i64, ptr @H5E_CANTGET_g, align 8
-  %79 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.H5O__fill_old_decode, i32 noundef 367, i64 noundef %77, i64 noundef %78, ptr noundef nonnull @.str.16) #8
+  %79 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.H5O__fill_old_decode, i32 noundef 367, i64 noundef %77, i64 noundef %78, ptr noundef nonnull @.str.16) #9
   br label %.thread.thread16.i
 
 80:                                               ; preds = %73
-  %81 = tail call i64 @H5T_get_size(ptr noundef nonnull %74) #8
+  %81 = tail call i64 @H5T_get_size(ptr noundef nonnull %74) #9
   %.not71.i = icmp eq i64 %53, %81
   br i1 %.not71.i, label %85, label %.thread5.i
 
 .thread5.i:                                       ; preds = %80
   %82 = load i64, ptr @H5E_SYM_g, align 8
   %83 = load i64, ptr @H5E_CANTGET_g, align 8
-  %84 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.H5O__fill_old_decode, i32 noundef 370, i64 noundef %82, i64 noundef %83, ptr noundef nonnull @.str.17) #8
+  %84 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.H5O__fill_old_decode, i32 noundef 370, i64 noundef %82, i64 noundef %83, ptr noundef nonnull @.str.17) #9
   br label %97
 
 85:                                               ; preds = %80, %72
   %.1.i = phi ptr [ %74, %80 ], [ null, %72 ]
-  %86 = tail call noalias ptr @malloc(i64 noundef %53) #9
+  %86 = tail call noalias ptr @malloc(i64 noundef %53) #10
   %87 = getelementptr inbounds i8, ptr %20, i64 64
   store ptr %86, ptr %87, align 8
   %88 = icmp eq ptr %86, null
@@ -258,7 +258,7 @@ define internal ptr @H5O__fill_shared_decode(ptr noundef %0, ptr noundef %1, i32
 89:                                               ; preds = %85
   %90 = load i64, ptr @H5E_RESOURCE_g, align 8
   %91 = load i64, ptr @H5E_NOSPACE_g, align 8
-  %92 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.H5O__fill_old_decode, i32 noundef 374, i64 noundef %90, i64 noundef %91, ptr noundef nonnull @.str.18) #8
+  %92 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.H5O__fill_old_decode, i32 noundef 374, i64 noundef %90, i64 noundef %91, ptr noundef nonnull @.str.18) #9
   br label %96
 
 93:                                               ; preds = %85
@@ -279,7 +279,7 @@ define internal ptr @H5O__fill_shared_decode(ptr noundef %0, ptr noundef %1, i32
 97:                                               ; preds = %96, %.thread5.i
   %.010.i = phi ptr [ null, %.thread5.i ], [ %.0.i, %96 ]
   %.0589.i = phi ptr [ %74, %.thread5.i ], [ %.1.i, %96 ]
-  %98 = tail call ptr @H5O_msg_free(i32 noundef 3, ptr noundef nonnull %.0589.i) #8
+  %98 = tail call ptr @H5O_msg_free(i32 noundef 3, ptr noundef nonnull %.0589.i) #9
   br label %.thread.i
 
 .thread.i:                                        ; preds = %97, %96
@@ -290,14 +290,14 @@ define internal ptr @H5O__fill_shared_decode(ptr noundef %0, ptr noundef %1, i32
 .thread.thread16.i:                               ; preds = %.thread.i, %76, %68, %61, %36
   %100 = getelementptr inbounds i8, ptr %20, i64 64
   %101 = load ptr, ptr %100, align 8
-  %102 = tail call ptr @H5MM_xfree(ptr noundef %101) #8
-  %103 = tail call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5O_fill_t_reg_free_list, ptr noundef nonnull %20) #8
+  %102 = tail call ptr @H5MM_xfree(ptr noundef %101) #9
+  %103 = tail call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5O_fill_t_reg_free_list, ptr noundef nonnull %20) #9
   br label %104
 
 104:                                              ; preds = %.thread.thread16.i, %22
   %105 = load i64, ptr @H5E_OHDR_g, align 8
   %106 = load i64, ptr @H5E_CANTDECODE_g, align 8
-  %107 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.10, ptr noundef nonnull @__func__.H5O__fill_shared_decode, i32 noundef 74, i64 noundef %105, i64 noundef %106, ptr noundef nonnull @.str.12) #8
+  %107 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.10, ptr noundef nonnull @__func__.H5O__fill_shared_decode, i32 noundef 74, i64 noundef %105, i64 noundef %106, ptr noundef nonnull @.str.12) #9
   br label %H5O__fill_old_decode.exit
 
 H5O__fill_old_decode.exit:                        ; preds = %.thread.i, %95, %15, %104, %11
@@ -314,14 +314,14 @@ define internal range(i32 -1, 1) i32 @H5O__fill_shared_encode(ptr noundef %0, i1
   br i1 %brmerge, label %15, label %8
 
 8:                                                ; preds = %5
-  %9 = tail call i32 @H5O__shared_encode(ptr noundef %0, ptr noundef %3, ptr noundef nonnull %4) #8
+  %9 = tail call i32 @H5O__shared_encode(ptr noundef %0, ptr noundef %3, ptr noundef nonnull %4) #9
   %10 = icmp slt i32 %9, 0
   br i1 %10, label %11, label %H5O__fill_old_encode.exit
 
 11:                                               ; preds = %8
   %12 = load i64, ptr @H5E_OHDR_g, align 8
   %13 = load i64, ptr @H5E_CANTENCODE_g, align 8
-  %14 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.10, ptr noundef nonnull @__func__.H5O__fill_shared_encode, i32 noundef 119, i64 noundef %12, i64 noundef %13, ptr noundef nonnull @.str.19) #8
+  %14 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.10, ptr noundef nonnull @__func__.H5O__fill_shared_encode, i32 noundef 119, i64 noundef %12, i64 noundef %13, ptr noundef nonnull @.str.19) #9
   br label %H5O__fill_old_encode.exit
 
 15:                                               ; preds = %5
@@ -366,14 +366,14 @@ define internal noundef ptr @H5O__fill_copy(ptr nocapture noundef readonly %0, p
   br i1 %.not, label %3, label %10
 
 3:                                                ; preds = %2
-  %4 = tail call noalias ptr @H5FL_reg_malloc(ptr noundef nonnull @H5_H5O_fill_t_reg_free_list) #8
+  %4 = tail call noalias ptr @H5FL_reg_malloc(ptr noundef nonnull @H5_H5O_fill_t_reg_free_list) #9
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %10
 
 6:                                                ; preds = %3
   %7 = load i64, ptr @H5E_RESOURCE_g, align 8
   %8 = load i64, ptr @H5E_NOSPACE_g, align 8
-  %9 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.H5O__fill_copy, i32 noundef 545, i64 noundef %7, i64 noundef %8, ptr noundef nonnull @.str.53) #8
+  %9 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.H5O__fill_copy, i32 noundef 545, i64 noundef %7, i64 noundef %8, ptr noundef nonnull @.str.53) #9
   br label %.thread.thread
 
 10:                                               ; preds = %3, %2
@@ -385,7 +385,7 @@ define internal noundef ptr @H5O__fill_copy(ptr nocapture noundef readonly %0, p
   br i1 %.not78, label %21, label %13
 
 13:                                               ; preds = %10
-  %14 = tail call ptr @H5T_copy(ptr noundef nonnull %12, i32 noundef 0) #8
+  %14 = tail call ptr @H5T_copy(ptr noundef nonnull %12, i32 noundef 0) #9
   %15 = getelementptr inbounds i8, ptr %.0, i64 48
   store ptr %14, ptr %15, align 8
   %16 = icmp eq ptr %14, null
@@ -394,7 +394,7 @@ define internal noundef ptr @H5O__fill_copy(ptr nocapture noundef readonly %0, p
 17:                                               ; preds = %13
   %18 = load i64, ptr @H5E_OHDR_g, align 8
   %19 = load i64, ptr @H5E_CANTCOPY_g, align 8
-  %20 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.H5O__fill_copy, i32 noundef 553, i64 noundef %18, i64 noundef %19, ptr noundef nonnull @.str.54) #8
+  %20 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.H5O__fill_copy, i32 noundef 553, i64 noundef %18, i64 noundef %19, ptr noundef nonnull @.str.54) #9
   br label %.thread.thread96
 
 21:                                               ; preds = %10
@@ -412,7 +412,7 @@ define internal noundef ptr @H5O__fill_copy(ptr nocapture noundef readonly %0, p
 27:                                               ; preds = %23
   %28 = getelementptr inbounds i8, ptr %0, i64 56
   %29 = load i64, ptr %28, align 8
-  %30 = tail call noalias ptr @malloc(i64 noundef %29) #9
+  %30 = tail call noalias ptr @malloc(i64 noundef %29) #10
   %31 = getelementptr inbounds i8, ptr %.0, i64 64
   store ptr %30, ptr %31, align 8
   %32 = icmp eq ptr %30, null
@@ -421,7 +421,7 @@ define internal noundef ptr @H5O__fill_copy(ptr nocapture noundef readonly %0, p
 33:                                               ; preds = %27
   %34 = load i64, ptr @H5E_RESOURCE_g, align 8
   %35 = load i64, ptr @H5E_NOSPACE_g, align 8
-  %36 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.H5O__fill_copy, i32 noundef 562, i64 noundef %34, i64 noundef %35, ptr noundef nonnull @.str.18) #8
+  %36 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.H5O__fill_copy, i32 noundef 562, i64 noundef %34, i64 noundef %35, ptr noundef nonnull @.str.18) #9
   br label %.thread.thread96
 
 37:                                               ; preds = %27
@@ -434,73 +434,73 @@ define internal noundef ptr @H5O__fill_copy(ptr nocapture noundef readonly %0, p
 
 41:                                               ; preds = %37
   %42 = getelementptr inbounds i8, ptr %.0, i64 48
-  %43 = tail call ptr @H5T_path_find(ptr noundef nonnull %40, ptr noundef %24) #8
+  %43 = tail call ptr @H5T_path_find(ptr noundef nonnull %40, ptr noundef %24) #9
   %44 = icmp eq ptr %43, null
   br i1 %44, label %45, label %49
 
 45:                                               ; preds = %41
   %46 = load i64, ptr @H5E_OHDR_g, align 8
   %47 = load i64, ptr @H5E_UNSUPPORTED_g, align 8
-  %48 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.H5O__fill_copy, i32 noundef 572, i64 noundef %46, i64 noundef %47, ptr noundef nonnull @.str.55) #8
+  %48 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.H5O__fill_copy, i32 noundef 572, i64 noundef %46, i64 noundef %47, ptr noundef nonnull @.str.55) #9
   br label %.thread.thread96
 
 49:                                               ; preds = %41
-  %50 = tail call zeroext i1 @H5T_path_noop(ptr noundef nonnull %43) #8
+  %50 = tail call zeroext i1 @H5T_path_noop(ptr noundef nonnull %43) #9
   br i1 %50, label %.thread.thread, label %51
 
 51:                                               ; preds = %49
   %52 = load ptr, ptr %42, align 8
-  %53 = tail call i32 @H5T_detect_class(ptr noundef %52, i32 noundef 9, i1 noundef zeroext false) #8
+  %53 = tail call i32 @H5T_detect_class(ptr noundef %52, i32 noundef 9, i1 noundef zeroext false) #9
   %54 = icmp sgt i32 %53, 0
   br i1 %54, label %58, label %55
 
 55:                                               ; preds = %51
-  %56 = tail call i32 @H5T_detect_class(ptr noundef %52, i32 noundef 7, i1 noundef zeroext false) #8
+  %56 = tail call i32 @H5T_detect_class(ptr noundef %52, i32 noundef 7, i1 noundef zeroext false) #9
   %57 = icmp sgt i32 %56, 0
   br i1 %57, label %58, label %65
 
 58:                                               ; preds = %55, %51
-  %59 = tail call ptr @H5T_copy(ptr noundef %52, i32 noundef 0) #8
+  %59 = tail call ptr @H5T_copy(ptr noundef %52, i32 noundef 0) #9
   %60 = icmp eq ptr %59, null
   br i1 %60, label %61, label %65
 
 61:                                               ; preds = %58
   %62 = load i64, ptr @H5E_OHDR_g, align 8
   %63 = load i64, ptr @H5E_CANTCOPY_g, align 8
-  %64 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.H5O__fill_copy, i32 noundef 583, i64 noundef %62, i64 noundef %63, ptr noundef nonnull @.str.56) #8
+  %64 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.H5O__fill_copy, i32 noundef 583, i64 noundef %62, i64 noundef %63, ptr noundef nonnull @.str.56) #9
   br label %.thread.thread96
 
 65:                                               ; preds = %58, %55
   %.165 = phi ptr [ null, %55 ], [ %59, %58 ]
   %.061 = phi ptr [ %52, %55 ], [ %59, %58 ]
   %66 = load ptr, ptr %42, align 8
-  %67 = tail call i64 @H5T_get_size(ptr noundef %66) #8
+  %67 = tail call i64 @H5T_get_size(ptr noundef %66) #9
   %68 = load ptr, ptr %11, align 8
-  %69 = tail call i64 @H5T_get_size(ptr noundef %68) #8
+  %69 = tail call i64 @H5T_get_size(ptr noundef %68) #9
   %70 = icmp ugt i64 %67, %69
   %. = select i1 %70, ptr %42, ptr %11
   %.sink = load ptr, ptr %., align 8
-  %71 = tail call i64 @H5T_get_size(ptr noundef %.sink) #8
-  %72 = tail call i32 @H5T_path_bkg(ptr noundef nonnull %43) #8
+  %71 = tail call i64 @H5T_get_size(ptr noundef %.sink) #9
+  %72 = tail call i32 @H5T_path_bkg(ptr noundef nonnull %43) #9
   %.not81 = icmp eq i32 %72, 0
   br i1 %.not81, label %80, label %73
 
 73:                                               ; preds = %65
-  %74 = tail call noalias ptr @H5FL_blk_calloc(ptr noundef nonnull @H5_type_conv_blk_free_list, i64 noundef %71) #8
+  %74 = tail call noalias ptr @H5FL_blk_calloc(ptr noundef nonnull @H5_type_conv_blk_free_list, i64 noundef %71) #9
   %75 = icmp eq ptr %74, null
   br i1 %75, label %76, label %80
 
 76:                                               ; preds = %73
   %77 = load i64, ptr @H5E_RESOURCE_g, align 8
   %78 = load i64, ptr @H5E_NOSPACE_g, align 8
-  %79 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.H5O__fill_copy, i32 noundef 590, i64 noundef %77, i64 noundef %78, ptr noundef nonnull @.str.57) #8
+  %79 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.H5O__fill_copy, i32 noundef 590, i64 noundef %77, i64 noundef %78, ptr noundef nonnull @.str.57) #9
   br label %97
 
 80:                                               ; preds = %73, %65
   %.060 = phi ptr [ %74, %73 ], [ null, %65 ]
   %81 = load ptr, ptr %11, align 8
   %82 = load ptr, ptr %31, align 8
-  %83 = tail call i32 @H5T_convert(ptr noundef nonnull %43, ptr noundef %81, ptr noundef %.061, i64 noundef 1, i64 noundef 0, i64 noundef 0, ptr noundef %82, ptr noundef %.060) #8
+  %83 = tail call i32 @H5T_convert(ptr noundef nonnull %43, ptr noundef %81, ptr noundef %.061, i64 noundef 1, i64 noundef 0, i64 noundef 0, ptr noundef %82, ptr noundef %.060) #9
   %84 = icmp slt i32 %83, 0
   %.not83 = icmp eq ptr %.060, null
   br i1 %84, label %85, label %92
@@ -509,20 +509,20 @@ define internal noundef ptr @H5O__fill_copy(ptr nocapture noundef readonly %0, p
   br i1 %.not83, label %88, label %86
 
 86:                                               ; preds = %85
-  %87 = tail call ptr @H5FL_blk_free(ptr noundef nonnull @H5_type_conv_blk_free_list, ptr noundef nonnull %.060) #8
+  %87 = tail call ptr @H5FL_blk_free(ptr noundef nonnull @H5_type_conv_blk_free_list, ptr noundef nonnull %.060) #9
   br label %88
 
 88:                                               ; preds = %85, %86
   %89 = load i64, ptr @H5E_OHDR_g, align 8
   %90 = load i64, ptr @H5E_CANTCONVERT_g, align 8
-  %91 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.H5O__fill_copy, i32 noundef 597, i64 noundef %89, i64 noundef %90, ptr noundef nonnull @.str.8) #8
+  %91 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.H5O__fill_copy, i32 noundef 597, i64 noundef %89, i64 noundef %90, ptr noundef nonnull @.str.8) #9
   br label %97
 
 92:                                               ; preds = %80
   br i1 %.not83, label %97, label %93
 
 93:                                               ; preds = %92
-  %94 = tail call ptr @H5FL_blk_free(ptr noundef nonnull @H5_type_conv_blk_free_list, ptr noundef nonnull %.060) #8
+  %94 = tail call ptr @H5FL_blk_free(ptr noundef nonnull @H5_type_conv_blk_free_list, ptr noundef nonnull %.060) #9
   br label %97
 
 95:                                               ; preds = %23
@@ -536,14 +536,14 @@ define internal noundef ptr @H5O__fill_copy(ptr nocapture noundef readonly %0, p
   br i1 %.not84, label %.thread, label %98
 
 98:                                               ; preds = %97
-  %99 = tail call i32 @H5T_close(ptr noundef nonnull %.165) #8
+  %99 = tail call i32 @H5T_close(ptr noundef nonnull %.165) #9
   %100 = icmp slt i32 %99, 0
   br i1 %100, label %101, label %.thread
 
 101:                                              ; preds = %98
   %102 = load i64, ptr @H5E_OHDR_g, align 8
   %103 = load i64, ptr @H5E_CANTCLOSEOBJ_g, align 8
-  %104 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.H5O__fill_copy, i32 noundef 614, i64 noundef %102, i64 noundef %103, ptr noundef nonnull @.str.58) #8
+  %104 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.H5O__fill_copy, i32 noundef 614, i64 noundef %102, i64 noundef %103, ptr noundef nonnull @.str.58) #9
   br label %.thread.thread96
 
 .thread:                                          ; preds = %98, %97
@@ -557,7 +557,7 @@ define internal noundef ptr @H5O__fill_copy(ptr nocapture noundef readonly %0, p
   br i1 %.not85, label %110, label %108
 
 108:                                              ; preds = %.thread.thread96
-  %109 = tail call ptr @H5MM_xfree(ptr noundef nonnull %107) #8
+  %109 = tail call ptr @H5MM_xfree(ptr noundef nonnull %107) #9
   br label %110
 
 110:                                              ; preds = %108, %.thread.thread96
@@ -567,14 +567,14 @@ define internal noundef ptr @H5O__fill_copy(ptr nocapture noundef readonly %0, p
   br i1 %.not86, label %115, label %113
 
 113:                                              ; preds = %110
-  %114 = tail call i32 @H5T_close_real(ptr noundef nonnull %112) #8
+  %114 = tail call i32 @H5T_close_real(ptr noundef nonnull %112) #9
   br label %115
 
 115:                                              ; preds = %113, %110
   br i1 %.not, label %116, label %.thread.thread
 
 116:                                              ; preds = %115
-  %117 = tail call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5O_fill_t_reg_free_list, ptr noundef nonnull %.0) #8
+  %117 = tail call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5O_fill_t_reg_free_list, ptr noundef nonnull %.0) #9
   br label %.thread.thread
 
 .thread.thread:                                   ; preds = %6, %37, %49, %95, %115, %116, %.thread
@@ -591,14 +591,14 @@ define internal i64 @H5O__fill_shared_size(ptr noundef %0, i1 noundef zeroext %1
   br i1 %brmerge, label %13, label %6
 
 6:                                                ; preds = %3
-  %7 = tail call i64 @H5O__shared_size(ptr noundef %0, ptr noundef nonnull %2) #8
+  %7 = tail call i64 @H5O__shared_size(ptr noundef %0, ptr noundef nonnull %2) #9
   %8 = icmp eq i64 %7, 0
   br i1 %8, label %9, label %21
 
 9:                                                ; preds = %6
   %10 = load i64, ptr @H5E_OHDR_g, align 8
   %11 = load i64, ptr @H5E_CANTGET_g, align 8
-  %12 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.10, ptr noundef nonnull @__func__.H5O__fill_shared_size, i32 noundef 167, i64 noundef %10, i64 noundef %11, ptr noundef nonnull @.str.21) #8
+  %12 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.10, ptr noundef nonnull @__func__.H5O__fill_shared_size, i32 noundef 167, i64 noundef %10, i64 noundef %11, ptr noundef nonnull @.str.21) #9
   br label %21
 
 13:                                               ; preds = %3
@@ -611,7 +611,7 @@ define internal i64 @H5O__fill_shared_size(ptr noundef %0, i1 noundef zeroext %1
 17:                                               ; preds = %13
   %18 = load i64, ptr @H5E_OHDR_g, align 8
   %19 = load i64, ptr @H5E_CANTGET_g, align 8
-  %20 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.10, ptr noundef nonnull @__func__.H5O__fill_shared_size, i32 noundef 172, i64 noundef %18, i64 noundef %19, ptr noundef nonnull @.str.22) #8
+  %20 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.10, ptr noundef nonnull @__func__.H5O__fill_shared_size, i32 noundef 172, i64 noundef %18, i64 noundef %19, ptr noundef nonnull @.str.22) #9
   br label %21
 
 21:                                               ; preds = %6, %13, %17, %9
@@ -633,7 +633,7 @@ define internal noundef i32 @H5O__fill_reset(ptr nocapture noundef %0) #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @H5O__fill_free(ptr noundef %0) #0 {
-  %2 = tail call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5O_fill_t_reg_free_list, ptr noundef %0) #8
+  %2 = tail call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5O_fill_t_reg_free_list, ptr noundef %0) #9
   ret i32 0
 }
 
@@ -644,14 +644,14 @@ define internal range(i32 -1, 1) i32 @H5O__fill_shared_delete(ptr noundef %0, pt
   br i1 %.not, label %12, label %5
 
 5:                                                ; preds = %3
-  %6 = tail call i32 @H5O__shared_delete(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @H5O_MSG_FILL, ptr noundef nonnull %2) #8
+  %6 = tail call i32 @H5O__shared_delete(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @H5O_MSG_FILL, ptr noundef nonnull %2) #9
   %7 = icmp slt i32 %6, 0
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %5
   %9 = load i64, ptr @H5E_OHDR_g, align 8
   %10 = load i64, ptr @H5E_CANTDEC_g, align 8
-  %11 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.10, ptr noundef nonnull @__func__.H5O__fill_shared_delete, i32 noundef 211, i64 noundef %9, i64 noundef %10, ptr noundef nonnull @.str.23) #8
+  %11 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.10, ptr noundef nonnull @__func__.H5O__fill_shared_delete, i32 noundef 211, i64 noundef %9, i64 noundef %10, ptr noundef nonnull @.str.23) #9
   br label %12
 
 12:                                               ; preds = %3, %5, %8
@@ -666,14 +666,14 @@ define internal range(i32 -1, 1) i32 @H5O__fill_shared_link(ptr noundef %0, ptr 
   br i1 %.not, label %12, label %5
 
 5:                                                ; preds = %3
-  %6 = tail call i32 @H5O__shared_link(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @H5O_MSG_FILL, ptr noundef nonnull %2) #8
+  %6 = tail call i32 @H5O__shared_link(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @H5O_MSG_FILL, ptr noundef nonnull %2) #9
   %7 = icmp slt i32 %6, 0
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %5
   %9 = load i64, ptr @H5E_OHDR_g, align 8
   %10 = load i64, ptr @H5E_CANTINC_g, align 8
-  %11 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.10, ptr noundef nonnull @__func__.H5O__fill_shared_link, i32 noundef 257, i64 noundef %9, i64 noundef %10, ptr noundef nonnull @.str.24) #8
+  %11 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.10, ptr noundef nonnull @__func__.H5O__fill_shared_link, i32 noundef 257, i64 noundef %9, i64 noundef %10, ptr noundef nonnull @.str.24) #9
   br label %12
 
 12:                                               ; preds = %3, %5, %8
@@ -687,7 +687,7 @@ define internal range(i32 -1, 1) i32 @H5O__fill_pre_copy_file(ptr nocapture read
   %7 = load i32, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %3, i64 56
   %9 = load ptr, ptr %8, align 8
-  %10 = tail call i32 @H5F_get_high_bound(ptr noundef %9) #8
+  %10 = tail call i32 @H5F_get_high_bound(ptr noundef %9) #9
   %11 = sext i32 %10 to i64
   %12 = getelementptr inbounds [6 x i32], ptr @H5O_fill_ver_bounds, i64 0, i64 %11
   %13 = load i32, ptr %12, align 4
@@ -697,7 +697,7 @@ define internal range(i32 -1, 1) i32 @H5O__fill_pre_copy_file(ptr nocapture read
 15:                                               ; preds = %5
   %16 = load i64, ptr @H5E_OHDR_g, align 8
   %17 = load i64, ptr @H5E_BADRANGE_g, align 8
-  %18 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.H5O__fill_pre_copy_file, i32 noundef 824, i64 noundef %16, i64 noundef %17, ptr noundef nonnull @.str.59) #8
+  %18 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.H5O__fill_pre_copy_file, i32 noundef 824, i64 noundef %16, i64 noundef %17, ptr noundef nonnull @.str.59) #9
   br label %19
 
 19:                                               ; preds = %5, %15
@@ -714,20 +714,20 @@ define internal noundef ptr @H5O__fill_shared_copy_file(ptr noundef %0, ptr noun
 10:                                               ; preds = %7
   %11 = load i64, ptr @H5E_OHDR_g, align 8
   %12 = load i64, ptr @H5E_CANTCOPY_g, align 8
-  %13 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.10, ptr noundef nonnull @__func__.H5O__fill_shared_copy_file, i32 noundef 307, i64 noundef %11, i64 noundef %12, ptr noundef nonnull @.str.25) #8
+  %13 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.10, ptr noundef nonnull @__func__.H5O__fill_shared_copy_file, i32 noundef 307, i64 noundef %11, i64 noundef %12, ptr noundef nonnull @.str.25) #9
   br label %.thread
 
 14:                                               ; preds = %7
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %8, i8 0, i64 40, i1 false)
-  %15 = tail call i32 @H5O__shared_copy_file(ptr noundef %0, ptr noundef %2, ptr noundef nonnull @H5O_MSG_FILL, ptr noundef %1, ptr noundef nonnull %8, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) #8
+  %15 = tail call i32 @H5O__shared_copy_file(ptr noundef %0, ptr noundef %2, ptr noundef nonnull @H5O_MSG_FILL, ptr noundef %1, ptr noundef nonnull %8, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) #9
   %16 = icmp slt i32 %15, 0
   br i1 %16, label %17, label %.thread
 
 17:                                               ; preds = %14
   %18 = load i64, ptr @H5E_OHDR_g, align 8
   %19 = load i64, ptr @H5E_WRITEERROR_g, align 8
-  %20 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.10, ptr noundef nonnull @__func__.H5O__fill_shared_copy_file, i32 noundef 316, i64 noundef %18, i64 noundef %19, ptr noundef nonnull @.str.26) #8
-  %21 = tail call ptr @H5O_msg_free(i32 noundef 4, ptr noundef nonnull %8) #8
+  %20 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.10, ptr noundef nonnull @__func__.H5O__fill_shared_copy_file, i32 noundef 316, i64 noundef %18, i64 noundef %19, ptr noundef nonnull @.str.26) #9
+  %21 = tail call ptr @H5O_msg_free(i32 noundef 4, ptr noundef nonnull %8) #9
   br label %.thread
 
 .thread:                                          ; preds = %10, %14, %17
@@ -738,14 +738,14 @@ define internal noundef ptr @H5O__fill_shared_copy_file(ptr noundef %0, ptr noun
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @H5O__fill_shared_post_copy_file(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = load ptr, ptr %2, align 8
-  %8 = tail call i32 @H5O__shared_post_copy_file(ptr noundef %7, ptr noundef nonnull @H5O_MSG_FILL, ptr noundef %1, ptr noundef %3, ptr noundef %4, ptr noundef %5) #8
+  %8 = tail call i32 @H5O__shared_post_copy_file(ptr noundef %7, ptr noundef nonnull @H5O_MSG_FILL, ptr noundef %1, ptr noundef %3, ptr noundef %4, ptr noundef %5) #9
   %9 = icmp slt i32 %8, 0
   br i1 %9, label %10, label %14
 
 10:                                               ; preds = %6
   %11 = load i64, ptr @H5E_OHDR_g, align 8
   %12 = load i64, ptr @H5E_WRITEERROR_g, align 8
-  %13 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.10, ptr noundef nonnull @__func__.H5O__fill_shared_post_copy_file, i32 noundef 376, i64 noundef %11, i64 noundef %12, ptr noundef nonnull @.str.27) #8
+  %13 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.10, ptr noundef nonnull @__func__.H5O__fill_shared_post_copy_file, i32 noundef 376, i64 noundef %11, i64 noundef %12, ptr noundef nonnull @.str.27) #9
   br label %14
 
 14:                                               ; preds = %6, %10
@@ -761,14 +761,14 @@ define internal range(i32 -1, 1) i32 @H5O__fill_shared_debug(ptr nocapture readn
   br i1 %switch, label %7, label %14
 
 7:                                                ; preds = %5
-  %8 = tail call i32 @H5O__shared_debug(ptr noundef nonnull %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #8
+  %8 = tail call i32 @H5O__shared_debug(ptr noundef nonnull %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #9
   %9 = icmp slt i32 %8, 0
   br i1 %9, label %10, label %14
 
 10:                                               ; preds = %7
   %11 = load i64, ptr @H5E_OHDR_g, align 8
   %12 = load i64, ptr @H5E_WRITEERROR_g, align 8
-  %13 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.10, ptr noundef nonnull @__func__.H5O__fill_shared_debug, i32 noundef 428, i64 noundef %11, i64 noundef %12, ptr noundef nonnull @.str.28) #8
+  %13 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.10, ptr noundef nonnull @__func__.H5O__fill_shared_debug, i32 noundef 428, i64 noundef %11, i64 noundef %12, ptr noundef nonnull @.str.28) #9
   br label %15
 
 14:                                               ; preds = %5, %7
@@ -787,14 +787,14 @@ define internal ptr @H5O__fill_new_shared_decode(ptr noundef %0, ptr noundef %1,
   br i1 %.not, label %18, label %8
 
 8:                                                ; preds = %6
-  %9 = tail call ptr @H5O__shared_decode(ptr noundef %0, ptr noundef %1, ptr noundef %3, i64 noundef %4, ptr noundef %5, ptr noundef nonnull @H5O_MSG_FILL_NEW) #8
+  %9 = tail call ptr @H5O__shared_decode(ptr noundef %0, ptr noundef %1, ptr noundef %3, i64 noundef %4, ptr noundef %5, ptr noundef nonnull @H5O_MSG_FILL_NEW) #9
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %15
 
 11:                                               ; preds = %8
   %12 = load i64, ptr @H5E_OHDR_g, align 8
   %13 = load i64, ptr @H5E_CANTDECODE_g, align 8
-  %14 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.10, ptr noundef nonnull @__func__.H5O__fill_new_shared_decode, i32 noundef 61, i64 noundef %12, i64 noundef %13, ptr noundef nonnull @.str.11) #8
+  %14 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.10, ptr noundef nonnull @__func__.H5O__fill_new_shared_decode, i32 noundef 61, i64 noundef %12, i64 noundef %13, ptr noundef nonnull @.str.11) #9
   br label %H5O__fill_new_decode.exit.thread
 
 15:                                               ; preds = %8
@@ -806,14 +806,14 @@ define internal ptr @H5O__fill_new_shared_decode(ptr noundef %0, ptr noundef %1,
 18:                                               ; preds = %6
   %19 = getelementptr i8, ptr %5, i64 %4
   %.ptr132.i = getelementptr i8, ptr %19, i64 -1
-  %20 = tail call noalias ptr @H5FL_reg_calloc(ptr noundef nonnull @H5_H5O_fill_t_reg_free_list) #8
+  %20 = tail call noalias ptr @H5FL_reg_calloc(ptr noundef nonnull @H5_H5O_fill_t_reg_free_list) #9
   %21 = icmp eq ptr %20, null
   br i1 %21, label %22, label %26
 
 22:                                               ; preds = %18
   %23 = load i64, ptr @H5E_RESOURCE_g, align 8
   %24 = load i64, ptr @H5E_NOSPACE_g, align 8
-  %25 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.H5O__fill_new_decode, i32 noundef 202, i64 noundef %23, i64 noundef %24, ptr noundef nonnull @.str.13) #8
+  %25 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.H5O__fill_new_decode, i32 noundef 202, i64 noundef %23, i64 noundef %24, ptr noundef nonnull @.str.13) #9
   br label %H5O__fill_new_decode.exit
 
 26:                                               ; preds = %18
@@ -830,7 +830,7 @@ define internal ptr @H5O__fill_new_shared_decode(ptr noundef %0, ptr noundef %1,
 33:                                               ; preds = %28, %26
   %34 = load i64, ptr @H5E_OHDR_g, align 8
   %35 = load i64, ptr @H5E_OVERFLOW_g, align 8
-  %36 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.H5O__fill_new_decode, i32 noundef 206, i64 noundef %34, i64 noundef %35, ptr noundef nonnull @.str.14) #8
+  %36 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.H5O__fill_new_decode, i32 noundef 206, i64 noundef %34, i64 noundef %35, ptr noundef nonnull @.str.14) #9
   br label %199
 
 37:                                               ; preds = %28
@@ -846,7 +846,7 @@ define internal ptr @H5O__fill_new_shared_decode(ptr noundef %0, ptr noundef %1,
 43:                                               ; preds = %37
   %44 = load i64, ptr @H5E_OHDR_g, align 8
   %45 = load i64, ptr @H5E_CANTLOAD_g, align 8
-  %46 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.H5O__fill_new_decode, i32 noundef 209, i64 noundef %44, i64 noundef %45, ptr noundef nonnull @.str.50) #8
+  %46 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.H5O__fill_new_decode, i32 noundef 209, i64 noundef %44, i64 noundef %45, ptr noundef nonnull @.str.50) #9
   br label %199
 
 47:                                               ; preds = %37
@@ -867,7 +867,7 @@ define internal ptr @H5O__fill_new_shared_decode(ptr noundef %0, ptr noundef %1,
 54:                                               ; preds = %50, %48
   %55 = load i64, ptr @H5E_OHDR_g, align 8
   %56 = load i64, ptr @H5E_OVERFLOW_g, align 8
-  %57 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.H5O__fill_new_decode, i32 noundef 218, i64 noundef %55, i64 noundef %56, ptr noundef nonnull @.str.14) #8
+  %57 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.H5O__fill_new_decode, i32 noundef 218, i64 noundef %55, i64 noundef %56, ptr noundef nonnull @.str.14) #9
   br label %199
 
 58:                                               ; preds = %50
@@ -903,7 +903,7 @@ define internal ptr @H5O__fill_new_shared_decode(ptr noundef %0, ptr noundef %1,
 78:                                               ; preds = %74, %72
   %79 = load i64, ptr @H5E_OHDR_g, align 8
   %80 = load i64, ptr @H5E_OVERFLOW_g, align 8
-  %81 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.H5O__fill_new_decode, i32 noundef 233, i64 noundef %79, i64 noundef %80, ptr noundef nonnull @.str.14) #8
+  %81 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.H5O__fill_new_decode, i32 noundef 233, i64 noundef %79, i64 noundef %80, ptr noundef nonnull @.str.14) #9
   br label %199
 
 82:                                               ; preds = %74
@@ -940,11 +940,11 @@ define internal ptr @H5O__fill_new_shared_decode(ptr noundef %0, ptr noundef %1,
 105:                                              ; preds = %101, %99
   %106 = load i64, ptr @H5E_OHDR_g, align 8
   %107 = load i64, ptr @H5E_OVERFLOW_g, align 8
-  %108 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.H5O__fill_new_decode, i32 noundef 240, i64 noundef %106, i64 noundef %107, ptr noundef nonnull @.str.14) #8
+  %108 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.H5O__fill_new_decode, i32 noundef 240, i64 noundef %106, i64 noundef %107, ptr noundef nonnull @.str.14) #9
   br label %199
 
 109:                                              ; preds = %101
-  %110 = tail call noalias ptr @malloc(i64 noundef %96) #9
+  %110 = tail call noalias ptr @malloc(i64 noundef %96) #10
   %111 = getelementptr inbounds i8, ptr %20, i64 64
   store ptr %110, ptr %111, align 8
   %112 = icmp eq ptr %110, null
@@ -953,7 +953,7 @@ define internal ptr @H5O__fill_new_shared_decode(ptr noundef %0, ptr noundef %1,
 113:                                              ; preds = %109
   %114 = load i64, ptr @H5E_RESOURCE_g, align 8
   %115 = load i64, ptr @H5E_NOSPACE_g, align 8
-  %116 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.H5O__fill_new_decode, i32 noundef 243, i64 noundef %114, i64 noundef %115, ptr noundef nonnull @.str.18) #8
+  %116 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.H5O__fill_new_decode, i32 noundef 243, i64 noundef %114, i64 noundef %115, ptr noundef nonnull @.str.18) #9
   br label %199
 
 117:                                              ; preds = %109
@@ -976,7 +976,7 @@ define internal ptr @H5O__fill_new_shared_decode(ptr noundef %0, ptr noundef %1,
 125:                                              ; preds = %120
   %126 = load i64, ptr @H5E_OHDR_g, align 8
   %127 = load i64, ptr @H5E_OVERFLOW_g, align 8
-  %128 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.H5O__fill_new_decode, i32 noundef 258, i64 noundef %126, i64 noundef %127, ptr noundef nonnull @.str.14) #8
+  %128 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.H5O__fill_new_decode, i32 noundef 258, i64 noundef %126, i64 noundef %127, ptr noundef nonnull @.str.14) #9
   br label %199
 
 129:                                              ; preds = %120
@@ -988,7 +988,7 @@ define internal ptr @H5O__fill_new_shared_decode(ptr noundef %0, ptr noundef %1,
 132:                                              ; preds = %129
   %133 = load i64, ptr @H5E_OHDR_g, align 8
   %134 = load i64, ptr @H5E_CANTLOAD_g, align 8
-  %135 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.H5O__fill_new_decode, i32 noundef 263, i64 noundef %133, i64 noundef %134, ptr noundef nonnull @.str.51) #8
+  %135 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.H5O__fill_new_decode, i32 noundef 263, i64 noundef %133, i64 noundef %134, ptr noundef nonnull @.str.51) #9
   br label %199
 
 136:                                              ; preds = %129
@@ -1011,7 +1011,7 @@ define internal ptr @H5O__fill_new_shared_decode(ptr noundef %0, ptr noundef %1,
 145:                                              ; preds = %144
   %146 = load i64, ptr @H5E_OHDR_g, align 8
   %147 = load i64, ptr @H5E_CANTLOAD_g, align 8
-  %148 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.H5O__fill_new_decode, i32 noundef 276, i64 noundef %146, i64 noundef %147, ptr noundef nonnull @.str.52) #8
+  %148 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.H5O__fill_new_decode, i32 noundef 276, i64 noundef %146, i64 noundef %147, ptr noundef nonnull @.str.52) #9
   br label %199
 
 149:                                              ; preds = %144
@@ -1036,7 +1036,7 @@ define internal ptr @H5O__fill_new_shared_decode(ptr noundef %0, ptr noundef %1,
 158:                                              ; preds = %154, %152
   %159 = load i64, ptr @H5E_OHDR_g, align 8
   %160 = load i64, ptr @H5E_OVERFLOW_g, align 8
-  %161 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.H5O__fill_new_decode, i32 noundef 284, i64 noundef %159, i64 noundef %160, ptr noundef nonnull @.str.14) #8
+  %161 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.H5O__fill_new_decode, i32 noundef 284, i64 noundef %159, i64 noundef %160, ptr noundef nonnull @.str.14) #9
   br label %199
 
 162:                                              ; preds = %154
@@ -1072,11 +1072,11 @@ define internal ptr @H5O__fill_new_shared_decode(ptr noundef %0, ptr noundef %1,
 183:                                              ; preds = %179, %177
   %184 = load i64, ptr @H5E_OHDR_g, align 8
   %185 = load i64, ptr @H5E_OVERFLOW_g, align 8
-  %186 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.H5O__fill_new_decode, i32 noundef 291, i64 noundef %184, i64 noundef %185, ptr noundef nonnull @.str.14) #8
+  %186 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.H5O__fill_new_decode, i32 noundef 291, i64 noundef %184, i64 noundef %185, ptr noundef nonnull @.str.14) #9
   br label %199
 
 187:                                              ; preds = %179, %162
-  %188 = tail call noalias ptr @malloc(i64 noundef %175) #9
+  %188 = tail call noalias ptr @malloc(i64 noundef %175) #10
   %189 = getelementptr inbounds i8, ptr %20, i64 64
   store ptr %188, ptr %189, align 8
   %190 = icmp eq ptr %188, null
@@ -1085,7 +1085,7 @@ define internal ptr @H5O__fill_new_shared_decode(ptr noundef %0, ptr noundef %1,
 191:                                              ; preds = %187
   %192 = load i64, ptr @H5E_RESOURCE_g, align 8
   %193 = load i64, ptr @H5E_NOSPACE_g, align 8
-  %194 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.H5O__fill_new_decode, i32 noundef 294, i64 noundef %192, i64 noundef %193, ptr noundef nonnull @.str.18) #8
+  %194 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.H5O__fill_new_decode, i32 noundef 294, i64 noundef %192, i64 noundef %193, ptr noundef nonnull @.str.18) #9
   br label %199
 
 195:                                              ; preds = %187
@@ -1102,14 +1102,14 @@ define internal ptr @H5O__fill_new_shared_decode(ptr noundef %0, ptr noundef %1,
 199:                                              ; preds = %191, %183, %158, %145, %132, %125, %113, %105, %78, %54, %43, %33
   %200 = getelementptr inbounds i8, ptr %20, i64 64
   %201 = load ptr, ptr %200, align 8
-  %202 = tail call ptr @H5MM_xfree(ptr noundef %201) #8
-  %203 = tail call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5O_fill_t_reg_free_list, ptr noundef nonnull %20) #8
+  %202 = tail call ptr @H5MM_xfree(ptr noundef %201) #9
+  %203 = tail call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5O_fill_t_reg_free_list, ptr noundef nonnull %20) #9
   br label %H5O__fill_new_decode.exit
 
 H5O__fill_new_decode.exit:                        ; preds = %199, %22
   %204 = load i64, ptr @H5E_OHDR_g, align 8
   %205 = load i64, ptr @H5E_CANTDECODE_g, align 8
-  %206 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.10, ptr noundef nonnull @__func__.H5O__fill_new_shared_decode, i32 noundef 74, i64 noundef %204, i64 noundef %205, ptr noundef nonnull @.str.12) #8
+  %206 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.10, ptr noundef nonnull @__func__.H5O__fill_new_shared_decode, i32 noundef 74, i64 noundef %204, i64 noundef %205, ptr noundef nonnull @.str.12) #9
   br label %H5O__fill_new_decode.exit.thread
 
 H5O__fill_new_decode.exit.thread:                 ; preds = %149, %197, %195, %118, %117, %82, %15, %H5O__fill_new_decode.exit, %11
@@ -1126,14 +1126,14 @@ define internal range(i32 -1, 1) i32 @H5O__fill_new_shared_encode(ptr noundef %0
   br i1 %brmerge, label %15, label %8
 
 8:                                                ; preds = %5
-  %9 = tail call i32 @H5O__shared_encode(ptr noundef %0, ptr noundef %3, ptr noundef nonnull %4) #8
+  %9 = tail call i32 @H5O__shared_encode(ptr noundef %0, ptr noundef %3, ptr noundef nonnull %4) #9
   %10 = icmp slt i32 %9, 0
   br i1 %10, label %11, label %H5O__fill_new_encode.exit
 
 11:                                               ; preds = %8
   %12 = load i64, ptr @H5E_OHDR_g, align 8
   %13 = load i64, ptr @H5E_CANTENCODE_g, align 8
-  %14 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.10, ptr noundef nonnull @__func__.H5O__fill_new_shared_encode, i32 noundef 119, i64 noundef %12, i64 noundef %13, ptr noundef nonnull @.str.19) #8
+  %14 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.10, ptr noundef nonnull @__func__.H5O__fill_new_shared_encode, i32 noundef 119, i64 noundef %12, i64 noundef %13, ptr noundef nonnull @.str.19) #9
   br label %H5O__fill_new_encode.exit
 
 15:                                               ; preds = %5
@@ -1270,40 +1270,45 @@ define internal i64 @H5O__fill_new_shared_size(ptr noundef %0, i1 noundef zeroex
   br i1 %brmerge, label %13, label %6
 
 6:                                                ; preds = %3
-  %7 = tail call i64 @H5O__shared_size(ptr noundef %0, ptr noundef nonnull %2) #8
+  %7 = tail call i64 @H5O__shared_size(ptr noundef %0, ptr noundef nonnull %2) #9
   %8 = icmp eq i64 %7, 0
   br i1 %8, label %9, label %H5O__fill_new_size.exit
 
 9:                                                ; preds = %6
   %10 = load i64, ptr @H5E_OHDR_g, align 8
   %11 = load i64, ptr @H5E_CANTGET_g, align 8
-  %12 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.10, ptr noundef nonnull @__func__.H5O__fill_new_shared_size, i32 noundef 167, i64 noundef %10, i64 noundef %11, ptr noundef nonnull @.str.21) #8
+  %12 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.10, ptr noundef nonnull @__func__.H5O__fill_new_shared_size, i32 noundef 167, i64 noundef %10, i64 noundef %11, ptr noundef nonnull @.str.21) #9
   br label %H5O__fill_new_size.exit
 
 13:                                               ; preds = %3
   %14 = getelementptr inbounds i8, ptr %2, i64 40
   %15 = load i32, ptr %14, align 8
   %16 = icmp ult i32 %15, 3
-  br i1 %16, label %17, label %.sink.split.i
+  br i1 %16, label %17, label %25
 
 17:                                               ; preds = %13
   %18 = getelementptr inbounds i8, ptr %2, i64 80
   %19 = load i8, ptr %18, align 8
   %20 = trunc i8 %19 to i1
-  br i1 %20, label %.sink.split.i, label %H5O__fill_new_size.exit
+  br i1 %20, label %21, label %H5O__fill_new_size.exit
 
-.sink.split.i:                                    ; preds = %17, %13
-  %.sink4.i = phi i64 [ 8, %17 ], [ 6, %13 ]
-  %.sink2.i = phi i64 [ 8, %17 ], [ 2, %13 ]
-  %21 = getelementptr inbounds i8, ptr %2, i64 56
-  %22 = load i64, ptr %21, align 8
-  %23 = icmp sgt i64 %22, 0
-  %24 = add nuw i64 %22, %.sink4.i
-  %spec.select11.i = select i1 %23, i64 %24, i64 %.sink2.i
+21:                                               ; preds = %17
+  %22 = getelementptr inbounds i8, ptr %2, i64 56
+  %23 = load i64, ptr %22, align 8
+  %24 = tail call i64 @llvm.smax.i64(i64 %23, i64 0)
+  %spec.select.i = add nuw i64 %24, 8
   br label %H5O__fill_new_size.exit
 
-H5O__fill_new_size.exit:                          ; preds = %.sink.split.i, %17, %6, %9
-  %.0 = phi i64 [ 0, %9 ], [ %7, %6 ], [ 4, %17 ], [ %spec.select11.i, %.sink.split.i ]
+25:                                               ; preds = %13
+  %26 = getelementptr inbounds i8, ptr %2, i64 56
+  %27 = load i64, ptr %26, align 8
+  %28 = icmp sgt i64 %27, 0
+  %29 = add nuw i64 %27, 6
+  %spec.select11.i = select i1 %28, i64 %29, i64 2
+  br label %H5O__fill_new_size.exit
+
+H5O__fill_new_size.exit:                          ; preds = %25, %21, %17, %6, %9
+  %.0 = phi i64 [ 0, %9 ], [ %7, %6 ], [ %spec.select.i, %21 ], [ 4, %17 ], [ %spec.select11.i, %25 ]
   ret i64 %.0
 }
 
@@ -1314,14 +1319,14 @@ define internal range(i32 -1, 1) i32 @H5O__fill_new_shared_delete(ptr noundef %0
   br i1 %.not, label %12, label %5
 
 5:                                                ; preds = %3
-  %6 = tail call i32 @H5O__shared_delete(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @H5O_MSG_FILL_NEW, ptr noundef nonnull %2) #8
+  %6 = tail call i32 @H5O__shared_delete(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @H5O_MSG_FILL_NEW, ptr noundef nonnull %2) #9
   %7 = icmp slt i32 %6, 0
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %5
   %9 = load i64, ptr @H5E_OHDR_g, align 8
   %10 = load i64, ptr @H5E_CANTDEC_g, align 8
-  %11 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.10, ptr noundef nonnull @__func__.H5O__fill_new_shared_delete, i32 noundef 211, i64 noundef %9, i64 noundef %10, ptr noundef nonnull @.str.23) #8
+  %11 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.10, ptr noundef nonnull @__func__.H5O__fill_new_shared_delete, i32 noundef 211, i64 noundef %9, i64 noundef %10, ptr noundef nonnull @.str.23) #9
   br label %12
 
 12:                                               ; preds = %3, %5, %8
@@ -1336,14 +1341,14 @@ define internal range(i32 -1, 1) i32 @H5O__fill_new_shared_link(ptr noundef %0, 
   br i1 %.not, label %12, label %5
 
 5:                                                ; preds = %3
-  %6 = tail call i32 @H5O__shared_link(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @H5O_MSG_FILL_NEW, ptr noundef nonnull %2) #8
+  %6 = tail call i32 @H5O__shared_link(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @H5O_MSG_FILL_NEW, ptr noundef nonnull %2) #9
   %7 = icmp slt i32 %6, 0
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %5
   %9 = load i64, ptr @H5E_OHDR_g, align 8
   %10 = load i64, ptr @H5E_CANTINC_g, align 8
-  %11 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.10, ptr noundef nonnull @__func__.H5O__fill_new_shared_link, i32 noundef 257, i64 noundef %9, i64 noundef %10, ptr noundef nonnull @.str.24) #8
+  %11 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.10, ptr noundef nonnull @__func__.H5O__fill_new_shared_link, i32 noundef 257, i64 noundef %9, i64 noundef %10, ptr noundef nonnull @.str.24) #9
   br label %12
 
 12:                                               ; preds = %3, %5, %8
@@ -1360,20 +1365,20 @@ define internal noundef ptr @H5O__fill_new_shared_copy_file(ptr noundef %0, ptr 
 10:                                               ; preds = %7
   %11 = load i64, ptr @H5E_OHDR_g, align 8
   %12 = load i64, ptr @H5E_CANTCOPY_g, align 8
-  %13 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.10, ptr noundef nonnull @__func__.H5O__fill_new_shared_copy_file, i32 noundef 307, i64 noundef %11, i64 noundef %12, ptr noundef nonnull @.str.25) #8
+  %13 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.10, ptr noundef nonnull @__func__.H5O__fill_new_shared_copy_file, i32 noundef 307, i64 noundef %11, i64 noundef %12, ptr noundef nonnull @.str.25) #9
   br label %.thread
 
 14:                                               ; preds = %7
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %8, i8 0, i64 40, i1 false)
-  %15 = tail call i32 @H5O__shared_copy_file(ptr noundef %0, ptr noundef %2, ptr noundef nonnull @H5O_MSG_FILL_NEW, ptr noundef %1, ptr noundef nonnull %8, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) #8
+  %15 = tail call i32 @H5O__shared_copy_file(ptr noundef %0, ptr noundef %2, ptr noundef nonnull @H5O_MSG_FILL_NEW, ptr noundef %1, ptr noundef nonnull %8, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) #9
   %16 = icmp slt i32 %15, 0
   br i1 %16, label %17, label %.thread
 
 17:                                               ; preds = %14
   %18 = load i64, ptr @H5E_OHDR_g, align 8
   %19 = load i64, ptr @H5E_WRITEERROR_g, align 8
-  %20 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.10, ptr noundef nonnull @__func__.H5O__fill_new_shared_copy_file, i32 noundef 316, i64 noundef %18, i64 noundef %19, ptr noundef nonnull @.str.26) #8
-  %21 = tail call ptr @H5O_msg_free(i32 noundef 5, ptr noundef nonnull %8) #8
+  %20 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.10, ptr noundef nonnull @__func__.H5O__fill_new_shared_copy_file, i32 noundef 316, i64 noundef %18, i64 noundef %19, ptr noundef nonnull @.str.26) #9
+  %21 = tail call ptr @H5O_msg_free(i32 noundef 5, ptr noundef nonnull %8) #9
   br label %.thread
 
 .thread:                                          ; preds = %10, %14, %17
@@ -1384,14 +1389,14 @@ define internal noundef ptr @H5O__fill_new_shared_copy_file(ptr noundef %0, ptr 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @H5O__fill_new_shared_post_copy_file(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = load ptr, ptr %2, align 8
-  %8 = tail call i32 @H5O__shared_post_copy_file(ptr noundef %7, ptr noundef nonnull @H5O_MSG_FILL_NEW, ptr noundef %1, ptr noundef %3, ptr noundef %4, ptr noundef %5) #8
+  %8 = tail call i32 @H5O__shared_post_copy_file(ptr noundef %7, ptr noundef nonnull @H5O_MSG_FILL_NEW, ptr noundef %1, ptr noundef %3, ptr noundef %4, ptr noundef %5) #9
   %9 = icmp slt i32 %8, 0
   br i1 %9, label %10, label %14
 
 10:                                               ; preds = %6
   %11 = load i64, ptr @H5E_OHDR_g, align 8
   %12 = load i64, ptr @H5E_WRITEERROR_g, align 8
-  %13 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.10, ptr noundef nonnull @__func__.H5O__fill_new_shared_post_copy_file, i32 noundef 376, i64 noundef %11, i64 noundef %12, ptr noundef nonnull @.str.27) #8
+  %13 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.10, ptr noundef nonnull @__func__.H5O__fill_new_shared_post_copy_file, i32 noundef 376, i64 noundef %11, i64 noundef %12, ptr noundef nonnull @.str.27) #9
   br label %14
 
 14:                                               ; preds = %6, %10
@@ -1407,14 +1412,14 @@ define internal range(i32 -1, 1) i32 @H5O__fill_new_shared_debug(ptr nocapture r
   br i1 %switch, label %7, label %14
 
 7:                                                ; preds = %5
-  %8 = tail call i32 @H5O__shared_debug(ptr noundef nonnull %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #8
+  %8 = tail call i32 @H5O__shared_debug(ptr noundef nonnull %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #9
   %9 = icmp slt i32 %8, 0
   br i1 %9, label %10, label %14
 
 10:                                               ; preds = %7
   %11 = load i64, ptr @H5E_OHDR_g, align 8
   %12 = load i64, ptr @H5E_WRITEERROR_g, align 8
-  %13 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.10, ptr noundef nonnull @__func__.H5O__fill_new_shared_debug, i32 noundef 428, i64 noundef %11, i64 noundef %12, ptr noundef nonnull @.str.28) #8
+  %13 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.10, ptr noundef nonnull @__func__.H5O__fill_new_shared_debug, i32 noundef 428, i64 noundef %11, i64 noundef %12, ptr noundef nonnull @.str.28) #9
   br label %15
 
 14:                                               ; preds = %5, %7
@@ -1440,38 +1445,38 @@ define range(i32 -1, 1) i32 @H5O_fill_reset_dyn(ptr nocapture noundef %0) local_
   br i1 %.not19, label %27, label %7
 
 7:                                                ; preds = %4
-  %8 = tail call i32 @H5T_detect_class(ptr noundef nonnull %6, i32 noundef 9, i1 noundef zeroext false) #8
+  %8 = tail call i32 @H5T_detect_class(ptr noundef nonnull %6, i32 noundef 9, i1 noundef zeroext false) #9
   %9 = icmp sgt i32 %8, 0
   br i1 %9, label %10, label %27
 
 10:                                               ; preds = %7
-  %11 = tail call ptr @H5S_create(i32 noundef 0) #8
+  %11 = tail call ptr @H5S_create(i32 noundef 0) #9
   %12 = icmp eq ptr %11, null
   br i1 %12, label %13, label %17
 
 13:                                               ; preds = %10
   %14 = load i64, ptr @H5E_OHDR_g, align 8
   %15 = load i64, ptr @H5E_CANTCREATE_g, align 8
-  %16 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.H5O_fill_reset_dyn, i32 noundef 722, i64 noundef %14, i64 noundef %15, ptr noundef nonnull @.str.4) #8
+  %16 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.H5O_fill_reset_dyn, i32 noundef 722, i64 noundef %14, i64 noundef %15, ptr noundef nonnull @.str.4) #9
   br label %36
 
 17:                                               ; preds = %10
   %18 = load ptr, ptr %5, align 8
   %19 = load ptr, ptr %2, align 8
-  %20 = tail call i32 @H5T_reclaim(ptr noundef %18, ptr noundef nonnull %11, ptr noundef %19) #8
+  %20 = tail call i32 @H5T_reclaim(ptr noundef %18, ptr noundef nonnull %11, ptr noundef %19) #9
   %21 = icmp slt i32 %20, 0
-  %22 = tail call i32 @H5S_close(ptr noundef nonnull %11) #8
+  %22 = tail call i32 @H5S_close(ptr noundef nonnull %11) #9
   br i1 %21, label %23, label %27
 
 23:                                               ; preds = %17
   %24 = load i64, ptr @H5E_OHDR_g, align 8
   %25 = load i64, ptr @H5E_BADITER_g, align 8
-  %26 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.H5O_fill_reset_dyn, i32 noundef 727, i64 noundef %24, i64 noundef %25, ptr noundef nonnull @.str.5) #8
+  %26 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.H5O_fill_reset_dyn, i32 noundef 727, i64 noundef %24, i64 noundef %25, ptr noundef nonnull @.str.5) #9
   br label %36
 
 27:                                               ; preds = %17, %7, %4
   %28 = load ptr, ptr %2, align 8
-  %29 = tail call ptr @H5MM_xfree(ptr noundef %28) #8
+  %29 = tail call ptr @H5MM_xfree(ptr noundef %28) #9
   store ptr %29, ptr %2, align 8
   br label %30
 
@@ -1484,7 +1489,7 @@ define range(i32 -1, 1) i32 @H5O_fill_reset_dyn(ptr nocapture noundef %0) local_
   br i1 %.not20, label %36, label %34
 
 34:                                               ; preds = %30
-  %35 = tail call i32 @H5T_close_real(ptr noundef nonnull %33) #8
+  %35 = tail call i32 @H5T_close_real(ptr noundef nonnull %33) #9
   store ptr null, ptr %32, align 8
   br label %36
 
@@ -1521,7 +1526,7 @@ define range(i32 -1, 1) i32 @H5O_fill_convert(ptr nocapture noundef %0, ptr noun
   br i1 %.not50, label %12, label %9
 
 9:                                                ; preds = %6
-  %10 = tail call i32 @H5T_cmp(ptr noundef nonnull %8, ptr noundef %1, i1 noundef zeroext false) #8
+  %10 = tail call i32 @H5T_cmp(ptr noundef nonnull %8, ptr noundef %1, i1 noundef zeroext false) #9
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %12, label %18
 
@@ -1532,7 +1537,7 @@ define range(i32 -1, 1) i32 @H5O_fill_convert(ptr nocapture noundef %0, ptr noun
   br i1 %.not52, label %17, label %15
 
 15:                                               ; preds = %12
-  %16 = tail call i32 @H5T_close_real(ptr noundef nonnull %14) #8
+  %16 = tail call i32 @H5T_close_real(ptr noundef nonnull %14) #9
   br label %17
 
 17:                                               ; preds = %15, %12
@@ -1542,86 +1547,86 @@ define range(i32 -1, 1) i32 @H5O_fill_convert(ptr nocapture noundef %0, ptr noun
 
 18:                                               ; preds = %9
   %19 = load ptr, ptr %7, align 8
-  %20 = tail call ptr @H5T_path_find(ptr noundef %19, ptr noundef %1) #8
+  %20 = tail call ptr @H5T_path_find(ptr noundef %19, ptr noundef %1) #9
   %21 = icmp eq ptr %20, null
   br i1 %21, label %22, label %26
 
 22:                                               ; preds = %18
   %23 = load i64, ptr @H5E_OHDR_g, align 8
   %24 = load i64, ptr @H5E_CANTINIT_g, align 8
-  %25 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.H5O_fill_convert, i32 noundef 968, i64 noundef %23, i64 noundef %24, ptr noundef nonnull @.str.6) #8
+  %25 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.H5O_fill_convert, i32 noundef 968, i64 noundef %23, i64 noundef %24, ptr noundef nonnull @.str.6) #9
   br label %.thread
 
 26:                                               ; preds = %18
-  %27 = tail call zeroext i1 @H5T_path_noop(ptr noundef nonnull %20) #8
+  %27 = tail call zeroext i1 @H5T_path_noop(ptr noundef nonnull %20) #9
   br i1 %27, label %.thread, label %28
 
 28:                                               ; preds = %26
   %29 = load ptr, ptr %7, align 8
-  %30 = tail call i64 @H5T_get_size(ptr noundef %29) #8
-  %31 = tail call i64 @H5T_get_size(ptr noundef %1) #8
+  %30 = tail call i64 @H5T_get_size(ptr noundef %29) #9
+  %31 = tail call i64 @H5T_get_size(ptr noundef %1) #9
   %32 = icmp ugt i64 %30, %31
   br i1 %32, label %35, label %33
 
 33:                                               ; preds = %28
-  %34 = tail call i64 @H5T_get_size(ptr noundef %1) #8
+  %34 = tail call i64 @H5T_get_size(ptr noundef %1) #9
   br label %35
 
 35:                                               ; preds = %28, %33
   %36 = phi i64 [ %34, %33 ], [ %30, %28 ]
-  %37 = tail call noalias ptr @malloc(i64 noundef %36) #9
+  %37 = tail call noalias ptr @malloc(i64 noundef %36) #10
   %38 = icmp eq ptr %37, null
   br i1 %38, label %39, label %43
 
 39:                                               ; preds = %35
   %40 = load i64, ptr @H5E_RESOURCE_g, align 8
   %41 = load i64, ptr @H5E_NOSPACE_g, align 8
-  %42 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.H5O_fill_convert, i32 noundef 981, i64 noundef %40, i64 noundef %41, ptr noundef nonnull @.str.7) #8
+  %42 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.H5O_fill_convert, i32 noundef 981, i64 noundef %40, i64 noundef %41, ptr noundef nonnull @.str.7) #9
   br label %.thread
 
 43:                                               ; preds = %35
   %44 = load ptr, ptr %4, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %37, ptr align 1 %44, i64 %30, i1 false)
-  %45 = tail call i32 @H5T_path_bkg(ptr noundef nonnull %20) #8
+  %45 = tail call i32 @H5T_path_bkg(ptr noundef nonnull %20) #9
   %.not51 = icmp eq i32 %45, 0
   br i1 %.not51, label %54, label %46
 
 46:                                               ; preds = %43
-  %47 = tail call i64 @H5T_get_size(ptr noundef %1) #8
-  %48 = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef %47) #10
+  %47 = tail call i64 @H5T_get_size(ptr noundef %1) #9
+  %48 = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef %47) #11
   %49 = icmp eq ptr %48, null
   br i1 %49, label %50, label %54
 
 50:                                               ; preds = %46
   %51 = load i64, ptr @H5E_RESOURCE_g, align 8
   %52 = load i64, ptr @H5E_NOSPACE_g, align 8
-  %53 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.H5O_fill_convert, i32 noundef 987, i64 noundef %51, i64 noundef %52, ptr noundef nonnull @.str.7) #8
+  %53 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.H5O_fill_convert, i32 noundef 987, i64 noundef %51, i64 noundef %52, ptr noundef nonnull @.str.7) #9
   br label %.thread
 
 54:                                               ; preds = %46, %43
   %.1 = phi ptr [ %48, %46 ], [ null, %43 ]
   %55 = load ptr, ptr %7, align 8
-  %56 = tail call i32 @H5T_convert(ptr noundef nonnull %20, ptr noundef %55, ptr noundef %1, i64 noundef 1, i64 noundef 0, i64 noundef 0, ptr noundef nonnull %37, ptr noundef %.1) #8
+  %56 = tail call i32 @H5T_convert(ptr noundef nonnull %20, ptr noundef %55, ptr noundef %1, i64 noundef 1, i64 noundef 0, i64 noundef 0, ptr noundef nonnull %37, ptr noundef %.1) #9
   %57 = icmp slt i32 %56, 0
   br i1 %57, label %58, label %62
 
 58:                                               ; preds = %54
   %59 = load i64, ptr @H5E_OHDR_g, align 8
   %60 = load i64, ptr @H5E_CANTINIT_g, align 8
-  %61 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.H5O_fill_convert, i32 noundef 991, i64 noundef %59, i64 noundef %60, ptr noundef nonnull @.str.8) #8
+  %61 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.H5O_fill_convert, i32 noundef 991, i64 noundef %59, i64 noundef %60, ptr noundef nonnull @.str.8) #9
   br label %72
 
 62:                                               ; preds = %54
   %63 = load ptr, ptr %4, align 8
   %64 = load ptr, ptr %7, align 8
-  %65 = tail call i32 @H5T_vlen_reclaim_elmt(ptr noundef %63, ptr noundef %64) #8
+  %65 = tail call i32 @H5T_vlen_reclaim_elmt(ptr noundef %63, ptr noundef %64) #9
   %66 = load ptr, ptr %4, align 8
-  %67 = tail call ptr @H5MM_xfree(ptr noundef %66) #8
+  %67 = tail call ptr @H5MM_xfree(ptr noundef %66) #9
   store ptr %37, ptr %4, align 8
   %68 = load ptr, ptr %7, align 8
-  %69 = tail call i32 @H5T_close_real(ptr noundef %68) #8
+  %69 = tail call i32 @H5T_close_real(ptr noundef %68) #9
   store ptr null, ptr %7, align 8
-  %70 = tail call i64 @H5T_get_size(ptr noundef %1) #8
+  %70 = tail call i64 @H5T_get_size(ptr noundef %1) #9
   %71 = getelementptr inbounds i8, ptr %0, i64 56
   store i64 %70, ptr %71, align 8
   store i8 1, ptr %2, align 1
@@ -1633,7 +1638,7 @@ define range(i32 -1, 1) i32 @H5O_fill_convert(ptr nocapture noundef %0, ptr noun
   br i1 %.not53, label %.thread, label %73
 
 73:                                               ; preds = %72
-  %74 = tail call ptr @H5MM_xfree(ptr noundef nonnull %.1) #8
+  %74 = tail call ptr @H5MM_xfree(ptr noundef nonnull %.1) #9
   br label %.thread
 
 .thread:                                          ; preds = %50, %39, %26, %22, %17, %73, %72
@@ -1668,7 +1673,7 @@ declare i32 @H5T_vlen_reclaim_elmt(ptr noundef, ptr noundef) local_unnamed_addr 
 define range(i32 -1, 1) i32 @H5O_fill_set_version(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 40
   %4 = load i32, ptr %3, align 8
-  %5 = tail call i32 @H5F_get_low_bound(ptr noundef %0) #8
+  %5 = tail call i32 @H5F_get_low_bound(ptr noundef %0) #9
   %6 = sext i32 %5 to i64
   %7 = getelementptr inbounds [6 x i32], ptr @H5O_fill_ver_bounds, i64 0, i64 %6
   %8 = load i32, ptr %7, align 4
@@ -1676,7 +1681,7 @@ define range(i32 -1, 1) i32 @H5O_fill_set_version(ptr noundef %0, ptr nocapture 
   br i1 %9, label %14, label %10
 
 10:                                               ; preds = %2
-  %11 = tail call i32 @H5F_get_low_bound(ptr noundef %0) #8
+  %11 = tail call i32 @H5F_get_low_bound(ptr noundef %0) #9
   %12 = sext i32 %11 to i64
   %13 = getelementptr inbounds [6 x i32], ptr @H5O_fill_ver_bounds, i64 0, i64 %12
   br label %14
@@ -1684,7 +1689,7 @@ define range(i32 -1, 1) i32 @H5O_fill_set_version(ptr noundef %0, ptr nocapture 
 14:                                               ; preds = %2, %10
   %.in = phi ptr [ %13, %10 ], [ %3, %2 ]
   %15 = load i32, ptr %.in, align 4
-  %16 = tail call i32 @H5F_get_high_bound(ptr noundef %0) #8
+  %16 = tail call i32 @H5F_get_high_bound(ptr noundef %0) #9
   %17 = sext i32 %16 to i64
   %18 = getelementptr inbounds [6 x i32], ptr @H5O_fill_ver_bounds, i64 0, i64 %17
   %19 = load i32, ptr %18, align 4
@@ -1694,7 +1699,7 @@ define range(i32 -1, 1) i32 @H5O_fill_set_version(ptr noundef %0, ptr nocapture 
 21:                                               ; preds = %14
   %22 = load i64, ptr @H5E_OHDR_g, align 8
   %23 = load i64, ptr @H5E_BADRANGE_g, align 8
-  %24 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.H5O_fill_set_version, i32 noundef 1039, i64 noundef %22, i64 noundef %23, ptr noundef nonnull @.str.9) #8
+  %24 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.H5O_fill_set_version, i32 noundef 1039, i64 noundef %22, i64 noundef %23, ptr noundef nonnull @.str.9) #9
   br label %26
 
 25:                                               ; preds = %14
@@ -1742,7 +1747,7 @@ declare i32 @H5O__shared_debug(ptr noundef, ptr noundef, i32 noundef, i32 nounde
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @H5O__fill_debug(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
-  %6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.30, i32 noundef %2, ptr noundef nonnull @.str.31, i32 noundef %3, ptr noundef nonnull @.str.32) #8
+  %6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.30, i32 noundef %2, ptr noundef nonnull @.str.31, i32 noundef %3, ptr noundef nonnull @.str.32) #9
   %7 = getelementptr inbounds i8, ptr %0, i64 72
   %8 = load i32, ptr %7, align 8
   switch i32 %8, label %15 [
@@ -1768,7 +1773,7 @@ define internal fastcc void @H5O__fill_debug(ptr noundef %0, ptr noundef %1, i32
   br label %17
 
 17:                                               ; preds = %15, %13, %11, %9
-  %18 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.30, i32 noundef %2, ptr noundef nonnull @.str.31, i32 noundef %3, ptr noundef nonnull @.str.37) #8
+  %18 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.30, i32 noundef %2, ptr noundef nonnull @.str.31, i32 noundef %3, ptr noundef nonnull @.str.37) #9
   %19 = getelementptr inbounds i8, ptr %0, i64 76
   %20 = load i32, ptr %19, align 4
   switch i32 %20, label %27 [
@@ -1794,8 +1799,8 @@ define internal fastcc void @H5O__fill_debug(ptr noundef %0, ptr noundef %1, i32
   br label %29
 
 29:                                               ; preds = %27, %25, %23, %21
-  %30 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.30, i32 noundef %2, ptr noundef nonnull @.str.31, i32 noundef %3, ptr noundef nonnull @.str.41) #8
-  %31 = call i32 @H5P_is_fill_value_defined(ptr noundef nonnull %0, ptr noundef nonnull %5) #8
+  %30 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.30, i32 noundef %2, ptr noundef nonnull @.str.31, i32 noundef %3, ptr noundef nonnull @.str.41) #9
+  %31 = call i32 @H5P_is_fill_value_defined(ptr noundef nonnull %0, ptr noundef nonnull %5) #9
   %32 = load i32, ptr %5, align 4
   switch i32 %32, label %39 [
     i32 0, label %33
@@ -1822,15 +1827,15 @@ define internal fastcc void @H5O__fill_debug(ptr noundef %0, ptr noundef %1, i32
 41:                                               ; preds = %39, %37, %35, %33
   %42 = getelementptr inbounds i8, ptr %0, i64 56
   %43 = load i64, ptr %42, align 8
-  %44 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.45, i32 noundef %2, ptr noundef nonnull @.str.31, i32 noundef %3, ptr noundef nonnull @.str.46, i64 noundef %43) #8
-  %45 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.30, i32 noundef %2, ptr noundef nonnull @.str.31, i32 noundef %3, ptr noundef nonnull @.str.47) #8
+  %44 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.45, i32 noundef %2, ptr noundef nonnull @.str.31, i32 noundef %3, ptr noundef nonnull @.str.46, i64 noundef %43) #9
+  %45 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.30, i32 noundef %2, ptr noundef nonnull @.str.31, i32 noundef %3, ptr noundef nonnull @.str.47) #9
   %46 = getelementptr inbounds i8, ptr %0, i64 48
   %47 = load ptr, ptr %46, align 8
   %.not = icmp eq ptr %47, null
   br i1 %.not, label %50, label %48
 
 48:                                               ; preds = %41
-  %49 = call i32 @H5T_debug(ptr noundef nonnull %47, ptr noundef %1) #8
+  %49 = call i32 @H5T_debug(ptr noundef nonnull %47, ptr noundef %1) #9
   %fputc = call i32 @fputc(i32 10, ptr %1)
   br label %52
 
@@ -1865,6 +1870,9 @@ declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #7
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.smax.i64(i64, i64) #8
+
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1873,9 +1881,10 @@ attributes #4 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroe
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #6 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nofree nounwind }
-attributes #8 = { nounwind }
-attributes #9 = { nounwind allocsize(0) }
-attributes #10 = { nounwind allocsize(0,1) }
+attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nounwind }
+attributes #10 = { nounwind allocsize(0) }
+attributes #11 = { nounwind allocsize(0,1) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

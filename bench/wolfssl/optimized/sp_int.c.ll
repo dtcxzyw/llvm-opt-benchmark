@@ -3462,9 +3462,7 @@ if.end68:                                         ; preds = %land.lhs.true36, %e
 define internal fastcc range(i32 -3, 1) i32 @_sp_div(ptr noundef readonly %a, ptr nocapture noundef readonly %d, ptr noundef %r, ptr noundef %rem, i32 noundef %used) unnamed_addr #10 {
 entry:
   %td = alloca [4 x ptr], align 16
-  %cmp = icmp ult i32 %used, 2
-  %sub = add i32 %used, -1
-  %cond = select i1 %cmp, i32 0, i32 %sub
+  %cond = tail call i32 @llvm.usub.sat.i32(i32 %used, i32 1)
   %conv = zext i32 %cond to i64
   %mul = shl nuw nsw i64 %conv, 3
   %add = add nuw nsw i64 %mul, 16
@@ -15641,10 +15639,13 @@ declare i64 @llvm.ctpop.i64(i64) #17
 declare i64 @llvm.fshl.i64(i64, i64, i64) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #17
+declare i32 @llvm.umax.i32(i32, i32) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #17
+declare i32 @llvm.usub.sat.i32(i32, i32) #17
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #17

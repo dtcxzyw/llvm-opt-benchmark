@@ -756,9 +756,8 @@ if.end:                                           ; preds = %entry
 if.then3:                                         ; preds = %if.end, %if.end
   %mDataLength = getelementptr inbounds i8, ptr %0, i64 1036
   %2 = load i32, ptr %mDataLength, align 4
-  %3 = lshr i32 %2, 2
-  %cmp.i = icmp ult i32 %2, 4
-  %.sroa.speculated = select i1 %cmp.i, i32 1, i32 %3
+  %3 = tail call i32 @llvm.umax.i32(i32 %2, i32 4)
+  %.sroa.speculated = lshr i32 %3, 2
   %tobool7.not = icmp eq ptr %pMax, null
   br i1 %tobool7.not, label %if.end10, label %if.then8
 

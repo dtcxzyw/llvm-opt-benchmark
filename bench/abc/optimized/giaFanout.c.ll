@@ -12,71 +12,70 @@ target triple = "x86_64-pc-linux-gnu"
 define void @Gia_ManFanoutStart(ptr nocapture noundef initializes((232, 244)) %0) local_unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 24
   %.val = load i32, ptr %2, align 8
-  %3 = shl nsw i32 %.val, 1
-  %4 = getelementptr inbounds i8, ptr %0, i64 240
-  %5 = icmp slt i32 %.val, 2048
-  %spec.select = select i1 %5, i32 4096, i32 %3
-  store i32 %spec.select, ptr %4, align 8
-  %6 = mul nsw i32 %spec.select, 5
-  %7 = sext i32 %6 to i64
-  %8 = shl nsw i64 %7, 2
-  %9 = tail call noalias ptr @malloc(i64 noundef %8) #13
-  %10 = getelementptr inbounds i8, ptr %0, i64 232
-  store ptr %9, ptr %10, align 8
-  %11 = sext i32 %spec.select to i64
-  %12 = mul nsw i64 %11, 20
-  tail call void @llvm.memset.p0.i64(ptr align 4 %9, i8 0, i64 %12, i1 false)
-  %13 = getelementptr i8, ptr %0, i64 32
-  %14 = icmp sgt i32 %.val, 0
-  br i1 %14, label %.lr.ph, label %.critedge
+  %3 = getelementptr inbounds i8, ptr %0, i64 240
+  %4 = tail call i32 @llvm.smax.i32(i32 %.val, i32 2048)
+  %spec.select = shl nuw i32 %4, 1
+  store i32 %spec.select, ptr %3, align 8
+  %5 = mul i32 %4, 10
+  %6 = sext i32 %5 to i64
+  %7 = shl nsw i64 %6, 2
+  %8 = tail call noalias ptr @malloc(i64 noundef %7) #13
+  %9 = getelementptr inbounds i8, ptr %0, i64 232
+  store ptr %8, ptr %9, align 8
+  %10 = sext i32 %spec.select to i64
+  %11 = mul nsw i64 %10, 20
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %8, i8 0, i64 %11, i1 false)
+  %12 = getelementptr i8, ptr %0, i64 32
+  %13 = icmp sgt i32 %.val, 0
+  br i1 %13, label %.lr.ph, label %.critedge
 
-.lr.ph:                                           ; preds = %1, %35
-  %indvars.iv = phi i64 [ %indvars.iv.next, %35 ], [ 0, %1 ]
-  %.val23 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val23, i64 %indvars.iv
+.lr.ph:                                           ; preds = %1, %34
+  %indvars.iv = phi i64 [ %indvars.iv.next, %34 ], [ 0, %1 ]
+  %.val23 = load ptr, ptr %12, align 8
+  %14 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val23, i64 %indvars.iv
   %.not = icmp eq ptr %.val23, null
-  br i1 %.not, label %.critedge, label %16
+  br i1 %.not, label %.critedge, label %15
 
-16:                                               ; preds = %.lr.ph
-  %17 = load i64, ptr %15, align 4
-  %18 = and i64 %17, 536870911
-  %19 = sub nsw i64 0, %18
-  %20 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %15, i64 %19
-  %21 = lshr i64 %17, 29
-  %22 = and i64 %21, 1
-  %23 = ptrtoint ptr %20 to i64
-  %.not21 = icmp eq i64 %22, %23
-  br i1 %.not21, label %25, label %24
+15:                                               ; preds = %.lr.ph
+  %16 = load i64, ptr %14, align 4
+  %17 = and i64 %16, 536870911
+  %18 = sub nsw i64 0, %17
+  %19 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %14, i64 %18
+  %20 = lshr i64 %16, 29
+  %21 = and i64 %20, 1
+  %22 = ptrtoint ptr %19 to i64
+  %.not21 = icmp eq i64 %21, %22
+  br i1 %.not21, label %24, label %23
 
-24:                                               ; preds = %16
-  tail call void @Gia_ObjAddFanout(ptr noundef nonnull %0, ptr noundef nonnull %20, ptr noundef nonnull %15)
-  %.pre = load i64, ptr %15, align 4
-  br label %25
+23:                                               ; preds = %15
+  tail call void @Gia_ObjAddFanout(ptr noundef nonnull %0, ptr noundef nonnull %19, ptr noundef nonnull %14)
+  %.pre = load i64, ptr %14, align 4
+  br label %24
 
-25:                                               ; preds = %24, %16
-  %26 = phi i64 [ %.pre, %24 ], [ %17, %16 ]
-  %27 = lshr i64 %26, 32
-  %28 = and i64 %27, 536870911
-  %29 = sub nsw i64 0, %28
-  %30 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %15, i64 %29
-  %31 = lshr i64 %26, 61
-  %32 = and i64 %31, 1
-  %33 = ptrtoint ptr %30 to i64
-  %.not22 = icmp eq i64 %32, %33
-  br i1 %.not22, label %35, label %34
+24:                                               ; preds = %23, %15
+  %25 = phi i64 [ %.pre, %23 ], [ %16, %15 ]
+  %26 = lshr i64 %25, 32
+  %27 = and i64 %26, 536870911
+  %28 = sub nsw i64 0, %27
+  %29 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %14, i64 %28
+  %30 = lshr i64 %25, 61
+  %31 = and i64 %30, 1
+  %32 = ptrtoint ptr %29 to i64
+  %.not22 = icmp eq i64 %31, %32
+  br i1 %.not22, label %34, label %33
 
-34:                                               ; preds = %25
-  tail call void @Gia_ObjAddFanout(ptr noundef nonnull %0, ptr noundef nonnull %30, ptr noundef nonnull %15)
-  br label %35
+33:                                               ; preds = %24
+  tail call void @Gia_ObjAddFanout(ptr noundef nonnull %0, ptr noundef nonnull %29, ptr noundef nonnull %14)
+  br label %34
 
-35:                                               ; preds = %25, %34
+34:                                               ; preds = %24, %33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %36 = load i32, ptr %2, align 8
-  %37 = sext i32 %36 to i64
-  %38 = icmp slt i64 %indvars.iv.next, %37
-  br i1 %38, label %.lr.ph, label %.critedge, !llvm.loop !4
+  %35 = load i32, ptr %2, align 8
+  %36 = sext i32 %35 to i64
+  %37 = icmp slt i64 %indvars.iv.next, %36
+  br i1 %37, label %.lr.ph, label %.critedge, !llvm.loop !4
 
-.critedge:                                        ; preds = %.lr.ph, %35, %1
+.critedge:                                        ; preds = %.lr.ph, %34, %1
   ret void
 }
 

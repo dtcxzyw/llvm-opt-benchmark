@@ -93580,27 +93580,25 @@ define hidden void @"_ZN91_$LT$futures_channel..mpsc..UnboundedReceiver$LT$T$GT$
   %16 = getelementptr inbounds i8, ptr %15, i64 16
   br label %17
 
-17:                                               ; preds = %22, %14
+17:                                               ; preds = %20, %14
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2), !noalias !29112
   call void @"_ZN15futures_channel4mpsc5queue14Queue$LT$T$GT$3pop17h674c0425fcf4a9d8E.llvm.1773812968689397802"(ptr noalias nocapture noundef nonnull sret([48 x i8]) align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 %16), !noalias !29112
   %18 = load i64, ptr %2, align 8, !range !600, !noalias !29112, !noundef !4
-  %.not.i.i = icmp samesign ult i64 %18, 2
-  %19 = add nsw i64 %18, -1
-  %20 = select i1 %.not.i.i, i64 0, i64 %19
-  switch i64 %20, label %21 [
+  %19 = call i64 @llvm.usub.sat.i64(i64 %18, i64 1)
+  switch i64 %19, label %default.unreachable [
     i64 0, label %"_ZN15futures_channel4mpsc5queue14Queue$LT$T$GT$8pop_spin17h468910358eedadeaE.llvm.1773812968689397802.exit.i"
     i64 1, label %"_ZN15futures_channel4mpsc5queue14Queue$LT$T$GT$8pop_spin17h468910358eedadeaE.llvm.1773812968689397802.exit.thread.i"
-    i64 2, label %22
+    i64 2, label %20
   ]
 
 "_ZN15futures_channel4mpsc5queue14Queue$LT$T$GT$8pop_spin17h468910358eedadeaE.llvm.1773812968689397802.exit.thread.i": ; preds = %17
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2), !noalias !29112
-  br label %24
+  br label %22
 
-21:                                               ; preds = %17
+default.unreachable:                              ; preds = %17
   unreachable
 
-22:                                               ; preds = %17
+20:                                               ; preds = %17
   call void @_ZN3std6thread9yield_now17h17a04a6f48076bfbE(), !noalias !29112
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2), !noalias !29112
   br label %17
@@ -93608,48 +93606,48 @@ define hidden void @"_ZN91_$LT$futures_channel..mpsc..UnboundedReceiver$LT$T$GT$
 "_ZN15futures_channel4mpsc5queue14Queue$LT$T$GT$8pop_spin17h468910358eedadeaE.llvm.1773812968689397802.exit.i": ; preds = %17
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.6.i, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.6.0..sroa_idx8.i, i64 40, i1 false), !noalias !29115
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2), !noalias !29112
-  %23 = icmp eq i64 %18, 2
-  br i1 %23, label %24, label %"_ZN15futures_channel4mpsc26UnboundedReceiver$LT$T$GT$12next_message17h1b983e76690a0938E.exit"
+  %21 = icmp eq i64 %18, 2
+  br i1 %21, label %22, label %"_ZN15futures_channel4mpsc26UnboundedReceiver$LT$T$GT$12next_message17h1b983e76690a0938E.exit"
 
-24:                                               ; preds = %"_ZN15futures_channel4mpsc5queue14Queue$LT$T$GT$8pop_spin17h468910358eedadeaE.llvm.1773812968689397802.exit.i", %"_ZN15futures_channel4mpsc5queue14Queue$LT$T$GT$8pop_spin17h468910358eedadeaE.llvm.1773812968689397802.exit.thread.i"
-  %25 = getelementptr inbounds i8, ptr %15, i64 32
-  %26 = load atomic i64, ptr %25 seq_cst, align 8, !noalias !29115
-  %or.cond.i = icmp eq i64 %26, 0
-  br i1 %or.cond.i, label %27, label %"_ZN15futures_channel4mpsc26UnboundedReceiver$LT$T$GT$12next_message17h1b983e76690a0938E.exit.thread13"
+22:                                               ; preds = %"_ZN15futures_channel4mpsc5queue14Queue$LT$T$GT$8pop_spin17h468910358eedadeaE.llvm.1773812968689397802.exit.i", %"_ZN15futures_channel4mpsc5queue14Queue$LT$T$GT$8pop_spin17h468910358eedadeaE.llvm.1773812968689397802.exit.thread.i"
+  %23 = getelementptr inbounds i8, ptr %15, i64 32
+  %24 = load atomic i64, ptr %23 seq_cst, align 8, !noalias !29115
+  %or.cond.i = icmp eq i64 %24, 0
+  br i1 %or.cond.i, label %25, label %"_ZN15futures_channel4mpsc26UnboundedReceiver$LT$T$GT$12next_message17h1b983e76690a0938E.exit.thread13"
 
-"_ZN15futures_channel4mpsc26UnboundedReceiver$LT$T$GT$12next_message17h1b983e76690a0938E.exit.thread13": ; preds = %24
+"_ZN15futures_channel4mpsc26UnboundedReceiver$LT$T$GT$12next_message17h1b983e76690a0938E.exit.thread13": ; preds = %22
   store i64 3, ptr %3, align 8, !alias.scope !29107, !noalias !29110
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %.sroa.6.i)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %.sroa.2.i)
-  br label %38
+  br label %36
 
-27:                                               ; preds = %24
+25:                                               ; preds = %22
   call void @llvm.experimental.noalias.scope.decl(metadata !29116)
-  %28 = load ptr, ptr %0, align 8, !alias.scope !29119, !noalias !29107, !noundef !4
-  %29 = icmp eq ptr %28, null
-  br i1 %29, label %"_ZN15futures_channel4mpsc26UnboundedReceiver$LT$T$GT$12next_message17h1b983e76690a0938E.exit.thread15", label %30
+  %26 = load ptr, ptr %0, align 8, !alias.scope !29119, !noalias !29107, !noundef !4
+  %27 = icmp eq ptr %26, null
+  br i1 %27, label %"_ZN15futures_channel4mpsc26UnboundedReceiver$LT$T$GT$12next_message17h1b983e76690a0938E.exit.thread15", label %28
 
-30:                                               ; preds = %27
-  %31 = atomicrmw sub ptr %28, i64 1 release, align 8, !noalias !29120
-  %32 = icmp eq i64 %31, 1
-  br i1 %32, label %33, label %"_ZN15futures_channel4mpsc26UnboundedReceiver$LT$T$GT$12next_message17h1b983e76690a0938E.exit.thread15"
+28:                                               ; preds = %25
+  %29 = atomicrmw sub ptr %26, i64 1 release, align 8, !noalias !29120
+  %30 = icmp eq i64 %29, 1
+  br i1 %30, label %31, label %"_ZN15futures_channel4mpsc26UnboundedReceiver$LT$T$GT$12next_message17h1b983e76690a0938E.exit.thread15"
 
-33:                                               ; preds = %30
+31:                                               ; preds = %28
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h3f7b81fb1a03f7b1E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
-          to label %"_ZN15futures_channel4mpsc26UnboundedReceiver$LT$T$GT$12next_message17h1b983e76690a0938E.exit.thread15" unwind label %34, !noalias !29107
+          to label %"_ZN15futures_channel4mpsc26UnboundedReceiver$LT$T$GT$12next_message17h1b983e76690a0938E.exit.thread15" unwind label %32, !noalias !29107
 
-common.resume:                                    ; preds = %83, %71, %74, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.11688689637450677844.exit.i.i1.i.i.i.i.i.i9", %51, %54, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.11688689637450677844.exit.i.i1.i.i.i.i.i.i", %34
-  %common.resume.op = phi { ptr, i32 } [ %35, %34 ], [ %52, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.11688689637450677844.exit.i.i1.i.i.i.i.i.i" ], [ %52, %54 ], [ %52, %51 ], [ %72, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.11688689637450677844.exit.i.i1.i.i.i.i.i.i9" ], [ %72, %74 ], [ %72, %71 ], [ %lpad.phi, %83 ]
+common.resume:                                    ; preds = %81, %69, %72, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.11688689637450677844.exit.i.i1.i.i.i.i.i.i9", %49, %52, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.11688689637450677844.exit.i.i1.i.i.i.i.i.i", %32
+  %common.resume.op = phi { ptr, i32 } [ %33, %32 ], [ %50, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.11688689637450677844.exit.i.i1.i.i.i.i.i.i" ], [ %50, %52 ], [ %50, %49 ], [ %70, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.11688689637450677844.exit.i.i1.i.i.i.i.i.i9" ], [ %70, %72 ], [ %70, %69 ], [ %lpad.phi, %81 ]
   resume { ptr, i32 } %common.resume.op
 
-34:                                               ; preds = %33
-  %35 = landingpad { ptr, i32 }
+32:                                               ; preds = %31
+  %33 = landingpad { ptr, i32 }
           cleanup
   store ptr null, ptr %0, align 8, !alias.scope !29110, !noalias !29107
   br label %common.resume
 
-"_ZN15futures_channel4mpsc26UnboundedReceiver$LT$T$GT$12next_message17h1b983e76690a0938E.exit.thread15": ; preds = %27, %30, %33
+"_ZN15futures_channel4mpsc26UnboundedReceiver$LT$T$GT$12next_message17h1b983e76690a0938E.exit.thread15": ; preds = %25, %28, %31
   store ptr null, ptr %0, align 8, !alias.scope !29110, !noalias !29107
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %.sroa.6.i)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %.sroa.2.i)
@@ -93657,214 +93655,214 @@ common.resume:                                    ; preds = %83, %71, %74, %"_ZN
 
 "_ZN15futures_channel4mpsc26UnboundedReceiver$LT$T$GT$12next_message17h1b983e76690a0938E.exit": ; preds = %"_ZN15futures_channel4mpsc5queue14Queue$LT$T$GT$8pop_spin17h468910358eedadeaE.llvm.1773812968689397802.exit.i"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.2.i, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.6.i, i64 40, i1 false), !noalias !29115
-  %36 = getelementptr inbounds i8, ptr %15, i64 32
-  %37 = atomicrmw sub ptr %36, i64 1 seq_cst, align 8, !noalias !29115
+  %34 = getelementptr inbounds i8, ptr %15, i64 32
+  %35 = atomicrmw sub ptr %34, i64 1 seq_cst, align 8, !noalias !29115
   store i64 %18, ptr %3, align 8, !alias.scope !29107, !noalias !29110
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.411.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.2.i, i64 40, i1 false), !noalias !29110
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %.sroa.6.i)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %.sroa.2.i)
   %cond = icmp eq i64 %18, 3
-  br i1 %cond, label %38, label %.thread24
+  br i1 %cond, label %36, label %.thread24
 
-38:                                               ; preds = %"_ZN15futures_channel4mpsc26UnboundedReceiver$LT$T$GT$12next_message17h1b983e76690a0938E.exit", %"_ZN15futures_channel4mpsc26UnboundedReceiver$LT$T$GT$12next_message17h1b983e76690a0938E.exit.thread13"
-  %39 = load ptr, ptr %0, align 8, !noundef !4
-  %40 = icmp eq ptr %39, null
-  br i1 %40, label %82, label %85
+36:                                               ; preds = %"_ZN15futures_channel4mpsc26UnboundedReceiver$LT$T$GT$12next_message17h1b983e76690a0938E.exit", %"_ZN15futures_channel4mpsc26UnboundedReceiver$LT$T$GT$12next_message17h1b983e76690a0938E.exit.thread13"
+  %37 = load ptr, ptr %0, align 8, !noundef !4
+  %38 = icmp eq ptr %37, null
+  br i1 %38, label %80, label %83
 
-41:                                               ; preds = %85
+39:                                               ; preds = %83
   %.pr17 = load i64, ptr %3, align 8, !alias.scope !29125
   call void @llvm.experimental.noalias.scope.decl(metadata !29125)
   %.not.i2 = icmp eq i64 %.pr17, 3
-  br i1 %.not.i2, label %"_ZN4core3ptr173drop_in_place$LT$core..task..poll..Poll$LT$core..option..Option$LT$$LP$language..LanguageServerName$C$language..language_registry..LanguageServerBinaryStatus$RP$$GT$$GT$$GT$17h586add6a7b694b23E.exit", label %42
+  br i1 %.not.i2, label %"_ZN4core3ptr173drop_in_place$LT$core..task..poll..Poll$LT$core..option..Option$LT$$LP$language..LanguageServerName$C$language..language_registry..LanguageServerBinaryStatus$RP$$GT$$GT$$GT$17h586add6a7b694b23E.exit", label %40
 
-42:                                               ; preds = %41
+40:                                               ; preds = %39
   call void @llvm.experimental.noalias.scope.decl(metadata !29128)
-  %43 = icmp eq i64 %.pr17, 2
-  br i1 %43, label %"_ZN4core3ptr173drop_in_place$LT$core..task..poll..Poll$LT$core..option..Option$LT$$LP$language..LanguageServerName$C$language..language_registry..LanguageServerBinaryStatus$RP$$GT$$GT$$GT$17h586add6a7b694b23E.exit", label %44
+  %41 = icmp eq i64 %.pr17, 2
+  br i1 %41, label %"_ZN4core3ptr173drop_in_place$LT$core..task..poll..Poll$LT$core..option..Option$LT$$LP$language..LanguageServerName$C$language..language_registry..LanguageServerBinaryStatus$RP$$GT$$GT$$GT$17h586add6a7b694b23E.exit", label %42
 
-44:                                               ; preds = %42
+42:                                               ; preds = %40
   call void @llvm.experimental.noalias.scope.decl(metadata !29131)
   call void @llvm.experimental.noalias.scope.decl(metadata !29134)
   call void @llvm.experimental.noalias.scope.decl(metadata !29137)
   call void @llvm.experimental.noalias.scope.decl(metadata !29140)
-  %45 = icmp eq i64 %.pr17, 0
-  br i1 %45, label %"_ZN4core3ptr49drop_in_place$LT$language..LanguageServerName$GT$17hde157a212e4a7218E.exit.i.i.i", label %46
+  %43 = icmp eq i64 %.pr17, 0
+  br i1 %43, label %"_ZN4core3ptr49drop_in_place$LT$language..LanguageServerName$GT$17hde157a212e4a7218E.exit.i.i.i", label %44
 
-46:                                               ; preds = %44
+44:                                               ; preds = %42
   call void @llvm.experimental.noalias.scope.decl(metadata !29143)
   call void @llvm.experimental.noalias.scope.decl(metadata !29146)
-  %47 = load ptr, ptr %.sroa.411.0..sroa_idx.i, align 8, !alias.scope !29149, !nonnull !4, !noundef !4
-  %48 = atomicrmw sub ptr %47, i64 1 release, align 8, !noalias !29149
-  %49 = icmp eq i64 %48, 1
-  br i1 %49, label %50, label %"_ZN4core3ptr49drop_in_place$LT$language..LanguageServerName$GT$17hde157a212e4a7218E.exit.i.i.i"
+  %45 = load ptr, ptr %.sroa.411.0..sroa_idx.i, align 8, !alias.scope !29149, !nonnull !4, !noundef !4
+  %46 = atomicrmw sub ptr %45, i64 1 release, align 8, !noalias !29149
+  %47 = icmp eq i64 %46, 1
+  br i1 %47, label %48, label %"_ZN4core3ptr49drop_in_place$LT$language..LanguageServerName$GT$17hde157a212e4a7218E.exit.i.i.i"
 
-50:                                               ; preds = %46
+48:                                               ; preds = %44
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hee62febb11cdae86E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.411.0..sroa_idx.i)
-          to label %"_ZN4core3ptr49drop_in_place$LT$language..LanguageServerName$GT$17hde157a212e4a7218E.exit.i.i.i" unwind label %51
+          to label %"_ZN4core3ptr49drop_in_place$LT$language..LanguageServerName$GT$17hde157a212e4a7218E.exit.i.i.i" unwind label %49
 
-51:                                               ; preds = %50
-  %52 = landingpad { ptr, i32 }
+49:                                               ; preds = %48
+  %50 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.experimental.noalias.scope.decl(metadata !29150)
-  %53 = load i64, ptr %12, align 8, !range !2527, !alias.scope !29153, !noundef !4
-  %switch.not.i.i.i.i = icmp sgt i64 %53, -9223372036854775806
-  br i1 %switch.not.i.i.i.i, label %54, label %common.resume
+  %51 = load i64, ptr %12, align 8, !range !2527, !alias.scope !29153, !noundef !4
+  %switch.not.i.i.i.i = icmp sgt i64 %51, -9223372036854775806
+  br i1 %switch.not.i.i.i.i, label %52, label %common.resume
 
-54:                                               ; preds = %51
+52:                                               ; preds = %49
   call void @llvm.experimental.noalias.scope.decl(metadata !29154)
   call void @llvm.experimental.noalias.scope.decl(metadata !29157)
   call void @llvm.experimental.noalias.scope.decl(metadata !29160)
   call void @llvm.experimental.noalias.scope.decl(metadata !29163)
-  %55 = icmp eq i64 %53, 0
-  br i1 %55, label %common.resume, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.11688689637450677844.exit.i.i1.i.i.i.i.i.i"
+  %53 = icmp eq i64 %51, 0
+  br i1 %53, label %common.resume, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.11688689637450677844.exit.i.i1.i.i.i.i.i.i"
 
-"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.11688689637450677844.exit.i.i1.i.i.i.i.i.i": ; preds = %54
-  %56 = load ptr, ptr %13, align 8, !alias.scope !29166, !noalias !29169, !nonnull !4, !noundef !4
-  call void @__rust_dealloc(ptr noundef nonnull %56, i64 noundef %53, i64 noundef 1) #32, !noalias !29171
+"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.11688689637450677844.exit.i.i1.i.i.i.i.i.i": ; preds = %52
+  %54 = load ptr, ptr %13, align 8, !alias.scope !29166, !noalias !29169, !nonnull !4, !noundef !4
+  call void @__rust_dealloc(ptr noundef nonnull %54, i64 noundef %51, i64 noundef 1) #32, !noalias !29171
   br label %common.resume
 
-"_ZN4core3ptr49drop_in_place$LT$language..LanguageServerName$GT$17hde157a212e4a7218E.exit.i.i.i": ; preds = %50, %46, %44
+"_ZN4core3ptr49drop_in_place$LT$language..LanguageServerName$GT$17hde157a212e4a7218E.exit.i.i.i": ; preds = %48, %44, %42
   call void @llvm.experimental.noalias.scope.decl(metadata !29172)
-  %57 = load i64, ptr %12, align 8, !range !2527, !alias.scope !29175, !noundef !4
-  %switch.not.i1.i.i.i = icmp sgt i64 %57, -9223372036854775806
-  br i1 %switch.not.i1.i.i.i, label %58, label %"_ZN4core3ptr173drop_in_place$LT$core..task..poll..Poll$LT$core..option..Option$LT$$LP$language..LanguageServerName$C$language..language_registry..LanguageServerBinaryStatus$RP$$GT$$GT$$GT$17h586add6a7b694b23E.exit"
+  %55 = load i64, ptr %12, align 8, !range !2527, !alias.scope !29175, !noundef !4
+  %switch.not.i1.i.i.i = icmp sgt i64 %55, -9223372036854775806
+  br i1 %switch.not.i1.i.i.i, label %56, label %"_ZN4core3ptr173drop_in_place$LT$core..task..poll..Poll$LT$core..option..Option$LT$$LP$language..LanguageServerName$C$language..language_registry..LanguageServerBinaryStatus$RP$$GT$$GT$$GT$17h586add6a7b694b23E.exit"
 
-58:                                               ; preds = %"_ZN4core3ptr49drop_in_place$LT$language..LanguageServerName$GT$17hde157a212e4a7218E.exit.i.i.i"
+56:                                               ; preds = %"_ZN4core3ptr49drop_in_place$LT$language..LanguageServerName$GT$17hde157a212e4a7218E.exit.i.i.i"
   call void @llvm.experimental.noalias.scope.decl(metadata !29176)
   call void @llvm.experimental.noalias.scope.decl(metadata !29179)
   call void @llvm.experimental.noalias.scope.decl(metadata !29182)
   call void @llvm.experimental.noalias.scope.decl(metadata !29185)
-  %59 = icmp eq i64 %57, 0
-  br i1 %59, label %"_ZN4core3ptr173drop_in_place$LT$core..task..poll..Poll$LT$core..option..Option$LT$$LP$language..LanguageServerName$C$language..language_registry..LanguageServerBinaryStatus$RP$$GT$$GT$$GT$17h586add6a7b694b23E.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.11688689637450677844.exit.i.i1.i.i.i2.i.i.i"
+  %57 = icmp eq i64 %55, 0
+  br i1 %57, label %"_ZN4core3ptr173drop_in_place$LT$core..task..poll..Poll$LT$core..option..Option$LT$$LP$language..LanguageServerName$C$language..language_registry..LanguageServerBinaryStatus$RP$$GT$$GT$$GT$17h586add6a7b694b23E.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.11688689637450677844.exit.i.i1.i.i.i2.i.i.i"
 
-"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.11688689637450677844.exit.i.i1.i.i.i2.i.i.i": ; preds = %58
-  %60 = load ptr, ptr %13, align 8, !alias.scope !29188, !noalias !29191, !nonnull !4, !noundef !4
-  call void @__rust_dealloc(ptr noundef nonnull %60, i64 noundef %57, i64 noundef 1) #32, !noalias !29193
+"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.11688689637450677844.exit.i.i1.i.i.i2.i.i.i": ; preds = %56
+  %58 = load ptr, ptr %13, align 8, !alias.scope !29188, !noalias !29191, !nonnull !4, !noundef !4
+  call void @__rust_dealloc(ptr noundef nonnull %58, i64 noundef %55, i64 noundef 1) #32, !noalias !29193
   br label %"_ZN4core3ptr173drop_in_place$LT$core..task..poll..Poll$LT$core..option..Option$LT$$LP$language..LanguageServerName$C$language..language_registry..LanguageServerBinaryStatus$RP$$GT$$GT$$GT$17h586add6a7b694b23E.exit"
 
-"_ZN4core3ptr173drop_in_place$LT$core..task..poll..Poll$LT$core..option..Option$LT$$LP$language..LanguageServerName$C$language..language_registry..LanguageServerBinaryStatus$RP$$GT$$GT$$GT$17h586add6a7b694b23E.exit": ; preds = %"_ZN15futures_channel4mpsc26UnboundedReceiver$LT$T$GT$12next_message17h1b983e76690a0938E.exit.thread15", %"_ZN15futures_channel4mpsc26UnboundedReceiver$LT$T$GT$12next_message17h1b983e76690a0938E.exit.thread", %41, %42, %"_ZN4core3ptr49drop_in_place$LT$language..LanguageServerName$GT$17hde157a212e4a7218E.exit.i.i.i", %58, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.11688689637450677844.exit.i.i1.i.i.i2.i.i.i"
+"_ZN4core3ptr173drop_in_place$LT$core..task..poll..Poll$LT$core..option..Option$LT$$LP$language..LanguageServerName$C$language..language_registry..LanguageServerBinaryStatus$RP$$GT$$GT$$GT$17h586add6a7b694b23E.exit": ; preds = %"_ZN15futures_channel4mpsc26UnboundedReceiver$LT$T$GT$12next_message17h1b983e76690a0938E.exit.thread15", %"_ZN15futures_channel4mpsc26UnboundedReceiver$LT$T$GT$12next_message17h1b983e76690a0938E.exit.thread", %39, %40, %"_ZN4core3ptr49drop_in_place$LT$language..LanguageServerName$GT$17hde157a212e4a7218E.exit.i.i.i", %56, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.11688689637450677844.exit.i.i1.i.i.i2.i.i.i"
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3)
   br label %"_ZN15futures_channel4mpsc23UnboundedInner$LT$T$GT$10set_closed17hb95ebd3eeaf8517dE.exit.thread"
 
-61:                                               ; preds = %88
+59:                                               ; preds = %86
   %.pr21 = load i64, ptr %3, align 8, !alias.scope !29194
   call void @llvm.experimental.noalias.scope.decl(metadata !29194)
   %.not.i3 = icmp eq i64 %.pr21, 3
-  br i1 %.not.i3, label %"_ZN4core3ptr173drop_in_place$LT$core..task..poll..Poll$LT$core..option..Option$LT$$LP$language..LanguageServerName$C$language..language_registry..LanguageServerBinaryStatus$RP$$GT$$GT$$GT$17h586add6a7b694b23E.exit10", label %62
+  br i1 %.not.i3, label %"_ZN4core3ptr173drop_in_place$LT$core..task..poll..Poll$LT$core..option..Option$LT$$LP$language..LanguageServerName$C$language..language_registry..LanguageServerBinaryStatus$RP$$GT$$GT$$GT$17h586add6a7b694b23E.exit10", label %60
 
-62:                                               ; preds = %61
+60:                                               ; preds = %59
   call void @llvm.experimental.noalias.scope.decl(metadata !29197)
-  %63 = icmp eq i64 %.pr21, 2
-  br i1 %63, label %"_ZN4core3ptr173drop_in_place$LT$core..task..poll..Poll$LT$core..option..Option$LT$$LP$language..LanguageServerName$C$language..language_registry..LanguageServerBinaryStatus$RP$$GT$$GT$$GT$17h586add6a7b694b23E.exit10", label %.thread24
+  %61 = icmp eq i64 %.pr21, 2
+  br i1 %61, label %"_ZN4core3ptr173drop_in_place$LT$core..task..poll..Poll$LT$core..option..Option$LT$$LP$language..LanguageServerName$C$language..language_registry..LanguageServerBinaryStatus$RP$$GT$$GT$$GT$17h586add6a7b694b23E.exit10", label %.thread24
 
-.thread24:                                        ; preds = %"_ZN15futures_channel4mpsc26UnboundedReceiver$LT$T$GT$12next_message17h1b983e76690a0938E.exit", %62
-  %64 = phi i64 [ %.pr21, %62 ], [ %18, %"_ZN15futures_channel4mpsc26UnboundedReceiver$LT$T$GT$12next_message17h1b983e76690a0938E.exit" ]
+.thread24:                                        ; preds = %"_ZN15futures_channel4mpsc26UnboundedReceiver$LT$T$GT$12next_message17h1b983e76690a0938E.exit", %60
+  %62 = phi i64 [ %.pr21, %60 ], [ %18, %"_ZN15futures_channel4mpsc26UnboundedReceiver$LT$T$GT$12next_message17h1b983e76690a0938E.exit" ]
   call void @llvm.experimental.noalias.scope.decl(metadata !29200)
   call void @llvm.experimental.noalias.scope.decl(metadata !29203)
   call void @llvm.experimental.noalias.scope.decl(metadata !29206)
   call void @llvm.experimental.noalias.scope.decl(metadata !29209)
-  %65 = icmp eq i64 %64, 0
-  br i1 %65, label %"_ZN4core3ptr49drop_in_place$LT$language..LanguageServerName$GT$17hde157a212e4a7218E.exit.i.i.i4", label %66
+  %63 = icmp eq i64 %62, 0
+  br i1 %63, label %"_ZN4core3ptr49drop_in_place$LT$language..LanguageServerName$GT$17hde157a212e4a7218E.exit.i.i.i4", label %64
 
-66:                                               ; preds = %.thread24
+64:                                               ; preds = %.thread24
   call void @llvm.experimental.noalias.scope.decl(metadata !29212)
   call void @llvm.experimental.noalias.scope.decl(metadata !29215)
-  %67 = load ptr, ptr %.sroa.411.0..sroa_idx.i, align 8, !alias.scope !29218, !nonnull !4, !noundef !4
-  %68 = atomicrmw sub ptr %67, i64 1 release, align 8, !noalias !29218
-  %69 = icmp eq i64 %68, 1
-  br i1 %69, label %70, label %"_ZN4core3ptr49drop_in_place$LT$language..LanguageServerName$GT$17hde157a212e4a7218E.exit.i.i.i4"
+  %65 = load ptr, ptr %.sroa.411.0..sroa_idx.i, align 8, !alias.scope !29218, !nonnull !4, !noundef !4
+  %66 = atomicrmw sub ptr %65, i64 1 release, align 8, !noalias !29218
+  %67 = icmp eq i64 %66, 1
+  br i1 %67, label %68, label %"_ZN4core3ptr49drop_in_place$LT$language..LanguageServerName$GT$17hde157a212e4a7218E.exit.i.i.i4"
 
-70:                                               ; preds = %66
+68:                                               ; preds = %64
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hee62febb11cdae86E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.411.0..sroa_idx.i)
-          to label %"_ZN4core3ptr49drop_in_place$LT$language..LanguageServerName$GT$17hde157a212e4a7218E.exit.i.i.i4" unwind label %71
+          to label %"_ZN4core3ptr49drop_in_place$LT$language..LanguageServerName$GT$17hde157a212e4a7218E.exit.i.i.i4" unwind label %69
 
-71:                                               ; preds = %70
-  %72 = landingpad { ptr, i32 }
+69:                                               ; preds = %68
+  %70 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.experimental.noalias.scope.decl(metadata !29219)
-  %73 = load i64, ptr %12, align 8, !range !2527, !alias.scope !29222, !noundef !4
-  %switch.not.i.i.i.i7 = icmp sgt i64 %73, -9223372036854775806
-  br i1 %switch.not.i.i.i.i7, label %74, label %common.resume
+  %71 = load i64, ptr %12, align 8, !range !2527, !alias.scope !29222, !noundef !4
+  %switch.not.i.i.i.i7 = icmp sgt i64 %71, -9223372036854775806
+  br i1 %switch.not.i.i.i.i7, label %72, label %common.resume
 
-74:                                               ; preds = %71
+72:                                               ; preds = %69
   call void @llvm.experimental.noalias.scope.decl(metadata !29223)
   call void @llvm.experimental.noalias.scope.decl(metadata !29226)
   call void @llvm.experimental.noalias.scope.decl(metadata !29229)
   call void @llvm.experimental.noalias.scope.decl(metadata !29232)
-  %75 = icmp eq i64 %73, 0
-  br i1 %75, label %common.resume, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.11688689637450677844.exit.i.i1.i.i.i.i.i.i9"
+  %73 = icmp eq i64 %71, 0
+  br i1 %73, label %common.resume, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.11688689637450677844.exit.i.i1.i.i.i.i.i.i9"
 
-"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.11688689637450677844.exit.i.i1.i.i.i.i.i.i9": ; preds = %74
-  %76 = load ptr, ptr %13, align 8, !alias.scope !29235, !noalias !29238, !nonnull !4, !noundef !4
-  call void @__rust_dealloc(ptr noundef nonnull %76, i64 noundef %73, i64 noundef 1) #32, !noalias !29240
+"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.11688689637450677844.exit.i.i1.i.i.i.i.i.i9": ; preds = %72
+  %74 = load ptr, ptr %13, align 8, !alias.scope !29235, !noalias !29238, !nonnull !4, !noundef !4
+  call void @__rust_dealloc(ptr noundef nonnull %74, i64 noundef %71, i64 noundef 1) #32, !noalias !29240
   br label %common.resume
 
-"_ZN4core3ptr49drop_in_place$LT$language..LanguageServerName$GT$17hde157a212e4a7218E.exit.i.i.i4": ; preds = %70, %66, %.thread24
+"_ZN4core3ptr49drop_in_place$LT$language..LanguageServerName$GT$17hde157a212e4a7218E.exit.i.i.i4": ; preds = %68, %64, %.thread24
   call void @llvm.experimental.noalias.scope.decl(metadata !29241)
-  %77 = load i64, ptr %12, align 8, !range !2527, !alias.scope !29244, !noundef !4
-  %switch.not.i1.i.i.i5 = icmp sgt i64 %77, -9223372036854775806
-  br i1 %switch.not.i1.i.i.i5, label %78, label %"_ZN4core3ptr173drop_in_place$LT$core..task..poll..Poll$LT$core..option..Option$LT$$LP$language..LanguageServerName$C$language..language_registry..LanguageServerBinaryStatus$RP$$GT$$GT$$GT$17h586add6a7b694b23E.exit10"
+  %75 = load i64, ptr %12, align 8, !range !2527, !alias.scope !29244, !noundef !4
+  %switch.not.i1.i.i.i5 = icmp sgt i64 %75, -9223372036854775806
+  br i1 %switch.not.i1.i.i.i5, label %76, label %"_ZN4core3ptr173drop_in_place$LT$core..task..poll..Poll$LT$core..option..Option$LT$$LP$language..LanguageServerName$C$language..language_registry..LanguageServerBinaryStatus$RP$$GT$$GT$$GT$17h586add6a7b694b23E.exit10"
 
-78:                                               ; preds = %"_ZN4core3ptr49drop_in_place$LT$language..LanguageServerName$GT$17hde157a212e4a7218E.exit.i.i.i4"
+76:                                               ; preds = %"_ZN4core3ptr49drop_in_place$LT$language..LanguageServerName$GT$17hde157a212e4a7218E.exit.i.i.i4"
   call void @llvm.experimental.noalias.scope.decl(metadata !29245)
   call void @llvm.experimental.noalias.scope.decl(metadata !29248)
   call void @llvm.experimental.noalias.scope.decl(metadata !29251)
   call void @llvm.experimental.noalias.scope.decl(metadata !29254)
-  %79 = icmp eq i64 %77, 0
-  br i1 %79, label %"_ZN4core3ptr173drop_in_place$LT$core..task..poll..Poll$LT$core..option..Option$LT$$LP$language..LanguageServerName$C$language..language_registry..LanguageServerBinaryStatus$RP$$GT$$GT$$GT$17h586add6a7b694b23E.exit10", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.11688689637450677844.exit.i.i1.i.i.i2.i.i.i6"
+  %77 = icmp eq i64 %75, 0
+  br i1 %77, label %"_ZN4core3ptr173drop_in_place$LT$core..task..poll..Poll$LT$core..option..Option$LT$$LP$language..LanguageServerName$C$language..language_registry..LanguageServerBinaryStatus$RP$$GT$$GT$$GT$17h586add6a7b694b23E.exit10", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.11688689637450677844.exit.i.i1.i.i.i2.i.i.i6"
 
-"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.11688689637450677844.exit.i.i1.i.i.i2.i.i.i6": ; preds = %78
-  %80 = load ptr, ptr %13, align 8, !alias.scope !29257, !noalias !29260, !nonnull !4, !noundef !4
-  call void @__rust_dealloc(ptr noundef nonnull %80, i64 noundef %77, i64 noundef 1) #32, !noalias !29262
+"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.11688689637450677844.exit.i.i1.i.i.i2.i.i.i6": ; preds = %76
+  %78 = load ptr, ptr %13, align 8, !alias.scope !29257, !noalias !29260, !nonnull !4, !noundef !4
+  call void @__rust_dealloc(ptr noundef nonnull %78, i64 noundef %75, i64 noundef 1) #32, !noalias !29262
   br label %"_ZN4core3ptr173drop_in_place$LT$core..task..poll..Poll$LT$core..option..Option$LT$$LP$language..LanguageServerName$C$language..language_registry..LanguageServerBinaryStatus$RP$$GT$$GT$$GT$17h586add6a7b694b23E.exit10"
 
-"_ZN4core3ptr173drop_in_place$LT$core..task..poll..Poll$LT$core..option..Option$LT$$LP$language..LanguageServerName$C$language..language_registry..LanguageServerBinaryStatus$RP$$GT$$GT$$GT$17h586add6a7b694b23E.exit10": ; preds = %61, %62, %"_ZN4core3ptr49drop_in_place$LT$language..LanguageServerName$GT$17hde157a212e4a7218E.exit.i.i.i4", %78, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.11688689637450677844.exit.i.i1.i.i.i2.i.i.i6"
+"_ZN4core3ptr173drop_in_place$LT$core..task..poll..Poll$LT$core..option..Option$LT$$LP$language..LanguageServerName$C$language..language_registry..LanguageServerBinaryStatus$RP$$GT$$GT$$GT$17h586add6a7b694b23E.exit10": ; preds = %59, %60, %"_ZN4core3ptr49drop_in_place$LT$language..LanguageServerName$GT$17hde157a212e4a7218E.exit.i.i.i4", %76, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.11688689637450677844.exit.i.i1.i.i.i2.i.i.i6"
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3)
   %.pr11 = load ptr, ptr %0, align 8, !alias.scope !29110, !noalias !29107
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %.sroa.2.i)
-  %81 = icmp eq ptr %.pr11, null
-  br i1 %81, label %"_ZN15futures_channel4mpsc26UnboundedReceiver$LT$T$GT$12next_message17h1b983e76690a0938E.exit.thread", label %14
+  %79 = icmp eq ptr %.pr11, null
+  br i1 %79, label %"_ZN15futures_channel4mpsc26UnboundedReceiver$LT$T$GT$12next_message17h1b983e76690a0938E.exit.thread", label %14
 
-82:                                               ; preds = %38
+80:                                               ; preds = %36
   invoke void @_ZN4core6option13unwrap_failed17hba6b08832f9ce30bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.35cf35170204b7d508959bb9d8e4c7a2.58) #31
-          to label %84 unwind label %.loopexit.split-lp
+          to label %82 unwind label %.loopexit.split-lp
 
-.loopexit:                                        ; preds = %88
+.loopexit:                                        ; preds = %86
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %83
+  br label %81
 
-.loopexit.split-lp:                               ; preds = %82
+.loopexit.split-lp:                               ; preds = %80
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %83
+  br label %81
 
-83:                                               ; preds = %.loopexit.split-lp, %.loopexit
+81:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke fastcc void @"_ZN4core3ptr173drop_in_place$LT$core..task..poll..Poll$LT$core..option..Option$LT$$LP$language..LanguageServerName$C$language..language_registry..LanguageServerBinaryStatus$RP$$GT$$GT$$GT$17h586add6a7b694b23E"(ptr noalias noundef align 8 dereferenceable(48) %3) #35
-          to label %common.resume unwind label %89
+          to label %common.resume unwind label %87
 
-84:                                               ; preds = %82
+82:                                               ; preds = %80
   unreachable
 
-85:                                               ; preds = %38
-  %86 = getelementptr inbounds i8, ptr %39, i64 32
-  %87 = load atomic i64, ptr %86 seq_cst, align 8
-  %or.cond = icmp eq i64 %87, 0
-  br i1 %or.cond, label %41, label %88
+83:                                               ; preds = %36
+  %84 = getelementptr inbounds i8, ptr %37, i64 32
+  %85 = load atomic i64, ptr %84 seq_cst, align 8
+  %or.cond = icmp eq i64 %85, 0
+  br i1 %or.cond, label %39, label %86
 
-88:                                               ; preds = %85
+86:                                               ; preds = %83
   invoke void @_ZN3std6thread9yield_now17h17a04a6f48076bfbE()
-          to label %61 unwind label %.loopexit
+          to label %59 unwind label %.loopexit
 
 "_ZN15futures_channel4mpsc23UnboundedInner$LT$T$GT$10set_closed17hb95ebd3eeaf8517dE.exit.thread": ; preds = %1, %"_ZN15futures_channel4mpsc23UnboundedInner$LT$T$GT$10set_closed17hb95ebd3eeaf8517dE.exit", %"_ZN4core3ptr173drop_in_place$LT$core..task..poll..Poll$LT$core..option..Option$LT$$LP$language..LanguageServerName$C$language..language_registry..LanguageServerBinaryStatus$RP$$GT$$GT$$GT$17h586add6a7b694b23E.exit"
   ret void
 
-89:                                               ; preds = %83
-  %90 = landingpad { ptr, i32 }
+87:                                               ; preds = %81
+  %88 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #33
   unreachable
@@ -96564,6 +96562,9 @@ declare i64 @llvm.umin.i64(i64, i64) #29
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #29
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.usub.sat.i64(i64, i64) #29
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #30

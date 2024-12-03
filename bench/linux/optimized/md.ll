@@ -16638,69 +16638,70 @@ define internal i64 @size_store(ptr noundef %0, ptr noundef %1, i64 noundef %2) 
   store i64 0, ptr %4, align 8, !annotation !26
   %5 = call i32 @kstrtoull(ptr noundef %1, i32 noundef 10, ptr noundef nonnull %4) #32
   %6 = icmp slt i32 %5, 0
-  br i1 %6, label %11, label %7
+  br i1 %6, label %12, label %7
 
 7:                                                ; preds = %3
   %8 = load i64, ptr %4, align 8
-  %.fr7 = freeze i64 %8
-  %9 = icmp sgt i64 %.fr7, -1
-  %10 = shl nuw i64 %.fr7, 1
-  br i1 %9, label %12, label %11
+  %.fr4 = freeze i64 %8
+  %9 = icmp sgt i64 %.fr4, -1
+  %10 = call i64 @llvm.smax.i64(i64 %.fr4, i64 0)
+  %11 = shl nuw i64 %10, 1
+  br i1 %9, label %13, label %12
 
-11:                                               ; preds = %3, %7
+12:                                               ; preds = %3, %7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #32
-  br label %36
+  br label %37
 
-12:                                               ; preds = %7
+13:                                               ; preds = %7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #32
-  %13 = getelementptr inbounds i8, ptr %0, i64 536
-  %14 = call i32 @mutex_lock_interruptible(ptr noundef %13) #32
-  %15 = icmp eq i32 %14, 0
-  br i1 %15, label %18, label %16
+  %14 = getelementptr inbounds i8, ptr %0, i64 536
+  %15 = call i32 @mutex_lock_interruptible(ptr noundef %14) #32
+  %16 = icmp eq i32 %15, 0
+  br i1 %16, label %19, label %17
 
-16:                                               ; preds = %12
-  %17 = sext i32 %14 to i64
-  br label %36
+17:                                               ; preds = %13
+  %18 = sext i32 %15 to i64
+  br label %37
 
-18:                                               ; preds = %12
-  %19 = getelementptr inbounds i8, ptr %0, i64 8
-  %20 = load ptr, ptr %19, align 8
-  %21 = icmp eq ptr %20, null
-  br i1 %21, label %26, label %22
+19:                                               ; preds = %13
+  %20 = getelementptr inbounds i8, ptr %0, i64 8
+  %21 = load ptr, ptr %20, align 8
+  %22 = icmp eq ptr %21, null
+  br i1 %22, label %27, label %23
 
-22:                                               ; preds = %18
-  %23 = call fastcc i32 @update_size(ptr noundef %0, i64 noundef %10)
-  %24 = icmp eq i32 %23, 0
-  br i1 %24, label %25, label %32
+23:                                               ; preds = %19
+  %24 = call fastcc i32 @update_size(ptr noundef %0, i64 noundef %11)
+  %25 = icmp eq i32 %24, 0
+  br i1 %25, label %26, label %33
 
-25:                                               ; preds = %22
+26:                                               ; preds = %23
   call void @md_update_sb(ptr noundef %0, i32 noundef 1)
-  br label %35
-
-26:                                               ; preds = %18
-  %27 = getelementptr inbounds i8, ptr %0, i64 288
-  %28 = load i64, ptr %27, align 8
-  %29 = add i64 %28, -1
-  %30 = icmp ult i64 %29, %10
-  br i1 %30, label %32, label %31
-
-31:                                               ; preds = %26
-  store i64 %10, ptr %27, align 8
-  br label %35
-
-32:                                               ; preds = %26, %22
-  %33 = phi i32 [ %23, %22 ], [ -28, %26 ]
-  call void @mddev_unlock(ptr noundef %0)
-  %34 = sext i32 %33 to i64
   br label %36
 
-35:                                               ; preds = %25, %31
-  call void @mddev_unlock(ptr noundef %0)
+27:                                               ; preds = %19
+  %28 = getelementptr inbounds i8, ptr %0, i64 288
+  %29 = load i64, ptr %28, align 8
+  %30 = add i64 %29, -1
+  %31 = icmp ult i64 %30, %11
+  br i1 %31, label %33, label %32
+
+32:                                               ; preds = %27
+  store i64 %11, ptr %28, align 8
   br label %36
 
-36:                                               ; preds = %35, %32, %16, %11
-  %37 = phi i64 [ -22, %11 ], [ %17, %16 ], [ %2, %35 ], [ %34, %32 ]
-  ret i64 %37
+33:                                               ; preds = %27, %23
+  %34 = phi i32 [ %24, %23 ], [ -28, %27 ]
+  call void @mddev_unlock(ptr noundef %0)
+  %35 = sext i32 %34 to i64
+  br label %37
+
+36:                                               ; preds = %26, %32
+  call void @mddev_unlock(ptr noundef %0)
+  br label %37
+
+37:                                               ; preds = %36, %33, %17, %12
+  %38 = phi i64 [ -22, %12 ], [ %18, %17 ], [ %2, %36 ], [ %35, %33 ]
+  ret i64 %38
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

@@ -8242,9 +8242,8 @@ PyByteArray_AS_STRING.exit.i:                     ; preds = %if.then.i.i, %skip_
   br i1 %cmp2.i, label %if.then3.i, label %if.end5.i
 
 if.then3.i:                                       ; preds = %PyByteArray_AS_STRING.exit.i
-  %add.i.i = add nuw i64 %spec.store.select.i, 1
-  %cmp.inv.i.i = icmp ult i64 %maxsplit.0, 12
-  %cond.i.i = select i1 %cmp.inv.i.i, i64 %add.i.i, i64 12
+  %8 = call i64 @llvm.umin.i64(i64 %maxsplit.0, i64 11)
+  %cond.i.i = add nuw nsw i64 %8, 1
   %call.i.i = call ptr @PyList_New(i64 noundef %cond.i.i) #15
   %cmp1.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp1.i.i, label %bytearray_rsplit_impl.exit, label %if.end.i.i
@@ -8255,7 +8254,7 @@ if.end.i.i:                                       ; preds = %if.then3.i
   br i1 %cmp318.i.not.i, label %while.end50.i.i, label %while.cond4.preheader.lr.ph.i.i
 
 while.cond4.preheader.lr.ph.i.i:                  ; preds = %if.end.i.i
-  %8 = getelementptr i8, ptr %call.i.i, i64 24
+  %9 = getelementptr i8, ptr %call.i.i, i64 24
   br label %while.cond4.preheader.i.i
 
 while.cond4.preheader.i.i:                        ; preds = %if.end49.i.i, %while.cond4.preheader.lr.ph.i.i
@@ -8267,11 +8266,11 @@ while.cond4.preheader.i.i:                        ; preds = %if.end49.i.i, %whil
 land.rhs.i.i:                                     ; preds = %while.cond4.preheader.i.i, %while.body9.i.i
   %i.215.i.i = phi i64 [ %dec10.i.i, %while.body9.i.i ], [ %i.019.i.i, %while.cond4.preheader.i.i ]
   %arrayidx.i.i = getelementptr i8, ptr %retval.0.i.i, i64 %i.215.i.i
-  %9 = load i8, ptr %arrayidx.i.i, align 1
-  %idxprom.i.i = zext i8 %9 to i64
+  %10 = load i8, ptr %arrayidx.i.i, align 1
+  %idxprom.i.i = zext i8 %10 to i64
   %arrayidx7.i.i = getelementptr [256 x i32], ptr @_Py_ctype_table, i64 0, i64 %idxprom.i.i
-  %10 = load i32, ptr %arrayidx7.i.i, align 4
-  %and8.i.i = and i32 %10, 8
+  %11 = load i32, ptr %arrayidx7.i.i, align 4
+  %and8.i.i = and i32 %11, 8
   %tobool.not.i10.i = icmp eq i32 %and8.i.i, 0
   br i1 %tobool.not.i10.i, label %while.cond16.i.i, label %while.body9.i.i
 
@@ -8288,11 +8287,11 @@ while.cond16.i.i:                                 ; preds = %land.rhs.i.i, %land
 land.rhs19.i.i:                                   ; preds = %while.cond16.i.i
   %i.3.i.i = add nsw i64 %i.3.in.i.i, -1
   %arrayidx20.i.i = getelementptr i8, ptr %retval.0.i.i, i64 %i.3.i.i
-  %11 = load i8, ptr %arrayidx20.i.i, align 1
-  %idxprom24.i.i = zext i8 %11 to i64
+  %12 = load i8, ptr %arrayidx20.i.i, align 1
+  %idxprom24.i.i = zext i8 %12 to i64
   %arrayidx25.i.i = getelementptr [256 x i32], ptr @_Py_ctype_table, i64 0, i64 %idxprom24.i.i
-  %12 = load i32, ptr %arrayidx25.i.i, align 4
-  %and26.i.i = and i32 %12, 8
+  %13 = load i32, ptr %arrayidx25.i.i, align 4
+  %and26.i.i = and i32 %13, 8
   %tobool27.not.i.i = icmp eq i32 %and26.i.i, 0
   br i1 %tobool27.not.i.i, label %while.cond16.i.i, label %while.end31.i.i, !llvm.loop !34
 
@@ -8310,7 +8309,7 @@ if.end40.i.i:                                     ; preds = %while.end31.i.i
   br i1 %cmp41.i.i, label %if.then43.i.i, label %if.else.i.i
 
 if.then43.i.i:                                    ; preds = %if.end40.i.i
-  %call.val.i.i = load ptr, ptr %8, align 8
+  %call.val.i.i = load ptr, ptr %9, align 8
   %arrayidx.i.i.i = getelementptr ptr, ptr %call.val.i.i, i64 %count.020.i.i
   store ptr %call36.i.i, ptr %arrayidx.i.i.i, align 8
   br label %if.end49.i.i
@@ -8318,16 +8317,16 @@ if.then43.i.i:                                    ; preds = %if.end40.i.i
 if.else.i.i:                                      ; preds = %if.end40.i.i
   %call44.i.i = call i32 @PyList_Append(ptr noundef nonnull %call.i.i, ptr noundef nonnull %call36.i.i) #15
   %tobool45.not.i.i = icmp eq i32 %call44.i.i, 0
-  %13 = load i64, ptr %call36.i.i, align 8
-  %14 = and i64 %13, 2147483648
-  %cmp.i139.not.i.i = icmp eq i64 %14, 0
+  %14 = load i64, ptr %call36.i.i, align 8
+  %15 = and i64 %14, 2147483648
+  %cmp.i139.not.i.i = icmp eq i64 %15, 0
   br i1 %tobool45.not.i.i, label %if.else47.i.i, label %if.then46.i.i
 
 if.then46.i.i:                                    ; preds = %if.else.i.i
   br i1 %cmp.i139.not.i.i, label %if.end.i129.i.i, label %onError.i.i
 
 if.end.i129.i.i:                                  ; preds = %if.then46.i.i
-  %dec.i130.i.i = add i64 %13, -1
+  %dec.i130.i.i = add i64 %14, -1
   store i64 %dec.i130.i.i, ptr %call36.i.i, align 8
   %cmp.i131.i.i = icmp eq i64 %dec.i130.i.i, 0
   br i1 %cmp.i131.i.i, label %onError.sink.split.i.i, label %onError.i.i
@@ -8336,7 +8335,7 @@ if.else47.i.i:                                    ; preds = %if.else.i.i
   br i1 %cmp.i139.not.i.i, label %if.end.i120.i.i, label %if.end49.i.i
 
 if.end.i120.i.i:                                  ; preds = %if.else47.i.i
-  %dec.i121.i.i = add i64 %13, -1
+  %dec.i121.i.i = add i64 %14, -1
   store i64 %dec.i121.i.i, ptr %call36.i.i, align 8
   %cmp.i122.i.i = icmp eq i64 %dec.i121.i.i, 0
   br i1 %cmp.i122.i.i, label %if.then1.i123.i.i, label %if.end49.i.i
@@ -8358,11 +8357,11 @@ while.end50.i.i:                                  ; preds = %if.end49.i.i, %if.e
 land.rhs57.i.i:                                   ; preds = %while.end50.i.i, %while.body67.i.i
   %i.424.i.i = phi i64 [ %dec68.i.i, %while.body67.i.i ], [ %i.0.lcssa.i.i, %while.end50.i.i ]
   %arrayidx58.i.i = getelementptr i8, ptr %retval.0.i.i, i64 %i.424.i.i
-  %15 = load i8, ptr %arrayidx58.i.i, align 1
-  %idxprom62.i.i = zext i8 %15 to i64
+  %16 = load i8, ptr %arrayidx58.i.i, align 1
+  %idxprom62.i.i = zext i8 %16 to i64
   %arrayidx63.i.i = getelementptr [256 x i32], ptr @_Py_ctype_table, i64 0, i64 %idxprom62.i.i
-  %16 = load i32, ptr %arrayidx63.i.i, align 4
-  %and64.i.i = and i32 %16, 8
+  %17 = load i32, ptr %arrayidx63.i.i, align 4
+  %and64.i.i = and i32 %17, 8
   %tobool65.not.i.i = icmp eq i32 %and64.i.i, 0
   br i1 %tobool65.not.i.i, label %if.then72.i.i, label %while.body67.i.i
 
@@ -8378,47 +8377,52 @@ if.then72.i.i:                                    ; preds = %land.rhs57.i.i
   br i1 %cmp77.i.i, label %onError.i.i, label %if.end80.i.i
 
 if.end80.i.i:                                     ; preds = %if.then72.i.i
-  br i1 %cmp.inv.i.i, label %if.then83.i.i, label %if.else84.i.i
+  %cmp81.i.i = icmp ult i64 %maxsplit.0, 12
+  br i1 %cmp81.i.i, label %if.then83.i.i, label %if.else84.i.i
 
 if.then83.i.i:                                    ; preds = %if.end80.i.i
-  %17 = getelementptr i8, ptr %call.i.i, i64 24
-  %call.val56.i.i = load ptr, ptr %17, align 8
+  %18 = getelementptr i8, ptr %call.i.i, i64 24
+  %call.val56.i.i = load ptr, ptr %18, align 8
   %arrayidx.i57.i.i = getelementptr ptr, ptr %call.val56.i.i, i64 %spec.store.select.i
   store ptr %call76.i.i, ptr %arrayidx.i57.i.i, align 8
-  br label %if.end93.i.i
+  br label %if.end90.i.i
 
 if.else84.i.i:                                    ; preds = %if.end80.i.i
   %call85.i.i = call i32 @PyList_Append(ptr noundef nonnull %call.i.i, ptr noundef nonnull %call76.i.i) #15
   %tobool86.not.i.i = icmp eq i32 %call85.i.i, 0
-  %18 = load i64, ptr %call76.i.i, align 8
-  %19 = and i64 %18, 2147483648
-  %cmp.i147.not.i.i = icmp eq i64 %19, 0
+  %19 = load i64, ptr %call76.i.i, align 8
+  %20 = and i64 %19, 2147483648
+  %cmp.i147.not.i.i = icmp eq i64 %20, 0
   br i1 %tobool86.not.i.i, label %if.else88.i.i, label %if.then87.i.i
 
 if.then87.i.i:                                    ; preds = %if.else84.i.i
   br i1 %cmp.i147.not.i.i, label %if.end.i111.i.i, label %onError.i.i
 
 if.end.i111.i.i:                                  ; preds = %if.then87.i.i
-  %dec.i112.i.i = add i64 %18, -1
+  %dec.i112.i.i = add i64 %19, -1
   store i64 %dec.i112.i.i, ptr %call76.i.i, align 8
   %cmp.i113.i.i = icmp eq i64 %dec.i112.i.i, 0
   br i1 %cmp.i113.i.i, label %onError.sink.split.i.i, label %onError.i.i
 
 if.else88.i.i:                                    ; preds = %if.else84.i.i
-  br i1 %cmp.i147.not.i.i, label %if.end.i102.i.i, label %if.end93.i.i
+  br i1 %cmp.i147.not.i.i, label %if.end.i102.i.i, label %if.end90.i.i
 
 if.end.i102.i.i:                                  ; preds = %if.else88.i.i
-  %dec.i103.i.i = add i64 %18, -1
+  %dec.i103.i.i = add i64 %19, -1
   store i64 %dec.i103.i.i, ptr %call76.i.i, align 8
   %cmp.i104.i.i = icmp eq i64 %dec.i103.i.i, 0
-  br i1 %cmp.i104.i.i, label %if.then1.i105.i.i, label %if.end93.i.i
+  br i1 %cmp.i104.i.i, label %if.then1.i105.i.i, label %if.end90.i.i
 
 if.then1.i105.i.i:                                ; preds = %if.end.i102.i.i
   call void @_Py_Dealloc(ptr noundef nonnull %call76.i.i) #15
+  br label %if.end90.i.i
+
+if.end90.i.i:                                     ; preds = %if.then1.i105.i.i, %if.end.i102.i.i, %if.else88.i.i, %if.then83.i.i
+  %inc91.i.i = add nuw i64 %spec.store.select.i, 1
   br label %if.end93.i.i
 
-if.end93.i.i:                                     ; preds = %while.cond4.preheader.i.i, %while.body9.i.i, %while.body67.i.i, %if.then1.i105.i.i, %if.end.i102.i.i, %if.else88.i.i, %if.then83.i.i, %while.end50.i.i
-  %count.1.i.i = phi i64 [ %spec.store.select.i, %while.end50.i.i ], [ %add.i.i, %if.then1.i105.i.i ], [ %add.i.i, %if.end.i102.i.i ], [ %add.i.i, %if.else88.i.i ], [ %add.i.i, %if.then83.i.i ], [ %spec.store.select.i, %while.body67.i.i ], [ %count.020.i.i, %while.body9.i.i ], [ %count.020.i.i, %while.cond4.preheader.i.i ]
+if.end93.i.i:                                     ; preds = %while.cond4.preheader.i.i, %while.body9.i.i, %while.body67.i.i, %if.end90.i.i, %while.end50.i.i
+  %count.1.i.i = phi i64 [ %inc91.i.i, %if.end90.i.i ], [ %spec.store.select.i, %while.end50.i.i ], [ %spec.store.select.i, %while.body67.i.i ], [ %count.020.i.i, %while.body9.i.i ], [ %count.020.i.i, %while.cond4.preheader.i.i ]
   %ob_size.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
   store i64 %count.1.i.i, ptr %ob_size.i.i.i, align 8
   %call94.i.i = call i32 @PyList_Reverse(ptr noundef nonnull %call.i.i) #15
@@ -8431,13 +8435,13 @@ onError.sink.split.i.i:                           ; preds = %if.end.i111.i.i, %i
   br label %onError.i.i
 
 onError.i.i:                                      ; preds = %while.end31.i.i, %onError.sink.split.i.i, %if.end93.i.i, %if.end.i111.i.i, %if.then87.i.i, %if.then72.i.i, %if.end.i129.i.i, %if.then46.i.i
-  %20 = load i64, ptr %call.i.i, align 8
-  %21 = and i64 %20, 2147483648
-  %cmp.i151.not.i.i = icmp eq i64 %21, 0
+  %21 = load i64, ptr %call.i.i, align 8
+  %22 = and i64 %21, 2147483648
+  %cmp.i151.not.i.i = icmp eq i64 %22, 0
   br i1 %cmp.i151.not.i.i, label %if.end.i.i.i, label %bytearray_rsplit_impl.exit
 
 if.end.i.i.i:                                     ; preds = %onError.i.i
-  %dec.i.i.i = add i64 %20, -1
+  %dec.i.i.i = add i64 %21, -1
   store i64 %dec.i.i.i, ptr %call.i.i, align 8
   %cmp.i.i.i = icmp eq i64 %dec.i.i.i, 0
   br i1 %cmp.i.i.i, label %if.then1.i.i.i, label %bytearray_rsplit_impl.exit
@@ -8452,24 +8456,23 @@ if.end5.i:                                        ; preds = %PyByteArray_AS_STRI
   br i1 %cmp7.not.i, label %if.end9.i, label %bytearray_rsplit_impl.exit
 
 if.end9.i:                                        ; preds = %if.end5.i
-  %22 = load ptr, ptr %vsub.i, align 8
+  %23 = load ptr, ptr %vsub.i, align 8
   %len10.i = getelementptr inbounds i8, ptr %vsub.i, i64 16
-  %23 = load i64, ptr %len10.i, align 8
-  switch i64 %23, label %if.end3.i.i [
+  %24 = load i64, ptr %len10.i, align 8
+  switch i64 %24, label %if.end3.i.i [
     i64 0, label %if.then.i13.i
     i64 1, label %if.then2.i.i
   ]
 
 if.then.i13.i:                                    ; preds = %if.end9.i
-  %24 = load ptr, ptr @PyExc_ValueError, align 8
-  call void @PyErr_SetString(ptr noundef %24, ptr noundef nonnull @.str.97) #15
+  %25 = load ptr, ptr @PyExc_ValueError, align 8
+  call void @PyErr_SetString(ptr noundef %25, ptr noundef nonnull @.str.97) #15
   br label %stringlib_rsplit.exit.i
 
 if.then2.i.i:                                     ; preds = %if.end9.i
-  %25 = load i8, ptr %22, align 1
-  %add.i.i.i = add nuw nsw i64 %spec.store.select.i, 1
-  %cmp.inv.i.i.i = icmp ult i64 %maxsplit.0, 12
-  %cond.i.i.i = select i1 %cmp.inv.i.i.i, i64 %add.i.i.i, i64 12
+  %26 = load i8, ptr %23, align 1
+  %27 = call i64 @llvm.umin.i64(i64 %maxsplit.0, i64 11)
+  %cond.i.i.i = add nuw nsw i64 %27, 1
   %call.i.i.i = call ptr @PyList_New(i64 noundef %cond.i.i.i) #15
   %cmp1.i.i.i = icmp eq ptr %call.i.i.i, null
   br i1 %cmp1.i.i.i, label %stringlib_rsplit.exit.i, label %if.end.i53.i.i
@@ -8481,7 +8484,7 @@ if.end.i53.i.i:                                   ; preds = %if.then2.i.i
   br i1 %cmp39.i.i.i, label %land.rhs.lr.ph.i.i.i, label %while.end.i.i.i
 
 land.rhs.lr.ph.i.i.i:                             ; preds = %if.end.i53.i.i
-  %26 = getelementptr i8, ptr %call.i.i.i, i64 24
+  %28 = getelementptr i8, ptr %call.i.i.i, i64 24
   br label %land.rhs.i.i.i
 
 land.rhs.i.i.i:                                   ; preds = %for.end.i.i.i, %land.rhs.lr.ph.i.i.i
@@ -8493,8 +8496,8 @@ land.rhs.i.i.i:                                   ; preds = %for.end.i.i.i, %lan
 for.body.i.i.i:                                   ; preds = %land.rhs.i.i.i, %for.inc.i.i.i
   %i.18.i.i.i = phi i64 [ %dec29.i.i.i, %for.inc.i.i.i ], [ %j.012.i.i.i, %land.rhs.i.i.i ]
   %arrayidx.i.i12.i = getelementptr i8, ptr %retval.0.i.i, i64 %i.18.i.i.i
-  %27 = load i8, ptr %arrayidx.i.i12.i, align 1
-  %cmp7.i.i.i = icmp eq i8 %27, %25
+  %29 = load i8, ptr %arrayidx.i.i12.i, align 1
+  %cmp7.i.i.i = icmp eq i8 %29, %26
   br i1 %cmp7.i.i.i, label %if.then9.i.i.i, label %for.inc.i.i.i
 
 if.then9.i.i.i:                                   ; preds = %for.body.i.i.i
@@ -8509,7 +8512,7 @@ if.end18.i.i.i:                                   ; preds = %if.then9.i.i.i
   br i1 %cmp19.i.i.i, label %if.then21.i.i.i, label %if.else.i.i.i
 
 if.then21.i.i.i:                                  ; preds = %if.end18.i.i.i
-  %call.val46.i.i.i = load ptr, ptr %26, align 8
+  %call.val46.i.i.i = load ptr, ptr %28, align 8
   %arrayidx.i.i.i.i = getelementptr ptr, ptr %call.val46.i.i.i, i64 %count.013.i.i.i
   store ptr %call14.i.i.i, ptr %arrayidx.i.i.i.i, align 8
   br label %for.end.i.i.i
@@ -8517,16 +8520,16 @@ if.then21.i.i.i:                                  ; preds = %if.end18.i.i.i
 if.else.i.i.i:                                    ; preds = %if.end18.i.i.i
   %call22.i.i.i = call i32 @PyList_Append(ptr noundef nonnull %call.i.i.i, ptr noundef nonnull %call14.i.i.i) #15
   %tobool.not.i.i.i = icmp eq i32 %call22.i.i.i, 0
-  %28 = load i64, ptr %call14.i.i.i, align 8
-  %29 = and i64 %28, 2147483648
-  %cmp.i98.not.i.i.i = icmp eq i64 %29, 0
+  %30 = load i64, ptr %call14.i.i.i, align 8
+  %31 = and i64 %30, 2147483648
+  %cmp.i98.not.i.i.i = icmp eq i64 %31, 0
   br i1 %tobool.not.i.i.i, label %if.else24.i.i.i, label %if.then23.i.i.i
 
 if.then23.i.i.i:                                  ; preds = %if.else.i.i.i
   br i1 %cmp.i98.not.i.i.i, label %if.end.i88.i.i.i, label %onError.i.i.i
 
 if.end.i88.i.i.i:                                 ; preds = %if.then23.i.i.i
-  %dec.i89.i.i.i = add i64 %28, -1
+  %dec.i89.i.i.i = add i64 %30, -1
   store i64 %dec.i89.i.i.i, ptr %call14.i.i.i, align 8
   %cmp.i90.i.i.i = icmp eq i64 %dec.i89.i.i.i, 0
   br i1 %cmp.i90.i.i.i, label %onError.sink.split.i.i.i, label %onError.i.i.i
@@ -8535,7 +8538,7 @@ if.else24.i.i.i:                                  ; preds = %if.else.i.i.i
   br i1 %cmp.i98.not.i.i.i, label %if.end.i79.i.i.i, label %for.end.i.i.i
 
 if.end.i79.i.i.i:                                 ; preds = %if.else24.i.i.i
-  %dec.i80.i.i.i = add i64 %28, -1
+  %dec.i80.i.i.i = add i64 %30, -1
   store i64 %dec.i80.i.i.i, ptr %call14.i.i.i, align 8
   %cmp.i81.i.i.i = icmp eq i64 %dec.i80.i.i.i, 0
   br i1 %cmp.i81.i.i.i, label %if.then1.i82.i.i.i, label %for.end.i.i.i
@@ -8574,8 +8577,8 @@ if.end40.i.i.i:                                   ; preds = %if.then32.i.i.i
   br i1 %cmp41.i.i.i, label %if.then43.i.i.i, label %if.else44.i.i.i
 
 if.then43.i.i.i:                                  ; preds = %if.end40.i.i.i
-  %30 = getelementptr i8, ptr %call.i.i.i, i64 24
-  %call.val.i.i.i = load ptr, ptr %30, align 8
+  %32 = getelementptr i8, ptr %call.i.i.i, i64 24
+  %call.val.i.i.i = load ptr, ptr %32, align 8
   %arrayidx.i47.i.i.i = getelementptr ptr, ptr %call.val.i.i.i, i64 %count.0.lcssa27.i.i.i
   store ptr %call36.i.i.i, ptr %arrayidx.i47.i.i.i, align 8
   br label %if.end50.i.i.i
@@ -8583,16 +8586,16 @@ if.then43.i.i.i:                                  ; preds = %if.end40.i.i.i
 if.else44.i.i.i:                                  ; preds = %if.end40.i.i.i
   %call45.i.i.i = call i32 @PyList_Append(ptr noundef nonnull %call.i.i.i, ptr noundef nonnull %call36.i.i.i) #15
   %tobool46.not.i.i.i = icmp eq i32 %call45.i.i.i, 0
-  %31 = load i64, ptr %call36.i.i.i, align 8
-  %32 = and i64 %31, 2147483648
-  %cmp.i106.not.i.i.i = icmp eq i64 %32, 0
+  %33 = load i64, ptr %call36.i.i.i, align 8
+  %34 = and i64 %33, 2147483648
+  %cmp.i106.not.i.i.i = icmp eq i64 %34, 0
   br i1 %tobool46.not.i.i.i, label %if.else48.i.i.i, label %if.then47.i.i.i
 
 if.then47.i.i.i:                                  ; preds = %if.else44.i.i.i
   br i1 %cmp.i106.not.i.i.i, label %if.end.i70.i.i.i, label %onError.i.i.i
 
 if.end.i70.i.i.i:                                 ; preds = %if.then47.i.i.i
-  %dec.i71.i.i.i = add i64 %31, -1
+  %dec.i71.i.i.i = add i64 %33, -1
   store i64 %dec.i71.i.i.i, ptr %call36.i.i.i, align 8
   %cmp.i72.i.i.i = icmp eq i64 %dec.i71.i.i.i, 0
   br i1 %cmp.i72.i.i.i, label %onError.sink.split.i.i.i, label %onError.i.i.i
@@ -8601,7 +8604,7 @@ if.else48.i.i.i:                                  ; preds = %if.else44.i.i.i
   br i1 %cmp.i106.not.i.i.i, label %if.end.i61.i.i.i, label %if.end50.i.i.i
 
 if.end.i61.i.i.i:                                 ; preds = %if.else48.i.i.i
-  %dec.i62.i.i.i = add i64 %31, -1
+  %dec.i62.i.i.i = add i64 %33, -1
   store i64 %dec.i62.i.i.i, ptr %call36.i.i.i, align 8
   %cmp.i63.i.i.i = icmp eq i64 %dec.i62.i.i.i, 0
   br i1 %cmp.i63.i.i.i, label %if.then1.i64.i.i.i, label %if.end50.i.i.i
@@ -8628,13 +8631,13 @@ onError.sink.split.i.i.i:                         ; preds = %if.end.i70.i.i.i, %
   br label %onError.i.i.i
 
 onError.i.i.i:                                    ; preds = %if.then9.i.i.i, %onError.sink.split.i.i.i, %if.end52.i.i.i, %if.end.i70.i.i.i, %if.then47.i.i.i, %if.then32.i.i.i, %if.end.i88.i.i.i, %if.then23.i.i.i
-  %33 = load i64, ptr %call.i.i.i, align 8
-  %34 = and i64 %33, 2147483648
-  %cmp.i110.not.i.i.i = icmp eq i64 %34, 0
+  %35 = load i64, ptr %call.i.i.i, align 8
+  %36 = and i64 %35, 2147483648
+  %cmp.i110.not.i.i.i = icmp eq i64 %36, 0
   br i1 %cmp.i110.not.i.i.i, label %if.end.i.i.i.i, label %stringlib_rsplit.exit.i
 
 if.end.i.i.i.i:                                   ; preds = %onError.i.i.i
-  %dec.i.i.i.i = add i64 %33, -1
+  %dec.i.i.i.i = add i64 %35, -1
   store i64 %dec.i.i.i.i, ptr %call.i.i.i, align 8
   %cmp.i.i.i.i = icmp eq i64 %dec.i.i.i.i, 0
   br i1 %cmp.i.i.i.i, label %if.then1.i.i.i.i, label %stringlib_rsplit.exit.i
@@ -8644,10 +8647,9 @@ if.then1.i.i.i.i:                                 ; preds = %if.end.i.i.i.i
   br label %stringlib_rsplit.exit.i
 
 if.end3.i.i:                                      ; preds = %if.end9.i
-  %add.i14.i = add nuw nsw i64 %spec.store.select.i, 1
-  %cmp4.inv.i.i = icmp ult i64 %maxsplit.0, 12
-  %cond.i15.i = select i1 %cmp4.inv.i.i, i64 %add.i14.i, i64 12
-  %call5.i.i = call ptr @PyList_New(i64 noundef %cond.i15.i) #15
+  %37 = call i64 @llvm.umin.i64(i64 %maxsplit.0, i64 11)
+  %cond.i14.i = add nuw nsw i64 %37, 1
+  %call5.i.i = call ptr @PyList_New(i64 noundef %cond.i14.i) #15
   %cmp6.i.i = icmp eq ptr %call5.i.i, null
   br i1 %cmp6.i.i, label %stringlib_rsplit.exit.i, label %while.cond.preheader.i.i
 
@@ -8656,56 +8658,56 @@ while.cond.preheader.i.i:                         ; preds = %if.end3.i.i
   br i1 %cmp915.i.not.i, label %while.end.thread.i.i, label %while.body.lr.ph.i.i
 
 while.body.lr.ph.i.i:                             ; preds = %while.cond.preheader.i.i
-  %35 = getelementptr i8, ptr %call5.i.i, i64 24
+  %38 = getelementptr i8, ptr %call5.i.i, i64 24
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %if.end28.i.i, %while.body.lr.ph.i.i
-  %count.017.i.i = phi i64 [ 0, %while.body.lr.ph.i.i ], [ %inc.i25.i, %if.end28.i.i ]
+  %count.017.i.i = phi i64 [ 0, %while.body.lr.ph.i.i ], [ %inc.i24.i, %if.end28.i.i ]
   %j.016.i.i = phi i64 [ %self.val.i, %while.body.lr.ph.i.i ], [ %call10.i.i, %if.end28.i.i ]
-  %call10.i.i = call fastcc i64 @fastsearch(ptr noundef %retval.0.i.i, i64 noundef %j.016.i.i, ptr noundef %22, i64 noundef %23, i64 noundef -1, i32 noundef 2)
+  %call10.i.i = call fastcc i64 @fastsearch(ptr noundef %retval.0.i.i, i64 noundef %j.016.i.i, ptr noundef %23, i64 noundef %24, i64 noundef -1, i32 noundef 2)
   %cmp11.i.i = icmp slt i64 %call10.i.i, 0
   br i1 %cmp11.i.i, label %while.end.i.i, label %if.end13.i.i
 
 if.end13.i.i:                                     ; preds = %while.body.i.i
-  %add14.i.i = add i64 %call10.i.i, %23
-  %add.ptr.i22.i = getelementptr i8, ptr %retval.0.i.i, i64 %add14.i.i
+  %add14.i.i = add i64 %call10.i.i, %24
+  %add.ptr.i21.i = getelementptr i8, ptr %retval.0.i.i, i64 %add14.i.i
   %sub16.i.i = sub i64 %j.016.i.i, %add14.i.i
-  %call17.i.i = call ptr @PyByteArray_FromStringAndSize(ptr noundef %add.ptr.i22.i, i64 noundef %sub16.i.i)
+  %call17.i.i = call ptr @PyByteArray_FromStringAndSize(ptr noundef %add.ptr.i21.i, i64 noundef %sub16.i.i)
   %cmp18.i.i = icmp eq ptr %call17.i.i, null
-  br i1 %cmp18.i.i, label %onError.i17.i, label %if.end20.i.i
+  br i1 %cmp18.i.i, label %onError.i16.i, label %if.end20.i.i
 
 if.end20.i.i:                                     ; preds = %if.end13.i.i
   %cmp21.i.i = icmp samesign ult i64 %count.017.i.i, 12
   br i1 %cmp21.i.i, label %if.then22.i.i, label %if.else23.i.i
 
 if.then22.i.i:                                    ; preds = %if.end20.i.i
-  %call5.val.i.i = load ptr, ptr %35, align 8
+  %call5.val.i.i = load ptr, ptr %38, align 8
   %arrayidx.i55.i.i = getelementptr ptr, ptr %call5.val.i.i, i64 %count.017.i.i
   store ptr %call17.i.i, ptr %arrayidx.i55.i.i, align 8
   br label %if.end28.i.i
 
 if.else23.i.i:                                    ; preds = %if.end20.i.i
   %call24.i.i = call i32 @PyList_Append(ptr noundef nonnull %call5.i.i, ptr noundef nonnull %call17.i.i) #15
-  %tobool.not.i23.i = icmp eq i32 %call24.i.i, 0
-  %36 = load i64, ptr %call17.i.i, align 8
-  %37 = and i64 %36, 2147483648
-  %cmp.i89.not.i.i = icmp eq i64 %37, 0
-  br i1 %tobool.not.i23.i, label %if.else26.i.i, label %if.then25.i.i
+  %tobool.not.i22.i = icmp eq i32 %call24.i.i, 0
+  %39 = load i64, ptr %call17.i.i, align 8
+  %40 = and i64 %39, 2147483648
+  %cmp.i89.not.i.i = icmp eq i64 %40, 0
+  br i1 %tobool.not.i22.i, label %if.else26.i.i, label %if.then25.i.i
 
 if.then25.i.i:                                    ; preds = %if.else23.i.i
-  br i1 %cmp.i89.not.i.i, label %if.end.i79.i.i, label %onError.i17.i
+  br i1 %cmp.i89.not.i.i, label %if.end.i79.i.i, label %onError.i16.i
 
 if.end.i79.i.i:                                   ; preds = %if.then25.i.i
-  %dec.i80.i.i = add i64 %36, -1
+  %dec.i80.i.i = add i64 %39, -1
   store i64 %dec.i80.i.i, ptr %call17.i.i, align 8
   %cmp.i81.i.i = icmp eq i64 %dec.i80.i.i, 0
-  br i1 %cmp.i81.i.i, label %onError.sink.split.i24.i, label %onError.i17.i
+  br i1 %cmp.i81.i.i, label %onError.sink.split.i23.i, label %onError.i16.i
 
 if.else26.i.i:                                    ; preds = %if.else23.i.i
   br i1 %cmp.i89.not.i.i, label %if.end.i70.i.i, label %if.end28.i.i
 
 if.end.i70.i.i:                                   ; preds = %if.else26.i.i
-  %dec.i71.i.i = add i64 %36, -1
+  %dec.i71.i.i = add i64 %39, -1
   store i64 %dec.i71.i.i, ptr %call17.i.i, align 8
   %cmp.i72.i.i = icmp eq i64 %dec.i71.i.i, 0
   br i1 %cmp.i72.i.i, label %if.then1.i73.i.i, label %if.end28.i.i
@@ -8715,31 +8717,31 @@ if.then1.i73.i.i:                                 ; preds = %if.end.i70.i.i
   br label %if.end28.i.i
 
 if.end28.i.i:                                     ; preds = %if.then1.i73.i.i, %if.end.i70.i.i, %if.else26.i.i, %if.then22.i.i
-  %inc.i25.i = add nuw nsw i64 %count.017.i.i, 1
-  %exitcond.not.i26.i = icmp eq i64 %inc.i25.i, %spec.store.select.i
-  br i1 %exitcond.not.i26.i, label %while.end.i.i, label %while.body.i.i, !llvm.loop !39
+  %inc.i24.i = add nuw nsw i64 %count.017.i.i, 1
+  %exitcond.not.i25.i = icmp eq i64 %inc.i24.i, %spec.store.select.i
+  br i1 %exitcond.not.i25.i, label %while.end.i.i, label %while.body.i.i, !llvm.loop !39
 
 while.end.i.i:                                    ; preds = %if.end28.i.i, %while.body.i.i
   %j.0.lcssa.i.i = phi i64 [ %call10.i.i, %if.end28.i.i ], [ %j.016.i.i, %while.body.i.i ]
-  %count.0.lcssa.i27.i = phi i64 [ %spec.store.select.i, %if.end28.i.i ], [ %count.017.i.i, %while.body.i.i ]
+  %count.0.lcssa.i26.i = phi i64 [ %spec.store.select.i, %if.end28.i.i ], [ %count.017.i.i, %while.body.i.i ]
   %call31.i.i = call ptr @PyByteArray_FromStringAndSize(ptr noundef %retval.0.i.i, i64 noundef %j.0.lcssa.i.i)
   %cmp32.i.i = icmp eq ptr %call31.i.i, null
-  br i1 %cmp32.i.i, label %onError.i17.i, label %if.end34.i.i
+  br i1 %cmp32.i.i, label %onError.i16.i, label %if.end34.i.i
 
 while.end.thread.i.i:                             ; preds = %while.cond.preheader.i.i
   %call3133.i.i = call ptr @PyByteArray_FromStringAndSize(ptr noundef %retval.0.i.i, i64 noundef %self.val.i)
   %cmp3234.i.i = icmp eq ptr %call3133.i.i, null
-  br i1 %cmp3234.i.i, label %onError.i17.i, label %if.then36.i.i
+  br i1 %cmp3234.i.i, label %onError.i16.i, label %if.then36.i.i
 
 if.end34.i.i:                                     ; preds = %while.end.i.i
-  %cmp35.i.i = icmp samesign ult i64 %count.0.lcssa.i27.i, 12
+  %cmp35.i.i = icmp samesign ult i64 %count.0.lcssa.i26.i, 12
   br i1 %cmp35.i.i, label %if.then36.i.i, label %if.else37.i.i
 
 if.then36.i.i:                                    ; preds = %if.end34.i.i, %while.end.thread.i.i
-  %count.0.lcssa3541.i.i = phi i64 [ %count.0.lcssa.i27.i, %if.end34.i.i ], [ 0, %while.end.thread.i.i ]
+  %count.0.lcssa3541.i.i = phi i64 [ %count.0.lcssa.i26.i, %if.end34.i.i ], [ 0, %while.end.thread.i.i ]
   %call313640.i.i = phi ptr [ %call31.i.i, %if.end34.i.i ], [ %call3133.i.i, %while.end.thread.i.i ]
-  %38 = getelementptr i8, ptr %call5.i.i, i64 24
-  %call5.val51.i.i = load ptr, ptr %38, align 8
+  %41 = getelementptr i8, ptr %call5.i.i, i64 24
+  %call5.val51.i.i = load ptr, ptr %41, align 8
   %arrayidx.i56.i.i = getelementptr ptr, ptr %call5.val51.i.i, i64 %count.0.lcssa3541.i.i
   store ptr %call313640.i.i, ptr %arrayidx.i56.i.i, align 8
   br label %if.end43.i.i
@@ -8747,25 +8749,25 @@ if.then36.i.i:                                    ; preds = %if.end34.i.i, %whil
 if.else37.i.i:                                    ; preds = %if.end34.i.i
   %call38.i.i = call i32 @PyList_Append(ptr noundef nonnull %call5.i.i, ptr noundef nonnull %call31.i.i) #15
   %tobool39.not.i.i = icmp eq i32 %call38.i.i, 0
-  %39 = load i64, ptr %call31.i.i, align 8
-  %40 = and i64 %39, 2147483648
-  %cmp.i97.not.i.i = icmp eq i64 %40, 0
+  %42 = load i64, ptr %call31.i.i, align 8
+  %43 = and i64 %42, 2147483648
+  %cmp.i97.not.i.i = icmp eq i64 %43, 0
   br i1 %tobool39.not.i.i, label %if.else41.i.i, label %if.then40.i.i
 
 if.then40.i.i:                                    ; preds = %if.else37.i.i
-  br i1 %cmp.i97.not.i.i, label %if.end.i61.i.i, label %onError.i17.i
+  br i1 %cmp.i97.not.i.i, label %if.end.i61.i.i, label %onError.i16.i
 
 if.end.i61.i.i:                                   ; preds = %if.then40.i.i
-  %dec.i62.i.i = add i64 %39, -1
+  %dec.i62.i.i = add i64 %42, -1
   store i64 %dec.i62.i.i, ptr %call31.i.i, align 8
   %cmp.i63.i.i = icmp eq i64 %dec.i62.i.i, 0
-  br i1 %cmp.i63.i.i, label %onError.sink.split.i24.i, label %onError.i17.i
+  br i1 %cmp.i63.i.i, label %onError.sink.split.i23.i, label %onError.i16.i
 
 if.else41.i.i:                                    ; preds = %if.else37.i.i
   br i1 %cmp.i97.not.i.i, label %if.end.i52.i.i, label %if.end43.i.i
 
 if.end.i52.i.i:                                   ; preds = %if.else41.i.i
-  %dec.i53.i.i = add i64 %39, -1
+  %dec.i53.i.i = add i64 %42, -1
   store i64 %dec.i53.i.i, ptr %call31.i.i, align 8
   %cmp.i54.i.i = icmp eq i64 %dec.i53.i.i, 0
   br i1 %cmp.i54.i.i, label %if.then1.i55.i.i, label %if.end43.i.i
@@ -8775,37 +8777,37 @@ if.then1.i55.i.i:                                 ; preds = %if.end.i52.i.i
   br label %if.end43.i.i
 
 if.end43.i.i:                                     ; preds = %if.then1.i55.i.i, %if.end.i52.i.i, %if.else41.i.i, %if.then36.i.i
-  %count.0.lcssa3542.i.i = phi i64 [ %count.0.lcssa.i27.i, %if.else41.i.i ], [ %count.0.lcssa.i27.i, %if.then1.i55.i.i ], [ %count.0.lcssa.i27.i, %if.end.i52.i.i ], [ %count.0.lcssa3541.i.i, %if.then36.i.i ]
+  %count.0.lcssa3542.i.i = phi i64 [ %count.0.lcssa.i26.i, %if.else41.i.i ], [ %count.0.lcssa.i26.i, %if.then1.i55.i.i ], [ %count.0.lcssa.i26.i, %if.end.i52.i.i ], [ %count.0.lcssa3541.i.i, %if.then36.i.i ]
   %inc44.i.i = add i64 %count.0.lcssa3542.i.i, 1
-  %ob_size.i.i16.i = getelementptr inbounds i8, ptr %call5.i.i, i64 16
-  store i64 %inc44.i.i, ptr %ob_size.i.i16.i, align 8
+  %ob_size.i.i15.i = getelementptr inbounds i8, ptr %call5.i.i, i64 16
+  store i64 %inc44.i.i, ptr %ob_size.i.i15.i, align 8
   %call45.i.i = call i32 @PyList_Reverse(ptr noundef nonnull %call5.i.i) #15
   %cmp46.i.i = icmp slt i32 %call45.i.i, 0
-  br i1 %cmp46.i.i, label %onError.i17.i, label %stringlib_rsplit.exit.i
+  br i1 %cmp46.i.i, label %onError.i16.i, label %stringlib_rsplit.exit.i
 
-onError.sink.split.i24.i:                         ; preds = %if.end.i61.i.i, %if.end.i79.i.i
+onError.sink.split.i23.i:                         ; preds = %if.end.i61.i.i, %if.end.i79.i.i
   %call31.sink.i.i = phi ptr [ %call17.i.i, %if.end.i79.i.i ], [ %call31.i.i, %if.end.i61.i.i ]
   call void @_Py_Dealloc(ptr noundef nonnull %call31.sink.i.i) #15
-  br label %onError.i17.i
+  br label %onError.i16.i
 
-onError.i17.i:                                    ; preds = %if.end13.i.i, %onError.sink.split.i24.i, %if.end43.i.i, %if.end.i61.i.i, %if.then40.i.i, %while.end.thread.i.i, %while.end.i.i, %if.end.i79.i.i, %if.then25.i.i
-  %41 = load i64, ptr %call5.i.i, align 8
-  %42 = and i64 %41, 2147483648
-  %cmp.i101.not.i.i = icmp eq i64 %42, 0
-  br i1 %cmp.i101.not.i.i, label %if.end.i.i18.i, label %stringlib_rsplit.exit.i
+onError.i16.i:                                    ; preds = %if.end13.i.i, %onError.sink.split.i23.i, %if.end43.i.i, %if.end.i61.i.i, %if.then40.i.i, %while.end.thread.i.i, %while.end.i.i, %if.end.i79.i.i, %if.then25.i.i
+  %44 = load i64, ptr %call5.i.i, align 8
+  %45 = and i64 %44, 2147483648
+  %cmp.i101.not.i.i = icmp eq i64 %45, 0
+  br i1 %cmp.i101.not.i.i, label %if.end.i.i17.i, label %stringlib_rsplit.exit.i
 
-if.end.i.i18.i:                                   ; preds = %onError.i17.i
-  %dec.i.i19.i = add i64 %41, -1
-  store i64 %dec.i.i19.i, ptr %call5.i.i, align 8
-  %cmp.i.i20.i = icmp eq i64 %dec.i.i19.i, 0
-  br i1 %cmp.i.i20.i, label %if.then1.i.i21.i, label %stringlib_rsplit.exit.i
+if.end.i.i17.i:                                   ; preds = %onError.i16.i
+  %dec.i.i18.i = add i64 %44, -1
+  store i64 %dec.i.i18.i, ptr %call5.i.i, align 8
+  %cmp.i.i19.i = icmp eq i64 %dec.i.i18.i, 0
+  br i1 %cmp.i.i19.i, label %if.then1.i.i20.i, label %stringlib_rsplit.exit.i
 
-if.then1.i.i21.i:                                 ; preds = %if.end.i.i18.i
+if.then1.i.i20.i:                                 ; preds = %if.end.i.i17.i
   call void @_Py_Dealloc(ptr noundef nonnull %call5.i.i) #15
   br label %stringlib_rsplit.exit.i
 
-stringlib_rsplit.exit.i:                          ; preds = %if.then1.i.i21.i, %if.end.i.i18.i, %onError.i17.i, %if.end43.i.i, %if.end3.i.i, %if.then1.i.i.i.i, %if.end.i.i.i.i, %onError.i.i.i, %if.end52.i.i.i, %if.then2.i.i, %if.then.i13.i
-  %retval.0.i11.i = phi ptr [ null, %if.then.i13.i ], [ null, %if.end3.i.i ], [ %call5.i.i, %if.end43.i.i ], [ null, %onError.i17.i ], [ null, %if.then1.i.i21.i ], [ null, %if.end.i.i18.i ], [ null, %if.then2.i.i ], [ %call.i.i.i, %if.end52.i.i.i ], [ null, %onError.i.i.i ], [ null, %if.then1.i.i.i.i ], [ null, %if.end.i.i.i.i ]
+stringlib_rsplit.exit.i:                          ; preds = %if.then1.i.i20.i, %if.end.i.i17.i, %onError.i16.i, %if.end43.i.i, %if.end3.i.i, %if.then1.i.i.i.i, %if.end.i.i.i.i, %onError.i.i.i, %if.end52.i.i.i, %if.then2.i.i, %if.then.i13.i
+  %retval.0.i11.i = phi ptr [ null, %if.then.i13.i ], [ null, %if.end3.i.i ], [ %call5.i.i, %if.end43.i.i ], [ null, %onError.i16.i ], [ null, %if.then1.i.i20.i ], [ null, %if.end.i.i17.i ], [ null, %if.then2.i.i ], [ %call.i.i.i, %if.end52.i.i.i ], [ null, %onError.i.i.i ], [ null, %if.then1.i.i.i.i ], [ null, %if.end.i.i.i.i ]
   call void @PyBuffer_Release(ptr noundef nonnull %vsub.i) #15
   br label %bytearray_rsplit_impl.exit
 
@@ -9009,9 +9011,8 @@ PyByteArray_AS_STRING.exit.i:                     ; preds = %if.then.i.i, %skip_
   br i1 %cmp2.i, label %if.then3.i, label %if.end5.i
 
 if.then3.i:                                       ; preds = %PyByteArray_AS_STRING.exit.i
-  %add.i.i = add nuw i64 %spec.store.select.i, 1
-  %cmp.inv.i.i = icmp ult i64 %maxsplit.0, 12
-  %cond.i.i = select i1 %cmp.inv.i.i, i64 %add.i.i, i64 12
+  %8 = call i64 @llvm.umin.i64(i64 %maxsplit.0, i64 11)
+  %cond.i.i = add nuw nsw i64 %8, 1
   %call.i.i = call ptr @PyList_New(i64 noundef %cond.i.i) #15
   %cmp1.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp1.i.i, label %bytearray_split_impl.exit, label %while.cond.preheader.i.i
@@ -9021,7 +9022,7 @@ while.cond.preheader.i.i:                         ; preds = %if.then3.i
   br i1 %cmp28.i.not.i, label %while.end46.i.i, label %while.cond3.preheader.lr.ph.i.i
 
 while.cond3.preheader.lr.ph.i.i:                  ; preds = %while.cond.preheader.i.i
-  %8 = getelementptr i8, ptr %call.i.i, i64 24
+  %9 = getelementptr i8, ptr %call.i.i, i64 24
   br label %while.cond3.preheader.i.i
 
 while.cond3.preheader.i.i:                        ; preds = %if.end44.i.i, %while.cond3.preheader.lr.ph.i.i
@@ -9033,11 +9034,11 @@ while.cond3.preheader.i.i:                        ; preds = %if.end44.i.i, %whil
 land.rhs.i.i:                                     ; preds = %while.cond3.preheader.i.i, %while.body8.i.i
   %i.25.i.i = phi i64 [ %inc.i.i, %while.body8.i.i ], [ %i.09.i.i, %while.cond3.preheader.i.i ]
   %arrayidx.i.i = getelementptr i8, ptr %retval.0.i.i, i64 %i.25.i.i
-  %9 = load i8, ptr %arrayidx.i.i, align 1
-  %idxprom.i.i = zext i8 %9 to i64
+  %10 = load i8, ptr %arrayidx.i.i, align 1
+  %idxprom.i.i = zext i8 %10 to i64
   %arrayidx6.i.i = getelementptr [256 x i32], ptr @_Py_ctype_table, i64 0, i64 %idxprom.i.i
-  %10 = load i32, ptr %arrayidx6.i.i, align 4
-  %and7.i.i = and i32 %10, 8
+  %11 = load i32, ptr %arrayidx6.i.i, align 4
+  %and7.i.i = and i32 %11, 8
   %tobool.not.i10.i = icmp eq i32 %and7.i.i, 0
   br i1 %tobool.not.i10.i, label %while.end.i.i, label %while.body8.i.i
 
@@ -9052,24 +9053,24 @@ while.end.i.i:                                    ; preds = %land.rhs.i.i, %whil
   br i1 %cmp9.i.i, label %if.end88.i.i, label %while.cond14.preheader.i.i
 
 while.cond14.preheader.i.i:                       ; preds = %while.end.i.i
-  %11 = add i64 %i.2.lcssa.i.i, 1
-  %smax.i.i = call i64 @llvm.smax.i64(i64 %self.val.i, i64 %11)
-  %12 = add i64 %smax.i.i, -1
+  %12 = add i64 %i.2.lcssa.i.i, 1
+  %smax.i.i = call i64 @llvm.smax.i64(i64 %self.val.i, i64 %12)
+  %13 = add i64 %smax.i.i, -1
   br label %while.cond14.i.i
 
 while.cond14.i.i:                                 ; preds = %land.rhs17.i.i, %while.cond14.preheader.i.i
   %i.3.in.i.i = phi i64 [ %i.3.i.i, %land.rhs17.i.i ], [ %i.2.lcssa.i.i, %while.cond14.preheader.i.i ]
-  %exitcond18.not.i.i = icmp eq i64 %i.3.in.i.i, %12
+  %exitcond18.not.i.i = icmp eq i64 %i.3.in.i.i, %13
   br i1 %exitcond18.not.i.i, label %while.end29.i.i, label %land.rhs17.i.i
 
 land.rhs17.i.i:                                   ; preds = %while.cond14.i.i
   %i.3.i.i = add i64 %i.3.in.i.i, 1
   %arrayidx18.i.i = getelementptr i8, ptr %retval.0.i.i, i64 %i.3.i.i
-  %13 = load i8, ptr %arrayidx18.i.i, align 1
-  %idxprom22.i.i = zext i8 %13 to i64
+  %14 = load i8, ptr %arrayidx18.i.i, align 1
+  %idxprom22.i.i = zext i8 %14 to i64
   %arrayidx23.i.i = getelementptr [256 x i32], ptr @_Py_ctype_table, i64 0, i64 %idxprom22.i.i
-  %14 = load i32, ptr %arrayidx23.i.i, align 4
-  %and24.i.i = and i32 %14, 8
+  %15 = load i32, ptr %arrayidx23.i.i, align 4
+  %and24.i.i = and i32 %15, 8
   %tobool25.not.i.i = icmp eq i32 %and24.i.i, 0
   br i1 %tobool25.not.i.i, label %while.cond14.i.i, label %while.end29.i.i, !llvm.loop !42
 
@@ -9086,7 +9087,7 @@ if.end35.i.i:                                     ; preds = %while.end29.i.i
   br i1 %cmp36.i.i, label %if.then38.i.i, label %if.else.i.i
 
 if.then38.i.i:                                    ; preds = %if.end35.i.i
-  %call.val62.i.i = load ptr, ptr %8, align 8
+  %call.val62.i.i = load ptr, ptr %9, align 8
   %arrayidx.i.i.i = getelementptr ptr, ptr %call.val62.i.i, i64 %count.010.i.i
   store ptr %call31.i.i, ptr %arrayidx.i.i.i, align 8
   br label %if.end44.i.i
@@ -9094,16 +9095,16 @@ if.then38.i.i:                                    ; preds = %if.end35.i.i
 if.else.i.i:                                      ; preds = %if.end35.i.i
   %call39.i.i = call i32 @PyList_Append(ptr noundef nonnull %call.i.i, ptr noundef nonnull %call31.i.i) #15
   %tobool40.not.i.i = icmp eq i32 %call39.i.i, 0
-  %15 = load i64, ptr %call31.i.i, align 8
-  %16 = and i64 %15, 2147483648
-  %cmp.i129.not.i.i = icmp eq i64 %16, 0
+  %16 = load i64, ptr %call31.i.i, align 8
+  %17 = and i64 %16, 2147483648
+  %cmp.i129.not.i.i = icmp eq i64 %17, 0
   br i1 %tobool40.not.i.i, label %if.else42.i.i, label %if.then41.i.i
 
 if.then41.i.i:                                    ; preds = %if.else.i.i
   br i1 %cmp.i129.not.i.i, label %if.end.i119.i.i, label %onError.i.i
 
 if.end.i119.i.i:                                  ; preds = %if.then41.i.i
-  %dec.i120.i.i = add i64 %15, -1
+  %dec.i120.i.i = add i64 %16, -1
   store i64 %dec.i120.i.i, ptr %call31.i.i, align 8
   %cmp.i121.i.i = icmp eq i64 %dec.i120.i.i, 0
   br i1 %cmp.i121.i.i, label %onError.sink.split.i.i, label %onError.i.i
@@ -9112,7 +9113,7 @@ if.else42.i.i:                                    ; preds = %if.else.i.i
   br i1 %cmp.i129.not.i.i, label %if.end.i110.i.i, label %if.end44.i.i
 
 if.end.i110.i.i:                                  ; preds = %if.else42.i.i
-  %dec.i111.i.i = add i64 %15, -1
+  %dec.i111.i.i = add i64 %16, -1
   store i64 %dec.i111.i.i, ptr %call31.i.i, align 8
   %cmp.i112.i.i = icmp eq i64 %dec.i111.i.i, 0
   br i1 %cmp.i112.i.i, label %if.then1.i113.i.i, label %if.end44.i.i
@@ -9134,11 +9135,11 @@ while.end46.i.i:                                  ; preds = %if.end44.i.i, %whil
 land.rhs53.i.i:                                   ; preds = %while.end46.i.i, %while.body63.i.i
   %i.416.i.i = phi i64 [ %inc64.i.i, %while.body63.i.i ], [ %i.1.i.i, %while.end46.i.i ]
   %arrayidx54.i.i = getelementptr i8, ptr %retval.0.i.i, i64 %i.416.i.i
-  %17 = load i8, ptr %arrayidx54.i.i, align 1
-  %idxprom58.i.i = zext i8 %17 to i64
+  %18 = load i8, ptr %arrayidx54.i.i, align 1
+  %idxprom58.i.i = zext i8 %18 to i64
   %arrayidx59.i.i = getelementptr [256 x i32], ptr @_Py_ctype_table, i64 0, i64 %idxprom58.i.i
-  %18 = load i32, ptr %arrayidx59.i.i, align 4
-  %and60.i.i = and i32 %18, 8
+  %19 = load i32, ptr %arrayidx59.i.i, align 4
+  %and60.i.i = and i32 %19, 8
   %tobool61.not.i.i = icmp eq i32 %and60.i.i, 0
   br i1 %tobool61.not.i.i, label %while.end65.i.i, label %while.body63.i.i
 
@@ -9159,47 +9160,52 @@ if.then68.i.i:                                    ; preds = %while.end65.i.i
   br i1 %cmp72.i.i, label %onError.i.i, label %if.end75.i.i
 
 if.end75.i.i:                                     ; preds = %if.then68.i.i
-  br i1 %cmp.inv.i.i, label %if.then78.i.i, label %if.else79.i.i
+  %cmp76.i.i = icmp ult i64 %maxsplit.0, 12
+  br i1 %cmp76.i.i, label %if.then78.i.i, label %if.else79.i.i
 
 if.then78.i.i:                                    ; preds = %if.end75.i.i
-  %19 = getelementptr i8, ptr %call.i.i, i64 24
-  %call.val.i.i = load ptr, ptr %19, align 8
+  %20 = getelementptr i8, ptr %call.i.i, i64 24
+  %call.val.i.i = load ptr, ptr %20, align 8
   %arrayidx.i63.i.i = getelementptr ptr, ptr %call.val.i.i, i64 %spec.store.select.i
   store ptr %call71.i.i, ptr %arrayidx.i63.i.i, align 8
-  br label %if.end88.i.i
+  br label %if.end85.i.i
 
 if.else79.i.i:                                    ; preds = %if.end75.i.i
   %call80.i.i = call i32 @PyList_Append(ptr noundef nonnull %call.i.i, ptr noundef nonnull %call71.i.i) #15
   %tobool81.not.i.i = icmp eq i32 %call80.i.i, 0
-  %20 = load i64, ptr %call71.i.i, align 8
-  %21 = and i64 %20, 2147483648
-  %cmp.i137.not.i.i = icmp eq i64 %21, 0
+  %21 = load i64, ptr %call71.i.i, align 8
+  %22 = and i64 %21, 2147483648
+  %cmp.i137.not.i.i = icmp eq i64 %22, 0
   br i1 %tobool81.not.i.i, label %if.else83.i.i, label %if.then82.i.i
 
 if.then82.i.i:                                    ; preds = %if.else79.i.i
   br i1 %cmp.i137.not.i.i, label %if.end.i101.i.i, label %onError.i.i
 
 if.end.i101.i.i:                                  ; preds = %if.then82.i.i
-  %dec.i102.i.i = add i64 %20, -1
+  %dec.i102.i.i = add i64 %21, -1
   store i64 %dec.i102.i.i, ptr %call71.i.i, align 8
   %cmp.i103.i.i = icmp eq i64 %dec.i102.i.i, 0
   br i1 %cmp.i103.i.i, label %onError.sink.split.i.i, label %onError.i.i
 
 if.else83.i.i:                                    ; preds = %if.else79.i.i
-  br i1 %cmp.i137.not.i.i, label %if.end.i92.i.i, label %if.end88.i.i
+  br i1 %cmp.i137.not.i.i, label %if.end.i92.i.i, label %if.end85.i.i
 
 if.end.i92.i.i:                                   ; preds = %if.else83.i.i
-  %dec.i93.i.i = add i64 %20, -1
+  %dec.i93.i.i = add i64 %21, -1
   store i64 %dec.i93.i.i, ptr %call71.i.i, align 8
   %cmp.i94.i.i = icmp eq i64 %dec.i93.i.i, 0
-  br i1 %cmp.i94.i.i, label %if.then1.i95.i.i, label %if.end88.i.i
+  br i1 %cmp.i94.i.i, label %if.then1.i95.i.i, label %if.end85.i.i
 
 if.then1.i95.i.i:                                 ; preds = %if.end.i92.i.i
   call void @_Py_Dealloc(ptr noundef nonnull %call71.i.i) #15
+  br label %if.end85.i.i
+
+if.end85.i.i:                                     ; preds = %if.then1.i95.i.i, %if.end.i92.i.i, %if.else83.i.i, %if.then78.i.i
+  %inc86.i.i = add nuw i64 %spec.store.select.i, 1
   br label %if.end88.i.i
 
-if.end88.i.i:                                     ; preds = %while.end.i.i, %while.body8.i.i, %while.body63.i.i, %if.then1.i95.i.i, %if.end.i92.i.i, %if.else83.i.i, %if.then78.i.i, %while.end65.i.i, %while.end46.i.i
-  %count.1.i.i = phi i64 [ %spec.store.select.i, %while.end65.i.i ], [ %spec.store.select.i, %while.end46.i.i ], [ %add.i.i, %if.then1.i95.i.i ], [ %add.i.i, %if.end.i92.i.i ], [ %add.i.i, %if.else83.i.i ], [ %add.i.i, %if.then78.i.i ], [ %spec.store.select.i, %while.body63.i.i ], [ %count.010.i.i, %while.body8.i.i ], [ %count.010.i.i, %while.end.i.i ]
+if.end88.i.i:                                     ; preds = %while.end.i.i, %while.body8.i.i, %while.body63.i.i, %if.end85.i.i, %while.end65.i.i, %while.end46.i.i
+  %count.1.i.i = phi i64 [ %inc86.i.i, %if.end85.i.i ], [ %spec.store.select.i, %while.end65.i.i ], [ %spec.store.select.i, %while.end46.i.i ], [ %spec.store.select.i, %while.body63.i.i ], [ %count.010.i.i, %while.body8.i.i ], [ %count.010.i.i, %while.end.i.i ]
   %ob_size.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
   store i64 %count.1.i.i, ptr %ob_size.i.i.i, align 8
   br label %bytearray_split_impl.exit
@@ -9210,13 +9216,13 @@ onError.sink.split.i.i:                           ; preds = %if.end.i101.i.i, %i
   br label %onError.i.i
 
 onError.i.i:                                      ; preds = %while.end29.i.i, %onError.sink.split.i.i, %if.end.i101.i.i, %if.then82.i.i, %if.then68.i.i, %if.end.i119.i.i, %if.then41.i.i
-  %22 = load i64, ptr %call.i.i, align 8
-  %23 = and i64 %22, 2147483648
-  %cmp.i141.not.i.i = icmp eq i64 %23, 0
+  %23 = load i64, ptr %call.i.i, align 8
+  %24 = and i64 %23, 2147483648
+  %cmp.i141.not.i.i = icmp eq i64 %24, 0
   br i1 %cmp.i141.not.i.i, label %if.end.i.i.i, label %bytearray_split_impl.exit
 
 if.end.i.i.i:                                     ; preds = %onError.i.i
-  %dec.i.i.i = add i64 %22, -1
+  %dec.i.i.i = add i64 %23, -1
   store i64 %dec.i.i.i, ptr %call.i.i, align 8
   %cmp.i.i.i = icmp eq i64 %dec.i.i.i, 0
   br i1 %cmp.i.i.i, label %if.then1.i.i.i, label %bytearray_split_impl.exit
@@ -9231,24 +9237,23 @@ if.end5.i:                                        ; preds = %PyByteArray_AS_STRI
   br i1 %cmp7.not.i, label %if.end9.i, label %bytearray_split_impl.exit
 
 if.end9.i:                                        ; preds = %if.end5.i
-  %24 = load ptr, ptr %vsub.i, align 8
+  %25 = load ptr, ptr %vsub.i, align 8
   %len10.i = getelementptr inbounds i8, ptr %vsub.i, i64 16
-  %25 = load i64, ptr %len10.i, align 8
-  switch i64 %25, label %if.end3.i.i [
+  %26 = load i64, ptr %len10.i, align 8
+  switch i64 %26, label %if.end3.i.i [
     i64 0, label %if.then.i13.i
     i64 1, label %if.then2.i.i
   ]
 
 if.then.i13.i:                                    ; preds = %if.end9.i
-  %26 = load ptr, ptr @PyExc_ValueError, align 8
-  call void @PyErr_SetString(ptr noundef %26, ptr noundef nonnull @.str.97) #15
+  %27 = load ptr, ptr @PyExc_ValueError, align 8
+  call void @PyErr_SetString(ptr noundef %27, ptr noundef nonnull @.str.97) #15
   br label %stringlib_split.exit.i
 
 if.then2.i.i:                                     ; preds = %if.end9.i
-  %27 = load i8, ptr %24, align 1
-  %add.i.i.i = add nuw nsw i64 %spec.store.select.i, 1
-  %cmp.inv.i.i.i = icmp ult i64 %maxsplit.0, 12
-  %cond.i.i.i = select i1 %cmp.inv.i.i.i, i64 %add.i.i.i, i64 12
+  %28 = load i8, ptr %25, align 1
+  %29 = call i64 @llvm.umin.i64(i64 %maxsplit.0, i64 11)
+  %cond.i.i.i = add nuw nsw i64 %29, 1
   %call.i.i.i = call ptr @PyList_New(i64 noundef %cond.i.i.i) #15
   %cmp1.i.i.i = icmp eq ptr %call.i.i.i, null
   br i1 %cmp1.i.i.i, label %stringlib_split.exit.i, label %while.cond.preheader.i.i.i
@@ -9258,7 +9263,7 @@ while.cond.preheader.i.i.i:                       ; preds = %if.then2.i.i
   br i1 %cmp29.i.i.i, label %land.rhs.lr.ph.i.i.i, label %while.end.i.i.i
 
 land.rhs.lr.ph.i.i.i:                             ; preds = %while.cond.preheader.i.i.i
-  %28 = getelementptr i8, ptr %call.i.i.i, i64 24
+  %30 = getelementptr i8, ptr %call.i.i.i, i64 24
   br label %land.rhs.i.i.i
 
 land.rhs.i.i.i:                                   ; preds = %for.end.i.i.i, %land.rhs.lr.ph.i.i.i
@@ -9277,8 +9282,8 @@ for.cond.preheader.i.i.i:                         ; preds = %land.rhs.i.i.i
 for.body.i.i.i:                                   ; preds = %for.cond.preheader.i.i.i, %for.inc.i.i.i
   %j.18.i.i.i = phi i64 [ %inc25.i.i.i, %for.inc.i.i.i ], [ %j.012.i.i.i, %for.cond.preheader.i.i.i ]
   %arrayidx.i.i12.i = getelementptr i8, ptr %retval.0.i.i, i64 %j.18.i.i.i
-  %29 = load i8, ptr %arrayidx.i.i12.i, align 1
-  %cmp6.i.i.i = icmp eq i8 %29, %27
+  %31 = load i8, ptr %arrayidx.i.i12.i, align 1
+  %cmp6.i.i.i = icmp eq i8 %31, %28
   br i1 %cmp6.i.i.i, label %if.then8.i.i.i, label %for.inc.i.i.i
 
 if.then8.i.i.i:                                   ; preds = %for.body.i.i.i
@@ -9293,7 +9298,7 @@ if.end14.i.i.i:                                   ; preds = %if.then8.i.i.i
   br i1 %cmp15.i.i.i, label %if.then17.i.i.i, label %if.else.i.i.i
 
 if.then17.i.i.i:                                  ; preds = %if.end14.i.i.i
-  %call.val49.i.i.i = load ptr, ptr %28, align 8
+  %call.val49.i.i.i = load ptr, ptr %30, align 8
   %arrayidx.i.i.i.i = getelementptr ptr, ptr %call.val49.i.i.i, i64 %count.013.i.i.i
   store ptr %call10.i.i.i, ptr %arrayidx.i.i.i.i, align 8
   br label %if.end22.i.i.i
@@ -9301,16 +9306,16 @@ if.then17.i.i.i:                                  ; preds = %if.end14.i.i.i
 if.else.i.i.i:                                    ; preds = %if.end14.i.i.i
   %call18.i.i.i = call i32 @PyList_Append(ptr noundef nonnull %call.i.i.i, ptr noundef nonnull %call10.i.i.i) #15
   %tobool.not.i.i.i = icmp eq i32 %call18.i.i.i, 0
-  %30 = load i64, ptr %call10.i.i.i, align 8
-  %31 = and i64 %30, 2147483648
-  %cmp.i88.not.i.i.i = icmp eq i64 %31, 0
+  %32 = load i64, ptr %call10.i.i.i, align 8
+  %33 = and i64 %32, 2147483648
+  %cmp.i88.not.i.i.i = icmp eq i64 %33, 0
   br i1 %tobool.not.i.i.i, label %if.else20.i.i.i, label %if.then19.i.i.i
 
 if.then19.i.i.i:                                  ; preds = %if.else.i.i.i
   br i1 %cmp.i88.not.i.i.i, label %if.end.i78.i.i.i, label %onError.i.i.i
 
 if.end.i78.i.i.i:                                 ; preds = %if.then19.i.i.i
-  %dec.i79.i.i.i = add i64 %30, -1
+  %dec.i79.i.i.i = add i64 %32, -1
   store i64 %dec.i79.i.i.i, ptr %call10.i.i.i, align 8
   %cmp.i80.i.i.i = icmp eq i64 %dec.i79.i.i.i, 0
   br i1 %cmp.i80.i.i.i, label %onError.sink.split.i.i.i, label %onError.i.i.i
@@ -9319,7 +9324,7 @@ if.else20.i.i.i:                                  ; preds = %if.else.i.i.i
   br i1 %cmp.i88.not.i.i.i, label %if.end.i69.i.i.i, label %if.end22.i.i.i
 
 if.end.i69.i.i.i:                                 ; preds = %if.else20.i.i.i
-  %dec.i70.i.i.i = add i64 %30, -1
+  %dec.i70.i.i.i = add i64 %32, -1
   store i64 %dec.i70.i.i.i, ptr %call10.i.i.i, align 8
   %cmp.i71.i.i.i = icmp eq i64 %dec.i70.i.i.i, 0
   br i1 %cmp.i71.i.i.i, label %if.then1.i72.i.i.i, label %if.end22.i.i.i
@@ -9363,8 +9368,8 @@ if.end35.i.i.i:                                   ; preds = %if.then28.i.i.i
   br i1 %cmp36.i.i.i, label %if.then38.i.i.i, label %if.else39.i.i.i
 
 if.then38.i.i.i:                                  ; preds = %if.end35.i.i.i
-  %32 = getelementptr i8, ptr %call.i.i.i, i64 24
-  %call.val.i.i.i = load ptr, ptr %32, align 8
+  %34 = getelementptr i8, ptr %call.i.i.i, i64 24
+  %call.val.i.i.i = load ptr, ptr %34, align 8
   %arrayidx.i50.i.i.i = getelementptr ptr, ptr %call.val.i.i.i, i64 %count.0.lcssa.i.i.i
   store ptr %call31.i.i.i, ptr %arrayidx.i50.i.i.i, align 8
   br label %if.end45.i.i.i
@@ -9372,16 +9377,16 @@ if.then38.i.i.i:                                  ; preds = %if.end35.i.i.i
 if.else39.i.i.i:                                  ; preds = %if.end35.i.i.i
   %call40.i.i.i = call i32 @PyList_Append(ptr noundef nonnull %call.i.i.i, ptr noundef nonnull %call31.i.i.i) #15
   %tobool41.not.i.i.i = icmp eq i32 %call40.i.i.i, 0
-  %33 = load i64, ptr %call31.i.i.i, align 8
-  %34 = and i64 %33, 2147483648
-  %cmp.i96.not.i.i.i = icmp eq i64 %34, 0
+  %35 = load i64, ptr %call31.i.i.i, align 8
+  %36 = and i64 %35, 2147483648
+  %cmp.i96.not.i.i.i = icmp eq i64 %36, 0
   br i1 %tobool41.not.i.i.i, label %if.else43.i.i.i, label %if.then42.i.i.i
 
 if.then42.i.i.i:                                  ; preds = %if.else39.i.i.i
   br i1 %cmp.i96.not.i.i.i, label %if.end.i60.i.i.i, label %onError.i.i.i
 
 if.end.i60.i.i.i:                                 ; preds = %if.then42.i.i.i
-  %dec.i61.i.i.i = add i64 %33, -1
+  %dec.i61.i.i.i = add i64 %35, -1
   store i64 %dec.i61.i.i.i, ptr %call31.i.i.i, align 8
   %cmp.i62.i.i.i = icmp eq i64 %dec.i61.i.i.i, 0
   br i1 %cmp.i62.i.i.i, label %onError.sink.split.i.i.i, label %onError.i.i.i
@@ -9390,7 +9395,7 @@ if.else43.i.i.i:                                  ; preds = %if.else39.i.i.i
   br i1 %cmp.i96.not.i.i.i, label %if.end.i51.i.i.i, label %if.end45.i.i.i
 
 if.end.i51.i.i.i:                                 ; preds = %if.else43.i.i.i
-  %dec.i52.i.i.i = add i64 %33, -1
+  %dec.i52.i.i.i = add i64 %35, -1
   store i64 %dec.i52.i.i.i, ptr %call31.i.i.i, align 8
   %cmp.i53.i.i.i = icmp eq i64 %dec.i52.i.i.i, 0
   br i1 %cmp.i53.i.i.i, label %if.then1.i54.i.i.i, label %if.end45.i.i.i
@@ -9415,13 +9420,13 @@ onError.sink.split.i.i.i:                         ; preds = %if.end.i60.i.i.i, %
   br label %onError.i.i.i
 
 onError.i.i.i:                                    ; preds = %if.then8.i.i.i, %onError.sink.split.i.i.i, %if.end.i60.i.i.i, %if.then42.i.i.i, %if.then28.i.i.i, %if.end.i78.i.i.i, %if.then19.i.i.i
-  %35 = load i64, ptr %call.i.i.i, align 8
-  %36 = and i64 %35, 2147483648
-  %cmp.i100.not.i.i.i = icmp eq i64 %36, 0
+  %37 = load i64, ptr %call.i.i.i, align 8
+  %38 = and i64 %37, 2147483648
+  %cmp.i100.not.i.i.i = icmp eq i64 %38, 0
   br i1 %cmp.i100.not.i.i.i, label %if.end.i.i.i.i, label %stringlib_split.exit.i
 
 if.end.i.i.i.i:                                   ; preds = %onError.i.i.i
-  %dec.i.i.i.i = add i64 %35, -1
+  %dec.i.i.i.i = add i64 %37, -1
   store i64 %dec.i.i.i.i, ptr %call.i.i.i, align 8
   %cmp.i.i.i.i = icmp eq i64 %dec.i.i.i.i, 0
   br i1 %cmp.i.i.i.i, label %if.then1.i.i.i.i, label %stringlib_split.exit.i
@@ -9431,67 +9436,66 @@ if.then1.i.i.i.i:                                 ; preds = %if.end.i.i.i.i
   br label %stringlib_split.exit.i
 
 if.end3.i.i:                                      ; preds = %if.end9.i
-  %add.i14.i = add nuw nsw i64 %spec.store.select.i, 1
-  %cmp4.inv.i.i = icmp ult i64 %maxsplit.0, 12
-  %cond.i15.i = select i1 %cmp4.inv.i.i, i64 %add.i14.i, i64 12
-  %call5.i.i = call ptr @PyList_New(i64 noundef %cond.i15.i) #15
+  %39 = call i64 @llvm.umin.i64(i64 %maxsplit.0, i64 11)
+  %cond.i14.i = add nuw nsw i64 %39, 1
+  %call5.i.i = call ptr @PyList_New(i64 noundef %cond.i14.i) #15
   %cmp6.i.i = icmp eq ptr %call5.i.i, null
-  br i1 %cmp6.i.i, label %stringlib_split.exit.i, label %while.cond.preheader.i16.i
+  br i1 %cmp6.i.i, label %stringlib_split.exit.i, label %while.cond.preheader.i15.i
 
-while.cond.preheader.i16.i:                       ; preds = %if.end3.i.i
+while.cond.preheader.i15.i:                       ; preds = %if.end3.i.i
   %cmp916.i.not.i = icmp eq i64 %maxsplit.0, 0
-  br i1 %cmp916.i.not.i, label %while.end.i17.i, label %while.body.lr.ph.i.i
+  br i1 %cmp916.i.not.i, label %while.end.i16.i, label %while.body.lr.ph.i.i
 
-while.body.lr.ph.i.i:                             ; preds = %while.cond.preheader.i16.i
-  %37 = getelementptr i8, ptr %call5.i.i, i64 24
+while.body.lr.ph.i.i:                             ; preds = %while.cond.preheader.i15.i
+  %40 = getelementptr i8, ptr %call5.i.i, i64 24
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %if.end29.i.i, %while.body.lr.ph.i.i
-  %count.018.i.i = phi i64 [ 0, %while.body.lr.ph.i.i ], [ %inc.i29.i, %if.end29.i.i ]
+  %count.018.i.i = phi i64 [ 0, %while.body.lr.ph.i.i ], [ %inc.i28.i, %if.end29.i.i ]
   %i.017.i.i = phi i64 [ 0, %while.body.lr.ph.i.i ], [ %add30.i.i, %if.end29.i.i ]
-  %add.ptr.i27.i = getelementptr i8, ptr %retval.0.i.i, i64 %i.017.i.i
+  %add.ptr.i26.i = getelementptr i8, ptr %retval.0.i.i, i64 %i.017.i.i
   %sub10.i.i = sub i64 %self.val.i, %i.017.i.i
-  %call11.i.i = call fastcc i64 @fastsearch(ptr noundef %add.ptr.i27.i, i64 noundef %sub10.i.i, ptr noundef %24, i64 noundef %25, i64 noundef -1, i32 noundef 1)
+  %call11.i.i = call fastcc i64 @fastsearch(ptr noundef %add.ptr.i26.i, i64 noundef %sub10.i.i, ptr noundef %25, i64 noundef %26, i64 noundef -1, i32 noundef 1)
   %cmp12.i.i = icmp slt i64 %call11.i.i, 0
-  br i1 %cmp12.i.i, label %while.end.i17.i, label %if.end14.i.i
+  br i1 %cmp12.i.i, label %while.end.i16.i, label %if.end14.i.i
 
 if.end14.i.i:                                     ; preds = %while.body.i.i
-  %call18.i.i = call ptr @PyByteArray_FromStringAndSize(ptr noundef %add.ptr.i27.i, i64 noundef %call11.i.i)
+  %call18.i.i = call ptr @PyByteArray_FromStringAndSize(ptr noundef %add.ptr.i26.i, i64 noundef %call11.i.i)
   %cmp19.i.i = icmp eq ptr %call18.i.i, null
-  br i1 %cmp19.i.i, label %onError.i19.i, label %if.end21.i.i
+  br i1 %cmp19.i.i, label %onError.i18.i, label %if.end21.i.i
 
 if.end21.i.i:                                     ; preds = %if.end14.i.i
   %cmp22.i.i = icmp samesign ult i64 %count.018.i.i, 12
   br i1 %cmp22.i.i, label %if.then23.i.i, label %if.else24.i.i
 
 if.then23.i.i:                                    ; preds = %if.end21.i.i
-  %call5.val53.i.i = load ptr, ptr %37, align 8
+  %call5.val53.i.i = load ptr, ptr %40, align 8
   %arrayidx.i55.i.i = getelementptr ptr, ptr %call5.val53.i.i, i64 %count.018.i.i
   store ptr %call18.i.i, ptr %arrayidx.i55.i.i, align 8
   br label %if.end29.i.i
 
 if.else24.i.i:                                    ; preds = %if.end21.i.i
   %call25.i.i = call i32 @PyList_Append(ptr noundef nonnull %call5.i.i, ptr noundef nonnull %call18.i.i) #15
-  %tobool.not.i28.i = icmp eq i32 %call25.i.i, 0
-  %38 = load i64, ptr %call18.i.i, align 8
-  %39 = and i64 %38, 2147483648
-  %cmp.i87.not.i.i = icmp eq i64 %39, 0
-  br i1 %tobool.not.i28.i, label %if.else27.i.i, label %if.then26.i.i
+  %tobool.not.i27.i = icmp eq i32 %call25.i.i, 0
+  %41 = load i64, ptr %call18.i.i, align 8
+  %42 = and i64 %41, 2147483648
+  %cmp.i87.not.i.i = icmp eq i64 %42, 0
+  br i1 %tobool.not.i27.i, label %if.else27.i.i, label %if.then26.i.i
 
 if.then26.i.i:                                    ; preds = %if.else24.i.i
-  br i1 %cmp.i87.not.i.i, label %if.end.i77.i.i, label %onError.i19.i
+  br i1 %cmp.i87.not.i.i, label %if.end.i77.i.i, label %onError.i18.i
 
 if.end.i77.i.i:                                   ; preds = %if.then26.i.i
-  %dec.i78.i.i = add i64 %38, -1
+  %dec.i78.i.i = add i64 %41, -1
   store i64 %dec.i78.i.i, ptr %call18.i.i, align 8
   %cmp.i79.i.i = icmp eq i64 %dec.i78.i.i, 0
-  br i1 %cmp.i79.i.i, label %onError.sink.split.i24.i, label %onError.i19.i
+  br i1 %cmp.i79.i.i, label %onError.sink.split.i23.i, label %onError.i18.i
 
 if.else27.i.i:                                    ; preds = %if.else24.i.i
   br i1 %cmp.i87.not.i.i, label %if.end.i68.i.i, label %if.end29.i.i
 
 if.end.i68.i.i:                                   ; preds = %if.else27.i.i
-  %dec.i69.i.i = add i64 %38, -1
+  %dec.i69.i.i = add i64 %41, -1
   store i64 %dec.i69.i.i, ptr %call18.i.i, align 8
   %cmp.i70.i.i = icmp eq i64 %dec.i69.i.i, 0
   br i1 %cmp.i70.i.i, label %if.then1.i71.i.i, label %if.end29.i.i
@@ -9501,54 +9505,54 @@ if.then1.i71.i.i:                                 ; preds = %if.end.i68.i.i
   br label %if.end29.i.i
 
 if.end29.i.i:                                     ; preds = %if.then1.i71.i.i, %if.end.i68.i.i, %if.else27.i.i, %if.then23.i.i
-  %inc.i29.i = add nuw nsw i64 %count.018.i.i, 1
-  %add15.i.i = add i64 %i.017.i.i, %25
+  %inc.i28.i = add nuw nsw i64 %count.018.i.i, 1
+  %add15.i.i = add i64 %i.017.i.i, %26
   %add30.i.i = add i64 %add15.i.i, %call11.i.i
-  %exitcond.not.i30.i = icmp eq i64 %inc.i29.i, %spec.store.select.i
-  br i1 %exitcond.not.i30.i, label %while.end.i17.i, label %while.body.i.i, !llvm.loop !47
+  %exitcond.not.i29.i = icmp eq i64 %inc.i28.i, %spec.store.select.i
+  br i1 %exitcond.not.i29.i, label %while.end.i16.i, label %while.body.i.i, !llvm.loop !47
 
-while.end.i17.i:                                  ; preds = %if.end29.i.i, %while.body.i.i, %while.cond.preheader.i16.i
-  %i.0.lcssa.i.i = phi i64 [ 0, %while.cond.preheader.i16.i ], [ %i.017.i.i, %while.body.i.i ], [ %add30.i.i, %if.end29.i.i ]
-  %count.0.lcssa.i18.i = phi i64 [ 0, %while.cond.preheader.i16.i ], [ %count.018.i.i, %while.body.i.i ], [ %spec.store.select.i, %if.end29.i.i ]
+while.end.i16.i:                                  ; preds = %if.end29.i.i, %while.body.i.i, %while.cond.preheader.i15.i
+  %i.0.lcssa.i.i = phi i64 [ 0, %while.cond.preheader.i15.i ], [ %i.017.i.i, %while.body.i.i ], [ %add30.i.i, %if.end29.i.i ]
+  %count.0.lcssa.i17.i = phi i64 [ 0, %while.cond.preheader.i15.i ], [ %count.018.i.i, %while.body.i.i ], [ %spec.store.select.i, %if.end29.i.i ]
   %add.ptr31.i.i = getelementptr i8, ptr %retval.0.i.i, i64 %i.0.lcssa.i.i
   %sub32.i.i = sub i64 %self.val.i, %i.0.lcssa.i.i
   %call33.i.i = call ptr @PyByteArray_FromStringAndSize(ptr noundef %add.ptr31.i.i, i64 noundef %sub32.i.i)
   %cmp34.i.i = icmp eq ptr %call33.i.i, null
-  br i1 %cmp34.i.i, label %onError.i19.i, label %if.end36.i.i
+  br i1 %cmp34.i.i, label %onError.i18.i, label %if.end36.i.i
 
-if.end36.i.i:                                     ; preds = %while.end.i17.i
-  %cmp37.i.i = icmp samesign ult i64 %count.0.lcssa.i18.i, 12
-  br i1 %cmp37.i.i, label %if.then38.i26.i, label %if.else39.i.i
+if.end36.i.i:                                     ; preds = %while.end.i16.i
+  %cmp37.i.i = icmp samesign ult i64 %count.0.lcssa.i17.i, 12
+  br i1 %cmp37.i.i, label %if.then38.i25.i, label %if.else39.i.i
 
-if.then38.i26.i:                                  ; preds = %if.end36.i.i
-  %40 = getelementptr i8, ptr %call5.i.i, i64 24
-  %call5.val.i.i = load ptr, ptr %40, align 8
-  %arrayidx.i56.i.i = getelementptr ptr, ptr %call5.val.i.i, i64 %count.0.lcssa.i18.i
+if.then38.i25.i:                                  ; preds = %if.end36.i.i
+  %43 = getelementptr i8, ptr %call5.i.i, i64 24
+  %call5.val.i.i = load ptr, ptr %43, align 8
+  %arrayidx.i56.i.i = getelementptr ptr, ptr %call5.val.i.i, i64 %count.0.lcssa.i17.i
   store ptr %call33.i.i, ptr %arrayidx.i56.i.i, align 8
   br label %if.end45.i.i
 
 if.else39.i.i:                                    ; preds = %if.end36.i.i
   %call40.i.i = call i32 @PyList_Append(ptr noundef nonnull %call5.i.i, ptr noundef nonnull %call33.i.i) #15
   %tobool41.not.i.i = icmp eq i32 %call40.i.i, 0
-  %41 = load i64, ptr %call33.i.i, align 8
-  %42 = and i64 %41, 2147483648
-  %cmp.i95.not.i.i = icmp eq i64 %42, 0
+  %44 = load i64, ptr %call33.i.i, align 8
+  %45 = and i64 %44, 2147483648
+  %cmp.i95.not.i.i = icmp eq i64 %45, 0
   br i1 %tobool41.not.i.i, label %if.else43.i.i, label %if.then42.i.i
 
 if.then42.i.i:                                    ; preds = %if.else39.i.i
-  br i1 %cmp.i95.not.i.i, label %if.end.i59.i.i, label %onError.i19.i
+  br i1 %cmp.i95.not.i.i, label %if.end.i59.i.i, label %onError.i18.i
 
 if.end.i59.i.i:                                   ; preds = %if.then42.i.i
-  %dec.i60.i.i = add i64 %41, -1
+  %dec.i60.i.i = add i64 %44, -1
   store i64 %dec.i60.i.i, ptr %call33.i.i, align 8
   %cmp.i61.i.i = icmp eq i64 %dec.i60.i.i, 0
-  br i1 %cmp.i61.i.i, label %onError.sink.split.i24.i, label %onError.i19.i
+  br i1 %cmp.i61.i.i, label %onError.sink.split.i23.i, label %onError.i18.i
 
 if.else43.i.i:                                    ; preds = %if.else39.i.i
   br i1 %cmp.i95.not.i.i, label %if.end.i50.i.i, label %if.end45.i.i
 
 if.end.i50.i.i:                                   ; preds = %if.else43.i.i
-  %dec.i51.i.i = add i64 %41, -1
+  %dec.i51.i.i = add i64 %44, -1
   store i64 %dec.i51.i.i, ptr %call33.i.i, align 8
   %cmp.i52.i.i = icmp eq i64 %dec.i51.i.i, 0
   br i1 %cmp.i52.i.i, label %if.then1.i53.i.i, label %if.end45.i.i
@@ -9557,35 +9561,35 @@ if.then1.i53.i.i:                                 ; preds = %if.end.i50.i.i
   call void @_Py_Dealloc(ptr noundef nonnull %call33.i.i) #15
   br label %if.end45.i.i
 
-if.end45.i.i:                                     ; preds = %if.then1.i53.i.i, %if.end.i50.i.i, %if.else43.i.i, %if.then38.i26.i
-  %inc46.i.i = add nuw i64 %count.0.lcssa.i18.i, 1
-  %ob_size.i.i25.i = getelementptr inbounds i8, ptr %call5.i.i, i64 16
-  store i64 %inc46.i.i, ptr %ob_size.i.i25.i, align 8
+if.end45.i.i:                                     ; preds = %if.then1.i53.i.i, %if.end.i50.i.i, %if.else43.i.i, %if.then38.i25.i
+  %inc46.i.i = add nuw i64 %count.0.lcssa.i17.i, 1
+  %ob_size.i.i24.i = getelementptr inbounds i8, ptr %call5.i.i, i64 16
+  store i64 %inc46.i.i, ptr %ob_size.i.i24.i, align 8
   br label %stringlib_split.exit.i
 
-onError.sink.split.i24.i:                         ; preds = %if.end.i59.i.i, %if.end.i77.i.i
+onError.sink.split.i23.i:                         ; preds = %if.end.i59.i.i, %if.end.i77.i.i
   %call33.sink.i.i = phi ptr [ %call18.i.i, %if.end.i77.i.i ], [ %call33.i.i, %if.end.i59.i.i ]
   call void @_Py_Dealloc(ptr noundef nonnull %call33.sink.i.i) #15
-  br label %onError.i19.i
+  br label %onError.i18.i
 
-onError.i19.i:                                    ; preds = %if.end14.i.i, %onError.sink.split.i24.i, %if.end.i59.i.i, %if.then42.i.i, %while.end.i17.i, %if.end.i77.i.i, %if.then26.i.i
-  %43 = load i64, ptr %call5.i.i, align 8
-  %44 = and i64 %43, 2147483648
-  %cmp.i99.not.i.i = icmp eq i64 %44, 0
-  br i1 %cmp.i99.not.i.i, label %if.end.i.i20.i, label %stringlib_split.exit.i
+onError.i18.i:                                    ; preds = %if.end14.i.i, %onError.sink.split.i23.i, %if.end.i59.i.i, %if.then42.i.i, %while.end.i16.i, %if.end.i77.i.i, %if.then26.i.i
+  %46 = load i64, ptr %call5.i.i, align 8
+  %47 = and i64 %46, 2147483648
+  %cmp.i99.not.i.i = icmp eq i64 %47, 0
+  br i1 %cmp.i99.not.i.i, label %if.end.i.i19.i, label %stringlib_split.exit.i
 
-if.end.i.i20.i:                                   ; preds = %onError.i19.i
-  %dec.i.i21.i = add i64 %43, -1
-  store i64 %dec.i.i21.i, ptr %call5.i.i, align 8
-  %cmp.i.i22.i = icmp eq i64 %dec.i.i21.i, 0
-  br i1 %cmp.i.i22.i, label %if.then1.i.i23.i, label %stringlib_split.exit.i
+if.end.i.i19.i:                                   ; preds = %onError.i18.i
+  %dec.i.i20.i = add i64 %46, -1
+  store i64 %dec.i.i20.i, ptr %call5.i.i, align 8
+  %cmp.i.i21.i = icmp eq i64 %dec.i.i20.i, 0
+  br i1 %cmp.i.i21.i, label %if.then1.i.i22.i, label %stringlib_split.exit.i
 
-if.then1.i.i23.i:                                 ; preds = %if.end.i.i20.i
+if.then1.i.i22.i:                                 ; preds = %if.end.i.i19.i
   call void @_Py_Dealloc(ptr noundef nonnull %call5.i.i) #15
   br label %stringlib_split.exit.i
 
-stringlib_split.exit.i:                           ; preds = %if.then1.i.i23.i, %if.end.i.i20.i, %onError.i19.i, %if.end45.i.i, %if.end3.i.i, %if.then1.i.i.i.i, %if.end.i.i.i.i, %onError.i.i.i, %if.end47.i.i.i, %if.then2.i.i, %if.then.i13.i
-  %retval.0.i11.i = phi ptr [ null, %if.then.i13.i ], [ %call5.i.i, %if.end45.i.i ], [ null, %if.end3.i.i ], [ null, %onError.i19.i ], [ null, %if.then1.i.i23.i ], [ null, %if.end.i.i20.i ], [ %call.i.i.i, %if.end47.i.i.i ], [ null, %if.then2.i.i ], [ null, %onError.i.i.i ], [ null, %if.then1.i.i.i.i ], [ null, %if.end.i.i.i.i ]
+stringlib_split.exit.i:                           ; preds = %if.then1.i.i22.i, %if.end.i.i19.i, %onError.i18.i, %if.end45.i.i, %if.end3.i.i, %if.then1.i.i.i.i, %if.end.i.i.i.i, %onError.i.i.i, %if.end47.i.i.i, %if.then2.i.i, %if.then.i13.i
+  %retval.0.i11.i = phi ptr [ null, %if.then.i13.i ], [ %call5.i.i, %if.end45.i.i ], [ null, %if.end3.i.i ], [ null, %onError.i18.i ], [ null, %if.then1.i.i22.i ], [ null, %if.end.i.i19.i ], [ %call.i.i.i, %if.end47.i.i.i ], [ null, %if.then2.i.i ], [ null, %onError.i.i.i ], [ null, %if.then1.i.i.i.i ], [ null, %if.end.i.i.i.i ]
   call void @PyBuffer_Release(ptr noundef nonnull %vsub.i) #15
   br label %bytearray_split_impl.exit
 

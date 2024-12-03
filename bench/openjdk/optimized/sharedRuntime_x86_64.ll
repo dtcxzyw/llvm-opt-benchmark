@@ -191,519 +191,527 @@ define hidden noundef ptr @_ZN13RegisterSaver19save_live_registersEP14MacroAssem
   %16 = alloca %class.Address, align 8
   %17 = load i32, ptr @UseAVX, align 4
   %18 = icmp sgt i32 %17, 2
+  %..i.neg = select i1 %18, i32 -32, i32 -16
+  %..i = select i1 %18, i32 32, i32 16
   %19 = icmp ne i32 %17, 0
   %narrow = select i1 %3, i1 %19, i1 false
-  store i32 356, ptr %2, align 4
+  %20 = add nuw nsw i32 %..i, 2847
+  %21 = and i32 %20, %..i.neg
+  %.zext = lshr exact i32 %21, 2
+  %.zext227 = lshr exact i32 %21, 3
+  store i32 %.zext227, ptr %2, align 4
   tail call void @_ZN14MacroAssembler5enterEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #14
   tail call void @_ZN9Assembler5pushfEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #14
   tail call void @_ZN9Assembler4subqE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 4, i32 noundef 8) #14
   tail call void @_ZN14MacroAssembler16save_legacy_gprsEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #14
   tail call void @_ZN14MacroAssembler14push_FPU_stateEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #14
-  br i1 %narrow, label %.preheader242, label %85
+  br i1 %narrow, label %.preheader242, label %88
 
 .preheader242:                                    ; preds = %4
-  %20 = getelementptr inbounds i8, ptr %10, i64 4
-  %21 = getelementptr inbounds i8, ptr %10, i64 8
-  %22 = getelementptr inbounds i8, ptr %10, i64 12
-  %23 = getelementptr inbounds i8, ptr %10, i64 16
-  %24 = getelementptr inbounds i8, ptr %10, i64 20
-  %25 = getelementptr inbounds i8, ptr %10, i64 24
-  %26 = getelementptr inbounds i8, ptr %10, i64 32
-  %27 = getelementptr inbounds i8, ptr %10, i64 40
-  %28 = getelementptr inbounds i8, ptr %9, i64 24
-  %29 = load ptr, ptr getelementptr inbounds inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
-  %30 = getelementptr inbounds i8, ptr %8, i64 24
-  br label %31
+  %22 = getelementptr inbounds i8, ptr %10, i64 4
+  %23 = getelementptr inbounds i8, ptr %10, i64 8
+  %24 = getelementptr inbounds i8, ptr %10, i64 12
+  %25 = getelementptr inbounds i8, ptr %10, i64 16
+  %26 = getelementptr inbounds i8, ptr %10, i64 20
+  %27 = getelementptr inbounds i8, ptr %10, i64 24
+  %28 = getelementptr inbounds i8, ptr %10, i64 32
+  %29 = getelementptr inbounds i8, ptr %10, i64 40
+  %30 = getelementptr inbounds i8, ptr %9, i64 24
+  %31 = load ptr, ptr getelementptr inbounds inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
+  %32 = getelementptr inbounds i8, ptr %8, i64 24
+  br label %33
 
-31:                                               ; preds = %.preheader242, %_ZN14MacroAssembler17vextractf128_highE7Address11XMMRegister.exit
-  %.0190249 = phi i32 [ 0, %.preheader242 ], [ %42, %_ZN14MacroAssembler17vextractf128_highE7Address11XMMRegister.exit ]
-  %32 = shl nuw nsw i32 %.0190249, 4
-  %33 = add nuw nsw i32 %32, 576
+33:                                               ; preds = %.preheader242, %_ZN14MacroAssembler17vextractf128_highE7Address11XMMRegister.exit
+  %.0190249 = phi i32 [ 0, %.preheader242 ], [ %44, %_ZN14MacroAssembler17vextractf128_highE7Address11XMMRegister.exit ]
+  %34 = shl nuw nsw i32 %.0190249, 4
+  %35 = add nuw nsw i32 %34, 576
   store i32 4, ptr %10, align 8
-  store i32 -1, ptr %20, align 4
-  store i32 -1, ptr %21, align 8
   store i32 -1, ptr %22, align 4
-  store i32 %33, ptr %23, align 8
-  store i8 0, ptr %24, align 4
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %25, align 8
-  store ptr null, ptr %26, align 8
-  store i32 0, ptr %27, align 8
+  store i32 -1, ptr %23, align 8
+  store i32 -1, ptr %24, align 4
+  store i32 %35, ptr %25, align 8
+  store i8 0, ptr %26, align 4
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %27, align 8
+  store ptr null, ptr %28, align 8
+  store i32 0, ptr %29, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9)
-  %34 = load i32, ptr @UseAVX, align 4
-  %35 = icmp sgt i32 %34, 2
-  br i1 %35, label %36, label %41
+  %36 = load i32, ptr @UseAVX, align 4
+  %37 = icmp sgt i32 %36, 2
+  br i1 %37, label %38, label %43
 
-36:                                               ; preds = %31
-  %37 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
-  %38 = and i64 %37, 8724152320
-  %39 = icmp eq i64 %38, 134217728
-  br i1 %39, label %40, label %41
+38:                                               ; preds = %33
+  %39 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  %40 = and i64 %39, 8724152320
+  %41 = icmp eq i64 %40, 134217728
+  br i1 %41, label %42, label %43
 
-40:                                               ; preds = %36
+42:                                               ; preds = %38
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef nonnull align 8 dereferenceable(64) %10, i64 21, i1 false)
-  call void %29(ptr noundef nonnull align 8 dereferenceable(40) %25, ptr noundef nonnull align 8 dereferenceable(40) %30) #14
+  call void %31(ptr noundef nonnull align 8 dereferenceable(40) %27, ptr noundef nonnull align 8 dereferenceable(40) %32) #14
   call void @_ZN9Assembler13vextractf32x4E7Address11XMMRegisterh(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %8, i32 %.0190249, i8 noundef zeroext 1) #14
   br label %_ZN14MacroAssembler17vextractf128_highE7Address11XMMRegister.exit
 
-41:                                               ; preds = %36, %31
+43:                                               ; preds = %38, %33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %9, ptr noundef nonnull align 8 dereferenceable(64) %10, i64 21, i1 false)
-  call void %29(ptr noundef nonnull align 8 dereferenceable(40) %25, ptr noundef nonnull align 8 dereferenceable(40) %28) #14
+  call void %31(ptr noundef nonnull align 8 dereferenceable(40) %27, ptr noundef nonnull align 8 dereferenceable(40) %30) #14
   call void @_ZN9Assembler12vextractf128E7Address11XMMRegisterh(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %9, i32 %.0190249, i8 noundef zeroext 1) #14
   br label %_ZN14MacroAssembler17vextractf128_highE7Address11XMMRegister.exit
 
-_ZN14MacroAssembler17vextractf128_highE7Address11XMMRegister.exit: ; preds = %40, %41
+_ZN14MacroAssembler17vextractf128_highE7Address11XMMRegister.exit: ; preds = %42, %43
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9)
-  %42 = add nuw nsw i32 %.0190249, 1
-  %exitcond280.not = icmp eq i32 %42, 16
-  br i1 %exitcond280.not, label %43, label %31, !llvm.loop !6
+  %44 = add nuw nsw i32 %.0190249, 1
+  %exitcond280.not = icmp eq i32 %44, 16
+  br i1 %exitcond280.not, label %45, label %33, !llvm.loop !6
 
-43:                                               ; preds = %_ZN14MacroAssembler17vextractf128_highE7Address11XMMRegister.exit
-  %44 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
-  %45 = and i64 %44, 134217728
-  %.not229 = icmp eq i64 %45, 0
+45:                                               ; preds = %_ZN14MacroAssembler17vextractf128_highE7Address11XMMRegister.exit
+  %46 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  %47 = and i64 %46, 134217728
+  %.not229 = icmp eq i64 %47, 0
   br i1 %.not229, label %.loopexit239, label %.preheader241
 
-.preheader241:                                    ; preds = %43
-  %46 = getelementptr inbounds i8, ptr %11, i64 4
-  %47 = getelementptr inbounds i8, ptr %11, i64 8
-  %48 = getelementptr inbounds i8, ptr %11, i64 12
-  %49 = getelementptr inbounds i8, ptr %11, i64 16
-  %50 = getelementptr inbounds i8, ptr %11, i64 20
-  %51 = getelementptr inbounds i8, ptr %11, i64 24
-  %52 = getelementptr inbounds i8, ptr %11, i64 32
-  %53 = getelementptr inbounds i8, ptr %11, i64 40
-  %54 = getelementptr inbounds i8, ptr %7, i64 24
-  br label %64
+.preheader241:                                    ; preds = %45
+  %48 = getelementptr inbounds i8, ptr %11, i64 4
+  %49 = getelementptr inbounds i8, ptr %11, i64 8
+  %50 = getelementptr inbounds i8, ptr %11, i64 12
+  %51 = getelementptr inbounds i8, ptr %11, i64 16
+  %52 = getelementptr inbounds i8, ptr %11, i64 20
+  %53 = getelementptr inbounds i8, ptr %11, i64 24
+  %54 = getelementptr inbounds i8, ptr %11, i64 32
+  %55 = getelementptr inbounds i8, ptr %11, i64 40
+  %56 = getelementptr inbounds i8, ptr %7, i64 24
+  br label %67
 
-.preheader240:                                    ; preds = %64
+.preheader240:                                    ; preds = %67
   br i1 %18, label %.lr.ph253, label %.preheader238
 
 .lr.ph253:                                        ; preds = %.preheader240
-  %55 = getelementptr inbounds i8, ptr %12, i64 4
-  %56 = getelementptr inbounds i8, ptr %12, i64 8
-  %57 = getelementptr inbounds i8, ptr %12, i64 12
-  %58 = getelementptr inbounds i8, ptr %12, i64 16
-  %59 = getelementptr inbounds i8, ptr %12, i64 20
-  %60 = getelementptr inbounds i8, ptr %12, i64 24
-  %61 = getelementptr inbounds i8, ptr %12, i64 32
-  %62 = getelementptr inbounds i8, ptr %12, i64 40
-  %63 = getelementptr inbounds i8, ptr %6, i64 24
-  br label %76
+  %57 = getelementptr inbounds i8, ptr %12, i64 4
+  %58 = getelementptr inbounds i8, ptr %12, i64 8
+  %59 = getelementptr inbounds i8, ptr %12, i64 12
+  %60 = getelementptr inbounds i8, ptr %12, i64 16
+  %61 = getelementptr inbounds i8, ptr %12, i64 20
+  %62 = getelementptr inbounds i8, ptr %12, i64 24
+  %63 = getelementptr inbounds i8, ptr %12, i64 32
+  %64 = getelementptr inbounds i8, ptr %12, i64 40
+  %65 = getelementptr inbounds i8, ptr %6, i64 24
+  %66 = call i32 @llvm.usub.sat.i32(i32 %..i, i32 17)
+  br label %79
 
-64:                                               ; preds = %.preheader241, %64
-  %.0192250 = phi i32 [ 0, %.preheader241 ], [ %67, %64 ]
-  %65 = shl nuw nsw i32 %.0192250, 5
-  %66 = add nuw nsw i32 %65, 1152
+67:                                               ; preds = %.preheader241, %67
+  %.0192250 = phi i32 [ 0, %.preheader241 ], [ %70, %67 ]
+  %68 = shl nuw nsw i32 %.0192250, 5
+  %69 = add nuw nsw i32 %68, 1152
   store i32 4, ptr %11, align 8
-  store i32 -1, ptr %46, align 4
-  store i32 -1, ptr %47, align 8
   store i32 -1, ptr %48, align 4
-  store i32 %66, ptr %49, align 8
-  store i8 0, ptr %50, align 4
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %51, align 8
-  store ptr null, ptr %52, align 8
-  store i32 0, ptr %53, align 8
+  store i32 -1, ptr %49, align 8
+  store i32 -1, ptr %50, align 4
+  store i32 %69, ptr %51, align 8
+  store i8 0, ptr %52, align 4
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %53, align 8
+  store ptr null, ptr %54, align 8
+  store i32 0, ptr %55, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(64) %11, i64 21, i1 false)
-  call void %29(ptr noundef nonnull align 8 dereferenceable(40) %51, ptr noundef nonnull align 8 dereferenceable(40) %54) #14
+  call void %31(ptr noundef nonnull align 8 dereferenceable(40) %53, ptr noundef nonnull align 8 dereferenceable(40) %56) #14
   call void @_ZN9Assembler13vextractf64x4E7Address11XMMRegisterh(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %7, i32 %.0192250, i8 noundef zeroext 1) #14
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7)
-  %67 = add nuw nsw i32 %.0192250, 1
-  %exitcond281.not = icmp eq i32 %67, 16
-  br i1 %exitcond281.not, label %.preheader240, label %64, !llvm.loop !8
+  %70 = add nuw nsw i32 %.0192250, 1
+  %exitcond281.not = icmp eq i32 %70, 16
+  br i1 %exitcond281.not, label %.preheader240, label %67, !llvm.loop !8
 
-.preheader238:                                    ; preds = %76, %.preheader240
-  %68 = getelementptr inbounds i8, ptr %13, i64 4
-  %69 = getelementptr inbounds i8, ptr %13, i64 8
-  %70 = getelementptr inbounds i8, ptr %13, i64 12
-  %71 = getelementptr inbounds i8, ptr %13, i64 16
-  %72 = getelementptr inbounds i8, ptr %13, i64 20
-  %73 = getelementptr inbounds i8, ptr %13, i64 24
-  %74 = getelementptr inbounds i8, ptr %13, i64 32
-  %75 = getelementptr inbounds i8, ptr %13, i64 40
-  br label %81
+.preheader238:                                    ; preds = %79, %.preheader240
+  %71 = getelementptr inbounds i8, ptr %13, i64 4
+  %72 = getelementptr inbounds i8, ptr %13, i64 8
+  %73 = getelementptr inbounds i8, ptr %13, i64 12
+  %74 = getelementptr inbounds i8, ptr %13, i64 16
+  %75 = getelementptr inbounds i8, ptr %13, i64 20
+  %76 = getelementptr inbounds i8, ptr %13, i64 24
+  %77 = getelementptr inbounds i8, ptr %13, i64 32
+  %78 = getelementptr inbounds i8, ptr %13, i64 40
+  br label %84
 
-76:                                               ; preds = %.lr.ph253, %76
-  %.0189252 = phi i32 [ 0, %.lr.ph253 ], [ %77, %76 ]
-  %.0193251 = phi i32 [ 16, %.lr.ph253 ], [ %80, %76 ]
-  %77 = add nuw nsw i32 %.0189252, 1
-  %78 = shl nsw i32 %.0189252, 6
-  %79 = add nuw nsw i32 %78, 1664
+79:                                               ; preds = %.lr.ph253, %79
+  %.0189252 = phi i32 [ 0, %.lr.ph253 ], [ %80, %79 ]
+  %.0193251 = phi i32 [ 16, %.lr.ph253 ], [ %83, %79 ]
+  %80 = add nuw nsw i32 %.0189252, 1
+  %81 = shl nsw i32 %.0189252, 6
+  %82 = add nuw nsw i32 %81, 1664
   store i32 4, ptr %12, align 8
-  store i32 -1, ptr %55, align 4
-  store i32 -1, ptr %56, align 8
   store i32 -1, ptr %57, align 4
-  store i32 %79, ptr %58, align 8
-  store i8 0, ptr %59, align 4
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %60, align 8
-  store ptr null, ptr %61, align 8
-  store i32 0, ptr %62, align 8
+  store i32 -1, ptr %58, align 8
+  store i32 -1, ptr %59, align 4
+  store i32 %82, ptr %60, align 8
+  store i8 0, ptr %61, align 4
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %62, align 8
+  store ptr null, ptr %63, align 8
+  store i32 0, ptr %64, align 8
   %or.cond.i199 = icmp samesign ult i32 %.0193251, 32
   %spec.select.i200 = select i1 %or.cond.i199, i32 %.0193251, i32 -1
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull align 8 dereferenceable(64) %12, i64 21, i1 false)
-  call void %29(ptr noundef nonnull align 8 dereferenceable(40) %60, ptr noundef nonnull align 8 dereferenceable(40) %63) #14
+  call void %31(ptr noundef nonnull align 8 dereferenceable(40) %62, ptr noundef nonnull align 8 dereferenceable(40) %65) #14
   call void @_ZN9Assembler9evmovdqulE7Address11XMMRegisteri(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %6, i32 %spec.select.i200, i32 noundef 2) #14
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6)
-  %80 = add nuw nsw i32 %.0193251, 1
-  %exitcond283.not = icmp eq i32 %.0189252, 15
-  br i1 %exitcond283.not, label %.preheader238, label %76, !llvm.loop !9
+  %83 = add nuw nsw i32 %.0193251, 1
+  %exitcond283.not = icmp eq i32 %.0189252, %66
+  br i1 %exitcond283.not, label %.preheader238, label %79, !llvm.loop !9
 
-81:                                               ; preds = %.preheader238, %81
-  %.1255 = phi i32 [ 0, %.preheader238 ], [ %82, %81 ]
-  %82 = add nuw nsw i32 %.1255, 1
-  %83 = shl nsw i32 %.1255, 3
-  %84 = add nuw nsw i32 %83, 1088
+84:                                               ; preds = %.preheader238, %84
+  %.1255 = phi i32 [ 0, %.preheader238 ], [ %85, %84 ]
+  %85 = add nuw nsw i32 %.1255, 1
+  %86 = shl nsw i32 %.1255, 3
+  %87 = add nuw nsw i32 %86, 1088
   store i32 4, ptr %13, align 8
-  store i32 -1, ptr %68, align 4
-  store i32 -1, ptr %69, align 8
-  store i32 -1, ptr %70, align 4
-  store i32 %84, ptr %71, align 8
-  store i8 0, ptr %72, align 4
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %73, align 8
-  store ptr null, ptr %74, align 8
-  store i32 0, ptr %75, align 8
+  store i32 -1, ptr %71, align 4
+  store i32 -1, ptr %72, align 8
+  store i32 -1, ptr %73, align 4
+  store i32 %87, ptr %74, align 8
+  store i8 0, ptr %75, align 4
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %76, align 8
+  store ptr null, ptr %77, align 8
+  store i32 0, ptr %78, align 8
   call void @_ZN14MacroAssembler4kmovE7Address9KRegister(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %13, i32 %.1255) #14
-  %exitcond284.not = icmp eq i32 %82, 8
-  br i1 %exitcond284.not, label %.loopexit239, label %81, !llvm.loop !10
+  %exitcond284.not = icmp eq i32 %85, 8
+  br i1 %exitcond284.not, label %.loopexit239, label %84, !llvm.loop !10
 
-85:                                               ; preds = %4
-  %86 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
-  %87 = and i64 %86, 134217728
-  %.not = icmp eq i64 %87, 0
-  br i1 %.not, label %.loopexit239, label %88
+88:                                               ; preds = %4
+  %89 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  %90 = and i64 %89, 134217728
+  %.not = icmp eq i64 %90, 0
+  br i1 %.not, label %.loopexit239, label %91
 
-88:                                               ; preds = %85
-  %89 = lshr i64 %86, 32
-  %90 = trunc nuw i64 %89 to i32
-  %91 = and i32 %90, 2
-  %92 = xor i32 %91, 2
+91:                                               ; preds = %88
+  %92 = lshr i64 %89, 32
+  %93 = trunc nuw i64 %92 to i32
+  %94 = and i32 %93, 2
+  %95 = xor i32 %94, 2
   br i1 %18, label %.lr.ph, label %.preheader243
 
-.lr.ph:                                           ; preds = %88
-  %93 = getelementptr inbounds i8, ptr %14, i64 4
-  %94 = getelementptr inbounds i8, ptr %14, i64 8
-  %95 = getelementptr inbounds i8, ptr %14, i64 12
-  %96 = getelementptr inbounds i8, ptr %14, i64 16
-  %97 = getelementptr inbounds i8, ptr %14, i64 20
-  %98 = getelementptr inbounds i8, ptr %14, i64 24
-  %99 = getelementptr inbounds i8, ptr %14, i64 32
-  %100 = getelementptr inbounds i8, ptr %14, i64 40
-  %101 = getelementptr inbounds i8, ptr %5, i64 24
-  %102 = load ptr, ptr getelementptr inbounds inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
-  br label %111
+.lr.ph:                                           ; preds = %91
+  %96 = getelementptr inbounds i8, ptr %14, i64 4
+  %97 = getelementptr inbounds i8, ptr %14, i64 8
+  %98 = getelementptr inbounds i8, ptr %14, i64 12
+  %99 = getelementptr inbounds i8, ptr %14, i64 16
+  %100 = getelementptr inbounds i8, ptr %14, i64 20
+  %101 = getelementptr inbounds i8, ptr %14, i64 24
+  %102 = getelementptr inbounds i8, ptr %14, i64 32
+  %103 = getelementptr inbounds i8, ptr %14, i64 40
+  %104 = getelementptr inbounds i8, ptr %5, i64 24
+  %105 = load ptr, ptr getelementptr inbounds inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
+  %106 = tail call i32 @llvm.usub.sat.i32(i32 %..i, i32 17)
+  br label %115
 
-.preheader243:                                    ; preds = %111, %88
-  %103 = getelementptr inbounds i8, ptr %15, i64 4
-  %104 = getelementptr inbounds i8, ptr %15, i64 8
-  %105 = getelementptr inbounds i8, ptr %15, i64 12
-  %106 = getelementptr inbounds i8, ptr %15, i64 16
-  %107 = getelementptr inbounds i8, ptr %15, i64 20
-  %108 = getelementptr inbounds i8, ptr %15, i64 24
-  %109 = getelementptr inbounds i8, ptr %15, i64 32
-  %110 = getelementptr inbounds i8, ptr %15, i64 40
-  br label %116
+.preheader243:                                    ; preds = %115, %91
+  %107 = getelementptr inbounds i8, ptr %15, i64 4
+  %108 = getelementptr inbounds i8, ptr %15, i64 8
+  %109 = getelementptr inbounds i8, ptr %15, i64 12
+  %110 = getelementptr inbounds i8, ptr %15, i64 16
+  %111 = getelementptr inbounds i8, ptr %15, i64 20
+  %112 = getelementptr inbounds i8, ptr %15, i64 24
+  %113 = getelementptr inbounds i8, ptr %15, i64 32
+  %114 = getelementptr inbounds i8, ptr %15, i64 40
+  br label %120
 
-111:                                              ; preds = %.lr.ph, %111
-  %.2246 = phi i32 [ 0, %.lr.ph ], [ %112, %111 ]
-  %.0196245 = phi i32 [ 16, %.lr.ph ], [ %115, %111 ]
-  %112 = add nuw nsw i32 %.2246, 1
-  %113 = shl nsw i32 %.2246, 6
-  %114 = add nuw nsw i32 %113, 1664
+115:                                              ; preds = %.lr.ph, %115
+  %.2246 = phi i32 [ 0, %.lr.ph ], [ %116, %115 ]
+  %.0196245 = phi i32 [ 16, %.lr.ph ], [ %119, %115 ]
+  %116 = add nuw nsw i32 %.2246, 1
+  %117 = shl nsw i32 %.2246, 6
+  %118 = add nuw nsw i32 %117, 1664
   store i32 4, ptr %14, align 8
-  store i32 -1, ptr %93, align 4
-  store i32 -1, ptr %94, align 8
-  store i32 -1, ptr %95, align 4
-  store i32 %114, ptr %96, align 8
-  store i8 0, ptr %97, align 4
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %98, align 8
-  store ptr null, ptr %99, align 8
-  store i32 0, ptr %100, align 8
+  store i32 -1, ptr %96, align 4
+  store i32 -1, ptr %97, align 8
+  store i32 -1, ptr %98, align 4
+  store i32 %118, ptr %99, align 8
+  store i8 0, ptr %100, align 4
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %101, align 8
+  store ptr null, ptr %102, align 8
+  store i32 0, ptr %103, align 8
   %or.cond.i203 = icmp samesign ult i32 %.0196245, 32
   %spec.select.i204 = select i1 %or.cond.i203, i32 %.0196245, i32 -1
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(64) %14, i64 21, i1 false)
-  call void %102(ptr noundef nonnull align 8 dereferenceable(40) %98, ptr noundef nonnull align 8 dereferenceable(40) %101) #14
-  call void @_ZN9Assembler9evmovdqulE7Address11XMMRegisteri(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %5, i32 %spec.select.i204, i32 noundef %92) #14
+  call void %105(ptr noundef nonnull align 8 dereferenceable(40) %101, ptr noundef nonnull align 8 dereferenceable(40) %104) #14
+  call void @_ZN9Assembler9evmovdqulE7Address11XMMRegisteri(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %5, i32 %spec.select.i204, i32 noundef %95) #14
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5)
-  %115 = add nuw nsw i32 %.0196245, 1
-  %exitcond.not = icmp eq i32 %.2246, 15
-  br i1 %exitcond.not, label %.preheader243, label %111, !llvm.loop !11
+  %119 = add nuw nsw i32 %.0196245, 1
+  %exitcond.not = icmp eq i32 %.2246, %106
+  br i1 %exitcond.not, label %.preheader243, label %115, !llvm.loop !11
 
-116:                                              ; preds = %.preheader243, %116
-  %.3248 = phi i32 [ 0, %.preheader243 ], [ %117, %116 ]
-  %117 = add nuw nsw i32 %.3248, 1
-  %118 = shl nsw i32 %.3248, 3
-  %119 = add nuw nsw i32 %118, 1088
+120:                                              ; preds = %.preheader243, %120
+  %.3248 = phi i32 [ 0, %.preheader243 ], [ %121, %120 ]
+  %121 = add nuw nsw i32 %.3248, 1
+  %122 = shl nsw i32 %.3248, 3
+  %123 = add nuw nsw i32 %122, 1088
   store i32 4, ptr %15, align 8
-  store i32 -1, ptr %103, align 4
-  store i32 -1, ptr %104, align 8
-  store i32 -1, ptr %105, align 4
-  store i32 %119, ptr %106, align 8
-  store i8 0, ptr %107, align 4
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %108, align 8
-  store ptr null, ptr %109, align 8
-  store i32 0, ptr %110, align 8
+  store i32 -1, ptr %107, align 4
+  store i32 -1, ptr %108, align 8
+  store i32 -1, ptr %109, align 4
+  store i32 %123, ptr %110, align 8
+  store i8 0, ptr %111, align 4
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %112, align 8
+  store ptr null, ptr %113, align 8
+  store i32 0, ptr %114, align 8
   call void @_ZN14MacroAssembler4kmovE7Address9KRegister(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %15, i32 %.3248) #14
-  %exitcond279.not = icmp eq i32 %117, 8
-  br i1 %exitcond279.not, label %.loopexit239, label %116, !llvm.loop !12
+  %exitcond279.not = icmp eq i32 %121, 8
+  br i1 %exitcond279.not, label %.loopexit239, label %120, !llvm.loop !12
 
-.loopexit239:                                     ; preds = %116, %81, %85, %43
-  %120 = load i8, ptr @UseAPX, align 1
-  %121 = trunc i8 %120 to i1
-  br i1 %121, label %.preheader236, label %.loopexit237
+.loopexit239:                                     ; preds = %120, %84, %88, %45
+  %124 = load i8, ptr @UseAPX, align 1
+  %125 = trunc i8 %124 to i1
+  br i1 %125, label %.preheader236, label %.loopexit237
 
 .preheader236:                                    ; preds = %.loopexit239
-  %122 = getelementptr inbounds i8, ptr %16, i64 4
-  %123 = getelementptr inbounds i8, ptr %16, i64 8
-  %124 = getelementptr inbounds i8, ptr %16, i64 12
-  %125 = getelementptr inbounds i8, ptr %16, i64 16
-  %126 = getelementptr inbounds i8, ptr %16, i64 20
-  %127 = getelementptr inbounds i8, ptr %16, i64 24
-  %128 = getelementptr inbounds i8, ptr %16, i64 32
-  %129 = getelementptr inbounds i8, ptr %16, i64 40
-  br label %130
+  %126 = getelementptr inbounds i8, ptr %16, i64 4
+  %127 = getelementptr inbounds i8, ptr %16, i64 8
+  %128 = getelementptr inbounds i8, ptr %16, i64 12
+  %129 = getelementptr inbounds i8, ptr %16, i64 16
+  %130 = getelementptr inbounds i8, ptr %16, i64 20
+  %131 = getelementptr inbounds i8, ptr %16, i64 24
+  %132 = getelementptr inbounds i8, ptr %16, i64 32
+  %133 = getelementptr inbounds i8, ptr %16, i64 40
+  br label %134
 
-130:                                              ; preds = %.preheader236, %130
-  %.4257 = phi i32 [ 0, %.preheader236 ], [ %131, %130 ]
-  %.0191256 = phi i32 [ 16, %.preheader236 ], [ %134, %130 ]
-  %131 = add nuw nsw i32 %.4257, 1
-  %132 = shl nsw i32 %.4257, 3
-  %133 = add nuw nsw i32 %132, 960
+134:                                              ; preds = %.preheader236, %134
+  %.4257 = phi i32 [ 0, %.preheader236 ], [ %135, %134 ]
+  %.0191256 = phi i32 [ 16, %.preheader236 ], [ %138, %134 ]
+  %135 = add nuw nsw i32 %.4257, 1
+  %136 = shl nsw i32 %.4257, 3
+  %137 = add nuw nsw i32 %136, 960
   store i32 4, ptr %16, align 8
-  store i32 -1, ptr %122, align 4
-  store i32 -1, ptr %123, align 8
-  store i32 -1, ptr %124, align 4
-  store i32 %133, ptr %125, align 8
-  store i8 0, ptr %126, align 4
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %127, align 8
-  store ptr null, ptr %128, align 8
-  store i32 0, ptr %129, align 8
+  store i32 -1, ptr %126, align 4
+  store i32 -1, ptr %127, align 8
+  store i32 -1, ptr %128, align 4
+  store i32 %137, ptr %129, align 8
+  store i8 0, ptr %130, align 4
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %131, align 8
+  store ptr null, ptr %132, align 8
+  store i32 0, ptr %133, align 8
   call void @_ZN9Assembler4movqE7Address8Register(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %16, i32 %.0191256) #14
-  %134 = add nuw nsw i32 %.0191256, 1
-  %exitcond285.not = icmp eq i32 %131, 16
-  br i1 %exitcond285.not, label %.loopexit237, label %130, !llvm.loop !13
+  %138 = add nuw nsw i32 %.0191256, 1
+  %exitcond285.not = icmp eq i32 %135, 16
+  br i1 %exitcond285.not, label %.loopexit237, label %134, !llvm.loop !13
 
-.loopexit237:                                     ; preds = %130, %.loopexit239
+.loopexit237:                                     ; preds = %134, %.loopexit239
   call void @_ZN9Assembler10vzeroupperEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #14
-  %135 = call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 24, i32 noundef 0) #14
-  call void @_ZN9OopMapSetC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %135) #14
-  %136 = call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 32, i32 noundef 0) #14
-  call void @_ZN6OopMapC1Eii(ptr noundef nonnull align 8 dereferenceable(32) %136, i32 noundef 712, i32 noundef 0) #14
-  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %136, ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 1319), ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 1)) #14
-  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %136, ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 1317), ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 3)) #14
-  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %136, ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 1315), ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 5)) #14
-  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %136, ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 1313), ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 7)) #14
-  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %136, ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 1307), ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 13)) #14
-  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %136, ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 1305), ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 15)) #14
-  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %136, ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 1303), ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 17)) #14
-  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %136, ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 1301), ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 19)) #14
-  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %136, ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 1299), ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 21)) #14
-  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %136, ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 1297), ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 23)) #14
-  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %136, ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 1295), ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 25)) #14
-  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %136, ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 1293), ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 27)) #14
-  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %136, ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 1291), ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 29)) #14
-  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %136, ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 1289), ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 31)) #14
-  %137 = load i8, ptr @UseAPX, align 1
-  %138 = trunc i8 %137 to i1
-  br i1 %138, label %139, label %.preheader328
+  %139 = call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 24, i32 noundef 0) #14
+  call void @_ZN9OopMapSetC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %139) #14
+  %140 = call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 32, i32 noundef 0) #14
+  call void @_ZN6OopMapC1Eii(ptr noundef nonnull align 8 dereferenceable(32) %140, i32 noundef %.zext, i32 noundef 0) #14
+  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %140, ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 1319), ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 1)) #14
+  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %140, ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 1317), ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 3)) #14
+  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %140, ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 1315), ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 5)) #14
+  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %140, ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 1313), ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 7)) #14
+  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %140, ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 1307), ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 13)) #14
+  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %140, ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 1305), ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 15)) #14
+  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %140, ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 1303), ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 17)) #14
+  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %140, ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 1301), ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 19)) #14
+  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %140, ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 1299), ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 21)) #14
+  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %140, ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 1297), ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 23)) #14
+  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %140, ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 1295), ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 25)) #14
+  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %140, ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 1293), ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 27)) #14
+  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %140, ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 1291), ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 29)) #14
+  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %140, ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 1289), ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 31)) #14
+  %141 = load i8, ptr @UseAPX, align 1
+  %142 = trunc i8 %141 to i1
+  br i1 %142, label %143, label %.preheader328
 
-139:                                              ; preds = %.loopexit237
-  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %136, ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 887), ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 33)) #14
-  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %136, ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 885), ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 35)) #14
-  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %136, ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 883), ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 37)) #14
-  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %136, ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 881), ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 39)) #14
-  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %136, ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 879), ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 41)) #14
-  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %136, ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 877), ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 43)) #14
-  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %136, ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 875), ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 45)) #14
-  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %136, ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 873), ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 47)) #14
-  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %136, ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 871), ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 49)) #14
-  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %136, ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 869), ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 51)) #14
-  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %136, ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 867), ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 53)) #14
-  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %136, ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 865), ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 55)) #14
-  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %136, ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 863), ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 57)) #14
-  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %136, ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 861), ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 59)) #14
-  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %136, ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 859), ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 61)) #14
-  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %136, ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 857), ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 63)) #14
+143:                                              ; preds = %.loopexit237
+  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %140, ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 887), ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 33)) #14
+  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %140, ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 885), ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 35)) #14
+  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %140, ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 883), ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 37)) #14
+  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %140, ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 881), ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 39)) #14
+  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %140, ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 879), ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 41)) #14
+  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %140, ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 877), ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 43)) #14
+  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %140, ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 875), ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 45)) #14
+  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %140, ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 873), ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 47)) #14
+  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %140, ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 871), ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 49)) #14
+  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %140, ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 869), ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 51)) #14
+  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %140, ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 867), ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 53)) #14
+  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %140, ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 865), ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 55)) #14
+  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %140, ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 863), ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 57)) #14
+  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %140, ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 861), ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 59)) #14
+  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %140, ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 859), ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 61)) #14
+  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %140, ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 857), ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 63)) #14
   br label %.preheader328
 
-.preheader328:                                    ; preds = %139, %.loopexit237
-  br label %140
+.preheader328:                                    ; preds = %143, %.loopexit237
+  br label %144
 
-140:                                              ; preds = %.preheader328, %140
-  %indvars.iv286 = phi i64 [ %indvars.iv.next287, %140 ], [ 40, %.preheader328 ]
-  %indvars.iv = phi i64 [ %indvars.iv.next, %140 ], [ 0, %.preheader328 ]
-  %141 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 617), i64 %indvars.iv286
-  %142 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %indvars.iv
-  %143 = ptrtoint ptr %142 to i64
-  %144 = trunc i64 %143 to i32
-  %145 = sub i32 %144, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
-  %146 = shl i32 %145, 4
-  %147 = sext i32 %146 to i64
-  %gep = getelementptr %class.VMRegImpl, ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 81), i64 %147
-  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %136, ptr noundef nonnull %141, ptr noundef %gep) #14
+144:                                              ; preds = %.preheader328, %144
+  %indvars.iv286 = phi i64 [ %indvars.iv.next287, %144 ], [ 40, %.preheader328 ]
+  %indvars.iv = phi i64 [ %indvars.iv.next, %144 ], [ 0, %.preheader328 ]
+  %145 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 617), i64 %indvars.iv286
+  %146 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %indvars.iv
+  %147 = ptrtoint ptr %146 to i64
+  %148 = trunc i64 %147 to i32
+  %149 = sub i32 %148, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
+  %150 = shl i32 %149, 4
+  %151 = sext i32 %150 to i64
+  %gep = getelementptr %class.VMRegImpl, ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 81), i64 %151
+  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %140, ptr noundef nonnull %145, ptr noundef %gep) #14
   %indvars.iv.next287 = add nuw nsw i64 %indvars.iv286, 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond291.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond291.not, label %148, label %140, !llvm.loop !14
+  br i1 %exitcond291.not, label %152, label %144, !llvm.loop !14
 
-148:                                              ; preds = %140
-  %149 = load i32, ptr @UseAVX, align 4
-  %150 = icmp sgt i32 %149, 2
-  %or.cond = select i1 %150, i1 %18, i1 false
+152:                                              ; preds = %144
+  %153 = load i32, ptr @UseAVX, align 4
+  %154 = icmp sgt i32 %153, 2
+  %or.cond = select i1 %154, i1 %18, i1 false
   br i1 %or.cond, label %.lr.ph263, label %.loopexit235
 
-.lr.ph263:                                        ; preds = %148, %.lr.ph263
-  %indvars.iv292 = phi i64 [ %indvars.iv.next293, %.lr.ph263 ], [ 416, %148 ]
-  %.0187262 = phi i32 [ %159, %.lr.ph263 ], [ 16, %148 ]
+.lr.ph263:                                        ; preds = %152, %.lr.ph263
+  %indvars.iv292 = phi i64 [ %indvars.iv.next293, %.lr.ph263 ], [ 416, %152 ]
+  %.0187262 = phi i32 [ %163, %.lr.ph263 ], [ 16, %152 ]
   %or.cond.i211 = icmp samesign ult i32 %.0187262, 32
   %spec.select.i212 = select i1 %or.cond.i211, i32 %.0187262, i32 -1
-  %151 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 617), i64 %indvars.iv292
-  %152 = sext i32 %spec.select.i212 to i64
-  %153 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %152
-  %154 = ptrtoint ptr %153 to i64
-  %155 = trunc i64 %154 to i32
-  %156 = sub i32 %155, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
-  %157 = shl i32 %156, 4
-  %158 = sext i32 %157 to i64
-  %gep260 = getelementptr %class.VMRegImpl, ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 81), i64 %158
-  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %136, ptr noundef nonnull %151, ptr noundef %gep260) #14
+  %155 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 617), i64 %indvars.iv292
+  %156 = sext i32 %spec.select.i212 to i64
+  %157 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %156
+  %158 = ptrtoint ptr %157 to i64
+  %159 = trunc i64 %158 to i32
+  %160 = sub i32 %159, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
+  %161 = shl i32 %160, 4
+  %162 = sext i32 %161 to i64
+  %gep260 = getelementptr %class.VMRegImpl, ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 81), i64 %162
+  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %140, ptr noundef nonnull %155, ptr noundef %gep260) #14
   %indvars.iv.next293 = add nuw nsw i64 %indvars.iv292, 16
-  %159 = add nuw nsw i32 %.0187262, 1
-  %exitcond296.not = icmp eq i32 %159, 32
+  %163 = add nuw nsw i32 %.0187262, 1
+  %exitcond296.not = icmp eq i32 %163, 32
   br i1 %exitcond296.not, label %.loopexit235, label %.lr.ph263, !llvm.loop !15
 
-.loopexit235:                                     ; preds = %.lr.ph263, %148
+.loopexit235:                                     ; preds = %.lr.ph263, %152
   br i1 %narrow, label %.preheader233, label %.loopexit232
 
 .preheader233:                                    ; preds = %.loopexit235, %.preheader233
   %indvars.iv299 = phi i64 [ %indvars.iv.next300, %.preheader233 ], [ 144, %.loopexit235 ]
   %indvars.iv297 = phi i64 [ %indvars.iv.next298, %.preheader233 ], [ 0, %.loopexit235 ]
-  %160 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 617), i64 %indvars.iv299
-  %161 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %indvars.iv297
-  %162 = ptrtoint ptr %161 to i64
-  %163 = trunc i64 %162 to i32
-  %164 = sub i32 %163, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
-  %165 = shl i32 %164, 4
-  %166 = sext i32 %165 to i64
-  %gep264 = getelementptr %class.VMRegImpl, ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 85), i64 %166
-  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %136, ptr noundef nonnull %160, ptr noundef nonnull %gep264) #14
+  %164 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 617), i64 %indvars.iv299
+  %165 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %indvars.iv297
+  %166 = ptrtoint ptr %165 to i64
+  %167 = trunc i64 %166 to i32
+  %168 = sub i32 %167, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
+  %169 = shl i32 %168, 4
+  %170 = sext i32 %169 to i64
+  %gep264 = getelementptr %class.VMRegImpl, ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 85), i64 %170
+  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %140, ptr noundef nonnull %164, ptr noundef nonnull %gep264) #14
   %indvars.iv.next300 = add nuw nsw i64 %indvars.iv299, 4
   %indvars.iv.next298 = add nuw nsw i64 %indvars.iv297, 1
   %exitcond304.not = icmp eq i64 %indvars.iv.next298, 16
-  br i1 %exitcond304.not, label %167, label %.preheader233, !llvm.loop !16
+  br i1 %exitcond304.not, label %171, label %.preheader233, !llvm.loop !16
 
-167:                                              ; preds = %.preheader233
-  %168 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
-  %169 = and i64 %168, 134217728
-  %.not230 = icmp eq i64 %169, 0
+171:                                              ; preds = %.preheader233
+  %172 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  %173 = and i64 %172, 134217728
+  %.not230 = icmp eq i64 %173, 0
   br i1 %.not230, label %.loopexit232, label %.preheader231
 
-.preheader231:                                    ; preds = %167, %.preheader231
-  %indvars.iv307 = phi i64 [ %indvars.iv.next308, %.preheader231 ], [ 288, %167 ]
-  %indvars.iv305 = phi i64 [ %indvars.iv.next306, %.preheader231 ], [ 0, %167 ]
-  %170 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 617), i64 %indvars.iv307
-  %171 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %indvars.iv305
-  %172 = ptrtoint ptr %171 to i64
-  %173 = trunc i64 %172 to i32
-  %174 = sub i32 %173, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
-  %175 = shl i32 %174, 4
-  %176 = sext i32 %175 to i64
-  %gep267 = getelementptr %class.VMRegImpl, ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 89), i64 %176
-  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %136, ptr noundef nonnull %170, ptr noundef nonnull %gep267) #14
+.preheader231:                                    ; preds = %171, %.preheader231
+  %indvars.iv307 = phi i64 [ %indvars.iv.next308, %.preheader231 ], [ 288, %171 ]
+  %indvars.iv305 = phi i64 [ %indvars.iv.next306, %.preheader231 ], [ 0, %171 ]
+  %174 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 617), i64 %indvars.iv307
+  %175 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %indvars.iv305
+  %176 = ptrtoint ptr %175 to i64
+  %177 = trunc i64 %176 to i32
+  %178 = sub i32 %177, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
+  %179 = shl i32 %178, 4
+  %180 = sext i32 %179 to i64
+  %gep267 = getelementptr %class.VMRegImpl, ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 89), i64 %180
+  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %140, ptr noundef nonnull %174, ptr noundef nonnull %gep267) #14
   %indvars.iv.next308 = add nuw nsw i64 %indvars.iv307, 8
   %indvars.iv.next306 = add nuw nsw i64 %indvars.iv305, 1
   %exitcond312.not = icmp eq i64 %indvars.iv.next306, 16
   br i1 %exitcond312.not, label %.loopexit232, label %.preheader231, !llvm.loop !17
 
-.loopexit232:                                     ; preds = %.preheader231, %167, %.loopexit235
-  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %136, ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 1320), ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 2)) #14
-  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %136, ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 1318), ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 4)) #14
-  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %136, ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 1316), ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 6)) #14
-  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %136, ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 1314), ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 8)) #14
-  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %136, ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 1308), ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 14)) #14
-  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %136, ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 1306), ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 16)) #14
-  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %136, ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 1304), ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 18)) #14
-  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %136, ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 1302), ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 20)) #14
-  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %136, ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 1300), ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 22)) #14
-  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %136, ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 1298), ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 24)) #14
-  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %136, ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 1296), ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 26)) #14
-  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %136, ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 1294), ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 28)) #14
-  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %136, ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 1292), ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 30)) #14
-  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %136, ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 1290), ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 32)) #14
-  %177 = load i8, ptr @UseAPX, align 1
-  %178 = trunc i8 %177 to i1
-  br i1 %178, label %179, label %.preheader
+.loopexit232:                                     ; preds = %.preheader231, %171, %.loopexit235
+  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %140, ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 1320), ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 2)) #14
+  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %140, ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 1318), ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 4)) #14
+  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %140, ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 1316), ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 6)) #14
+  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %140, ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 1314), ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 8)) #14
+  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %140, ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 1308), ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 14)) #14
+  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %140, ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 1306), ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 16)) #14
+  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %140, ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 1304), ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 18)) #14
+  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %140, ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 1302), ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 20)) #14
+  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %140, ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 1300), ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 22)) #14
+  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %140, ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 1298), ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 24)) #14
+  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %140, ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 1296), ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 26)) #14
+  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %140, ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 1294), ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 28)) #14
+  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %140, ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 1292), ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 30)) #14
+  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %140, ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 1290), ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 32)) #14
+  %181 = load i8, ptr @UseAPX, align 1
+  %182 = trunc i8 %181 to i1
+  br i1 %182, label %183, label %.preheader
 
-179:                                              ; preds = %.loopexit232
-  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %136, ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 888), ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 34)) #14
-  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %136, ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 886), ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 36)) #14
-  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %136, ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 884), ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 38)) #14
-  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %136, ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 882), ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 40)) #14
-  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %136, ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 880), ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 42)) #14
-  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %136, ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 878), ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 44)) #14
-  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %136, ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 876), ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 46)) #14
-  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %136, ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 874), ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 48)) #14
-  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %136, ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 872), ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 50)) #14
-  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %136, ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 870), ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 52)) #14
-  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %136, ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 868), ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 54)) #14
-  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %136, ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 866), ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 56)) #14
-  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %136, ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 864), ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 58)) #14
-  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %136, ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 862), ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 60)) #14
-  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %136, ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 860), ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 62)) #14
-  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %136, ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 858), ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 64)) #14
+183:                                              ; preds = %.loopexit232
+  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %140, ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 888), ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 34)) #14
+  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %140, ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 886), ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 36)) #14
+  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %140, ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 884), ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 38)) #14
+  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %140, ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 882), ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 40)) #14
+  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %140, ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 880), ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 42)) #14
+  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %140, ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 878), ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 44)) #14
+  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %140, ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 876), ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 46)) #14
+  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %140, ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 874), ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 48)) #14
+  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %140, ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 872), ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 50)) #14
+  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %140, ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 870), ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 52)) #14
+  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %140, ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 868), ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 54)) #14
+  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %140, ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 866), ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 56)) #14
+  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %140, ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 864), ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 58)) #14
+  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %140, ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 862), ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 60)) #14
+  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %140, ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 860), ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 62)) #14
+  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %140, ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 858), ptr noundef nonnull getelementptr inbounds (i8, ptr @all_VMRegs, i64 64)) #14
   br label %.preheader
 
-.preheader:                                       ; preds = %179, %.loopexit232
-  br label %180
+.preheader:                                       ; preds = %183, %.loopexit232
+  br label %184
 
-180:                                              ; preds = %.preheader, %180
-  %indvars.iv315 = phi i64 [ %indvars.iv.next316, %180 ], [ 41, %.preheader ]
-  %indvars.iv313 = phi i64 [ %indvars.iv.next314, %180 ], [ 0, %.preheader ]
-  %181 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 617), i64 %indvars.iv315
-  %182 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %indvars.iv313
-  %183 = ptrtoint ptr %182 to i64
-  %184 = trunc i64 %183 to i32
-  %185 = sub i32 %184, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
-  %186 = shl i32 %185, 4
-  %187 = sext i32 %186 to i64
-  %gep270 = getelementptr %class.VMRegImpl, ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 82), i64 %187
-  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %136, ptr noundef nonnull %181, ptr noundef nonnull %gep270) #14
+184:                                              ; preds = %.preheader, %184
+  %indvars.iv315 = phi i64 [ %indvars.iv.next316, %184 ], [ 41, %.preheader ]
+  %indvars.iv313 = phi i64 [ %indvars.iv.next314, %184 ], [ 0, %.preheader ]
+  %185 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 617), i64 %indvars.iv315
+  %186 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %indvars.iv313
+  %187 = ptrtoint ptr %186 to i64
+  %188 = trunc i64 %187 to i32
+  %189 = sub i32 %188, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
+  %190 = shl i32 %189, 4
+  %191 = sext i32 %190 to i64
+  %gep270 = getelementptr %class.VMRegImpl, ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 82), i64 %191
+  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %140, ptr noundef nonnull %185, ptr noundef nonnull %gep270) #14
   %indvars.iv.next316 = add nuw nsw i64 %indvars.iv315, 4
   %indvars.iv.next314 = add nuw nsw i64 %indvars.iv313, 1
   %exitcond320.not = icmp eq i64 %indvars.iv.next314, 16
-  br i1 %exitcond320.not, label %188, label %180, !llvm.loop !18
+  br i1 %exitcond320.not, label %192, label %184, !llvm.loop !18
 
-188:                                              ; preds = %180
-  %189 = load i32, ptr @UseAVX, align 4
-  %190 = icmp sgt i32 %189, 2
-  %or.cond277 = select i1 %190, i1 %18, i1 false
+192:                                              ; preds = %184
+  %193 = load i32, ptr @UseAVX, align 4
+  %194 = icmp sgt i32 %193, 2
+  %or.cond277 = select i1 %194, i1 %18, i1 false
   br i1 %or.cond277, label %.lr.ph276, label %.loopexit
 
-.lr.ph276:                                        ; preds = %188, %.lr.ph276
-  %indvars.iv321 = phi i64 [ %indvars.iv.next322, %.lr.ph276 ], [ 417, %188 ]
-  %.0275 = phi i32 [ %199, %.lr.ph276 ], [ 16, %188 ]
+.lr.ph276:                                        ; preds = %192, %.lr.ph276
+  %indvars.iv321 = phi i64 [ %indvars.iv.next322, %.lr.ph276 ], [ 417, %192 ]
+  %.0275 = phi i32 [ %203, %.lr.ph276 ], [ 16, %192 ]
   %or.cond.i219 = icmp samesign ult i32 %.0275, 32
   %spec.select.i220 = select i1 %or.cond.i219, i32 %.0275, i32 -1
-  %191 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 617), i64 %indvars.iv321
-  %192 = sext i32 %spec.select.i220 to i64
-  %193 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %192
-  %194 = ptrtoint ptr %193 to i64
-  %195 = trunc i64 %194 to i32
-  %196 = sub i32 %195, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
-  %197 = shl i32 %196, 4
-  %198 = sext i32 %197 to i64
-  %gep273 = getelementptr %class.VMRegImpl, ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 82), i64 %198
-  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %136, ptr noundef nonnull %191, ptr noundef nonnull %gep273) #14
+  %195 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 617), i64 %indvars.iv321
+  %196 = sext i32 %spec.select.i220 to i64
+  %197 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %196
+  %198 = ptrtoint ptr %197 to i64
+  %199 = trunc i64 %198 to i32
+  %200 = sub i32 %199, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
+  %201 = shl i32 %200, 4
+  %202 = sext i32 %201 to i64
+  %gep273 = getelementptr %class.VMRegImpl, ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 82), i64 %202
+  call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %140, ptr noundef nonnull %195, ptr noundef nonnull %gep273) #14
   %indvars.iv.next322 = add nuw nsw i64 %indvars.iv321, 16
-  %199 = add nuw nsw i32 %.0275, 1
-  %exitcond325.not = icmp eq i32 %199, 32
+  %203 = add nuw nsw i32 %.0275, 1
+  %exitcond325.not = icmp eq i32 %203, 32
   br i1 %exitcond325.not, label %.loopexit, label %.lr.ph276, !llvm.loop !19
 
-.loopexit:                                        ; preds = %.lr.ph276, %188
-  ret ptr %136
+.loopexit:                                        ; preds = %.lr.ph276, %192
+  ret ptr %140
 }
 
 declare void @_ZN14MacroAssembler5enterEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #1
@@ -747,8 +755,9 @@ define hidden void @_ZN13RegisterSaver22restore_live_registersEP14MacroAssembler
   %14 = alloca %class.Address, align 8
   %15 = load i32, ptr @UseAVX, align 4
   %16 = icmp sgt i32 %15, 2
+  %..i = select i1 %16, i32 32, i32 16
   tail call void @_ZN9Assembler10vzeroupperEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #14
-  br i1 %1, label %.preheader96, label %82
+  br i1 %1, label %.preheader96, label %83
 
 .preheader96:                                     ; preds = %2
   %17 = getelementptr inbounds i8, ptr %8, i64 4
@@ -824,9 +833,9 @@ _ZN14MacroAssembler16vinsertf128_highE11XMMRegister7Address.exit: ; preds = %37,
   %49 = getelementptr inbounds i8, ptr %9, i64 32
   %50 = getelementptr inbounds i8, ptr %9, i64 40
   %51 = getelementptr inbounds i8, ptr %5, i64 24
-  br label %61
+  br label %62
 
-.preheader94:                                     ; preds = %61
+.preheader94:                                     ; preds = %62
   br i1 %16, label %.lr.ph107, label %.preheader92
 
 .lr.ph107:                                        ; preds = %.preheader94
@@ -839,17 +848,18 @@ _ZN14MacroAssembler16vinsertf128_highE11XMMRegister7Address.exit: ; preds = %37,
   %58 = getelementptr inbounds i8, ptr %10, i64 32
   %59 = getelementptr inbounds i8, ptr %10, i64 40
   %60 = getelementptr inbounds i8, ptr %4, i64 24
-  br label %73
+  %61 = call i32 @llvm.usub.sat.i32(i32 %..i, i32 17)
+  br label %74
 
-61:                                               ; preds = %.preheader95, %61
-  %.068104 = phi i32 [ 0, %.preheader95 ], [ %64, %61 ]
-  %62 = shl nuw nsw i32 %.068104, 5
-  %63 = add nuw nsw i32 %62, 1152
+62:                                               ; preds = %.preheader95, %62
+  %.068104 = phi i32 [ 0, %.preheader95 ], [ %65, %62 ]
+  %63 = shl nuw nsw i32 %.068104, 5
+  %64 = add nuw nsw i32 %63, 1152
   store i32 4, ptr %9, align 8
   store i32 -1, ptr %43, align 4
   store i32 -1, ptr %44, align 8
   store i32 -1, ptr %45, align 4
-  store i32 %63, ptr %46, align 8
+  store i32 %64, ptr %46, align 8
   store i8 0, ptr %47, align 4
   store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %48, align 8
   store ptr null, ptr %49, align 8
@@ -859,34 +869,34 @@ _ZN14MacroAssembler16vinsertf128_highE11XMMRegister7Address.exit: ; preds = %37,
   call void %26(ptr noundef nonnull align 8 dereferenceable(40) %48, ptr noundef nonnull align 8 dereferenceable(40) %51) #14
   call void @_ZN9Assembler12vinsertf64x4E11XMMRegisterS0_7Addressh(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %.068104, i32 %.068104, ptr noundef nonnull %5, i8 noundef zeroext 1) #14
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5)
-  %64 = add nuw nsw i32 %.068104, 1
-  %exitcond115.not = icmp eq i32 %64, 16
-  br i1 %exitcond115.not, label %.preheader94, label %61, !llvm.loop !21
+  %65 = add nuw nsw i32 %.068104, 1
+  %exitcond115.not = icmp eq i32 %65, 16
+  br i1 %exitcond115.not, label %.preheader94, label %62, !llvm.loop !21
 
-.preheader92:                                     ; preds = %73, %.preheader94
-  %65 = getelementptr inbounds i8, ptr %11, i64 4
-  %66 = getelementptr inbounds i8, ptr %11, i64 8
-  %67 = getelementptr inbounds i8, ptr %11, i64 12
-  %68 = getelementptr inbounds i8, ptr %11, i64 16
-  %69 = getelementptr inbounds i8, ptr %11, i64 20
-  %70 = getelementptr inbounds i8, ptr %11, i64 24
-  %71 = getelementptr inbounds i8, ptr %11, i64 32
-  %72 = getelementptr inbounds i8, ptr %11, i64 40
-  br label %78
+.preheader92:                                     ; preds = %74, %.preheader94
+  %66 = getelementptr inbounds i8, ptr %11, i64 4
+  %67 = getelementptr inbounds i8, ptr %11, i64 8
+  %68 = getelementptr inbounds i8, ptr %11, i64 12
+  %69 = getelementptr inbounds i8, ptr %11, i64 16
+  %70 = getelementptr inbounds i8, ptr %11, i64 20
+  %71 = getelementptr inbounds i8, ptr %11, i64 24
+  %72 = getelementptr inbounds i8, ptr %11, i64 32
+  %73 = getelementptr inbounds i8, ptr %11, i64 40
+  br label %79
 
-73:                                               ; preds = %.lr.ph107, %73
-  %.069106 = phi i32 [ 0, %.lr.ph107 ], [ %74, %73 ]
-  %.072105 = phi i32 [ 16, %.lr.ph107 ], [ %77, %73 ]
+74:                                               ; preds = %.lr.ph107, %74
+  %.069106 = phi i32 [ 0, %.lr.ph107 ], [ %75, %74 ]
+  %.072105 = phi i32 [ 16, %.lr.ph107 ], [ %78, %74 ]
   %or.cond.i80 = icmp samesign ult i32 %.072105, 32
   %spec.select.i81 = select i1 %or.cond.i80, i32 %.072105, i32 -1
-  %74 = add nuw nsw i32 %.069106, 1
-  %75 = shl nsw i32 %.069106, 6
-  %76 = add nuw nsw i32 %75, 1664
+  %75 = add nuw nsw i32 %.069106, 1
+  %76 = shl nsw i32 %.069106, 6
+  %77 = add nuw nsw i32 %76, 1664
   store i32 4, ptr %10, align 8
   store i32 -1, ptr %52, align 4
   store i32 -1, ptr %53, align 8
   store i32 -1, ptr %54, align 4
-  store i32 %76, ptr %55, align 8
+  store i32 %77, ptr %55, align 8
   store i8 0, ptr %56, align 4
   store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %57, align 8
   store ptr null, ptr %58, align 8
@@ -896,146 +906,147 @@ _ZN14MacroAssembler16vinsertf128_highE11XMMRegister7Address.exit: ; preds = %37,
   call void %26(ptr noundef nonnull align 8 dereferenceable(40) %57, ptr noundef nonnull align 8 dereferenceable(40) %60) #14
   call void @_ZN9Assembler9evmovdqulE11XMMRegister7Addressi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %spec.select.i81, ptr noundef nonnull %4, i32 noundef 2) #14
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
-  %77 = add nuw nsw i32 %.072105, 1
-  %exitcond117.not = icmp eq i32 %.069106, 15
-  br i1 %exitcond117.not, label %.preheader92, label %73, !llvm.loop !22
+  %78 = add nuw nsw i32 %.072105, 1
+  %exitcond117.not = icmp eq i32 %.069106, %61
+  br i1 %exitcond117.not, label %.preheader92, label %74, !llvm.loop !22
 
-78:                                               ; preds = %.preheader92, %78
-  %.1109 = phi i32 [ 0, %.preheader92 ], [ %79, %78 ]
-  %79 = add nuw nsw i32 %.1109, 1
-  %80 = shl nsw i32 %.1109, 3
-  %81 = add nuw nsw i32 %80, 1088
+79:                                               ; preds = %.preheader92, %79
+  %.1109 = phi i32 [ 0, %.preheader92 ], [ %80, %79 ]
+  %80 = add nuw nsw i32 %.1109, 1
+  %81 = shl nsw i32 %.1109, 3
+  %82 = add nuw nsw i32 %81, 1088
   store i32 4, ptr %11, align 8
-  store i32 -1, ptr %65, align 4
-  store i32 -1, ptr %66, align 8
-  store i32 -1, ptr %67, align 4
-  store i32 %81, ptr %68, align 8
-  store i8 0, ptr %69, align 4
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %70, align 8
-  store ptr null, ptr %71, align 8
-  store i32 0, ptr %72, align 8
+  store i32 -1, ptr %66, align 4
+  store i32 -1, ptr %67, align 8
+  store i32 -1, ptr %68, align 4
+  store i32 %82, ptr %69, align 8
+  store i8 0, ptr %70, align 4
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %71, align 8
+  store ptr null, ptr %72, align 8
+  store i32 0, ptr %73, align 8
   call void @_ZN14MacroAssembler4kmovE9KRegister7Address(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %.1109, ptr noundef nonnull %11) #14
-  %exitcond118.not = icmp eq i32 %79, 8
-  br i1 %exitcond118.not, label %.loopexit93, label %78, !llvm.loop !23
+  %exitcond118.not = icmp eq i32 %80, 8
+  br i1 %exitcond118.not, label %.loopexit93, label %79, !llvm.loop !23
 
-82:                                               ; preds = %2
-  %83 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
-  %84 = and i64 %83, 134217728
-  %.not = icmp eq i64 %84, 0
-  br i1 %.not, label %.loopexit93, label %85
+83:                                               ; preds = %2
+  %84 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  %85 = and i64 %84, 134217728
+  %.not = icmp eq i64 %85, 0
+  br i1 %.not, label %.loopexit93, label %86
 
-85:                                               ; preds = %82
-  %86 = lshr i64 %83, 32
-  %87 = trunc nuw i64 %86 to i32
-  %88 = and i32 %87, 2
-  %89 = xor i32 %88, 2
+86:                                               ; preds = %83
+  %87 = lshr i64 %84, 32
+  %88 = trunc nuw i64 %87 to i32
+  %89 = and i32 %88, 2
+  %90 = xor i32 %89, 2
   br i1 %16, label %.lr.ph, label %.preheader97
 
-.lr.ph:                                           ; preds = %85
-  %90 = getelementptr inbounds i8, ptr %12, i64 4
-  %91 = getelementptr inbounds i8, ptr %12, i64 8
-  %92 = getelementptr inbounds i8, ptr %12, i64 12
-  %93 = getelementptr inbounds i8, ptr %12, i64 16
-  %94 = getelementptr inbounds i8, ptr %12, i64 20
-  %95 = getelementptr inbounds i8, ptr %12, i64 24
-  %96 = getelementptr inbounds i8, ptr %12, i64 32
-  %97 = getelementptr inbounds i8, ptr %12, i64 40
-  %98 = getelementptr inbounds i8, ptr %3, i64 24
-  %99 = load ptr, ptr getelementptr inbounds inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
-  br label %108
+.lr.ph:                                           ; preds = %86
+  %91 = getelementptr inbounds i8, ptr %12, i64 4
+  %92 = getelementptr inbounds i8, ptr %12, i64 8
+  %93 = getelementptr inbounds i8, ptr %12, i64 12
+  %94 = getelementptr inbounds i8, ptr %12, i64 16
+  %95 = getelementptr inbounds i8, ptr %12, i64 20
+  %96 = getelementptr inbounds i8, ptr %12, i64 24
+  %97 = getelementptr inbounds i8, ptr %12, i64 32
+  %98 = getelementptr inbounds i8, ptr %12, i64 40
+  %99 = getelementptr inbounds i8, ptr %3, i64 24
+  %100 = load ptr, ptr getelementptr inbounds inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
+  %101 = tail call i32 @llvm.usub.sat.i32(i32 %..i, i32 17)
+  br label %110
 
-.preheader97:                                     ; preds = %108, %85
-  %100 = getelementptr inbounds i8, ptr %13, i64 4
-  %101 = getelementptr inbounds i8, ptr %13, i64 8
-  %102 = getelementptr inbounds i8, ptr %13, i64 12
-  %103 = getelementptr inbounds i8, ptr %13, i64 16
-  %104 = getelementptr inbounds i8, ptr %13, i64 20
-  %105 = getelementptr inbounds i8, ptr %13, i64 24
-  %106 = getelementptr inbounds i8, ptr %13, i64 32
-  %107 = getelementptr inbounds i8, ptr %13, i64 40
-  br label %113
+.preheader97:                                     ; preds = %110, %86
+  %102 = getelementptr inbounds i8, ptr %13, i64 4
+  %103 = getelementptr inbounds i8, ptr %13, i64 8
+  %104 = getelementptr inbounds i8, ptr %13, i64 12
+  %105 = getelementptr inbounds i8, ptr %13, i64 16
+  %106 = getelementptr inbounds i8, ptr %13, i64 20
+  %107 = getelementptr inbounds i8, ptr %13, i64 24
+  %108 = getelementptr inbounds i8, ptr %13, i64 32
+  %109 = getelementptr inbounds i8, ptr %13, i64 40
+  br label %115
 
-108:                                              ; preds = %.lr.ph, %108
-  %.075100 = phi i32 [ 0, %.lr.ph ], [ %109, %108 ]
-  %.07799 = phi i32 [ 16, %.lr.ph ], [ %112, %108 ]
+110:                                              ; preds = %.lr.ph, %110
+  %.075100 = phi i32 [ 0, %.lr.ph ], [ %111, %110 ]
+  %.07799 = phi i32 [ 16, %.lr.ph ], [ %114, %110 ]
   %or.cond.i84 = icmp samesign ult i32 %.07799, 32
   %spec.select.i85 = select i1 %or.cond.i84, i32 %.07799, i32 -1
-  %109 = add nuw nsw i32 %.075100, 1
-  %110 = shl nsw i32 %.075100, 6
-  %111 = add nuw nsw i32 %110, 1664
+  %111 = add nuw nsw i32 %.075100, 1
+  %112 = shl nsw i32 %.075100, 6
+  %113 = add nuw nsw i32 %112, 1664
   store i32 4, ptr %12, align 8
-  store i32 -1, ptr %90, align 4
-  store i32 -1, ptr %91, align 8
-  store i32 -1, ptr %92, align 4
-  store i32 %111, ptr %93, align 8
-  store i8 0, ptr %94, align 4
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %95, align 8
-  store ptr null, ptr %96, align 8
-  store i32 0, ptr %97, align 8
+  store i32 -1, ptr %91, align 4
+  store i32 -1, ptr %92, align 8
+  store i32 -1, ptr %93, align 4
+  store i32 %113, ptr %94, align 8
+  store i8 0, ptr %95, align 4
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %96, align 8
+  store ptr null, ptr %97, align 8
+  store i32 0, ptr %98, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 8 dereferenceable(64) %12, i64 21, i1 false)
-  call void %99(ptr noundef nonnull align 8 dereferenceable(40) %95, ptr noundef nonnull align 8 dereferenceable(40) %98) #14
-  call void @_ZN9Assembler9evmovdqulE11XMMRegister7Addressi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %spec.select.i85, ptr noundef nonnull %3, i32 noundef %89) #14
+  call void %100(ptr noundef nonnull align 8 dereferenceable(40) %96, ptr noundef nonnull align 8 dereferenceable(40) %99) #14
+  call void @_ZN9Assembler9evmovdqulE11XMMRegister7Addressi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %spec.select.i85, ptr noundef nonnull %3, i32 noundef %90) #14
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3)
-  %112 = add nuw nsw i32 %.07799, 1
-  %exitcond.not = icmp eq i32 %.075100, 15
-  br i1 %exitcond.not, label %.preheader97, label %108, !llvm.loop !24
+  %114 = add nuw nsw i32 %.07799, 1
+  %exitcond.not = icmp eq i32 %.075100, %101
+  br i1 %exitcond.not, label %.preheader97, label %110, !llvm.loop !24
 
-113:                                              ; preds = %.preheader97, %113
-  %.074102 = phi i32 [ 0, %.preheader97 ], [ %114, %113 ]
-  %114 = add nuw nsw i32 %.074102, 1
-  %115 = shl nsw i32 %.074102, 3
-  %116 = add nuw nsw i32 %115, 1088
+115:                                              ; preds = %.preheader97, %115
+  %.074102 = phi i32 [ 0, %.preheader97 ], [ %116, %115 ]
+  %116 = add nuw nsw i32 %.074102, 1
+  %117 = shl nsw i32 %.074102, 3
+  %118 = add nuw nsw i32 %117, 1088
   store i32 4, ptr %13, align 8
-  store i32 -1, ptr %100, align 4
-  store i32 -1, ptr %101, align 8
   store i32 -1, ptr %102, align 4
-  store i32 %116, ptr %103, align 8
-  store i8 0, ptr %104, align 4
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %105, align 8
-  store ptr null, ptr %106, align 8
-  store i32 0, ptr %107, align 8
+  store i32 -1, ptr %103, align 8
+  store i32 -1, ptr %104, align 4
+  store i32 %118, ptr %105, align 8
+  store i8 0, ptr %106, align 4
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %107, align 8
+  store ptr null, ptr %108, align 8
+  store i32 0, ptr %109, align 8
   call void @_ZN14MacroAssembler4kmovE9KRegister7Address(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %.074102, ptr noundef nonnull %13) #14
-  %exitcond113.not = icmp eq i32 %114, 8
-  br i1 %exitcond113.not, label %.loopexit93, label %113, !llvm.loop !25
+  %exitcond113.not = icmp eq i32 %116, 8
+  br i1 %exitcond113.not, label %.loopexit93, label %115, !llvm.loop !25
 
-.loopexit93:                                      ; preds = %113, %78, %82, %40
-  %117 = load i8, ptr @UseAPX, align 1
-  %118 = trunc i8 %117 to i1
-  br i1 %118, label %.preheader, label %.loopexit
+.loopexit93:                                      ; preds = %115, %79, %83, %40
+  %119 = load i8, ptr @UseAPX, align 1
+  %120 = trunc i8 %119 to i1
+  br i1 %120, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %.loopexit93
-  %119 = getelementptr inbounds i8, ptr %14, i64 4
-  %120 = getelementptr inbounds i8, ptr %14, i64 8
-  %121 = getelementptr inbounds i8, ptr %14, i64 12
-  %122 = getelementptr inbounds i8, ptr %14, i64 16
-  %123 = getelementptr inbounds i8, ptr %14, i64 20
-  %124 = getelementptr inbounds i8, ptr %14, i64 24
-  %125 = getelementptr inbounds i8, ptr %14, i64 32
-  %126 = getelementptr inbounds i8, ptr %14, i64 40
-  br label %127
+  %121 = getelementptr inbounds i8, ptr %14, i64 4
+  %122 = getelementptr inbounds i8, ptr %14, i64 8
+  %123 = getelementptr inbounds i8, ptr %14, i64 12
+  %124 = getelementptr inbounds i8, ptr %14, i64 16
+  %125 = getelementptr inbounds i8, ptr %14, i64 20
+  %126 = getelementptr inbounds i8, ptr %14, i64 24
+  %127 = getelementptr inbounds i8, ptr %14, i64 32
+  %128 = getelementptr inbounds i8, ptr %14, i64 40
+  br label %129
 
-127:                                              ; preds = %.preheader, %127
-  %.070111 = phi i32 [ 16, %.preheader ], [ %131, %127 ]
-  %.071110 = phi i32 [ 0, %.preheader ], [ %128, %127 ]
-  %128 = add nuw nsw i32 %.071110, 1
-  %129 = shl nsw i32 %.071110, 3
-  %130 = add nuw nsw i32 %129, 960
+129:                                              ; preds = %.preheader, %129
+  %.070111 = phi i32 [ 16, %.preheader ], [ %133, %129 ]
+  %.071110 = phi i32 [ 0, %.preheader ], [ %130, %129 ]
+  %130 = add nuw nsw i32 %.071110, 1
+  %131 = shl nsw i32 %.071110, 3
+  %132 = add nuw nsw i32 %131, 960
   store i32 4, ptr %14, align 8
-  store i32 -1, ptr %119, align 4
-  store i32 -1, ptr %120, align 8
   store i32 -1, ptr %121, align 4
-  store i32 %130, ptr %122, align 8
-  store i8 0, ptr %123, align 4
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %124, align 8
-  store ptr null, ptr %125, align 8
-  store i32 0, ptr %126, align 8
+  store i32 -1, ptr %122, align 8
+  store i32 -1, ptr %123, align 4
+  store i32 %132, ptr %124, align 8
+  store i8 0, ptr %125, align 4
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %126, align 8
+  store ptr null, ptr %127, align 8
+  store i32 0, ptr %128, align 8
   call void @_ZN9Assembler4movqE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %.070111, ptr noundef nonnull %14) #14
-  %131 = add nuw nsw i32 %.070111, 1
-  %exitcond119.not = icmp eq i32 %128, 16
-  br i1 %exitcond119.not, label %.loopexit, label %127, !llvm.loop !26
+  %133 = add nuw nsw i32 %.070111, 1
+  %exitcond119.not = icmp eq i32 %130, 16
+  br i1 %exitcond119.not, label %.loopexit, label %129, !llvm.loop !26
 
-.loopexit:                                        ; preds = %127, %.loopexit93
+.loopexit:                                        ; preds = %129, %.loopexit93
   call void @_ZN14MacroAssembler13pop_FPU_stateEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #14
   call void @_ZN14MacroAssembler19restore_legacy_gprsEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #14
   call void @_ZN9Assembler4addqE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 4, i32 noundef 8) #14
@@ -9673,6 +9684,9 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.usub.sat.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13

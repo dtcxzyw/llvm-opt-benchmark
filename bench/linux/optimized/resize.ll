@@ -94,19 +94,19 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @ext4_kvfree_array_rcu(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
-  %3 = tail call noalias noundef align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %2, i32 noundef 3520, i64 noundef 24) #11
+  %3 = tail call noalias noundef align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %2, i32 noundef 3520, i64 noundef 24) #12
   %4 = icmp eq ptr %3, null
   br i1 %4, label %7, label %5
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %3, i64 16
   store ptr %0, ptr %6, align 8
-  tail call void @call_rcu(ptr noundef nonnull %3, ptr noundef nonnull @ext4_rcu_ptr_callback) #12
+  tail call void @call_rcu(ptr noundef nonnull %3, ptr noundef nonnull @ext4_rcu_ptr_callback) #13
   br label %8
 
 7:                                                ; preds = %1
-  tail call void @synchronize_rcu() #12
-  tail call void @kvfree(ptr noundef %0) #12
+  tail call void @synchronize_rcu() #13
+  tail call void @kvfree(ptr noundef %0) #13
   br label %8
 
 8:                                                ; preds = %7, %5
@@ -123,8 +123,8 @@ declare dso_local void @call_rcu(ptr noundef, ptr noundef) local_unnamed_addr #2
 define internal void @ext4_rcu_ptr_callback(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
-  tail call void @kvfree(ptr noundef %3) #12
-  tail call void @kfree(ptr noundef %0) #12
+  tail call void @kvfree(ptr noundef %3) #13
+  tail call void @kfree(ptr noundef %0) #13
   ret void
 }
 
@@ -141,7 +141,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 define dso_local range(i32 -117, 1) i32 @ext4_resize_begin(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 872
   %3 = load ptr, ptr %2, align 8
-  %4 = tail call zeroext i1 @capable(i32 noundef 24) #12
+  %4 = tail call zeroext i1 @capable(i32 noundef 24) #13
   br i1 %4, label %5, label %55
 
 5:                                                ; preds = %1
@@ -163,7 +163,7 @@ define dso_local range(i32 -117, 1) i32 @ext4_resize_begin(ptr noundef %0) local
   br i1 %18, label %19, label %20
 
 19:                                               ; preds = %11
-  tail call void (ptr, ptr, i32, i1, i32, i64, ptr, ...) @__ext4_error(ptr noundef %0, ptr noundef nonnull @__func__.ext4_resize_begin, i32 noundef 60, i1 noundef zeroext false, i32 noundef 0, i64 noundef 0, ptr noundef nonnull @.str) #12
+  tail call void (ptr, ptr, i32, i1, i32, i64, ptr, ...) @__ext4_error(ptr noundef %0, ptr noundef nonnull @__func__.ext4_resize_begin, i32 noundef 60, i1 noundef zeroext false, i32 noundef 0, i64 noundef 0, ptr noundef nonnull @.str) #13
   br label %55
 
 20:                                               ; preds = %11, %5
@@ -182,7 +182,7 @@ define dso_local range(i32 -117, 1) i32 @ext4_resize_begin(ptr noundef %0) local
   br i1 %32, label %34, label %33
 
 33:                                               ; preds = %20
-  tail call void (ptr, ptr, i32, ptr, ...) @__ext4_warning(ptr noundef %0, ptr noundef nonnull @__func__.ext4_resize_begin, i32 noundef 72, ptr noundef nonnull @.str.1, i64 noundef %24) #12
+  tail call void (ptr, ptr, i32, ptr, ...) @__ext4_warning(ptr noundef %0, ptr noundef nonnull @__func__.ext4_resize_begin, i32 noundef 72, ptr noundef nonnull @.str.1, i64 noundef %24) #13
   br label %55
 
 34:                                               ; preds = %20
@@ -193,7 +193,7 @@ define dso_local range(i32 -117, 1) i32 @ext4_resize_begin(ptr noundef %0) local
   br i1 %38, label %40, label %39
 
 39:                                               ; preds = %34
-  tail call void (ptr, ptr, i32, ptr, ...) @__ext4_warning(ptr noundef %0, ptr noundef nonnull @__func__.ext4_resize_begin, i32 noundef 82, ptr noundef nonnull @.str.2) #12
+  tail call void (ptr, ptr, i32, ptr, ...) @__ext4_warning(ptr noundef %0, ptr noundef nonnull @__func__.ext4_resize_begin, i32 noundef 82, ptr noundef nonnull @.str.2) #13
   br label %55
 
 40:                                               ; preds = %34
@@ -207,12 +207,12 @@ define dso_local range(i32 -117, 1) i32 @ext4_resize_begin(ptr noundef %0) local
   br i1 %47, label %49, label %48
 
 48:                                               ; preds = %40
-  tail call void (ptr, ptr, ptr, ...) @__ext4_msg(ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4) #12
+  tail call void (ptr, ptr, ptr, ...) @__ext4_msg(ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4) #13
   br label %55
 
 49:                                               ; preds = %40
   %50 = getelementptr inbounds i8, ptr %3, i64 560
-  %51 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %50, i64 0, ptr elementtype(i64) %50) #12, !srcloc !5
+  %51 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %50, i64 0, ptr elementtype(i64) %50) #13, !srcloc !5
   %52 = icmp ult i8 %51, 2
   tail call void @llvm.assume(i1 %52)
   %53 = icmp eq i8 %51, 0
@@ -241,12 +241,12 @@ define dso_local i32 @ext4_resize_end(ptr noundef %0, i1 noundef zeroext %1) loc
   %3 = getelementptr inbounds i8, ptr %0, i64 872
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 560
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !6
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %5, i32 -2, ptr elementtype(i8) %5) #12, !srcloc !7
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !6
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %5, i32 -2, ptr elementtype(i8) %5) #13, !srcloc !7
   br i1 %1, label %6, label %8
 
 6:                                                ; preds = %2
-  %7 = tail call i32 @ext4_update_overhead(ptr noundef %0, i1 noundef zeroext true) #12
+  %7 = tail call i32 @ext4_update_overhead(ptr noundef %0, i1 noundef zeroext true) #13
   br label %8
 
 8:                                                ; preds = %6, %2
@@ -332,13 +332,13 @@ define dso_local i32 @ext4_group_add(ptr noundef %0, ptr noundef %1) local_unnam
   %3 = alloca i32, align 4
   %4 = alloca %struct.ext4_new_flex_group_data, align 8
   %5 = alloca i16, align 2
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #13
   %6 = getelementptr inbounds i8, ptr %0, i64 872
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 104
   %9 = load ptr, ptr %8, align 8
   %10 = load i32, ptr %1, align 8
-  %11 = tail call i32 @ext4_bg_has_super(ptr noundef %0, i32 noundef %10) #12
+  %11 = tail call i32 @ext4_bg_has_super(ptr noundef %0, i32 noundef %10) #13
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %17, label %13
 
@@ -350,7 +350,7 @@ define dso_local i32 @ext4_group_add(ptr noundef %0, ptr noundef %1) local_unnam
 
 17:                                               ; preds = %13, %2
   %18 = phi i1 [ %16, %13 ], [ false, %2 ]
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5) #13
   store i16 0, ptr %5, align 2
   %19 = load i32, ptr %1, align 8
   %20 = zext i32 %19 to i64
@@ -371,7 +371,7 @@ define dso_local i32 @ext4_group_add(ptr noundef %0, ptr noundef %1) local_unnam
   br i1 %32, label %33, label %34
 
 33:                                               ; preds = %26
-  tail call void (ptr, ptr, i32, ptr, ...) @__ext4_warning(ptr noundef %0, ptr noundef nonnull @__func__.ext4_group_add, i32 noundef 1714, ptr noundef nonnull @.str.5) #12
+  tail call void (ptr, ptr, i32, ptr, ...) @__ext4_warning(ptr noundef %0, ptr noundef nonnull @__func__.ext4_group_add, i32 noundef 1714, ptr noundef nonnull @.str.5) #13
   br label %266
 
 34:                                               ; preds = %26, %17
@@ -416,7 +416,7 @@ define dso_local i32 @ext4_group_add(ptr noundef %0, ptr noundef %1) local_unnam
   br i1 %65, label %66, label %67
 
 66:                                               ; preds = %59
-  tail call void (ptr, ptr, i32, ptr, ...) @__ext4_warning(ptr noundef %0, ptr noundef nonnull @__func__.ext4_group_add, i32 noundef 1720, ptr noundef nonnull @.str.6) #12
+  tail call void (ptr, ptr, i32, ptr, ...) @__ext4_warning(ptr noundef %0, ptr noundef nonnull @__func__.ext4_group_add, i32 noundef 1720, ptr noundef nonnull @.str.6) #13
   br label %266
 
 67:                                               ; preds = %59
@@ -429,7 +429,7 @@ define dso_local i32 @ext4_group_add(ptr noundef %0, ptr noundef %1) local_unnam
   br i1 %73, label %74, label %75
 
 74:                                               ; preds = %67
-  tail call void (ptr, ptr, i32, ptr, ...) @__ext4_warning(ptr noundef %0, ptr noundef nonnull @__func__.ext4_group_add, i32 noundef 1726, ptr noundef nonnull @.str.7) #12
+  tail call void (ptr, ptr, i32, ptr, ...) @__ext4_warning(ptr noundef %0, ptr noundef nonnull @__func__.ext4_group_add, i32 noundef 1726, ptr noundef nonnull @.str.7) #13
   br label %266
 
 75:                                               ; preds = %67
@@ -452,11 +452,11 @@ define dso_local i32 @ext4_group_add(ptr noundef %0, ptr noundef %1) local_unnam
   br i1 %87, label %88, label %89
 
 88:                                               ; preds = %84, %77
-  tail call void (ptr, ptr, i32, ptr, ...) @__ext4_warning(ptr noundef %0, ptr noundef nonnull @__func__.ext4_group_add, i32 noundef 1734, ptr noundef nonnull @.str.8) #12
+  tail call void (ptr, ptr, i32, ptr, ...) @__ext4_warning(ptr noundef %0, ptr noundef nonnull @__func__.ext4_group_add, i32 noundef 1734, ptr noundef nonnull @.str.8) #13
   br label %266
 
 89:                                               ; preds = %84
-  %90 = tail call ptr @__ext4_iget(ptr noundef %0, i64 noundef 7, i32 noundef 1, ptr noundef nonnull @__func__.ext4_group_add, i32 noundef 1737) #12
+  %90 = tail call ptr @__ext4_iget(ptr noundef %0, i64 noundef 7, i32 noundef 1, ptr noundef nonnull @__func__.ext4_group_add, i32 noundef 1737) #13
   %91 = icmp ugt ptr %90, inttoptr (i64 -4096 to ptr)
   br i1 %91, label %92, label %._crit_edge
 
@@ -465,7 +465,7 @@ define dso_local i32 @ext4_group_add(ptr noundef %0, ptr noundef %1) local_unnam
   br label %95
 
 92:                                               ; preds = %89
-  tail call void (ptr, ptr, i32, ptr, ...) @__ext4_warning(ptr noundef %0, ptr noundef nonnull @__func__.ext4_group_add, i32 noundef 1739, ptr noundef nonnull @.str.9) #12
+  tail call void (ptr, ptr, i32, ptr, ...) @__ext4_warning(ptr noundef %0, ptr noundef nonnull @__func__.ext4_group_add, i32 noundef 1739, ptr noundef nonnull @.str.9) #13
   %93 = ptrtoint ptr %90 to i64
   %94 = trunc i64 %93 to i32
   br label %266
@@ -504,7 +504,7 @@ define dso_local i32 @ext4_group_add(ptr noundef %0, ptr noundef %1) local_unnam
   %121 = getelementptr inbounds i8, ptr %96, i64 40
   %122 = load i64, ptr %121, align 8
   %123 = add i64 %122, %120
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #13
   store i32 0, ptr %3, align 4, !annotation !11
   %124 = getelementptr inbounds i8, ptr %96, i64 64
   %125 = load i32, ptr %124, align 64
@@ -512,14 +512,14 @@ define dso_local i32 @ext4_group_add(ptr noundef %0, ptr noundef %1) local_unnam
   br i1 %126, label %127, label %.thread20
 
 .thread20:                                        ; preds = %109
-  tail call void (ptr, ptr, i32, ptr, ...) @__ext4_warning(ptr noundef %0, ptr noundef nonnull @__func__.verify_group_input, i32 noundef 137, ptr noundef nonnull @.str.25, i32 noundef %118, i32 noundef %125) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #12
+  tail call void (ptr, ptr, i32, ptr, ...) @__ext4_warning(ptr noundef %0, ptr noundef nonnull @__func__.verify_group_input, i32 noundef 137, ptr noundef nonnull @.str.25, i32 noundef %118, i32 noundef %125) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #13
   br label %264
 
 127:                                              ; preds = %109
-  %128 = tail call i64 @ext4_bg_num_gdb(ptr noundef %0, i32 noundef %118) #12
+  %128 = tail call i64 @ext4_bg_num_gdb(ptr noundef %0, i32 noundef %118) #13
   %129 = trunc i64 %128 to i32
-  %130 = tail call i32 @ext4_bg_has_super(ptr noundef %0, i32 noundef %118) #12
+  %130 = tail call i32 @ext4_bg_has_super(ptr noundef %0, i32 noundef %118) #13
   %131 = icmp eq i32 %130, 0
   br i1 %131, label %141, label %132
 
@@ -558,7 +558,7 @@ define dso_local i32 @ext4_group_add(ptr noundef %0, ptr noundef %1) local_unnam
 
 160:                                              ; preds = %141
   %161 = load i32, ptr %1, align 8
-  %162 = tail call i32 @ext4_bg_has_super(ptr noundef %0, i32 noundef %161) #12
+  %162 = tail call i32 @ext4_bg_has_super(ptr noundef %0, i32 noundef %161) #13
   %163 = icmp eq i32 %162, 0
   %164 = select i1 %163, ptr @.str.28, ptr @.str.27
   %165 = load i32, ptr %1, align 8
@@ -566,17 +566,17 @@ define dso_local i32 @ext4_group_add(ptr noundef %0, ptr noundef %1) local_unnam
   %167 = getelementptr inbounds i8, ptr %1, i64 36
   %168 = load i16, ptr %167, align 4
   %169 = zext i16 %168 to i32
-  %170 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.26, ptr noundef nonnull %164, i32 noundef %165, i32 noundef %166, i32 noundef %150, i32 noundef %169) #13
+  %170 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.26, ptr noundef nonnull %164, i32 noundef %165, i32 noundef %166, i32 noundef %150, i32 noundef %169) #14
   br label %171
 
 171:                                              ; preds = %160, %141
-  call void @ext4_get_group_no_and_offset(ptr noundef %0, i64 noundef %114, ptr noundef null, ptr noundef nonnull %3) #12
+  call void @ext4_get_group_no_and_offset(ptr noundef %0, i64 noundef %114, ptr noundef null, ptr noundef nonnull %3) #13
   %172 = load i32, ptr %3, align 4
   %173 = icmp eq i32 %172, 0
   br i1 %173, label %175, label %174
 
 174:                                              ; preds = %171
-  call void (ptr, ptr, i32, ptr, ...) @__ext4_warning(ptr noundef %0, ptr noundef nonnull @__func__.verify_group_input, i32 noundef 156, ptr noundef nonnull @.str.29) #12
+  call void (ptr, ptr, i32, ptr, ...) @__ext4_warning(ptr noundef %0, ptr noundef nonnull @__func__.verify_group_input, i32 noundef 156, ptr noundef nonnull @.str.29) #13
   br label %.thread19.thread
 
 175:                                              ; preds = %171
@@ -589,7 +589,7 @@ define dso_local i32 @ext4_group_add(ptr noundef %0, ptr noundef %1) local_unnam
   br i1 %181, label %182, label %183
 
 182:                                              ; preds = %175
-  call void (ptr, ptr, i32, ptr, ...) @__ext4_warning(ptr noundef %0, ptr noundef nonnull @__func__.verify_group_input, i32 noundef 159, ptr noundef nonnull @.str.30, i32 noundef %178) #12
+  call void (ptr, ptr, i32, ptr, ...) @__ext4_warning(ptr noundef %0, ptr noundef nonnull @__func__.verify_group_input, i32 noundef 159, ptr noundef nonnull @.str.30, i32 noundef %178) #13
   br label %.thread19.thread
 
 183:                                              ; preds = %175
@@ -597,19 +597,19 @@ define dso_local i32 @ext4_group_add(ptr noundef %0, ptr noundef %1) local_unnam
   br i1 %184, label %185, label %186
 
 185:                                              ; preds = %183
-  call void (ptr, ptr, i32, ptr, ...) @__ext4_warning(ptr noundef %0, ptr noundef nonnull @__func__.verify_group_input, i32 noundef 162, ptr noundef nonnull @.str.31, i32 noundef %179) #12
+  call void (ptr, ptr, i32, ptr, ...) @__ext4_warning(ptr noundef %0, ptr noundef nonnull @__func__.verify_group_input, i32 noundef 162, ptr noundef nonnull @.str.31, i32 noundef %179) #13
   br label %.thread19.thread
 
 186:                                              ; preds = %183
   %187 = add i64 %117, -1
-  %188 = call ptr @ext4_sb_bread(ptr noundef %0, i64 noundef %187, i32 noundef 0) #12
+  %188 = call ptr @ext4_sb_bread(ptr noundef %0, i64 noundef %187, i32 noundef 0) #13
   %189 = icmp ugt ptr %188, inttoptr (i64 -4096 to ptr)
   br i1 %189, label %190, label %193
 
 190:                                              ; preds = %186
   %191 = ptrtoint ptr %188 to i64
   %192 = trunc i64 %191 to i32
-  call void (ptr, ptr, i32, ptr, ...) @__ext4_warning(ptr noundef %0, ptr noundef nonnull @__func__.verify_group_input, i32 noundef 167, ptr noundef nonnull @.str.32, i64 noundef %187) #12
+  call void (ptr, ptr, i32, ptr, ...) @__ext4_warning(ptr noundef %0, ptr noundef nonnull @__func__.verify_group_input, i32 noundef 167, ptr noundef nonnull @.str.32, i64 noundef %187) #13
   br label %.thread19
 
 193:                                              ; preds = %186
@@ -621,7 +621,7 @@ define dso_local i32 @ext4_group_add(ptr noundef %0, ptr noundef %1) local_unnam
   br i1 %198, label %200, label %199
 
 199:                                              ; preds = %193
-  call void (ptr, ptr, i32, ptr, ...) @__ext4_warning(ptr noundef %0, ptr noundef nonnull @__func__.verify_group_input, i32 noundef 170, ptr noundef nonnull @.str.33, i64 noundef %195) #12
+  call void (ptr, ptr, i32, ptr, ...) @__ext4_warning(ptr noundef %0, ptr noundef nonnull @__func__.verify_group_input, i32 noundef 170, ptr noundef nonnull @.str.33, i64 noundef %195) #13
   br label %244
 
 200:                                              ; preds = %193
@@ -633,7 +633,7 @@ define dso_local i32 @ext4_group_add(ptr noundef %0, ptr noundef %1) local_unnam
   br i1 %205, label %207, label %206
 
 206:                                              ; preds = %200
-  call void (ptr, ptr, i32, ptr, ...) @__ext4_warning(ptr noundef %0, ptr noundef nonnull @__func__.verify_group_input, i32 noundef 173, ptr noundef nonnull @.str.34, i64 noundef %202) #12
+  call void (ptr, ptr, i32, ptr, ...) @__ext4_warning(ptr noundef %0, ptr noundef nonnull @__func__.verify_group_input, i32 noundef 173, ptr noundef nonnull @.str.34, i64 noundef %202) #13
   br label %244
 
 207:                                              ; preds = %200
@@ -651,7 +651,7 @@ define dso_local i32 @ext4_group_add(ptr noundef %0, ptr noundef %1) local_unnam
   br i1 %216, label %217, label %._crit_edge23
 
 ._crit_edge23:                                    ; preds = %207, %213
-  call void (ptr, ptr, i32, ptr, ...) @__ext4_warning(ptr noundef %0, ptr noundef nonnull @__func__.verify_group_input, i32 noundef 177, ptr noundef nonnull @.str.35, i64 noundef %208, i64 noundef %212) #12
+  call void (ptr, ptr, i32, ptr, ...) @__ext4_warning(ptr noundef %0, ptr noundef nonnull @__func__.verify_group_input, i32 noundef 177, ptr noundef nonnull @.str.35, i64 noundef %208, i64 noundef %212) #13
   br label %244
 
 217:                                              ; preds = %213
@@ -659,7 +659,7 @@ define dso_local i32 @ext4_group_add(ptr noundef %0, ptr noundef %1) local_unnam
   br i1 %218, label %219, label %220
 
 219:                                              ; preds = %217
-  call void (ptr, ptr, i32, ptr, ...) @__ext4_warning(ptr noundef %0, ptr noundef nonnull @__func__.verify_group_input, i32 noundef 180, ptr noundef nonnull @.str.36, i64 noundef %195) #12
+  call void (ptr, ptr, i32, ptr, ...) @__ext4_warning(ptr noundef %0, ptr noundef nonnull @__func__.verify_group_input, i32 noundef 180, ptr noundef nonnull @.str.36, i64 noundef %195) #13
   br label %244
 
 220:                                              ; preds = %217
@@ -669,7 +669,7 @@ define dso_local i32 @ext4_group_add(ptr noundef %0, ptr noundef %1) local_unnam
   br i1 %223, label %224, label %225
 
 224:                                              ; preds = %220
-  call void (ptr, ptr, i32, ptr, ...) @__ext4_warning(ptr noundef %0, ptr noundef nonnull @__func__.verify_group_input, i32 noundef 185, ptr noundef nonnull @.str.37, i64 noundef %195, i64 noundef %208, i64 noundef %212) #12
+  call void (ptr, ptr, i32, ptr, ...) @__ext4_warning(ptr noundef %0, ptr noundef nonnull @__func__.verify_group_input, i32 noundef 185, ptr noundef nonnull @.str.37, i64 noundef %195, i64 noundef %208, i64 noundef %212) #13
   br label %244
 
 225:                                              ; preds = %220
@@ -679,7 +679,7 @@ define dso_local i32 @ext4_group_add(ptr noundef %0, ptr noundef %1) local_unnam
   br i1 %228, label %229, label %230
 
 229:                                              ; preds = %225
-  call void (ptr, ptr, i32, ptr, ...) @__ext4_warning(ptr noundef %0, ptr noundef nonnull @__func__.verify_group_input, i32 noundef 190, ptr noundef nonnull @.str.38, i64 noundef %202, i64 noundef %208, i64 noundef %212) #12
+  call void (ptr, ptr, i32, ptr, ...) @__ext4_warning(ptr noundef %0, ptr noundef nonnull @__func__.verify_group_input, i32 noundef 190, ptr noundef nonnull @.str.38, i64 noundef %202, i64 noundef %208, i64 noundef %212) #13
   br label %244
 
 230:                                              ; preds = %225
@@ -688,7 +688,7 @@ define dso_local i32 @ext4_group_add(ptr noundef %0, ptr noundef %1) local_unnam
 
 232:                                              ; preds = %230
   %233 = add i64 %144, -1
-  call void (ptr, ptr, i32, ptr, ...) @__ext4_warning(ptr noundef %0, ptr noundef nonnull @__func__.verify_group_input, i32 noundef 194, ptr noundef nonnull @.str.39, i64 noundef %195, i64 noundef %114, i64 noundef %233) #12
+  call void (ptr, ptr, i32, ptr, ...) @__ext4_warning(ptr noundef %0, ptr noundef nonnull @__func__.verify_group_input, i32 noundef 194, ptr noundef nonnull @.str.39, i64 noundef %195, i64 noundef %114, i64 noundef %233) #13
   br label %244
 
 234:                                              ; preds = %230
@@ -697,7 +697,7 @@ define dso_local i32 @ext4_group_add(ptr noundef %0, ptr noundef %1) local_unnam
 
 236:                                              ; preds = %234
   %237 = add i64 %144, -1
-  call void (ptr, ptr, i32, ptr, ...) @__ext4_warning(ptr noundef %0, ptr noundef nonnull @__func__.verify_group_input, i32 noundef 198, ptr noundef nonnull @.str.40, i64 noundef %202, i64 noundef %114, i64 noundef %237) #12
+  call void (ptr, ptr, i32, ptr, ...) @__ext4_warning(ptr noundef %0, ptr noundef nonnull @__func__.verify_group_input, i32 noundef 198, ptr noundef nonnull @.str.40, i64 noundef %202, i64 noundef %114, i64 noundef %237) #13
   br label %244
 
 238:                                              ; preds = %234
@@ -708,7 +708,7 @@ define dso_local i32 @ext4_group_add(ptr noundef %0, ptr noundef %1) local_unnam
 
 242:                                              ; preds = %238
   %243 = add i64 %144, -1
-  call void (ptr, ptr, i32, ptr, ...) @__ext4_warning(ptr noundef %0, ptr noundef nonnull @__func__.verify_group_input, i32 noundef 204, ptr noundef nonnull @.str.41, i64 noundef %208, i64 noundef %212, i64 noundef %114, i64 noundef %243) #12
+  call void (ptr, ptr, i32, ptr, ...) @__ext4_warning(ptr noundef %0, ptr noundef nonnull @__func__.verify_group_input, i32 noundef 204, ptr noundef nonnull @.str.41, i64 noundef %208, i64 noundef %212, i64 noundef %114, i64 noundef %243) #13
   br label %244
 
 244:                                              ; preds = %242, %238, %236, %232, %229, %224, %219, %._crit_edge23, %206, %199
@@ -717,30 +717,30 @@ define dso_local i32 @ext4_group_add(ptr noundef %0, ptr noundef %1) local_unnam
   br i1 %246, label %.thread19, label %247
 
 247:                                              ; preds = %244
-  call void @__brelse(ptr noundef nonnull %188) #12
+  call void @__brelse(ptr noundef nonnull %188) #13
   br label %.thread19
 
 .thread19.thread:                                 ; preds = %185, %182, %174
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #13
   br label %264
 
 .thread19:                                        ; preds = %190, %247, %244
   %248 = phi i32 [ %245, %244 ], [ %245, %247 ], [ %192, %190 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #13
   %249 = icmp eq i32 %248, 0
   br i1 %249, label %250, label %264
 
 250:                                              ; preds = %.thread19
   %251 = load i32, ptr %1, align 8
   %252 = add i32 %251, 1
-  %253 = call i32 @ext4_alloc_flex_bg_array(ptr noundef %0, i32 noundef %252) #12
+  %253 = call i32 @ext4_alloc_flex_bg_array(ptr noundef %0, i32 noundef %252) #13
   %254 = icmp eq i32 %253, 0
   br i1 %254, label %255, label %264
 
 255:                                              ; preds = %250
   %256 = load i32, ptr %1, align 8
   %257 = add i32 %256, 1
-  %258 = call i32 @ext4_mb_alloc_groupinfo(ptr noundef %0, i32 noundef %257) #12
+  %258 = call i32 @ext4_mb_alloc_groupinfo(ptr noundef %0, i32 noundef %257) #13
   %259 = icmp eq i32 %258, 0
   br i1 %259, label %260, label %264
 
@@ -755,13 +755,13 @@ define dso_local i32 @ext4_group_add(ptr noundef %0, ptr noundef %1) local_unnam
 
 264:                                              ; preds = %.thread19.thread, %.thread20, %260, %255, %250, %.thread19
   %265 = phi i32 [ %248, %.thread19 ], [ %253, %250 ], [ %258, %255 ], [ %263, %260 ], [ -22, %.thread20 ], [ -22, %.thread19.thread ]
-  call void @iput(ptr noundef %97) #12
+  call void @iput(ptr noundef %97) #13
   br label %266
 
 266:                                              ; preds = %264, %92, %88, %74, %66, %33
   %267 = phi i32 [ -22, %66 ], [ -22, %74 ], [ %94, %92 ], [ %265, %264 ], [ -1, %88 ], [ -1, %33 ]
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5) #12
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #13
   ret i32 %267
 }
 
@@ -791,8 +791,8 @@ define internal fastcc i32 @ext4_flex_group_add(ptr noundef %0, ptr noundef %1, 
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %10, i64 104
   %12 = load ptr, ptr %11, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #12
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #13
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #13
   %13 = getelementptr inbounds i8, ptr %2, i64 20
   %14 = load i32, ptr %13, align 4
   %15 = icmp eq i32 %14, 0
@@ -810,8 +810,8 @@ define internal fastcc i32 @ext4_flex_group_add(ptr noundef %0, ptr noundef %1, 
   br i1 %22, label %23, label %24, !prof !12
 
 23:                                               ; preds = %19, %16, %3
-  tail call void asm sideeffect "491: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 491b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 491) #12, !srcloc !13
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.42, i32 1548, i32 0, i64 12) #12, !srcloc !14
+  tail call void asm sideeffect "491: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 491b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 491) #13, !srcloc !13
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.42, i32 1548, i32 0, i64 12) #13, !srcloc !14
   unreachable
 
 24:                                               ; preds = %19
@@ -839,18 +839,18 @@ define internal fastcc i32 @ext4_flex_group_add(ptr noundef %0, ptr noundef %1, 
   %40 = load i32, ptr %39, align 4
   %41 = zext i32 %40 to i64
   %42 = or disjoint i64 %38, %41
-  call void @ext4_get_group_no_and_offset(ptr noundef %0, i64 noundef %42, ptr noundef nonnull %8, ptr noundef nonnull %7) #12
+  call void @ext4_get_group_no_and_offset(ptr noundef %0, i64 noundef %42, ptr noundef nonnull %8, ptr noundef nonnull %7) #13
   %43 = load i32, ptr %7, align 4
   %44 = icmp eq i32 %43, 0
   br i1 %44, label %46, label %45, !prof !15
 
 45:                                               ; preds = %37
-  call void asm sideeffect "492: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 492b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 492) #12, !srcloc !16
-  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.42, i32 1553, i32 0, i64 12) #12, !srcloc !17
+  call void asm sideeffect "492: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 492b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 492) #13, !srcloc !16
+  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.42, i32 1553, i32 0, i64 12) #13, !srcloc !17
   unreachable
 
 46:                                               ; preds = %37
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %6) #13
   store i32 1, ptr %6, align 4
   %47 = getelementptr inbounds i8, ptr %6, i64 4
   store i32 1, ptr %47, align 4
@@ -878,8 +878,8 @@ define internal fastcc i32 @ext4_flex_group_add(ptr noundef %0, ptr noundef %1, 
   br i1 %65, label %67, label %66, !prof !15
 
 66:                                               ; preds = %61, %46
-  call void asm sideeffect "469: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 469b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 469) #12, !srcloc !19
-  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.42, i32 546, i32 0, i64 12) #12, !srcloc !20
+  call void asm sideeffect "469: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 469b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 469) #13, !srcloc !19
+  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.42, i32 546, i32 0, i64 12) #13, !srcloc !20
   unreachable
 
 67:                                               ; preds = %61
@@ -892,7 +892,7 @@ define internal fastcc i32 @ext4_flex_group_add(ptr noundef %0, ptr noundef %1, 
   %74 = getelementptr inbounds i8, ptr %49, i64 80
   %75 = load i32, ptr %74, align 16
   %76 = shl i32 %75, 3
-  %77 = call ptr @__ext4_journal_start_sb(ptr noundef null, ptr noundef %0, i32 noundef 552, i32 noundef 7, i32 noundef 64, i32 noundef 0, i32 noundef %76) #12
+  %77 = call ptr @__ext4_journal_start_sb(ptr noundef null, ptr noundef %0, i32 noundef 552, i32 noundef 7, i32 noundef 64, i32 noundef 0, i32 noundef %76) #13
   %78 = icmp ugt ptr %77, inttoptr (i64 -4096 to ptr)
   br i1 %78, label %79, label %82
 
@@ -925,7 +925,7 @@ define internal fastcc i32 @ext4_flex_group_add(ptr noundef %0, ptr noundef %1, 
 96:                                               ; preds = %.thread106, %85
   %97 = phi i32 [ 0, %85 ], [ %362, %.thread106 ]
   %98 = phi i32 [ %86, %85 ], [ %363, %.thread106 ]
-  %99 = call i64 @ext4_bg_num_gdb(ptr noundef %0, i32 noundef %98) #12
+  %99 = call i64 @ext4_bg_num_gdb(ptr noundef %0, i32 noundef %98) #13
   %100 = zext i32 %98 to i64
   %101 = load ptr, ptr %9, align 8
   %102 = getelementptr inbounds i8, ptr %101, i64 16
@@ -940,12 +940,12 @@ define internal fastcc i32 @ext4_flex_group_add(ptr noundef %0, ptr noundef %1, 
   br i1 %73, label %111, label %189
 
 111:                                              ; preds = %96
-  %112 = call i32 @ext4_bg_has_super(ptr noundef %0, i32 noundef %98) #12
+  %112 = call i32 @ext4_bg_has_super(ptr noundef %0, i32 noundef %98) #13
   %113 = icmp eq i32 %112, 0
   br i1 %113, label %189, label %114
 
 114:                                              ; preds = %111
-  %115 = call i32 @ext4_bg_has_super(ptr noundef %0, i32 noundef %98) #12
+  %115 = call i32 @ext4_bg_has_super(ptr noundef %0, i32 noundef %98) #13
   %116 = icmp eq i64 %99, 0
   br i1 %116, label %.loopexit137, label %117
 
@@ -958,7 +958,7 @@ define internal fastcc i32 @ext4_flex_group_add(ptr noundef %0, ptr noundef %1, 
   %121 = phi i64 [ %173, %170 ], [ 0, %117 ]
   %122 = phi i64 [ %172, %170 ], [ %119, %117 ]
   %123 = phi i32 [ %171, %170 ], [ 0, %117 ]
-  %124 = call i32 @__ext4_journal_ensure_credits(ptr noundef %77, i32 noundef 1, i32 noundef 64, i32 noundef 0) #12
+  %124 = call i32 @__ext4_journal_ensure_credits(ptr noundef %77, i32 noundef 1, i32 noundef 64, i32 noundef 0) #13
   %125 = icmp slt i32 %124, 1
   br i1 %125, label %132, label %126
 
@@ -966,7 +966,7 @@ define internal fastcc i32 @ext4_flex_group_add(ptr noundef %0, ptr noundef %1, 
   br i1 %87, label %129, label %127
 
 127:                                              ; preds = %126
-  %128 = call i32 @jbd2__journal_restart(ptr noundef %77, i32 noundef 64, i32 noundef 0, i32 noundef 3136) #12
+  %128 = call i32 @jbd2__journal_restart(ptr noundef %77, i32 noundef 64, i32 noundef 0, i32 noundef 3136) #13
   br label %129
 
 129:                                              ; preds = %127, %126
@@ -991,27 +991,27 @@ define internal fastcc i32 @ext4_flex_group_add(ptr noundef %0, ptr noundef %1, 
   %144 = load i32, ptr %143, align 8
   %145 = and i32 %144, -32905
   %146 = or disjoint i32 %145, 32776
-  %147 = call ptr @bdev_getblk(ptr noundef %136, i64 noundef %122, i32 noundef %138, i32 noundef %146) #12
+  %147 = call ptr @bdev_getblk(ptr noundef %136, i64 noundef %122, i32 noundef %138, i32 noundef %146) #13
   %148 = icmp eq ptr %147, null
   br i1 %148, label %.thread102, label %149, !prof !12
 
 149:                                              ; preds = %135
-  %150 = call i32 @__ext4_journal_get_write_access(ptr noundef nonnull @__func__.setup_new_flex_group_blocks, i32 noundef 588, ptr noundef %77, ptr noundef %0, ptr noundef nonnull %147, i32 noundef 1) #12
+  %150 = call i32 @__ext4_journal_get_write_access(ptr noundef nonnull @__func__.setup_new_flex_group_blocks, i32 noundef 588, ptr noundef %77, ptr noundef %0, ptr noundef nonnull %147, i32 noundef 1) #13
   %151 = icmp eq i32 %150, 0
   br i1 %151, label %153, label %152
 
 152:                                              ; preds = %149
-  call void @__brelse(ptr noundef nonnull %147) #12
+  call void @__brelse(ptr noundef nonnull %147) #13
   br label %.thread102
 
 153:                                              ; preds = %149
   %154 = getelementptr inbounds i8, ptr %147, i64 40
   %155 = load ptr, ptr %154, align 8
-  call void @__rcu_read_lock() #12
+  call void @__rcu_read_lock() #13
   %156 = load volatile ptr, ptr %90, align 16
   %157 = getelementptr ptr, ptr %156, i64 %121
   %158 = load ptr, ptr %157, align 8
-  call void @__rcu_read_unlock() #12
+  call void @__rcu_read_unlock() #13
   %159 = getelementptr inbounds i8, ptr %158, i64 40
   %160 = load ptr, ptr %159, align 8
   %161 = getelementptr inbounds i8, ptr %147, i64 32
@@ -1023,13 +1023,13 @@ define internal fastcc i32 @ext4_flex_group_add(ptr noundef %0, ptr noundef %1, 
   br i1 %165, label %166, label %167
 
 166:                                              ; preds = %153
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %147, i32 1, ptr nonnull elementtype(i8) %147) #12, !srcloc !21
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %147, i32 1, ptr nonnull elementtype(i8) %147) #13, !srcloc !21
   br label %167
 
 167:                                              ; preds = %153, %166
-  %168 = call i32 @__ext4_handle_dirty_metadata(ptr noundef nonnull @__func__.setup_new_flex_group_blocks, i32 noundef 597, ptr noundef %77, ptr noundef null, ptr noundef nonnull %147) #12
+  %168 = call i32 @__ext4_handle_dirty_metadata(ptr noundef nonnull @__func__.setup_new_flex_group_blocks, i32 noundef 597, ptr noundef %77, ptr noundef null, ptr noundef nonnull %147) #13
   %169 = icmp eq i32 %168, 0
-  call void @__brelse(ptr noundef nonnull %147) #12
+  call void @__brelse(ptr noundef nonnull %147) #13
   br i1 %169, label %170, label %.thread102
 
 170:                                              ; preds = %167
@@ -1040,7 +1040,7 @@ define internal fastcc i32 @ext4_flex_group_add(ptr noundef %0, ptr noundef %1, 
   br i1 %174, label %120, label %.loopexit137, !llvm.loop !22
 
 .loopexit137:                                     ; preds = %170, %114
-  %175 = call i32 @ext4_bg_has_super(ptr noundef %0, i32 noundef %98) #12
+  %175 = call i32 @ext4_bg_has_super(ptr noundef %0, i32 noundef %98) #13
   %176 = icmp eq i32 %175, 0
   br i1 %176, label %189, label %177
 
@@ -1054,7 +1054,7 @@ define internal fastcc i32 @ext4_flex_group_add(ptr noundef %0, ptr noundef %1, 
   %184 = and i64 %183, 4294967295
   %185 = shl i64 %179, %184
   %186 = shl i64 %91, %184
-  %187 = call i32 @blkdev_issue_zeroout(ptr noundef %180, i64 noundef %185, i64 noundef %186, i32 noundef 3136, i32 noundef 0) #12
+  %187 = call i32 @blkdev_issue_zeroout(ptr noundef %180, i64 noundef %185, i64 noundef %186, i32 noundef 3136, i32 noundef 0) #13
   %188 = icmp eq i32 %187, 0
   br i1 %188, label %189, label %.thread102
 
@@ -1077,7 +1077,7 @@ define internal fastcc i32 @ext4_flex_group_add(ptr noundef %0, ptr noundef %1, 
   %203 = and i64 %202, 4294967295
   %204 = shl i64 %197, %203
   %205 = shl i64 %198, %203
-  %206 = call i32 @blkdev_issue_zeroout(ptr noundef %199, i64 noundef %204, i64 noundef %205, i32 noundef 3136, i32 noundef 0) #12
+  %206 = call i32 @blkdev_issue_zeroout(ptr noundef %199, i64 noundef %204, i64 noundef %205, i32 noundef 3136, i32 noundef 0) #13
   %207 = icmp eq i32 %206, 0
   br i1 %207, label %._crit_edge, label %.thread102
 
@@ -1095,7 +1095,7 @@ define internal fastcc i32 @ext4_flex_group_add(ptr noundef %0, ptr noundef %1, 
   %213 = getelementptr %struct.ext4_new_group_data, ptr %55, i64 %190
   %214 = getelementptr inbounds i8, ptr %213, i64 8
   %215 = load i64, ptr %214, align 8
-  %216 = call i32 @__ext4_journal_ensure_credits(ptr noundef %77, i32 noundef 1, i32 noundef 64, i32 noundef 0) #12
+  %216 = call i32 @__ext4_journal_ensure_credits(ptr noundef %77, i32 noundef 1, i32 noundef 64, i32 noundef 0) #13
   %217 = icmp slt i32 %216, 1
   br i1 %217, label %224, label %218
 
@@ -1103,7 +1103,7 @@ define internal fastcc i32 @ext4_flex_group_add(ptr noundef %0, ptr noundef %1, 
   br i1 %87, label %221, label %219
 
 219:                                              ; preds = %218
-  %220 = call i32 @jbd2__journal_restart(ptr noundef %77, i32 noundef 64, i32 noundef 0, i32 noundef 3136) #12
+  %220 = call i32 @jbd2__journal_restart(ptr noundef %77, i32 noundef 64, i32 noundef 0, i32 noundef 3136) #13
   br label %221
 
 221:                                              ; preds = %219, %218
@@ -1128,17 +1128,17 @@ define internal fastcc i32 @ext4_flex_group_add(ptr noundef %0, ptr noundef %1, 
   %236 = load i32, ptr %235, align 8
   %237 = and i32 %236, -32905
   %238 = or disjoint i32 %237, 32776
-  %239 = call ptr @bdev_getblk(ptr noundef %228, i64 noundef %215, i32 noundef %230, i32 noundef %238) #12
+  %239 = call ptr @bdev_getblk(ptr noundef %228, i64 noundef %215, i32 noundef %230, i32 noundef %238) #13
   %240 = icmp eq ptr %239, null
   br i1 %240, label %.thread98, label %241, !prof !12
 
 241:                                              ; preds = %227
-  %242 = call i32 @__ext4_journal_get_write_access(ptr noundef nonnull @__func__.bclean, i32 noundef 431, ptr noundef %77, ptr noundef %0, ptr noundef nonnull %239, i32 noundef 1) #12
+  %242 = call i32 @__ext4_journal_get_write_access(ptr noundef nonnull @__func__.bclean, i32 noundef 431, ptr noundef %77, ptr noundef %0, ptr noundef nonnull %239, i32 noundef 1) #13
   %243 = icmp eq i32 %242, 0
   br i1 %243, label %247, label %244
 
 244:                                              ; preds = %241
-  call void @__brelse(ptr noundef nonnull %239) #12
+  call void @__brelse(ptr noundef nonnull %239) #13
   %245 = sext i32 %242 to i64
   %246 = inttoptr i64 %245 to ptr
   br label %255
@@ -1154,7 +1154,7 @@ define internal fastcc i32 @ext4_flex_group_add(ptr noundef %0, ptr noundef %1, 
   br i1 %253, label %254, label %255
 
 254:                                              ; preds = %247
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %239, i32 1, ptr nonnull elementtype(i8) %239) #12, !srcloc !21
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %239, i32 1, ptr nonnull elementtype(i8) %239) #13, !srcloc !21
   br label %255
 
 255:                                              ; preds = %254, %247, %244
@@ -1169,9 +1169,9 @@ define internal fastcc i32 @ext4_flex_group_add(ptr noundef %0, ptr noundef %1, 
   br label %.thread102
 
 261:                                              ; preds = %255
-  %262 = call i64 @ext4_bg_num_gdb(ptr noundef %0, i32 noundef %98) #12
+  %262 = call i64 @ext4_bg_num_gdb(ptr noundef %0, i32 noundef %98) #13
   %263 = trunc i64 %262 to i32
-  %264 = call i32 @ext4_bg_has_super(ptr noundef %0, i32 noundef %98) #12
+  %264 = call i32 @ext4_bg_has_super(ptr noundef %0, i32 noundef %98) #13
   %265 = icmp eq i32 %264, 0
   br i1 %265, label %275, label %266
 
@@ -1199,7 +1199,7 @@ define internal fastcc i32 @ext4_flex_group_add(ptr noundef %0, ptr noundef %1, 
   %283 = add i32 %282, %281
   %284 = load i32, ptr %93, align 4
   %285 = lshr i32 %283, %284
-  call void @mb_set_bits(ptr noundef %280, i32 noundef 0, i32 noundef %285) #12
+  call void @mb_set_bits(ptr noundef %280, i32 noundef 0, i32 noundef %285) #13
   br label %286
 
 286:                                              ; preds = %278, %275
@@ -1212,9 +1212,9 @@ define internal fastcc i32 @ext4_flex_group_add(ptr noundef %0, ptr noundef %1, 
   %293 = shl i32 %292, 3
   %294 = getelementptr inbounds i8, ptr %256, i64 40
   %295 = load ptr, ptr %294, align 8
-  call void @ext4_mark_bitmap_end(i32 noundef %290, i32 noundef %293, ptr noundef %295) #12
-  %296 = call i32 @__ext4_handle_dirty_metadata(ptr noundef nonnull @__func__.setup_new_flex_group_blocks, i32 noundef 653, ptr noundef %77, ptr noundef null, ptr noundef %256) #12
-  call void @__brelse(ptr noundef nonnull %256) #12
+  call void @ext4_mark_bitmap_end(i32 noundef %290, i32 noundef %293, ptr noundef %295) #13
+  %296 = call i32 @__ext4_handle_dirty_metadata(ptr noundef nonnull @__func__.setup_new_flex_group_blocks, i32 noundef 653, ptr noundef %77, ptr noundef null, ptr noundef %256) #13
+  call void @__brelse(ptr noundef nonnull %256) #13
   %297 = icmp eq i32 %296, 0
   br i1 %297, label %._crit_edge239, label %.thread102
 
@@ -1231,7 +1231,7 @@ define internal fastcc i32 @ext4_flex_group_add(ptr noundef %0, ptr noundef %1, 
 302:                                              ; preds = %298
   %303 = getelementptr %struct.ext4_new_group_data, ptr %55, i64 %190, i32 2
   %304 = load i64, ptr %303, align 8
-  %305 = call i32 @__ext4_journal_ensure_credits(ptr noundef %77, i32 noundef 1, i32 noundef 64, i32 noundef 0) #12
+  %305 = call i32 @__ext4_journal_ensure_credits(ptr noundef %77, i32 noundef 1, i32 noundef 64, i32 noundef 0) #13
   %306 = icmp slt i32 %305, 1
   br i1 %306, label %313, label %307
 
@@ -1239,7 +1239,7 @@ define internal fastcc i32 @ext4_flex_group_add(ptr noundef %0, ptr noundef %1, 
   br i1 %87, label %310, label %308
 
 308:                                              ; preds = %307
-  %309 = call i32 @jbd2__journal_restart(ptr noundef %77, i32 noundef 64, i32 noundef 0, i32 noundef 3136) #12
+  %309 = call i32 @jbd2__journal_restart(ptr noundef %77, i32 noundef 64, i32 noundef 0, i32 noundef 3136) #13
   br label %310
 
 310:                                              ; preds = %308, %307
@@ -1264,17 +1264,17 @@ define internal fastcc i32 @ext4_flex_group_add(ptr noundef %0, ptr noundef %1, 
   %325 = load i32, ptr %324, align 8
   %326 = and i32 %325, -32905
   %327 = or disjoint i32 %326, 32776
-  %328 = call ptr @bdev_getblk(ptr noundef %317, i64 noundef %304, i32 noundef %319, i32 noundef %327) #12
+  %328 = call ptr @bdev_getblk(ptr noundef %317, i64 noundef %304, i32 noundef %319, i32 noundef %327) #13
   %329 = icmp eq ptr %328, null
   br i1 %329, label %.thread99, label %330, !prof !12
 
 330:                                              ; preds = %316
-  %331 = call i32 @__ext4_journal_get_write_access(ptr noundef nonnull @__func__.bclean, i32 noundef 431, ptr noundef %77, ptr noundef %0, ptr noundef nonnull %328, i32 noundef 1) #12
+  %331 = call i32 @__ext4_journal_get_write_access(ptr noundef nonnull @__func__.bclean, i32 noundef 431, ptr noundef %77, ptr noundef %0, ptr noundef nonnull %328, i32 noundef 1) #13
   %332 = icmp eq i32 %331, 0
   br i1 %332, label %336, label %333
 
 333:                                              ; preds = %330
-  call void @__brelse(ptr noundef nonnull %328) #12
+  call void @__brelse(ptr noundef nonnull %328) #13
   %334 = sext i32 %331 to i64
   %335 = inttoptr i64 %334 to ptr
   br label %344
@@ -1290,7 +1290,7 @@ define internal fastcc i32 @ext4_flex_group_add(ptr noundef %0, ptr noundef %1, 
   br i1 %342, label %343, label %344
 
 343:                                              ; preds = %336
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %328, i32 1, ptr nonnull elementtype(i8) %328) #12, !srcloc !21
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %328, i32 1, ptr nonnull elementtype(i8) %328) #13, !srcloc !21
   br label %344
 
 344:                                              ; preds = %343, %336, %333
@@ -1314,9 +1314,9 @@ define internal fastcc i32 @ext4_flex_group_add(ptr noundef %0, ptr noundef %1, 
   %357 = shl i32 %356, 3
   %358 = getelementptr inbounds i8, ptr %345, i64 40
   %359 = load ptr, ptr %358, align 8
-  call void @ext4_mark_bitmap_end(i32 noundef %354, i32 noundef %357, ptr noundef %359) #12
-  %360 = call i32 @__ext4_handle_dirty_metadata(ptr noundef nonnull @__func__.setup_new_flex_group_blocks, i32 noundef 676, ptr noundef %77, ptr noundef null, ptr noundef %345) #12
-  call void @__brelse(ptr noundef nonnull %345) #12
+  call void @ext4_mark_bitmap_end(i32 noundef %354, i32 noundef %357, ptr noundef %359) #13
+  %360 = call i32 @__ext4_handle_dirty_metadata(ptr noundef nonnull @__func__.setup_new_flex_group_blocks, i32 noundef 676, ptr noundef %77, ptr noundef null, ptr noundef %345) #13
+  call void @__brelse(ptr noundef nonnull %345) #13
   %361 = icmp eq i32 %360, 0
   br i1 %361, label %.thread106, label %.thread102
 
@@ -1406,7 +1406,7 @@ define internal fastcc i32 @ext4_flex_group_add(ptr noundef %0, ptr noundef %1, 
 
 .thread102:                                       ; preds = %350, %313, %286, %224, %195, %177, %167, %135, %132, %.loopexit132, %366, %393, %152, %.thread98, %.thread99
   %423 = phi i32 [ %260, %.thread98 ], [ %349, %.thread99 ], [ %150, %152 ], [ %401, %393 ], [ 0, %366 ], [ %421, %.loopexit132 ], [ %168, %167 ], [ %133, %132 ], [ -12, %135 ], [ %187, %177 ], [ %206, %195 ], [ %225, %224 ], [ %296, %286 ], [ %314, %313 ], [ %360, %350 ]
-  %424 = call i32 @__ext4_journal_stop(ptr noundef nonnull @__func__.setup_new_flex_group_blocks, i32 noundef 717, ptr noundef %77) #12
+  %424 = call i32 @__ext4_journal_stop(ptr noundef nonnull @__func__.setup_new_flex_group_blocks, i32 noundef 717, ptr noundef %77) #13
   %425 = icmp eq i32 %424, 0
   %426 = icmp ne i32 %423, 0
   %427 = select i1 %425, i1 true, i1 %426
@@ -1415,7 +1415,7 @@ define internal fastcc i32 @ext4_flex_group_add(ptr noundef %0, ptr noundef %1, 
 
 429:                                              ; preds = %.thread102, %79
   %430 = phi i32 [ %81, %79 ], [ %428, %.thread102 ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6) #13
   %431 = icmp eq i32 %430, 0
   br i1 %431, label %432, label %.loopexit
 
@@ -1434,7 +1434,7 @@ define internal fastcc i32 @ext4_flex_group_add(ptr noundef %0, ptr noundef %1, 
   %444 = getelementptr inbounds i8, ptr %435, i64 80
   %445 = load i32, ptr %444, align 16
   %446 = shl i32 %445, 3
-  %447 = call ptr @__ext4_journal_start_sb(ptr noundef null, ptr noundef %0, i32 noundef 1569, i32 noundef 7, i32 noundef %443, i32 noundef 0, i32 noundef %446) #12
+  %447 = call ptr @__ext4_journal_start_sb(ptr noundef null, ptr noundef %0, i32 noundef 1569, i32 noundef 7, i32 noundef %443, i32 noundef 0, i32 noundef %446) #13
   %448 = icmp ugt ptr %447, inttoptr (i64 -4096 to ptr)
   br i1 %448, label %449, label %452
 
@@ -1446,7 +1446,7 @@ define internal fastcc i32 @ext4_flex_group_add(ptr noundef %0, ptr noundef %1, 
 452:                                              ; preds = %432
   %453 = getelementptr inbounds i8, ptr %10, i64 96
   %454 = load ptr, ptr %453, align 32
-  %455 = call i32 @__ext4_journal_get_write_access(ptr noundef nonnull @__func__.ext4_flex_group_add, i32 noundef 1577, ptr noundef %447, ptr noundef %0, ptr noundef %454, i32 noundef 1) #12
+  %455 = call i32 @__ext4_journal_get_write_access(ptr noundef nonnull @__func__.ext4_flex_group_add, i32 noundef 1577, ptr noundef %447, ptr noundef %0, ptr noundef %454, i32 noundef 1) #13
   %456 = icmp eq i32 %455, 0
   br i1 %456, label %457, label %.thread126
 
@@ -1460,8 +1460,8 @@ define internal fastcc i32 @ext4_flex_group_add(ptr noundef %0, ptr noundef %1, 
   br i1 %462, label %464, label %463, !prof !15
 
 463:                                              ; preds = %457
-  call void asm sideeffect "493: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 493b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 493) #12, !srcloc !26
-  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.42, i32 1582, i32 0, i64 12) #12, !srcloc !27
+  call void asm sideeffect "493: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 493b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 493) #13, !srcloc !26
+  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.42, i32 1582, i32 0, i64 12) #13, !srcloc !27
   unreachable
 
 464:                                              ; preds = %457
@@ -1487,7 +1487,7 @@ define internal fastcc i32 @ext4_flex_group_add(ptr noundef %0, ptr noundef %1, 
 480:                                              ; preds = %.thread110, %474
   %481 = phi i32 [ %459, %474 ], [ %881, %.thread110 ]
   %482 = phi i32 [ 0, %474 ], [ %880, %.thread110 ]
-  %483 = call i32 @ext4_bg_has_super(ptr noundef %0, i32 noundef %481) #12
+  %483 = call i32 @ext4_bg_has_super(ptr noundef %0, i32 noundef %481) #13
   %484 = icmp eq i32 %483, 0
   br i1 %484, label %488, label %485
 
@@ -1508,20 +1508,20 @@ define internal fastcc i32 @ext4_flex_group_add(ptr noundef %0, ptr noundef %1, 
   br i1 %496, label %663, label %497
 
 497:                                              ; preds = %488
-  call void @__rcu_read_lock() #12
+  call void @__rcu_read_lock() #13
   %498 = load volatile ptr, ptr %476, align 16
   %499 = shl nuw i64 %495, 32
   %500 = ashr exact i64 %499, 29
   %501 = getelementptr i8, ptr %498, i64 %500
   %502 = load ptr, ptr %501, align 8
-  call void @__rcu_read_unlock() #12
-  %503 = call i32 @__ext4_journal_get_write_access(ptr noundef nonnull @__func__.ext4_add_new_descs, i32 noundef 1280, ptr noundef %447, ptr noundef %0, ptr noundef %502, i32 noundef 1) #12
+  call void @__rcu_read_unlock() #13
+  %503 = call i32 @__ext4_journal_get_write_access(ptr noundef nonnull @__func__.ext4_add_new_descs, i32 noundef 1280, ptr noundef %447, ptr noundef %0, ptr noundef %502, i32 noundef 1) #13
   %504 = icmp eq i32 %503, 0
   %505 = select i1 %504, i1 %489, i1 false
   br i1 %505, label %506, label %877
 
 506:                                              ; preds = %497
-  %507 = call i64 @ext4_bg_num_gdb(ptr noundef %0, i32 noundef %481) #12
+  %507 = call i64 @ext4_bg_num_gdb(ptr noundef %0, i32 noundef %481) #13
   %508 = icmp eq i64 %507, 0
   br i1 %508, label %.thread110, label %509
 
@@ -1535,18 +1535,18 @@ define internal fastcc i32 @ext4_flex_group_add(ptr noundef %0, ptr noundef %1, 
   %516 = load i16, ptr %515, align 2
   %517 = getelementptr inbounds i8, ptr %512, i64 84
   %518 = load i32, ptr %517, align 4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false), !annotation !11
   %519 = zext i16 %516 to i64
   %520 = shl nuw nsw i64 %519, 3
-  %521 = call noalias align 8 ptr @__kmalloc(i64 noundef %520, i32 noundef 3136) #14
+  %521 = call noalias align 8 ptr @__kmalloc(i64 noundef %520, i32 noundef 3136) #15
   %522 = icmp eq ptr %521, null
   br i1 %522, label %661, label %523
 
 523:                                              ; preds = %509
   %524 = load i32, ptr %478, align 4
   %525 = zext i32 %524 to i64
-  %526 = call ptr @ext4_sb_bread(ptr noundef %510, i64 noundef %525, i32 noundef 0) #12
+  %526 = call ptr @ext4_sb_bread(ptr noundef %510, i64 noundef %525, i32 noundef 0) #13
   %527 = icmp ugt ptr %526, inttoptr (i64 -4096 to ptr)
   br i1 %527, label %528, label %531
 
@@ -1600,11 +1600,11 @@ define internal fastcc i32 @ext4_flex_group_add(ptr noundef %0, ptr noundef %1, 
   %565 = ptrtoint ptr %563 to i64
   %566 = sub i64 %564, %565
   %567 = ashr exact i64 %566, 2
-  call void (ptr, ptr, i32, ptr, ...) @__ext4_warning(ptr noundef %510, ptr noundef nonnull @__func__.reserve_backup_gdb, i32 noundef 1055, ptr noundef nonnull @.str.43, i64 noundef %557, i64 noundef %567) #12
+  call void (ptr, ptr, i32, ptr, ...) @__ext4_warning(ptr noundef %510, ptr noundef nonnull @__func__.reserve_backup_gdb, i32 noundef 1055, ptr noundef nonnull @.str.43, i64 noundef %557, i64 noundef %567) #13
   br label %.loopexit129
 
 568:                                              ; preds = %554
-  %569 = call ptr @ext4_sb_bread(ptr noundef %510, i64 noundef %557, i32 noundef 0) #12
+  %569 = call ptr @ext4_sb_bread(ptr noundef %510, i64 noundef %557, i32 noundef 0) #13
   %570 = getelementptr ptr, ptr %521, i64 %555
   store ptr %569, ptr %570, align 8
   %571 = icmp ugt ptr %569, inttoptr (i64 -4096 to ptr)
@@ -1635,7 +1635,7 @@ define internal fastcc i32 @ext4_flex_group_add(ptr noundef %0, ptr noundef %1, 
   br i1 %586, label %.loopexit129, label %587
 
 587:                                              ; preds = %582
-  call void @__brelse(ptr noundef nonnull %585) #12
+  call void @__brelse(ptr noundef nonnull %585) #13
   br label %.loopexit129
 
 588:                                              ; preds = %577
@@ -1663,14 +1663,14 @@ define internal fastcc i32 @ext4_flex_group_add(ptr noundef %0, ptr noundef %1, 
   %602 = phi i64 [ %599, %598 ], [ 0, %551 ]
   %603 = getelementptr ptr, ptr %521, i64 %602
   %604 = load ptr, ptr %603, align 8
-  %605 = call i32 @__ext4_journal_get_write_access(ptr noundef nonnull @__func__.reserve_backup_gdb, i32 noundef 1078, ptr noundef %447, ptr noundef %510, ptr noundef %604, i32 noundef 1) #12
+  %605 = call i32 @__ext4_journal_get_write_access(ptr noundef nonnull @__func__.reserve_backup_gdb, i32 noundef 1078, ptr noundef %447, ptr noundef %510, ptr noundef %604, i32 noundef 1) #13
   %606 = icmp eq i32 %605, 0
   br i1 %606, label %598, label %.loopexit129
 
 .thread108:                                       ; preds = %598, %531
   %607 = phi i32 [ 0, %531 ], [ %552, %598 ]
   %608 = phi i64 [ 0, %531 ], [ %553, %598 ]
-  %609 = call i32 @ext4_reserve_inode_write(ptr noundef %447, ptr noundef %1, ptr noundef nonnull %5) #12
+  %609 = call i32 @ext4_reserve_inode_write(ptr noundef %447, ptr noundef %1, ptr noundef nonnull %5) #13
   %610 = icmp eq i32 %609, 0
   br i1 %610, label %611, label %.loopexit129
 
@@ -1695,7 +1695,7 @@ define internal fastcc i32 @ext4_flex_group_add(ptr noundef %0, ptr noundef %1, 
   %626 = getelementptr i32, ptr %621, i64 %608
   store i32 %625, ptr %626, align 4
   %627 = load ptr, ptr %618, align 8
-  %628 = call i32 @__ext4_handle_dirty_metadata(ptr noundef nonnull @__func__.reserve_backup_gdb, i32 noundef 1094, ptr noundef %447, ptr noundef null, ptr noundef %627) #12
+  %628 = call i32 @__ext4_handle_dirty_metadata(ptr noundef nonnull @__func__.reserve_backup_gdb, i32 noundef 1094, ptr noundef %447, ptr noundef null, ptr noundef %627) #13
   %629 = icmp eq i32 %617, 0
   %630 = select i1 %629, i32 %628, i32 %617
   %631 = add nuw nsw i64 %616, 1
@@ -1712,7 +1712,7 @@ define internal fastcc i32 @ext4_flex_group_add(ptr noundef %0, ptr noundef %1, 
   %639 = load i64, ptr %479, align 8
   %640 = add i64 %638, %639
   store i64 %640, ptr %479, align 8
-  %641 = call i32 @ext4_mark_iloc_dirty(ptr noundef %447, ptr noundef %1, ptr noundef nonnull %5) #12
+  %641 = call i32 @ext4_mark_iloc_dirty(ptr noundef %447, ptr noundef %1, ptr noundef nonnull %5) #13
   br label %.loopexit129
 
 .loopexit129:                                     ; preds = %601, %.loopexit128, %.thread108, %587, %582, %572, %561
@@ -1734,7 +1734,7 @@ define internal fastcc i32 @ext4_flex_group_add(ptr noundef %0, ptr noundef %1, 
   br i1 %652, label %654, label %653
 
 653:                                              ; preds = %648
-  call void @__brelse(ptr noundef nonnull %651) #12
+  call void @__brelse(ptr noundef nonnull %651) #13
   br label %654
 
 654:                                              ; preds = %653, %648
@@ -1747,17 +1747,17 @@ define internal fastcc i32 @ext4_flex_group_add(ptr noundef %0, ptr noundef %1, 
   br i1 %657, label %659, label %658
 
 658:                                              ; preds = %.loopexit127
-  call void @__brelse(ptr noundef nonnull %526) #12
+  call void @__brelse(ptr noundef nonnull %526) #13
   br label %659
 
 659:                                              ; preds = %658, %.loopexit127, %528
   %660 = phi i32 [ %530, %528 ], [ %643, %.loopexit127 ], [ %643, %658 ]
-  call void @kfree(ptr noundef nonnull %521) #12
+  call void @kfree(ptr noundef nonnull %521) #13
   br label %661
 
 661:                                              ; preds = %659, %509
   %662 = phi i32 [ %660, %659 ], [ -12, %509 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #13
   br label %877
 
 663:                                              ; preds = %488
@@ -1773,10 +1773,10 @@ define internal fastcc i32 @ext4_flex_group_add(ptr noundef %0, ptr noundef %1, 
   %671 = load i32, ptr %670, align 4
   %672 = zext i32 %671 to i64
   %673 = add i64 %667, %672
-  %674 = call i32 @ext4_bg_has_super(ptr noundef %0, i32 noundef %481) #12
+  %674 = call i32 @ext4_bg_has_super(ptr noundef %0, i32 noundef %481) #13
   %675 = sext i32 %674 to i64
   %676 = add i64 %673, %675
-  %677 = call ptr @ext4_sb_bread(ptr noundef %0, i64 noundef %676, i32 noundef 0) #12
+  %677 = call ptr @ext4_sb_bread(ptr noundef %0, i64 noundef %676, i32 noundef 0) #13
   %678 = icmp ugt ptr %677, inttoptr (i64 -4096 to ptr)
   br i1 %678, label %679, label %682
 
@@ -1788,7 +1788,7 @@ define internal fastcc i32 @ext4_flex_group_add(ptr noundef %0, ptr noundef %1, 
 682:                                              ; preds = %664
   %683 = add nuw nsw i64 %495, 1
   %684 = shl nuw nsw i64 %683, 3
-  %685 = call noalias ptr @kvmalloc_node(i64 noundef %684, i32 noundef 3264, i32 noundef -1) #14
+  %685 = call noalias ptr @kvmalloc_node(i64 noundef %684, i32 noundef 3264, i32 noundef -1) #15
   %686 = icmp eq ptr %685, null
   br i1 %686, label %687, label %691
 
@@ -1797,15 +1797,15 @@ define internal fastcc i32 @ext4_flex_group_add(ptr noundef %0, ptr noundef %1, 
   br i1 %688, label %690, label %689
 
 689:                                              ; preds = %687
-  call void @__brelse(ptr noundef nonnull %677) #12
+  call void @__brelse(ptr noundef nonnull %677) #13
   br label %690
 
 690:                                              ; preds = %689, %687
-  call void (ptr, ptr, i32, ptr, ...) @__ext4_warning(ptr noundef %0, ptr noundef nonnull @__func__.add_new_gdb_meta_bg, i32 noundef 979, ptr noundef nonnull @.str.45, i64 noundef %683) #12
+  call void (ptr, ptr, i32, ptr, ...) @__ext4_warning(ptr noundef %0, ptr noundef nonnull @__func__.add_new_gdb_meta_bg, i32 noundef 979, ptr noundef nonnull @.str.45, i64 noundef %683) #13
   br label %.thread126
 
 691:                                              ; preds = %682
-  call void @__rcu_read_lock() #12
+  call void @__rcu_read_lock() #13
   %692 = load ptr, ptr %9, align 8
   %693 = getelementptr inbounds i8, ptr %692, i64 112
   %694 = load volatile ptr, ptr %693, align 16
@@ -1813,24 +1813,24 @@ define internal fastcc i32 @ext4_flex_group_add(ptr noundef %0, ptr noundef %1, 
   %696 = load i64, ptr %695, align 16
   %697 = shl i64 %696, 3
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %685, ptr align 8 %694, i64 %697, i1 false)
-  call void @__rcu_read_unlock() #12
+  call void @__rcu_read_unlock() #13
   %698 = getelementptr ptr, ptr %685, i64 %495
   store ptr %677, ptr %698, align 8
-  %699 = call i32 @__ext4_journal_get_write_access(ptr noundef nonnull @__func__.add_new_gdb_meta_bg, i32 noundef 991, ptr noundef %447, ptr noundef %0, ptr noundef %677, i32 noundef 1) #12
+  %699 = call i32 @__ext4_journal_get_write_access(ptr noundef nonnull @__func__.add_new_gdb_meta_bg, i32 noundef 991, ptr noundef %447, ptr noundef %0, ptr noundef %677, i32 noundef 1) #13
   %700 = icmp eq i32 %699, 0
   br i1 %700, label %704, label %701
 
 701:                                              ; preds = %691
-  call void @kvfree(ptr noundef nonnull %685) #12
+  call void @kvfree(ptr noundef nonnull %685) #13
   %702 = icmp eq ptr %677, null
   br i1 %702, label %.thread126, label %703
 
 703:                                              ; preds = %701
-  call void @__brelse(ptr noundef nonnull %677) #12
+  call void @__brelse(ptr noundef nonnull %677) #13
   br label %.thread126
 
 704:                                              ; preds = %691
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !32
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !32
   %705 = load ptr, ptr %9, align 8
   %706 = getelementptr inbounds i8, ptr %705, i64 112
   store volatile ptr %685, ptr %706, align 16
@@ -1840,19 +1840,19 @@ define internal fastcc i32 @ext4_flex_group_add(ptr noundef %0, ptr noundef %1, 
   %710 = add i64 %709, 1
   store i64 %710, ptr %708, align 16
   %711 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
-  %712 = call noalias noundef align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %711, i32 noundef 3520, i64 noundef 24) #11
+  %712 = call noalias noundef align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %711, i32 noundef 3520, i64 noundef 24) #12
   %713 = icmp eq ptr %712, null
   br i1 %713, label %716, label %714
 
 714:                                              ; preds = %704
   %715 = getelementptr inbounds i8, ptr %712, i64 16
   store ptr %694, ptr %715, align 8
-  call void @call_rcu(ptr noundef nonnull %712, ptr noundef nonnull @ext4_rcu_ptr_callback) #12
+  call void @call_rcu(ptr noundef nonnull %712, ptr noundef nonnull @ext4_rcu_ptr_callback) #13
   br label %.thread110
 
 716:                                              ; preds = %704
-  call void @synchronize_rcu() #12
-  call void @kvfree(ptr noundef %694) #12
+  call void @synchronize_rcu() #13
+  call void @kvfree(ptr noundef %694) #13
   br label %.thread110
 
 717:                                              ; preds = %663
@@ -1870,7 +1870,7 @@ define internal fastcc i32 @ext4_flex_group_add(ptr noundef %0, ptr noundef %1, 
   %729 = load i64, ptr %728, align 8
   %730 = add nuw nsw i64 %725, 1
   %731 = add i64 %729, %730
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   %732 = getelementptr inbounds i8, ptr %720, i64 120
   %733 = load i32, ptr %732, align 8
@@ -1879,11 +1879,11 @@ define internal fastcc i32 @ext4_flex_group_add(ptr noundef %0, ptr noundef %1, 
   br i1 %735, label %738, label %736
 
 736:                                              ; preds = %717
-  %737 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.46, i64 noundef %725) #13
+  %737 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.46, i64 noundef %725) #14
   br label %738
 
 738:                                              ; preds = %736, %717
-  %739 = call ptr @ext4_sb_bread(ptr noundef %718, i64 noundef %731, i32 noundef 0) #12
+  %739 = call ptr @ext4_sb_bread(ptr noundef %718, i64 noundef %731, i32 noundef 0) #13
   %740 = icmp ugt ptr %739, inttoptr (i64 -4096 to ptr)
   br i1 %740, label %741, label %744
 
@@ -1904,7 +1904,7 @@ define internal fastcc i32 @ext4_flex_group_add(ptr noundef %0, ptr noundef %1, 
 749:                                              ; preds = %744
   %750 = load i32, ptr %478, align 4
   %751 = zext i32 %750 to i64
-  %752 = call ptr @ext4_sb_bread(ptr noundef %718, i64 noundef %751, i32 noundef 0) #12
+  %752 = call ptr @ext4_sb_bread(ptr noundef %718, i64 noundef %751, i32 noundef 0) #13
   %753 = icmp ugt ptr %752, inttoptr (i64 -4096 to ptr)
   br i1 %753, label %754, label %757
 
@@ -1927,44 +1927,44 @@ define internal fastcc i32 @ext4_flex_group_add(ptr noundef %0, ptr noundef %1, 
   br i1 %767, label %769, label %768
 
 768:                                              ; preds = %757
-  call void (ptr, ptr, i32, ptr, ...) @__ext4_warning(ptr noundef %718, ptr noundef nonnull @__func__.add_new_gdb, i32 noundef 859, ptr noundef nonnull @.str.47, i32 noundef %481, i64 noundef %731) #12
+  call void (ptr, ptr, i32, ptr, ...) @__ext4_warning(ptr noundef %718, ptr noundef nonnull @__func__.add_new_gdb, i32 noundef 859, ptr noundef nonnull @.str.47, i32 noundef %481, i64 noundef %731) #13
   br label %862
 
 769:                                              ; preds = %757
   %770 = load ptr, ptr %719, align 8
   %771 = getelementptr inbounds i8, ptr %770, i64 96
   %772 = load ptr, ptr %771, align 32
-  %773 = call i32 @__ext4_journal_get_write_access(ptr noundef nonnull @__func__.add_new_gdb, i32 noundef 866, ptr noundef %447, ptr noundef %718, ptr noundef %772, i32 noundef 1) #12
+  %773 = call i32 @__ext4_journal_get_write_access(ptr noundef nonnull @__func__.add_new_gdb, i32 noundef 866, ptr noundef %447, ptr noundef %718, ptr noundef %772, i32 noundef 1) #13
   %774 = icmp eq i32 %773, 0
   br i1 %774, label %775, label %862, !prof !15
 
 775:                                              ; preds = %769
-  %776 = call i32 @__ext4_journal_get_write_access(ptr noundef nonnull @__func__.add_new_gdb, i32 noundef 871, ptr noundef %447, ptr noundef %718, ptr noundef %739, i32 noundef 1) #12
+  %776 = call i32 @__ext4_journal_get_write_access(ptr noundef nonnull @__func__.add_new_gdb, i32 noundef 871, ptr noundef %447, ptr noundef %718, ptr noundef %739, i32 noundef 1) #13
   %777 = icmp eq i32 %776, 0
   br i1 %777, label %778, label %862, !prof !15
 
 778:                                              ; preds = %775
-  %779 = call i32 @__ext4_journal_get_write_access(ptr noundef nonnull @__func__.add_new_gdb, i32 noundef 876, ptr noundef %447, ptr noundef %718, ptr noundef %752, i32 noundef 1) #12
+  %779 = call i32 @__ext4_journal_get_write_access(ptr noundef nonnull @__func__.add_new_gdb, i32 noundef 876, ptr noundef %447, ptr noundef %718, ptr noundef %752, i32 noundef 1) #13
   %780 = icmp eq i32 %779, 0
   br i1 %780, label %782, label %781, !prof !15
 
 781:                                              ; preds = %778
-  call void @__ext4_std_error(ptr noundef %718, ptr noundef nonnull @__func__.add_new_gdb, i32 noundef 878, i32 noundef %779) #12
+  call void @__ext4_std_error(ptr noundef %718, ptr noundef nonnull @__func__.add_new_gdb, i32 noundef 878, i32 noundef %779) #13
   br label %862
 
 782:                                              ; preds = %778
-  %783 = call i32 @ext4_reserve_inode_write(ptr noundef %447, ptr noundef %1, ptr noundef nonnull %4) #12
+  %783 = call i32 @ext4_reserve_inode_write(ptr noundef %447, ptr noundef %1, ptr noundef nonnull %4) #13
   %784 = icmp eq i32 %783, 0
   br i1 %784, label %785, label %862, !prof !15
 
 785:                                              ; preds = %782
   %786 = shl nuw nsw i64 %730, 3
-  %787 = call noalias ptr @kvmalloc_node(i64 noundef %786, i32 noundef 3264, i32 noundef -1) #14
+  %787 = call noalias ptr @kvmalloc_node(i64 noundef %786, i32 noundef 3264, i32 noundef -1) #15
   %788 = icmp eq ptr %787, null
   br i1 %788, label %789, label %790
 
 789:                                              ; preds = %785
-  call void (ptr, ptr, i32, ptr, ...) @__ext4_warning(ptr noundef %718, ptr noundef nonnull @__func__.add_new_gdb, i32 noundef 892, ptr noundef nonnull @.str.45, i64 noundef %730) #12
+  call void (ptr, ptr, i32, ptr, ...) @__ext4_warning(ptr noundef %718, ptr noundef nonnull @__func__.add_new_gdb, i32 noundef 892, ptr noundef nonnull @.str.45, i64 noundef %730) #13
   br label %862
 
 790:                                              ; preds = %785
@@ -1973,12 +1973,12 @@ define internal fastcc i32 @ext4_flex_group_add(ptr noundef %0, ptr noundef %1, 
   %793 = urem i64 %725, %792
   %794 = getelementptr i32, ptr %759, i64 %793
   store i32 0, ptr %794, align 4
-  %795 = call i32 @__ext4_handle_dirty_metadata(ptr noundef nonnull @__func__.add_new_gdb, i32 noundef 906, ptr noundef %447, ptr noundef null, ptr noundef %752) #12
+  %795 = call i32 @__ext4_handle_dirty_metadata(ptr noundef nonnull @__func__.add_new_gdb, i32 noundef 906, ptr noundef %447, ptr noundef null, ptr noundef %752) #13
   %796 = icmp eq i32 %795, 0
   br i1 %796, label %798, label %797, !prof !15
 
 797:                                              ; preds = %790
-  call void @__ext4_std_error(ptr noundef %718, ptr noundef nonnull @__func__.add_new_gdb, i32 noundef 908, i32 noundef %795) #12
+  call void @__ext4_std_error(ptr noundef %718, ptr noundef nonnull @__func__.add_new_gdb, i32 noundef 908, i32 noundef %795) #13
   br label %862
 
 798:                                              ; preds = %790
@@ -1995,16 +1995,16 @@ define internal fastcc i32 @ext4_flex_group_add(ptr noundef %0, ptr noundef %1, 
   %809 = load i64, ptr %479, align 8
   %810 = sub i64 %809, %808
   store i64 %810, ptr %479, align 8
-  %811 = call i32 @ext4_mark_iloc_dirty(ptr noundef %447, ptr noundef %1, ptr noundef nonnull %4) #12
+  %811 = call i32 @ext4_mark_iloc_dirty(ptr noundef %447, ptr noundef %1, ptr noundef nonnull %4) #13
   %812 = load ptr, ptr %746, align 8
   %813 = load i64, ptr %760, align 8
   call void @llvm.memset.p0.i64(ptr align 1 %812, i8 0, i64 %813, i1 false)
-  %814 = call i32 @__ext4_handle_dirty_metadata(ptr noundef nonnull @__func__.add_new_gdb, i32 noundef 915, ptr noundef %447, ptr noundef null, ptr noundef %739) #12
+  %814 = call i32 @__ext4_handle_dirty_metadata(ptr noundef nonnull @__func__.add_new_gdb, i32 noundef 915, ptr noundef %447, ptr noundef null, ptr noundef %739) #13
   %815 = icmp eq i32 %814, 0
   br i1 %815, label %817, label %816, !prof !15
 
 816:                                              ; preds = %798
-  call void @__ext4_std_error(ptr noundef %718, ptr noundef nonnull @__func__.add_new_gdb, i32 noundef 917, i32 noundef %814) #12
+  call void @__ext4_std_error(ptr noundef %718, ptr noundef nonnull @__func__.add_new_gdb, i32 noundef 917, i32 noundef %814) #13
   store ptr null, ptr %4, align 8
   br label %862
 
@@ -2013,11 +2013,11 @@ define internal fastcc i32 @ext4_flex_group_add(ptr noundef %0, ptr noundef %1, 
   br i1 %818, label %820, label %819
 
 819:                                              ; preds = %817
-  call void @__brelse(ptr noundef nonnull %752) #12
+  call void @__brelse(ptr noundef nonnull %752) #13
   br label %820
 
 820:                                              ; preds = %819, %817
-  call void @__rcu_read_lock() #12
+  call void @__rcu_read_lock() #13
   %821 = load ptr, ptr %719, align 8
   %822 = getelementptr inbounds i8, ptr %821, i64 112
   %823 = load volatile ptr, ptr %822, align 16
@@ -2025,10 +2025,10 @@ define internal fastcc i32 @ext4_flex_group_add(ptr noundef %0, ptr noundef %1, 
   %825 = load i64, ptr %824, align 16
   %826 = shl i64 %825, 3
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %787, ptr align 8 %823, i64 %826, i1 false)
-  call void @__rcu_read_unlock() #12
+  call void @__rcu_read_unlock() #13
   %827 = getelementptr ptr, ptr %787, i64 %725
   store ptr %739, ptr %827, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !33
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !33
   %828 = load ptr, ptr %719, align 8
   %829 = getelementptr inbounds i8, ptr %828, i64 112
   store volatile ptr %787, ptr %829, align 16
@@ -2038,34 +2038,34 @@ define internal fastcc i32 @ext4_flex_group_add(ptr noundef %0, ptr noundef %1, 
   %833 = add i64 %832, 1
   store i64 %833, ptr %831, align 16
   %834 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
-  %835 = call noalias noundef align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %834, i32 noundef 3520, i64 noundef 24) #11
+  %835 = call noalias noundef align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %834, i32 noundef 3520, i64 noundef 24) #12
   %836 = icmp eq ptr %835, null
   br i1 %836, label %839, label %837
 
 837:                                              ; preds = %820
   %838 = getelementptr inbounds i8, ptr %835, i64 16
   store ptr %823, ptr %838, align 8
-  call void @call_rcu(ptr noundef nonnull %835, ptr noundef nonnull @ext4_rcu_ptr_callback) #12
+  call void @call_rcu(ptr noundef nonnull %835, ptr noundef nonnull @ext4_rcu_ptr_callback) #13
   br label %840
 
 839:                                              ; preds = %820
-  call void @synchronize_rcu() #12
-  call void @kvfree(ptr noundef %823) #12
+  call void @synchronize_rcu() #13
+  call void @kvfree(ptr noundef %823) #13
   br label %840
 
 840:                                              ; preds = %839, %837
   %841 = load ptr, ptr %719, align 8
   %842 = getelementptr inbounds i8, ptr %841, i64 96
   %843 = load ptr, ptr %842, align 32
-  %844 = call i32 @__SCT__might_resched() #12
-  %845 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %843, i64 2, ptr elementtype(i64) %843) #12, !srcloc !5
+  %844 = call i32 @__SCT__might_resched() #13
+  %845 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %843, i64 2, ptr elementtype(i64) %843) #13, !srcloc !5
   %846 = icmp ult i8 %845, 2
   call void @llvm.assume(i1 %846)
   %847 = icmp eq i8 %845, 0
   br i1 %847, label %849, label %848
 
 848:                                              ; preds = %840
-  call void @__lock_buffer(ptr noundef %843) #12
+  call void @__lock_buffer(ptr noundef %843) #13
   br label %849
 
 849:                                              ; preds = %848, %840
@@ -2073,33 +2073,33 @@ define internal fastcc i32 @ext4_flex_group_add(ptr noundef %0, ptr noundef %1, 
   %851 = load i16, ptr %850, align 2
   %852 = add i16 %851, -1
   store i16 %852, ptr %850, align 2
-  call void @ext4_superblock_csum_set(ptr noundef %718) #12
+  call void @ext4_superblock_csum_set(ptr noundef %718) #13
   %853 = load ptr, ptr %719, align 8
   %854 = getelementptr inbounds i8, ptr %853, i64 96
   %855 = load ptr, ptr %854, align 32
-  call void @unlock_buffer(ptr noundef %855) #12
+  call void @unlock_buffer(ptr noundef %855) #13
   %856 = load ptr, ptr %719, align 8
   %857 = getelementptr inbounds i8, ptr %856, i64 96
   %858 = load ptr, ptr %857, align 32
-  %859 = call i32 @__ext4_handle_dirty_metadata(ptr noundef nonnull @__func__.add_new_gdb, i32 noundef 937, ptr noundef %447, ptr noundef null, ptr noundef %858) #12
+  %859 = call i32 @__ext4_handle_dirty_metadata(ptr noundef nonnull @__func__.add_new_gdb, i32 noundef 937, ptr noundef %447, ptr noundef null, ptr noundef %858) #13
   %860 = icmp eq i32 %859, 0
   br i1 %860, label %875, label %861
 
 861:                                              ; preds = %849
-  call void @__ext4_std_error(ptr noundef %718, ptr noundef nonnull @__func__.add_new_gdb, i32 noundef 939, i32 noundef %859) #12
+  call void @__ext4_std_error(ptr noundef %718, ptr noundef nonnull @__func__.add_new_gdb, i32 noundef 939, i32 noundef %859) #13
   br label %875
 
 862:                                              ; preds = %816, %797, %789, %782, %781, %775, %769, %768, %754, %744
   %863 = phi ptr [ null, %754 ], [ null, %768 ], [ null, %769 ], [ null, %775 ], [ null, %781 ], [ null, %782 ], [ %787, %797 ], [ %787, %816 ], [ null, %789 ], [ null, %744 ]
   %864 = phi ptr [ null, %754 ], [ %752, %768 ], [ %752, %769 ], [ %752, %775 ], [ %752, %781 ], [ %752, %782 ], [ %752, %797 ], [ %752, %816 ], [ %752, %789 ], [ null, %744 ]
   %865 = phi i32 [ %756, %754 ], [ -22, %768 ], [ %773, %769 ], [ %776, %775 ], [ %779, %781 ], [ %783, %782 ], [ %795, %797 ], [ %814, %816 ], [ -12, %789 ], [ %747, %744 ]
-  call void @kvfree(ptr noundef %863) #12
+  call void @kvfree(ptr noundef %863) #13
   %866 = load ptr, ptr %4, align 8
   %867 = icmp eq ptr %866, null
   br i1 %867, label %869, label %868
 
 868:                                              ; preds = %862
-  call void @__brelse(ptr noundef nonnull %866) #12
+  call void @__brelse(ptr noundef nonnull %866) #13
   br label %869
 
 869:                                              ; preds = %868, %862
@@ -2107,7 +2107,7 @@ define internal fastcc i32 @ext4_flex_group_add(ptr noundef %0, ptr noundef %1, 
   br i1 %870, label %872, label %871
 
 871:                                              ; preds = %869
-  call void @__brelse(ptr noundef nonnull %864) #12
+  call void @__brelse(ptr noundef nonnull %864) #13
   br label %872
 
 872:                                              ; preds = %871, %869
@@ -2115,12 +2115,12 @@ define internal fastcc i32 @ext4_flex_group_add(ptr noundef %0, ptr noundef %1, 
   br i1 %873, label %875, label %874
 
 874:                                              ; preds = %872
-  call void @__brelse(ptr noundef nonnull %739) #12
+  call void @__brelse(ptr noundef nonnull %739) #13
   br label %875
 
 875:                                              ; preds = %874, %872, %861, %849, %741
   %876 = phi i32 [ %743, %741 ], [ %859, %861 ], [ 0, %849 ], [ %865, %872 ], [ %865, %874 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #13
   br label %877
 
 877:                                              ; preds = %875, %679, %661, %497
@@ -2159,13 +2159,13 @@ define internal fastcc i32 @ext4_flex_group_add(ptr noundef %0, ptr noundef %1, 
   %899 = load i64, ptr %898, align 8
   %900 = urem i64 %896, %899
   %901 = udiv i64 %896, %899
-  call void @__rcu_read_lock() #12
+  call void @__rcu_read_lock() #13
   %902 = load volatile ptr, ptr %888, align 16
   %903 = shl nuw i64 %901, 32
   %904 = ashr exact i64 %903, 29
   %905 = getelementptr i8, ptr %902, i64 %904
   %906 = load ptr, ptr %905, align 8
-  call void @__rcu_read_unlock() #12
+  call void @__rcu_read_unlock() #13
   %907 = getelementptr inbounds i8, ptr %906, i64 40
   %908 = load ptr, ptr %907, align 8
   %909 = shl nuw i64 %900, 32
@@ -2177,10 +2177,10 @@ define internal fastcc i32 @ext4_flex_group_add(ptr noundef %0, ptr noundef %1, 
   call void @llvm.memset.p0.i64(ptr align 4 %914, i8 0, i64 %912, i1 false)
   %915 = getelementptr inbounds i8, ptr %892, i64 8
   %916 = load i64, ptr %915, align 8
-  call void @ext4_block_bitmap_set(ptr noundef %0, ptr noundef %914, i64 noundef %916) #12
+  call void @ext4_block_bitmap_set(ptr noundef %0, ptr noundef %914, i64 noundef %916) #13
   %917 = getelementptr inbounds i8, ptr %892, i64 16
   %918 = load i64, ptr %917, align 8
-  call void @ext4_inode_bitmap_set(ptr noundef %0, ptr noundef %914, i64 noundef %918) #12
+  call void @ext4_inode_bitmap_set(ptr noundef %0, ptr noundef %914, i64 noundef %918) #13
   %919 = load ptr, ptr %9, align 8
   %920 = getelementptr inbounds i8, ptr %919, i64 104
   %921 = load ptr, ptr %920, align 8
@@ -2197,9 +2197,9 @@ define internal fastcc i32 @ext4_flex_group_add(ptr noundef %0, ptr noundef %1, 
   br i1 %929, label %930, label %.thread261, !prof !12
 
 930:                                              ; preds = %926
-  call void asm sideeffect "459: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 459b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 459) #12, !srcloc !35
-  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.48, i32 3269, i32 2307, i64 12) #12, !srcloc !36
-  call void asm sideeffect "460: nop\0A\09.pushsection .discard.instr_end\0A\09.long 460b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 460) #12, !srcloc !37
+  call void asm sideeffect "459: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 459b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 459) #13, !srcloc !35
+  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.48, i32 3269, i32 2307, i64 12) #13, !srcloc !36
+  call void asm sideeffect "460: nop\0A\09.pushsection .discard.instr_end\0A\09.long 460b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 460) #13, !srcloc !37
   %.pre243 = load ptr, ptr %9, align 8
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre243, i64 104
   %.pre244 = load ptr, ptr %.phi.trans.insert, align 8
@@ -2229,17 +2229,17 @@ define internal fastcc i32 @ext4_flex_group_add(ptr noundef %0, ptr noundef %1, 
   %946 = load i32, ptr %945, align 8
   %947 = and i32 %946, -32905
   %948 = or disjoint i32 %947, 32776
-  %949 = call ptr @bdev_getblk(ptr noundef %938, i64 noundef %937, i32 noundef %940, i32 noundef %948) #12
+  %949 = call ptr @bdev_getblk(ptr noundef %938, i64 noundef %937, i32 noundef %940, i32 noundef %948) #13
   %950 = icmp eq ptr %949, null
   br i1 %950, label %.thread117, label %951, !prof !12
 
 951:                                              ; preds = %936
-  %952 = call i32 @bh_uptodate_or_lock(ptr noundef nonnull %949) #12
+  %952 = call i32 @bh_uptodate_or_lock(ptr noundef nonnull %949) #13
   %953 = icmp eq i32 %952, 0
   br i1 %953, label %954, label %957
 
 954:                                              ; preds = %951
-  %955 = call i32 @ext4_read_bh(ptr noundef nonnull %949, i32 noundef 0, ptr noundef null) #12
+  %955 = call i32 @ext4_read_bh(ptr noundef nonnull %949, i32 noundef 0, ptr noundef null) #13
   %956 = icmp slt i32 %955, 0
   br i1 %956, label %.thread117.sink.split, label %957
 
@@ -2249,8 +2249,8 @@ define internal fastcc i32 @ext4_flex_group_add(ptr noundef %0, ptr noundef %1, 
   %960 = load i64, ptr %959, align 32
   %961 = lshr i64 %960, 3
   %962 = trunc i64 %961 to i32
-  call void @ext4_inode_bitmap_csum_set(ptr noundef %0, ptr noundef %914, ptr noundef nonnull %949, i32 noundef %962) #12
-  call void @__brelse(ptr noundef nonnull %949) #12
+  call void @ext4_inode_bitmap_csum_set(ptr noundef %0, ptr noundef %914, ptr noundef nonnull %949, i32 noundef %962) #13
+  call void @__brelse(ptr noundef nonnull %949) #13
   %963 = load i64, ptr %915, align 8
   %964 = load ptr, ptr %889, align 8
   %965 = load i64, ptr %890, align 8
@@ -2263,46 +2263,46 @@ define internal fastcc i32 @ext4_flex_group_add(ptr noundef %0, ptr noundef %1, 
   %972 = load i32, ptr %971, align 8
   %973 = and i32 %972, -32905
   %974 = or disjoint i32 %973, 32776
-  %975 = call ptr @bdev_getblk(ptr noundef %964, i64 noundef %963, i32 noundef %966, i32 noundef %974) #12
+  %975 = call ptr @bdev_getblk(ptr noundef %964, i64 noundef %963, i32 noundef %966, i32 noundef %974) #13
   %976 = icmp eq ptr %975, null
   br i1 %976, label %.thread117, label %977, !prof !12
 
 977:                                              ; preds = %957
-  %978 = call i32 @bh_uptodate_or_lock(ptr noundef nonnull %975) #12
+  %978 = call i32 @bh_uptodate_or_lock(ptr noundef nonnull %975) #13
   %979 = icmp eq i32 %978, 0
   br i1 %979, label %980, label %983
 
 980:                                              ; preds = %977
-  %981 = call i32 @ext4_read_bh(ptr noundef nonnull %975, i32 noundef 0, ptr noundef null) #12
+  %981 = call i32 @ext4_read_bh(ptr noundef nonnull %975, i32 noundef 0, ptr noundef null) #13
   %982 = icmp slt i32 %981, 0
   br i1 %982, label %.thread117.sink.split, label %983
 
 983:                                              ; preds = %977, %980
-  call void @ext4_block_bitmap_csum_set(ptr noundef %0, ptr noundef %914, ptr noundef nonnull %975) #12
-  call void @__brelse(ptr noundef nonnull %975) #12
+  call void @ext4_block_bitmap_csum_set(ptr noundef %0, ptr noundef %914, ptr noundef nonnull %975) #13
+  call void @__brelse(ptr noundef nonnull %975) #13
   br label %.thread
 
 .thread117.sink.split:                            ; preds = %980, %954
   %.lcssa276.sink = phi ptr [ %949, %954 ], [ %975, %980 ]
-  call void @__brelse(ptr noundef nonnull %.lcssa276.sink) #12
+  call void @__brelse(ptr noundef nonnull %.lcssa276.sink) #13
   br label %.thread117
 
 .thread117:                                       ; preds = %957, %936, %.thread117.sink.split
-  call void @__ext4_std_error(ptr noundef %0, ptr noundef nonnull @__func__.ext4_setup_new_descs, i32 noundef 1369, i32 noundef -5) #12
+  call void @__ext4_std_error(ptr noundef %0, ptr noundef nonnull @__func__.ext4_setup_new_descs, i32 noundef 1369, i32 noundef -5) #13
   br label %.thread126
 
 .thread:                                          ; preds = %891, %983, %.thread261, %930
   %984 = getelementptr inbounds i8, ptr %892, i64 24
   %985 = load i64, ptr %984, align 8
-  call void @ext4_inode_table_set(ptr noundef %0, ptr noundef %914, i64 noundef %985) #12
+  call void @ext4_inode_table_set(ptr noundef %0, ptr noundef %914, i64 noundef %985) #13
   %986 = getelementptr inbounds i8, ptr %892, i64 40
   %987 = load i32, ptr %986, align 8
-  call void @ext4_free_group_clusters_set(ptr noundef %0, ptr noundef %914, i32 noundef %987) #12
+  call void @ext4_free_group_clusters_set(ptr noundef %0, ptr noundef %914, i32 noundef %987) #13
   %988 = load ptr, ptr %9, align 8
   %989 = getelementptr inbounds i8, ptr %988, i64 32
   %990 = load i64, ptr %989, align 32
   %991 = trunc i64 %990 to i32
-  call void @ext4_free_inodes_set(ptr noundef %0, ptr noundef %914, i32 noundef %991) #12
+  call void @ext4_free_inodes_set(ptr noundef %0, ptr noundef %914, i32 noundef %991) #13
   %992 = load ptr, ptr %9, align 8
   %993 = getelementptr inbounds i8, ptr %992, i64 104
   %994 = load ptr, ptr %993, align 8
@@ -2324,9 +2324,9 @@ define internal fastcc i32 @ext4_flex_group_add(ptr noundef %0, ptr noundef %1, 
   br i1 %1005, label %1006, label %.thread265, !prof !12
 
 1006:                                             ; preds = %1002
-  call void asm sideeffect "459: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 459b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 459) #12, !srcloc !35
-  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.48, i32 3269, i32 2307, i64 12) #12, !srcloc !36
-  call void asm sideeffect "460: nop\0A\09.pushsection .discard.instr_end\0A\09.long 460b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 460) #12, !srcloc !37
+  call void asm sideeffect "459: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 459b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 459) #13, !srcloc !35
+  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.48, i32 3269, i32 2307, i64 12) #13, !srcloc !36
+  call void asm sideeffect "460: nop\0A\09.pushsection .discard.instr_end\0A\09.long 460b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 460) #13, !srcloc !37
   %.pre247 = load ptr, ptr %9, align 8
   %.phi.trans.insert248 = getelementptr inbounds i8, ptr %.pre247, i64 104
   %.pre249 = load ptr, ptr %.phi.trans.insert248, align 8
@@ -2348,24 +2348,24 @@ define internal fastcc i32 @ext4_flex_group_add(ptr noundef %0, ptr noundef %1, 
   %1012 = getelementptr inbounds i8, ptr %1011, i64 32
   %1013 = load i64, ptr %1012, align 32
   %1014 = trunc i64 %1013 to i32
-  call void @ext4_itable_unused_set(ptr noundef %0, ptr noundef %914, i32 noundef %1014) #12
+  call void @ext4_itable_unused_set(ptr noundef %0, ptr noundef %914, i32 noundef %1014) #13
   br label %.critedge94
 
 .critedge94:                                      ; preds = %999, %1006, %.critedge, %.thread265
   %1015 = load i16, ptr %894, align 2
   %1016 = getelementptr inbounds i8, ptr %914, i64 18
   store i16 %1015, ptr %1016, align 2
-  call void @ext4_group_desc_csum_set(ptr noundef %0, i32 noundef %895, ptr noundef %914) #12
-  %1017 = call i32 @__ext4_handle_dirty_metadata(ptr noundef nonnull @__func__.ext4_setup_new_descs, i32 noundef 1383, ptr noundef %447, ptr noundef null, ptr noundef %906) #12
+  call void @ext4_group_desc_csum_set(ptr noundef %0, i32 noundef %895, ptr noundef %914) #13
+  %1017 = call i32 @__ext4_handle_dirty_metadata(ptr noundef nonnull @__func__.ext4_setup_new_descs, i32 noundef 1383, ptr noundef %447, ptr noundef null, ptr noundef %906) #13
   %1018 = icmp eq i32 %1017, 0
   br i1 %1018, label %1020, label %1019, !prof !15
 
 1019:                                             ; preds = %.critedge94
-  call void @__ext4_std_error(ptr noundef %0, ptr noundef nonnull @__func__.ext4_setup_new_descs, i32 noundef 1385, i32 noundef %1017) #12
+  call void @__ext4_std_error(ptr noundef %0, ptr noundef nonnull @__func__.ext4_setup_new_descs, i32 noundef 1385, i32 noundef %1017) #13
   br label %.thread126
 
 1020:                                             ; preds = %.critedge94
-  %1021 = call i32 @ext4_mb_add_groupinfo(ptr noundef %0, i32 noundef %895, ptr noundef %914) #12
+  %1021 = call i32 @ext4_mb_add_groupinfo(ptr noundef %0, i32 noundef %895, ptr noundef %914) #13
   %1022 = icmp eq i32 %1021, 0
   br i1 %1022, label %1023, label %.thread126
 
@@ -2379,15 +2379,15 @@ define internal fastcc i32 @ext4_flex_group_add(ptr noundef %0, ptr noundef %1, 
 
 .thread126:                                       ; preds = %877, %1020, %.thread117, %1019, %690, %701, %703, %452
   %.ph = phi i32 [ -5, %.thread117 ], [ %1017, %1019 ], [ -12, %690 ], [ %699, %701 ], [ %699, %703 ], [ %455, %452 ], [ %1021, %1020 ], [ %878, %877 ]
-  %1029 = call i32 @__ext4_journal_stop(ptr noundef nonnull @__func__.ext4_flex_group_add, i32 noundef 1597, ptr noundef %447) #12
+  %1029 = call i32 @__ext4_journal_stop(ptr noundef nonnull @__func__.ext4_flex_group_add, i32 noundef 1597, ptr noundef %447) #13
   br label %.loopexit
 
 .thread113:                                       ; preds = %1023, %464, %.loopexit131
   call fastcc void @ext4_update_super(ptr noundef %0, ptr noundef %2)
   %1030 = load ptr, ptr %453, align 32
-  %1031 = call i32 @__ext4_handle_dirty_metadata(ptr noundef nonnull @__func__.ext4_flex_group_add, i32 noundef 1594, ptr noundef %447, ptr noundef null, ptr noundef %1030) #12
+  %1031 = call i32 @__ext4_handle_dirty_metadata(ptr noundef nonnull @__func__.ext4_flex_group_add, i32 noundef 1594, ptr noundef %447, ptr noundef null, ptr noundef %1030) #13
   %.fr = freeze i32 %1031
-  %1032 = call i32 @__ext4_journal_stop(ptr noundef nonnull @__func__.ext4_flex_group_add, i32 noundef 1597, ptr noundef %447) #12
+  %1032 = call i32 @__ext4_journal_stop(ptr noundef nonnull @__func__.ext4_flex_group_add, i32 noundef 1597, ptr noundef %447) #13
   %1033 = icmp eq i32 %.fr, 0
   %spec.select = select i1 %1033, i32 %1032, i32 %.fr
   %1034 = icmp eq i32 %spec.select, 0
@@ -2445,12 +2445,12 @@ define internal fastcc i32 @ext4_flex_group_add(ptr noundef %0, ptr noundef %1, 
 
 1069:                                             ; preds = %1069, %1067
   %1070 = phi i32 [ %1042, %1067 ], [ %1083, %1069 ]
-  call void @__rcu_read_lock() #12
+  call void @__rcu_read_lock() #13
   %1071 = load volatile ptr, ptr %1068, align 16
   %1072 = sext i32 %1070 to i64
   %1073 = getelementptr ptr, ptr %1071, i64 %1072
   %1074 = load ptr, ptr %1073, align 8
-  call void @__rcu_read_unlock() #12
+  call void @__rcu_read_unlock() #13
   %1075 = getelementptr inbounds i8, ptr %1074, i64 24
   %1076 = load i64, ptr %1075, align 8
   %1077 = add i64 %1076, %1065
@@ -2466,8 +2466,8 @@ define internal fastcc i32 @ext4_flex_group_add(ptr noundef %0, ptr noundef %1, 
 
 .loopexit:                                        ; preds = %1069, %.thread126, %1064, %.thread113, %449, %429
   %1085 = phi i32 [ %430, %429 ], [ %451, %449 ], [ %spec.select, %.thread113 ], [ 0, %1064 ], [ %.ph, %.thread126 ], [ 0, %1069 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #13
   ret i32 %1085
 }
 
@@ -2478,8 +2478,8 @@ declare dso_local void @iput(ptr noundef) local_unnamed_addr #2
 define dso_local i32 @ext4_group_extend(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #0 align 16 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #13
   %6 = getelementptr inbounds i8, ptr %1, i64 96
   %7 = load i32, ptr %6, align 8
   %8 = and i32 %7, 128
@@ -2508,7 +2508,7 @@ define dso_local i32 @ext4_group_extend(ptr noundef %0, ptr nocapture noundef re
   br i1 %26, label %28, label %27
 
 27:                                               ; preds = %15
-  tail call void (ptr, ptr, ptr, ...) @__ext4_msg(ptr noundef %0, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i64 noundef %20, i64 noundef %2) #12
+  tail call void (ptr, ptr, ptr, ...) @__ext4_msg(ptr noundef %0, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i64 noundef %20, i64 noundef %2) #13
   br label %28
 
 28:                                               ; preds = %27, %15
@@ -2528,7 +2528,7 @@ define dso_local i32 @ext4_group_extend(ptr noundef %0, ptr nocapture noundef re
   br i1 %39, label %40, label %41
 
 40:                                               ; preds = %32
-  tail call void (ptr, ptr, ptr, ...) @__ext4_msg(ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.12, i64 noundef %2) #12
+  tail call void (ptr, ptr, ptr, ...) @__ext4_msg(ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.12, i64 noundef %2) #13
   br label %77
 
 41:                                               ; preds = %32
@@ -2536,19 +2536,19 @@ define dso_local i32 @ext4_group_extend(ptr noundef %0, ptr nocapture noundef re
   br i1 %42, label %43, label %44
 
 43:                                               ; preds = %41
-  tail call void (ptr, ptr, i32, ptr, ...) @__ext4_warning(ptr noundef %0, ptr noundef nonnull @__func__.ext4_group_extend, i32 noundef 1860, ptr noundef nonnull @.str.13) #12
+  tail call void (ptr, ptr, i32, ptr, ...) @__ext4_warning(ptr noundef %0, ptr noundef nonnull @__func__.ext4_group_extend, i32 noundef 1860, ptr noundef nonnull @.str.13) #13
   br label %77
 
 44:                                               ; preds = %41
   store i32 0, ptr %4, align 4, !annotation !11
   store i32 0, ptr %5, align 4, !annotation !11
-  call void @ext4_get_group_no_and_offset(ptr noundef %0, i64 noundef %20, ptr noundef nonnull %5, ptr noundef nonnull %4) #12
+  call void @ext4_get_group_no_and_offset(ptr noundef %0, i64 noundef %20, ptr noundef nonnull %5, ptr noundef nonnull %4) #13
   %45 = load i32, ptr %4, align 4
   %46 = icmp eq i32 %45, 0
   br i1 %46, label %47, label %48
 
 47:                                               ; preds = %44
-  call void (ptr, ptr, i32, ptr, ...) @__ext4_warning(ptr noundef %0, ptr noundef nonnull @__func__.ext4_group_extend, i32 noundef 1868, ptr noundef nonnull @.str.14) #12
+  call void (ptr, ptr, i32, ptr, ...) @__ext4_warning(ptr noundef %0, ptr noundef nonnull @__func__.ext4_group_extend, i32 noundef 1868, ptr noundef nonnull @.str.14) #13
   br label %77
 
 48:                                               ; preds = %44
@@ -2563,7 +2563,7 @@ define dso_local i32 @ext4_group_extend(ptr noundef %0, ptr nocapture noundef re
   br i1 %56, label %57, label %58
 
 57:                                               ; preds = %48
-  call void (ptr, ptr, i32, ptr, ...) @__ext4_warning(ptr noundef %0, ptr noundef nonnull @__func__.ext4_group_extend, i32 noundef 1875, ptr noundef nonnull @.str.6) #12
+  call void (ptr, ptr, i32, ptr, ...) @__ext4_warning(ptr noundef %0, ptr noundef nonnull @__func__.ext4_group_extend, i32 noundef 1875, ptr noundef nonnull @.str.6) #13
   br label %77
 
 58:                                               ; preds = %48
@@ -2577,17 +2577,17 @@ define dso_local i32 @ext4_group_extend(ptr noundef %0, ptr nocapture noundef re
   br i1 %65, label %66, label %67
 
 66:                                               ; preds = %58
-  call void (ptr, ptr, i32, ptr, ...) @__ext4_warning(ptr noundef %0, ptr noundef nonnull @__func__.ext4_group_extend, i32 noundef 1884, ptr noundef nonnull @.str.15, i64 noundef %64, i32 noundef %62) #12
+  call void (ptr, ptr, i32, ptr, ...) @__ext4_warning(ptr noundef %0, ptr noundef nonnull @__func__.ext4_group_extend, i32 noundef 1884, ptr noundef nonnull @.str.15, i64 noundef %64, i32 noundef %62) #13
   br label %67
 
 67:                                               ; preds = %66, %58
   %68 = add i64 %64, -1
-  %69 = call ptr @ext4_sb_bread(ptr noundef %0, i64 noundef %68, i32 noundef 0) #12
+  %69 = call ptr @ext4_sb_bread(ptr noundef %0, i64 noundef %68, i32 noundef 0) #13
   %70 = icmp ugt ptr %69, inttoptr (i64 -4096 to ptr)
   br i1 %70, label %71, label %72
 
 71:                                               ; preds = %67
-  call void (ptr, ptr, i32, ptr, ...) @__ext4_warning(ptr noundef %0, ptr noundef nonnull @__func__.ext4_group_extend, i32 noundef 1889, ptr noundef nonnull @.str.16) #12
+  call void (ptr, ptr, i32, ptr, ...) @__ext4_warning(ptr noundef %0, ptr noundef nonnull @__func__.ext4_group_extend, i32 noundef 1889, ptr noundef nonnull @.str.16) #13
   br label %77
 
 72:                                               ; preds = %67
@@ -2595,7 +2595,7 @@ define dso_local i32 @ext4_group_extend(ptr noundef %0, ptr nocapture noundef re
   br i1 %73, label %75, label %74
 
 74:                                               ; preds = %72
-  call void @__brelse(ptr noundef nonnull %69) #12
+  call void @__brelse(ptr noundef nonnull %69) #13
   br label %75
 
 75:                                               ; preds = %74, %72
@@ -2604,8 +2604,8 @@ define dso_local i32 @ext4_group_extend(ptr noundef %0, ptr nocapture noundef re
 
 77:                                               ; preds = %75, %71, %57, %47, %43, %40, %28
   %78 = phi i32 [ -22, %40 ], [ -22, %43 ], [ -1, %47 ], [ -22, %57 ], [ -28, %71 ], [ %76, %75 ], [ 0, %28 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #13
   ret i32 %78
 }
 
@@ -2624,41 +2624,41 @@ define internal fastcc i32 @ext4_group_extend_no_check(ptr noundef %0, i64 nound
   %8 = getelementptr inbounds i8, ptr %5, i64 80
   %9 = load i32, ptr %8, align 16
   %10 = shl i32 %9, 3
-  %11 = tail call ptr @__ext4_journal_start_sb(ptr noundef null, ptr noundef %0, i32 noundef 1779, i32 noundef 7, i32 noundef 3, i32 noundef 0, i32 noundef %10) #12
+  %11 = tail call ptr @__ext4_journal_start_sb(ptr noundef null, ptr noundef %0, i32 noundef 1779, i32 noundef 7, i32 noundef 3, i32 noundef 0, i32 noundef %10) #13
   %12 = icmp ugt ptr %11, inttoptr (i64 -4096 to ptr)
   br i1 %12, label %13, label %16
 
 13:                                               ; preds = %3
   %14 = ptrtoint ptr %11 to i64
   %15 = trunc i64 %14 to i32
-  tail call void (ptr, ptr, i32, ptr, ...) @__ext4_warning(ptr noundef %0, ptr noundef nonnull @__func__.ext4_group_extend_no_check, i32 noundef 1782, ptr noundef nonnull @.str.51, i32 noundef %15) #12
+  tail call void (ptr, ptr, i32, ptr, ...) @__ext4_warning(ptr noundef %0, ptr noundef nonnull @__func__.ext4_group_extend_no_check, i32 noundef 1782, ptr noundef nonnull @.str.51, i32 noundef %15) #13
   br label %108
 
 16:                                               ; preds = %3
   %17 = load ptr, ptr %4, align 8
   %18 = getelementptr inbounds i8, ptr %17, i64 96
   %19 = load ptr, ptr %18, align 32
-  %20 = tail call i32 @__ext4_journal_get_write_access(ptr noundef nonnull @__func__.ext4_group_extend_no_check, i32 noundef 1788, ptr noundef %11, ptr noundef %0, ptr noundef %19, i32 noundef 1) #12
+  %20 = tail call i32 @__ext4_journal_get_write_access(ptr noundef nonnull @__func__.ext4_group_extend_no_check, i32 noundef 1788, ptr noundef %11, ptr noundef %0, ptr noundef %19, i32 noundef 1) #13
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %23, label %22
 
 22:                                               ; preds = %16
-  tail call void (ptr, ptr, i32, ptr, ...) @__ext4_warning(ptr noundef %0, ptr noundef nonnull @__func__.ext4_group_extend_no_check, i32 noundef 1790, ptr noundef nonnull @.str.52, i32 noundef %20) #12
+  tail call void (ptr, ptr, i32, ptr, ...) @__ext4_warning(ptr noundef %0, ptr noundef nonnull @__func__.ext4_group_extend_no_check, i32 noundef 1790, ptr noundef nonnull @.str.52, i32 noundef %20) #13
   br label %70
 
 23:                                               ; preds = %16
   %24 = load ptr, ptr %4, align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 96
   %26 = load ptr, ptr %25, align 32
-  %27 = tail call i32 @__SCT__might_resched() #12
-  %28 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %26, i64 2, ptr elementtype(i64) %26) #12, !srcloc !5
+  %27 = tail call i32 @__SCT__might_resched() #13
+  %28 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %26, i64 2, ptr elementtype(i64) %26) #13, !srcloc !5
   %29 = icmp ult i8 %28, 2
   tail call void @llvm.assume(i1 %29)
   %30 = icmp eq i8 %28, 0
   br i1 %30, label %32, label %31
 
 31:                                               ; preds = %23
-  tail call void @__lock_buffer(ptr noundef %26) #12
+  tail call void @__lock_buffer(ptr noundef %26) #13
   br label %32
 
 32:                                               ; preds = %31, %23
@@ -2697,12 +2697,12 @@ define internal fastcc i32 @ext4_group_extend_no_check(ptr noundef %0, i64 nound
   %58 = trunc nuw i64 %57 to i32
   %59 = getelementptr inbounds i8, ptr %7, i64 344
   store i32 %58, ptr %59, align 8
-  tail call void @ext4_superblock_csum_set(ptr noundef %0) #12
+  tail call void @ext4_superblock_csum_set(ptr noundef %0) #13
   %60 = load ptr, ptr %4, align 8
   %61 = getelementptr inbounds i8, ptr %60, i64 96
   %62 = load ptr, ptr %61, align 32
-  tail call void @unlock_buffer(ptr noundef %62) #12
-  %63 = tail call i32 @ext4_group_add_blocks(ptr noundef %11, ptr noundef %0, i64 noundef %1, i64 noundef %33) #12
+  tail call void @unlock_buffer(ptr noundef %62) #13
+  %63 = tail call i32 @ext4_group_add_blocks(ptr noundef %11, ptr noundef %0, i64 noundef %1, i64 noundef %33) #13
   %64 = icmp eq i32 %63, 0
   br i1 %64, label %65, label %70
 
@@ -2710,12 +2710,12 @@ define internal fastcc i32 @ext4_group_extend_no_check(ptr noundef %0, i64 nound
   %66 = load ptr, ptr %4, align 8
   %67 = getelementptr inbounds i8, ptr %66, i64 96
   %68 = load ptr, ptr %67, align 32
-  %69 = tail call i32 @__ext4_handle_dirty_metadata(ptr noundef nonnull @__func__.ext4_group_extend_no_check, i32 noundef 1805, ptr noundef %11, ptr noundef null, ptr noundef %68) #12
+  %69 = tail call i32 @__ext4_handle_dirty_metadata(ptr noundef nonnull @__func__.ext4_group_extend_no_check, i32 noundef 1805, ptr noundef %11, ptr noundef null, ptr noundef %68) #13
   br label %70
 
 70:                                               ; preds = %65, %49, %22
   %71 = phi i32 [ %20, %22 ], [ %63, %49 ], [ 0, %65 ]
-  %72 = tail call i32 @__ext4_journal_stop(ptr noundef nonnull @__func__.ext4_group_extend_no_check, i32 noundef 1809, ptr noundef %11) #12
+  %72 = tail call i32 @__ext4_journal_stop(ptr noundef nonnull @__func__.ext4_group_extend_no_check, i32 noundef 1809, ptr noundef %11) #13
   %73 = icmp eq i32 %72, 0
   %74 = icmp ne i32 %71, 0
   %75 = or i1 %74, %73
@@ -2751,7 +2751,7 @@ define internal fastcc i32 @ext4_group_extend_no_check(ptr noundef %0, i64 nound
   %97 = load i32, ptr %96, align 4
   %98 = zext i32 %97 to i64
   %99 = or disjoint i64 %95, %98
-  %100 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.53, i64 noundef %99) #13
+  %100 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.53, i64 noundef %99) #14
   %.pre = load ptr, ptr %4, align 8
   br label %101
 
@@ -2781,20 +2781,20 @@ define dso_local i32 @ext4_resize_fs(ptr noundef %0, i64 noundef %1) local_unnam
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 104
   %11 = load ptr, ptr %10, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #13
   store i32 0, ptr %6, align 4, !annotation !11
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #12
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #13
   store i32 0, ptr %7, align 4, !annotation !11
   %12 = getelementptr inbounds i8, ptr %9, i64 1180
   %13 = load i32, ptr %12, align 4
   %14 = shl nuw i32 1, %13
   %15 = add i64 %1, -1
-  %16 = tail call ptr @ext4_sb_bread(ptr noundef %0, i64 noundef %15, i32 noundef 0) #12
+  %16 = tail call ptr @ext4_sb_bread(ptr noundef %0, i64 noundef %15, i32 noundef 0) #13
   %17 = icmp ugt ptr %16, inttoptr (i64 -4096 to ptr)
   br i1 %17, label %18, label %19
 
 18:                                               ; preds = %2
-  tail call void (ptr, ptr, i32, ptr, ...) @__ext4_warning(ptr noundef %0, ptr noundef nonnull @__func__.ext4_resize_fs, i32 noundef 2017, ptr noundef nonnull @.str.16) #12
+  tail call void (ptr, ptr, i32, ptr, ...) @__ext4_warning(ptr noundef %0, ptr noundef nonnull @__func__.ext4_resize_fs, i32 noundef 2017, ptr noundef nonnull @.str.16) #13
   br label %.loopexit97
 
 19:                                               ; preds = %2
@@ -2802,7 +2802,7 @@ define dso_local i32 @ext4_resize_fs(ptr noundef %0, i64 noundef %1) local_unnam
   br i1 %20, label %22, label %21
 
 21:                                               ; preds = %19
-  tail call void @__brelse(ptr noundef nonnull %16) #12
+  tail call void @__brelse(ptr noundef nonnull %16) #13
   br label %22
 
 22:                                               ; preds = %21, %19
@@ -2864,12 +2864,12 @@ define dso_local i32 @ext4_resize_fs(ptr noundef %0, i64 noundef %1) local_unnam
   %66 = load i32, ptr %39, align 4
   %67 = zext i32 %66 to i64
   %68 = or disjoint i64 %65, %67
-  call void (ptr, ptr, ptr, ...) @__ext4_msg(ptr noundef %0, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18, i64 noundef %68, i64 noundef %56) #12
+  call void (ptr, ptr, ptr, ...) @__ext4_msg(ptr noundef %0, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18, i64 noundef %68, i64 noundef %56) #13
   %69 = icmp ult i64 %56, %68
   br i1 %69, label %70, label %71
 
 70:                                               ; preds = %64
-  call void (ptr, ptr, i32, ptr, ...) @__ext4_warning(ptr noundef %0, ptr noundef nonnull @__func__.ext4_resize_fs, i32 noundef 2040, ptr noundef nonnull @.str.13) #12
+  call void (ptr, ptr, i32, ptr, ...) @__ext4_warning(ptr noundef %0, ptr noundef nonnull @__func__.ext4_resize_fs, i32 noundef 2040, ptr noundef nonnull @.str.13) #13
   br label %.loopexit97
 
 71:                                               ; preds = %64
@@ -2878,7 +2878,7 @@ define dso_local i32 @ext4_resize_fs(ptr noundef %0, i64 noundef %1) local_unnam
 
 73:                                               ; preds = %71
   %74 = add i64 %56, -1
-  %75 = call i32 @ext4_get_group_number(ptr noundef %0, i64 noundef %74) #12
+  %75 = call i32 @ext4_get_group_number(ptr noundef %0, i64 noundef %74) #13
   %76 = zext i32 %75 to i64
   %77 = load ptr, ptr %8, align 8
   %78 = getelementptr inbounds i8, ptr %77, i64 32
@@ -2888,12 +2888,12 @@ define dso_local i32 @ext4_resize_fs(ptr noundef %0, i64 noundef %1) local_unnam
   br i1 %81, label %83, label %82
 
 82:                                               ; preds = %73
-  call void (ptr, ptr, i32, ptr, ...) @__ext4_warning(ptr noundef %0, ptr noundef nonnull @__func__.ext4_resize_fs, i32 noundef 2050, ptr noundef nonnull @.str.19) #12
+  call void (ptr, ptr, i32, ptr, ...) @__ext4_warning(ptr noundef %0, ptr noundef nonnull @__func__.ext4_resize_fs, i32 noundef 2050, ptr noundef nonnull @.str.19) #13
   br label %.loopexit97
 
 83:                                               ; preds = %73
   %84 = add i64 %68, -1
-  call void @ext4_get_group_no_and_offset(ptr noundef %0, i64 noundef %84, ptr noundef nonnull %7, ptr noundef nonnull %6) #12
+  call void @ext4_get_group_no_and_offset(ptr noundef %0, i64 noundef %84, ptr noundef nonnull %7, ptr noundef nonnull %6) #13
   %85 = add i32 %75, 1
   %86 = zext i32 %85 to i64
   %87 = load ptr, ptr %8, align 8
@@ -2926,7 +2926,7 @@ define dso_local i32 @ext4_resize_fs(ptr noundef %0, i64 noundef %1) local_unnam
   br i1 %106, label %113, label %112
 
 112:                                              ; preds = %111
-  call void (ptr, ptr, i32, i1, i32, i64, ptr, ...) @__ext4_error(ptr noundef %0, ptr noundef nonnull @__func__.ext4_resize_fs, i32 noundef 2063, i1 noundef zeroext false, i32 noundef 0, i64 noundef 0, ptr noundef nonnull @.str.20) #12
+  call void (ptr, ptr, i32, i1, i32, i64, ptr, ...) @__ext4_error(ptr noundef %0, ptr noundef nonnull @__func__.ext4_resize_fs, i32 noundef 2063, i1 noundef zeroext false, i32 noundef 0, i64 noundef 0, ptr noundef nonnull @.str.20) #13
   br label %.loopexit97
 
 113:                                              ; preds = %111
@@ -2953,7 +2953,7 @@ define dso_local i32 @ext4_resize_fs(ptr noundef %0, i64 noundef %1) local_unnam
   %130 = phi i64 [ %127, %118 ], [ %56, %113 ]
   %131 = phi i32 [ %128, %118 ], [ %75, %113 ]
   %132 = phi i64 [ %56, %118 ], [ 0, %113 ]
-  %133 = call ptr @__ext4_iget(ptr noundef %0, i64 noundef 7, i32 noundef 1, ptr noundef nonnull @__func__.ext4_resize_fs, i32 noundef 2080) #12
+  %133 = call ptr @__ext4_iget(ptr noundef %0, i64 noundef 7, i32 noundef 1, ptr noundef nonnull @__func__.ext4_resize_fs, i32 noundef 2080) #13
   %134 = icmp ugt ptr %133, inttoptr (i64 -4096 to ptr)
   br i1 %134, label %135, label %._crit_edge411
 
@@ -2962,7 +2962,7 @@ define dso_local i32 @ext4_resize_fs(ptr noundef %0, i64 noundef %1) local_unnam
   br label %138
 
 135:                                              ; preds = %129
-  call void (ptr, ptr, i32, ptr, ...) @__ext4_warning(ptr noundef %0, ptr noundef nonnull @__func__.ext4_resize_fs, i32 noundef 2082, ptr noundef nonnull @.str.9) #12
+  call void (ptr, ptr, i32, ptr, ...) @__ext4_warning(ptr noundef %0, ptr noundef nonnull @__func__.ext4_resize_fs, i32 noundef 2082, ptr noundef nonnull @.str.9) #13
   %136 = ptrtoint ptr %133 to i64
   %137 = trunc i64 %136 to i32
   br label %.loopexit97
@@ -2983,7 +2983,7 @@ define dso_local i32 @ext4_resize_fs(ptr noundef %0, i64 noundef %1) local_unnam
   %148 = getelementptr inbounds i8, ptr %.pre397, i64 104
   %149 = load ptr, ptr %148, align 8
   %150 = getelementptr i8, ptr %140, i64 -296
-  call void (ptr, ptr, ptr, ...) @__ext4_msg(ptr noundef %0, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.54) #12
+  call void (ptr, ptr, ptr, ...) @__ext4_msg(ptr noundef %0, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.54) #13
   br i1 %143, label %.loopexit95, label %151
 
 151:                                              ; preds = %147
@@ -2993,7 +2993,7 @@ define dso_local i32 @ext4_resize_fs(ptr noundef %0, i64 noundef %1) local_unnam
   br i1 %154, label %155, label %.thread75.thread
 
 .thread75.thread:                                 ; preds = %151
-  call void (ptr, ptr, i32, i1, i32, i64, ptr, ...) @__ext4_error(ptr noundef %0, ptr noundef nonnull @__func__.ext4_convert_meta_bg, i32 noundef 1922, i1 noundef zeroext false, i32 noundef 0, i64 noundef 0, ptr noundef nonnull @.str.55) #12
+  call void (ptr, ptr, i32, i1, i32, i64, ptr, ...) @__ext4_error(ptr noundef %0, ptr noundef nonnull @__func__.ext4_convert_meta_bg, i32 noundef 1922, i1 noundef zeroext false, i32 noundef 0, i64 noundef 0, ptr noundef nonnull @.str.55) #13
   br label %865
 
 155:                                              ; preds = %151
@@ -3042,7 +3042,7 @@ define dso_local i32 @ext4_resize_fs(ptr noundef %0, i64 noundef %1) local_unnam
   %185 = getelementptr inbounds i8, ptr %184, i64 80
   %186 = load i32, ptr %185, align 16
   %187 = shl i32 %186, 3
-  %188 = call ptr @__ext4_journal_start_sb(ptr noundef null, ptr noundef %0, i32 noundef 1943, i32 noundef 7, i32 noundef %183, i32 noundef 0, i32 noundef %187) #12
+  %188 = call ptr @__ext4_journal_start_sb(ptr noundef null, ptr noundef %0, i32 noundef 1943, i32 noundef 7, i32 noundef %183, i32 noundef 0, i32 noundef %187) #13
   %189 = icmp ugt ptr %188, inttoptr (i64 -4096 to ptr)
   br i1 %189, label %190, label %193
 
@@ -3054,21 +3054,21 @@ define dso_local i32 @ext4_resize_fs(ptr noundef %0, i64 noundef %1) local_unnam
 193:                                              ; preds = %.loopexit95
   %194 = getelementptr inbounds i8, ptr %.pre397, i64 96
   %195 = load ptr, ptr %194, align 32
-  %196 = call i32 @__ext4_journal_get_write_access(ptr noundef nonnull @__func__.ext4_convert_meta_bg, i32 noundef 1949, ptr noundef %188, ptr noundef %0, ptr noundef %195, i32 noundef 1) #12
+  %196 = call i32 @__ext4_journal_get_write_access(ptr noundef nonnull @__func__.ext4_convert_meta_bg, i32 noundef 1949, ptr noundef %188, ptr noundef %0, ptr noundef %195, i32 noundef 1) #13
   %197 = icmp eq i32 %196, 0
   br i1 %197, label %198, label %.thread
 
 198:                                              ; preds = %193
   %199 = load ptr, ptr %194, align 32
-  %200 = call i32 @__SCT__might_resched() #12
-  %201 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %199, i64 2, ptr elementtype(i64) %199) #12, !srcloc !5
+  %200 = call i32 @__SCT__might_resched() #13
+  %201 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %199, i64 2, ptr elementtype(i64) %199) #13, !srcloc !5
   %202 = icmp ult i8 %201, 2
   call void @llvm.assume(i1 %202)
   %203 = icmp eq i8 %201, 0
   br i1 %203, label %205, label %204
 
 204:                                              ; preds = %198
-  call void @__lock_buffer(ptr noundef %199) #12
+  call void @__lock_buffer(ptr noundef %199) #13
   br label %205
 
 205:                                              ; preds = %204, %198
@@ -3079,7 +3079,7 @@ define dso_local i32 @ext4_resize_fs(ptr noundef %0, i64 noundef %1) local_unnam
   %210 = load i32, ptr %209, align 4
   %211 = and i32 %210, -17
   store i32 %211, ptr %209, align 4
-  call void @ext4_update_dynamic_rev(ptr noundef %0) #12
+  call void @ext4_update_dynamic_rev(ptr noundef %0) #13
   %212 = load ptr, ptr %8, align 8
   %213 = getelementptr inbounds i8, ptr %212, i64 104
   %214 = load ptr, ptr %213, align 8
@@ -3100,16 +3100,16 @@ define dso_local i32 @ext4_resize_fs(ptr noundef %0, i64 noundef %1) local_unnam
   %228 = load ptr, ptr %148, align 8
   %229 = getelementptr inbounds i8, ptr %228, i64 260
   store i32 %227, ptr %229, align 4
-  call void @ext4_superblock_csum_set(ptr noundef %0) #12
+  call void @ext4_superblock_csum_set(ptr noundef %0) #13
   %230 = load ptr, ptr %194, align 32
-  call void @unlock_buffer(ptr noundef %230) #12
+  call void @unlock_buffer(ptr noundef %230) #13
   %231 = load ptr, ptr %194, align 32
-  %232 = call i32 @__ext4_handle_dirty_metadata(ptr noundef nonnull @__func__.ext4_convert_meta_bg, i32 noundef 1961, ptr noundef %188, ptr noundef null, ptr noundef %231) #12
+  %232 = call i32 @__ext4_handle_dirty_metadata(ptr noundef nonnull @__func__.ext4_convert_meta_bg, i32 noundef 1961, ptr noundef %188, ptr noundef null, ptr noundef %231) #13
   %233 = icmp eq i32 %232, 0
   br i1 %233, label %235, label %234
 
 234:                                              ; preds = %205
-  call void @__ext4_std_error(ptr noundef %0, ptr noundef nonnull @__func__.ext4_convert_meta_bg, i32 noundef 1963, i32 noundef %232) #12
+  call void @__ext4_std_error(ptr noundef %0, ptr noundef nonnull @__func__.ext4_convert_meta_bg, i32 noundef 1963, i32 noundef %232) #13
   br label %.thread
 
 235:                                              ; preds = %205
@@ -3119,29 +3119,29 @@ define dso_local i32 @ext4_resize_fs(ptr noundef %0, i64 noundef %1) local_unnam
   %237 = getelementptr i8, ptr %140, i64 -244
   %238 = load i32, ptr %237, align 4
   %239 = zext i32 %238 to i64
-  call void @ext4_free_blocks(ptr noundef %188, ptr noundef nonnull %140, ptr noundef null, i64 noundef %239, i64 noundef 1, i32 noundef 3) #12
+  call void @ext4_free_blocks(ptr noundef %188, ptr noundef nonnull %140, ptr noundef null, i64 noundef %239, i64 noundef 1, i32 noundef 3) #13
   store i32 0, ptr %237, align 4
   %240 = getelementptr inbounds i8, ptr %140, i64 144
   store i64 0, ptr %240, align 8
-  %241 = call i32 @__ext4_mark_inode_dirty(ptr noundef %188, ptr noundef nonnull %140, ptr noundef nonnull @__func__.ext4_convert_meta_bg, i32 noundef 1975) #12
+  %241 = call i32 @__ext4_mark_inode_dirty(ptr noundef %188, ptr noundef nonnull %140, ptr noundef nonnull @__func__.ext4_convert_meta_bg, i32 noundef 1975) #13
   %242 = icmp eq i32 %241, 0
   br i1 %242, label %245, label %243
 
 243:                                              ; preds = %236
-  call void @__ext4_std_error(ptr noundef %0, ptr noundef nonnull @__func__.ext4_convert_meta_bg, i32 noundef 1977, i32 noundef %241) #12
+  call void @__ext4_std_error(ptr noundef %0, ptr noundef nonnull @__func__.ext4_convert_meta_bg, i32 noundef 1977, i32 noundef %241) #13
   br label %.thread
 
 .thread:                                          ; preds = %193, %234, %243
   %.ph = phi i32 [ %241, %243 ], [ %232, %234 ], [ %196, %193 ]
-  %244 = call i32 @__ext4_journal_stop(ptr noundef nonnull @__func__.ext4_convert_meta_bg, i32 noundef 1981, ptr noundef %188) #12
+  %244 = call i32 @__ext4_journal_stop(ptr noundef nonnull @__func__.ext4_convert_meta_bg, i32 noundef 1981, ptr noundef %188) #13
   br label %.thread75
 
 245:                                              ; preds = %235, %236
-  %246 = call i32 @__ext4_journal_stop(ptr noundef nonnull @__func__.ext4_convert_meta_bg, i32 noundef 1981, ptr noundef %188) #12
+  %246 = call i32 @__ext4_journal_stop(ptr noundef nonnull @__func__.ext4_convert_meta_bg, i32 noundef 1981, ptr noundef %188) #13
   br label %247
 
 .loopexit94:                                      ; preds = %155, %176, %173
-  call void (ptr, ptr, i32, i1, i32, i64, ptr, ...) @__ext4_error(ptr noundef %0, ptr noundef nonnull @__func__.ext4_convert_meta_bg, i32 noundef 1985, i1 noundef zeroext false, i32 noundef 0, i64 noundef 0, ptr noundef nonnull @.str.56) #12
+  call void (ptr, ptr, i32, i1, i32, i64, ptr, ...) @__ext4_error(ptr noundef %0, ptr noundef nonnull @__func__.ext4_convert_meta_bg, i32 noundef 1985, i1 noundef zeroext false, i32 noundef 0, i64 noundef 0, ptr noundef nonnull @.str.56) #13
   br label %.thread75
 
 247:                                              ; preds = %245, %190
@@ -3153,7 +3153,7 @@ define dso_local i32 @ext4_resize_fs(ptr noundef %0, i64 noundef %1) local_unnam
   br i1 %143, label %252, label %251
 
 251:                                              ; preds = %250
-  call void @iput(ptr noundef nonnull %140) #12
+  call void @iput(ptr noundef nonnull %140) #13
   br label %252
 
 252:                                              ; preds = %251, %250
@@ -3176,8 +3176,8 @@ define dso_local i32 @ext4_resize_fs(ptr noundef %0, i64 noundef %1) local_unnam
   %263 = getelementptr inbounds i8, ptr %262, i64 20
   %264 = load i32, ptr %263, align 4
   %265 = zext i32 %264 to i64
-  %266 = call i64 @ext4_bg_num_gdb(ptr noundef %0, i32 noundef %141) #12
-  %267 = call i32 @ext4_bg_has_super(ptr noundef %0, i32 noundef %141) #12
+  %266 = call i64 @ext4_bg_num_gdb(ptr noundef %0, i32 noundef %141) #13
+  %267 = call i32 @ext4_bg_has_super(ptr noundef %0, i32 noundef %141) #13
   %268 = icmp eq i32 %267, 0
   br i1 %268, label %278, label %269
 
@@ -3228,7 +3228,7 @@ define dso_local i32 @ext4_resize_fs(ptr noundef %0, i64 noundef %1) local_unnam
 .loopexit99:                                      ; preds = %291, %855
   %303 = phi i64 [ %142, %855 ], [ %301, %291 ]
   %304 = phi i64 [ %854, %855 ], [ %54, %291 ]
-  call void @iput(ptr noundef nonnull %256) #12
+  call void @iput(ptr noundef nonnull %256) #13
   br label %.backedge783
 
 305:                                              ; preds = %278
@@ -3288,19 +3288,19 @@ define dso_local i32 @ext4_resize_fs(ptr noundef %0, i64 noundef %1) local_unnam
 
 344:                                              ; preds = %336
   %345 = add i32 %141, 1
-  %346 = call i32 @ext4_alloc_flex_bg_array(ptr noundef %0, i32 noundef %345) #12
+  %346 = call i32 @ext4_alloc_flex_bg_array(ptr noundef %0, i32 noundef %345) #13
   %347 = icmp eq i32 %346, 0
   br i1 %347, label %348, label %.thread75
 
 348:                                              ; preds = %344
-  %349 = call i32 @ext4_mb_alloc_groupinfo(ptr noundef %0, i32 noundef %345) #12
+  %349 = call i32 @ext4_mb_alloc_groupinfo(ptr noundef %0, i32 noundef %345) #13
   %350 = icmp eq i32 %349, 0
   br i1 %350, label %351, label %.thread75
 
 351:                                              ; preds = %348
   %352 = load i32, ptr %7, align 4
   %353 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
-  %354 = call noalias align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %353, i32 noundef 3136, i64 noundef 24) #11
+  %354 = call noalias align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %353, i32 noundef 3136, i64 noundef 24) #12
   %355 = icmp eq ptr %354, null
   br i1 %355, label %.thread75, label %356
 
@@ -3313,7 +3313,7 @@ define dso_local i32 @ext4_resize_fs(ptr noundef %0, i64 noundef %1) local_unnam
 
 360:                                              ; preds = %356
   %361 = sub i32 %345, %352
-  %362 = call i32 asm "bsrl $1,$0", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i32 %361, i32 -1) #15, !srcloc !41
+  %362 = call i32 asm "bsrl $1,$0", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i32 %361, i32 -1) #16, !srcloc !41
   %363 = add i32 %362, 1
   br label %374
 
@@ -3325,9 +3325,9 @@ define dso_local i32 @ext4_resize_fs(ptr noundef %0, i64 noundef %1) local_unnam
 367:                                              ; preds = %364
   %reass.sub = sub i32 %358, %352
   %368 = add i32 %reass.sub, 1
-  %369 = call i32 asm "bsrl $1,$0", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i32 %368, i32 -1) #15, !srcloc !41
+  %369 = call i32 asm "bsrl $1,$0", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i32 %368, i32 -1) #16, !srcloc !41
   %370 = add i32 %369, 1
-  %371 = call i32 asm "bsrl $1,$0", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i32 %365, i32 -1) #15, !srcloc !41
+  %371 = call i32 asm "bsrl $1,$0", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i32 %365, i32 -1) #16, !srcloc !41
   %372 = add i32 %371, 1
   %373 = call i32 @llvm.smax.i32(i32 %370, i32 %372)
   br label %374
@@ -3342,7 +3342,7 @@ define dso_local i32 @ext4_resize_fs(ptr noundef %0, i64 noundef %1) local_unnam
   %378 = phi i32 [ %376, %374 ], [ %50, %364 ]
   %379 = zext i32 %378 to i64
   %380 = mul nuw nsw i64 %379, 48
-  %381 = call noalias align 8 ptr @__kmalloc(i64 noundef %380, i32 noundef 3136) #14
+  %381 = call noalias align 8 ptr @__kmalloc(i64 noundef %380, i32 noundef 3136) #15
   store ptr %381, ptr %354, align 8
   %382 = icmp eq ptr %381, null
   br i1 %382, label %.loopexit102, label %383
@@ -3351,7 +3351,7 @@ define dso_local i32 @ext4_resize_fs(ptr noundef %0, i64 noundef %1) local_unnam
   %384 = load i32, ptr %357, align 8
   %385 = zext i32 %384 to i64
   %386 = shl nuw nsw i64 %385, 1
-  %387 = call noalias align 8 ptr @__kmalloc(i64 noundef %386, i32 noundef 3136) #14
+  %387 = call noalias align 8 ptr @__kmalloc(i64 noundef %386, i32 noundef 3136) #15
   %388 = getelementptr inbounds i8, ptr %354, i64 8
   store ptr %387, ptr %388, align 8
   %389 = icmp eq ptr %387, null
@@ -3359,11 +3359,11 @@ define dso_local i32 @ext4_resize_fs(ptr noundef %0, i64 noundef %1) local_unnam
 
 390:                                              ; preds = %383
   %391 = load ptr, ptr %354, align 8
-  call void @kfree(ptr noundef %391) #12
+  call void @kfree(ptr noundef %391) #13
   br label %.loopexit102
 
 .loopexit102:                                     ; preds = %377, %390
-  call void @kfree(ptr noundef nonnull %354) #12
+  call void @kfree(ptr noundef nonnull %354) #13
   br label %.thread75
 
 392:                                              ; preds = %383
@@ -3377,11 +3377,11 @@ define dso_local i32 @ext4_resize_fs(ptr noundef %0, i64 noundef %1) local_unnam
   %398 = getelementptr inbounds i8, ptr %397, i64 104
   %399 = load ptr, ptr %398, align 8
   %400 = load ptr, ptr %354, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #13
   store i32 0, ptr %3, align 4, !annotation !11
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #13
   store i32 0, ptr %4, align 4, !annotation !11
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #13
   store i32 0, ptr %5, align 4, !annotation !11
   %401 = getelementptr inbounds i8, ptr %397, i64 24
   %402 = load i64, ptr %401, align 8
@@ -3409,18 +3409,18 @@ define dso_local i32 @ext4_resize_fs(ptr noundef %0, i64 noundef %1) local_unnam
   br i1 %419, label %853, label %420
 
 420:                                              ; preds = %413
-  call void @ext4_get_group_no_and_offset(ptr noundef %0, i64 noundef %418, ptr noundef nonnull %4, ptr noundef nonnull %5) #12
+  call void @ext4_get_group_no_and_offset(ptr noundef %0, i64 noundef %418, ptr noundef nonnull %4, ptr noundef nonnull %5) #13
   %421 = load i32, ptr %5, align 4
   %422 = icmp eq i32 %421, 0
   br i1 %422, label %424, label %423, !prof !15
 
 423:                                              ; preds = %420
-  call void asm sideeffect "496: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 496b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 496) #12, !srcloc !42
-  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.42, i32 1647, i32 0, i64 12) #12, !srcloc !43
+  call void asm sideeffect "496: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 496b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 496) #13, !srcloc !42
+  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.42, i32 1647, i32 0, i64 12) #13, !srcloc !43
   unreachable
 
 424:                                              ; preds = %420
-  call void @ext4_get_group_no_and_offset(ptr noundef %0, i64 noundef %393, ptr noundef nonnull %3, ptr noundef nonnull %5) #12
+  call void @ext4_get_group_no_and_offset(ptr noundef %0, i64 noundef %393, ptr noundef nonnull %3, ptr noundef nonnull %5) #13
   %425 = load i32, ptr %4, align 4
   %426 = load i32, ptr %357, align 8
   %427 = add i32 %426, -1
@@ -3448,9 +3448,9 @@ define dso_local i32 @ext4_resize_fs(ptr noundef %0, i64 noundef %1) local_unnam
   store i32 %442, ptr %443, align 8
   %444 = load i32, ptr %4, align 4
   %445 = add i32 %444, %436
-  %446 = call i64 @ext4_bg_num_gdb(ptr noundef %0, i32 noundef %445) #12
+  %446 = call i64 @ext4_bg_num_gdb(ptr noundef %0, i32 noundef %445) #13
   %447 = trunc i64 %446 to i16
-  %448 = call i32 @ext4_bg_has_super(ptr noundef %0, i32 noundef %445) #12
+  %448 = call i32 @ext4_bg_has_super(ptr noundef %0, i32 noundef %445) #13
   %449 = icmp eq i32 %448, 0
   br i1 %449, label %458, label %450
 
@@ -3500,9 +3500,9 @@ define dso_local i32 @ext4_resize_fs(ptr noundef %0, i64 noundef %1) local_unnam
   br i1 %481, label %482, label %483, !prof !12
 
 482:                                              ; preds = %478
-  call void asm sideeffect "459: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 459b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 459) #12, !srcloc !35
-  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.48, i32 3269, i32 2307, i64 12) #12, !srcloc !36
-  call void asm sideeffect "460: nop\0A\09.pushsection .discard.instr_end\0A\09.long 460b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 460) #12, !srcloc !37
+  call void asm sideeffect "459: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 459b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 459) #13, !srcloc !35
+  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.48, i32 3269, i32 2307, i64 12) #13, !srcloc !36
+  call void asm sideeffect "460: nop\0A\09.pushsection .discard.instr_end\0A\09.long 460b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 460) #13, !srcloc !37
   %.pre398 = load ptr, ptr %8, align 8
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre398, i64 104
   %.pre399 = load ptr, ptr %.phi.trans.insert, align 8
@@ -3591,9 +3591,9 @@ define dso_local i32 @ext4_resize_fs(ptr noundef %0, i64 noundef %1) local_unnam
   br i1 %530, label %531, label %.thread416, !prof !12
 
 531:                                              ; preds = %527
-  call void asm sideeffect "459: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 459b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 459) #12, !srcloc !35
-  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.48, i32 3269, i32 2307, i64 12) #12, !srcloc !36
-  call void asm sideeffect "460: nop\0A\09.pushsection .discard.instr_end\0A\09.long 460b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 460) #12, !srcloc !37
+  call void asm sideeffect "459: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 459b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 459) #13, !srcloc !35
+  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.48, i32 3269, i32 2307, i64 12) #13, !srcloc !36
+  call void asm sideeffect "460: nop\0A\09.pushsection .discard.instr_end\0A\09.long 460b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 460) #13, !srcloc !37
   %.pre403 = load ptr, ptr %8, align 8
   %.phi.trans.insert404 = getelementptr inbounds i8, ptr %.pre403, i64 104
   %.pre405 = load ptr, ptr %.phi.trans.insert404, align 8
@@ -3648,9 +3648,9 @@ define dso_local i32 @ext4_resize_fs(ptr noundef %0, i64 noundef %1) local_unnam
   br label %561
 
 561:                                              ; preds = %549, %545, %.thread414
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #13
   %562 = add i64 %396, 10000
   %563 = load volatile i64, ptr @jiffies, align 64
   %564 = sub i64 %562, %563
@@ -3678,7 +3678,7 @@ define dso_local i32 @ext4_resize_fs(ptr noundef %0, i64 noundef %1) local_unnam
   %578 = load i32, ptr %39, align 4
   %579 = zext i32 %578 to i64
   %580 = or disjoint i64 %577, %579
-  call void (ptr, ptr, ptr, ...) @__ext4_msg(ptr noundef %0, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.21, i64 noundef %580) #12
+  call void (ptr, ptr, ptr, ...) @__ext4_msg(ptr noundef %0, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.21, i64 noundef %580) #13
   br label %581
 
 581:                                              ; preds = %576, %566
@@ -3695,8 +3695,8 @@ define dso_local i32 @ext4_resize_fs(ptr noundef %0, i64 noundef %1) local_unnam
   br i1 %589, label %590, label %591, !prof !12
 
 590:                                              ; preds = %583
-  call void asm sideeffect "466: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 466b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 466) #12, !srcloc !45
-  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.42, i32 319, i32 0, i64 12) #12, !srcloc !46
+  call void asm sideeffect "466: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 466b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 466) #13, !srcloc !45
+  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.42, i32 319, i32 0, i64 12) #13, !srcloc !46
   unreachable
 
 591:                                              ; preds = %583
@@ -3715,8 +3715,8 @@ define dso_local i32 @ext4_resize_fs(ptr noundef %0, i64 noundef %1) local_unnam
   br i1 %600, label %.preheader89, label %.loopexit83
 
 601:                                              ; preds = %591
-  call void asm sideeffect "467: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 467b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 467) #12, !srcloc !47
-  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.42, i32 325, i32 0, i64 12) #12, !srcloc !48
+  call void asm sideeffect "467: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 467b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 467) #13, !srcloc !47
+  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.42, i32 325, i32 0, i64 12) #13, !srcloc !48
   unreachable
 
 ._crit_edge770:                                   ; preds = %765
@@ -3791,8 +3791,8 @@ define dso_local i32 @ext4_resize_fs(ptr noundef %0, i64 noundef %1) local_unnam
   %645 = load i32, ptr %644, align 8
   %646 = zext i32 %645 to i64
   %647 = add i64 %641, %646
-  %648 = call i64 @ext4_bg_num_gdb(ptr noundef %0, i32 noundef %630) #12
-  %649 = call i32 @ext4_bg_has_super(ptr noundef %0, i32 noundef %630) #12
+  %648 = call i64 @ext4_bg_num_gdb(ptr noundef %0, i32 noundef %630) #13
+  %649 = call i32 @ext4_bg_has_super(ptr noundef %0, i32 noundef %630) #13
   %650 = icmp eq i32 %649, 0
   br i1 %650, label %660, label %651
 
@@ -3818,9 +3818,9 @@ define dso_local i32 @ext4_resize_fs(ptr noundef %0, i64 noundef %1) local_unnam
 .preheader:                                       ; preds = %660, %683
   %665 = phi i32 [ %690, %683 ], [ %664, %660 ]
   %666 = phi i64 [ %689, %683 ], [ %647, %660 ]
-  %667 = call i64 @ext4_bg_num_gdb(ptr noundef %0, i32 noundef %665) #12
+  %667 = call i64 @ext4_bg_num_gdb(ptr noundef %0, i32 noundef %665) #13
   %668 = trunc i64 %667 to i32
-  %669 = call i32 @ext4_bg_has_super(ptr noundef %0, i32 noundef %665) #12
+  %669 = call i32 @ext4_bg_has_super(ptr noundef %0, i32 noundef %665) #13
   %670 = icmp eq i32 %669, 0
   br i1 %670, label %680, label %671
 
@@ -3895,7 +3895,7 @@ define dso_local i32 @ext4_resize_fs(ptr noundef %0, i64 noundef %1) local_unnam
   %713 = add nuw i64 %711, 1
   %714 = getelementptr %struct.ext4_new_group_data, ptr %585, i64 %712, i32 1
   store i64 %711, ptr %714, align 8
-  %715 = call i32 @ext4_get_group_number(ptr noundef %0, i64 noundef %711) #12
+  %715 = call i32 @ext4_get_group_number(ptr noundef %0, i64 noundef %711) #13
   %716 = load i32, ptr %585, align 8
   %717 = sub i32 %715, %716
   %718 = zext i32 %717 to i64
@@ -3948,7 +3948,7 @@ define dso_local i32 @ext4_resize_fs(ptr noundef %0, i64 noundef %1) local_unnam
   %746 = add nuw i64 %744, 1
   %747 = getelementptr %struct.ext4_new_group_data, ptr %585, i64 %745, i32 2
   store i64 %744, ptr %747, align 8
-  %748 = call i32 @ext4_get_group_number(ptr noundef %0, i64 noundef %744) #12
+  %748 = call i32 @ext4_get_group_number(ptr noundef %0, i64 noundef %744) #13
   %749 = load i32, ptr %585, align 8
   %750 = sub i32 %748, %749
   %751 = zext i32 %750 to i64
@@ -3990,7 +3990,7 @@ define dso_local i32 @ext4_resize_fs(ptr noundef %0, i64 noundef %1) local_unnam
   %777 = trunc i64 %.in to i16
   %778 = getelementptr %struct.ext4_new_group_data, ptr %585, i64 %776, i32 3
   store i64 %775, ptr %778, align 8
-  %779 = call i32 @ext4_get_group_number(ptr noundef %0, i64 noundef %775) #12
+  %779 = call i32 @ext4_get_group_number(ptr noundef %0, i64 noundef %775) #13
   %780 = add i32 %779, 1
   %781 = zext i32 %780 to i64
   %782 = load ptr, ptr %8, align 8
@@ -4077,7 +4077,7 @@ define dso_local i32 @ext4_resize_fs(ptr noundef %0, i64 noundef %1) local_unnam
   br i1 %847, label %850, label %848
 
 848:                                              ; preds = %.loopexit88
-  %849 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.57, i32 noundef %842, i32 noundef %14) #13
+  %849 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.57, i32 noundef %842, i32 noundef %14) #14
   br label %850
 
 850:                                              ; preds = %848, %.loopexit88
@@ -4086,9 +4086,9 @@ define dso_local i32 @ext4_resize_fs(ptr noundef %0, i64 noundef %1) local_unnam
   br i1 %852, label %395, label %.thread71, !prof !15, !llvm.loop !54
 
 853:                                              ; preds = %413
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #13
   br label %.loopexit83
 
 .loopexit83:                                      ; preds = %598, %603, %618, %623, %853
@@ -4097,10 +4097,10 @@ define dso_local i32 @ext4_resize_fs(ptr noundef %0, i64 noundef %1) local_unnam
 
 855:                                              ; preds = %.loopexit83
   %856 = load ptr, ptr %388, align 8
-  call void @kfree(ptr noundef %856) #12
+  call void @kfree(ptr noundef %856) #13
   %857 = load ptr, ptr %354, align 8
-  call void @kfree(ptr noundef %857) #12
-  call void @kfree(ptr noundef nonnull %354) #12
+  call void @kfree(ptr noundef %857) #13
+  call void @kfree(ptr noundef nonnull %354) #13
   %858 = icmp eq ptr %256, null
   br i1 %858, label %.backedge783, label %.loopexit99
 
@@ -4112,10 +4112,10 @@ define dso_local i32 @ext4_resize_fs(ptr noundef %0, i64 noundef %1) local_unnam
 .thread71:                                        ; preds = %.loopexit83, %850
   %859 = phi i32 [ %851, %850 ], [ 0, %.loopexit83 ]
   %860 = load ptr, ptr %388, align 8
-  call void @kfree(ptr noundef %860) #12
+  call void @kfree(ptr noundef %860) #13
   %861 = load ptr, ptr %354, align 8
-  call void @kfree(ptr noundef %861) #12
-  call void @kfree(ptr noundef nonnull %354) #12
+  call void @kfree(ptr noundef %861) #13
+  call void @kfree(ptr noundef nonnull %354) #13
   br label %.thread75
 
 .thread75:                                        ; preds = %351, %325, %336, %344, %348, %247, %.loopexit102, %.thread, %.loopexit94, %.thread71
@@ -4127,7 +4127,7 @@ define dso_local i32 @ext4_resize_fs(ptr noundef %0, i64 noundef %1) local_unnam
 865:                                              ; preds = %.thread75.thread, %.thread75
   %866 = phi ptr [ %140, %.thread75.thread ], [ %863, %.thread75 ]
   %867 = phi i32 [ -1, %.thread75.thread ], [ %862, %.thread75 ]
-  call void @iput(ptr noundef nonnull %866) #12
+  call void @iput(ptr noundef nonnull %866) #13
   br label %868
 
 868:                                              ; preds = %865, %.thread75
@@ -4136,7 +4136,7 @@ define dso_local i32 @ext4_resize_fs(ptr noundef %0, i64 noundef %1) local_unnam
   br i1 %870, label %872, label %871
 
 871:                                              ; preds = %868
-  call void (ptr, ptr, i32, ptr, ...) @__ext4_warning(ptr noundef %0, ptr noundef nonnull @__func__.ext4_resize_fs, i32 noundef 2187, ptr noundef nonnull @.str.22, i32 noundef %869) #12
+  call void (ptr, ptr, i32, ptr, ...) @__ext4_warning(ptr noundef %0, ptr noundef nonnull @__func__.ext4_resize_fs, i32 noundef 2187, ptr noundef nonnull @.str.22, i32 noundef %869) #13
   br label %872
 
 872:                                              ; preds = %871, %868
@@ -4156,13 +4156,13 @@ define dso_local i32 @ext4_resize_fs(ptr noundef %0, i64 noundef %1) local_unnam
   %882 = load i32, ptr %39, align 4
   %883 = zext i32 %882 to i64
   %884 = or disjoint i64 %881, %883
-  call void (ptr, ptr, ptr, ...) @__ext4_msg(ptr noundef %0, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.23, i64 noundef %884) #12
+  call void (ptr, ptr, ptr, ...) @__ext4_msg(ptr noundef %0, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.23, i64 noundef %884) #13
   br label %.loopexit97
 
 .loopexit97:                                      ; preds = %71, %880, %135, %112, %82, %70, %18
   %885 = phi i32 [ -28, %18 ], [ -22, %70 ], [ -22, %82 ], [ -22, %112 ], [ %137, %135 ], [ %869, %880 ], [ 0, %71 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #13
   ret i32 %885
 }
 
@@ -4210,8 +4210,8 @@ define internal fastcc void @ext4_update_super(ptr noundef %0, ptr nocapture nou
   br label %17
 
 16:                                               ; preds = %2
-  tail call void asm sideeffect "486: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 486b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 486) #12, !srcloc !55
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.42, i32 1429, i32 0, i64 12) #12, !srcloc !56
+  tail call void asm sideeffect "486: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 486b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 486) #13, !srcloc !55
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.42, i32 1429, i32 0, i64 12) #13, !srcloc !56
   unreachable
 
 17:                                               ; preds = %17, %13
@@ -4275,15 +4275,15 @@ define internal fastcc void @ext4_update_super(ptr noundef %0, ptr nocapture nou
   %65 = udiv i64 %64, 100
   %66 = getelementptr inbounds i8, ptr %5, i64 96
   %67 = load ptr, ptr %66, align 32
-  %68 = tail call i32 @__SCT__might_resched() #12
-  %69 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %67, i64 2, ptr elementtype(i64) %67) #12, !srcloc !5
+  %68 = tail call i32 @__SCT__might_resched() #13
+  %69 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %67, i64 2, ptr elementtype(i64) %67) #13, !srcloc !5
   %70 = icmp ult i8 %69, 2
   tail call void @llvm.assume(i1 %70)
   %71 = icmp eq i8 %69, 0
   br i1 %71, label %73, label %72
 
 72:                                               ; preds = %55
-  tail call void @__lock_buffer(ptr noundef %67) #12
+  tail call void @__lock_buffer(ptr noundef %67) #13
   br label %73
 
 73:                                               ; preds = %72, %55
@@ -4356,7 +4356,7 @@ define internal fastcc void @ext4_update_super(ptr noundef %0, ptr nocapture nou
   %127 = load i32, ptr %120, align 4
   %128 = add i32 %127, %126
   store i32 %128, ptr %120, align 4
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !58
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !58
   %129 = load i32, ptr %8, align 4
   %130 = getelementptr inbounds i8, ptr %5, i64 64
   %131 = load i32, ptr %130, align 64
@@ -4404,7 +4404,7 @@ define internal fastcc void @ext4_update_super(ptr noundef %0, ptr nocapture nou
   %165 = zext nneg i32 %164 to i64
   %166 = lshr i64 %163, %165
   %167 = load i32, ptr @percpu_counter_batch, align 4
-  tail call void @percpu_counter_add_batch(ptr noundef %158, i64 noundef %166, i32 noundef %167) #12
+  tail call void @percpu_counter_add_batch(ptr noundef %158, i64 noundef %166, i32 noundef %167) #13
   %168 = getelementptr inbounds i8, ptr %5, i64 264
   %169 = load ptr, ptr %4, align 8
   %170 = getelementptr inbounds i8, ptr %169, i64 32
@@ -4413,7 +4413,7 @@ define internal fastcc void @ext4_update_super(ptr noundef %0, ptr nocapture nou
   %173 = zext i32 %172 to i64
   %174 = mul i64 %171, %173
   %175 = load i32, ptr @percpu_counter_batch, align 4
-  tail call void @percpu_counter_add_batch(ptr noundef %168, i64 noundef %174, i32 noundef %175) #12
+  tail call void @percpu_counter_add_batch(ptr noundef %168, i64 noundef %174, i32 noundef %175) #13
   %176 = load ptr, ptr %4, align 8
   %177 = getelementptr inbounds i8, ptr %176, i64 104
   %178 = load ptr, ptr %177, align 8
@@ -4432,20 +4432,20 @@ define internal fastcc void @ext4_update_super(ptr noundef %0, ptr nocapture nou
 187:                                              ; preds = %183
   %188 = load i32, ptr %3, align 8
   %189 = lshr i32 %188, %185
-  tail call void @__rcu_read_lock() #12
+  tail call void @__rcu_read_lock() #13
   %190 = getelementptr inbounds i8, ptr %5, i64 1184
   %191 = load volatile ptr, ptr %190, align 32
   %192 = zext nneg i32 %189 to i64
   %193 = getelementptr ptr, ptr %191, i64 %192
   %194 = load ptr, ptr %193, align 8
-  tail call void @__rcu_read_unlock() #12
+  tail call void @__rcu_read_unlock() #13
   %195 = load i32, ptr %159, align 16
   %196 = zext i32 %195 to i64
   %197 = add i64 %162, %196
   %198 = load i32, ptr %14, align 4
   %199 = zext nneg i32 %198 to i64
   %200 = lshr i64 %197, %199
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; addq $1,$0", "=*m,er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %194, i64 %200, ptr elementtype(i64) %194) #12, !srcloc !59
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; addq $1,$0", "=*m,er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %194, i64 %200, ptr elementtype(i64) %194) #13, !srcloc !59
   %201 = load ptr, ptr %4, align 8
   %202 = getelementptr inbounds i8, ptr %201, i64 32
   %203 = load i64, ptr %202, align 32
@@ -4453,7 +4453,7 @@ define internal fastcc void @ext4_update_super(ptr noundef %0, ptr nocapture nou
   %205 = trunc i64 %203 to i32
   %206 = mul i32 %204, %205
   %207 = getelementptr inbounds i8, ptr %194, i64 8
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; addl $1,$0", "=*m,ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %207, i32 %206, ptr elementtype(i32) %207) #12, !srcloc !60
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; addl $1,$0", "=*m,ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %207, i32 %206, ptr elementtype(i32) %207) #13, !srcloc !60
   %.pre = load ptr, ptr %4, align 8
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 104
   %.pre5 = load ptr, ptr %.phi.trans.insert, align 8
@@ -4490,11 +4490,11 @@ define internal fastcc void @ext4_update_super(ptr noundef %0, ptr nocapture nou
   %231 = trunc i64 %230 to i32
   %232 = getelementptr inbounds i8, ptr %209, i64 584
   store i32 %231, ptr %232, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !61
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !61
   br label %235
 
 233:                                              ; preds = %215, %208
-  %234 = tail call i32 @ext4_calculate_overhead(ptr noundef %0) #12
+  %234 = tail call i32 @ext4_calculate_overhead(ptr noundef %0) #13
   br label %235
 
 235:                                              ; preds = %233, %219
@@ -4503,9 +4503,9 @@ define internal fastcc void @ext4_update_super(ptr noundef %0, ptr nocapture nou
   %238 = trunc i64 %237 to i32
   %239 = getelementptr inbounds i8, ptr %7, i64 584
   store i32 %238, ptr %239, align 8
-  tail call void @ext4_superblock_csum_set(ptr noundef %0) #12
+  tail call void @ext4_superblock_csum_set(ptr noundef %0) #13
   %240 = load ptr, ptr %66, align 32
-  tail call void @unlock_buffer(ptr noundef %240) #12
+  tail call void @unlock_buffer(ptr noundef %240) #13
   %241 = load ptr, ptr %4, align 8
   %242 = getelementptr inbounds i8, ptr %241, i64 120
   %243 = load i32, ptr %242, align 8
@@ -4515,7 +4515,7 @@ define internal fastcc void @ext4_update_super(ptr noundef %0, ptr nocapture nou
 
 246:                                              ; preds = %235
   %247 = load i32, ptr %8, align 4
-  %248 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.49, i32 noundef %247, i64 noundef %26, i64 noundef %31, i64 noundef %65) #13
+  %248 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.49, i32 noundef %247, i64 noundef %26, i64 noundef %31, i64 noundef %65) #14
   br label %249
 
 249:                                              ; preds = %246, %235
@@ -4542,7 +4542,7 @@ define internal fastcc void @update_backups(ptr noundef %0, i64 noundef %1, ptr 
   %15 = getelementptr inbounds i8, ptr %7, i64 80
   %16 = load i32, ptr %15, align 16
   %17 = shl i32 %16, 3
-  %18 = tail call ptr @__ext4_journal_start_sb(ptr noundef null, ptr noundef %0, i32 noundef 1153, i32 noundef 7, i32 noundef 64, i32 noundef 0, i32 noundef %17) #12
+  %18 = tail call ptr @__ext4_journal_start_sb(ptr noundef null, ptr noundef %0, i32 noundef 1153, i32 noundef 7, i32 noundef 64, i32 noundef 0, i32 noundef %17) #13
   %19 = icmp ugt ptr %18, inttoptr (i64 -4096 to ptr)
   br i1 %19, label %20, label %23
 
@@ -4602,7 +4602,7 @@ define internal fastcc void @update_backups(ptr noundef %0, i64 noundef %1, ptr 
   br label %65
 
 56:                                               ; preds = %23
-  %57 = tail call i32 @ext4_get_group_number(ptr noundef %0, i64 noundef %1) #12
+  %57 = tail call i32 @ext4_get_group_number(ptr noundef %0, i64 noundef %1) #13
   %58 = add i32 %57, 1
   %59 = load ptr, ptr %6, align 8
   %60 = getelementptr inbounds i8, ptr %59, i64 56
@@ -4646,7 +4646,7 @@ define internal fastcc void @update_backups(ptr noundef %0, i64 noundef %1, ptr 
   %87 = phi i32 [ 7, %72 ], [ %80, %.thread ]
   %88 = phi i32 [ 5, %72 ], [ %81, %.thread ]
   %89 = phi i32 [ %67, %72 ], [ %82, %.thread ]
-  %90 = tail call i32 @ext4_bg_has_super(ptr noundef %0, i32 noundef %86) #12
+  %90 = tail call i32 @ext4_bg_has_super(ptr noundef %0, i32 noundef %86) #13
   %91 = zext i32 %86 to i64
   %92 = load ptr, ptr %6, align 8
   %93 = getelementptr inbounds i8, ptr %92, i64 16
@@ -4658,7 +4658,7 @@ define internal fastcc void @update_backups(ptr noundef %0, i64 noundef %1, ptr 
   %99 = load i32, ptr %98, align 4
   %100 = zext i32 %99 to i64
   %101 = add i64 %95, %100
-  %102 = tail call i32 @__ext4_journal_ensure_credits(ptr noundef %18, i32 noundef 1, i32 noundef 64, i32 noundef 0) #12
+  %102 = tail call i32 @__ext4_journal_ensure_credits(ptr noundef %18, i32 noundef 1, i32 noundef 64, i32 noundef 0) #13
   %103 = icmp slt i32 %102, 1
   br i1 %103, label %110, label %104
 
@@ -4666,7 +4666,7 @@ define internal fastcc void @update_backups(ptr noundef %0, i64 noundef %1, ptr 
   br i1 %73, label %107, label %105
 
 105:                                              ; preds = %104
-  %106 = tail call i32 @jbd2__journal_restart(ptr noundef %18, i32 noundef 64, i32 noundef 0, i32 noundef 3136) #12
+  %106 = tail call i32 @jbd2__journal_restart(ptr noundef %18, i32 noundef 64, i32 noundef 0, i32 noundef 3136) #13
   br label %107
 
 107:                                              ; preds = %105, %104
@@ -4705,29 +4705,29 @@ define internal fastcc void @update_backups(ptr noundef %0, i64 noundef %1, ptr 
   %130 = load i32, ptr %129, align 8
   %131 = and i32 %130, -32905
   %132 = or disjoint i32 %131, 32776
-  %133 = tail call ptr @bdev_getblk(ptr noundef %122, i64 noundef %121, i32 noundef %124, i32 noundef %132) #12
+  %133 = tail call ptr @bdev_getblk(ptr noundef %122, i64 noundef %121, i32 noundef %124, i32 noundef %132) #13
   %134 = icmp eq ptr %133, null
   br i1 %134, label %.thread22, label %135, !prof !12
 
 135:                                              ; preds = %120
-  %136 = tail call i32 @__ext4_journal_get_write_access(ptr noundef nonnull @__func__.update_backups, i32 noundef 1194, ptr noundef %18, ptr noundef %0, ptr noundef nonnull %133, i32 noundef 1) #12
+  %136 = tail call i32 @__ext4_journal_get_write_access(ptr noundef nonnull @__func__.update_backups, i32 noundef 1194, ptr noundef %18, ptr noundef %0, ptr noundef nonnull %133, i32 noundef 1) #13
   %137 = icmp eq i32 %136, 0
   br i1 %137, label %139, label %138
 
 138:                                              ; preds = %135
-  tail call void @__brelse(ptr noundef nonnull %133) #12
+  tail call void @__brelse(ptr noundef nonnull %133) #13
   br label %.thread22
 
 139:                                              ; preds = %135
-  %140 = tail call i32 @__SCT__might_resched() #12
-  %141 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %133, i64 2, ptr nonnull elementtype(i64) %133) #12, !srcloc !5
+  %140 = tail call i32 @__SCT__might_resched() #13
+  %141 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %133, i64 2, ptr nonnull elementtype(i64) %133) #13, !srcloc !5
   %142 = icmp ult i8 %141, 2
   tail call void @llvm.assume(i1 %142)
   %143 = icmp eq i8 %141, 0
   br i1 %143, label %145, label %144
 
 144:                                              ; preds = %139
-  tail call void @__lock_buffer(ptr noundef nonnull %133) #12
+  tail call void @__lock_buffer(ptr noundef nonnull %133) #13
   br label %145
 
 145:                                              ; preds = %144, %139
@@ -4769,9 +4769,9 @@ define internal fastcc void @update_backups(ptr noundef %0, i64 noundef %1, ptr 
   br i1 %169, label %170, label %.thread65, !prof !12
 
 170:                                              ; preds = %166
-  tail call void asm sideeffect "459: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 459b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 459) #12, !srcloc !35
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.48, i32 3269, i32 2307, i64 12) #12, !srcloc !36
-  tail call void asm sideeffect "460: nop\0A\09.pushsection .discard.instr_end\0A\09.long 460b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 460) #12, !srcloc !37
+  tail call void asm sideeffect "459: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 459b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 459) #13, !srcloc !35
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.48, i32 3269, i32 2307, i64 12) #13, !srcloc !36
+  tail call void asm sideeffect "460: nop\0A\09.pushsection .discard.instr_end\0A\09.long 460b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 460) #13, !srcloc !37
   %.pre57 = load ptr, ptr %6, align 8
   %.phi.trans.insert58 = getelementptr inbounds i8, ptr %.pre57, i64 104
   %.pre59 = load ptr, ptr %.phi.trans.insert58, align 8
@@ -4789,7 +4789,7 @@ define internal fastcc void @update_backups(ptr noundef %0, i64 noundef %1, ptr 
   br i1 %175, label %.thread63, label %176
 
 176:                                              ; preds = %.thread65
-  %177 = tail call i32 @ext4_superblock_csum(ptr noundef %0, ptr noundef %156) #12
+  %177 = tail call i32 @ext4_superblock_csum(ptr noundef %0, ptr noundef %156) #13
   %178 = getelementptr inbounds i8, ptr %156, i64 1020
   store i32 %177, ptr %178, align 4
   br label %.thread63
@@ -4801,21 +4801,21 @@ define internal fastcc void @update_backups(ptr noundef %0, i64 noundef %1, ptr 
   br i1 %181, label %182, label %183
 
 182:                                              ; preds = %.thread63
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %133, i32 1, ptr nonnull elementtype(i8) %133) #12, !srcloc !21
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %133, i32 1, ptr nonnull elementtype(i8) %133) #13, !srcloc !21
   br label %183
 
 183:                                              ; preds = %182, %.thread63
-  tail call void @unlock_buffer(ptr noundef nonnull %133) #12
-  %184 = tail call i32 @__ext4_handle_dirty_metadata(ptr noundef nonnull @__func__.update_backups, i32 noundef 1206, ptr noundef %18, ptr noundef null, ptr noundef nonnull %133) #12
+  tail call void @unlock_buffer(ptr noundef nonnull %133) #13
+  %184 = tail call i32 @__ext4_handle_dirty_metadata(ptr noundef nonnull @__func__.update_backups, i32 noundef 1206, ptr noundef %18, ptr noundef null, ptr noundef nonnull %133) #13
   %185 = icmp eq i32 %184, 0
   br i1 %185, label %187, label %186, !prof !15
 
 186:                                              ; preds = %183
-  tail call void @__ext4_std_error(ptr noundef %0, ptr noundef nonnull @__func__.update_backups, i32 noundef 1208, i32 noundef %184) #12
+  tail call void @__ext4_std_error(ptr noundef %0, ptr noundef nonnull @__func__.update_backups, i32 noundef 1208, i32 noundef %184) #13
   br label %187
 
 187:                                              ; preds = %186, %183
-  tail call void @__brelse(ptr noundef nonnull %133) #12
+  tail call void @__brelse(ptr noundef nonnull %133) #13
   br i1 %24, label %188, label %235
 
 188:                                              ; preds = %187
@@ -4890,7 +4890,7 @@ define internal fastcc void @update_backups(ptr noundef %0, i64 noundef %1, ptr 
 .thread22:                                        ; preds = %196, %120, %110, %235, %.thread, %203, %138, %65
   %236 = phi i32 [ %69, %65 ], [ %86, %138 ], [ -1, %203 ], [ -1, %196 ], [ %86, %120 ], [ %86, %110 ], [ %79, %.thread ], [ %68, %235 ]
   %237 = phi i32 [ 0, %65 ], [ %136, %138 ], [ %184, %203 ], [ %184, %196 ], [ -12, %120 ], [ %111, %110 ], [ %184, %.thread ], [ %184, %235 ]
-  %238 = tail call i32 @__ext4_journal_stop(ptr noundef nonnull @__func__.update_backups, i32 noundef 1218, ptr noundef %18) #12
+  %238 = tail call i32 @__ext4_journal_stop(ptr noundef nonnull @__func__.update_backups, i32 noundef 1218, ptr noundef %18) #13
   %239 = icmp eq i32 %238, 0
   %240 = icmp ne i32 %237, 0
   %241 = or i1 %240, %239
@@ -4904,7 +4904,7 @@ define internal fastcc void @update_backups(ptr noundef %0, i64 noundef %1, ptr 
   br i1 %246, label %258, label %247
 
 247:                                              ; preds = %243
-  tail call void (ptr, ptr, i32, ptr, ...) @__ext4_warning(ptr noundef %0, ptr noundef nonnull @__func__.update_backups, i32 noundef 1234, ptr noundef nonnull @.str.50, i32 noundef %244, i32 noundef %245) #12
+  tail call void (ptr, ptr, i32, ptr, ...) @__ext4_warning(ptr noundef %0, ptr noundef nonnull @__func__.update_backups, i32 noundef 1234, ptr noundef nonnull @.str.50, i32 noundef %244, i32 noundef %245) #13
   %248 = getelementptr inbounds i8, ptr %7, i64 168
   %249 = load i16, ptr %248, align 8
   %250 = and i16 %249, -2
@@ -4917,7 +4917,7 @@ define internal fastcc void @update_backups(ptr noundef %0, i64 noundef %1, ptr 
   store i16 %255, ptr %253, align 2
   %256 = getelementptr inbounds i8, ptr %7, i64 96
   %257 = load ptr, ptr %256, align 32
-  tail call void @mark_buffer_dirty(ptr noundef %257) #12
+  tail call void @mark_buffer_dirty(ptr noundef %257) #13
   br label %258
 
 258:                                              ; preds = %247, %243
@@ -4961,7 +4961,7 @@ define internal fastcc i32 @set_flexbg_block_bitmap(ptr noundef %0, ptr noundef 
   %22 = load i32, ptr %13, align 4
   %23 = zext nneg i32 %22 to i64
   %24 = shl i64 %20, %23
-  %25 = tail call i32 @ext4_get_group_number(ptr noundef %0, i64 noundef %24) #12
+  %25 = tail call i32 @ext4_get_group_number(ptr noundef %0, i64 noundef %24) #13
   %26 = zext i32 %25 to i64
   %27 = load ptr, ptr %6, align 8
   %28 = getelementptr inbounds i8, ptr %27, i64 16
@@ -4999,12 +4999,12 @@ define internal fastcc i32 @set_flexbg_block_bitmap(ptr noundef %0, ptr noundef 
   br i1 %57, label %58, label %.thread7, !prof !12
 
 58:                                               ; preds = %55
-  tail call void asm sideeffect "468: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 468b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 468) #12, !srcloc !62
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.42, i32 483, i32 0, i64 12) #12, !srcloc !63
+  tail call void asm sideeffect "468: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 468b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 468) #13, !srcloc !62
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.42, i32 483, i32 0, i64 12) #13, !srcloc !63
   unreachable
 
 59:                                               ; preds = %19
-  %60 = tail call i32 @__ext4_journal_ensure_credits(ptr noundef %1, i32 noundef 1, i32 noundef 64, i32 noundef 0) #12
+  %60 = tail call i32 @__ext4_journal_ensure_credits(ptr noundef %1, i32 noundef 1, i32 noundef 64, i32 noundef 0) #13
   %61 = icmp slt i32 %60, 1
   br i1 %61, label %68, label %62
 
@@ -5012,7 +5012,7 @@ define internal fastcc i32 @set_flexbg_block_bitmap(ptr noundef %0, ptr noundef 
   br i1 %16, label %65, label %63
 
 63:                                               ; preds = %62
-  %64 = tail call i32 @jbd2__journal_restart(ptr noundef %1, i32 noundef 64, i32 noundef 0, i32 noundef 3136) #12
+  %64 = tail call i32 @jbd2__journal_restart(ptr noundef %1, i32 noundef 64, i32 noundef 0, i32 noundef 3136) #13
   br label %65
 
 65:                                               ; preds = %63, %62
@@ -5040,26 +5040,26 @@ define internal fastcc i32 @set_flexbg_block_bitmap(ptr noundef %0, ptr noundef 
   %83 = load i32, ptr %82, align 8
   %84 = and i32 %83, -32905
   %85 = or disjoint i32 %84, 32776
-  %86 = tail call ptr @bdev_getblk(ptr noundef %75, i64 noundef %74, i32 noundef %77, i32 noundef %85) #12
+  %86 = tail call ptr @bdev_getblk(ptr noundef %75, i64 noundef %74, i32 noundef %77, i32 noundef %85) #13
   %87 = icmp eq ptr %86, null
   br i1 %87, label %.thread, label %88, !prof !12
 
 88:                                               ; preds = %71
-  %89 = tail call i32 @__ext4_journal_get_write_access(ptr noundef nonnull @__func__.set_flexbg_block_bitmap, i32 noundef 497, ptr noundef %1, ptr noundef %0, ptr noundef nonnull %86, i32 noundef 1) #12
+  %89 = tail call i32 @__ext4_journal_get_write_access(ptr noundef nonnull @__func__.set_flexbg_block_bitmap, i32 noundef 497, ptr noundef %1, ptr noundef %0, ptr noundef nonnull %86, i32 noundef 1) #13
   %90 = icmp eq i32 %89, 0
   br i1 %90, label %92, label %91
 
 91:                                               ; preds = %88
-  tail call void @__brelse(ptr noundef nonnull %86) #12
+  tail call void @__brelse(ptr noundef nonnull %86) #13
   br label %.thread
 
 92:                                               ; preds = %88
   %93 = getelementptr inbounds i8, ptr %86, i64 40
   %94 = load ptr, ptr %93, align 8
   %95 = trunc i64 %45 to i32
-  tail call void @mb_set_bits(ptr noundef %94, i32 noundef %95, i32 noundef %48) #12
-  %96 = tail call i32 @__ext4_handle_dirty_metadata(ptr noundef nonnull @__func__.set_flexbg_block_bitmap, i32 noundef 506, ptr noundef %1, ptr noundef null, ptr noundef nonnull %86) #12
-  tail call void @__brelse(ptr noundef nonnull %86) #12
+  tail call void @mb_set_bits(ptr noundef %94, i32 noundef %95, i32 noundef %48) #13
+  %96 = tail call i32 @__ext4_handle_dirty_metadata(ptr noundef nonnull @__func__.set_flexbg_block_bitmap, i32 noundef 506, ptr noundef %1, ptr noundef null, ptr noundef nonnull %86) #13
+  tail call void @__brelse(ptr noundef nonnull %86) #13
   %.not = icmp eq i32 %96, 0
   br i1 %.not, label %.thread7, label %.thread
 
@@ -5110,8 +5110,7 @@ define internal fastcc i32 @verify_reserved_gdb(ptr noundef %0, i32 noundef %1, 
   br i1 %17, label %.split.us.split.us.preheader, label %.split.us.split
 
 .split.us.split.us.preheader:                     ; preds = %.split.us
-  %umax = tail call i32 @llvm.umax.i32(i32 %1, i32 1)
-  %18 = add i32 %umax, -1
+  %18 = tail call i32 @llvm.usub.sat.i32(i32 %1, i32 1)
   br label %.split.us.split.us
 
 .split.us.split.us:                               ; preds = %.split.us.split.us.preheader, %31
@@ -5226,7 +5225,7 @@ define internal fastcc i32 @verify_reserved_gdb(ptr noundef %0, i32 noundef %1, 
 .split11.us:                                      ; preds = %92, %56, %23
   %.us-phi12 = phi i64 [ %29, %23 ], [ %62, %56 ], [ %98, %92 ]
   %.us-phi13 = phi i32 [ %19, %23 ], [ %48, %56 ], [ %86, %92 ]
-  tail call void (ptr, ptr, i32, ptr, ...) @__ext4_warning(ptr noundef %0, ptr noundef nonnull @__func__.verify_reserved_gdb, i32 noundef 795, ptr noundef nonnull @.str.44, i64 noundef %.24.val, i32 noundef %.us-phi13, i64 noundef %.us-phi12) #12
+  tail call void (ptr, ptr, i32, ptr, ...) @__ext4_warning(ptr noundef %0, ptr noundef nonnull @__func__.verify_reserved_gdb, i32 noundef 795, ptr noundef nonnull @.str.44, i64 noundef %.24.val, i32 noundef %.us-phi13, i64 noundef %.us-phi12) #13
   br label %.thread
 
 100:                                              ; preds = %92
@@ -5345,6 +5344,9 @@ declare i32 @llvm.umin.i32(i32, i32) #10
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #10
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.usub.sat.i32(i32, i32) #11
+
 attributes #0 = { fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
@@ -5356,11 +5358,12 @@ attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memo
 attributes #8 = { cold null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { nounwind allocsize(2) }
-attributes #12 = { nounwind }
-attributes #13 = { cold nounwind }
-attributes #14 = { nounwind allocsize(0) }
-attributes #15 = { nounwind memory(read) }
+attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { nounwind allocsize(2) }
+attributes #13 = { nounwind }
+attributes #14 = { cold nounwind }
+attributes #15 = { nounwind allocsize(0) }
+attributes #16 = { nounwind memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

@@ -4171,7 +4171,7 @@ _ZNSt8__detail8_AdaptorISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm256
   br i1 %172, label %19, label %173, !llvm.loop !53
 
 173:                                              ; preds = %_ZNSt8__detail8_AdaptorISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEdEclEv.exit26
-  %174 = tail call double @log(double noundef %169) #27
+  %174 = tail call double @llvm.log.f64(double %169)
   %175 = fmul double %174, -2.000000e+00
   %176 = fdiv double %175, %169
   %177 = tail call double @sqrt(double noundef %176) #27
@@ -4194,11 +4194,11 @@ _ZNSt8__detail8_AdaptorISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm256
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
 declare double @sqrt(double noundef) local_unnamed_addr #21
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @log(double noundef) local_unnamed_addr #21
-
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #22
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.log.f64(double) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #23

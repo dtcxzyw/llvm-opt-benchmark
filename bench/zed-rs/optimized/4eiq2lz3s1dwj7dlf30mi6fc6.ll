@@ -978,8 +978,8 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %.sroa.06.0.i.i = phi i64 [ 0, %7 ], [ %30, %28 ]
   %16 = getelementptr inbounds { i64, [34 x i64] }, ptr %0, i64 %.sroa.06.0.i.i
   %17 = load i64, ptr %16, align 8, !range !35, !noalias !36, !noundef !4
-  %switch4.i.i.i.i.i.i = icmp eq i64 %17, 2
-  br i1 %switch4.i.i.i.i.i.i, label %18, label %27
+  %switch.i.i.i.i.i.i = icmp eq i64 %17, 2
+  br i1 %switch.i.i.i.i.i.i, label %18, label %27
 
 18:                                               ; preds = %15
   call void @llvm.lifetime.start.p0(i64 280, ptr nonnull %4), !noalias !36
@@ -1884,8 +1884,8 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %.sroa.06.0.i = phi i64 [ 0, %7 ], [ %30, %28 ]
   %16 = getelementptr inbounds { i64, [34 x i64] }, ptr %0, i64 %.sroa.06.0.i
   %17 = load i64, ptr %16, align 8, !range !35, !noalias !204, !noundef !4
-  %switch4.i.i.i.i.i = icmp eq i64 %17, 2
-  br i1 %switch4.i.i.i.i.i, label %18, label %27
+  %switch.i.i.i.i.i = icmp eq i64 %17, 2
+  br i1 %switch.i.i.i.i.i, label %18, label %27
 
 18:                                               ; preds = %15
   call void @llvm.lifetime.start.p0(i64 280, ptr nonnull %4), !noalias !204
@@ -61166,8 +61166,8 @@ common.resume.i:                                  ; preds = %"_ZN63_$LT$alloc..a
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc void @"_ZN4core3ptr223drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$project..prettier_store..PrettierStore..update_prettier_settings..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17he0583d6ba5b889d5E"(ptr noundef nonnull align 8 %0) unnamed_addr #4 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !35, !noundef !4
-  %.not = icmp samesign ult i64 %2, 2
-  br i1 %.not, label %3, label %"_ZN4core3ptr172drop_in_place$LT$project..prettier_store..PrettierStore..update_prettier_settings..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h48f4212bc867c2ccE.exit"
+  %cond = icmp samesign ult i64 %2, 2
+  br i1 %cond, label %3, label %"_ZN4core3ptr172drop_in_place$LT$project..prettier_store..PrettierStore..update_prettier_settings..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h48f4212bc867c2ccE.exit"
 
 "_ZN4core3ptr172drop_in_place$LT$project..prettier_store..PrettierStore..update_prettier_settings..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h48f4212bc867c2ccE.exit": ; preds = %"_ZN4core3ptr211drop_in_place$LT$futures_util..future..future..shared..Shared$LT$gpui..executor..Task$LT$core..result..Result$LT$alloc..sync..Arc$LT$prettier..Prettier$GT$$C$alloc..sync..Arc$LT$anyhow..Error$GT$$GT$$GT$$GT$$GT$17h51d3bd8958ca1796E.exit.i", %"_ZN4core3ptr211drop_in_place$LT$futures_util..future..future..shared..Shared$LT$gpui..executor..Task$LT$core..result..Result$LT$alloc..sync..Arc$LT$prettier..Prettier$GT$$C$alloc..sync..Arc$LT$anyhow..Error$GT$$GT$$GT$$GT$$GT$17h51d3bd8958ca1796E.exit.i", %"_ZN4core3ptr239drop_in_place$LT$core..option..Option$LT$futures_util..future..future..shared..Shared$LT$gpui..executor..Task$LT$core..result..Result$LT$alloc..sync..Arc$LT$prettier..Prettier$GT$$C$alloc..sync..Arc$LT$anyhow..Error$GT$$GT$$GT$$GT$$GT$$GT$17h777862708f126cf7E.exit.i", %"_ZN4core3ptr239drop_in_place$LT$core..option..Option$LT$futures_util..future..future..shared..Shared$LT$gpui..executor..Task$LT$core..result..Result$LT$alloc..sync..Arc$LT$prettier..Prettier$GT$$C$alloc..sync..Arc$LT$anyhow..Error$GT$$GT$$GT$$GT$$GT$$GT$17h777862708f126cf7E.exit.i", %common.ret.sink.split.i, %3, %1
   ret void
@@ -119976,8 +119976,8 @@ define hidden void @"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$co
   tail call void @llvm.experimental.noalias.scope.decl(metadata !29231)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !29234)
   %19 = load i64, ptr %18, align 8, !range !35, !noalias !29237, !noundef !4
-  %switch4.i.i.i.i = icmp eq i64 %19, 2
-  br i1 %switch4.i.i.i.i, label %20, label %29
+  %switch.i.i.i.i = icmp eq i64 %19, 2
+  br i1 %switch.i.i.i.i, label %20, label %29
 
 20:                                               ; preds = %17
   call void @llvm.lifetime.start.p0(i64 280, ptr nonnull %4), !noalias !29237
@@ -155097,6 +155097,12 @@ declare hidden void @"_ZN102_$LT$futures_util..future..future..map..Map$LT$Fut$C
 declare i64 @llvm.umin.i64(i64, i64) #54
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #54
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.usub.sat.i64(i64, i64) #54
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fabs.f64(double) #54
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -155111,9 +155117,6 @@ declare i8 @llvm.scmp.i8.i32(i32, i32) #54
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #56
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #54
-
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #57
 
@@ -155122,9 +155125,6 @@ declare i64 @llvm.smax.i64(i64, i64) #54
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #54
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.usub.sat.i64(i64, i64) #54
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.umin.i8(i8, i8) #54

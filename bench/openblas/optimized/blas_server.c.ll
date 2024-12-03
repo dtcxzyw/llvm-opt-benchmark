@@ -854,46 +854,45 @@ define void @goto_set_num_threads(i32 noundef %0) local_unnamed_addr #0 {
   %9 = select i1 %7, i32 %8, i32 %0
   %10 = tail call i32 @llvm.smin.i32(i32 %9, i32 16)
   %11 = icmp sgt i32 %10, %8
-  br i1 %11, label %12, label %37
+  br i1 %11, label %12, label %36
 
 12:                                               ; preds = %6
   %13 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @server_lock) #11
   %14 = load i32, ptr @blas_num_threads, align 4
-  %15 = icmp sgt i32 %14, 0
-  %16 = add nsw i32 %14, -1
-  %17 = select i1 %15, i32 %16, i32 0
-  %18 = add nsw i32 %10, -1
-  %19 = sext i32 %18 to i64
-  %20 = icmp slt i32 %17, %18
-  br i1 %20, label %21, label %.loopexit
+  %15 = tail call i32 @llvm.smax.i32(i32 %14, i32 1)
+  %16 = add nsw i32 %10, -1
+  %17 = sext i32 %16 to i64
+  %18 = icmp slt i32 %15, %10
+  br i1 %18, label %19, label %.loopexit
 
-21:                                               ; preds = %12
-  %22 = sext i32 %17 to i64
-  br label %23
+19:                                               ; preds = %12
+  %20 = add nsw i32 %15, -1
+  %21 = zext nneg i32 %20 to i64
+  br label %22
 
-23:                                               ; preds = %23, %21
-  %24 = phi i64 [ %34, %23 ], [ %22, %21 ]
-  %25 = getelementptr inbounds [16 x %struct.thread_status_t], ptr @thread_status, i64 0, i64 %24
-  store atomic volatile i64 0, ptr %25 monotonic, align 128
-  %26 = getelementptr inbounds i8, ptr %25, i64 8
-  store volatile i64 4, ptr %26, align 8, !tbaa !9
-  %27 = getelementptr inbounds i8, ptr %25, i64 16
-  %28 = tail call i32 @pthread_mutex_init(ptr noundef nonnull %27, ptr noundef null) #11
-  %29 = getelementptr inbounds i8, ptr %25, i64 56
-  %30 = tail call i32 @pthread_cond_init(ptr noundef nonnull %29, ptr noundef null) #11
-  %31 = getelementptr inbounds [16 x i64], ptr @blas_threads, i64 0, i64 %24
-  %32 = inttoptr i64 %24 to ptr
-  %33 = tail call i32 @pthread_create(ptr noundef nonnull %31, ptr noundef null, ptr noundef nonnull @blas_thread_server, ptr noundef %32) #11
-  %34 = add nsw i64 %24, 1
-  %35 = icmp eq i64 %34, %19
-  br i1 %35, label %.loopexit, label %23, !llvm.loop !67
+22:                                               ; preds = %22, %19
+  %23 = phi i64 [ %33, %22 ], [ %21, %19 ]
+  %24 = getelementptr inbounds [16 x %struct.thread_status_t], ptr @thread_status, i64 0, i64 %23
+  store atomic volatile i64 0, ptr %24 monotonic, align 128
+  %25 = getelementptr inbounds i8, ptr %24, i64 8
+  store volatile i64 4, ptr %25, align 8, !tbaa !9
+  %26 = getelementptr inbounds i8, ptr %24, i64 16
+  %27 = tail call i32 @pthread_mutex_init(ptr noundef nonnull %26, ptr noundef null) #11
+  %28 = getelementptr inbounds i8, ptr %24, i64 56
+  %29 = tail call i32 @pthread_cond_init(ptr noundef nonnull %28, ptr noundef null) #11
+  %30 = getelementptr inbounds [16 x i64], ptr @blas_threads, i64 0, i64 %23
+  %31 = inttoptr i64 %23 to ptr
+  %32 = tail call i32 @pthread_create(ptr noundef nonnull %30, ptr noundef null, ptr noundef nonnull @blas_thread_server, ptr noundef %31) #11
+  %33 = add nuw nsw i64 %23, 1
+  %34 = icmp eq i64 %33, %17
+  br i1 %34, label %.loopexit, label %22, !llvm.loop !67
 
-.loopexit:                                        ; preds = %23, %12
+.loopexit:                                        ; preds = %22, %12
   store i32 %10, ptr @blas_num_threads, align 4, !tbaa !3
-  %36 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @server_lock) #11
-  br label %37
+  %35 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @server_lock) #11
+  br label %36
 
-37:                                               ; preds = %.loopexit, %6
+36:                                               ; preds = %.loopexit, %6
   store i32 %10, ptr @blas_cpu_number, align 4, !tbaa !3
   ret void
 }
@@ -1058,6 +1057,9 @@ declare ptr @blas_memory_alloc(i32 noundef) local_unnamed_addr #2
 declare i32 @pthread_cond_wait(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 declare void @blas_memory_free(ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #7

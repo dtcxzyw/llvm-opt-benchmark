@@ -1239,9 +1239,8 @@ if.end.i170:                                      ; preds = %invoke.cont73
   %sub.ptr.lhs.cast.i7.i = ptrtoint ptr %62 to i64
   %sub.ptr.rhs.cast.i8.i = ptrtoint ptr %61 to i64
   %sub.ptr.sub.i9.i = sub i64 %sub.ptr.lhs.cast.i7.i, %sub.ptr.rhs.cast.i8.i
-  %63 = ashr exact i64 %sub.ptr.sub.i9.i, 1
-  %.inv.i = icmp sgt i64 %sub.ptr.sub.i9.i, -1
-  %64 = select i1 %.inv.i, i64 %63, i64 -1
+  %63 = call i64 @llvm.smax.i64(i64 %sub.ptr.sub.i9.i, i64 -1)
+  %64 = ashr i64 %63, 1
   %call6.i174 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %64) #31
           to label %call6.i.noexc173 unwind label %lpad2.loopexit.split-lp
 
@@ -2642,9 +2641,8 @@ if.end:                                           ; preds = %entry
   %sub.ptr.lhs.cast.i7 = ptrtoint ptr %3 to i64
   %sub.ptr.rhs.cast.i8 = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i9 = sub i64 %sub.ptr.lhs.cast.i7, %sub.ptr.rhs.cast.i8
-  %4 = ashr exact i64 %sub.ptr.sub.i9, 1
-  %.inv = icmp sgt i64 %sub.ptr.sub.i9, -1
-  %5 = select i1 %.inv, i64 %4, i64 -1
+  %4 = tail call i64 @llvm.smax.i64(i64 %sub.ptr.sub.i9, i64 -1)
+  %5 = ashr i64 %4, 1
   %call6 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %5) #31
   %mMaterials = getelementptr inbounds i8, ptr %pScene, i64 40
   store ptr %call6, ptr %mMaterials, align 8

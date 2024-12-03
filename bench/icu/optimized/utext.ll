@@ -1815,9 +1815,8 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %if.then1, label %if.else14
 
 if.then1:                                         ; preds = %if.end
-  %cmp2 = icmp sgt i32 %extraSpace, 0
-  %1 = add nuw i32 %extraSpace, 144
-  %spec.select = select i1 %cmp2, i32 %1, i32 144
+  %1 = tail call i32 @llvm.smax.i32(i32 %extraSpace, i32 0)
+  %spec.select = add nuw i32 %1, 144
   %conv6 = sext i32 %spec.select to i64
   %call7 = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv6) #13
   %cmp8 = icmp eq ptr %call7, null
@@ -4024,9 +4023,8 @@ if.end18:                                         ; preds = %land.lhs.true9, %if
   %chunkNativeLimit20 = getelementptr inbounds i8, ptr %ut, i64 16
   %spec.select = tail call i64 @llvm.smin.i64(i64 %sub19, i64 %conv)
   store i64 %spec.select, ptr %chunkNativeLimit20, align 8
-  %sub29 = add nsw i64 %spec.select, -10
-  %cmp32 = icmp slt i64 %spec.select, 10
-  %spec.store.select = select i1 %cmp32, i64 0, i64 %sub29
+  %6 = tail call i64 @llvm.smax.i64(i64 %spec.select, i64 10)
+  %spec.store.select = add nsw i64 %6, -10
   store i64 %spec.store.select, ptr %chunkNativeStart37, align 8
   br label %if.end75
 
@@ -4036,8 +4034,8 @@ if.else:                                          ; preds = %entry
 
 land.lhs.true39:                                  ; preds = %if.else
   %chunkNativeLimit41 = getelementptr inbounds i8, ptr %ut, i64 16
-  %6 = load i64, ptr %chunkNativeLimit41, align 8
-  %cmp42.not = icmp slt i64 %6, %conv36
+  %7 = load i64, ptr %chunkNativeLimit41, align 8
+  %cmp42.not = icmp slt i64 %7, %conv36
   br i1 %cmp42.not, label %if.end48, label %if.then43
 
 if.then43:                                        ; preds = %land.lhs.true39
@@ -4060,9 +4058,8 @@ if.then53:                                        ; preds = %if.end48
 
 if.end55:                                         ; preds = %if.end48
   %add56 = add nsw i32 %conv.i, 1
-  %sub57 = add nsw i32 %conv.i, -9
-  %cmp61 = icmp slt i32 %conv.i, 9
-  %narrow = select i1 %cmp61, i32 0, i32 %sub57
+  %8 = tail call i32 @llvm.smax.i32(i32 %conv.i, i32 9)
+  %narrow = add nsw i32 %8, -9
   %spec.select82 = zext nneg i32 %narrow to i64
   store i64 %spec.select82, ptr %chunkNativeStart37, align 8
   %conv66 = sext i32 %add56 to i64
@@ -4074,48 +4071,48 @@ if.end55:                                         ; preds = %if.end48
 
 if.end75:                                         ; preds = %if.end55, %if.end18
   %pExtra = getelementptr inbounds i8, ptr %ut, i64 64
-  %7 = load ptr, ptr %pExtra, align 8
-  call void @_ZN6icu_7513UnicodeStringC1EPDsii(ptr noundef nonnull align 8 dereferenceable(64) %buffer, ptr noundef %7, i32 noundef 0, i32 noundef 10)
+  %9 = load ptr, ptr %pExtra, align 8
+  call void @_ZN6icu_7513UnicodeStringC1EPDsii(ptr noundef nonnull align 8 dereferenceable(64) %buffer, ptr noundef %9, i32 noundef 0, i32 noundef 10)
   %chunkNativeStart76 = getelementptr inbounds i8, ptr %ut, i64 32
-  %8 = load i64, ptr %chunkNativeStart76, align 8
-  %conv77 = trunc i64 %8 to i32
+  %10 = load i64, ptr %chunkNativeStart76, align 8
+  %conv77 = trunc i64 %10 to i32
   %chunkNativeLimit78 = getelementptr inbounds i8, ptr %ut, i64 16
-  %9 = load i64, ptr %chunkNativeLimit78, align 8
-  %conv79 = trunc i64 %9 to i32
+  %11 = load i64, ptr %chunkNativeLimit78, align 8
+  %conv79 = trunc i64 %11 to i32
   %vtable = load ptr, ptr %0, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
-  %10 = load ptr, ptr %vfn, align 8
-  invoke void %10(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %conv77, i32 noundef %conv79, ptr noundef nonnull align 8 dereferenceable(64) %buffer)
+  %12 = load ptr, ptr %vfn, align 8
+  invoke void %12(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %conv77, i32 noundef %conv79, ptr noundef nonnull align 8 dereferenceable(64) %buffer)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end75
   %chunkContents = getelementptr inbounds i8, ptr %ut, i64 48
-  store ptr %7, ptr %chunkContents, align 8
-  %11 = load i64, ptr %chunkNativeLimit78, align 8
-  %12 = load i64, ptr %chunkNativeStart76, align 8
-  %sub84 = sub nsw i64 %11, %12
+  store ptr %9, ptr %chunkContents, align 8
+  %13 = load i64, ptr %chunkNativeLimit78, align 8
+  %14 = load i64, ptr %chunkNativeStart76, align 8
+  %sub84 = sub nsw i64 %13, %14
   %conv85 = trunc i64 %sub84 to i32
   %chunkLength = getelementptr inbounds i8, ptr %ut, i64 44
   store i32 %conv85, ptr %chunkLength, align 4
-  %13 = trunc i64 %12 to i32
-  %conv89 = sub i32 %conv.i, %13
+  %15 = trunc i64 %14 to i32
+  %conv89 = sub i32 %conv.i, %15
   %chunkOffset90 = getelementptr inbounds i8, ptr %ut, i64 40
   store i32 %conv89, ptr %chunkOffset90, align 8
-  %cmp93 = icmp slt i64 %11, %conv
+  %cmp93 = icmp slt i64 %13, %conv
   br i1 %cmp93, label %land.lhs.true94, label %if.end111
 
 land.lhs.true94:                                  ; preds = %invoke.cont
   %sub97 = add nsw i32 %conv85, -1
   %idxprom = sext i32 %sub97 to i64
-  %arrayidx = getelementptr inbounds [11 x i16], ptr %7, i64 0, i64 %idxprom
-  %14 = load i16, ptr %arrayidx, align 2
-  %15 = and i16 %14, -1024
-  %cmp99 = icmp eq i16 %15, -10240
+  %arrayidx = getelementptr inbounds [11 x i16], ptr %9, i64 0, i64 %idxprom
+  %16 = load i16, ptr %arrayidx, align 2
+  %17 = and i16 %16, -1024
+  %cmp99 = icmp eq i16 %17, -10240
   br i1 %cmp99, label %if.then100, label %if.end111
 
 if.then100:                                       ; preds = %land.lhs.true94
   store i32 %sub97, ptr %chunkLength, align 4
-  %dec103 = add nsw i64 %11, -1
+  %dec103 = add nsw i64 %13, -1
   store i64 %dec103, ptr %chunkNativeLimit78, align 8
   %cmp106.not = icmp slt i32 %conv89, %conv85
   br i1 %cmp106.not, label %if.end111, label %if.then107
@@ -4125,64 +4122,64 @@ if.then107:                                       ; preds = %if.then100
   br label %if.end111
 
 lpad:                                             ; preds = %if.end75
-  %16 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %buffer) #14
-  resume { ptr, i32 } %16
+  resume { ptr, i32 } %18
 
 if.end111:                                        ; preds = %if.then100, %if.then107, %land.lhs.true94, %invoke.cont
-  %17 = phi i32 [ %conv89, %if.then100 ], [ %sub97, %if.then107 ], [ %conv89, %land.lhs.true94 ], [ %conv89, %invoke.cont ]
-  %18 = phi i32 [ %sub97, %if.then100 ], [ %sub97, %if.then107 ], [ %conv85, %land.lhs.true94 ], [ %conv85, %invoke.cont ]
-  %cmp113 = icmp sgt i64 %12, 0
+  %19 = phi i32 [ %conv89, %if.then100 ], [ %sub97, %if.then107 ], [ %conv89, %land.lhs.true94 ], [ %conv89, %invoke.cont ]
+  %20 = phi i32 [ %sub97, %if.then100 ], [ %sub97, %if.then107 ], [ %conv85, %land.lhs.true94 ], [ %conv85, %invoke.cont ]
+  %cmp113 = icmp sgt i64 %14, 0
   br i1 %cmp113, label %land.lhs.true114, label %do.body
 
 land.lhs.true114:                                 ; preds = %if.end111
-  %19 = load i16, ptr %7, align 2
-  %20 = and i16 %19, -1024
-  %cmp119 = icmp eq i16 %20, -9216
+  %21 = load i16, ptr %9, align 2
+  %22 = and i16 %21, -1024
+  %cmp119 = icmp eq i16 %22, -9216
   br i1 %cmp119, label %if.then120, label %do.body
 
 if.then120:                                       ; preds = %land.lhs.true114
-  %incdec.ptr = getelementptr inbounds i8, ptr %7, i64 2
+  %incdec.ptr = getelementptr inbounds i8, ptr %9, i64 2
   store ptr %incdec.ptr, ptr %chunkContents, align 8
-  %inc = add nuw nsw i64 %12, 1
+  %inc = add nuw nsw i64 %14, 1
   store i64 %inc, ptr %chunkNativeStart76, align 8
-  %dec124 = add nsw i32 %18, -1
+  %dec124 = add nsw i32 %20, -1
   store i32 %dec124, ptr %chunkLength, align 4
-  %dec126 = add nsw i32 %17, -1
+  %dec126 = add nsw i32 %19, -1
   store i32 %dec126, ptr %chunkOffset90, align 8
   br label %do.body
 
 do.body:                                          ; preds = %if.end111, %land.lhs.true114, %if.then120
-  %21 = phi i32 [ %18, %if.end111 ], [ %18, %land.lhs.true114 ], [ %dec124, %if.then120 ]
-  %22 = phi i32 [ %17, %if.end111 ], [ %17, %land.lhs.true114 ], [ %dec126, %if.then120 ]
-  %23 = phi ptr [ %7, %if.end111 ], [ %7, %land.lhs.true114 ], [ %incdec.ptr, %if.then120 ]
-  %idxprom130 = sext i32 %22 to i64
-  %arrayidx131 = getelementptr inbounds i16, ptr %23, i64 %idxprom130
-  %24 = load i16, ptr %arrayidx131, align 2
-  %25 = and i16 %24, -1024
-  %cmp134 = icmp eq i16 %25, -9216
-  %cmp137 = icmp sgt i32 %22, 0
+  %23 = phi i32 [ %20, %if.end111 ], [ %20, %land.lhs.true114 ], [ %dec124, %if.then120 ]
+  %24 = phi i32 [ %19, %if.end111 ], [ %19, %land.lhs.true114 ], [ %dec126, %if.then120 ]
+  %25 = phi ptr [ %9, %if.end111 ], [ %9, %land.lhs.true114 ], [ %incdec.ptr, %if.then120 ]
+  %idxprom130 = sext i32 %24 to i64
+  %arrayidx131 = getelementptr inbounds i16, ptr %25, i64 %idxprom130
+  %26 = load i16, ptr %arrayidx131, align 2
+  %27 = and i16 %26, -1024
+  %cmp134 = icmp eq i16 %27, -9216
+  %cmp137 = icmp sgt i32 %24, 0
   %or.cond = and i1 %cmp137, %cmp134
   br i1 %or.cond, label %land.lhs.true138, label %do.end
 
 land.lhs.true138:                                 ; preds = %do.body
-  %26 = zext nneg i32 %22 to i64
-  %27 = getelementptr i16, ptr %23, i64 %26
-  %arrayidx143 = getelementptr i8, ptr %27, i64 -2
-  %28 = load i16, ptr %arrayidx143, align 2
-  %29 = and i16 %28, -1024
-  %cmp146 = icmp eq i16 %29, -10240
+  %28 = zext nneg i32 %24 to i64
+  %29 = getelementptr i16, ptr %25, i64 %28
+  %arrayidx143 = getelementptr i8, ptr %29, i64 -2
+  %30 = load i16, ptr %arrayidx143, align 2
+  %31 = and i16 %30, -1024
+  %cmp146 = icmp eq i16 %31, -10240
   br i1 %cmp146, label %if.then147, label %do.end
 
 if.then147:                                       ; preds = %land.lhs.true138
-  %dec149 = add nsw i32 %22, -1
+  %dec149 = add nsw i32 %24, -1
   store i32 %dec149, ptr %chunkOffset90, align 8
   br label %do.end
 
 do.end:                                           ; preds = %if.then147, %land.lhs.true138, %do.body
   %nativeIndexingLimit = getelementptr inbounds i8, ptr %ut, i64 28
-  store i32 %21, ptr %nativeIndexingLimit, align 4
+  store i32 %23, ptr %nativeIndexingLimit, align 4
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %buffer) #14
   br label %return
 
@@ -6132,13 +6129,13 @@ delete.end:                                       ; preds = %delete.notnull, %en
 declare i64 @llvm.smax.i64(i64, i64) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #11
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #11
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12

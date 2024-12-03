@@ -13761,9 +13761,8 @@ define internal fastcc range(i32 0, 2) i32 @cli_chkpua(ptr noundef %0, ptr nocap
   %32 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #20
   %33 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %31) #20
   %34 = sub i64 %32, %33
-  %35 = add nuw nsw i64 %34, 1
-  %.inv = icmp ult i64 %34, 33
-  %spec.select = select i1 %.inv, i64 %35, i64 33
+  %35 = tail call i64 @llvm.umin.i64(i64 %34, i64 32)
+  %spec.select = add nuw nsw i64 %35, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %4, ptr noundef nonnull align 1 dereferenceable(1) %8, i64 %spec.select, i1 false)
   %36 = getelementptr inbounds [32 x i8], ptr %4, i64 0, i64 %spec.select
   store i8 0, ptr %36, align 1
@@ -15712,6 +15711,9 @@ define internal fastcc range(i32 0, 9) i32 @countentries(ptr noundef %0, ptr noc
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #17
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.usub.sat.i64(i64, i64) #18

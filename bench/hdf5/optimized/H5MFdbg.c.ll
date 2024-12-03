@@ -37,7 +37,7 @@ define range(i32 -1, 1) i32 @H5MF_sects_debug(ptr noundef %0, i64 noundef %1, pt
   %6 = alloca i64, align 8
   %7 = alloca %struct.H5MF_debug_iter_ud_t, align 8
   store i64 -1, ptr %6, align 8
-  call void @H5AC_tag(i64 noundef 4, ptr noundef nonnull %6) #3
+  call void @H5AC_tag(i64 noundef 4, ptr noundef nonnull %6) #4
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 1616
@@ -61,14 +61,14 @@ define range(i32 -1, 1) i32 @H5MF_sects_debug(ptr noundef %0, i64 noundef %1, pt
 
 19:                                               ; preds = %15
   %20 = trunc nuw nsw i64 %indvars.iv to i32
-  %21 = call i32 @H5MF__open_fstype(ptr noundef nonnull %0, i32 noundef %20) #3
+  %21 = call i32 @H5MF__open_fstype(ptr noundef nonnull %0, i32 noundef %20) #4
   %22 = icmp slt i32 %21, 0
   br i1 %22, label %23, label %27
 
 23:                                               ; preds = %19
   %24 = load i64, ptr @H5E_RESOURCE_g, align 8
   %25 = load i64, ptr @H5E_CANTINIT_g, align 8
-  %26 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5MF_sects_debug, i32 noundef 154, i64 noundef %24, i64 noundef %25, ptr noundef nonnull @.str.1) #3
+  %26 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5MF_sects_debug, i32 noundef 154, i64 noundef %24, i64 noundef %25, ptr noundef nonnull @.str.1) #4
   br label %.loopexit
 
 27:                                               ; preds = %19
@@ -88,14 +88,14 @@ define range(i32 -1, 1) i32 @H5MF_sects_debug(ptr noundef %0, i64 noundef %1, pt
   store i32 %3, ptr %30, align 8
   %31 = getelementptr inbounds i8, ptr %7, i64 20
   store i32 %4, ptr %31, align 4
-  %32 = call i32 @H5FS_sect_iterate(ptr noundef nonnull %0, ptr noundef nonnull %28, ptr noundef nonnull @H5MF__sects_debug_cb, ptr noundef nonnull %7) #3
+  %32 = call i32 @H5FS_sect_iterate(ptr noundef nonnull %0, ptr noundef nonnull %28, ptr noundef nonnull @H5MF__sects_debug_cb, ptr noundef nonnull %7) #4
   %33 = icmp slt i32 %32, 0
   br i1 %33, label %34, label %38
 
 34:                                               ; preds = %.thread
   %35 = load i64, ptr @H5E_HEAP_g, align 8
   %36 = load i64, ptr @H5E_BADITER_g, align 8
-  %37 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5MF_sects_debug, i32 noundef 167, i64 noundef %35, i64 noundef %36, ptr noundef nonnull @.str.2) #3
+  %37 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5MF_sects_debug, i32 noundef 167, i64 noundef %35, i64 noundef %36, ptr noundef nonnull @.str.2) #4
   br label %.loopexit
 
 38:                                               ; preds = %.thread
@@ -103,14 +103,14 @@ define range(i32 -1, 1) i32 @H5MF_sects_debug(ptr noundef %0, i64 noundef %1, pt
   %40 = getelementptr inbounds i8, ptr %39, i64 1720
   %41 = getelementptr inbounds [13 x ptr], ptr %40, i64 0, i64 %indvars.iv
   %42 = load ptr, ptr %41, align 8
-  %43 = call i32 @H5FS_close(ptr noundef nonnull %0, ptr noundef %42) #3
+  %43 = call i32 @H5FS_close(ptr noundef nonnull %0, ptr noundef %42) #4
   %44 = icmp slt i32 %43, 0
   br i1 %44, label %45, label %.loopexit
 
 45:                                               ; preds = %38
   %46 = load i64, ptr @H5E_HEAP_g, align 8
   %47 = load i64, ptr @H5E_CANTRELEASE_g, align 8
-  %48 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5MF_sects_debug, i32 noundef 171, i64 noundef %46, i64 noundef %47, ptr noundef nonnull @.str.3) #3
+  %48 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5MF_sects_debug, i32 noundef 171, i64 noundef %46, i64 noundef %47, ptr noundef nonnull @.str.3) #4
   br label %.loopexit
 
 49:                                               ; preds = %11
@@ -121,7 +121,7 @@ define range(i32 -1, 1) i32 @H5MF_sects_debug(ptr noundef %0, i64 noundef %1, pt
 .loopexit:                                        ; preds = %49, %38, %27, %45, %34, %23
   %.0 = phi i32 [ -1, %34 ], [ -1, %45 ], [ 0, %38 ], [ 0, %27 ], [ -1, %23 ], [ 0, %49 ]
   %50 = load i64, ptr %6, align 8
-  call void @H5AC_tag(i64 noundef %50, ptr noundef null) #3
+  call void @H5AC_tag(i64 noundef %50, ptr noundef null) #4
   ret i32 %.0
 }
 
@@ -158,18 +158,18 @@ define internal range(i32 -1, 1) i32 @H5MF__sects_debug_cb(ptr noundef %0, ptr n
 
 14:                                               ; preds = %2, %.fold.split, %11
   %15 = phi ptr [ @.str.7, %2 ], [ %13, %11 ], [ @.str.8, %.fold.split ]
-  %16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str.4, i32 noundef %6, ptr noundef nonnull @.str.5, i32 noundef %8, ptr noundef nonnull @.str.6, ptr noundef nonnull %15) #3
+  %16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str.4, i32 noundef %6, ptr noundef nonnull @.str.5, i32 noundef %8, ptr noundef nonnull @.str.6, ptr noundef nonnull %15) #4
   %17 = load ptr, ptr %3, align 8
   %18 = load i32, ptr %5, align 8
   %19 = load i32, ptr %7, align 4
   %20 = load i64, ptr %0, align 8
-  %21 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str.11, i32 noundef %18, ptr noundef nonnull @.str.5, i32 noundef %19, ptr noundef nonnull @.str.12, i64 noundef %20) #3
+  %21 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str.11, i32 noundef %18, ptr noundef nonnull @.str.5, i32 noundef %19, ptr noundef nonnull @.str.12, i64 noundef %20) #4
   %22 = load ptr, ptr %3, align 8
   %23 = load i32, ptr %5, align 8
   %24 = load i32, ptr %7, align 4
   %25 = getelementptr inbounds i8, ptr %0, i64 8
   %26 = load i64, ptr %25, align 8
-  %27 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %22, ptr noundef nonnull @.str.11, i32 noundef %23, ptr noundef nonnull @.str.5, i32 noundef %24, ptr noundef nonnull @.str.13, i64 noundef %26) #3
+  %27 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %22, ptr noundef nonnull @.str.11, i32 noundef %23, ptr noundef nonnull @.str.5, i32 noundef %24, ptr noundef nonnull @.str.13, i64 noundef %26) #4
   %28 = load ptr, ptr %3, align 8
   %29 = load i32, ptr %5, align 8
   %30 = load i32, ptr %7, align 4
@@ -177,7 +177,7 @@ define internal range(i32 -1, 1) i32 @H5MF__sects_debug_cb(ptr noundef %0, ptr n
   %32 = load i64, ptr %25, align 8
   %33 = add i64 %31, -1
   %34 = add i64 %33, %32
-  %35 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %28, ptr noundef nonnull @.str.11, i32 noundef %29, ptr noundef nonnull @.str.5, i32 noundef %30, ptr noundef nonnull @.str.14, i64 noundef %34) #3
+  %35 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %28, ptr noundef nonnull @.str.11, i32 noundef %29, ptr noundef nonnull @.str.5, i32 noundef %30, ptr noundef nonnull @.str.14, i64 noundef %34) #4
   %36 = load ptr, ptr %3, align 8
   %37 = load i32, ptr %5, align 8
   %38 = load i32, ptr %7, align 4
@@ -185,27 +185,26 @@ define internal range(i32 -1, 1) i32 @H5MF__sects_debug_cb(ptr noundef %0, ptr n
   %40 = load i32, ptr %39, align 4
   %41 = icmp eq i32 %40, 0
   %42 = select i1 %41, ptr @.str.16, ptr @.str.17
-  %43 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %36, ptr noundef nonnull @.str.4, i32 noundef %37, ptr noundef nonnull @.str.5, i32 noundef %38, ptr noundef nonnull @.str.15, ptr noundef nonnull %42) #3
+  %43 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %36, ptr noundef nonnull @.str.4, i32 noundef %37, ptr noundef nonnull @.str.5, i32 noundef %38, ptr noundef nonnull @.str.15, ptr noundef nonnull %42) #4
   %44 = load ptr, ptr %1, align 8
   %45 = load ptr, ptr %3, align 8
   %46 = load i32, ptr %5, align 8
   %47 = add nsw i32 %46, 3
   %48 = load i32, ptr %7, align 4
-  %49 = icmp slt i32 %48, 3
-  %50 = add nsw i32 %48, -3
-  %spec.select = select i1 %49, i32 0, i32 %50
-  %51 = tail call i32 @H5FS_sect_debug(ptr noundef %44, ptr noundef nonnull %0, ptr noundef %45, i32 noundef %47, i32 noundef %spec.select) #3
-  %52 = icmp slt i32 %51, 0
-  br i1 %52, label %53, label %57
+  %49 = tail call i32 @llvm.smax.i32(i32 %48, i32 3)
+  %spec.select = add nsw i32 %49, -3
+  %50 = tail call i32 @H5FS_sect_debug(ptr noundef %44, ptr noundef nonnull %0, ptr noundef %45, i32 noundef %47, i32 noundef %spec.select) #4
+  %51 = icmp slt i32 %50, 0
+  br i1 %51, label %52, label %56
 
-53:                                               ; preds = %14
-  %54 = load i64, ptr @H5E_RESOURCE_g, align 8
-  %55 = load i64, ptr @H5E_BADITER_g, align 8
-  %56 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5MF__sects_debug_cb, i32 noundef 119, i64 noundef %54, i64 noundef %55, ptr noundef nonnull @.str.18) #3
-  br label %57
+52:                                               ; preds = %14
+  %53 = load i64, ptr @H5E_RESOURCE_g, align 8
+  %54 = load i64, ptr @H5E_BADITER_g, align 8
+  %55 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5MF__sects_debug_cb, i32 noundef 119, i64 noundef %53, i64 noundef %54, ptr noundef nonnull @.str.18) #4
+  br label %56
 
-57:                                               ; preds = %14, %53
-  %.0 = phi i32 [ -1, %53 ], [ 0, %14 ]
+56:                                               ; preds = %14, %52
+  %.0 = phi i32 [ -1, %52 ], [ 0, %14 ]
   ret i32 %.0
 }
 
@@ -216,10 +215,14 @@ declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readon
 
 declare i32 @H5FS_sect_debug(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #3
+
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind }
+attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 
