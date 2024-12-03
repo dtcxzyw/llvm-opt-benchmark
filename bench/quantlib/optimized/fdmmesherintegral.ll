@@ -646,7 +646,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %in
   %add.ptr.idx = mul i64 %mul, %i.0118
   %add = add nuw i64 %i.0118, 1
   %add.ptr70.idx = mul i64 %mul, %add
-  %tobool.not.i.i.i.i.i = icmp eq i64 %add.ptr70.idx, %add.ptr.idx
+  %tobool.not.i.i.i.i.i = icmp samesign eq i64 %add.ptr70.idx, %add.ptr.idx
   br i1 %tobool.not.i.i.i.i.i, label %invoke.cont73, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %for.body

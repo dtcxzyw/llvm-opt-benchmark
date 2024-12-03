@@ -6928,7 +6928,7 @@ define linkonce_odr hidden noundef i32 @_ZN5boost12lexical_castIiNSt7__cxx1112ba
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8, !tbaa !14
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 %7
-  %9 = icmp eq i64 %7, 0
+  %9 = icmp samesign eq i64 %7, 0
   br i1 %9, label %_ZN5boost10conversion6detail19try_lexical_convertIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKT0_RT_.exit.thread, label %10
 
 10:                                               ; preds = %1
@@ -13641,7 +13641,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
   %27 = load ptr, ptr %9, align 8, !tbaa !11
   %28 = load i64, ptr %24, align 8, !tbaa !14
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 %28
-  %30 = icmp eq i64 %28, 0
+  %30 = icmp samesign eq i64 %28, 0
   br i1 %30, label %_ZN5boost10conversion6detail19try_lexical_convertIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKT0_RT_.exit.thread.i, label %31
 
 31:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit
@@ -18003,7 +18003,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
   %27 = load ptr, ptr %9, align 8, !tbaa !11
   %28 = load i64, ptr %24, align 8, !tbaa !14
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 %28
-  %30 = icmp eq i64 %28, 0
+  %30 = icmp samesign eq i64 %28, 0
   br i1 %30, label %_ZN5boost10conversion6detail19try_lexical_convertImNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKT0_RT_.exit.thread.i, label %31
 
 31:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit

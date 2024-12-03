@@ -9591,7 +9591,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit30: ; preds = %_ZNSo
   %90 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %91 = load i64, ptr %90, align 8, !tbaa !11
   %92 = getelementptr inbounds nuw i8, ptr %89, i64 %91
-  %93 = icmp eq i64 %91, 0
+  %93 = icmp samesign eq i64 %91, 0
   br i1 %93, label %.noexc.thread, label %_ZSt4findIPKccET_S2_S2_RKT0_.exit.us77.i
 
 _ZSt4findIPKccET_S2_S2_RKT0_.exit.us77.i:         ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit30, %._crit_edge.i.i.i.us72.i
@@ -10077,7 +10077,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit58: ; preds = %_ZNSo
   %274 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %275 = load i64, ptr %274, align 8, !tbaa !11
   %276 = getelementptr inbounds nuw i8, ptr %273, i64 %275
-  %277 = icmp eq i64 %275, 0
+  %277 = icmp samesign eq i64 %275, 0
   br i1 %277, label %.noexc64.thread, label %_ZSt4findIPKccET_S2_S2_RKT0_.exit.us77.i157
 
 _ZSt4findIPKccET_S2_S2_RKT0_.exit.us77.i157:      ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit58, %._crit_edge.i.i.i.us72.i154
@@ -19561,7 +19561,7 @@ define linkonce_odr hidden void @_ZN5boost9unit_test9framework5state17deduce_run
   %.sroa.078.097.i = phi ptr [ %37, %.lr.ph100.i ], [ %93, %._crit_edge.i ]
   %56 = getelementptr inbounds nuw i8, ptr %.sroa.078.097.i, i64 8
   %57 = load i64, ptr %56, align 8, !tbaa !11, !noalias !452
-  %58 = icmp eq i64 %57, 0
+  %58 = icmp samesign eq i64 %57, 0
   br i1 %58, label %_ZN5boost9unit_test13basic_cstringIKcEC2EPS2_.exit.i, label %_ZN5boost9unit_test5utils27basic_string_token_iteratorIcNS1_9ut_detail20default_char_compareIcEEEC2INS_3nfp23named_parameter_combineINS8_15named_parameterIKNS1_17ti_delimeter_typeENS1_12_GLOBAL__N_117kept_delimeters_tERSC_EENSA_IPKcNSD_20dropped_delimeters_tESI_EEEEEENS0_13basic_cstringISH_EERKT_.exit.i
 
 _ZN5boost9unit_test13basic_cstringIKcEC2EPS2_.exit.i: ; preds = %55
@@ -26461,7 +26461,7 @@ _ZN5boost3nfp10opt_assignINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS
   %57 = load ptr, ptr %42, align 8, !tbaa !4
   %58 = load i64, ptr %44, align 8, !tbaa !11
   %59 = getelementptr inbounds nuw i8, ptr %57, i64 %58
-  %.not5.i.i = icmp eq i64 %58, 0
+  %.not5.i.i = icmp samesign eq i64 %58, 0
   br i1 %.not5.i.i, label %.loopexit5.i, label %.lr.ph.i.i
 
 60:                                               ; preds = %.lr.ph.i.i
@@ -26539,7 +26539,7 @@ _ZN5boost3nfp10opt_assignINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS
   %80 = load ptr, ptr %45, align 8, !tbaa !4
   %81 = load i64, ptr %47, align 8, !tbaa !11
   %82 = getelementptr inbounds nuw i8, ptr %80, i64 %81
-  %.not5.i26.i = icmp eq i64 %81, 0
+  %.not5.i26.i = icmp samesign eq i64 %81, 0
   br i1 %.not5.i26.i, label %.loopexit.i, label %.lr.ph.i27.i
 
 83:                                               ; preds = %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %.lr.ph.i27.i
@@ -42088,7 +42088,7 @@ _ZNK5boost10test_tools16assertion_result7messageEv.exit185: ; preds = %150
   %153 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN5boost23basic_wrap_stringstreamIcE3strB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(408) %152), !noalias !839
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 8
   %155 = load i64, ptr %154, align 8, !tbaa !11, !noalias !839
-  %156 = icmp eq i64 %155, 0
+  %156 = icmp samesign eq i64 %155, 0
   br i1 %156, label %_ZNSt6vectorISt4pairIPKcPKN5boost9unit_test12lazy_ostreamEESaIS8_EED2Ev.exit, label %157
 
 157:                                              ; preds = %_ZNK5boost10test_tools16assertion_result7messageEv.exit185
@@ -44666,7 +44666,7 @@ _ZNK5boost10test_tools16assertion_result7messageEv.exit173: ; preds = %86
   store ptr %90, ptr %11, align 8, !tbaa !12, !alias.scope !885
   %94 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %93, ptr %94, align 8, !tbaa !14, !alias.scope !885
-  %95 = icmp eq i64 %92, 0
+  %95 = icmp samesign eq i64 %92, 0
   br i1 %95, label %_ZNK5boost10test_tools16assertion_result7messageEv.exit173.thread, label %96
 
 96:                                               ; preds = %_ZNK5boost10test_tools16assertion_result7messageEv.exit173
@@ -47877,7 +47877,7 @@ _ZNSt6vectorIcSaIcEE17_M_realloc_insertIJRKcEEEvN9__gnu_cxx17__normal_iteratorIP
   %170 = load ptr, ptr %13, align 8, !tbaa !4
   %171 = load i64, ptr %69, align 8, !tbaa !11
   %172 = getelementptr inbounds nuw i8, ptr %170, i64 %171
-  %.not5.i.i = icmp eq i64 %171, 0
+  %.not5.i.i = icmp samesign eq i64 %171, 0
   br i1 %.not5.i.i, label %_ZSt5countIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcENSt15iterator_traitsIT_E15difference_typeESB_SB_RKT0_.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %166, %.lr.ph.i.i
@@ -52635,7 +52635,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit24: ; preds =
 
 100:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit24, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit
   %101 = load i64, ptr %10, align 8, !tbaa !11
-  %102 = icmp eq i64 %101, 0
+  %102 = icmp samesign eq i64 %101, 0
   br i1 %102, label %.split32.us, label %.split
 
 .splitthread-pre-split:                           ; preds = %_ZSt7replaceIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcEvT_SA_RKT0_SD_.exit
@@ -52647,7 +52647,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit24: ; preds =
   %.01030 = phi i64 [ %113, %.splitthread-pre-split ], [ 0, %100 ]
   %104 = load ptr, ptr %0, align 8, !tbaa !4
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 %103
-  %.not6.i = icmp eq i64 %103, 0
+  %.not6.i = icmp samesign eq i64 %103, 0
   br i1 %.not6.i, label %_ZSt7replaceIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcEvT_SA_RKT0_SD_.exit, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %.split
@@ -89171,7 +89171,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
   %146 = load ptr, ptr %19, align 8, !tbaa !4, !noalias !1491
   %147 = load i64, ptr %143, align 8, !tbaa !11, !noalias !1491
   %148 = getelementptr inbounds nuw i8, ptr %146, i64 %147
-  %.not4.i.i = icmp eq i64 %147, 0
+  %.not4.i.i = icmp samesign eq i64 %147, 0
   br i1 %.not4.i.i, label %_ZSt8for_eachIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEN5boost9unit_test6output15s_replace_charsEET0_T_SF_SE_.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit, %_ZN5boost9unit_test6output15s_replace_charsclIcEEvRT_.exit.i.i
@@ -90446,7 +90446,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %91 = load ptr, ptr %16, align 8, !tbaa !4, !noalias !1505
   %92 = load i64, ptr %88, align 8, !tbaa !11, !noalias !1505
   %93 = getelementptr inbounds nuw i8, ptr %91, i64 %92
-  %.not4.i.i = icmp eq i64 %92, 0
+  %.not4.i.i = icmp samesign eq i64 %92, 0
   br i1 %.not4.i.i, label %_ZSt8for_eachIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEN5boost9unit_test6output15s_replace_charsEET0_T_SF_SE_.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %86, %_ZN5boost9unit_test6output15s_replace_charsclIcEEvRT_.exit.i.i
@@ -92952,7 +92952,7 @@ define linkonce_odr hidden void @_ZNK5boost9unit_test6output19junit_result_helpe
   %44 = load ptr, ptr %8, align 8, !tbaa !4, !noalias !1532
   %45 = load i64, ptr %19, align 8, !tbaa !11, !noalias !1532
   %46 = getelementptr inbounds nuw i8, ptr %44, i64 %45
-  %.not4.i.i = icmp eq i64 %45, 0
+  %.not4.i.i = icmp samesign eq i64 %45, 0
   br i1 %.not4.i.i, label %_ZSt8for_eachIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEN5boost9unit_test6output15s_replace_charsEET0_T_SF_SE_.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %40, %_ZN5boost9unit_test6output15s_replace_charsclIcEEvRT_.exit.i.i
@@ -113519,7 +113519,7 @@ define linkonce_odr hidden void @_ZN5boost7runtime16parameter_cla_idC2ENS_9unit_
   %93 = load ptr, ptr %0, align 8, !tbaa !4
   %94 = load i64, ptr %41, align 8, !tbaa !11
   %95 = getelementptr inbounds nuw i8, ptr %93, i64 %94
-  %.not5.i = icmp eq i64 %94, 0
+  %.not5.i = icmp samesign eq i64 %94, 0
   br i1 %.not5.i, label %.loopexit85, label %.lr.ph.i
 
 96:                                               ; preds = %.lr.ph.i
@@ -113622,7 +113622,7 @@ define linkonce_odr hidden void @_ZN5boost7runtime16parameter_cla_idC2ENS_9unit_
   %126 = load ptr, ptr %44, align 8, !tbaa !4
   %127 = load i64, ptr %65, align 8, !tbaa !11
   %128 = getelementptr inbounds nuw i8, ptr %126, i64 %127
-  %.not5.i55 = icmp eq i64 %127, 0
+  %.not5.i55 = icmp samesign eq i64 %127, 0
   br i1 %.not5.i55, label %.loopexit84, label %.lr.ph.i56
 
 129:                                              ; preds = %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %.lr.ph.i56
@@ -113724,7 +113724,7 @@ switch.early.test.i:                              ; preds = %.lr.ph.i56
   %155 = load ptr, ptr %68, align 8, !tbaa !4
   %156 = load i64, ptr %89, align 8, !tbaa !11
   %157 = getelementptr inbounds nuw i8, ptr %155, i64 %156
-  %.not5.i61 = icmp eq i64 %156, 0
+  %.not5.i61 = icmp samesign eq i64 %156, 0
   br i1 %.not5.i61, label %.loopexit, label %.lr.ph.i62
 
 158:                                              ; preds = %.lr.ph.i62, %.lr.ph.i62, %.lr.ph.i62, %.lr.ph.i62
@@ -148429,7 +148429,7 @@ define linkonce_odr hidden void @_Z9test_bothIN5boost8geometry5model2d28point_xy
   br label %.lr.ph.i.i.i.preheader
 
 ._crit_edge.i.i:                                  ; preds = %20
-  %.not4.i.i.i = icmp eq i64 %27, 0
+  %.not4.i.i.i = icmp samesign eq i64 %27, 0
   br i1 %.not4.i.i.i, label %37, label %.lr.ph.i.i.i.preheader
 
 .lr.ph.i.i.i.preheader:                           ; preds = %._crit_edge.i.i.thread, %._crit_edge.i.i

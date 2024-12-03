@@ -78,7 +78,7 @@ define void @_ZN5boost4urls10parse_pathENS_4core17basic_string_viewIcEE(ptr dead
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #7
   store ptr %1, ptr %4, align 8, !tbaa !3
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 %2
-  %.not = icmp eq i64 %2, 0
+  %.not = icmp samesign eq i64 %2, 0
   br i1 %.not, label %_ZN5boost4urls6detail13path_segmentsENS_4core17basic_string_viewIcEEm.exit, label %.lr.ph.lr.ph
 
 .lr.ph.lr.ph:                                     ; preds = %3

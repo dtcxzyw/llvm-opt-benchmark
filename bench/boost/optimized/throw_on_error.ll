@@ -1585,7 +1585,7 @@ define linkonce_odr hidden void @_ZN5boost7process2v16detail5posix9build_cmdIcEE
   store ptr %8, ptr %6, align 8
   %10 = load i64, ptr %9, align 8, !tbaa !34
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 %10
-  %.not2327 = icmp eq i64 %10, 0
+  %.not2327 = icmp samesign eq i64 %10, 0
   br i1 %.not2327, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
@@ -3236,7 +3236,7 @@ define linkonce_odr hidden void @_ZN5boost7process2v16detail5posix8executorINS_6
   %23 = phi ptr [ %33, %_ZN5boost9algorithm11starts_withIPcA6_cEEbRKT_RKT0_.exit.thread ], [ %22, %.lr.ph.preheader ]
   %.08190 = phi ptr [ %32, %_ZN5boost9algorithm11starts_withIPcA6_cEEbRKT_RKT0_.exit.thread ], [ %21, %.lr.ph.preheader ]
   %24 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %23) #37
-  %.not59 = icmp eq i64 %24, 0
+  %.not59 = icmp samesign eq i64 %24, 0
   br i1 %.not59, label %_ZN5boost9algorithm11starts_withIPcA6_cEEbRKT_RKT0_.exit.thread, label %.lr.ph.i.i.preheader
 
 .lr.ph.i.i.preheader:                             ; preds = %.lr.ph91
@@ -5821,7 +5821,7 @@ _ZSt13__lower_boundIPKccN9__gnu_cxx5__ops14_Iter_less_valEET_S5_S5_RKT0_T1_.exit
   br i1 %.not.i.i.us, label %.critedge, label %_ZNK5boost9algorithm6detail10is_any_ofFIcEclIcEEbT_.exit.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph
-  %.not.i.i = icmp eq i64 %33, 0
+  %.not.i.i = icmp samesign eq i64 %33, 0
   br i1 %.not.i.i, label %.critedge, label %.lr.ph.split.split
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
@@ -7041,7 +7041,7 @@ define linkonce_odr hidden void @_ZN5boost9algorithm6detail10is_any_ofFIcEC2INS_
 _ZSt4copyIPKcPcET0_T_S4_S3_.exit:                 ; preds = %13, %16
   %20 = phi i64 [ %9, %13 ], [ %.pre10, %16 ]
   %21 = getelementptr inbounds nuw i8, ptr %.0, i64 %20
-  %.not.i.i = icmp eq i64 %20, 0
+  %.not.i.i = icmp samesign eq i64 %20, 0
   br i1 %.not.i.i, label %_ZSt4sortIPcEvT_S1_.exit, label %22
 
 22:                                               ; preds = %_ZSt4copyIPKcPcET0_T_S4_S3_.exit

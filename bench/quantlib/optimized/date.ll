@@ -10681,7 +10681,7 @@ if.then:                                          ; preds = %entry
   %_M_string_length.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %a_format, i64 8
   %5 = load i64, ptr %_M_string_length.i.i.i.i.i.i, align 8, !tbaa !12
   %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.pre155.pre156.pre159.pre162, i64 %5
-  %cmp.i.not28.i.i.i = icmp eq i64 %5, 0
+  %cmp.i.not28.i.i.i = icmp samesign eq i64 %5, 0
   br i1 %cmp.i.not28.i.i.i, label %_ZNK5boost9algorithm6detail13first_finderFIPKcNS0_8is_equalEEclIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS_14iterator_rangeIT_EESJ_SJ_.exit.thread.i.i, label %for.body13.preheader.i.i.i
 
 for.body13.preheader.i.i.i:                       ; preds = %if.then, %for.inc29.critedge.i.i.i
@@ -10766,7 +10766,7 @@ if.then5:                                         ; preds = %if.end
   %_M_string_length.i.i.i.i.i.i17 = getelementptr inbounds nuw i8, ptr %a_format, i64 8
   %14 = load i64, ptr %_M_string_length.i.i.i.i.i.i17, align 8, !tbaa !12
   %add.ptr.i.i.i.i.i18 = getelementptr inbounds nuw i8, ptr %.pre155.pre156.pre159, i64 %14
-  %cmp.i.not28.i.i.i19 = icmp eq i64 %14, 0
+  %cmp.i.not28.i.i.i19 = icmp samesign eq i64 %14, 0
   br i1 %cmp.i.not28.i.i.i19, label %_ZNK5boost9algorithm6detail13first_finderFIPKcNS0_8is_equalEEclIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS_14iterator_rangeIT_EESJ_SJ_.exit.thread.i.i35, label %for.body13.preheader.i.i.i22
 
 for.body13.preheader.i.i.i22:                     ; preds = %if.then5, %for.inc29.critedge.i.i.i32
@@ -10851,7 +10851,7 @@ if.then12:                                        ; preds = %if.end10
   %_M_string_length.i.i.i.i.i.i57 = getelementptr inbounds nuw i8, ptr %a_format, i64 8
   %23 = load i64, ptr %_M_string_length.i.i.i.i.i.i57, align 8, !tbaa !12
   %add.ptr.i.i.i.i.i58 = getelementptr inbounds nuw i8, ptr %.pre155.pre156, i64 %23
-  %cmp.i.not28.i.i.i59 = icmp eq i64 %23, 0
+  %cmp.i.not28.i.i.i59 = icmp samesign eq i64 %23, 0
   br i1 %cmp.i.not28.i.i.i59, label %_ZNK5boost9algorithm6detail13first_finderFIPKcNS0_8is_equalEEclIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS_14iterator_rangeIT_EESJ_SJ_.exit.thread.i.i75, label %for.body13.preheader.i.i.i62
 
 for.body13.preheader.i.i.i62:                     ; preds = %if.then12, %for.inc29.critedge.i.i.i72
@@ -10936,7 +10936,7 @@ if.then18:                                        ; preds = %if.end16
   %_M_string_length.i.i.i.i.i.i97 = getelementptr inbounds nuw i8, ptr %a_format, i64 8
   %32 = load i64, ptr %_M_string_length.i.i.i.i.i.i97, align 8, !tbaa !12
   %add.ptr.i.i.i.i.i98 = getelementptr inbounds nuw i8, ptr %.pre155, i64 %32
-  %cmp.i.not28.i.i.i99 = icmp eq i64 %32, 0
+  %cmp.i.not28.i.i.i99 = icmp samesign eq i64 %32, 0
   br i1 %cmp.i.not28.i.i.i99, label %_ZNK5boost9algorithm6detail13first_finderFIPKcNS0_8is_equalEEclIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS_14iterator_rangeIT_EESJ_SJ_.exit.thread.i.i115, label %for.body13.preheader.i.i.i102
 
 for.body13.preheader.i.i.i102:                    ; preds = %if.then18, %for.inc29.critedge.i.i.i112

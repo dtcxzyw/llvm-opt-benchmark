@@ -2228,7 +2228,7 @@ define weak_odr void @_ZN5boost7archive17basic_xml_grammarIcE4initERSi(ptr nound
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %31 = load i64, ptr %30, align 8, !tbaa !27
   %32 = tail call noundef ptr @_ZN5boost7archive23BOOST_ARCHIVE_SIGNATUREEv()
-  %.not.not.i.i.i.i = icmp eq i64 %31, 0
+  %.not.not.i.i.i.i = icmp samesign eq i64 %31, 0
   br i1 %.not.not.i.i.i.i, label %_ZSt5equalIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPKcEbT_SC_T0_.exit.thread, label %_ZSt5equalIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPKcEbT_SC_T0_.exit
 
 _ZSt5equalIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPKcEbT_SC_T0_.exit: ; preds = %27

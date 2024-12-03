@@ -6108,7 +6108,7 @@ ehcleanup155.i:                                   ; preds = %ehcleanup151.i, %lp
           to label %ehcleanup158.i unwind label %terminate.lpad.i
 
 ehcleanup158.i:                                   ; preds = %catch.dispatch.i, %ehcleanup155.i, %lpad153.i
-  %.merged66.i = phi { ptr, i32 } [ %109, %lpad153.i ], [ %.pn62.pn.i, %ehcleanup155.i ], [ %.pn59.pn.i, %catch.dispatch.i ]
+  %.merged68.i = phi { ptr, i32 } [ %109, %lpad153.i ], [ %.pn62.pn.i, %ehcleanup155.i ], [ %.pn59.pn.i, %catch.dispatch.i ]
   %cmp.not.i111.i = icmp eq ptr %pStream.sroa.0.1.i, null
   br i1 %cmp.not.i111.i, label %ehcleanup353.i, label %_ZNKSt14default_deleteISiEclEPSi.exit.i112.i
 
@@ -6833,7 +6833,7 @@ ehcleanup296.i:                                   ; preds = %ehcleanup292.i, %lp
           to label %ehcleanup302.i unwind label %terminate.lpad.i
 
 ehcleanup302.i:                                   ; preds = %catch.dispatch254.i, %ehcleanup296.i, %lpad294.i
-  %.merged68.i = phi { ptr, i32 } [ %189, %lpad294.i ], [ %.pn51.pn.i, %ehcleanup296.i ], [ %.pn49.i, %catch.dispatch254.i ]
+  %.merged67.i = phi { ptr, i32 } [ %189, %lpad294.i ], [ %.pn51.pn.i, %ehcleanup296.i ], [ %.pn49.i, %catch.dispatch254.i ]
   %cmp.not.i222.i = icmp eq ptr %pStream177.sroa.0.1.i, null
   br i1 %cmp.not.i222.i, label %ehcleanup351.i, label %_ZNKSt14default_deleteISiEclEPSi.exit.i223.i
 
@@ -7009,7 +7009,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i255.i: ; preds = 
   br i1 %cmp.i.i.i.i.i.i257.i, label %cleanup352.sink.split.i, label %cleanup352.i
 
 ehcleanup351.i:                                   ; preds = %ehcleanup349.i, %_ZNKSt14default_deleteISiEclEPSi.exit.i223.i, %ehcleanup302.i, %lpad170.i
-  %.merged67.i = phi { ptr, i32 } [ %125, %lpad170.i ], [ %.pn41.pn.i, %ehcleanup349.i ], [ %.merged68.i, %ehcleanup302.i ], [ %.merged68.i, %_ZNKSt14default_deleteISiEclEPSi.exit.i223.i ]
+  %.merged66.i = phi { ptr, i32 } [ %125, %lpad170.i ], [ %.pn41.pn.i, %ehcleanup349.i ], [ %.merged67.i, %ehcleanup302.i ], [ %.merged67.i, %_ZNKSt14default_deleteISiEclEPSi.exit.i223.i ]
   call void @_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev10CachedFileEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %cachedFile159.i) #30
   br label %ehcleanup353.i
 
@@ -7043,7 +7043,7 @@ if.then.i.i.i268.i:                               ; preds = %cleanup352.i
   br label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116LoadFileUncachedERPNS_10FileFormatERSt10shared_ptrINS_10CachedFileEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13InterpolationERKNS_6ConfigE.exit
 
 ehcleanup353.i:                                   ; preds = %ehcleanup351.i, %_ZNKSt14default_deleteISiEclEPSi.exit.i112.i, %ehcleanup158.i, %lpad34.i
-  %.merged65.i = phi { ptr, i32 } [ %.merged67.i, %ehcleanup351.i ], [ %62, %lpad34.i ], [ %.merged66.i, %ehcleanup158.i ], [ %.merged66.i, %_ZNKSt14default_deleteISiEclEPSi.exit.i112.i ]
+  %.merged65.i = phi { ptr, i32 } [ %.merged66.i, %ehcleanup351.i ], [ %62, %lpad34.i ], [ %.merged68.i, %ehcleanup158.i ], [ %.merged68.i, %_ZNKSt14default_deleteISiEclEPSi.exit.i112.i ]
   %213 = load ptr, ptr %possibleFormats.i, align 8
   %tobool.not.i.i.i269.i = icmp eq ptr %213, null
   br i1 %tobool.not.i.i.i269.i, label %ehcleanup355.i, label %if.then.i.i.i270.i

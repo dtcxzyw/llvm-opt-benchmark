@@ -11015,7 +11015,7 @@ define linkonce_odr hidden noundef i64 @_ZN5boost3log11v2_mt_posix9anonymous17pa
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !13
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 %5
-  %7 = icmp eq i64 %5, 0
+  %7 = icmp samesign eq i64 %5, 0
   br i1 %7, label %_ZN5boost6spirit2qi12extract_uintImLj10ELj1ELin1ELb0ELb0EE4callIPKcEEbRT_RKS7_Rm.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2, %10
@@ -11181,7 +11181,7 @@ define linkonce_odr hidden noundef i32 @_ZN5boost3log11v2_mt_posix9anonymous17pa
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !13
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 %5
-  %7 = icmp eq i64 %5, 0
+  %7 = icmp samesign eq i64 %5, 0
   br i1 %7, label %_ZN5boost6spirit2qi12extract_uintIjLj10ELj1ELin1ELb0ELb0EE4callIPKcEEbRT_RKS7_Rj.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2, %10
@@ -14514,7 +14514,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost3log11v2_mt_posix9anonym
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %4
-  %.not.not.i.i.i.i = icmp eq i64 %1, 0
+  %.not.not.i.i.i.i = icmp samesign eq i64 %1, 0
   br i1 %.not.not.i.i.i.i, label %_ZSt5equalIPKcS1_EbT_S2_T0_.exit13, label %_ZSt5equalIPKcS1_EbT_S2_T0_.exit
 
 _ZSt5equalIPKcS1_EbT_S2_T0_.exit:                 ; preds = %8
@@ -14530,7 +14530,7 @@ _ZSt5equalIPKcS1_EbT_S2_T0_.exit:                 ; preds = %8
   br i1 %13, label %14, label %_ZSt5equalIPKcS1_EbT_S2_T0_.exit13
 
 14:                                               ; preds = %10
-  %.not.not.i.i.i.i9 = icmp eq i64 %1, 0
+  %.not.not.i.i.i.i9 = icmp samesign eq i64 %1, 0
   br i1 %.not.not.i.i.i.i9, label %_ZSt5equalIPKcS1_EbT_S2_T0_.exit13, label %15
 
 15:                                               ; preds = %14

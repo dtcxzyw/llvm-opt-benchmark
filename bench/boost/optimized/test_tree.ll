@@ -3320,7 +3320,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit24: ; preds =
 
 100:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit24, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit
   %101 = load i64, ptr %10, align 8, !tbaa !69
-  %102 = icmp eq i64 %101, 0
+  %102 = icmp samesign eq i64 %101, 0
   br i1 %102, label %.split32.us, label %.split
 
 .splitthread-pre-split:                           ; preds = %_ZSt7replaceIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcEvT_SA_RKT0_SD_.exit
@@ -3332,7 +3332,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit24: ; preds =
   %.01030 = phi i64 [ %113, %.splitthread-pre-split ], [ 0, %100 ]
   %104 = load ptr, ptr %0, align 8, !tbaa !68
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 %103
-  %.not6.i = icmp eq i64 %103, 0
+  %.not6.i = icmp samesign eq i64 %103, 0
   br i1 %.not6.i, label %_ZSt7replaceIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcEvT_SA_RKT0_SD_.exit, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %.split

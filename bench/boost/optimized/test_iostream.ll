@@ -2623,7 +2623,7 @@ define hidden void @_Z29create_random_one_line_stringB5cxx11m(ptr dead_on_unwind
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !21
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 %5
-  %.not6.i = icmp eq i64 %5, 0
+  %.not6.i = icmp samesign eq i64 %5, 0
   br i1 %.not6.i, label %_ZSt7replaceIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcEvT_SA_RKT0_SD_.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2, %10
@@ -2782,7 +2782,7 @@ _ZN5boost6nowide4test8test_monEv.exit17:          ; preds = %41, %44, %46
   %49 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %50 = load i64, ptr %49, align 8, !tbaa !21, !alias.scope !62
   %51 = getelementptr inbounds nuw i8, ptr %48, i64 %50
-  %.not6.i.i = icmp eq i64 %50, 0
+  %.not6.i.i = icmp samesign eq i64 %50, 0
   br i1 %.not6.i.i, label %_Z29create_random_one_line_stringB5cxx11m.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZN5boost6nowide4test8test_monEv.exit17, %55
@@ -3852,7 +3852,7 @@ define hidden void @_Z21test_cout_single_charv() local_unnamed_addr #4 personali
   %2 = load ptr, ptr @_ZL12outputStringB5cxx11, align 8, !tbaa !18
   %3 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZL12outputStringB5cxx11, i64 8), align 8, !tbaa !21
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 %3
-  %.not9 = icmp eq i64 %3, 0
+  %.not9 = icmp samesign eq i64 %3, 0
   br i1 %.not9, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %42, %0
@@ -4070,7 +4070,7 @@ define hidden void @_Z21test_cerr_single_charv() local_unnamed_addr #4 personali
   %2 = load ptr, ptr @_ZL12outputStringB5cxx11, align 8, !tbaa !18
   %3 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZL12outputStringB5cxx11, i64 8), align 8, !tbaa !21
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 %3
-  %.not9 = icmp eq i64 %3, 0
+  %.not9 = icmp samesign eq i64 %3, 0
   br i1 %.not9, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %42, %0

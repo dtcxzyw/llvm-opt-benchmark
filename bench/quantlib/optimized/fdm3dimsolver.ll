@@ -5198,7 +5198,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %mul37 = mul i64 %sub.ptr.div.i41, %sub.ptr.div.i36
   %mul40 = shl i64 %mul37, 3
   %add.ptr41.idx = mul i64 %mul40, %add
-  %tobool.not.i.i.i.i.i55 = icmp eq i64 %add.ptr41.idx, %add.ptr.idx
+  %tobool.not.i.i.i.i.i55 = icmp samesign eq i64 %add.ptr41.idx, %add.ptr.idx
   br i1 %tobool.not.i.i.i.i.i55, label %invoke.cont45, label %if.then.i.i.i.i.i56
 
 if.then.i.i.i.i.i56:                              ; preds = %for.body
@@ -6168,7 +6168,7 @@ for.body:                                         ; preds = %_ZN8QuantLib6Matrix
   %mul27 = mul i64 %sub.ptr.div.i62, %sub.ptr.div.i57
   %mul30 = shl i64 %mul27, 3
   %add.ptr31.idx = mul i64 %mul30, %add
-  %tobool.not.i.i.i.i.i = icmp eq i64 %add.ptr31.idx, %add.ptr.idx
+  %tobool.not.i.i.i.i.i = icmp samesign eq i64 %add.ptr31.idx, %add.ptr.idx
   br i1 %tobool.not.i.i.i.i.i, label %_ZSt4copyIPKdPdET0_T_S4_S3_.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %for.body

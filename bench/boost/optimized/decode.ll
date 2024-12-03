@@ -144,7 +144,7 @@ define hidden noundef i64 @_ZN5boost4urls6detail26decode_unsafe_is_plus_implILb0
 define noundef i64 @_ZN5boost4urls6detail13decode_unsafeEPcPKcNS_4core17basic_string_viewIcEENS0_13encoding_optsE(ptr noundef %0, ptr noundef %1, ptr %2, i64 %3, i24 %4) local_unnamed_addr #2 {
   %6 = trunc i24 %4 to i1
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 %3
-  %.not35.i = icmp eq i64 %3, 0
+  %.not35.i = icmp samesign eq i64 %3, 0
   br i1 %6, label %8, label %33
 
 8:                                                ; preds = %5

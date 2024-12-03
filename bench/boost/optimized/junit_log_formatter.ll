@@ -3049,7 +3049,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit30: ; preds = %_ZNSo
   %90 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %91 = load i64, ptr %90, align 8, !tbaa !33
   %92 = getelementptr inbounds nuw i8, ptr %89, i64 %91
-  %93 = icmp eq i64 %91, 0
+  %93 = icmp samesign eq i64 %91, 0
   br i1 %93, label %.noexc.thread, label %_ZSt4findIPKccET_S2_S2_RKT0_.exit.us77.i
 
 _ZSt4findIPKccET_S2_S2_RKT0_.exit.us77.i:         ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit30, %._crit_edge.i.i.i.us72.i
@@ -3535,7 +3535,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit58: ; preds = %_ZNSo
   %274 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %275 = load i64, ptr %274, align 8, !tbaa !33
   %276 = getelementptr inbounds nuw i8, ptr %273, i64 %275
-  %277 = icmp eq i64 %275, 0
+  %277 = icmp samesign eq i64 %275, 0
   br i1 %277, label %.noexc64.thread, label %_ZSt4findIPKccET_S2_S2_RKT0_.exit.us77.i157
 
 _ZSt4findIPKccET_S2_S2_RKT0_.exit.us77.i157:      ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit58, %._crit_edge.i.i.i.us72.i154
@@ -6922,7 +6922,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
   %140 = load ptr, ptr %18, align 8, !tbaa !30, !noalias !237
   %141 = load i64, ptr %137, align 8, !tbaa !33, !noalias !237
   %142 = getelementptr inbounds nuw i8, ptr %140, i64 %141
-  %.not4.i.i = icmp eq i64 %141, 0
+  %.not4.i.i = icmp samesign eq i64 %141, 0
   br i1 %.not4.i.i, label %_ZSt8for_eachIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEN5boost9unit_test6output15s_replace_charsEET0_T_SF_SE_.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit, %_ZN5boost9unit_test6output15s_replace_charsclIcEEvRT_.exit.i.i
@@ -8180,7 +8180,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %91 = load ptr, ptr %16, align 8, !tbaa !30, !noalias !253
   %92 = load i64, ptr %88, align 8, !tbaa !33, !noalias !253
   %93 = getelementptr inbounds nuw i8, ptr %91, i64 %92
-  %.not4.i.i = icmp eq i64 %92, 0
+  %.not4.i.i = icmp samesign eq i64 %92, 0
   br i1 %.not4.i.i, label %_ZSt8for_eachIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEN5boost9unit_test6output15s_replace_charsEET0_T_SF_SE_.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %86, %_ZN5boost9unit_test6output15s_replace_charsclIcEEvRT_.exit.i.i
@@ -10635,7 +10635,7 @@ define linkonce_odr hidden void @_ZNK5boost9unit_test6output19junit_result_helpe
   %44 = load ptr, ptr %8, align 8, !tbaa !30, !noalias !281
   %45 = load i64, ptr %19, align 8, !tbaa !33, !noalias !281
   %46 = getelementptr inbounds nuw i8, ptr %44, i64 %45
-  %.not4.i.i = icmp eq i64 %45, 0
+  %.not4.i.i = icmp samesign eq i64 %45, 0
   br i1 %.not4.i.i, label %_ZSt8for_eachIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEN5boost9unit_test6output15s_replace_charsEET0_T_SF_SE_.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %40, %_ZN5boost9unit_test6output15s_replace_charsclIcEEvRT_.exit.i.i

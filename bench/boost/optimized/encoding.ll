@@ -19,7 +19,7 @@ define void @_ZN5boost6locale4util18normalize_encodingB5cxx11ENS_17basic_string_
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 %2
-  %.not23 = icmp eq i64 %2, 0
+  %.not23 = icmp samesign eq i64 %2, 0
   br i1 %.not23, label %._crit_edge, label %.lr.ph
 
 8:                                                ; preds = %3

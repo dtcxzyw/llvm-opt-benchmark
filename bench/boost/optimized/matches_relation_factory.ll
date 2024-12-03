@@ -27956,7 +27956,7 @@ _ZN5boost13re_detail_50011raw_storage6resizeEm.exit.i169: ; preds = %550, %.noex
   %555 = phi ptr [ %551, %_ZN5boost13re_detail_50011raw_storage6resizeEm.exit.i169 ], [ %529, %522 ]
   %556 = getelementptr inbounds nuw i8, ptr %555, i64 %526
   store ptr %556, ptr %528, align 8, !tbaa !219
-  %.not.i.i.i.i.i = icmp eq i64 %554, 0
+  %.not.i.i.i.i.i = icmp samesign eq i64 %554, 0
   br i1 %.not.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES2_ET0_T_SB_SA_.exit, label %557
 
 557:                                              ; preds = %553
@@ -27973,7 +27973,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_t
   %562 = getelementptr i8, ptr %555, i64 %561
   %563 = getelementptr i8, ptr %562, i64 1
   %564 = load i64, ptr %224, align 8, !tbaa !13
-  %.not.i.i.i.i.i171 = icmp eq i64 %564, 0
+  %.not.i.i.i.i.i171 = icmp samesign eq i64 %564, 0
   br i1 %.not.i.i.i.i.i171, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES2_ET0_T_SB_SA_.exit172, label %565
 
 565:                                              ; preds = %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES2_ET0_T_SB_SA_.exit
@@ -28390,7 +28390,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit209: ; preds = %_Z
   %.pre370 = load i64, ptr %598, align 8, !tbaa !13
   %720 = getelementptr inbounds nuw i8, ptr %718, i64 %691
   store ptr %720, ptr %693, align 8, !tbaa !219
-  %.not.i.i.i.i.i216 = icmp eq i64 %.pre370, 0
+  %.not.i.i.i.i.i216 = icmp samesign eq i64 %.pre370, 0
   br i1 %.not.i.i.i.i.i216, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES2_ET0_T_SB_SA_.exit217, label %721
 
 721:                                              ; preds = %.thread, %717

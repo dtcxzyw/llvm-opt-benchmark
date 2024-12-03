@@ -1332,7 +1332,7 @@ _ZSt5countIPKccENSt15iterator_traitsIT_E15difference_typeES3_S3_RKT0_.exit: ; pr
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %4) #22, !noalias !91
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %36) #22
   %415 = getelementptr inbounds nuw i8, ptr %.sroa.0254.0.copyload, i64 %.sroa.6.0.copyload
-  %.not6.i.i227 = icmp eq i64 %.sroa.6.0.copyload, 0
+  %.not6.i.i227 = icmp samesign eq i64 %.sroa.6.0.copyload, 0
   br i1 %.not6.i.i227, label %.critedge, label %.lr.ph.i.i228
 
 .lr.ph.i.i228:                                    ; preds = %413, %.lr.ph.i.i228

@@ -281,7 +281,7 @@ define void @_ZNK5boost4urls11decode_view5writeERSo(ptr nocapture noundef nonnul
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i64, ptr %7, align 8, !tbaa !16, !noalias !34
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 %8
-  %.not4 = icmp eq i64 %8, 0
+  %.not4 = icmp samesign eq i64 %8, 0
   br i1 %.not4, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
@@ -629,7 +629,7 @@ define void @_ZNK5boost4urls11decode_view4findEc(ptr dead_on_unwind noalias noca
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load i64, ptr %9, align 8, !tbaa !16, !noalias !68
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 %10
-  %.not2 = icmp eq i64 %10, 0
+  %.not2 = icmp samesign eq i64 %10, 0
   br i1 %.not2, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %14

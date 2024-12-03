@@ -706,7 +706,7 @@ _ZN8QuantLib6MatrixC2ERKS0_.exit:                 ; preds = %cond.end.i, %if.the
 
 call.i.i.noexc:                                   ; preds = %_ZN8QuantLib6MatrixC2ERKS0_.exit
   store ptr %call.i.i87, ptr %_M_data.i, align 8, !tbaa !59
-  %cmp.not2.i.i.i = icmp eq i64 %6, 0
+  %cmp.not2.i.i.i = icmp samesign eq i64 %6, 0
   br i1 %cmp.not2.i.i.i, label %invoke.cont7, label %while.body.preheader.i.i.i
 
 while.body.preheader.i.i.i:                       ; preds = %call.i.i.noexc

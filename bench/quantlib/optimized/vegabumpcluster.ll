@@ -1741,7 +1741,7 @@ invoke.cont3:                                     ; preds = %invoke.cont
 
 call.i.i.noexc:                                   ; preds = %invoke.cont3
   store ptr %call.i.i29, ptr %_M_data.i, align 8, !tbaa !61
-  %cmp.not2.i.i.i = icmp eq i64 %call4, 0
+  %cmp.not2.i.i.i = icmp samesign eq i64 %call4, 0
   br i1 %cmp.not2.i.i.i, label %invoke.cont6, label %while.body.preheader.i.i.i
 
 while.body.preheader.i.i.i:                       ; preds = %call.i.i.noexc
@@ -2563,7 +2563,7 @@ invoke.cont3:                                     ; preds = %invoke.cont
 
 call.i.i.noexc:                                   ; preds = %invoke.cont3
   store ptr %call.i.i22, ptr %_M_data.i, align 8, !tbaa !61
-  %cmp.not2.i.i.i = icmp eq i64 %call4, 0
+  %cmp.not2.i.i.i = icmp samesign eq i64 %call4, 0
   br i1 %cmp.not2.i.i.i, label %invoke.cont6, label %while.body.preheader.i.i.i
 
 while.body.preheader.i.i.i:                       ; preds = %call.i.i.noexc
