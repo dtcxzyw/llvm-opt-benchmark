@@ -627,7 +627,7 @@ for.body36:                                       ; preds = %if.end, %for.body36
   %indvars.iv54 = phi i64 [ 0, %if.end ], [ %indvars.iv.next55, %for.body36 ]
   %arrayidx38 = getelementptr inbounds [32 x double], ptr %lpc, i64 0, i64 %indvars.iv54
   %19 = load double, ptr %arrayidx38, align 8
-  %20 = fptrunc double %19 to float
+  %20 = fptrunc reassoc nsz arcp double %19 to float
   %conv = fneg reassoc nsz arcp float %20
   %arrayidx43 = getelementptr inbounds [32 x float], ptr %lp_coeff, i64 %indvars.iv61, i64 %indvars.iv54
   store float %conv, ptr %arrayidx43, align 4
