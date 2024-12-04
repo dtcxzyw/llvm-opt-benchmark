@@ -1881,7 +1881,7 @@ _ZNSt10shared_ptrIKN6Assimp4STEP7EXPRESS8DataTypeEED2Ev.exit68: ; preds = %invok
   ret i64 %inc32
 
 ehcleanup29:                                      ; preds = %cleanup.done26, %lpad6
-  %.merged20 = phi { ptr, i32 } [ %.pn.pn76, %cleanup.done26 ], [ %27, %lpad6 ]
+  %.merged = phi { ptr, i32 } [ %.pn.pn76, %cleanup.done26 ], [ %27, %lpad6 ]
   call void @_ZNSt10shared_ptrIKN6Assimp4STEP7EXPRESS8DataTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %arg) #18
   br label %eh.resume
 
@@ -1955,12 +1955,12 @@ cleanup.done61:                                   ; preds = %cleanup.action60, %
           to label %ehcleanup68 unwind label %terminate.lpad
 
 ehcleanup68:                                      ; preds = %cleanup.done61, %lpad33
-  %.merged = phi { ptr, i32 } [ %.pn15.pn80, %cleanup.done61 ], [ %47, %lpad33 ]
+  %.merged20 = phi { ptr, i32 } [ %.pn15.pn80, %cleanup.done61 ], [ %47, %lpad33 ]
   call void @_ZNSt10shared_ptrIKN6Assimp4STEP7EXPRESS8DataTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %arg31) #18
   br label %eh.resume
 
 eh.resume:                                        ; preds = %ehcleanup, %cleanup.action, %ehcleanup68, %ehcleanup29
-  %lpad.val72.merged = phi { ptr, i32 } [ %.pn1873, %cleanup.action ], [ %3, %ehcleanup ], [ %.merged, %ehcleanup68 ], [ %.merged20, %ehcleanup29 ]
+  %lpad.val72.merged = phi { ptr, i32 } [ %.pn1873, %cleanup.action ], [ %3, %ehcleanup ], [ %.merged20, %ehcleanup68 ], [ %.merged, %ehcleanup29 ]
   resume { ptr, i32 } %lpad.val72.merged
 
 terminate.lpad:                                   ; preds = %cleanup.done61, %cleanup.done26
@@ -2930,7 +2930,7 @@ _ZNK6Assimp4STEP7EXPRESS4LISTixEm.exit65:         ; preds = %_ZNSt10shared_ptrIK
   br i1 %tobool40.not, label %if.end42, label %cleanup75
 
 ehcleanup32:                                      ; preds = %cleanup.done29, %lpad9
-  %.merged = phi { ptr, i32 } [ %.pn.pn252, %cleanup.done29 ], [ %11, %lpad9 ]
+  %.merged48 = phi { ptr, i32 } [ %.pn.pn252, %cleanup.done29 ], [ %11, %lpad9 ]
   call void @_ZNSt10shared_ptrIKN6Assimp4STEP7EXPRESS8DataTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %arg) #18
   br label %eh.resume
 
@@ -3322,7 +3322,7 @@ _ZNK6Assimp4STEP7EXPRESS4LISTixEm.exit162:        ; preds = %_ZNSt10shared_ptrIK
   br i1 %tobool134.not, label %if.end136, label %cleanup169
 
 ehcleanup125:                                     ; preds = %cleanup.done118, %lpad90
-  %.merged50 = phi { ptr, i32 } [ %.pn36.pn260, %cleanup.done118 ], [ %69, %lpad90 ]
+  %.merged = phi { ptr, i32 } [ %.pn36.pn260, %cleanup.done118 ], [ %69, %lpad90 ]
   call void @_ZNSt10shared_ptrIKN6Assimp4STEP7EXPRESS8DataTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %arg81) #18
   br label %eh.resume
 
@@ -3518,7 +3518,7 @@ _ZNK6Assimp4STEP7EXPRESS4LISTixEm.exit210:        ; preds = %_ZNSt10shared_ptrIK
   br i1 %tobool181.not, label %if.end183, label %cleanup216
 
 ehcleanup172:                                     ; preds = %cleanup.done165, %lpad137
-  %.merged48 = phi { ptr, i32 } [ %.pn39.pn264, %cleanup.done165 ], [ %98, %lpad137 ]
+  %.merged50 = phi { ptr, i32 } [ %.pn39.pn264, %cleanup.done165 ], [ %98, %lpad137 ]
   call void @_ZNSt10shared_ptrIKN6Assimp4STEP7EXPRESS8DataTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %arg128) #18
   br label %eh.resume
 
@@ -3686,7 +3686,7 @@ ehcleanup219:                                     ; preds = %cleanup.done212, %l
   br label %eh.resume
 
 eh.resume:                                        ; preds = %ehcleanup, %cleanup.action, %ehcleanup219, %ehcleanup172, %ehcleanup125, %ehcleanup78, %ehcleanup32
-  %lpad.val223.merged = phi { ptr, i32 } [ %.pn45249, %cleanup.action ], [ %3, %ehcleanup ], [ %.merged47, %ehcleanup219 ], [ %.merged48, %ehcleanup172 ], [ %.merged50, %ehcleanup125 ], [ %.merged49, %ehcleanup78 ], [ %.merged, %ehcleanup32 ]
+  %lpad.val223.merged = phi { ptr, i32 } [ %.pn45249, %cleanup.action ], [ %3, %ehcleanup ], [ %.merged47, %ehcleanup219 ], [ %.merged50, %ehcleanup172 ], [ %.merged, %ehcleanup125 ], [ %.merged49, %ehcleanup78 ], [ %.merged48, %ehcleanup32 ]
   resume { ptr, i32 } %lpad.val223.merged
 
 terminate.lpad:                                   ; preds = %cleanup.done212, %cleanup.done165, %cleanup.done118, %cleanup.done71, %cleanup.done29
@@ -4549,7 +4549,7 @@ _ZNK6Assimp4STEP7EXPRESS4LISTixEm.exit174:        ; preds = %_ZNSt10shared_ptrIK
   br i1 %tobool150.not, label %if.end158, label %if.then151
 
 ehcleanup141:                                     ; preds = %cleanup.done134, %lpad106
-  %.merged54 = phi { ptr, i32 } [ %.pn41.pn336, %cleanup.done134 ], [ %72, %lpad106 ]
+  %.merged52 = phi { ptr, i32 } [ %.pn41.pn336, %cleanup.done134 ], [ %72, %lpad106 ]
   call void @_ZNSt10shared_ptrIKN6Assimp4STEP7EXPRESS8DataTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %arg91) #18
   br label %eh.resume
 
@@ -4961,7 +4961,7 @@ _ZNSt10shared_ptrIKN6Assimp4STEP7EXPRESS8DataTypeEED2Ev.exit322: ; preds = %clea
   ret i64 %inc198
 
 eh.resume:                                        ; preds = %ehcleanup, %cleanup.action, %ehcleanup141, %ehcleanup88, %ehcleanup36
-  %lpad.val251.merged = phi { ptr, i32 } [ %.pn50325, %cleanup.action ], [ %3, %ehcleanup ], [ %.merged54, %ehcleanup141 ], [ %.merged, %ehcleanup88 ], [ %.merged55, %ehcleanup36 ]
+  %lpad.val251.merged = phi { ptr, i32 } [ %.pn50325, %cleanup.action ], [ %3, %ehcleanup ], [ %.merged52, %ehcleanup141 ], [ %.merged, %ehcleanup88 ], [ %.merged55, %ehcleanup36 ]
   resume { ptr, i32 } %lpad.val251.merged
 
 terminate.lpad:                                   ; preds = %cleanup.done134, %cleanup.done81, %cleanup.done33
@@ -5674,7 +5674,7 @@ _ZNSt10shared_ptrIKN6Assimp4STEP7EXPRESS8DataTypeEED2Ev.exit68: ; preds = %invok
   ret i64 %inc32
 
 ehcleanup29:                                      ; preds = %cleanup.done26, %lpad6
-  %.merged20 = phi { ptr, i32 } [ %.pn.pn76, %cleanup.done26 ], [ %27, %lpad6 ]
+  %.merged = phi { ptr, i32 } [ %.pn.pn76, %cleanup.done26 ], [ %27, %lpad6 ]
   call void @_ZNSt10shared_ptrIKN6Assimp4STEP7EXPRESS8DataTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %arg) #18
   br label %eh.resume
 
@@ -5748,12 +5748,12 @@ cleanup.done61:                                   ; preds = %cleanup.action60, %
           to label %ehcleanup68 unwind label %terminate.lpad
 
 ehcleanup68:                                      ; preds = %cleanup.done61, %lpad33
-  %.merged = phi { ptr, i32 } [ %.pn15.pn80, %cleanup.done61 ], [ %47, %lpad33 ]
+  %.merged20 = phi { ptr, i32 } [ %.pn15.pn80, %cleanup.done61 ], [ %47, %lpad33 ]
   call void @_ZNSt10shared_ptrIKN6Assimp4STEP7EXPRESS8DataTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %arg31) #18
   br label %eh.resume
 
 eh.resume:                                        ; preds = %ehcleanup, %cleanup.action, %ehcleanup68, %ehcleanup29
-  %lpad.val72.merged = phi { ptr, i32 } [ %.pn1873, %cleanup.action ], [ %3, %ehcleanup ], [ %.merged, %ehcleanup68 ], [ %.merged20, %ehcleanup29 ]
+  %lpad.val72.merged = phi { ptr, i32 } [ %.pn1873, %cleanup.action ], [ %3, %ehcleanup ], [ %.merged20, %ehcleanup68 ], [ %.merged, %ehcleanup29 ]
   resume { ptr, i32 } %lpad.val72.merged
 
 terminate.lpad:                                   ; preds = %cleanup.done61, %cleanup.done26
@@ -6524,7 +6524,7 @@ _ZNK6Assimp4STEP7EXPRESS4LISTixEm.exit35:         ; preds = %_ZNSt10shared_ptrIK
   br i1 %tobool40.not, label %if.end42, label %cleanup75
 
 ehcleanup32:                                      ; preds = %cleanup.done29, %lpad9
-  %.merged20 = phi { ptr, i32 } [ %.pn.pn78, %cleanup.done29 ], [ %11, %lpad9 ]
+  %.merged = phi { ptr, i32 } [ %.pn.pn78, %cleanup.done29 ], [ %11, %lpad9 ]
   call void @_ZNSt10shared_ptrIKN6Assimp4STEP7EXPRESS8DataTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %arg) #18
   br label %eh.resume
 
@@ -6687,12 +6687,12 @@ _ZNSt10shared_ptrIKN6Assimp4STEP7EXPRESS8DataTypeEED2Ev.exit72: ; preds = %clean
   ret i64 %inc35
 
 ehcleanup78:                                      ; preds = %cleanup.done71, %lpad43
-  %.merged = phi { ptr, i32 } [ %.pn15.pn82, %cleanup.done71 ], [ %40, %lpad43 ]
+  %.merged20 = phi { ptr, i32 } [ %.pn15.pn82, %cleanup.done71 ], [ %40, %lpad43 ]
   call void @_ZNSt10shared_ptrIKN6Assimp4STEP7EXPRESS8DataTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %arg34) #18
   br label %eh.resume
 
 eh.resume:                                        ; preds = %ehcleanup, %cleanup.action, %ehcleanup78, %ehcleanup32
-  %lpad.val82.merged = phi { ptr, i32 } [ %.pn1875, %cleanup.action ], [ %3, %ehcleanup ], [ %.merged, %ehcleanup78 ], [ %.merged20, %ehcleanup32 ]
+  %lpad.val82.merged = phi { ptr, i32 } [ %.pn1875, %cleanup.action ], [ %3, %ehcleanup ], [ %.merged20, %ehcleanup78 ], [ %.merged, %ehcleanup32 ]
   resume { ptr, i32 } %lpad.val82.merged
 
 terminate.lpad:                                   ; preds = %cleanup.done71, %cleanup.done29
@@ -8397,7 +8397,7 @@ _ZNK6Assimp4STEP7EXPRESS4LISTixEm.exit59:         ; preds = %_ZNSt10shared_ptrIK
   br i1 %tobool44.not, label %if.end52, label %if.then45
 
 ehcleanup36:                                      ; preds = %cleanup.done33, %lpad13
-  %.merged42 = phi { ptr, i32 } [ %.pn.pn220, %cleanup.done33 ], [ %12, %lpad13 ]
+  %.merged = phi { ptr, i32 } [ %.pn.pn220, %cleanup.done33 ], [ %12, %lpad13 ]
   call void @_ZNSt10shared_ptrIKN6Assimp4STEP7EXPRESS8DataTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %arg) #18
   br label %eh.resume
 
@@ -8598,7 +8598,7 @@ _ZNK6Assimp4STEP7EXPRESS4LISTixEm.exit110:        ; preds = %_ZNSt10shared_ptrIK
   br i1 %tobool104.not, label %if.end112, label %if.then105
 
 ehcleanup95:                                      ; preds = %cleanup.done88, %lpad60
-  %.merged = phi { ptr, i32 } [ %.pn31.pn224, %cleanup.done88 ], [ %42, %lpad60 ]
+  %.merged43 = phi { ptr, i32 } [ %.pn31.pn224, %cleanup.done88 ], [ %42, %lpad60 ]
   call void @_ZNSt10shared_ptrIKN6Assimp4STEP7EXPRESS8DataTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %arg38) #18
   br label %eh.resume
 
@@ -8999,7 +8999,7 @@ ehcleanup208:                                     ; preds = %cleanup.done201, %l
   br label %eh.resume
 
 eh.resume:                                        ; preds = %ehcleanup, %cleanup.action, %ehcleanup208, %ehcleanup95, %ehcleanup36
-  %lpad.val212.merged = phi { ptr, i32 } [ %.pn40217, %cleanup.action ], [ %3, %ehcleanup ], [ %.merged44, %ehcleanup208 ], [ %.merged, %ehcleanup95 ], [ %.merged42, %ehcleanup36 ]
+  %lpad.val212.merged = phi { ptr, i32 } [ %.pn40217, %cleanup.action ], [ %3, %ehcleanup ], [ %.merged44, %ehcleanup208 ], [ %.merged43, %ehcleanup95 ], [ %.merged, %ehcleanup36 ]
   resume { ptr, i32 } %lpad.val212.merged
 
 terminate.lpad:                                   ; preds = %cleanup.done201, %cleanup.done88, %cleanup.done33
@@ -9383,7 +9383,7 @@ _ZNSt10shared_ptrIKN6Assimp4STEP7EXPRESS8DataTypeEED2Ev.exit67: ; preds = %invok
   ret i64 %inc35
 
 ehcleanup32:                                      ; preds = %cleanup.done29, %lpad9
-  %.merged = phi { ptr, i32 } [ %.pn.pn75, %cleanup.done29 ], [ %11, %lpad9 ]
+  %.merged20 = phi { ptr, i32 } [ %.pn.pn75, %cleanup.done29 ], [ %11, %lpad9 ]
   call void @_ZNSt10shared_ptrIKN6Assimp4STEP7EXPRESS8DataTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %arg) #18
   br label %eh.resume
 
@@ -9457,12 +9457,12 @@ cleanup.done64:                                   ; preds = %cleanup.action63, %
           to label %ehcleanup71 unwind label %terminate.lpad
 
 ehcleanup71:                                      ; preds = %cleanup.done64, %lpad36
-  %.merged20 = phi { ptr, i32 } [ %.pn15.pn79, %cleanup.done64 ], [ %49, %lpad36 ]
+  %.merged = phi { ptr, i32 } [ %.pn15.pn79, %cleanup.done64 ], [ %49, %lpad36 ]
   call void @_ZNSt10shared_ptrIKN6Assimp4STEP7EXPRESS8DataTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %arg34) #18
   br label %eh.resume
 
 eh.resume:                                        ; preds = %ehcleanup, %cleanup.action, %ehcleanup71, %ehcleanup32
-  %lpad.val75.merged = phi { ptr, i32 } [ %.pn1872, %cleanup.action ], [ %3, %ehcleanup ], [ %.merged20, %ehcleanup71 ], [ %.merged, %ehcleanup32 ]
+  %lpad.val75.merged = phi { ptr, i32 } [ %.pn1872, %cleanup.action ], [ %3, %ehcleanup ], [ %.merged, %ehcleanup71 ], [ %.merged20, %ehcleanup32 ]
   resume { ptr, i32 } %lpad.val75.merged
 
 terminate.lpad:                                   ; preds = %cleanup.done64, %cleanup.done29
@@ -10246,12 +10246,12 @@ cleanup.done60:                                   ; preds = %cleanup.action59, %
           to label %ehcleanup67 unwind label %terminate.lpad
 
 ehcleanup67:                                      ; preds = %cleanup.done60, %lpad32
-  %.merged = phi { ptr, i32 } [ %.pn12.pn83, %cleanup.done60 ], [ %53, %lpad32 ]
+  %.merged17 = phi { ptr, i32 } [ %.pn12.pn83, %cleanup.done60 ], [ %53, %lpad32 ]
   call void @_ZNSt10shared_ptrIKN6Assimp4STEP7EXPRESS8DataTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %arg30) #18
   br label %eh.resume
 
 eh.resume:                                        ; preds = %ehcleanup, %cleanup.action, %ehcleanup67
-  %lpad.val71.merged = phi { ptr, i32 } [ %.pn1580, %cleanup.action ], [ %3, %ehcleanup ], [ %.merged, %ehcleanup67 ]
+  %lpad.val71.merged = phi { ptr, i32 } [ %.pn1580, %cleanup.action ], [ %3, %ehcleanup ], [ %.merged17, %ehcleanup67 ]
   resume { ptr, i32 } %lpad.val71.merged
 
 terminate.lpad:                                   ; preds = %cleanup.done60
@@ -13835,7 +13835,7 @@ cleanup.done26:                                   ; preds = %cleanup.action25, %
           to label %ehcleanup29 unwind label %terminate.lpad
 
 ehcleanup29:                                      ; preds = %cleanup.done26, %lpad6
-  %.merged = phi { ptr, i32 } [ %.pn.pn75, %cleanup.done26 ], [ %29, %lpad6 ]
+  %.merged20 = phi { ptr, i32 } [ %.pn.pn75, %cleanup.done26 ], [ %29, %lpad6 ]
   call void @_ZNSt10shared_ptrIKN6Assimp4STEP7EXPRESS8DataTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %arg) #18
   br label %eh.resume
 
@@ -13998,12 +13998,12 @@ _ZNSt10shared_ptrIKN6Assimp4STEP7EXPRESS8DataTypeEED2Ev.exit69: ; preds = %clean
   ret i64 %inc32
 
 ehcleanup71:                                      ; preds = %cleanup.done64, %lpad36
-  %.merged20 = phi { ptr, i32 } [ %.pn15.pn79, %cleanup.done64 ], [ %38, %lpad36 ]
+  %.merged = phi { ptr, i32 } [ %.pn15.pn79, %cleanup.done64 ], [ %38, %lpad36 ]
   call void @_ZNSt10shared_ptrIKN6Assimp4STEP7EXPRESS8DataTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %arg31) #18
   br label %eh.resume
 
 eh.resume:                                        ; preds = %ehcleanup, %cleanup.action, %ehcleanup71, %ehcleanup29
-  %lpad.val75.merged = phi { ptr, i32 } [ %.pn1872, %cleanup.action ], [ %3, %ehcleanup ], [ %.merged20, %ehcleanup71 ], [ %.merged, %ehcleanup29 ]
+  %lpad.val75.merged = phi { ptr, i32 } [ %.pn1872, %cleanup.action ], [ %3, %ehcleanup ], [ %.merged, %ehcleanup71 ], [ %.merged20, %ehcleanup29 ]
   resume { ptr, i32 } %lpad.val75.merged
 
 terminate.lpad:                                   ; preds = %cleanup.done64, %cleanup.done26
@@ -14708,7 +14708,7 @@ _ZNK6Assimp4STEP7EXPRESS4LISTixEm.exit100:        ; preds = %_ZNSt10shared_ptrIK
           to label %invoke.cont74 unwind label %lpad73
 
 ehcleanup29:                                      ; preds = %cleanup.done26, %lpad6
-  %.merged40 = phi { ptr, i32 } [ %.pn.pn192, %cleanup.done26 ], [ %27, %lpad6 ]
+  %.merged = phi { ptr, i32 } [ %.pn.pn192, %cleanup.done26 ], [ %27, %lpad6 ]
   call void @_ZNSt10shared_ptrIKN6Assimp4STEP7EXPRESS8DataTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %arg) #18
   br label %eh.resume
 
@@ -14892,7 +14892,7 @@ _ZNK6Assimp4STEP7EXPRESS4LISTixEm.exit148:        ; preds = %_ZNSt10shared_ptrIK
           to label %invoke.cont114 unwind label %lpad113
 
 ehcleanup68:                                      ; preds = %cleanup.done61, %lpad33
-  %.merged39 = phi { ptr, i32 } [ %.pn27.pn196, %cleanup.done61 ], [ %54, %lpad33 ]
+  %.merged40 = phi { ptr, i32 } [ %.pn27.pn196, %cleanup.done61 ], [ %54, %lpad33 ]
   call void @_ZNSt10shared_ptrIKN6Assimp4STEP7EXPRESS8DataTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %arg31) #18
   br label %eh.resume
 
@@ -15044,7 +15044,7 @@ _ZNSt10shared_ptrIKN6Assimp4STEP7EXPRESS8DataTypeEED2Ev.exit184: ; preds = %invo
   ret i64 %inc112
 
 ehcleanup108:                                     ; preds = %cleanup.done101, %lpad73
-  %.merged38 = phi { ptr, i32 } [ %.pn30.pn200, %cleanup.done101 ], [ %81, %lpad73 ]
+  %.merged39 = phi { ptr, i32 } [ %.pn30.pn200, %cleanup.done101 ], [ %81, %lpad73 ]
   call void @_ZNSt10shared_ptrIKN6Assimp4STEP7EXPRESS8DataTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %arg71) #18
   br label %eh.resume
 
@@ -15118,12 +15118,12 @@ cleanup.done141:                                  ; preds = %cleanup.action140, 
           to label %ehcleanup148 unwind label %terminate.lpad
 
 ehcleanup148:                                     ; preds = %cleanup.done141, %lpad113
-  %.merged = phi { ptr, i32 } [ %.pn33.pn204, %cleanup.done141 ], [ %101, %lpad113 ]
+  %.merged38 = phi { ptr, i32 } [ %.pn33.pn204, %cleanup.done141 ], [ %101, %lpad113 ]
   call void @_ZNSt10shared_ptrIKN6Assimp4STEP7EXPRESS8DataTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %arg111) #18
   br label %eh.resume
 
 eh.resume:                                        ; preds = %ehcleanup, %cleanup.action, %ehcleanup148, %ehcleanup108, %ehcleanup68, %ehcleanup29
-  %lpad.val152.merged = phi { ptr, i32 } [ %.pn36189, %cleanup.action ], [ %3, %ehcleanup ], [ %.merged, %ehcleanup148 ], [ %.merged38, %ehcleanup108 ], [ %.merged39, %ehcleanup68 ], [ %.merged40, %ehcleanup29 ]
+  %lpad.val152.merged = phi { ptr, i32 } [ %.pn36189, %cleanup.action ], [ %3, %ehcleanup ], [ %.merged38, %ehcleanup148 ], [ %.merged39, %ehcleanup108 ], [ %.merged40, %ehcleanup68 ], [ %.merged, %ehcleanup29 ]
   resume { ptr, i32 } %lpad.val152.merged
 
 terminate.lpad:                                   ; preds = %cleanup.done141, %cleanup.done101, %cleanup.done61, %cleanup.done26
@@ -15840,7 +15840,7 @@ _ZNSt10shared_ptrIKN6Assimp4STEP7EXPRESS8DataTypeEED2Ev.exit68: ; preds = %invok
   ret i64 %inc32
 
 ehcleanup29:                                      ; preds = %cleanup.done26, %lpad6
-  %.merged20 = phi { ptr, i32 } [ %.pn.pn76, %cleanup.done26 ], [ %27, %lpad6 ]
+  %.merged = phi { ptr, i32 } [ %.pn.pn76, %cleanup.done26 ], [ %27, %lpad6 ]
   call void @_ZNSt10shared_ptrIKN6Assimp4STEP7EXPRESS8DataTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %arg) #18
   br label %eh.resume
 
@@ -15914,12 +15914,12 @@ cleanup.done61:                                   ; preds = %cleanup.action60, %
           to label %ehcleanup68 unwind label %terminate.lpad
 
 ehcleanup68:                                      ; preds = %cleanup.done61, %lpad33
-  %.merged = phi { ptr, i32 } [ %.pn15.pn80, %cleanup.done61 ], [ %47, %lpad33 ]
+  %.merged20 = phi { ptr, i32 } [ %.pn15.pn80, %cleanup.done61 ], [ %47, %lpad33 ]
   call void @_ZNSt10shared_ptrIKN6Assimp4STEP7EXPRESS8DataTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %arg31) #18
   br label %eh.resume
 
 eh.resume:                                        ; preds = %ehcleanup, %cleanup.action, %ehcleanup68, %ehcleanup29
-  %lpad.val72.merged = phi { ptr, i32 } [ %.pn1873, %cleanup.action ], [ %3, %ehcleanup ], [ %.merged, %ehcleanup68 ], [ %.merged20, %ehcleanup29 ]
+  %lpad.val72.merged = phi { ptr, i32 } [ %.pn1873, %cleanup.action ], [ %3, %ehcleanup ], [ %.merged20, %ehcleanup68 ], [ %.merged, %ehcleanup29 ]
   resume { ptr, i32 } %lpad.val72.merged
 
 terminate.lpad:                                   ; preds = %cleanup.done61, %cleanup.done26
@@ -16395,7 +16395,7 @@ _ZNSt10shared_ptrIKN6Assimp4STEP7EXPRESS8DataTypeEED2Ev.exit69: ; preds = %invok
   ret i64 %inc32
 
 ehcleanup29:                                      ; preds = %cleanup.done26, %lpad6
-  %.merged = phi { ptr, i32 } [ %.pn.pn77, %cleanup.done26 ], [ %27, %lpad6 ]
+  %.merged20 = phi { ptr, i32 } [ %.pn.pn77, %cleanup.done26 ], [ %27, %lpad6 ]
   call void @_ZNSt10shared_ptrIKN6Assimp4STEP7EXPRESS8DataTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %arg) #18
   br label %eh.resume
 
@@ -16469,12 +16469,12 @@ cleanup.done61:                                   ; preds = %cleanup.action60, %
           to label %ehcleanup68 unwind label %terminate.lpad
 
 ehcleanup68:                                      ; preds = %cleanup.done61, %lpad33
-  %.merged20 = phi { ptr, i32 } [ %.pn15.pn81, %cleanup.done61 ], [ %47, %lpad33 ]
+  %.merged = phi { ptr, i32 } [ %.pn15.pn81, %cleanup.done61 ], [ %47, %lpad33 ]
   call void @_ZNSt10shared_ptrIKN6Assimp4STEP7EXPRESS8DataTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %arg31) #18
   br label %eh.resume
 
 eh.resume:                                        ; preds = %ehcleanup, %cleanup.action, %ehcleanup68, %ehcleanup29
-  %lpad.val72.merged = phi { ptr, i32 } [ %.pn1874, %cleanup.action ], [ %3, %ehcleanup ], [ %.merged20, %ehcleanup68 ], [ %.merged, %ehcleanup29 ]
+  %lpad.val72.merged = phi { ptr, i32 } [ %.pn1874, %cleanup.action ], [ %3, %ehcleanup ], [ %.merged, %ehcleanup68 ], [ %.merged20, %ehcleanup29 ]
   resume { ptr, i32 } %lpad.val72.merged
 
 terminate.lpad:                                   ; preds = %cleanup.done61, %cleanup.done26
@@ -17083,7 +17083,7 @@ _ZNK6Assimp4STEP7EXPRESS4LISTixEm.exit95:         ; preds = %_ZNSt10shared_ptrIK
   br i1 %tobool40.not, label %if.end42, label %cleanup75
 
 ehcleanup32:                                      ; preds = %cleanup.done29, %lpad9
-  %.merged74 = phi { ptr, i32 } [ %.pn.pn648, %cleanup.done29 ], [ %11, %lpad9 ]
+  %.merged78 = phi { ptr, i32 } [ %.pn.pn648, %cleanup.done29 ], [ %11, %lpad9 ]
   call void @_ZNSt10shared_ptrIKN6Assimp4STEP7EXPRESS8DataTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %arg) #18
   br label %eh.resume
 
@@ -18535,7 +18535,7 @@ ehcleanup353:                                     ; preds = %cleanup.done346, %l
   br label %eh.resume
 
 eh.resume:                                        ; preds = %ehcleanup, %cleanup.action, %ehcleanup353, %ehcleanup32
-  %lpad.val357.merged = phi { ptr, i32 } [ %.pn72645, %cleanup.action ], [ %3, %ehcleanup ], [ %.merged79, %ehcleanup353 ], [ %.merged74, %ehcleanup32 ]
+  %lpad.val357.merged = phi { ptr, i32 } [ %.pn72645, %cleanup.action ], [ %3, %ehcleanup ], [ %.merged79, %ehcleanup353 ], [ %.merged78, %ehcleanup32 ]
   resume { ptr, i32 } %lpad.val357.merged
 
 terminate.lpad:                                   ; preds = %cleanup.done346, %cleanup.done29
