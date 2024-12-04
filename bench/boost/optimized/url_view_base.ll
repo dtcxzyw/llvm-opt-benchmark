@@ -266,7 +266,7 @@ define noundef i64 @_ZNK5boost4urls13url_view_base6digestEm(ptr nocapture nounde
   %24 = extractvalue { ptr, i64 } %23, 0
   %25 = extractvalue { ptr, i64 } %23, 1
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 %25
-  %.not8.i = icmp samesign eq i64 %25, 0
+  %.not8.i = icmp eq i64 %25, 0
   br i1 %.not8.i, label %_ZN5boost4urls6detail6fnv_1a3putENS_4core17basic_string_viewIcEE.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %2

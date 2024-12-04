@@ -260,7 +260,7 @@ define void @_ZNK5boost4urls19params_encoded_base9find_implENS0_6detail16params_
   %47 = getelementptr inbounds nuw i8, ptr %42, i64 %46
   %48 = load i64, ptr %33, align 8, !tbaa !44, !noalias !48
   %49 = getelementptr inbounds nuw i8, ptr %44, i64 %48
-  %50 = icmp samesign eq i64 %46, 0
+  %50 = icmp eq i64 %46, 0
   br i1 %50, label %.loopexit, label %.lr.ph.i5.i
 
 .lr.ph.i5.i:                                      ; preds = %41, %62
@@ -476,7 +476,7 @@ define void @_ZNK5boost4urls19params_encoded_base14find_last_implENS0_6detail16p
   %49 = getelementptr inbounds nuw i8, ptr %44, i64 %48
   %50 = load i64, ptr %33, align 8, !tbaa !44, !noalias !76
   %51 = getelementptr inbounds nuw i8, ptr %46, i64 %50
-  %52 = icmp samesign eq i64 %48, 0
+  %52 = icmp eq i64 %48, 0
   br i1 %52, label %._crit_edge.i16.i, label %.lr.ph.i5.i
 
 ._crit_edge.i16.i:                                ; preds = %69, %43

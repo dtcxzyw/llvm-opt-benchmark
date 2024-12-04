@@ -148,7 +148,7 @@ define linkonce_odr hidden void @_ZN5boost6detail7convertIwcNS_3_bi6bind_tINS2_1
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load i64, ptr %13, align 8, !tbaa !23
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 %14
-  %.not17 = icmp samesign eq i64 %14, 0
+  %.not17 = icmp eq i64 %14, 0
   br i1 %.not17, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3

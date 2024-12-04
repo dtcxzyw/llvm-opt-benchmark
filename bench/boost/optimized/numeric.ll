@@ -5363,7 +5363,7 @@ define linkonce_odr hidden noundef i32 @_ZN5boost6locale4util8parse_tzERKNSt7__c
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i64, ptr %7, align 8, !tbaa !26
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 %8
-  %.not3839 = icmp samesign eq i64 %8, 0
+  %.not3839 = icmp eq i64 %8, 0
   br i1 %.not3839, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %46, %1
@@ -5646,7 +5646,7 @@ _ZSt9use_facetIN5boost6locale4infoEERKT_RKSt6locale.exit: ; preds = %28
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %42 = load i64, ptr %41, align 8, !tbaa !26
   %43 = getelementptr inbounds nuw i8, ptr %40, i64 %42
-  %.not4.i.i = icmp samesign eq i64 %42, 0
+  %.not4.i.i = icmp eq i64 %42, 0
   br i1 %.not4.i.i, label %_ZSt8count_ifIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZN5boost6locale4util22formatting_size_traitsIcE4sizeERKS9_RKSt6localeEUlhE_ENSt15iterator_traitsIT_E15difference_typeESN_SN_T0_.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %39, %.lr.ph.i.i

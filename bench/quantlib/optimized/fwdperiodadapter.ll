@@ -2011,7 +2011,7 @@ for.body383:                                      ; preds = %for.body383.lr.ph, 
   %mul.i357 = mul i64 %223, %i378.0495
   %add.i = add nuw i64 %i378.0495, 1
   %mul.i361 = mul i64 %223, %add.i
-  %cmp.not3.i.i.i = icmp samesign eq i64 %mul.i357, %mul.i361
+  %cmp.not3.i.i.i = icmp eq i64 %mul.i357, %mul.i361
   br i1 %cmp.not3.i.i.i, label %invoke.cont395, label %for.body.i.i.i.preheader
 
 for.body.i.i.i.preheader:                         ; preds = %for.body383

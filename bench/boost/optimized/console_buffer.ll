@@ -646,7 +646,7 @@ _ZN5boost6nowide3utf10utf_traitsIcLi1EE6encodeIPcEET_jS6_.exit.thread: ; preds =
   br label %90
 
 80:                                               ; preds = %_ZN5boost6nowide3utf10utf_traitsIcLi1EE6encodeIPcEET_jS6_.exit.thread
-  %81 = icmp samesign eq i64 %.020.idx.lcssa, 64
+  %81 = icmp eq i64 %.020.idx.lcssa, 64
   br i1 %81, label %88, label %82
 
 82:                                               ; preds = %80

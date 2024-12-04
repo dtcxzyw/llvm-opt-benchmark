@@ -4075,7 +4075,7 @@ invoke.cont34:                                    ; preds = %for.body.i, %invoke
   %add.i = add nuw i64 %k.0105, 1
   %mul.i61 = mul i64 %22, %add.i
   %add.ptr.i62 = getelementptr inbounds nuw double, ptr %21, i64 %mul.i61
-  %cmp.not5.i63 = icmp samesign eq i64 %mul.i58, %mul.i61
+  %cmp.not5.i63 = icmp eq i64 %mul.i58, %mul.i61
   br i1 %cmp.not5.i63, label %invoke.cont72, label %for.body.i64.preheader
 
 for.body.i64.preheader:                           ; preds = %invoke.cont34

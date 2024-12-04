@@ -789,7 +789,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %add.i = add nuw i64 %storemerge23, 1
   %mul.i8 = mul i64 %8, %add.i
   %add.ptr.i9 = getelementptr inbounds nuw double, ptr %7, i64 %mul.i8
-  %cmp.not6.i = icmp samesign eq i64 %mul.i, %mul.i8
+  %cmp.not6.i = icmp eq i64 %mul.i, %mul.i8
   br i1 %cmp.not6.i, label %for.inc, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %for.body

@@ -308,7 +308,7 @@ invoke.cont17:                                    ; preds = %invoke.cont13
 
 call.i.i.noexc:                                   ; preds = %invoke.cont17
   store ptr %call.i.i75, ptr %_M_data.i, align 8, !tbaa !46
-  %cmp.not2.i.i.i = icmp samesign eq i64 %add, 0
+  %cmp.not2.i.i.i = icmp eq i64 %add, 0
   br i1 %cmp.not2.i.i.i, label %invoke.cont19, label %while.body.preheader.i.i.i
 
 while.body.preheader.i.i.i:                       ; preds = %call.i.i.noexc
@@ -1761,7 +1761,7 @@ for.body222:                                      ; preds = %for.body222.lr.ph, 
   %add.i = add nuw i64 %k.0676, 1
   %mul.i481 = mul i64 %169, %add.i
   %add.ptr.i482 = getelementptr inbounds nuw double, ptr %168, i64 %mul.i481
-  %cmp.not5.i = icmp samesign eq i64 %mul.i, %mul.i481
+  %cmp.not5.i = icmp eq i64 %mul.i, %mul.i481
   br i1 %cmp.not5.i, label %_ZSt13inner_productIPKdS1_dET1_T_S3_T0_S2_.exit, label %for.body.i.preheader
 
 for.body.i.preheader:                             ; preds = %for.body222
@@ -3098,7 +3098,7 @@ for.body57:                                       ; preds = %for.body57.lr.ph, %
   %add.i = add nuw i64 %i53.070, 1
   %mul.i52 = mul i64 %33, %add.i
   %add.ptr.i53 = getelementptr inbounds nuw double, ptr %32, i64 %mul.i52
-  %cmp.not5.i = icmp samesign eq i64 %mul.i, %mul.i52
+  %cmp.not5.i = icmp eq i64 %mul.i, %mul.i52
   br i1 %cmp.not5.i, label %_ZSt13inner_productIPKdN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEdET1_T_SA_T0_S9_.exit, label %for.body.i.preheader
 
 for.body.i.preheader:                             ; preds = %for.body57

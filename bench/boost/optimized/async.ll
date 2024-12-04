@@ -12704,7 +12704,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit30: ; preds = %_ZNSo
   %90 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %91 = load i64, ptr %90, align 8, !tbaa !11
   %92 = getelementptr inbounds nuw i8, ptr %89, i64 %91
-  %93 = icmp samesign eq i64 %91, 0
+  %93 = icmp eq i64 %91, 0
   br i1 %93, label %.noexc.thread, label %_ZSt4findIPKccET_S2_S2_RKT0_.exit.us77.i
 
 _ZSt4findIPKccET_S2_S2_RKT0_.exit.us77.i:         ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit30, %._crit_edge.i.i.i.us72.i
@@ -13190,7 +13190,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit58: ; preds = %_ZNSo
   %274 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %275 = load i64, ptr %274, align 8, !tbaa !11
   %276 = getelementptr inbounds nuw i8, ptr %273, i64 %275
-  %277 = icmp samesign eq i64 %275, 0
+  %277 = icmp eq i64 %275, 0
   br i1 %277, label %.noexc64.thread, label %_ZSt4findIPKccET_S2_S2_RKT0_.exit.us77.i157
 
 _ZSt4findIPKccET_S2_S2_RKT0_.exit.us77.i157:      ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit58, %._crit_edge.i.i.i.us72.i154
@@ -19678,7 +19678,7 @@ define linkonce_odr hidden void @_ZN5boost9unit_test9framework5state17deduce_run
   %.sroa.078.097.i = phi ptr [ %37, %.lr.ph100.i ], [ %93, %._crit_edge.i ]
   %56 = getelementptr inbounds nuw i8, ptr %.sroa.078.097.i, i64 8
   %57 = load i64, ptr %56, align 8, !tbaa !11, !noalias !374
-  %58 = icmp samesign eq i64 %57, 0
+  %58 = icmp eq i64 %57, 0
   br i1 %58, label %_ZN5boost9unit_test13basic_cstringIKcEC2EPS2_.exit.i, label %_ZN5boost9unit_test5utils27basic_string_token_iteratorIcNS1_9ut_detail20default_char_compareIcEEEC2INS_3nfp23named_parameter_combineINS8_15named_parameterIKNS1_17ti_delimeter_typeENS1_12_GLOBAL__N_117kept_delimeters_tERSC_EENSA_IPKcNSD_20dropped_delimeters_tESI_EEEEEENS0_13basic_cstringISH_EERKT_.exit.i
 
 _ZN5boost9unit_test13basic_cstringIKcEC2EPS2_.exit.i: ; preds = %55
@@ -26595,7 +26595,7 @@ _ZN5boost3nfp10opt_assignINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS
   %57 = load ptr, ptr %42, align 8, !tbaa !4
   %58 = load i64, ptr %44, align 8, !tbaa !11
   %59 = getelementptr inbounds nuw i8, ptr %57, i64 %58
-  %.not5.i.i = icmp samesign eq i64 %58, 0
+  %.not5.i.i = icmp eq i64 %58, 0
   br i1 %.not5.i.i, label %.loopexit5.i, label %.lr.ph.i.i
 
 60:                                               ; preds = %.lr.ph.i.i
@@ -26673,7 +26673,7 @@ _ZN5boost3nfp10opt_assignINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS
   %80 = load ptr, ptr %45, align 8, !tbaa !4
   %81 = load i64, ptr %47, align 8, !tbaa !11
   %82 = getelementptr inbounds nuw i8, ptr %80, i64 %81
-  %.not5.i26.i = icmp samesign eq i64 %81, 0
+  %.not5.i26.i = icmp eq i64 %81, 0
   br i1 %.not5.i26.i, label %.loopexit.i, label %.lr.ph.i27.i
 
 83:                                               ; preds = %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %.lr.ph.i27.i
@@ -44838,7 +44838,7 @@ _ZNK5boost10test_tools16assertion_result7messageEv.exit185: ; preds = %150
   %153 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN5boost23basic_wrap_stringstreamIcE3strB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(408) %152), !noalias !839
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 8
   %155 = load i64, ptr %154, align 8, !tbaa !11, !noalias !839
-  %156 = icmp samesign eq i64 %155, 0
+  %156 = icmp eq i64 %155, 0
   br i1 %156, label %_ZNSt6vectorISt4pairIPKcPKN5boost9unit_test12lazy_ostreamEESaIS8_EED2Ev.exit, label %157
 
 157:                                              ; preds = %_ZNK5boost10test_tools16assertion_result7messageEv.exit185
@@ -47416,7 +47416,7 @@ _ZNK5boost10test_tools16assertion_result7messageEv.exit173: ; preds = %86
   store ptr %90, ptr %11, align 8, !tbaa !12, !alias.scope !885
   %94 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %93, ptr %94, align 8, !tbaa !14, !alias.scope !885
-  %95 = icmp samesign eq i64 %92, 0
+  %95 = icmp eq i64 %92, 0
   br i1 %95, label %_ZNK5boost10test_tools16assertion_result7messageEv.exit173.thread, label %96
 
 96:                                               ; preds = %_ZNK5boost10test_tools16assertion_result7messageEv.exit173
@@ -50627,7 +50627,7 @@ _ZNSt6vectorIcSaIcEE17_M_realloc_insertIJRKcEEEvN9__gnu_cxx17__normal_iteratorIP
   %170 = load ptr, ptr %13, align 8, !tbaa !4
   %171 = load i64, ptr %69, align 8, !tbaa !11
   %172 = getelementptr inbounds nuw i8, ptr %170, i64 %171
-  %.not5.i.i = icmp samesign eq i64 %171, 0
+  %.not5.i.i = icmp eq i64 %171, 0
   br i1 %.not5.i.i, label %_ZSt5countIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcENSt15iterator_traitsIT_E15difference_typeESB_SB_RKT0_.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %166, %.lr.ph.i.i
@@ -55385,7 +55385,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit24: ; preds =
 
 100:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit24, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit
   %101 = load i64, ptr %10, align 8, !tbaa !11
-  %102 = icmp samesign eq i64 %101, 0
+  %102 = icmp eq i64 %101, 0
   br i1 %102, label %.split32.us, label %.split
 
 .splitthread-pre-split:                           ; preds = %_ZSt7replaceIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcEvT_SA_RKT0_SD_.exit
@@ -55397,7 +55397,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit24: ; preds =
   %.01030 = phi i64 [ %113, %.splitthread-pre-split ], [ 0, %100 ]
   %104 = load ptr, ptr %0, align 8, !tbaa !4
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 %103
-  %.not6.i = icmp samesign eq i64 %103, 0
+  %.not6.i = icmp eq i64 %103, 0
   br i1 %.not6.i, label %_ZSt7replaceIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcEvT_SA_RKT0_SD_.exit, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %.split
@@ -90866,7 +90866,7 @@ _ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit.i55: ; preds = %280, %277, 
   store i64 298, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, i64 112), align 8, !tbaa !1048
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %32) #61
   %287 = load i64, ptr %205, align 8, !tbaa !11
-  %.not93 = icmp samesign eq i64 %287, 0
+  %.not93 = icmp eq i64 %287, 0
   br i1 %.not93, label %.loopexit, label %.lr.ph.i.i.preheader
 
 .lr.ph.i.i.preheader:                             ; preds = %286
@@ -93003,8 +93003,8 @@ _ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit.i86: ; preds = %388, %385, 
   %398 = load ptr, ptr %32, align 8, !tbaa !4
   %399 = load i64, ptr %321, align 8, !tbaa !11
   %400 = getelementptr inbounds nuw i8, ptr %398, i64 %399
-  %401 = icmp samesign ne i64 %396, 0
-  %402 = icmp samesign ne i64 %399, 0
+  %401 = icmp ne i64 %396, 0
+  %402 = icmp ne i64 %399, 0
   %or.cond21.i.i = select i1 %401, i1 %402, i1 false
   br i1 %or.cond21.i.i, label %.lr.ph.i.i, label %.critedge.i.i
 
@@ -97439,7 +97439,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
   %146 = load ptr, ptr %19, align 8, !tbaa !4, !noalias !2016
   %147 = load i64, ptr %143, align 8, !tbaa !11, !noalias !2016
   %148 = getelementptr inbounds nuw i8, ptr %146, i64 %147
-  %.not4.i.i = icmp samesign eq i64 %147, 0
+  %.not4.i.i = icmp eq i64 %147, 0
   br i1 %.not4.i.i, label %_ZSt8for_eachIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEN5boost9unit_test6output15s_replace_charsEET0_T_SF_SE_.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit, %_ZN5boost9unit_test6output15s_replace_charsclIcEEvRT_.exit.i.i
@@ -98714,7 +98714,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %91 = load ptr, ptr %16, align 8, !tbaa !4, !noalias !2030
   %92 = load i64, ptr %88, align 8, !tbaa !11, !noalias !2030
   %93 = getelementptr inbounds nuw i8, ptr %91, i64 %92
-  %.not4.i.i = icmp samesign eq i64 %92, 0
+  %.not4.i.i = icmp eq i64 %92, 0
   br i1 %.not4.i.i, label %_ZSt8for_eachIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEN5boost9unit_test6output15s_replace_charsEET0_T_SF_SE_.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %86, %_ZN5boost9unit_test6output15s_replace_charsclIcEEvRT_.exit.i.i
@@ -101220,7 +101220,7 @@ define linkonce_odr hidden void @_ZNK5boost9unit_test6output19junit_result_helpe
   %44 = load ptr, ptr %8, align 8, !tbaa !4, !noalias !2057
   %45 = load i64, ptr %19, align 8, !tbaa !11, !noalias !2057
   %46 = getelementptr inbounds nuw i8, ptr %44, i64 %45
-  %.not4.i.i = icmp samesign eq i64 %45, 0
+  %.not4.i.i = icmp eq i64 %45, 0
   br i1 %.not4.i.i, label %_ZSt8for_eachIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEN5boost9unit_test6output15s_replace_charsEET0_T_SF_SE_.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %40, %_ZN5boost9unit_test6output15s_replace_charsclIcEEvRT_.exit.i.i
@@ -121787,7 +121787,7 @@ define linkonce_odr hidden void @_ZN5boost7runtime16parameter_cla_idC2ENS_9unit_
   %93 = load ptr, ptr %0, align 8, !tbaa !4
   %94 = load i64, ptr %41, align 8, !tbaa !11
   %95 = getelementptr inbounds nuw i8, ptr %93, i64 %94
-  %.not5.i = icmp samesign eq i64 %94, 0
+  %.not5.i = icmp eq i64 %94, 0
   br i1 %.not5.i, label %.loopexit85, label %.lr.ph.i
 
 96:                                               ; preds = %.lr.ph.i
@@ -121890,7 +121890,7 @@ define linkonce_odr hidden void @_ZN5boost7runtime16parameter_cla_idC2ENS_9unit_
   %126 = load ptr, ptr %44, align 8, !tbaa !4
   %127 = load i64, ptr %65, align 8, !tbaa !11
   %128 = getelementptr inbounds nuw i8, ptr %126, i64 %127
-  %.not5.i55 = icmp samesign eq i64 %127, 0
+  %.not5.i55 = icmp eq i64 %127, 0
   br i1 %.not5.i55, label %.loopexit84, label %.lr.ph.i56
 
 129:                                              ; preds = %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %.lr.ph.i56
@@ -121992,7 +121992,7 @@ switch.early.test.i:                              ; preds = %.lr.ph.i56
   %155 = load ptr, ptr %68, align 8, !tbaa !4
   %156 = load i64, ptr %89, align 8, !tbaa !11
   %157 = getelementptr inbounds nuw i8, ptr %155, i64 %156
-  %.not5.i61 = icmp samesign eq i64 %156, 0
+  %.not5.i61 = icmp eq i64 %156, 0
   br i1 %.not5.i61, label %.loopexit, label %.lr.ph.i62
 
 158:                                              ; preds = %.lr.ph.i62, %.lr.ph.i62, %.lr.ph.i62, %.lr.ph.i62
@@ -177380,7 +177380,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
   %27 = getelementptr inbounds nuw i8, ptr %.sroa.036.052, i64 8
   %28 = load i64, ptr %27, align 8, !tbaa !11
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 %28
-  %.not2835.i.i.i = icmp samesign eq i64 %28, 0
+  %.not2835.i.i.i = icmp eq i64 %28, 0
   br i1 %.not2835.i.i.i, label %_ZNK5boost9algorithm6detail13first_finderFIPKcNS0_8is_equalEEclIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS_14iterator_rangeIT_EESJ_SJ_.exit.thread.i.i, label %.lr.ph.preheader.i.i.i
 
 .lr.ph.preheader.i.i.i:                           ; preds = %25, %.critedge15.i.i.i
@@ -181212,7 +181212,7 @@ define linkonce_odr hidden void @_ZN5boost7process2v16detail5posix10build_argsER
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %8, ptr %5, align 8
   %10 = load i64, ptr %9, align 8, !tbaa !11
-  %.not3137 = icmp samesign eq i64 %10, 0
+  %.not3137 = icmp eq i64 %10, 0
   br i1 %.not3137, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
@@ -181558,7 +181558,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignIN9__gnu_cxx17__norm
   %28 = load ptr, ptr %0, align 8, !tbaa !4
   %29 = load i64, ptr %8, align 8, !tbaa !11
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 %29
-  %.not2835.i.i.i = icmp samesign eq i64 %29, 0
+  %.not2835.i.i.i = icmp eq i64 %29, 0
   br i1 %.not2835.i.i.i, label %_ZNK5boost9algorithm6detail13first_finderFIPKcNS0_8is_equalEEclIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS_14iterator_rangeIT_EESJ_SJ_.exit.thread.i.i, label %.lr.ph.preheader.i.i.i
 
 .lr.ph.preheader.i.i.i:                           ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignIN9__gnu_cxx17__normal_iteratorIPKcS4_EEvEERS4_T_SC_.exit, %.critedge15.i.i.i
@@ -185951,7 +185951,7 @@ define linkonce_odr hidden void @_ZN5boost7process2v16detail5posix8executorINS_6
   %23 = phi ptr [ %33, %_ZN5boost9algorithm11starts_withIPcA6_cEEbRKT_RKT0_.exit.thread ], [ %22, %.lr.ph.preheader ]
   %.08190 = phi ptr [ %32, %_ZN5boost9algorithm11starts_withIPcA6_cEEbRKT_RKT0_.exit.thread ], [ %21, %.lr.ph.preheader ]
   %24 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %23) #67
-  %.not59 = icmp samesign eq i64 %24, 0
+  %.not59 = icmp eq i64 %24, 0
   br i1 %.not59, label %_ZN5boost9algorithm11starts_withIPcA6_cEEbRKT_RKT0_.exit.thread, label %.lr.ph.i.i.preheader
 
 .lr.ph.i.i.preheader:                             ; preds = %.lr.ph91
@@ -188586,7 +188586,7 @@ _ZSt13__lower_boundIPKccN9__gnu_cxx5__ops14_Iter_less_valEET_S5_S5_RKT0_T1_.exit
   br i1 %.not.i.i.us, label %.critedge, label %_ZNK5boost9algorithm6detail10is_any_ofFIcEclIcEEbT_.exit.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph
-  %.not.i.i = icmp samesign eq i64 %33, 0
+  %.not.i.i = icmp eq i64 %33, 0
   br i1 %.not.i.i, label %.critedge, label %.lr.ph.split.split
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
@@ -189621,7 +189621,7 @@ define linkonce_odr hidden void @_ZN5boost9algorithm6detail10is_any_ofFIcEC2INS_
 _ZSt4copyIPKcPcET0_T_S4_S3_.exit:                 ; preds = %13, %16
   %20 = phi i64 [ %9, %13 ], [ %.pre10, %16 ]
   %21 = getelementptr inbounds nuw i8, ptr %.0, i64 %20
-  %.not.i.i = icmp samesign eq i64 %20, 0
+  %.not.i.i = icmp eq i64 %20, 0
   br i1 %.not.i.i, label %_ZSt4sortIPcEvT_S1_.exit, label %22
 
 22:                                               ; preds = %_ZSt4copyIPKcPcET0_T_S4_S3_.exit
@@ -203557,7 +203557,7 @@ define linkonce_odr hidden void @_ZN5boost7process2v16detail5posix8executorINS_6
   %23 = phi ptr [ %33, %_ZN5boost9algorithm11starts_withIPcA6_cEEbRKT_RKT0_.exit.thread ], [ %22, %.lr.ph.preheader ]
   %.08190 = phi ptr [ %32, %_ZN5boost9algorithm11starts_withIPcA6_cEEbRKT_RKT0_.exit.thread ], [ %21, %.lr.ph.preheader ]
   %24 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %23) #67
-  %.not59 = icmp samesign eq i64 %24, 0
+  %.not59 = icmp eq i64 %24, 0
   br i1 %.not59, label %_ZN5boost9algorithm11starts_withIPcA6_cEEbRKT_RKT0_.exit.thread, label %.lr.ph.i.i.preheader
 
 .lr.ph.i.i.preheader:                             ; preds = %.lr.ph91
@@ -212500,7 +212500,7 @@ define linkonce_odr hidden void @_ZN5boost7process2v16detail5posix8executorINS_6
   %23 = phi ptr [ %33, %_ZN5boost9algorithm11starts_withIPcA6_cEEbRKT_RKT0_.exit.thread ], [ %22, %.lr.ph.preheader ]
   %.08190 = phi ptr [ %32, %_ZN5boost9algorithm11starts_withIPcA6_cEEbRKT_RKT0_.exit.thread ], [ %21, %.lr.ph.preheader ]
   %24 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %23) #67
-  %.not59 = icmp samesign eq i64 %24, 0
+  %.not59 = icmp eq i64 %24, 0
   br i1 %.not59, label %_ZN5boost9algorithm11starts_withIPcA6_cEEbRKT_RKT0_.exit.thread, label %.lr.ph.i.i.preheader
 
 .lr.ph.i.i.preheader:                             ; preds = %.lr.ph91
@@ -214620,7 +214620,7 @@ define linkonce_odr hidden void @_ZN5boost7process2v16detail5posix8executorINS_6
   %23 = phi ptr [ %33, %_ZN5boost9algorithm11starts_withIPcA6_cEEbRKT_RKT0_.exit.thread ], [ %22, %.lr.ph.preheader ]
   %.08190 = phi ptr [ %32, %_ZN5boost9algorithm11starts_withIPcA6_cEEbRKT_RKT0_.exit.thread ], [ %21, %.lr.ph.preheader ]
   %24 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %23) #67
-  %.not59 = icmp samesign eq i64 %24, 0
+  %.not59 = icmp eq i64 %24, 0
   br i1 %.not59, label %_ZN5boost9algorithm11starts_withIPcA6_cEEbRKT_RKT0_.exit.thread, label %.lr.ph.i.i.preheader
 
 .lr.ph.i.i.preheader:                             ; preds = %.lr.ph91
@@ -224347,7 +224347,7 @@ define linkonce_odr hidden void @_ZN5boost7process2v16detail5posix8executorINS_6
   %23 = phi ptr [ %33, %_ZN5boost9algorithm11starts_withIPcA6_cEEbRKT_RKT0_.exit.thread ], [ %22, %.lr.ph.preheader ]
   %.08190 = phi ptr [ %32, %_ZN5boost9algorithm11starts_withIPcA6_cEEbRKT_RKT0_.exit.thread ], [ %21, %.lr.ph.preheader ]
   %24 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %23) #67
-  %.not59 = icmp samesign eq i64 %24, 0
+  %.not59 = icmp eq i64 %24, 0
   br i1 %.not59, label %_ZN5boost9algorithm11starts_withIPcA6_cEEbRKT_RKT0_.exit.thread, label %.lr.ph.i.i.preheader
 
 .lr.ph.i.i.preheader:                             ; preds = %.lr.ph91
@@ -234059,7 +234059,7 @@ define linkonce_odr hidden void @_ZN5boost7process2v16detail5posix8executorINS_6
   %23 = phi ptr [ %33, %_ZN5boost9algorithm11starts_withIPcA6_cEEbRKT_RKT0_.exit.thread ], [ %22, %.lr.ph.preheader ]
   %.08190 = phi ptr [ %32, %_ZN5boost9algorithm11starts_withIPcA6_cEEbRKT_RKT0_.exit.thread ], [ %21, %.lr.ph.preheader ]
   %24 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %23) #67
-  %.not59 = icmp samesign eq i64 %24, 0
+  %.not59 = icmp eq i64 %24, 0
   br i1 %.not59, label %_ZN5boost9algorithm11starts_withIPcA6_cEEbRKT_RKT0_.exit.thread, label %.lr.ph.i.i.preheader
 
 .lr.ph.i.i.preheader:                             ; preds = %.lr.ph91
@@ -244126,7 +244126,7 @@ define linkonce_odr hidden void @_ZN5boost7process2v16detail5posix8executorINS_6
   %23 = phi ptr [ %33, %_ZN5boost9algorithm11starts_withIPcA6_cEEbRKT_RKT0_.exit.thread ], [ %22, %.lr.ph.preheader ]
   %.08190 = phi ptr [ %32, %_ZN5boost9algorithm11starts_withIPcA6_cEEbRKT_RKT0_.exit.thread ], [ %21, %.lr.ph.preheader ]
   %24 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %23) #67
-  %.not59 = icmp samesign eq i64 %24, 0
+  %.not59 = icmp eq i64 %24, 0
   br i1 %.not59, label %_ZN5boost9algorithm11starts_withIPcA6_cEEbRKT_RKT0_.exit.thread, label %.lr.ph.i.i.preheader
 
 .lr.ph.i.i.preheader:                             ; preds = %.lr.ph91
@@ -250989,7 +250989,7 @@ define linkonce_odr hidden void @_ZN5boost7process2v16detail5posix8executorINS_6
   %23 = phi ptr [ %33, %_ZN5boost9algorithm11starts_withIPcA6_cEEbRKT_RKT0_.exit.thread ], [ %22, %.lr.ph.preheader ]
   %.08190 = phi ptr [ %32, %_ZN5boost9algorithm11starts_withIPcA6_cEEbRKT_RKT0_.exit.thread ], [ %21, %.lr.ph.preheader ]
   %24 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %23) #67
-  %.not59 = icmp samesign eq i64 %24, 0
+  %.not59 = icmp eq i64 %24, 0
   br i1 %.not59, label %_ZN5boost9algorithm11starts_withIPcA6_cEEbRKT_RKT0_.exit.thread, label %.lr.ph.i.i.preheader
 
 .lr.ph.i.i.preheader:                             ; preds = %.lr.ph91
@@ -262078,7 +262078,7 @@ define linkonce_odr hidden void @_ZN5boost7process2v16detail5posix8executorINS_6
   %23 = phi ptr [ %33, %_ZN5boost9algorithm11starts_withIPcA6_cEEbRKT_RKT0_.exit.thread ], [ %22, %.lr.ph.preheader ]
   %.08190 = phi ptr [ %32, %_ZN5boost9algorithm11starts_withIPcA6_cEEbRKT_RKT0_.exit.thread ], [ %21, %.lr.ph.preheader ]
   %24 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %23) #67
-  %.not59 = icmp samesign eq i64 %24, 0
+  %.not59 = icmp eq i64 %24, 0
   br i1 %.not59, label %_ZN5boost9algorithm11starts_withIPcA6_cEEbRKT_RKT0_.exit.thread, label %.lr.ph.i.i.preheader
 
 .lr.ph.i.i.preheader:                             ; preds = %.lr.ph91

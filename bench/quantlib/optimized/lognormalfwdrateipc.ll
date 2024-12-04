@@ -2756,7 +2756,7 @@ for.cond.cleanup40:                               ; preds = %for.body41, %for.bo
   %add.i = add nsw i64 %conv43, 1
   %mul.i38 = mul i64 %30, %add.i
   %add.ptr.i39 = getelementptr inbounds nuw double, ptr %29, i64 %mul.i38
-  %cmp.not5.i = icmp samesign eq i64 %mul.i, %mul.i38
+  %cmp.not5.i = icmp eq i64 %mul.i, %mul.i38
   br i1 %cmp.not5.i, label %_ZSt13inner_productIPKdN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEdET1_T_SA_T0_S9_.exit, label %for.body.i.preheader
 
 for.body.i.preheader:                             ; preds = %for.cond.cleanup40

@@ -34226,8 +34226,8 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix15type_dispatcher13ca
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %10 = load i64, ptr %9, align 8, !tbaa !11
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 %10
-  %12 = icmp samesign ne i64 %6, 0
-  %13 = icmp samesign ne i64 %10, 0
+  %12 = icmp ne i64 %6, 0
+  %13 = icmp ne i64 %10, 0
   %or.cond13.i.i.i = select i1 %12, i1 %13, i1 false
   br i1 %or.cond13.i.i.i, label %.lr.ph.i.i.i, label %_ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous16string_predicateINS1_15begins_with_funEEEbEclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRKT_.exit
 
@@ -34268,8 +34268,8 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix15type_dispatcher13ca
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %10 = load i64, ptr %9, align 8, !tbaa !11
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 %10
-  %.not14.i.i.i = icmp samesign ne i64 %6, 0
-  %12 = icmp samesign ne i64 %10, 0
+  %.not14.i.i.i = icmp ne i64 %6, 0
+  %12 = icmp ne i64 %10, 0
   %or.cond15.i.i.i = select i1 %.not14.i.i.i, i1 %12, i1 false
   br i1 %or.cond15.i.i.i, label %.lr.ph.i.i.i, label %_ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous16string_predicateINS1_15begins_with_funEEEbEclINS1_20basic_string_literalIcSt11char_traitsIcEEEEEvRKT_.exit
 
@@ -35339,7 +35339,7 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix15type_dispatcher13ca
   br i1 %.not2936.i.i.i, label %_ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous16string_predicateINS1_12contains_funEEEbEclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRKT_.exit, label %.preheader.lr.ph.i.i.i
 
 .preheader.lr.ph.i.i.i:                           ; preds = %8
-  %.not3031.i.i.i = icmp samesign eq i64 %5, 0
+  %.not3031.i.i.i = icmp eq i64 %5, 0
   br i1 %.not3031.i.i.i, label %_ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous16string_predicateINS1_12contains_funEEEbEclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRKT_.exit, label %.preheader.i.i.i
 
 16:                                               ; preds = %._crit_edge.i.i.i
@@ -35399,7 +35399,7 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix15type_dispatcher13ca
   br i1 %.not2437.i.i.i, label %_ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous16string_predicateINS1_12contains_funEEEbEclINS1_20basic_string_literalIcSt11char_traitsIcEEEEEvRKT_.exit, label %.preheader.lr.ph.i.i.i
 
 .preheader.lr.ph.i.i.i:                           ; preds = %8
-  %.not3132.i.i.i = icmp samesign eq i64 %5, 0
+  %.not3132.i.i.i = icmp eq i64 %5, 0
   br i1 %.not3132.i.i.i, label %_ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous16string_predicateINS1_12contains_funEEEbEclINS1_20basic_string_literalIcSt11char_traitsIcEEEEEvRKT_.exit, label %.preheader.i.i.i
 
 16:                                               ; preds = %._crit_edge.i.i.i

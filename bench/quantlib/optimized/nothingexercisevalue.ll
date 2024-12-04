@@ -511,7 +511,7 @@ if.then51:                                        ; preds = %_ZNSt6vectorISt4pai
           to label %call.i.i85.noexc unwind label %lpad56
 
 call.i.i85.noexc:                                 ; preds = %if.then51
-  %cmp.not2.i.i.i = icmp samesign eq i64 %cond, 0
+  %cmp.not2.i.i.i = icmp eq i64 %cond, 0
   br i1 %cmp.not2.i.i.i, label %invoke.cont57, label %while.body.preheader.i.i.i
 
 while.body.preheader.i.i.i:                       ; preds = %call.i.i85.noexc

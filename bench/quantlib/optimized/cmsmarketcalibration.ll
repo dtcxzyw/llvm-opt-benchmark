@@ -39929,7 +39929,7 @@ if.then.i.i.i56:                                  ; preds = %for.body
 
 _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %for.body
   %add.ptr39.idx = mul i64 %sub.ptr.sub.i32, %add
-  %cmp.not.i.i.i55 = icmp samesign eq i64 %add.ptr39.idx, %add.ptr.idx
+  %cmp.not.i.i.i55 = icmp eq i64 %add.ptr39.idx, %add.ptr.idx
   br i1 %cmp.not.i.i.i55, label %_ZNSt12_Vector_baseIdSaIdEE11_M_allocateEm.exit.thread.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i
 
 _ZNSt12_Vector_baseIdSaIdEE11_M_allocateEm.exit.thread.i.i: ; preds = %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i.i
@@ -42734,7 +42734,7 @@ if.then.i.i.i57:                                  ; preds = %for.body
 
 _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %for.body
   %add.ptr40.idx = mul i64 %sub.ptr.sub.i33, %add38
-  %cmp.not.i.i.i56 = icmp samesign eq i64 %add.ptr40.idx, %add.ptr.idx
+  %cmp.not.i.i.i56 = icmp eq i64 %add.ptr40.idx, %add.ptr.idx
   br i1 %cmp.not.i.i.i56, label %_ZNSt12_Vector_baseIdSaIdEE11_M_allocateEm.exit.thread.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i
 
 _ZNSt12_Vector_baseIdSaIdEE11_M_allocateEm.exit.thread.i.i: ; preds = %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i.i

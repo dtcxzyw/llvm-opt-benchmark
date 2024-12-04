@@ -13870,7 +13870,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN5b
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load i64, ptr %13, align 8, !tbaa !14, !noalias !468
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 %14
-  %.not17.i = icmp samesign eq i64 %14, 0
+  %.not17.i = icmp eq i64 %14, 0
   br i1 %.not17.i, label %_ZN5boost2io6detail12quoted_startIcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_12quoted_stateIT_EEPKT0_SA_SA_.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %11, %.lr.ph.i
@@ -14286,7 +14286,7 @@ _ZNSt15basic_streambufIcSt11char_traitsIcEE5sputcEc.exit: ; preds = %6
 
 27:                                               ; preds = %20
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 %2
-  %.not47 = icmp samesign eq i64 %2, 0
+  %.not47 = icmp eq i64 %2, 0
   br i1 %.not47, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %27

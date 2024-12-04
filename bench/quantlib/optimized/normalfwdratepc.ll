@@ -1945,7 +1945,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %add.i = add nuw i64 %i.031, 1
   %mul.i22 = mul i64 %20, %add.i
   %add.ptr.i23 = getelementptr inbounds nuw double, ptr %19, i64 %mul.i22
-  %cmp.not5.i = icmp samesign eq i64 %mul.i, %mul.i22
+  %cmp.not5.i = icmp eq i64 %mul.i, %mul.i22
   br i1 %cmp.not5.i, label %_ZSt13inner_productIPKdN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEdET1_T_SA_T0_S9_.exit, label %for.body.i.preheader
 
 for.body.i.preheader:                             ; preds = %for.body

@@ -1447,7 +1447,7 @@ for.body243:                                      ; preds = %for.body243.lr.ph, 
   %mul.i188 = mul i64 %138, %i238.0259
   %add.i = add nuw i64 %i238.0259, 1
   %mul.i192 = mul i64 %138, %add.i
-  %cmp.not3.i.i.i = icmp samesign eq i64 %mul.i188, %mul.i192
+  %cmp.not3.i.i.i = icmp eq i64 %mul.i188, %mul.i192
   br i1 %cmp.not3.i.i.i, label %invoke.cont255, label %for.body.i.i.i194.preheader
 
 for.body.i.i.i194.preheader:                      ; preds = %for.body243

@@ -1264,7 +1264,7 @@ for.body137:                                      ; preds = %for.body137.lr.ph, 
   %add.i = add nuw i64 %k.0505, 1
   %mul.i348 = mul i64 %114, %add.i
   %add.ptr.i349 = getelementptr inbounds nuw double, ptr %113, i64 %mul.i348
-  %cmp.not5.i = icmp samesign eq i64 %mul.i, %mul.i348
+  %cmp.not5.i = icmp eq i64 %mul.i, %mul.i348
   br i1 %cmp.not5.i, label %_ZSt13inner_productIPKdS1_dET1_T_S3_T0_S2_.exit, label %for.body.i.preheader
 
 for.body.i.preheader:                             ; preds = %for.body137
@@ -2480,7 +2480,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %add.i = add nuw i64 %i.046, 1
   %mul.i31 = mul i64 %22, %add.i
   %add.ptr.i32 = getelementptr inbounds nuw double, ptr %21, i64 %mul.i31
-  %cmp.not5.i = icmp samesign eq i64 %mul.i, %mul.i31
+  %cmp.not5.i = icmp eq i64 %mul.i, %mul.i31
   br i1 %cmp.not5.i, label %_ZSt13inner_productIPKdN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEdET1_T_SA_T0_S9_.exit, label %for.body.i.preheader
 
 for.body.i.preheader:                             ; preds = %for.body

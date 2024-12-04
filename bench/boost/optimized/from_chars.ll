@@ -1802,7 +1802,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail10fast_float19
 130:                                              ; preds = %.critedge8.i
   store i8 1, ptr %13, align 2, !tbaa !45, !alias.scope !31
   %131 = getelementptr inbounds nuw i8, ptr %.0.i, i64 %83
-  %.not = icmp samesign eq i64 %83, 0
+  %.not = icmp eq i64 %83, 0
   br i1 %.not, label %._crit_edge.thread, label %.lr.ph250
 
 .lr.ph250:                                        ; preds = %130, %.lr.ph250
@@ -1826,7 +1826,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail10fast_float19
 ._crit_edge.thread:                               ; preds = %130, %._crit_edge
   %.6132.i.lcssa284 = phi i64 [ %136, %._crit_edge ], [ 0, %130 ]
   %142 = getelementptr inbounds nuw i8, ptr %82, i64 %81
-  %.not260 = icmp samesign eq i64 %81, 0
+  %.not260 = icmp eq i64 %81, 0
   br i1 %.not260, label %._crit_edge257, label %.lr.ph256
 
 .lr.ph256:                                        ; preds = %._crit_edge.thread, %.lr.ph256
@@ -5815,7 +5815,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail10fast_float19
 130:                                              ; preds = %.critedge8.i
   store i8 1, ptr %13, align 2, !tbaa !45, !alias.scope !93
   %131 = getelementptr inbounds nuw i8, ptr %.0.i, i64 %83
-  %.not = icmp samesign eq i64 %83, 0
+  %.not = icmp eq i64 %83, 0
   br i1 %.not, label %._crit_edge.thread, label %.lr.ph241
 
 .lr.ph241:                                        ; preds = %130, %.lr.ph241
@@ -5839,7 +5839,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail10fast_float19
 ._crit_edge.thread:                               ; preds = %130, %._crit_edge
   %.6132.i.lcssa275 = phi i64 [ %136, %._crit_edge ], [ 0, %130 ]
   %142 = getelementptr inbounds nuw i8, ptr %82, i64 %81
-  %.not251 = icmp samesign eq i64 %81, 0
+  %.not251 = icmp eq i64 %81, 0
   br i1 %.not251, label %._crit_edge248, label %.lr.ph247
 
 .lr.ph247:                                        ; preds = %._crit_edge.thread, %.lr.ph247

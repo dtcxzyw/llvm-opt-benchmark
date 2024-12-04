@@ -1813,7 +1813,7 @@ invoke.cont66:                                    ; preds = %invoke.cont64
   %add.i = add nuw i64 %j.098, 1
   %mul.i69 = mul i64 %66, %add.i
   %add.ptr.i70 = getelementptr inbounds nuw double, ptr %65, i64 %mul.i69
-  %cmp.not5.i = icmp samesign eq i64 %mul.i66, %mul.i69
+  %cmp.not5.i = icmp eq i64 %mul.i66, %mul.i69
   br i1 %cmp.not5.i, label %invoke.cont74, label %for.body.i.preheader
 
 for.body.i.preheader:                             ; preds = %invoke.cont66

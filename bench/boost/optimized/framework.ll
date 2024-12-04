@@ -1135,7 +1135,7 @@ define linkonce_odr hidden void @_ZN5boost9unit_test9framework5state17deduce_run
   %.sroa.097.0124.i = phi ptr [ %43, %.lr.ph127.i ], [ %160, %._crit_edge.i ]
   %74 = getelementptr inbounds nuw i8, ptr %.sroa.097.0124.i, i64 8
   %75 = load i64, ptr %74, align 8, !tbaa !12, !noalias !17
-  %76 = icmp samesign eq i64 %75, 0
+  %76 = icmp eq i64 %75, 0
   br i1 %76, label %_ZN5boost9unit_test13basic_cstringIKcEC2EPS2_.exit.i, label %_ZN5boost9unit_test5utils27basic_string_token_iteratorIcNS1_9ut_detail20default_char_compareIcEEEC2INS_3nfp23named_parameter_combineINS8_15named_parameterIKNS1_17ti_delimeter_typeENS1_12_GLOBAL__N_117kept_delimeters_tERSC_EENSA_IPKcNSD_20dropped_delimeters_tESI_EEEEEENS0_13basic_cstringISH_EERKT_.exit.i
 
 _ZN5boost9unit_test13basic_cstringIKcEC2EPS2_.exit.i: ; preds = %73

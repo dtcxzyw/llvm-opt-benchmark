@@ -771,7 +771,7 @@ define weak_odr void @_ZN5boost7archive18basic_xml_oarchiveINS0_12xml_oarchiveEE
 13:                                               ; preds = %2
   %14 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #20
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 %14
-  %.not4.i = icmp samesign eq i64 %14, 0
+  %.not4.i = icmp eq i64 %14, 0
   br i1 %.not4.i, label %_ZSt8for_eachIPKcN5boost7archive6detail8XML_nameIS0_EEET0_T_S8_S7_.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %13, %_ZNK5boost7archive6detail8XML_nameIKcEclEc.exit.i
@@ -1061,7 +1061,7 @@ define weak_odr void @_ZN5boost7archive18basic_xml_oarchiveINS0_12xml_oarchiveEE
 14:                                               ; preds = %2
   %15 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #20
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 %15
-  %.not4.i = icmp samesign eq i64 %15, 0
+  %.not4.i = icmp eq i64 %15, 0
   br i1 %.not4.i, label %_ZSt8for_eachIPKcN5boost7archive6detail8XML_nameIS0_EEET0_T_S8_S7_.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %14, %_ZNK5boost7archive6detail8XML_nameIKcEclEc.exit.i

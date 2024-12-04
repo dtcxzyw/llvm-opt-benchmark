@@ -8576,7 +8576,7 @@ for.body.i1480:                                   ; preds = %_ZSt4copyIPKdPdET0_
   %add.ptr.idx.i = shl nuw nsw i64 %mul.i1481, 3
   %add.i = add nuw i64 %i.020.i, 1
   %mul58.reass.i = mul i64 %add.i, %factor.op.mul.i
-  %tobool.not.i.i.i.i.i.i = icmp samesign eq i64 %mul58.reass.i, %add.ptr.idx.i
+  %tobool.not.i.i.i.i.i.i = icmp eq i64 %mul58.reass.i, %add.ptr.idx.i
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZSt4copyIPKdPdET0_T_S4_S3_.exit.i, label %if.then.i.i.i.i.i.i1482
 
 if.then.i.i.i.i.i.i1482:                          ; preds = %for.body.i1480

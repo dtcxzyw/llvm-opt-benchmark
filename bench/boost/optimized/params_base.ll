@@ -982,7 +982,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost4urls7grammar11ci_is_equ
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load i64, ptr %16, align 8, !tbaa !98, !noalias !99
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 %17
-  %19 = icmp samesign eq i64 %14, 0
+  %19 = icmp eq i64 %14, 0
   br i1 %19, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %33, %6
@@ -1044,7 +1044,7 @@ _ZN5boost4urls7grammar6detail11ci_is_equalINS_4core17basic_string_viewIcEENS0_11
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %49 = load i64, ptr %48, align 8, !tbaa !97
   %50 = getelementptr inbounds nuw i8, ptr %44, i64 %49
-  %51 = icmp samesign eq i64 %46, 0
+  %51 = icmp eq i64 %46, 0
   br i1 %51, label %._crit_edge.i12, label %.lr.ph.i5
 
 ._crit_edge.i12:                                  ; preds = %63, %38

@@ -473,7 +473,7 @@ _ZNSolsEPFRSoS_E.exit:                            ; preds = %.noexc346
 _ZN5boost6nowide4test8test_monEv.exit:            ; preds = %72, %70, %_ZNSolsEPFRSoS_E.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr %65, ptr %9, align 8, !tbaa !37
-  %.not34.i.i = icmp samesign eq i64 %66, 0
+  %.not34.i.i = icmp eq i64 %66, 0
   br i1 %.not34.i.i, label %.thread, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZN5boost6nowide4test8test_monEv.exit, %76
@@ -1778,7 +1778,7 @@ _ZNSolsEPFRSoS_E.exit241:                         ; preds = %.noexc367
   %549 = load ptr, ptr %12, align 8, !tbaa !35
   %550 = load i64, ptr %28, align 8, !tbaa !11
   %551 = getelementptr inbounds nuw i8, ptr %549, i64 %550
-  %.not34.i = icmp samesign eq i64 %550, 0
+  %.not34.i = icmp eq i64 %550, 0
   br label %553
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZN5boost6nowide3utf14convert_bufferIwcEEPT_S4_mPKT0_S7_.exit.thread, %.lr.ph.i.i.i.i.i
@@ -4625,7 +4625,7 @@ _ZN5boost6nowide4test8test_monEv.exit:            ; preds = %2, %8, %10
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 %14
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr %12, ptr %4, align 8, !tbaa !37
-  %.not34.i.i = icmp samesign eq i64 %14, 0
+  %.not34.i.i = icmp eq i64 %14, 0
   br i1 %.not34.i.i, label %_ZN5boost6nowide5widenEPwmPKcS3_.exit.thread, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZN5boost6nowide4test8test_monEv.exit, %18
@@ -5340,7 +5340,7 @@ define hidden void @_Z20widen_convert_bufferRKNSt7__cxx1112basic_stringIcSt11cha
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 %8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr %6, ptr %4, align 8, !tbaa !37
-  %.not34.i = icmp samesign eq i64 %8, 0
+  %.not34.i = icmp eq i64 %8, 0
   br i1 %.not34.i, label %_ZN5boost6nowide3utf14convert_bufferIwcEEPT_S4_mPKT0_S7_.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2, %12

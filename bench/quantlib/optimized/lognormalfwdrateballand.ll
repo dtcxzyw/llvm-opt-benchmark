@@ -2505,7 +2505,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %add.i = add nuw i64 %i.059, 1
   %mul.i37 = mul i64 %22, %add.i
   %add.ptr.i38 = getelementptr inbounds nuw double, ptr %21, i64 %mul.i37
-  %cmp.not5.i = icmp samesign eq i64 %mul.i, %mul.i37
+  %cmp.not5.i = icmp eq i64 %mul.i, %mul.i37
   br i1 %cmp.not5.i, label %_ZSt13inner_productIPKdN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEdET1_T_SA_T0_S9_.exit, label %for.body.i.preheader
 
 for.body.i.preheader:                             ; preds = %for.body

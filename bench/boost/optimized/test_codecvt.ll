@@ -4280,7 +4280,7 @@ define hidden void @_Z20test_codecvt_out_n_mRKSt7codecvtIwc11__mbstate_tEmm(ptr 
   %16 = getelementptr inbounds nuw i32, ptr %15, i64 %2
   %17 = icmp ugt ptr %16, %14
   %spec.select = select i1 %17, ptr %14, ptr %16
-  %18 = icmp samesign eq i64 %.039.idx75, %.041.idx74
+  %18 = icmp eq i64 %.039.idx75, %.041.idx74
   %.041.add = add nuw nsw i64 %.041.idx74, %1
   %.140.idx = select i1 %18, i64 %.041.add, i64 %.039.idx75
   %.140.ptr = getelementptr inbounds nuw i8, ptr %6, i64 %.140.idx
