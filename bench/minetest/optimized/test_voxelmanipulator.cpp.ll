@@ -2091,7 +2091,7 @@ ehcleanup109:                                     ; preds = %lpad105
   br i1 %cleanup.isactive107.0, label %cleanup.action113, label %ehcleanup153
 
 cleanup.action113:                                ; preds = %ehcleanup109, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i234, %ehcleanup109.thread
-  %.merged12 = phi { ptr, i32 } [ %68, %ehcleanup109.thread ], [ %69, %ehcleanup109 ], [ %69, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i234 ]
+  %.merged11 = phi { ptr, i32 } [ %68, %ehcleanup109.thread ], [ %69, %ehcleanup109 ], [ %69, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i234 ]
   call void @__cxa_free_exception(ptr %exception100) #24
   br label %ehcleanup153
 
@@ -2169,7 +2169,7 @@ ehcleanup145:                                     ; preds = %lpad141
   br i1 %cleanup.isactive143.0, label %cleanup.action149, label %ehcleanup153
 
 cleanup.action149:                                ; preds = %ehcleanup145, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i242, %ehcleanup145.thread
-  %.merged11 = phi { ptr, i32 } [ %78, %ehcleanup145.thread ], [ %79, %ehcleanup145 ], [ %79, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i242 ]
+  %.merged12 = phi { ptr, i32 } [ %78, %ehcleanup145.thread ], [ %79, %ehcleanup145 ], [ %79, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i242 ]
   call void @__cxa_free_exception(ptr %exception136) #24
   br label %ehcleanup153
 
@@ -2180,7 +2180,7 @@ if.end151:                                        ; preds = %catch127
   ret void
 
 ehcleanup153:                                     ; preds = %cleanup.action149, %ehcleanup145, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i242, %lpad130, %lpad118, %cleanup.action113, %ehcleanup109, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i234, %lpad88, %lpad81
-  %.merged10 = phi { ptr, i32 } [ %.merged12, %cleanup.action113 ], [ %69, %ehcleanup109 ], [ %67, %lpad88 ], [ %66, %lpad81 ], [ %.merged11, %cleanup.action149 ], [ %79, %ehcleanup145 ], [ %77, %lpad130 ], [ %73, %lpad118 ], [ %69, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i234 ], [ %79, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i242 ]
+  %.merged10 = phi { ptr, i32 } [ %.merged11, %cleanup.action113 ], [ %69, %ehcleanup109 ], [ %67, %lpad88 ], [ %66, %lpad81 ], [ %.merged12, %cleanup.action149 ], [ %79, %ehcleanup145 ], [ %77, %lpad130 ], [ %73, %lpad118 ], [ %69, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i234 ], [ %79, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i242 ]
   call void @llvm.lifetime.end.p0(i64 18, ptr nonnull %a) #24
   br label %ehcleanup154
 
