@@ -56117,7 +56117,7 @@ _ZN4llvm12SelectionDAG8getUNDEFENS_3EVTE.exit374: ; preds = %_ZL14getMaskTypeFor
 248:                                              ; preds = %_ZN4llvm12SelectionDAG8getUNDEFENS_3EVTE.exit374, %_ZN4llvm12SelectionDAG8getUNDEFENS_3EVTE.exit367
   %.sroa.0158.0 = phi ptr [ %.fca.0.extract99, %_ZN4llvm12SelectionDAG8getUNDEFENS_3EVTE.exit374 ], [ %.fca.0.extract121, %_ZN4llvm12SelectionDAG8getUNDEFENS_3EVTE.exit367 ]
   %.sroa.7.0 = phi i32 [ %.fca.1.extract100, %_ZN4llvm12SelectionDAG8getUNDEFENS_3EVTE.exit374 ], [ %.fca.1.extract122, %_ZN4llvm12SelectionDAG8getUNDEFENS_3EVTE.exit367 ]
-  %.merged = phi { ptr, i32 } [ %247, %_ZN4llvm12SelectionDAG8getUNDEFENS_3EVTE.exit374 ], [ %225, %_ZN4llvm12SelectionDAG8getUNDEFENS_3EVTE.exit367 ]
+  %.merged350 = phi { ptr, i32 } [ %247, %_ZN4llvm12SelectionDAG8getUNDEFENS_3EVTE.exit374 ], [ %225, %_ZN4llvm12SelectionDAG8getUNDEFENS_3EVTE.exit367 ]
   br i1 %spec.select.i, label %249, label %331
 
 249:                                              ; preds = %248
@@ -56449,7 +56449,7 @@ _ZN4llvm12SelectionDAG8getUNDEFENS_3EVTE.exit392: ; preds = %_ZL14getMaskTypeFor
 313:                                              ; preds = %_ZN4llvm12SelectionDAG8getUNDEFENS_3EVTE.exit392, %_ZN4llvm12SelectionDAG8getUNDEFENS_3EVTE.exit386
   %.sroa.037.0 = phi ptr [ %.fca.0.extract5, %_ZN4llvm12SelectionDAG8getUNDEFENS_3EVTE.exit392 ], [ %.fca.0.extract27, %_ZN4llvm12SelectionDAG8getUNDEFENS_3EVTE.exit386 ]
   %.sroa.5.0 = phi i32 [ %.fca.1.extract6, %_ZN4llvm12SelectionDAG8getUNDEFENS_3EVTE.exit392 ], [ %.fca.1.extract28, %_ZN4llvm12SelectionDAG8getUNDEFENS_3EVTE.exit386 ]
-  %.merged350 = phi { ptr, i32 } [ %312, %_ZN4llvm12SelectionDAG8getUNDEFENS_3EVTE.exit392 ], [ %290, %_ZN4llvm12SelectionDAG8getUNDEFENS_3EVTE.exit386 ]
+  %.merged = phi { ptr, i32 } [ %312, %_ZN4llvm12SelectionDAG8getUNDEFENS_3EVTE.exit392 ], [ %290, %_ZN4llvm12SelectionDAG8getUNDEFENS_3EVTE.exit386 ]
   br i1 %spec.select.i, label %314, label %331
 
 314:                                              ; preds = %313
@@ -56501,7 +56501,7 @@ _ZL25convertFromScalableVectorN4llvm3EVTENS_7SDValueERNS_12SelectionDAGERKNS_14R
   br label %331
 
 331:                                              ; preds = %313, %248, %_ZL25convertFromScalableVectorN4llvm3EVTENS_7SDValueERNS_12SelectionDAGERKNS_14RISCVSubtargetE.exit402, %_ZL25convertFromScalableVectorN4llvm3EVTENS_7SDValueERNS_12SelectionDAGERKNS_14RISCVSubtargetE.exit
-  %.fca.1.insert.merged = phi { ptr, i32 } [ %263, %_ZL25convertFromScalableVectorN4llvm3EVTENS_7SDValueERNS_12SelectionDAGERKNS_14RISCVSubtargetE.exit ], [ %328, %_ZL25convertFromScalableVectorN4llvm3EVTENS_7SDValueERNS_12SelectionDAGERKNS_14RISCVSubtargetE.exit402 ], [ %.merged, %248 ], [ %.merged350, %313 ]
+  %.fca.1.insert.merged = phi { ptr, i32 } [ %263, %_ZL25convertFromScalableVectorN4llvm3EVTENS_7SDValueERNS_12SelectionDAGERKNS_14RISCVSubtargetE.exit ], [ %328, %_ZL25convertFromScalableVectorN4llvm3EVTENS_7SDValueERNS_12SelectionDAGERKNS_14RISCVSubtargetE.exit402 ], [ %.merged350, %248 ], [ %.merged, %313 ]
   %332 = load ptr, ptr %26, align 8
   %.not.i.i.i.i.i = icmp eq ptr %332, null
   br i1 %.not.i.i.i.i.i, label %_ZN4llvm5SDLocD2Ev.exit, label %333

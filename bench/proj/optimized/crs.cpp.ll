@@ -21486,7 +21486,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2io16AuthorityFactoryEEED2Ev.ex
   br i1 %1204, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs3CRSEEED2Ev.exit365.sink.split, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs3CRSEEED2Ev.exit365
 
 .loopexit638:                                     ; preds = %1051, %1172
-  %.merged149 = phi { ptr, i32 } [ %1173, %1172 ], [ %.pn133.pn.pn.pn.pn, %1051 ]
+  %.merged152 = phi { ptr, i32 } [ %1173, %1172 ], [ %.pn133.pn.pn.pn.pn, %1051 ]
   call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs3CRSEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %19) #39
   br label %2127
 
@@ -23547,13 +23547,13 @@ _ZNSt10shared_ptrIN5osgeo4proj3crs13GeographicCRSEED2Ev.exit: ; preds = %_ZN7dro
   br i1 %2113, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs3CRSEEED2Ev.exit365.sink.split, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs3CRSEEED2Ev.exit365
 
 .loopexit:                                        ; preds = %2004, %.loopexit637, %.loopexit.split-lp, %1344, %1295
-  %.merged152 = phi { ptr, i32 } [ %1345, %1344 ], [ %1296, %1295 ], [ %lpad.loopexit, %.loopexit637 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %.pn125.pn.pn.pn.pn, %2004 ]
+  %.merged151 = phi { ptr, i32 } [ %1345, %1344 ], [ %1296, %1295 ], [ %lpad.loopexit, %.loopexit637 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %.pn125.pn.pn.pn.pn, %2004 ]
   call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs3CRSEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %33) #39
   call void @_ZNSt10shared_ptrIN5osgeo4proj3crs13GeographicCRSEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %32) #39
   br label %2114
 
 2114:                                             ; preds = %.loopexit, %1293
-  %.merged150 = phi { ptr, i32 } [ %.merged152, %.loopexit ], [ %1294, %1293 ]
+  %.merged149 = phi { ptr, i32 } [ %.merged151, %.loopexit ], [ %1294, %1293 ]
   call void @_ZNSt10shared_ptrIN5osgeo4proj3crs11GeodeticCRSEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %31) #39
   br label %2127
 
@@ -23602,7 +23602,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   br label %2129
 
 2127:                                             ; preds = %2114, %.loopexit638, %561
-  %.merged148 = phi { ptr, i32 } [ %.merged149, %.loopexit638 ], [ %562, %561 ], [ %.merged150, %2114 ]
+  %.merged148 = phi { ptr, i32 } [ %.merged152, %.loopexit638 ], [ %562, %561 ], [ %.merged149, %2114 ]
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #39
   br label %2128
 
