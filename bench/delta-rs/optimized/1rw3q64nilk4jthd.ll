@@ -15940,9 +15940,7 @@ define internal fastcc void @"_ZN4core3ptr273drop_in_place$LT$hashbrown..scopegu
   br label %22
 
 22:                                               ; preds = %"_ZN9hashbrown3raw15Bucket$LT$T$GT$4drop17ha7123d013a7120b9E.llvm.240573438051967091.exit.i.i", %5
-  %.not.i.i.i = icmp ule i64 %spec.select6.i.i, %.0.val
-  %or.cond.not.i.i = select i1 %6, i1 %.not.i.i.i, i1 false
-  br i1 %or.cond.not.i.i, label %5, label %"_ZN88_$LT$hashbrown..scopeguard..ScopeGuard$LT$T$C$F$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hdb664948bfa2dec1E.exit"
+  br i1 %6, label %5, label %"_ZN88_$LT$hashbrown..scopeguard..ScopeGuard$LT$T$C$F$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hdb664948bfa2dec1E.exit"
 
 "_ZN88_$LT$hashbrown..scopeguard..ScopeGuard$LT$T$C$F$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hdb664948bfa2dec1E.exit": ; preds = %22
   ret void
@@ -16106,9 +16104,7 @@ define internal fastcc void @"_ZN4core3ptr309drop_in_place$LT$hashbrown..scopegu
   br label %13
 
 13:                                               ; preds = %9, %2
-  %.not.i.i.i = icmp ule i64 %spec.select6.i.i, %.0.val
-  %or.cond.not.i.i = select i1 %3, i1 %.not.i.i.i, i1 false
-  br i1 %or.cond.not.i.i, label %2, label %"_ZN88_$LT$hashbrown..scopeguard..ScopeGuard$LT$T$C$F$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc6e8eb8cee09c3a3E.exit"
+  br i1 %3, label %2, label %"_ZN88_$LT$hashbrown..scopeguard..ScopeGuard$LT$T$C$F$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc6e8eb8cee09c3a3E.exit"
 
 "_ZN88_$LT$hashbrown..scopeguard..ScopeGuard$LT$T$C$F$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc6e8eb8cee09c3a3E.exit": ; preds = %13
   ret void
@@ -16190,9 +16186,7 @@ define internal fastcc void @"_ZN4core3ptr315drop_in_place$LT$hashbrown..scopegu
   br label %29
 
 29:                                               ; preds = %"_ZN9hashbrown3raw15Bucket$LT$T$GT$4drop17h4acb007dfa6137bfE.llvm.240573438051967091.exit.i.i", %5
-  %.not.i.i.i = icmp ule i64 %spec.select6.i.i, %.0.val
-  %or.cond.not.i.i = select i1 %6, i1 %.not.i.i.i, i1 false
-  br i1 %or.cond.not.i.i, label %5, label %"_ZN88_$LT$hashbrown..scopeguard..ScopeGuard$LT$T$C$F$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h3ebe908c5a8d9056E.exit"
+  br i1 %6, label %5, label %"_ZN88_$LT$hashbrown..scopeguard..ScopeGuard$LT$T$C$F$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h3ebe908c5a8d9056E.exit"
 
 "_ZN88_$LT$hashbrown..scopeguard..ScopeGuard$LT$T$C$F$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h3ebe908c5a8d9056E.exit": ; preds = %29
   ret void
@@ -16264,9 +16258,7 @@ define internal fastcc void @"_ZN4core3ptr321drop_in_place$LT$hashbrown..scopegu
   br label %29
 
 29:                                               ; preds = %"_ZN9hashbrown3raw15Bucket$LT$T$GT$4drop17haa9951a28ccd516eE.llvm.240573438051967091.exit.i.i", %5
-  %.not.i.i.i = icmp ule i64 %spec.select6.i.i, %.0.val
-  %or.cond.not.i.i = select i1 %6, i1 %.not.i.i.i, i1 false
-  br i1 %or.cond.not.i.i, label %5, label %"_ZN88_$LT$hashbrown..scopeguard..ScopeGuard$LT$T$C$F$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc455d05f99dadc5fE.exit"
+  br i1 %6, label %5, label %"_ZN88_$LT$hashbrown..scopeguard..ScopeGuard$LT$T$C$F$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc455d05f99dadc5fE.exit"
 
 "_ZN88_$LT$hashbrown..scopeguard..ScopeGuard$LT$T$C$F$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc455d05f99dadc5fE.exit": ; preds = %29
   ret void
@@ -16353,9 +16345,7 @@ define internal fastcc void @"_ZN4core3ptr343drop_in_place$LT$hashbrown..scopegu
   br label %13
 
 13:                                               ; preds = %9, %2
-  %.not.i.i.i = icmp ule i64 %spec.select6.i.i, %.0.val
-  %or.cond.not.i.i = select i1 %3, i1 %.not.i.i.i, i1 false
-  br i1 %or.cond.not.i.i, label %2, label %"_ZN88_$LT$hashbrown..scopeguard..ScopeGuard$LT$T$C$F$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2a3d835870ae0170E.exit"
+  br i1 %3, label %2, label %"_ZN88_$LT$hashbrown..scopeguard..ScopeGuard$LT$T$C$F$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2a3d835870ae0170E.exit"
 
 "_ZN88_$LT$hashbrown..scopeguard..ScopeGuard$LT$T$C$F$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2a3d835870ae0170E.exit": ; preds = %13
   ret void
@@ -16455,9 +16445,7 @@ define internal fastcc void @"_ZN4core3ptr351drop_in_place$LT$hashbrown..scopegu
   br label %"_ZN9hashbrown3raw15Bucket$LT$T$GT$4drop17h77c7877df528f009E.llvm.240573438051967091.exit.i.i"
 
 "_ZN9hashbrown3raw15Bucket$LT$T$GT$4drop17h77c7877df528f009E.llvm.240573438051967091.exit.i.i": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h06f7a3c3528303c7E.exit.i.i.i.i.i", %12, %5
-  %.not.i.i.i = icmp ule i64 %spec.select6.i.i, %.0.val
-  %or.cond.not.i.i = select i1 %6, i1 %.not.i.i.i, i1 false
-  br i1 %or.cond.not.i.i, label %5, label %"_ZN88_$LT$hashbrown..scopeguard..ScopeGuard$LT$T$C$F$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2c343ab40173bb8cE.exit"
+  br i1 %6, label %5, label %"_ZN88_$LT$hashbrown..scopeguard..ScopeGuard$LT$T$C$F$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2c343ab40173bb8cE.exit"
 
 "_ZN88_$LT$hashbrown..scopeguard..ScopeGuard$LT$T$C$F$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2c343ab40173bb8cE.exit": ; preds = %"_ZN9hashbrown3raw15Bucket$LT$T$GT$4drop17h77c7877df528f009E.llvm.240573438051967091.exit.i.i"
   ret void
@@ -16515,9 +16503,7 @@ define internal fastcc void @"_ZN4core3ptr351drop_in_place$LT$hashbrown..scopegu
   br label %"_ZN9hashbrown3raw15Bucket$LT$T$GT$4drop17h6a24b6753f38083aE.llvm.240573438051967091.exit.i.i"
 
 "_ZN9hashbrown3raw15Bucket$LT$T$GT$4drop17h6a24b6753f38083aE.llvm.240573438051967091.exit.i.i": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h06f7a3c3528303c7E.exit.i.i.i.i.i", %12, %5
-  %.not.i.i.i = icmp ule i64 %spec.select6.i.i, %.0.val
-  %or.cond.not.i.i = select i1 %6, i1 %.not.i.i.i, i1 false
-  br i1 %or.cond.not.i.i, label %5, label %"_ZN88_$LT$hashbrown..scopeguard..ScopeGuard$LT$T$C$F$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf973faf64ea2f740E.exit"
+  br i1 %6, label %5, label %"_ZN88_$LT$hashbrown..scopeguard..ScopeGuard$LT$T$C$F$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf973faf64ea2f740E.exit"
 
 "_ZN88_$LT$hashbrown..scopeguard..ScopeGuard$LT$T$C$F$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf973faf64ea2f740E.exit": ; preds = %"_ZN9hashbrown3raw15Bucket$LT$T$GT$4drop17h6a24b6753f38083aE.llvm.240573438051967091.exit.i.i"
   ret void
@@ -16548,9 +16534,7 @@ define internal fastcc void @"_ZN4core3ptr365drop_in_place$LT$hashbrown..scopegu
   br label %13
 
 13:                                               ; preds = %9, %2
-  %.not.i.i.i = icmp ule i64 %spec.select6.i.i, %.0.val
-  %or.cond.not.i.i = select i1 %3, i1 %.not.i.i.i, i1 false
-  br i1 %or.cond.not.i.i, label %2, label %"_ZN88_$LT$hashbrown..scopeguard..ScopeGuard$LT$T$C$F$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc7dc68a77a7517ceE.exit"
+  br i1 %3, label %2, label %"_ZN88_$LT$hashbrown..scopeguard..ScopeGuard$LT$T$C$F$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc7dc68a77a7517ceE.exit"
 
 "_ZN88_$LT$hashbrown..scopeguard..ScopeGuard$LT$T$C$F$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc7dc68a77a7517ceE.exit": ; preds = %13
   ret void
@@ -16630,9 +16614,7 @@ define internal fastcc void @"_ZN4core3ptr373drop_in_place$LT$hashbrown..scopegu
   br label %13
 
 13:                                               ; preds = %9, %2
-  %.not.i.i.i = icmp ule i64 %spec.select6.i.i, %.0.val
-  %or.cond.not.i.i = select i1 %3, i1 %.not.i.i.i, i1 false
-  br i1 %or.cond.not.i.i, label %2, label %"_ZN88_$LT$hashbrown..scopeguard..ScopeGuard$LT$T$C$F$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hcbfd44228d3b3747E.exit"
+  br i1 %3, label %2, label %"_ZN88_$LT$hashbrown..scopeguard..ScopeGuard$LT$T$C$F$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hcbfd44228d3b3747E.exit"
 
 "_ZN88_$LT$hashbrown..scopeguard..ScopeGuard$LT$T$C$F$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hcbfd44228d3b3747E.exit": ; preds = %13
   ret void
@@ -16663,9 +16645,7 @@ define internal fastcc void @"_ZN4core3ptr377drop_in_place$LT$hashbrown..scopegu
   br label %13
 
 13:                                               ; preds = %9, %2
-  %.not.i.i.i = icmp ule i64 %spec.select6.i.i, %.0.val
-  %or.cond.not.i.i = select i1 %3, i1 %.not.i.i.i, i1 false
-  br i1 %or.cond.not.i.i, label %2, label %"_ZN88_$LT$hashbrown..scopeguard..ScopeGuard$LT$T$C$F$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h547f5715991f691eE.exit"
+  br i1 %3, label %2, label %"_ZN88_$LT$hashbrown..scopeguard..ScopeGuard$LT$T$C$F$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h547f5715991f691eE.exit"
 
 "_ZN88_$LT$hashbrown..scopeguard..ScopeGuard$LT$T$C$F$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h547f5715991f691eE.exit": ; preds = %13
   ret void
@@ -16696,9 +16676,7 @@ define internal fastcc void @"_ZN4core3ptr379drop_in_place$LT$hashbrown..scopegu
   br label %13
 
 13:                                               ; preds = %9, %2
-  %.not.i.i.i = icmp ule i64 %spec.select6.i.i, %.0.val
-  %or.cond.not.i.i = select i1 %3, i1 %.not.i.i.i, i1 false
-  br i1 %or.cond.not.i.i, label %2, label %"_ZN88_$LT$hashbrown..scopeguard..ScopeGuard$LT$T$C$F$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h08beca6ca2a96e8fE.exit"
+  br i1 %3, label %2, label %"_ZN88_$LT$hashbrown..scopeguard..ScopeGuard$LT$T$C$F$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h08beca6ca2a96e8fE.exit"
 
 "_ZN88_$LT$hashbrown..scopeguard..ScopeGuard$LT$T$C$F$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h08beca6ca2a96e8fE.exit": ; preds = %13
   ret void
@@ -16729,9 +16707,7 @@ define internal fastcc void @"_ZN4core3ptr379drop_in_place$LT$hashbrown..scopegu
   br label %13
 
 13:                                               ; preds = %9, %2
-  %.not.i.i.i = icmp ule i64 %spec.select6.i.i, %.0.val
-  %or.cond.not.i.i = select i1 %3, i1 %.not.i.i.i, i1 false
-  br i1 %or.cond.not.i.i, label %2, label %"_ZN88_$LT$hashbrown..scopeguard..ScopeGuard$LT$T$C$F$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h71f95f02b147101dE.exit"
+  br i1 %3, label %2, label %"_ZN88_$LT$hashbrown..scopeguard..ScopeGuard$LT$T$C$F$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h71f95f02b147101dE.exit"
 
 "_ZN88_$LT$hashbrown..scopeguard..ScopeGuard$LT$T$C$F$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h71f95f02b147101dE.exit": ; preds = %13
   ret void
@@ -16779,9 +16755,7 @@ define internal fastcc void @"_ZN4core3ptr385drop_in_place$LT$hashbrown..scopegu
   br label %13
 
 13:                                               ; preds = %9, %2
-  %.not.i.i.i = icmp ule i64 %spec.select6.i.i, %.0.val
-  %or.cond.not.i.i = select i1 %3, i1 %.not.i.i.i, i1 false
-  br i1 %or.cond.not.i.i, label %2, label %"_ZN88_$LT$hashbrown..scopeguard..ScopeGuard$LT$T$C$F$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h193529ea0c0deab1E.exit"
+  br i1 %3, label %2, label %"_ZN88_$LT$hashbrown..scopeguard..ScopeGuard$LT$T$C$F$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h193529ea0c0deab1E.exit"
 
 "_ZN88_$LT$hashbrown..scopeguard..ScopeGuard$LT$T$C$F$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h193529ea0c0deab1E.exit": ; preds = %13
   ret void
@@ -16812,9 +16786,7 @@ define internal fastcc void @"_ZN4core3ptr409drop_in_place$LT$hashbrown..scopegu
   br label %13
 
 13:                                               ; preds = %9, %2
-  %.not.i.i.i = icmp ule i64 %spec.select6.i.i, %.0.val
-  %or.cond.not.i.i = select i1 %3, i1 %.not.i.i.i, i1 false
-  br i1 %or.cond.not.i.i, label %2, label %"_ZN88_$LT$hashbrown..scopeguard..ScopeGuard$LT$T$C$F$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he1ec40628dffc20dE.exit"
+  br i1 %3, label %2, label %"_ZN88_$LT$hashbrown..scopeguard..ScopeGuard$LT$T$C$F$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he1ec40628dffc20dE.exit"
 
 "_ZN88_$LT$hashbrown..scopeguard..ScopeGuard$LT$T$C$F$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he1ec40628dffc20dE.exit": ; preds = %13
   ret void
@@ -17572,9 +17544,7 @@ define internal fastcc void @"_ZN4core3ptr411drop_in_place$LT$hashbrown..scopegu
   br label %13
 
 13:                                               ; preds = %9, %2
-  %.not.i.i.i = icmp ule i64 %spec.select6.i.i, %.0.val
-  %or.cond.not.i.i = select i1 %3, i1 %.not.i.i.i, i1 false
-  br i1 %or.cond.not.i.i, label %2, label %"_ZN88_$LT$hashbrown..scopeguard..ScopeGuard$LT$T$C$F$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h68de8fd1473d515aE.exit"
+  br i1 %3, label %2, label %"_ZN88_$LT$hashbrown..scopeguard..ScopeGuard$LT$T$C$F$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h68de8fd1473d515aE.exit"
 
 "_ZN88_$LT$hashbrown..scopeguard..ScopeGuard$LT$T$C$F$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h68de8fd1473d515aE.exit": ; preds = %13
   ret void
@@ -18743,9 +18713,7 @@ define internal fastcc void @"_ZN4core3ptr439drop_in_place$LT$hashbrown..scopegu
   br label %13
 
 13:                                               ; preds = %9, %2
-  %.not.i.i.i = icmp ule i64 %spec.select6.i.i, %.0.val
-  %or.cond.not.i.i = select i1 %3, i1 %.not.i.i.i, i1 false
-  br i1 %or.cond.not.i.i, label %2, label %"_ZN88_$LT$hashbrown..scopeguard..ScopeGuard$LT$T$C$F$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8b75c2f859bd3cbfE.exit"
+  br i1 %3, label %2, label %"_ZN88_$LT$hashbrown..scopeguard..ScopeGuard$LT$T$C$F$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8b75c2f859bd3cbfE.exit"
 
 "_ZN88_$LT$hashbrown..scopeguard..ScopeGuard$LT$T$C$F$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8b75c2f859bd3cbfE.exit": ; preds = %13
   ret void

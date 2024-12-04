@@ -1887,15 +1887,14 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
   %23 = icmp ne ptr %.sroa.6.0.copyload, null
   tail call void @llvm.assume(i1 %23)
   %24 = getelementptr inbounds i8, ptr %6, i64 8
-  br label %25
+  %25 = trunc i48 %.sroa.7.0.extract.shift.i to i16
+  %26 = and i16 %25, 255
+  %27 = add i8 %.sroa.927.0.extract.trunc.i, 1
+  br label %28
 
-25:                                               ; preds = %58, %.lr.ph.i
-  %.sroa.7.053.i = phi i8 [ %.sroa.7.0.extract.trunc.i, %.lr.ph.i ], [ %spec.select.i, %58 ]
-  %26 = icmp ult i8 %.sroa.7.053.i, %.sroa.927.0.extract.trunc.i
-  %27 = zext i1 %26 to i8
-  %spec.select.i = add nuw i8 %.sroa.7.053.i, %27
-  %28 = zext i8 %.sroa.7.053.i to i16
-  %29 = or i16 %28, %.sroa.0.0.extract.trunc.i
+28:                                               ; preds = %58, %.lr.ph.i
+  %indvars.iv = phi i16 [ %indvars.iv.next, %58 ], [ %26, %.lr.ph.i ]
+  %29 = or i16 %indvars.iv, %.sroa.0.0.extract.trunc.i
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %12), !noalias !322
   %30 = load i64, ptr %.sroa.4.0.copyload, align 8, !noalias !322, !noundef !4
   %31 = load i32, ptr %17, align 8, !noalias !322, !noundef !4
@@ -1915,7 +1914,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
   store i64 -9223372036854775752, ptr %34, align 8, !alias.scope !319, !noalias !329
   br label %"_ZN5milli6update15index_documents29IndexDocuments$LT$FP$C$FA$GT$11execute_raw28_$u7b$$u7b$closure$u7d$$u7d$17ha40b576375646dd2E.exit"
 
-.noexc.i:                                         ; preds = %25
+.noexc.i:                                         ; preds = %28
   %35 = load i64, ptr %6, align 8, !range !330, !noalias !324, !noundef !4
   %36 = icmp eq i64 %35, 14
   br i1 %36, label %37, label %40
@@ -1993,9 +1992,10 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
 58:                                               ; preds = %41
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %11), !noalias !322
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %12), !noalias !322
-  %.not.i.i.i.i = icmp ule i8 %spec.select.i, %.sroa.927.0.extract.trunc.i
-  %or.cond.not.i = select i1 %26, i1 %.not.i.i.i.i, i1 false
-  br i1 %or.cond.not.i, label %25, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3a8596d1cad69995E.exit.thread.i"
+  %indvars.iv.next = add nuw nsw i16 %indvars.iv, 1
+  %lftr.wideiv = trunc i16 %indvars.iv.next to i8
+  %exitcond.not = icmp eq i8 %27, %lftr.wideiv
+  br i1 %exitcond.not, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3a8596d1cad69995E.exit.thread.i", label %28
 
 .thread46.i:                                      ; preds = %41
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7), !noalias !322
@@ -2045,7 +2045,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
 72:                                               ; preds = %73
   resume { ptr, i32 } %lpad.phi.i
 
-.loopexit.i:                                      ; preds = %37, %25
+.loopexit.i:                                      ; preds = %37, %28
   %lpad.loopexit.i = landingpad { ptr, i32 }
           cleanup
   br label %73
@@ -2118,15 +2118,14 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
   %23 = icmp ne ptr %.sroa.6.0.copyload, null
   tail call void @llvm.assume(i1 %23)
   %24 = getelementptr inbounds i8, ptr %6, i64 8
-  br label %25
+  %25 = trunc i48 %.sroa.7.0.extract.shift.i to i16
+  %26 = and i16 %25, 255
+  %27 = add i8 %.sroa.927.0.extract.trunc.i, 1
+  br label %28
 
-25:                                               ; preds = %58, %.lr.ph.i
-  %.sroa.7.053.i = phi i8 [ %.sroa.7.0.extract.trunc.i, %.lr.ph.i ], [ %spec.select.i, %58 ]
-  %26 = icmp ult i8 %.sroa.7.053.i, %.sroa.927.0.extract.trunc.i
-  %27 = zext i1 %26 to i8
-  %spec.select.i = add nuw i8 %.sroa.7.053.i, %27
-  %28 = zext i8 %.sroa.7.053.i to i16
-  %29 = or i16 %28, %.sroa.0.0.extract.trunc.i
+28:                                               ; preds = %58, %.lr.ph.i
+  %indvars.iv = phi i16 [ %indvars.iv.next, %58 ], [ %26, %.lr.ph.i ]
+  %29 = or i16 %indvars.iv, %.sroa.0.0.extract.trunc.i
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %12), !noalias !376
   %30 = load i64, ptr %.sroa.4.0.copyload, align 8, !noalias !376, !noundef !4
   %31 = load i32, ptr %17, align 8, !noalias !376, !noundef !4
@@ -2146,7 +2145,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
   store i64 -9223372036854775752, ptr %34, align 8, !alias.scope !373, !noalias !383
   br label %"_ZN5milli6update15index_documents29IndexDocuments$LT$FP$C$FA$GT$11execute_raw28_$u7b$$u7b$closure$u7d$$u7d$17h636ba0890012a1b2E.exit"
 
-.noexc.i:                                         ; preds = %25
+.noexc.i:                                         ; preds = %28
   %35 = load i64, ptr %6, align 8, !range !330, !noalias !378, !noundef !4
   %36 = icmp eq i64 %35, 14
   br i1 %36, label %37, label %40
@@ -2224,9 +2223,10 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
 58:                                               ; preds = %41
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %11), !noalias !376
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %12), !noalias !376
-  %.not.i.i.i.i = icmp ule i8 %spec.select.i, %.sroa.927.0.extract.trunc.i
-  %or.cond.not.i = select i1 %26, i1 %.not.i.i.i.i, i1 false
-  br i1 %or.cond.not.i, label %25, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3a8596d1cad69995E.exit.thread.i"
+  %indvars.iv.next = add nuw nsw i16 %indvars.iv, 1
+  %lftr.wideiv = trunc i16 %indvars.iv.next to i8
+  %exitcond.not = icmp eq i8 %27, %lftr.wideiv
+  br i1 %exitcond.not, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3a8596d1cad69995E.exit.thread.i", label %28
 
 .thread46.i:                                      ; preds = %41
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7), !noalias !376
@@ -2276,7 +2276,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
 72:                                               ; preds = %73
   resume { ptr, i32 } %lpad.phi.i
 
-.loopexit.i:                                      ; preds = %37, %25
+.loopexit.i:                                      ; preds = %37, %28
   %lpad.loopexit.i = landingpad { ptr, i32 }
           cleanup
   br label %73

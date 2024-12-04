@@ -5307,9 +5307,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   %267 = trunc nuw nsw i64 %.sroa.0.012.i.i.i.i to i16
   %268 = getelementptr inbounds i8, ptr %265, i64 976
   store i16 %267, ptr %268, align 8, !noalias !1018
-  %.not.i.i.i.i.i.i = icmp samesign ule i64 %spec.select8.i.i.i.i, %250
-  %or.cond.i.not.i.i.i = select i1 %261, i1 %.not.i.i.i.i.i.i, i1 false
-  br i1 %or.cond.i.not.i.i.i, label %260, label %272
+  br i1 %261, label %260, label %272
 
 269:                                              ; preds = %237
   %270 = landingpad { ptr, i32 }
@@ -14853,9 +14851,7 @@ _ZN5alloc6string6String4push17hf2ea2cbd99291858E.exit459: ; preds = %625, %.noex
   %635 = load i64, ptr %.sroa.5117.0..sroa_idx, align 8, !alias.scope !2546, !noundef !9
   %636 = add i64 %635, 1
   store i64 %636, ptr %.sroa.5117.0..sroa_idx, align 8, !alias.scope !2546
-  %.not.i454 = icmp ule i64 %spec.select548, %.0236
-  %or.cond.not610 = select i1 %627, i1 %.not.i454, i1 false
-  br i1 %or.cond.not610, label %625, label %644
+  br i1 %627, label %625, label %644
 
 .thread533:                                       ; preds = %_ZN15rustfmt_nightly5utils19starts_with_newline17h6a6bfa8dfffc00d2E.exit.thread..thread533_crit_edge, %644
   %637 = phi i64 [ %.pre608, %_ZN15rustfmt_nightly5utils19starts_with_newline17h6a6bfa8dfffc00d2E.exit.thread..thread533_crit_edge ], [ %636, %644 ]
@@ -16795,9 +16791,7 @@ _ZN5alloc6string6String4push17hf2ea2cbd99291858E.exit465: ; preds = %624, %.noex
   %634 = load i64, ptr %.sroa.5125.0..sroa_idx, align 8, !alias.scope !2908, !noundef !9
   %635 = add i64 %634, 1
   store i64 %635, ptr %.sroa.5125.0..sroa_idx, align 8, !alias.scope !2908
-  %.not.i460 = icmp ule i64 %spec.select557, %.0244
-  %or.cond.not619 = select i1 %626, i1 %.not.i460, i1 false
-  br i1 %or.cond.not619, label %624, label %643
+  br i1 %626, label %624, label %643
 
 .thread542:                                       ; preds = %_ZN15rustfmt_nightly5utils19starts_with_newline17h6a6bfa8dfffc00d2E.exit.thread..thread542_crit_edge, %643
   %636 = phi i64 [ %.pre617, %_ZN15rustfmt_nightly5utils19starts_with_newline17h6a6bfa8dfffc00d2E.exit.thread..thread542_crit_edge ], [ %635, %643 ]

@@ -2331,9 +2331,7 @@ define hidden void @_ZN10ttf_parser6tables4cmap7format49Subtable410codepoints17h
   %46 = load i64, ptr %14, align 8, !alias.scope !274, !noundef !4
   %47 = add i64 %46, 1
   store i64 %47, ptr %14, align 8, !alias.scope !274
-  %.not.i = icmp ule i16 %spec.select, %34
-  %or.cond30.not = select i1 %37, i1 %.not.i, i1 false
-  br i1 %or.cond30.not, label %.lr.ph, label %.loopexit
+  br i1 %37, label %.lr.ph, label %.loopexit
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -2398,11 +2396,11 @@ define hidden void @_ZN10ttf_parser6tables4cmap8Subtable10codepoints17h70a4d7b0c
     i64 0, label %5
     i64 1, label %31
     i64 2, label %34
-    i64 3, label %73
+    i64 3, label %72
     i64 4, label %_ZN10ttf_parser6tables4cmap7format09Subtable010codepoints17h8ecb1b8256e97c6cE.llvm.5857379167208991996.exit
-    i64 5, label %99
-    i64 6, label %124
-    i64 7, label %153
+    i64 5, label %98
+    i64 6, label %123
+    i64 7, label %152
     i64 8, label %_ZN10ttf_parser6tables4cmap7format09Subtable010codepoints17h8ecb1b8256e97c6cE.llvm.5857379167208991996.exit
   ]
 
@@ -2481,27 +2479,27 @@ default.unreachable56:                            ; preds = %2
   %46 = trunc i64 %45 to i16
   %47 = getelementptr inbounds i8, ptr %1, i64 16
   %48 = getelementptr inbounds i8, ptr %1, i64 8
-  %.not43 = icmp eq i16 %44, 0
-  br i1 %.not43, label %_ZN10ttf_parser6tables4cmap7format09Subtable010codepoints17h8ecb1b8256e97c6cE.llvm.5857379167208991996.exit, label %.lr.ph39
+  %.not40 = icmp eq i16 %44, 0
+  br i1 %.not40, label %_ZN10ttf_parser6tables4cmap7format09Subtable010codepoints17h8ecb1b8256e97c6cE.llvm.5857379167208991996.exit, label %.lr.ph36
 
 .loopexit.i:                                      ; preds = %"_ZN5typst4text4font4book8FontInfo8from_ttf28_$u7b$$u7b$closure$u7d$$u7d$17h0310702bb3c7057cE.exit.i2", %.preheader.i
   %exitcond55.not = icmp eq i16 %56, %44
-  br i1 %exitcond55.not, label %_ZN10ttf_parser6tables4cmap7format09Subtable010codepoints17h8ecb1b8256e97c6cE.llvm.5857379167208991996.exit, label %.lr.ph39
+  br i1 %exitcond55.not, label %_ZN10ttf_parser6tables4cmap7format09Subtable010codepoints17h8ecb1b8256e97c6cE.llvm.5857379167208991996.exit, label %.lr.ph36
 
-.lr.ph39:                                         ; preds = %34, %.loopexit.i
-  %.sroa.14.0.i38 = phi i16 [ %56, %.loopexit.i ], [ 0, %34 ]
-  %49 = zext i16 %.sroa.14.0.i38 to i64
+.lr.ph36:                                         ; preds = %34, %.loopexit.i
+  %.sroa.14.0.i35 = phi i16 [ %56, %.loopexit.i ], [ 0, %34 ]
+  %49 = zext i16 %.sroa.14.0.i35 to i64
   %50 = shl nuw nsw i64 %49, 1
   %51 = add nuw nsw i64 %50, 2
   %52 = icmp ugt i64 %51, %38
   br i1 %52, label %_ZN10ttf_parser6tables4cmap7format09Subtable010codepoints17h8ecb1b8256e97c6cE.llvm.5857379167208991996.exit, label %53
 
-53:                                               ; preds = %.lr.ph39
+53:                                               ; preds = %.lr.ph36
   %54 = getelementptr inbounds i8, ptr %36, i64 %50
   %.val.i.i.i.i.i.i.i = load i16, ptr %54, align 1, !alias.scope !293, !noalias !300
   %55 = tail call i16 @llvm.bswap.i16(i16 %.val.i.i.i.i.i.i.i)
-  %56 = add nuw i16 %.sroa.14.0.i38, 1
-  %exitcond54.not = icmp eq i16 %.sroa.14.0.i38, %46
+  %56 = add nuw i16 %.sroa.14.0.i35, 1
+  %exitcond54.not = icmp eq i16 %.sroa.14.0.i35, %46
   %57 = icmp ugt i64 %51, %42
   %or.cond = or i1 %exitcond54.not, %57
   br i1 %or.cond, label %_ZN10ttf_parser6tables4cmap7format09Subtable010codepoints17h8ecb1b8256e97c6cE.llvm.5857379167208991996.exit, label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h9128279ea8f5c291E.exit.i"
@@ -2520,291 +2518,286 @@ default.unreachable56:                            ; preds = %2
 
 .lr.ph.preheader.i:                               ; preds = %.preheader.i
   %.pre.i = load i64, ptr %47, align 8, !alias.scope !315, !noalias !288
+  %61 = zext i16 %55 to i32
+  %62 = add i16 %59, 1
   br label %.lr.ph.i1
 
 .lr.ph.i1:                                        ; preds = %"_ZN5typst4text4font4book8FontInfo8from_ttf28_$u7b$$u7b$closure$u7d$$u7d$17h0310702bb3c7057cE.exit.i2", %.lr.ph.preheader.i
-  %61 = phi i64 [ %72, %"_ZN5typst4text4font4book8FontInfo8from_ttf28_$u7b$$u7b$closure$u7d$$u7d$17h0310702bb3c7057cE.exit.i2" ], [ %.pre.i, %.lr.ph.preheader.i ]
-  %.sroa.021.032.i = phi i16 [ %spec.select.i, %"_ZN5typst4text4font4book8FontInfo8from_ttf28_$u7b$$u7b$closure$u7d$$u7d$17h0310702bb3c7057cE.exit.i2" ], [ %55, %.lr.ph.preheader.i ]
-  %62 = icmp ult i16 %.sroa.021.032.i, %59
-  %63 = zext i1 %62 to i16
-  %spec.select.i = add nuw i16 %.sroa.021.032.i, %63
-  %64 = zext i16 %.sroa.021.032.i to i32
-  %65 = load i64, ptr %1, align 8, !alias.scope !315, !noalias !288, !noundef !4
-  %66 = icmp eq i64 %61, %65
-  br i1 %66, label %67, label %"_ZN5typst4text4font4book8FontInfo8from_ttf28_$u7b$$u7b$closure$u7d$$u7d$17h0310702bb3c7057cE.exit.i2"
+  %indvars.iv = phi i32 [ %indvars.iv.next, %"_ZN5typst4text4font4book8FontInfo8from_ttf28_$u7b$$u7b$closure$u7d$$u7d$17h0310702bb3c7057cE.exit.i2" ], [ %61, %.lr.ph.preheader.i ]
+  %63 = phi i64 [ %71, %"_ZN5typst4text4font4book8FontInfo8from_ttf28_$u7b$$u7b$closure$u7d$$u7d$17h0310702bb3c7057cE.exit.i2" ], [ %.pre.i, %.lr.ph.preheader.i ]
+  %64 = load i64, ptr %1, align 8, !alias.scope !315, !noalias !288, !noundef !4
+  %65 = icmp eq i64 %63, %64
+  br i1 %65, label %66, label %"_ZN5typst4text4font4book8FontInfo8from_ttf28_$u7b$$u7b$closure$u7d$$u7d$17h0310702bb3c7057cE.exit.i2"
 
-67:                                               ; preds = %.lr.ph.i1
-  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h54283bb0aa945bd1E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %61), !noalias !288
+66:                                               ; preds = %.lr.ph.i1
+  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h54283bb0aa945bd1E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %63), !noalias !288
   %.pre.i.i.i3 = load i64, ptr %47, align 8, !alias.scope !315, !noalias !288
   br label %"_ZN5typst4text4font4book8FontInfo8from_ttf28_$u7b$$u7b$closure$u7d$$u7d$17h0310702bb3c7057cE.exit.i2"
 
-"_ZN5typst4text4font4book8FontInfo8from_ttf28_$u7b$$u7b$closure$u7d$$u7d$17h0310702bb3c7057cE.exit.i2": ; preds = %67, %.lr.ph.i1
-  %68 = phi i64 [ %.pre.i.i.i3, %67 ], [ %61, %.lr.ph.i1 ]
-  %69 = load ptr, ptr %48, align 8, !alias.scope !315, !noalias !288, !nonnull !4, !noundef !4
-  %70 = getelementptr inbounds i32, ptr %69, i64 %68
-  store i32 %64, ptr %70, align 4, !noalias !288
-  %71 = load i64, ptr %47, align 8, !alias.scope !315, !noalias !288, !noundef !4
-  %72 = add i64 %71, 1
-  store i64 %72, ptr %47, align 8, !alias.scope !315, !noalias !288
-  %.not.i.i = icmp ule i16 %spec.select.i, %59
-  %or.cond30.not.i = select i1 %62, i1 %.not.i.i, i1 false
-  br i1 %or.cond30.not.i, label %.lr.ph.i1, label %.loopexit.i
+"_ZN5typst4text4font4book8FontInfo8from_ttf28_$u7b$$u7b$closure$u7d$$u7d$17h0310702bb3c7057cE.exit.i2": ; preds = %66, %.lr.ph.i1
+  %67 = phi i64 [ %.pre.i.i.i3, %66 ], [ %63, %.lr.ph.i1 ]
+  %68 = load ptr, ptr %48, align 8, !alias.scope !315, !noalias !288, !nonnull !4, !noundef !4
+  %69 = getelementptr inbounds i32, ptr %68, i64 %67
+  store i32 %indvars.iv, ptr %69, align 4, !noalias !288
+  %70 = load i64, ptr %47, align 8, !alias.scope !315, !noalias !288, !noundef !4
+  %71 = add i64 %70, 1
+  store i64 %71, ptr %47, align 8, !alias.scope !315, !noalias !288
+  %indvars.iv.next = add nuw nsw i32 %indvars.iv, 1
+  %lftr.wideiv = trunc i32 %indvars.iv.next to i16
+  %exitcond50.not = icmp eq i16 %62, %lftr.wideiv
+  br i1 %exitcond50.not, label %.loopexit.i, label %.lr.ph.i1
 
-73:                                               ; preds = %2
+72:                                               ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !318)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !321)
-  %74 = getelementptr inbounds i8, ptr %0, i64 16
-  %75 = load i64, ptr %74, align 8, !alias.scope !318, !noalias !321, !noundef !4
-  %76 = lshr i64 %75, 1
-  %77 = trunc i64 %76 to i16
-  %.not.i = icmp eq i16 %77, 0
+  %73 = getelementptr inbounds i8, ptr %0, i64 16
+  %74 = load i64, ptr %73, align 8, !alias.scope !318, !noalias !321, !noundef !4
+  %75 = lshr i64 %74, 1
+  %76 = trunc i64 %75 to i16
+  %.not.i = icmp eq i16 %76, 0
   br i1 %.not.i, label %_ZN10ttf_parser6tables4cmap7format09Subtable010codepoints17h8ecb1b8256e97c6cE.llvm.5857379167208991996.exit, label %.lr.ph.i4
 
-.lr.ph.i4:                                        ; preds = %73
-  %78 = getelementptr inbounds i8, ptr %0, i64 24
-  %79 = load i16, ptr %78, align 8, !alias.scope !318, !noalias !321, !noundef !4
-  %80 = getelementptr inbounds i8, ptr %1, i64 16
-  %81 = getelementptr inbounds i8, ptr %1, i64 8
-  br label %82
+.lr.ph.i4:                                        ; preds = %72
+  %77 = getelementptr inbounds i8, ptr %0, i64 24
+  %78 = load i16, ptr %77, align 8, !alias.scope !318, !noalias !321, !noundef !4
+  %79 = getelementptr inbounds i8, ptr %1, i64 16
+  %80 = getelementptr inbounds i8, ptr %1, i64 8
+  br label %81
 
-82:                                               ; preds = %98, %.lr.ph.i4
-  %.sroa.01.011.i = phi i16 [ 0, %.lr.ph.i4 ], [ %83, %98 ]
-  %83 = add nuw i16 %.sroa.01.011.i, 1
-  %84 = tail call { i16, i1 } @llvm.uadd.with.overflow.i16(i16 %79, i16 %.sroa.01.011.i)
-  %85 = extractvalue { i16, i1 } %84, 1
-  %86 = extractvalue { i16, i1 } %84, 0
-  %87 = zext i16 %86 to i32
-  br i1 %85, label %98, label %88
+81:                                               ; preds = %97, %.lr.ph.i4
+  %.sroa.01.011.i = phi i16 [ 0, %.lr.ph.i4 ], [ %82, %97 ]
+  %82 = add nuw i16 %.sroa.01.011.i, 1
+  %83 = tail call { i16, i1 } @llvm.uadd.with.overflow.i16(i16 %78, i16 %.sroa.01.011.i)
+  %84 = extractvalue { i16, i1 } %83, 1
+  %85 = extractvalue { i16, i1 } %83, 0
+  %86 = zext i16 %85 to i32
+  br i1 %84, label %97, label %87
 
-88:                                               ; preds = %82
-  %89 = load i64, ptr %80, align 8, !alias.scope !323, !noalias !318, !noundef !4
-  %90 = load i64, ptr %1, align 8, !alias.scope !323, !noalias !318, !noundef !4
-  %91 = icmp eq i64 %89, %90
-  br i1 %91, label %92, label %"_ZN5typst4text4font4book8FontInfo8from_ttf28_$u7b$$u7b$closure$u7d$$u7d$17h0310702bb3c7057cE.exit.i5"
+87:                                               ; preds = %81
+  %88 = load i64, ptr %79, align 8, !alias.scope !323, !noalias !318, !noundef !4
+  %89 = load i64, ptr %1, align 8, !alias.scope !323, !noalias !318, !noundef !4
+  %90 = icmp eq i64 %88, %89
+  br i1 %90, label %91, label %"_ZN5typst4text4font4book8FontInfo8from_ttf28_$u7b$$u7b$closure$u7d$$u7d$17h0310702bb3c7057cE.exit.i5"
 
-92:                                               ; preds = %88
-  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h54283bb0aa945bd1E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %89), !noalias !318
-  %.pre.i.i.i6 = load i64, ptr %80, align 8, !alias.scope !323, !noalias !318
+91:                                               ; preds = %87
+  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h54283bb0aa945bd1E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %88), !noalias !318
+  %.pre.i.i.i6 = load i64, ptr %79, align 8, !alias.scope !323, !noalias !318
   br label %"_ZN5typst4text4font4book8FontInfo8from_ttf28_$u7b$$u7b$closure$u7d$$u7d$17h0310702bb3c7057cE.exit.i5"
 
-"_ZN5typst4text4font4book8FontInfo8from_ttf28_$u7b$$u7b$closure$u7d$$u7d$17h0310702bb3c7057cE.exit.i5": ; preds = %92, %88
-  %93 = phi i64 [ %.pre.i.i.i6, %92 ], [ %89, %88 ]
-  %94 = load ptr, ptr %81, align 8, !alias.scope !323, !noalias !318, !nonnull !4, !noundef !4
-  %95 = getelementptr inbounds i32, ptr %94, i64 %93
-  store i32 %87, ptr %95, align 4, !noalias !318
-  %96 = load i64, ptr %80, align 8, !alias.scope !323, !noalias !318, !noundef !4
-  %97 = add i64 %96, 1
-  store i64 %97, ptr %80, align 8, !alias.scope !323, !noalias !318
-  br label %98
+"_ZN5typst4text4font4book8FontInfo8from_ttf28_$u7b$$u7b$closure$u7d$$u7d$17h0310702bb3c7057cE.exit.i5": ; preds = %91, %87
+  %92 = phi i64 [ %.pre.i.i.i6, %91 ], [ %88, %87 ]
+  %93 = load ptr, ptr %80, align 8, !alias.scope !323, !noalias !318, !nonnull !4, !noundef !4
+  %94 = getelementptr inbounds i32, ptr %93, i64 %92
+  store i32 %86, ptr %94, align 4, !noalias !318
+  %95 = load i64, ptr %79, align 8, !alias.scope !323, !noalias !318, !noundef !4
+  %96 = add i64 %95, 1
+  store i64 %96, ptr %79, align 8, !alias.scope !323, !noalias !318
+  br label %97
 
-98:                                               ; preds = %"_ZN5typst4text4font4book8FontInfo8from_ttf28_$u7b$$u7b$closure$u7d$$u7d$17h0310702bb3c7057cE.exit.i5", %82
-  %exitcond.not.i = icmp eq i16 %83, %77
-  br i1 %exitcond.not.i, label %_ZN10ttf_parser6tables4cmap7format09Subtable010codepoints17h8ecb1b8256e97c6cE.llvm.5857379167208991996.exit, label %82
+97:                                               ; preds = %"_ZN5typst4text4font4book8FontInfo8from_ttf28_$u7b$$u7b$closure$u7d$$u7d$17h0310702bb3c7057cE.exit.i5", %81
+  %exitcond.not.i = icmp eq i16 %82, %76
+  br i1 %exitcond.not.i, label %_ZN10ttf_parser6tables4cmap7format09Subtable010codepoints17h8ecb1b8256e97c6cE.llvm.5857379167208991996.exit, label %81
 
-99:                                               ; preds = %2
+98:                                               ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !326)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !329)
-  %100 = getelementptr inbounds i8, ptr %0, i64 16
-  %101 = load i64, ptr %100, align 8, !alias.scope !326, !noalias !329, !noundef !4
-  %102 = lshr i64 %101, 1
-  %103 = trunc i64 %102 to i32
-  %.not.i7 = icmp eq i32 %103, 0
+  %99 = getelementptr inbounds i8, ptr %0, i64 16
+  %100 = load i64, ptr %99, align 8, !alias.scope !326, !noalias !329, !noundef !4
+  %101 = lshr i64 %100, 1
+  %102 = trunc i64 %101 to i32
+  %.not.i7 = icmp eq i32 %102, 0
   br i1 %.not.i7, label %_ZN10ttf_parser6tables4cmap7format09Subtable010codepoints17h8ecb1b8256e97c6cE.llvm.5857379167208991996.exit, label %.lr.ph.i8
 
-.lr.ph.i8:                                        ; preds = %99
-  %104 = getelementptr inbounds i8, ptr %0, i64 24
-  %105 = load i32, ptr %104, align 8, !alias.scope !326, !noalias !329, !noundef !4
-  %106 = getelementptr inbounds i8, ptr %1, i64 16
-  %107 = getelementptr inbounds i8, ptr %1, i64 8
-  br label %108
+.lr.ph.i8:                                        ; preds = %98
+  %103 = getelementptr inbounds i8, ptr %0, i64 24
+  %104 = load i32, ptr %103, align 8, !alias.scope !326, !noalias !329, !noundef !4
+  %105 = getelementptr inbounds i8, ptr %1, i64 16
+  %106 = getelementptr inbounds i8, ptr %1, i64 8
+  br label %107
 
-108:                                              ; preds = %123, %.lr.ph.i8
-  %.sroa.01.011.i9 = phi i32 [ 0, %.lr.ph.i8 ], [ %109, %123 ]
-  %109 = add nuw i32 %.sroa.01.011.i9, 1
-  %110 = tail call { i32, i1 } @llvm.uadd.with.overflow.i32(i32 %105, i32 %.sroa.01.011.i9)
-  %111 = extractvalue { i32, i1 } %110, 1
-  %112 = extractvalue { i32, i1 } %110, 0
-  br i1 %111, label %123, label %113
+107:                                              ; preds = %122, %.lr.ph.i8
+  %.sroa.01.011.i9 = phi i32 [ 0, %.lr.ph.i8 ], [ %108, %122 ]
+  %108 = add nuw i32 %.sroa.01.011.i9, 1
+  %109 = tail call { i32, i1 } @llvm.uadd.with.overflow.i32(i32 %104, i32 %.sroa.01.011.i9)
+  %110 = extractvalue { i32, i1 } %109, 1
+  %111 = extractvalue { i32, i1 } %109, 0
+  br i1 %110, label %122, label %112
 
-113:                                              ; preds = %108
-  %114 = load i64, ptr %106, align 8, !alias.scope !331, !noalias !326, !noundef !4
-  %115 = load i64, ptr %1, align 8, !alias.scope !331, !noalias !326, !noundef !4
-  %116 = icmp eq i64 %114, %115
-  br i1 %116, label %117, label %"_ZN5typst4text4font4book8FontInfo8from_ttf28_$u7b$$u7b$closure$u7d$$u7d$17h0310702bb3c7057cE.exit.i10"
+112:                                              ; preds = %107
+  %113 = load i64, ptr %105, align 8, !alias.scope !331, !noalias !326, !noundef !4
+  %114 = load i64, ptr %1, align 8, !alias.scope !331, !noalias !326, !noundef !4
+  %115 = icmp eq i64 %113, %114
+  br i1 %115, label %116, label %"_ZN5typst4text4font4book8FontInfo8from_ttf28_$u7b$$u7b$closure$u7d$$u7d$17h0310702bb3c7057cE.exit.i10"
 
-117:                                              ; preds = %113
-  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h54283bb0aa945bd1E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %114), !noalias !326
-  %.pre.i.i.i12 = load i64, ptr %106, align 8, !alias.scope !331, !noalias !326
+116:                                              ; preds = %112
+  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h54283bb0aa945bd1E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %113), !noalias !326
+  %.pre.i.i.i12 = load i64, ptr %105, align 8, !alias.scope !331, !noalias !326
   br label %"_ZN5typst4text4font4book8FontInfo8from_ttf28_$u7b$$u7b$closure$u7d$$u7d$17h0310702bb3c7057cE.exit.i10"
 
-"_ZN5typst4text4font4book8FontInfo8from_ttf28_$u7b$$u7b$closure$u7d$$u7d$17h0310702bb3c7057cE.exit.i10": ; preds = %117, %113
-  %118 = phi i64 [ %.pre.i.i.i12, %117 ], [ %114, %113 ]
-  %119 = load ptr, ptr %107, align 8, !alias.scope !331, !noalias !326, !nonnull !4, !noundef !4
-  %120 = getelementptr inbounds i32, ptr %119, i64 %118
-  store i32 %112, ptr %120, align 4, !noalias !326
-  %121 = load i64, ptr %106, align 8, !alias.scope !331, !noalias !326, !noundef !4
-  %122 = add i64 %121, 1
-  store i64 %122, ptr %106, align 8, !alias.scope !331, !noalias !326
-  br label %123
+"_ZN5typst4text4font4book8FontInfo8from_ttf28_$u7b$$u7b$closure$u7d$$u7d$17h0310702bb3c7057cE.exit.i10": ; preds = %116, %112
+  %117 = phi i64 [ %.pre.i.i.i12, %116 ], [ %113, %112 ]
+  %118 = load ptr, ptr %106, align 8, !alias.scope !331, !noalias !326, !nonnull !4, !noundef !4
+  %119 = getelementptr inbounds i32, ptr %118, i64 %117
+  store i32 %111, ptr %119, align 4, !noalias !326
+  %120 = load i64, ptr %105, align 8, !alias.scope !331, !noalias !326, !noundef !4
+  %121 = add i64 %120, 1
+  store i64 %121, ptr %105, align 8, !alias.scope !331, !noalias !326
+  br label %122
 
-123:                                              ; preds = %"_ZN5typst4text4font4book8FontInfo8from_ttf28_$u7b$$u7b$closure$u7d$$u7d$17h0310702bb3c7057cE.exit.i10", %108
-  %exitcond.not.i11 = icmp eq i32 %109, %103
-  br i1 %exitcond.not.i11, label %_ZN10ttf_parser6tables4cmap7format09Subtable010codepoints17h8ecb1b8256e97c6cE.llvm.5857379167208991996.exit, label %108
+122:                                              ; preds = %"_ZN5typst4text4font4book8FontInfo8from_ttf28_$u7b$$u7b$closure$u7d$$u7d$17h0310702bb3c7057cE.exit.i10", %107
+  %exitcond.not.i11 = icmp eq i32 %108, %102
+  br i1 %exitcond.not.i11, label %_ZN10ttf_parser6tables4cmap7format09Subtable010codepoints17h8ecb1b8256e97c6cE.llvm.5857379167208991996.exit, label %107
 
-124:                                              ; preds = %2
-  %125 = getelementptr inbounds i8, ptr %0, i64 8
+123:                                              ; preds = %2
+  %124 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !334)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !337)
-  %126 = load ptr, ptr %125, align 8, !alias.scope !334, !noalias !337, !nonnull !4, !align !159, !noundef !4
-  %127 = getelementptr inbounds i8, ptr %0, i64 16
-  %128 = load i64, ptr %127, align 8, !alias.scope !334, !noalias !337, !noundef !4
-  %129 = udiv i64 %128, 12
-  %130 = and i64 %129, 4294967295
-  %.not.i13 = icmp eq i64 %130, 0
+  %125 = load ptr, ptr %124, align 8, !alias.scope !334, !noalias !337, !nonnull !4, !align !159, !noundef !4
+  %126 = getelementptr inbounds i8, ptr %0, i64 16
+  %127 = load i64, ptr %126, align 8, !alias.scope !334, !noalias !337, !noundef !4
+  %128 = udiv i64 %127, 12
+  %129 = and i64 %128, 4294967295
+  %.not.i13 = icmp eq i64 %129, 0
   br i1 %.not.i13, label %_ZN10ttf_parser6tables4cmap7format09Subtable010codepoints17h8ecb1b8256e97c6cE.llvm.5857379167208991996.exit, label %.lr.ph32.i
 
-.lr.ph32.i:                                       ; preds = %124
-  %131 = getelementptr inbounds i8, ptr %1, i64 16
-  %132 = getelementptr inbounds i8, ptr %1, i64 8
-  br label %133
+.lr.ph32.i:                                       ; preds = %123
+  %130 = getelementptr inbounds i8, ptr %1, i64 16
+  %131 = getelementptr inbounds i8, ptr %1, i64 8
+  br label %132
 
-.loopexit.i21:                                    ; preds = %"_ZN5typst4text4font4book8FontInfo8from_ttf28_$u7b$$u7b$closure$u7d$$u7d$17h0310702bb3c7057cE.exit.i19", %137
+.loopexit.i20:                                    ; preds = %"_ZN5typst4text4font4book8FontInfo8from_ttf28_$u7b$$u7b$closure$u7d$$u7d$17h0310702bb3c7057cE.exit.i19", %136
   %indvars.iv.next35.i = add nuw nsw i64 %indvars.iv34.i, 1
-  %exitcond.not.i22 = icmp eq i64 %indvars.iv.next35.i, %130
-  br i1 %exitcond.not.i22, label %_ZN10ttf_parser6tables4cmap7format09Subtable010codepoints17h8ecb1b8256e97c6cE.llvm.5857379167208991996.exit, label %133
+  %exitcond.not.i21 = icmp eq i64 %indvars.iv.next35.i, %129
+  br i1 %exitcond.not.i21, label %_ZN10ttf_parser6tables4cmap7format09Subtable010codepoints17h8ecb1b8256e97c6cE.llvm.5857379167208991996.exit, label %132
 
-133:                                              ; preds = %.loopexit.i21, %.lr.ph32.i
-  %indvars.iv34.i = phi i64 [ 0, %.lr.ph32.i ], [ %indvars.iv.next35.i, %.loopexit.i21 ]
-  %134 = mul nuw nsw i64 %indvars.iv34.i, 12
-  %135 = add nuw nsw i64 %134, 12
-  %136 = icmp ugt i64 %135, %128
-  br i1 %136, label %_ZN10ttf_parser6tables4cmap7format09Subtable010codepoints17h8ecb1b8256e97c6cE.llvm.5857379167208991996.exit, label %137
+132:                                              ; preds = %.loopexit.i20, %.lr.ph32.i
+  %indvars.iv34.i = phi i64 [ 0, %.lr.ph32.i ], [ %indvars.iv.next35.i, %.loopexit.i20 ]
+  %133 = mul nuw nsw i64 %indvars.iv34.i, 12
+  %134 = add nuw nsw i64 %133, 12
+  %135 = icmp ugt i64 %134, %127
+  br i1 %135, label %_ZN10ttf_parser6tables4cmap7format09Subtable010codepoints17h8ecb1b8256e97c6cE.llvm.5857379167208991996.exit, label %136
 
-137:                                              ; preds = %133
-  %138 = getelementptr inbounds i8, ptr %126, i64 %134
-  %.val.i.i.i.i.i.i.i14 = load i32, ptr %138, align 1, !alias.scope !339, !noalias !350
-  %139 = tail call i32 @llvm.bswap.i32(i32 %.val.i.i.i.i.i.i.i14)
-  %140 = getelementptr inbounds i8, ptr %138, i64 4
-  %.val.i.i.i37.i.i.i.i = load i32, ptr %140, align 1, !alias.scope !355, !noalias !350
-  %141 = tail call i32 @llvm.bswap.i32(i32 %.val.i.i.i37.i.i.i.i)
-  %.not.i28.i = icmp ugt i32 %139, %141
-  br i1 %.not.i28.i, label %.loopexit.i21, label %.lr.ph.preheader.i15
+136:                                              ; preds = %132
+  %137 = getelementptr inbounds i8, ptr %125, i64 %133
+  %.val.i.i.i.i.i.i.i14 = load i32, ptr %137, align 1, !alias.scope !339, !noalias !350
+  %138 = tail call i32 @llvm.bswap.i32(i32 %.val.i.i.i.i.i.i.i14)
+  %139 = getelementptr inbounds i8, ptr %137, i64 4
+  %.val.i.i.i37.i.i.i.i = load i32, ptr %139, align 1, !alias.scope !355, !noalias !350
+  %140 = tail call i32 @llvm.bswap.i32(i32 %.val.i.i.i37.i.i.i.i)
+  %.not.i28.i = icmp ugt i32 %138, %140
+  br i1 %.not.i28.i, label %.loopexit.i20, label %.lr.ph.preheader.i15
 
-.lr.ph.preheader.i15:                             ; preds = %137
-  %.pre.i16 = load i64, ptr %131, align 8, !alias.scope !362, !noalias !334
+.lr.ph.preheader.i15:                             ; preds = %136
+  %.pre.i16 = load i64, ptr %130, align 8, !alias.scope !362, !noalias !334
   br label %.lr.ph.i17
 
 .lr.ph.i17:                                       ; preds = %"_ZN5typst4text4font4book8FontInfo8from_ttf28_$u7b$$u7b$closure$u7d$$u7d$17h0310702bb3c7057cE.exit.i19", %.lr.ph.preheader.i15
-  %142 = phi i64 [ %152, %"_ZN5typst4text4font4book8FontInfo8from_ttf28_$u7b$$u7b$closure$u7d$$u7d$17h0310702bb3c7057cE.exit.i19" ], [ %.pre.i16, %.lr.ph.preheader.i15 ]
-  %.sroa.014.029.i = phi i32 [ %spec.select.i18, %"_ZN5typst4text4font4book8FontInfo8from_ttf28_$u7b$$u7b$closure$u7d$$u7d$17h0310702bb3c7057cE.exit.i19" ], [ %139, %.lr.ph.preheader.i15 ]
-  %143 = icmp ult i32 %.sroa.014.029.i, %141
-  %144 = zext i1 %143 to i32
-  %spec.select.i18 = add nuw i32 %.sroa.014.029.i, %144
-  %145 = load i64, ptr %1, align 8, !alias.scope !362, !noalias !334, !noundef !4
-  %146 = icmp eq i64 %142, %145
-  br i1 %146, label %147, label %"_ZN5typst4text4font4book8FontInfo8from_ttf28_$u7b$$u7b$closure$u7d$$u7d$17h0310702bb3c7057cE.exit.i19"
+  %141 = phi i64 [ %151, %"_ZN5typst4text4font4book8FontInfo8from_ttf28_$u7b$$u7b$closure$u7d$$u7d$17h0310702bb3c7057cE.exit.i19" ], [ %.pre.i16, %.lr.ph.preheader.i15 ]
+  %.sroa.014.029.i = phi i32 [ %spec.select.i18, %"_ZN5typst4text4font4book8FontInfo8from_ttf28_$u7b$$u7b$closure$u7d$$u7d$17h0310702bb3c7057cE.exit.i19" ], [ %138, %.lr.ph.preheader.i15 ]
+  %142 = icmp ult i32 %.sroa.014.029.i, %140
+  %143 = zext i1 %142 to i32
+  %spec.select.i18 = add nuw i32 %.sroa.014.029.i, %143
+  %144 = load i64, ptr %1, align 8, !alias.scope !362, !noalias !334, !noundef !4
+  %145 = icmp eq i64 %141, %144
+  br i1 %145, label %146, label %"_ZN5typst4text4font4book8FontInfo8from_ttf28_$u7b$$u7b$closure$u7d$$u7d$17h0310702bb3c7057cE.exit.i19"
 
-147:                                              ; preds = %.lr.ph.i17
-  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h54283bb0aa945bd1E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %142), !noalias !334
-  %.pre.i.i.i23 = load i64, ptr %131, align 8, !alias.scope !362, !noalias !334
+146:                                              ; preds = %.lr.ph.i17
+  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h54283bb0aa945bd1E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %141), !noalias !334
+  %.pre.i.i.i22 = load i64, ptr %130, align 8, !alias.scope !362, !noalias !334
   br label %"_ZN5typst4text4font4book8FontInfo8from_ttf28_$u7b$$u7b$closure$u7d$$u7d$17h0310702bb3c7057cE.exit.i19"
 
-"_ZN5typst4text4font4book8FontInfo8from_ttf28_$u7b$$u7b$closure$u7d$$u7d$17h0310702bb3c7057cE.exit.i19": ; preds = %147, %.lr.ph.i17
-  %148 = phi i64 [ %.pre.i.i.i23, %147 ], [ %142, %.lr.ph.i17 ]
-  %149 = load ptr, ptr %132, align 8, !alias.scope !362, !noalias !334, !nonnull !4, !noundef !4
-  %150 = getelementptr inbounds i32, ptr %149, i64 %148
-  store i32 %.sroa.014.029.i, ptr %150, align 4, !noalias !334
-  %151 = load i64, ptr %131, align 8, !alias.scope !362, !noalias !334, !noundef !4
-  %152 = add i64 %151, 1
-  store i64 %152, ptr %131, align 8, !alias.scope !362, !noalias !334
-  %.not.i.i20 = icmp ule i32 %spec.select.i18, %141
-  %or.cond.not.i = select i1 %143, i1 %.not.i.i20, i1 false
-  br i1 %or.cond.not.i, label %.lr.ph.i17, label %.loopexit.i21
+"_ZN5typst4text4font4book8FontInfo8from_ttf28_$u7b$$u7b$closure$u7d$$u7d$17h0310702bb3c7057cE.exit.i19": ; preds = %146, %.lr.ph.i17
+  %147 = phi i64 [ %.pre.i.i.i22, %146 ], [ %141, %.lr.ph.i17 ]
+  %148 = load ptr, ptr %131, align 8, !alias.scope !362, !noalias !334, !nonnull !4, !noundef !4
+  %149 = getelementptr inbounds i32, ptr %148, i64 %147
+  store i32 %.sroa.014.029.i, ptr %149, align 4, !noalias !334
+  %150 = load i64, ptr %130, align 8, !alias.scope !362, !noalias !334, !noundef !4
+  %151 = add i64 %150, 1
+  store i64 %151, ptr %130, align 8, !alias.scope !362, !noalias !334
+  br i1 %142, label %.lr.ph.i17, label %.loopexit.i20
 
-153:                                              ; preds = %2
-  %154 = getelementptr inbounds i8, ptr %0, i64 8
+152:                                              ; preds = %2
+  %153 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !365)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !368)
-  %155 = load ptr, ptr %154, align 8, !alias.scope !365, !noalias !368, !nonnull !4, !align !159, !noundef !4
-  %156 = getelementptr inbounds i8, ptr %0, i64 16
-  %157 = load i64, ptr %156, align 8, !alias.scope !365, !noalias !368, !noundef !4
-  %158 = udiv i64 %157, 12
-  %159 = getelementptr inbounds i8, ptr %3, i64 4
-  %160 = getelementptr inbounds i8, ptr %3, i64 8
-  %161 = getelementptr inbounds i8, ptr %1, i64 16
-  %162 = getelementptr inbounds i8, ptr %1, i64 8
+  %154 = load ptr, ptr %153, align 8, !alias.scope !365, !noalias !368, !nonnull !4, !align !159, !noundef !4
+  %155 = getelementptr inbounds i8, ptr %0, i64 16
+  %156 = load i64, ptr %155, align 8, !alias.scope !365, !noalias !368, !noundef !4
+  %157 = udiv i64 %156, 12
+  %158 = getelementptr inbounds i8, ptr %3, i64 4
+  %159 = getelementptr inbounds i8, ptr %3, i64 8
+  %160 = getelementptr inbounds i8, ptr %1, i64 16
+  %161 = getelementptr inbounds i8, ptr %1, i64 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !370
-  %163 = and i64 %158, 4294967295
-  %.not = icmp eq i64 %163, 0
+  %162 = and i64 %157, 4294967295
+  %.not = icmp eq i64 %162, 0
   br i1 %.not, label %_ZN10ttf_parser6tables4cmap8format1310Subtable1310codepoints17h43ad9547795223d0E.exit, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %153
-  %wide.trip.count = and i64 %158, 4294967295
+.lr.ph.preheader:                                 ; preds = %152
+  %wide.trip.count = and i64 %157, 4294967295
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %._crit_edge.i
-  %indvars.iv48 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next49, %._crit_edge.i ]
-  %164 = mul nuw nsw i64 %indvars.iv48, 12
-  %165 = add nuw nsw i64 %164, 12
-  %166 = icmp ugt i64 %165, %157
-  br i1 %166, label %_ZN10ttf_parser6tables4cmap8format1310Subtable1310codepoints17h43ad9547795223d0E.exit, label %"_ZN10ttf_parser6parser20LazyArray32$LT$T$GT$3get17hcc70db792b3b02dcE.llvm.4930786928582598558.exit.i"
+  %indvars.iv45 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next46, %._crit_edge.i ]
+  %163 = mul nuw nsw i64 %indvars.iv45, 12
+  %164 = add nuw nsw i64 %163, 12
+  %165 = icmp ugt i64 %164, %156
+  br i1 %165, label %_ZN10ttf_parser6tables4cmap8format1310Subtable1310codepoints17h43ad9547795223d0E.exit, label %"_ZN10ttf_parser6parser20LazyArray32$LT$T$GT$3get17hcc70db792b3b02dcE.llvm.4930786928582598558.exit.i"
 
 "_ZN10ttf_parser6parser20LazyArray32$LT$T$GT$3get17hcc70db792b3b02dcE.llvm.4930786928582598558.exit.i": ; preds = %.lr.ph
-  %167 = getelementptr inbounds i8, ptr %155, i64 %164
-  call void @"_ZN103_$LT$ttf_parser..tables..cmap..format12..SequentialMapGroup$u20$as$u20$ttf_parser..parser..FromData$GT$5parse17hccf98e39eb683be3E.llvm.4930786928582598558"(ptr noalias nocapture noundef nonnull sret({ i32, [3 x i32] }) align 4 dereferenceable(16) %3, ptr noalias noundef nonnull readonly align 1 %167, i64 noundef 12), !noalias !371
-  %.pre.i24 = load i32, ptr %3, align 4, !range !177, !noalias !370
-  %168 = trunc nuw i32 %.pre.i24 to i1
-  br i1 %168, label %169, label %_ZN10ttf_parser6tables4cmap8format1310Subtable1310codepoints17h43ad9547795223d0E.exit
+  %166 = getelementptr inbounds i8, ptr %154, i64 %163
+  call void @"_ZN103_$LT$ttf_parser..tables..cmap..format12..SequentialMapGroup$u20$as$u20$ttf_parser..parser..FromData$GT$5parse17hccf98e39eb683be3E.llvm.4930786928582598558"(ptr noalias nocapture noundef nonnull sret({ i32, [3 x i32] }) align 4 dereferenceable(16) %3, ptr noalias noundef nonnull readonly align 1 %166, i64 noundef 12), !noalias !371
+  %.pre.i23 = load i32, ptr %3, align 4, !range !177, !noalias !370
+  %167 = trunc nuw i32 %.pre.i23 to i1
+  br i1 %167, label %168, label %_ZN10ttf_parser6tables4cmap8format1310Subtable1310codepoints17h43ad9547795223d0E.exit
 
-169:                                              ; preds = %"_ZN10ttf_parser6parser20LazyArray32$LT$T$GT$3get17hcc70db792b3b02dcE.llvm.4930786928582598558.exit.i"
+168:                                              ; preds = %"_ZN10ttf_parser6parser20LazyArray32$LT$T$GT$3get17hcc70db792b3b02dcE.llvm.4930786928582598558.exit.i"
+  %169 = load i32, ptr %158, align 4, !noalias !370, !noundef !4
   %170 = load i32, ptr %159, align 4, !noalias !370, !noundef !4
-  %171 = load i32, ptr %160, align 4, !noalias !370, !noundef !4
-  %.not.i17.i = icmp ugt i32 %170, %171
-  br i1 %.not.i17.i, label %._crit_edge.i, label %.lr.ph.preheader.i25
+  %.not.i17.i = icmp ugt i32 %169, %170
+  br i1 %.not.i17.i, label %._crit_edge.i, label %.lr.ph.preheader.i24
 
-.lr.ph.preheader.i25:                             ; preds = %169
-  %.pre20.i = load i64, ptr %161, align 8, !alias.scope !374, !noalias !377
-  br label %.lr.ph.i26
+.lr.ph.preheader.i24:                             ; preds = %168
+  %.pre20.i = load i64, ptr %160, align 8, !alias.scope !374, !noalias !377
+  br label %.lr.ph.i25
 
-.lr.ph.i26:                                       ; preds = %"_ZN5typst4text4font4book8FontInfo8from_ttf28_$u7b$$u7b$closure$u7d$$u7d$17h0310702bb3c7057cE.llvm.4930786928582598558.exit.i", %.lr.ph.preheader.i25
-  %172 = phi i64 [ %182, %"_ZN5typst4text4font4book8FontInfo8from_ttf28_$u7b$$u7b$closure$u7d$$u7d$17h0310702bb3c7057cE.llvm.4930786928582598558.exit.i" ], [ %.pre20.i, %.lr.ph.preheader.i25 ]
-  %.sroa.010.018.i = phi i32 [ %spec.select.i27, %"_ZN5typst4text4font4book8FontInfo8from_ttf28_$u7b$$u7b$closure$u7d$$u7d$17h0310702bb3c7057cE.llvm.4930786928582598558.exit.i" ], [ %170, %.lr.ph.preheader.i25 ]
-  %173 = icmp ult i32 %.sroa.010.018.i, %171
-  %174 = zext i1 %173 to i32
-  %spec.select.i27 = add nuw i32 %.sroa.010.018.i, %174
-  %175 = load i64, ptr %1, align 8, !alias.scope !374, !noalias !377, !noundef !4
-  %176 = icmp eq i64 %172, %175
-  br i1 %176, label %177, label %"_ZN5typst4text4font4book8FontInfo8from_ttf28_$u7b$$u7b$closure$u7d$$u7d$17h0310702bb3c7057cE.llvm.4930786928582598558.exit.i"
+.lr.ph.i25:                                       ; preds = %"_ZN5typst4text4font4book8FontInfo8from_ttf28_$u7b$$u7b$closure$u7d$$u7d$17h0310702bb3c7057cE.llvm.4930786928582598558.exit.i", %.lr.ph.preheader.i24
+  %171 = phi i64 [ %181, %"_ZN5typst4text4font4book8FontInfo8from_ttf28_$u7b$$u7b$closure$u7d$$u7d$17h0310702bb3c7057cE.llvm.4930786928582598558.exit.i" ], [ %.pre20.i, %.lr.ph.preheader.i24 ]
+  %.sroa.010.018.i = phi i32 [ %spec.select.i26, %"_ZN5typst4text4font4book8FontInfo8from_ttf28_$u7b$$u7b$closure$u7d$$u7d$17h0310702bb3c7057cE.llvm.4930786928582598558.exit.i" ], [ %169, %.lr.ph.preheader.i24 ]
+  %172 = icmp ult i32 %.sroa.010.018.i, %170
+  %173 = zext i1 %172 to i32
+  %spec.select.i26 = add nuw i32 %.sroa.010.018.i, %173
+  %174 = load i64, ptr %1, align 8, !alias.scope !374, !noalias !377, !noundef !4
+  %175 = icmp eq i64 %171, %174
+  br i1 %175, label %176, label %"_ZN5typst4text4font4book8FontInfo8from_ttf28_$u7b$$u7b$closure$u7d$$u7d$17h0310702bb3c7057cE.llvm.4930786928582598558.exit.i"
 
-._crit_edge.i:                                    ; preds = %"_ZN5typst4text4font4book8FontInfo8from_ttf28_$u7b$$u7b$closure$u7d$$u7d$17h0310702bb3c7057cE.llvm.4930786928582598558.exit.i", %169
+._crit_edge.i:                                    ; preds = %"_ZN5typst4text4font4book8FontInfo8from_ttf28_$u7b$$u7b$closure$u7d$$u7d$17h0310702bb3c7057cE.llvm.4930786928582598558.exit.i", %168
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !370
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !370
-  %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next49, %wide.trip.count
+  %indvars.iv.next46 = add nuw nsw i64 %indvars.iv45, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next46, %wide.trip.count
   br i1 %exitcond.not, label %_ZN10ttf_parser6tables4cmap8format1310Subtable1310codepoints17h43ad9547795223d0E.exit, label %.lr.ph
 
-177:                                              ; preds = %.lr.ph.i26
-  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h54283bb0aa945bd1E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %172), !noalias !377
-  %.pre.i.i.i30 = load i64, ptr %161, align 8, !alias.scope !374, !noalias !377
+176:                                              ; preds = %.lr.ph.i25
+  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h54283bb0aa945bd1E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %171), !noalias !377
+  %.pre.i.i.i27 = load i64, ptr %160, align 8, !alias.scope !374, !noalias !377
   br label %"_ZN5typst4text4font4book8FontInfo8from_ttf28_$u7b$$u7b$closure$u7d$$u7d$17h0310702bb3c7057cE.llvm.4930786928582598558.exit.i"
 
-"_ZN5typst4text4font4book8FontInfo8from_ttf28_$u7b$$u7b$closure$u7d$$u7d$17h0310702bb3c7057cE.llvm.4930786928582598558.exit.i": ; preds = %177, %.lr.ph.i26
-  %178 = phi i64 [ %.pre.i.i.i30, %177 ], [ %172, %.lr.ph.i26 ]
-  %179 = load ptr, ptr %162, align 8, !alias.scope !374, !noalias !377, !nonnull !4, !noundef !4
-  %180 = getelementptr inbounds i32, ptr %179, i64 %178
-  store i32 %.sroa.010.018.i, ptr %180, align 4, !noalias !377
-  %181 = load i64, ptr %161, align 8, !alias.scope !374, !noalias !377, !noundef !4
-  %182 = add i64 %181, 1
-  store i64 %182, ptr %161, align 8, !alias.scope !374, !noalias !377
-  %.not.i.i28 = icmp ule i32 %spec.select.i27, %171
-  %or.cond.not.i29 = select i1 %173, i1 %.not.i.i28, i1 false
-  br i1 %or.cond.not.i29, label %.lr.ph.i26, label %._crit_edge.i
+"_ZN5typst4text4font4book8FontInfo8from_ttf28_$u7b$$u7b$closure$u7d$$u7d$17h0310702bb3c7057cE.llvm.4930786928582598558.exit.i": ; preds = %176, %.lr.ph.i25
+  %177 = phi i64 [ %.pre.i.i.i27, %176 ], [ %171, %.lr.ph.i25 ]
+  %178 = load ptr, ptr %161, align 8, !alias.scope !374, !noalias !377, !nonnull !4, !noundef !4
+  %179 = getelementptr inbounds i32, ptr %178, i64 %177
+  store i32 %.sroa.010.018.i, ptr %179, align 4, !noalias !377
+  %180 = load i64, ptr %160, align 8, !alias.scope !374, !noalias !377, !noundef !4
+  %181 = add i64 %180, 1
+  store i64 %181, ptr %160, align 8, !alias.scope !374, !noalias !377
+  br i1 %172, label %.lr.ph.i25, label %._crit_edge.i
 
-_ZN10ttf_parser6tables4cmap8format1310Subtable1310codepoints17h43ad9547795223d0E.exit: ; preds = %"_ZN10ttf_parser6parser20LazyArray32$LT$T$GT$3get17hcc70db792b3b02dcE.llvm.4930786928582598558.exit.i", %.lr.ph, %._crit_edge.i, %153
+_ZN10ttf_parser6tables4cmap8format1310Subtable1310codepoints17h43ad9547795223d0E.exit: ; preds = %"_ZN10ttf_parser6parser20LazyArray32$LT$T$GT$3get17hcc70db792b3b02dcE.llvm.4930786928582598558.exit.i", %.lr.ph, %._crit_edge.i, %152
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !370
   br label %_ZN10ttf_parser6tables4cmap7format09Subtable010codepoints17h8ecb1b8256e97c6cE.llvm.5857379167208991996.exit
 
-_ZN10ttf_parser6tables4cmap7format09Subtable010codepoints17h8ecb1b8256e97c6cE.llvm.5857379167208991996.exit: ; preds = %133, %.loopexit.i21, %123, %98, %.loopexit.i, %.lr.ph39, %53, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h9128279ea8f5c291E.exit.i", %29, %34, %124, %99, %73, %5, %2, %2, %31, %_ZN10ttf_parser6tables4cmap8format1310Subtable1310codepoints17h43ad9547795223d0E.exit
+_ZN10ttf_parser6tables4cmap7format09Subtable010codepoints17h8ecb1b8256e97c6cE.llvm.5857379167208991996.exit: ; preds = %132, %.loopexit.i20, %122, %97, %.loopexit.i, %.lr.ph36, %53, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h9128279ea8f5c291E.exit.i", %29, %34, %123, %98, %72, %5, %2, %2, %31, %_ZN10ttf_parser6tables4cmap8format1310Subtable1310codepoints17h43ad9547795223d0E.exit
   ret void
 }
 
@@ -2929,9 +2922,7 @@ define hidden void @_ZN10ttf_parser6tables4cmap8format1210Subtable1210codepoints
   %28 = load i64, ptr %8, align 8, !alias.scope !406, !noundef !4
   %29 = add i64 %28, 1
   store i64 %29, ptr %8, align 8, !alias.scope !406
-  %.not.i = icmp ule i32 %spec.select, %18
-  %or.cond.not = select i1 %20, i1 %.not.i, i1 false
-  br i1 %or.cond.not, label %.lr.ph, label %.loopexit
+  br i1 %20, label %.lr.ph, label %.loopexit
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

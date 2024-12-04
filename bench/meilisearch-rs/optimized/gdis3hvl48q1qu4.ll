@@ -34025,9 +34025,7 @@ define hidden void @"_ZN5milli6update15index_documents29IndexDocuments$LT$FP$C$F
 64:                                               ; preds = %47
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %12)
-  %.not.i.i.i = icmp ule i8 %spec.select, %.sroa.927.0.extract.trunc
-  %or.cond.not = select i1 %32, i1 %.not.i.i.i, i1 false
-  br i1 %or.cond.not, label %31, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3a8596d1cad69995E.exit.thread"
+  br i1 %32, label %31, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3a8596d1cad69995E.exit.thread"
 
 .thread46:                                        ; preds = %47
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7)
@@ -34249,9 +34247,7 @@ define hidden void @"_ZN5milli6update15index_documents29IndexDocuments$LT$FP$C$F
 64:                                               ; preds = %47
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %12)
-  %.not.i.i.i = icmp ule i8 %spec.select, %.sroa.927.0.extract.trunc
-  %or.cond.not = select i1 %32, i1 %.not.i.i.i, i1 false
-  br i1 %or.cond.not, label %31, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3a8596d1cad69995E.exit.thread"
+  br i1 %32, label %31, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3a8596d1cad69995E.exit.thread"
 
 .thread46:                                        ; preds = %47
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7)

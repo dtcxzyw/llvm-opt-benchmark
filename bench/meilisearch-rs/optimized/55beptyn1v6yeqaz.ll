@@ -1658,9 +1658,7 @@ define hidden { ptr, i64 } @"_ZN5alloc11collections5btree4node121NodeRef$LT$allo
   %12 = trunc nuw nsw i64 %.sroa.0.012.i to i16
   %13 = getelementptr inbounds i8, ptr %11, i64 272
   store i16 %12, ptr %13, align 8, !noalias !179
-  %.not.i.i.i = icmp samesign ule i64 %spec.select8.i, %4
-  %or.cond.i.not = select i1 %7, i1 %.not.i.i.i, i1 false
-  br i1 %or.cond.i.not, label %6, label %"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$30correct_childrens_parent_links17h3e718f3a6aff5418E.exit"
+  br i1 %7, label %6, label %"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$30correct_childrens_parent_links17h3e718f3a6aff5418E.exit"
 
 "_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$30correct_childrens_parent_links17h3e718f3a6aff5418E.exit": ; preds = %6
   %14 = insertvalue { ptr, i64 } poison, ptr %0, 0
@@ -1690,9 +1688,7 @@ define hidden { ptr, i64 } @"_ZN5alloc11collections5btree4node121NodeRef$LT$allo
   %12 = trunc nuw nsw i64 %.sroa.0.012.i to i16
   %13 = getelementptr inbounds i8, ptr %11, i64 272
   store i16 %12, ptr %13, align 8, !noalias !187
-  %.not.i.i.i = icmp samesign ule i64 %spec.select8.i, %4
-  %or.cond.i.not = select i1 %7, i1 %.not.i.i.i, i1 false
-  br i1 %or.cond.i.not, label %6, label %"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$30correct_childrens_parent_links17h8e0e38eba9b705f7E.exit"
+  br i1 %7, label %6, label %"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$30correct_childrens_parent_links17h8e0e38eba9b705f7E.exit"
 
 "_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$30correct_childrens_parent_links17h8e0e38eba9b705f7E.exit": ; preds = %6
   %14 = insertvalue { ptr, i64 } poison, ptr %0, 0
@@ -1722,9 +1718,7 @@ define hidden { ptr, i64 } @"_ZN5alloc11collections5btree4node121NodeRef$LT$allo
   %12 = trunc nuw nsw i64 %.sroa.0.012.i to i16
   %13 = getelementptr inbounds i8, ptr %11, i64 272
   store i16 %12, ptr %13, align 8, !noalias !195
-  %.not.i.i.i = icmp samesign ule i64 %spec.select8.i, %4
-  %or.cond.i.not = select i1 %7, i1 %.not.i.i.i, i1 false
-  br i1 %or.cond.i.not, label %6, label %"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$30correct_childrens_parent_links17hcc1c12a388c7172aE.exit"
+  br i1 %7, label %6, label %"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$30correct_childrens_parent_links17hcc1c12a388c7172aE.exit"
 
 "_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$30correct_childrens_parent_links17hcc1c12a388c7172aE.exit": ; preds = %6
   %14 = insertvalue { ptr, i64 } poison, ptr %0, 0
@@ -1754,9 +1748,7 @@ define hidden { ptr, i64 } @"_ZN5alloc11collections5btree4node121NodeRef$LT$allo
   %12 = trunc nuw nsw i64 %.sroa.0.012.i to i16
   %13 = getelementptr inbounds i8, ptr %11, i64 8
   store i16 %12, ptr %13, align 8, !noalias !203
-  %.not.i.i.i = icmp samesign ule i64 %spec.select8.i, %4
-  %or.cond.i.not = select i1 %7, i1 %.not.i.i.i, i1 false
-  br i1 %or.cond.i.not, label %6, label %"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$30correct_childrens_parent_links17h7d299107153438d9E.exit"
+  br i1 %7, label %6, label %"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$30correct_childrens_parent_links17h7d299107153438d9E.exit"
 
 "_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$30correct_childrens_parent_links17h7d299107153438d9E.exit": ; preds = %6
   %14 = insertvalue { ptr, i64 } poison, ptr %0, 0
@@ -11983,9 +11975,7 @@ define internal fastcc void @"_ZN5alloc11collections5btree4node212Handle$LT$allo
   %69 = trunc nuw nsw i64 %.sroa.0.012.i.i to i16
   %70 = getelementptr inbounds i8, ptr %68, i64 712
   store i16 %69, ptr %70, align 8, !noalias !1897
-  %.not.i.i.i.i = icmp samesign ule i64 %spec.select8.i.i, %51
-  %or.cond.i.not.i = select i1 %64, i1 %.not.i.i.i.i, i1 false
-  br i1 %or.cond.i.not.i, label %63, label %71
+  br i1 %64, label %63, label %71
 
 71:                                               ; preds = %63
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 64, i1 false)
@@ -12145,9 +12135,7 @@ define internal fastcc void @"_ZN5alloc11collections5btree4node212Handle$LT$allo
   %61 = trunc nuw nsw i64 %.sroa.0.012.i.i to i16
   %62 = getelementptr inbounds i8, ptr %60, i64 272
   store i16 %61, ptr %62, align 8, !noalias !1923
-  %.not.i.i.i.i = icmp samesign ule i64 %spec.select8.i.i, %43
-  %or.cond.i.not.i = select i1 %56, i1 %.not.i.i.i.i, i1 false
-  br i1 %or.cond.i.not.i, label %55, label %63
+  br i1 %56, label %55, label %63
 
 63:                                               ; preds = %55
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
@@ -12316,9 +12304,7 @@ define internal fastcc void @"_ZN5alloc11collections5btree4node212Handle$LT$allo
   %67 = trunc nuw nsw i64 %.sroa.0.012.i.i to i16
   %68 = getelementptr inbounds i8, ptr %66, i64 272
   store i16 %67, ptr %68, align 8, !noalias !1958
-  %.not.i.i.i.i = icmp samesign ule i64 %spec.select8.i.i, %49
-  %or.cond.i.not.i = select i1 %62, i1 %.not.i.i.i.i, i1 false
-  br i1 %or.cond.i.not.i, label %61, label %69
+  br i1 %62, label %61, label %69
 
 69:                                               ; preds = %61
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
@@ -12478,9 +12464,7 @@ define internal fastcc void @"_ZN5alloc11collections5btree4node212Handle$LT$allo
   %61 = trunc nuw nsw i64 %.sroa.0.012.i.i to i16
   %62 = getelementptr inbounds i8, ptr %60, i64 272
   store i16 %61, ptr %62, align 8, !noalias !1984
-  %.not.i.i.i.i = icmp samesign ule i64 %spec.select8.i.i, %43
-  %or.cond.i.not.i = select i1 %56, i1 %.not.i.i.i.i, i1 false
-  br i1 %or.cond.i.not.i, label %55, label %63
+  br i1 %56, label %55, label %63
 
 63:                                               ; preds = %55
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
@@ -12640,9 +12624,7 @@ define internal fastcc void @"_ZN5alloc11collections5btree4node212Handle$LT$allo
   %61 = trunc nuw nsw i64 %.sroa.0.012.i.i to i16
   %62 = getelementptr inbounds i8, ptr %59, i64 360
   store i16 %61, ptr %62, align 8, !noalias !2010
-  %.not.i.i.i.i = icmp samesign ule i64 %spec.select8.i.i, %42
-  %or.cond.i.not.i = select i1 %55, i1 %.not.i.i.i.i, i1 false
-  br i1 %or.cond.i.not.i, label %54, label %63
+  br i1 %55, label %54, label %63
 
 63:                                               ; preds = %54
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
@@ -12817,9 +12799,7 @@ define internal fastcc void @"_ZN5alloc11collections5btree4node212Handle$LT$allo
   %68 = trunc nuw nsw i64 %.sroa.0.012.i.i to i16
   %69 = getelementptr inbounds i8, ptr %67, i64 536
   store i16 %68, ptr %69, align 8, !noalias !2040
-  %.not.i.i.i.i = icmp samesign ule i64 %spec.select8.i.i, %50
-  %or.cond.i.not.i = select i1 %63, i1 %.not.i.i.i.i, i1 false
-  br i1 %or.cond.i.not.i, label %62, label %70
+  br i1 %63, label %62, label %70
 
 70:                                               ; preds = %62
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %5, i64 48, i1 false)
@@ -13000,9 +12980,7 @@ define internal fastcc void @"_ZN5alloc11collections5btree4node212Handle$LT$allo
   %71 = trunc nuw nsw i64 %.sroa.0.012.i.i to i16
   %72 = getelementptr inbounds i8, ptr %70, i64 3528
   store i16 %71, ptr %72, align 8, !noalias !2073
-  %.not.i.i.i.i = icmp samesign ule i64 %spec.select8.i.i, %53
-  %or.cond.i.not.i = select i1 %66, i1 %.not.i.i.i.i, i1 false
-  br i1 %or.cond.i.not.i, label %65, label %73
+  br i1 %66, label %65, label %73
 
 73:                                               ; preds = %65
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(320) %0, ptr noundef nonnull align 8 dereferenceable(320) %5, i64 320, i1 false)
@@ -13177,9 +13155,7 @@ define internal fastcc void @"_ZN5alloc11collections5btree4node212Handle$LT$allo
   %68 = trunc nuw nsw i64 %.sroa.0.012.i.i to i16
   %69 = getelementptr inbounds i8, ptr %67, i64 536
   store i16 %68, ptr %69, align 8, !noalias !2103
-  %.not.i.i.i.i = icmp samesign ule i64 %spec.select8.i.i, %50
-  %or.cond.i.not.i = select i1 %63, i1 %.not.i.i.i.i, i1 false
-  br i1 %or.cond.i.not.i, label %62, label %70
+  br i1 %63, label %62, label %70
 
 70:                                               ; preds = %62
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %5, i64 48, i1 false)
@@ -13339,9 +13315,7 @@ define internal fastcc void @"_ZN5alloc11collections5btree4node212Handle$LT$allo
   %63 = trunc nuw nsw i64 %.sroa.0.012.i.i to i16
   %64 = getelementptr inbounds i8, ptr %62, i64 272
   store i16 %63, ptr %64, align 8, !noalias !2133
-  %.not.i.i.i.i = icmp samesign ule i64 %spec.select8.i.i, %45
-  %or.cond.i.not.i = select i1 %58, i1 %.not.i.i.i.i, i1 false
-  br i1 %or.cond.i.not.i, label %57, label %65
+  br i1 %58, label %57, label %65
 
 65:                                               ; preds = %57
   %.sroa.416.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 2
@@ -13483,9 +13457,7 @@ define internal fastcc void @"_ZN5alloc11collections5btree4node212Handle$LT$allo
   %57 = trunc nuw nsw i64 %.sroa.0.012.i.i to i16
   %58 = getelementptr inbounds i8, ptr %56, i64 8
   store i16 %57, ptr %58, align 8, !noalias !2156
-  %.not.i.i.i.i = icmp samesign ule i64 %spec.select8.i.i, %39
-  %or.cond.i.not.i = select i1 %52, i1 %.not.i.i.i.i, i1 false
-  br i1 %or.cond.i.not.i, label %51, label %59
+  br i1 %52, label %51, label %59
 
 59:                                               ; preds = %51
   store ptr %3, ptr %0, align 8
@@ -13648,9 +13620,7 @@ define internal fastcc void @"_ZN5alloc11collections5btree4node212Handle$LT$allo
   %68 = trunc nuw nsw i64 %.sroa.0.012.i.i to i16
   %69 = getelementptr inbounds i8, ptr %67, i64 360
   store i16 %68, ptr %69, align 8, !noalias !2191
-  %.not.i.i.i.i = icmp samesign ule i64 %spec.select8.i.i, %50
-  %or.cond.i.not.i = select i1 %63, i1 %.not.i.i.i.i, i1 false
-  br i1 %or.cond.i.not.i, label %62, label %70
+  br i1 %63, label %62, label %70
 
 70:                                               ; preds = %62
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)

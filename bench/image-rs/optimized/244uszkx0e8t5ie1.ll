@@ -2135,9 +2135,7 @@ define hidden noundef nonnull align 8 dereferenceable(104) ptr @"_ZN5alloc11coll
   %276 = trunc nuw nsw i64 %.sroa.0.012.i.i.i.i.i to i16
   %277 = getelementptr inbounds i8, ptr %275, i64 1240
   store i16 %276, ptr %277, align 8, !noalias !325
-  %.not.i.i.i.i.i.i.i = icmp samesign ule i64 %spec.select8.i.i.i.i.i, %260
-  %or.cond.i.not.i.i.i.i = select i1 %271, i1 %.not.i.i.i.i.i.i.i, i1 false
-  br i1 %or.cond.i.not.i.i.i.i, label %270, label %281
+  br i1 %271, label %270, label %281
 
 278:                                              ; preds = %246
   %279 = landingpad { ptr, i32 }
@@ -3038,9 +3036,7 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN5alloc11colle
   %269 = trunc nuw nsw i64 %.sroa.0.012.i.i.i.i.i to i16
   %270 = getelementptr inbounds i8, ptr %267, i64 360
   store i16 %269, ptr %270, align 8, !noalias !479
-  %.not.i.i.i.i.i.i.i = icmp samesign ule i64 %spec.select8.i.i.i.i.i, %252
-  %or.cond.i.not.i.i.i.i = select i1 %263, i1 %.not.i.i.i.i.i.i.i, i1 false
-  br i1 %or.cond.i.not.i.i.i.i, label %262, label %274
+  br i1 %263, label %262, label %274
 
 271:                                              ; preds = %239
   %272 = landingpad { ptr, i32 }
@@ -11460,7 +11456,7 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17he12294bda8d9b14bE.exit.thread64.
   %71 = icmp ult i64 %.sroa.057.092.i, %70
   %72 = zext i1 %71 to i64
   %spec.select.i = add nuw i64 %.sroa.057.092.i, %72
-  %73 = add i64 %.sroa.057.092.i, -1
+  %73 = add nsw i64 %.sroa.057.092.i, -1
   %74 = getelementptr inbounds [16 x i16], ptr %12, i64 0, i64 %73
   %75 = load i16, ptr %74, align 2, !noalias !1478, !noundef !7
   %76 = add i16 %75, %.03794.i
@@ -11469,9 +11465,7 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17he12294bda8d9b14bE.exit.thread64.
   store i16 1, ptr %78, align 2, !noalias !1478
   %79 = getelementptr inbounds i8, ptr %78, i64 2
   store i16 %77, ptr %79, align 2, !noalias !1478
-  %.not.i.i = icmp ule i64 %spec.select.i, %70
-  %or.cond.not.i = select i1 %71, i1 %.not.i.i, i1 false
-  br i1 %or.cond.not.i, label %.lr.ph95.i, label %.lr.ph100.preheader.i
+  br i1 %71, label %.lr.ph95.i, label %.lr.ph100.preheader.i
 
 .lr.ph100.preheader.i:                            ; preds = %.lr.ph95.i, %.split.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10), !noalias !1478

@@ -1027,9 +1027,7 @@ default.unreachable.i.i.i.i.i:                    ; preds = %74
   %323 = trunc i64 %.sroa.0.012.i.i.i.i.i.i.i to i16
   %324 = getelementptr inbounds i8, ptr %322, i64 536
   store i16 %323, ptr %324, align 8, !noalias !243
-  %.not.i.i.i.i.i.i.i.i.i = icmp ule i64 %spec.select8.i.i.i.i.i.i.i, %308
-  %or.cond.i.not.i.i.i.i.i.i = select i1 %319, i1 %.not.i.i.i.i.i.i.i.i.i, i1 false
-  br i1 %or.cond.i.not.i.i.i.i.i.i, label %318, label %327
+  br i1 %319, label %318, label %327
 
 325:                                              ; preds = %295
   %326 = landingpad { ptr, i32 }
@@ -2229,9 +2227,7 @@ default.unreachable.i.i.i.i.i:                    ; preds = %78
   %327 = trunc i64 %.sroa.0.012.i.i.i.i.i.i.i to i16
   %328 = getelementptr inbounds i8, ptr %326, i64 536
   store i16 %327, ptr %328, align 8, !noalias !527
-  %.not.i.i.i.i.i.i.i.i.i = icmp ule i64 %spec.select8.i.i.i.i.i.i.i, %312
-  %or.cond.i.not.i.i.i.i.i.i = select i1 %323, i1 %.not.i.i.i.i.i.i.i.i.i, i1 false
-  br i1 %or.cond.i.not.i.i.i.i.i.i, label %322, label %331
+  br i1 %323, label %322, label %331
 
 329:                                              ; preds = %299
   %330 = landingpad { ptr, i32 }
@@ -21389,9 +21385,7 @@ define hidden noundef nonnull align 1 ptr @"_ZN5alloc11collections5btree3map5ent
   %233 = trunc i64 %.sroa.0.012.i.i.i.i.i to i16
   %234 = getelementptr inbounds i8, ptr %231, i64 360
   store i16 %233, ptr %234, align 8, !noalias !4440
-  %.not.i.i.i.i.i.i.i = icmp ule i64 %spec.select8.i.i.i.i.i, %217
-  %or.cond.i.not.i.i.i.i = select i1 %228, i1 %.not.i.i.i.i.i.i.i, i1 false
-  br i1 %or.cond.i.not.i.i.i.i, label %227, label %237
+  br i1 %228, label %227, label %237
 
 235:                                              ; preds = %207
   %236 = landingpad { ptr, i32 }
@@ -22256,9 +22250,7 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN5alloc11colle
   %274 = trunc i64 %.sroa.0.012.i.i.i.i.i to i16
   %275 = getelementptr inbounds i8, ptr %272, i64 624
   store i16 %274, ptr %275, align 8, !noalias !4623
-  %.not.i.i.i.i.i.i.i = icmp ule i64 %spec.select8.i.i.i.i.i, %258
-  %or.cond.i.not.i.i.i.i = select i1 %269, i1 %.not.i.i.i.i.i.i.i, i1 false
-  br i1 %or.cond.i.not.i.i.i.i, label %268, label %278
+  br i1 %269, label %268, label %278
 
 276:                                              ; preds = %245
   %277 = landingpad { ptr, i32 }
@@ -23032,9 +23024,7 @@ define hidden noundef nonnull align 1 ptr @"_ZN5alloc11collections5btree3map5ent
   %233 = trunc i64 %.sroa.0.012.i.i.i.i.i to i16
   %234 = getelementptr inbounds i8, ptr %231, i64 360
   store i16 %233, ptr %234, align 8, !noalias !4778
-  %.not.i.i.i.i.i.i.i = icmp ule i64 %spec.select8.i.i.i.i.i, %217
-  %or.cond.i.not.i.i.i.i = select i1 %228, i1 %.not.i.i.i.i.i.i.i, i1 false
-  br i1 %or.cond.i.not.i.i.i.i, label %227, label %237
+  br i1 %228, label %227, label %237
 
 235:                                              ; preds = %207
   %236 = landingpad { ptr, i32 }
@@ -23804,9 +23794,7 @@ define hidden noundef nonnull align 1 dereferenceable(1) ptr @"_ZN5alloc11collec
   %263 = trunc i64 %.sroa.0.012.i.i.i.i.i to i16
   %264 = getelementptr inbounds i8, ptr %261, i64 360
   store i16 %263, ptr %264, align 8, !noalias !4941
-  %.not.i.i.i.i.i.i.i = icmp ule i64 %spec.select8.i.i.i.i.i, %247
-  %or.cond.i.not.i.i.i.i = select i1 %258, i1 %.not.i.i.i.i.i.i.i, i1 false
-  br i1 %or.cond.i.not.i.i.i.i, label %257, label %267
+  br i1 %258, label %257, label %267
 
 265:                                              ; preds = %235
   %266 = landingpad { ptr, i32 }
@@ -24687,9 +24675,7 @@ define hidden noundef nonnull align 8 dereferenceable(64) ptr @"_ZN5alloc11colle
   %274 = trunc i64 %.sroa.0.012.i.i.i.i.i to i16
   %275 = getelementptr inbounds i8, ptr %272, i64 1064
   store i16 %274, ptr %275, align 8, !noalias !5127
-  %.not.i.i.i.i.i.i.i = icmp ule i64 %spec.select8.i.i.i.i.i, %258
-  %or.cond.i.not.i.i.i.i = select i1 %269, i1 %.not.i.i.i.i.i.i.i, i1 false
-  br i1 %or.cond.i.not.i.i.i.i, label %268, label %278
+  br i1 %269, label %268, label %278
 
 276:                                              ; preds = %245
   %277 = landingpad { ptr, i32 }
@@ -25463,9 +25449,7 @@ define hidden noundef nonnull align 1 ptr @"_ZN5alloc11collections5btree3map5ent
   %233 = trunc i64 %.sroa.0.012.i.i.i.i.i to i16
   %234 = getelementptr inbounds i8, ptr %231, i64 360
   store i16 %233, ptr %234, align 8, !noalias !5282
-  %.not.i.i.i.i.i.i.i = icmp ule i64 %spec.select8.i.i.i.i.i, %217
-  %or.cond.i.not.i.i.i.i = select i1 %228, i1 %.not.i.i.i.i.i.i.i, i1 false
-  br i1 %or.cond.i.not.i.i.i.i, label %227, label %237
+  br i1 %228, label %227, label %237
 
 235:                                              ; preds = %207
   %236 = landingpad { ptr, i32 }
@@ -26331,9 +26315,7 @@ define hidden noundef nonnull align 8 dereferenceable(104) ptr @"_ZN5alloc11coll
   %277 = trunc i64 %.sroa.0.012.i.i.i.i.i to i16
   %278 = getelementptr inbounds i8, ptr %276, i64 1416
   store i16 %277, ptr %278, align 8, !noalias !5465
-  %.not.i.i.i.i.i.i.i = icmp ule i64 %spec.select8.i.i.i.i.i, %262
-  %or.cond.i.not.i.i.i.i = select i1 %273, i1 %.not.i.i.i.i.i.i.i, i1 false
-  br i1 %or.cond.i.not.i.i.i.i, label %272, label %281
+  br i1 %273, label %272, label %281
 
 279:                                              ; preds = %248
   %280 = landingpad { ptr, i32 }
@@ -27250,9 +27232,7 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN5alloc11colle
   %274 = trunc i64 %.sroa.0.012.i.i.i.i.i to i16
   %275 = getelementptr inbounds i8, ptr %272, i64 624
   store i16 %274, ptr %275, align 8, !noalias !5658
-  %.not.i.i.i.i.i.i.i = icmp ule i64 %spec.select8.i.i.i.i.i, %258
-  %or.cond.i.not.i.i.i.i = select i1 %269, i1 %.not.i.i.i.i.i.i.i, i1 false
-  br i1 %or.cond.i.not.i.i.i.i, label %268, label %278
+  br i1 %269, label %268, label %278
 
 276:                                              ; preds = %245
   %277 = landingpad { ptr, i32 }
@@ -28131,9 +28111,7 @@ define hidden noundef nonnull align 8 dereferenceable(48) ptr @"_ZN5alloc11colle
   %279 = trunc i64 %.sroa.0.012.i.i.i.i.i to i16
   %280 = getelementptr inbounds i8, ptr %277, i64 888
   store i16 %279, ptr %280, align 8, !noalias !5850
-  %.not.i.i.i.i.i.i.i = icmp ule i64 %spec.select8.i.i.i.i.i, %263
-  %or.cond.i.not.i.i.i.i = select i1 %274, i1 %.not.i.i.i.i.i.i.i, i1 false
-  br i1 %or.cond.i.not.i.i.i.i, label %273, label %283
+  br i1 %274, label %273, label %283
 
 281:                                              ; preds = %250
   %282 = landingpad { ptr, i32 }
@@ -28961,9 +28939,7 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN5alloc11colle
   %271 = trunc i64 %.sroa.0.012.i.i.i.i.i to i16
   %272 = getelementptr inbounds i8, ptr %269, i64 404
   store i16 %271, ptr %272, align 4, !noalias !6026
-  %.not.i.i.i.i.i.i.i = icmp ule i64 %spec.select8.i.i.i.i.i, %255
-  %or.cond.i.not.i.i.i.i = select i1 %266, i1 %.not.i.i.i.i.i.i.i, i1 false
-  br i1 %or.cond.i.not.i.i.i.i, label %265, label %275
+  br i1 %266, label %265, label %275
 
 273:                                              ; preds = %242
   %274 = landingpad { ptr, i32 }
@@ -29849,9 +29825,7 @@ define hidden noundef nonnull align 8 dereferenceable(112) ptr @"_ZN5alloc11coll
   %274 = trunc i64 %.sroa.0.012.i.i.i.i.i to i16
   %275 = getelementptr inbounds i8, ptr %272, i64 1504
   store i16 %274, ptr %275, align 8, !noalias !6214
-  %.not.i.i.i.i.i.i.i = icmp ule i64 %spec.select8.i.i.i.i.i, %258
-  %or.cond.i.not.i.i.i.i = select i1 %269, i1 %.not.i.i.i.i.i.i.i, i1 false
-  br i1 %or.cond.i.not.i.i.i.i, label %268, label %278
+  br i1 %269, label %268, label %278
 
 276:                                              ; preds = %245
   %277 = landingpad { ptr, i32 }
@@ -30625,9 +30599,7 @@ define hidden noundef nonnull align 1 ptr @"_ZN5alloc11collections5btree3map5ent
   %233 = trunc i64 %.sroa.0.012.i.i.i.i.i to i16
   %234 = getelementptr inbounds i8, ptr %231, i64 360
   store i16 %233, ptr %234, align 8, !noalias !6369
-  %.not.i.i.i.i.i.i.i = icmp ule i64 %spec.select8.i.i.i.i.i, %217
-  %or.cond.i.not.i.i.i.i = select i1 %228, i1 %.not.i.i.i.i.i.i.i, i1 false
-  br i1 %or.cond.i.not.i.i.i.i, label %227, label %237
+  br i1 %228, label %227, label %237
 
 235:                                              ; preds = %207
   %236 = landingpad { ptr, i32 }
@@ -31454,9 +31426,7 @@ define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN5alloc11colle
   %276 = trunc i64 %.sroa.0.012.i.i.i.i.i to i16
   %277 = getelementptr inbounds i8, ptr %274, i64 624
   store i16 %276, ptr %277, align 8, !noalias !6551
-  %.not.i.i.i.i.i.i.i = icmp ule i64 %spec.select8.i.i.i.i.i, %260
-  %or.cond.i.not.i.i.i.i = select i1 %271, i1 %.not.i.i.i.i.i.i.i, i1 false
-  br i1 %or.cond.i.not.i.i.i.i, label %270, label %280
+  br i1 %271, label %270, label %280
 
 278:                                              ; preds = %247
   %279 = landingpad { ptr, i32 }
@@ -32312,9 +32282,7 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN5alloc11colle
   %274 = trunc i64 %.sroa.0.012.i.i.i.i.i to i16
   %275 = getelementptr inbounds i8, ptr %272, i64 712
   store i16 %274, ptr %275, align 8, !noalias !6742
-  %.not.i.i.i.i.i.i.i = icmp ule i64 %spec.select8.i.i.i.i.i, %258
-  %or.cond.i.not.i.i.i.i = select i1 %269, i1 %.not.i.i.i.i.i.i.i, i1 false
-  br i1 %or.cond.i.not.i.i.i.i, label %268, label %278
+  br i1 %269, label %268, label %278
 
 276:                                              ; preds = %246
   %277 = landingpad { ptr, i32 }
@@ -33169,9 +33137,7 @@ define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN5alloc11colle
   %271 = trunc i64 %.sroa.0.012.i.i.i.i.i to i16
   %272 = getelementptr inbounds i8, ptr %270, i64 536
   store i16 %271, ptr %272, align 8, !noalias !6933
-  %.not.i.i.i.i.i.i.i = icmp ule i64 %spec.select8.i.i.i.i.i, %256
-  %or.cond.i.not.i.i.i.i = select i1 %267, i1 %.not.i.i.i.i.i.i.i, i1 false
-  br i1 %or.cond.i.not.i.i.i.i, label %266, label %275
+  br i1 %267, label %266, label %275
 
 273:                                              ; preds = %243
   %274 = landingpad { ptr, i32 }
@@ -34025,9 +33991,7 @@ define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN5alloc11colle
   %271 = trunc i64 %.sroa.0.012.i.i.i.i.i to i16
   %272 = getelementptr inbounds i8, ptr %270, i64 536
   store i16 %271, ptr %272, align 8, !noalias !7124
-  %.not.i.i.i.i.i.i.i = icmp ule i64 %spec.select8.i.i.i.i.i, %256
-  %or.cond.i.not.i.i.i.i = select i1 %267, i1 %.not.i.i.i.i.i.i.i, i1 false
-  br i1 %or.cond.i.not.i.i.i.i, label %266, label %275
+  br i1 %267, label %266, label %275
 
 273:                                              ; preds = %243
   %274 = landingpad { ptr, i32 }
@@ -34886,9 +34850,7 @@ define hidden noundef nonnull align 8 dereferenceable(56) ptr @"_ZN5alloc11colle
   %276 = trunc i64 %.sroa.0.012.i.i.i.i.i to i16
   %277 = getelementptr inbounds i8, ptr %274, i64 976
   store i16 %276, ptr %277, align 8, !noalias !7315
-  %.not.i.i.i.i.i.i.i = icmp ule i64 %spec.select8.i.i.i.i.i, %260
-  %or.cond.i.not.i.i.i.i = select i1 %271, i1 %.not.i.i.i.i.i.i.i, i1 false
-  br i1 %or.cond.i.not.i.i.i.i, label %270, label %280
+  br i1 %271, label %270, label %280
 
 278:                                              ; preds = %247
   %279 = landingpad { ptr, i32 }
