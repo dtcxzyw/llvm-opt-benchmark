@@ -3510,29 +3510,27 @@ define hidden void @_ZN6chrono5naive8datetime13NaiveDateTime18from_timestamp_opt
   %15 = tail call { i32, i32 } @_ZN6chrono5naive4date9NaiveDate25from_num_days_from_ce_opt17h595b40ed6f44e1a0E(i32 noundef %14)
   %.fca.1.extract = extractvalue { i32, i32 } %15, 1
   %16 = trunc nsw i64 %spec.select.i to i32
-  %17 = icmp ugt i64 %spec.select.i, 86399
-  %18 = icmp ugt i32 %2, 1999999999
-  %or.cond1 = or i1 %18, %17
-  br i1 %or.cond1, label %.thread, label %19
+  %17 = icmp ugt i32 %2, 1999999999
+  br i1 %17, label %.thread, label %18
 
-.thread:                                          ; preds = %9, %3, %19, %13, %24
-  %.sink = phi i32 [ 1, %24 ], [ 0, %13 ], [ 0, %19 ], [ 0, %3 ], [ 0, %9 ]
+.thread:                                          ; preds = %9, %3, %18, %13, %23
+  %.sink = phi i32 [ 1, %23 ], [ 0, %13 ], [ 0, %18 ], [ 0, %3 ], [ 0, %9 ]
   store i32 %.sink, ptr %0, align 4
   ret void
 
-19:                                               ; preds = %13
+18:                                               ; preds = %13
   %.fca.0.extract = extractvalue { i32, i32 } %15, 0
-  %20 = icmp samesign ult i32 %2, 1000000000
-  %21 = urem i32 %16, 60
-  %22 = icmp eq i32 %21, 59
-  %or.cond6 = or i1 %20, %22
-  %23 = icmp eq i32 %.fca.0.extract, 1
-  %or.cond4 = and i1 %or.cond6, %23
-  br i1 %or.cond4, label %24, label %.thread
+  %19 = icmp samesign ult i32 %2, 1000000000
+  %20 = urem i32 %16, 60
+  %21 = icmp eq i32 %20, 59
+  %or.cond6 = or i1 %19, %21
+  %22 = icmp eq i32 %.fca.0.extract, 1
+  %or.cond4 = and i1 %or.cond6, %22
+  br i1 %or.cond4, label %23, label %.thread
 
-24:                                               ; preds = %19
-  %25 = getelementptr inbounds i8, ptr %0, i64 4
-  store i32 %16, ptr %25, align 4
+23:                                               ; preds = %18
+  %24 = getelementptr inbounds i8, ptr %0, i64 4
+  store i32 %16, ptr %24, align 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %2, ptr %.sroa.4.0..sroa_idx, align 4
   %.sroa.510.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 12
@@ -6195,7 +6193,7 @@ define void @"_ZN6diesel2pg5types13date_and_time6chrono146_$LT$impl$u20$diesel..
   %17 = select i1 %16, i64 1000000, i64 0
   %spec.select.i = add nsw i64 %17, %15
   %18 = trunc nsw i64 %spec.select.i to i32
-  %19 = mul nsw i32 %18, 1000
+  %19 = mul nuw nsw i32 %18, 1000
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   store i32 0, ptr %7, align 4
   %.fca.1.gep = getelementptr inbounds i8, ptr %7, i64 4
@@ -7187,32 +7185,30 @@ define hidden void @_ZN6diesel6sqlite5types13date_and_time6chrono12parse_julian1
   %21 = tail call { i32, i32 } @_ZN6chrono5naive4date9NaiveDate25from_num_days_from_ce_opt17h595b40ed6f44e1a0E(i32 noundef %20), !noalias !2007
   %.fca.1.extract.i = extractvalue { i32, i32 } %21, 1
   %22 = trunc nsw i64 %spec.select.i.i to i32
-  %23 = icmp ugt i64 %spec.select.i.i, 86399
-  %24 = icmp ugt i32 %9, 1999999999
-  %or.cond1.i = or i1 %24, %23
-  br i1 %or.cond1.i, label %_ZN6chrono5naive8datetime13NaiveDateTime18from_timestamp_opt17h79ea9ce2d436d4abE.llvm.12760481706496575883.exit, label %25
+  %23 = icmp ugt i32 %9, 1999999999
+  br i1 %23, label %_ZN6chrono5naive8datetime13NaiveDateTime18from_timestamp_opt17h79ea9ce2d436d4abE.llvm.12760481706496575883.exit, label %24
 
-25:                                               ; preds = %19
+24:                                               ; preds = %19
   %.fca.0.extract.i = extractvalue { i32, i32 } %21, 0
-  %26 = icmp samesign ult i32 %9, 1000000000
-  %27 = urem i32 %22, 60
-  %28 = icmp eq i32 %27, 59
-  %or.cond6.i = or i1 %26, %28
-  %29 = icmp eq i32 %.fca.0.extract.i, 1
-  %or.cond4.i = and i1 %or.cond6.i, %29
-  br i1 %or.cond4.i, label %30, label %_ZN6chrono5naive8datetime13NaiveDateTime18from_timestamp_opt17h79ea9ce2d436d4abE.llvm.12760481706496575883.exit
+  %25 = icmp samesign ult i32 %9, 1000000000
+  %26 = urem i32 %22, 60
+  %27 = icmp eq i32 %26, 59
+  %or.cond6.i = or i1 %25, %27
+  %28 = icmp eq i32 %.fca.0.extract.i, 1
+  %or.cond4.i = and i1 %or.cond6.i, %28
+  br i1 %or.cond4.i, label %29, label %_ZN6chrono5naive8datetime13NaiveDateTime18from_timestamp_opt17h79ea9ce2d436d4abE.llvm.12760481706496575883.exit
 
-30:                                               ; preds = %25
-  %31 = getelementptr inbounds i8, ptr %0, i64 4
-  store i32 %22, ptr %31, align 4, !alias.scope !2007
+29:                                               ; preds = %24
+  %30 = getelementptr inbounds i8, ptr %0, i64 4
+  store i32 %22, ptr %30, align 4, !alias.scope !2007
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %9, ptr %.sroa.4.0..sroa_idx.i, align 4, !alias.scope !2007
   %.sroa.510.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 12
   store i32 %.fca.1.extract.i, ptr %.sroa.510.0..sroa_idx.i, align 4, !alias.scope !2007
   br label %_ZN6chrono5naive8datetime13NaiveDateTime18from_timestamp_opt17h79ea9ce2d436d4abE.llvm.12760481706496575883.exit
 
-_ZN6chrono5naive8datetime13NaiveDateTime18from_timestamp_opt17h79ea9ce2d436d4abE.llvm.12760481706496575883.exit: ; preds = %2, %15, %19, %25, %30
-  %.sink.i = phi i32 [ 1, %30 ], [ 0, %19 ], [ 0, %25 ], [ 0, %2 ], [ 0, %15 ]
+_ZN6chrono5naive8datetime13NaiveDateTime18from_timestamp_opt17h79ea9ce2d436d4abE.llvm.12760481706496575883.exit: ; preds = %2, %15, %19, %24, %29
+  %.sink.i = phi i32 [ 1, %29 ], [ 0, %19 ], [ 0, %24 ], [ 0, %2 ], [ 0, %15 ]
   store i32 %.sink.i, ptr %0, align 4, !alias.scope !2007
   ret void
 }

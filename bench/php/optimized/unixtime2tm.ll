@@ -73,9 +73,9 @@ define hidden void @timelib_unixtime2gmt(ptr nocapture noundef writeonly initial
   %14 = udiv i64 %13, 1460
   %15 = udiv i64 %13, 36524
   %16 = udiv i64 %13, 146096
-  %.neg29 = add nsw i64 %15, %13
+  %.neg28 = add nsw i64 %15, %13
   %17 = add nuw nsw i64 %14, %16
-  %18 = sub nsw i64 %.neg29, %17
+  %18 = sub nsw i64 %.neg28, %17
   %19 = udiv i64 %18, 365
   %20 = mul nsw i64 %12, 400
   %21 = add nsw i64 %19, %20
@@ -106,21 +106,21 @@ define hidden void @timelib_unixtime2gmt(ptr nocapture noundef writeonly initial
   %39 = select i1 %isneg, i64 86400, i64 0
   %40 = add nsw i64 %39, %7
   %.lhs.trunc = trunc nsw i64 %40 to i32
-  %41 = sdiv i32 %.lhs.trunc, 3600
-  %.sext = sext i32 %41 to i64
-  %.neg = mul nsw i64 %.sext, 4294963696
-  %42 = add nsw i64 %.neg, %40
+  %41 = udiv i32 %.lhs.trunc, 3600
+  %.zext = zext nneg i32 %41 to i64
+  %.neg = mul nuw nsw i64 %.zext, 4294963696
+  %42 = add nuw nsw i64 %.neg, %40
   %.lhs.trunc23 = trunc i64 %42 to i32
   %43 = sdiv i32 %.lhs.trunc23, 60
-  %.sext24 = sext i32 %43 to i64
-  %44 = srem i32 %.lhs.trunc, 60
-  %.sext26 = sext i32 %44 to i64
+  %.sext = sext i32 %43 to i64
+  %44 = urem i32 %.lhs.trunc, 60
+  %.zext25 = zext nneg i32 %44 to i64
   %45 = getelementptr inbounds i8, ptr %0, i64 24
-  store i64 %.sext, ptr %45, align 8
+  store i64 %.zext, ptr %45, align 8
   %46 = getelementptr inbounds i8, ptr %0, i64 32
-  store i64 %.sext24, ptr %46, align 8
+  store i64 %.sext, ptr %46, align 8
   %47 = getelementptr inbounds i8, ptr %0, i64 40
-  store i64 %.sext26, ptr %47, align 8
+  store i64 %.zext25, ptr %47, align 8
   %48 = getelementptr inbounds i8, ptr %0, i64 56
   store i32 0, ptr %48, align 8
   %49 = getelementptr inbounds i8, ptr %0, i64 80
@@ -208,21 +208,21 @@ define hidden void @timelib_update_from_sse(ptr nocapture noundef initializes((0
   %53 = select i1 %isneg.i, i64 86400, i64 0
   %54 = add nsw i64 %53, %21
   %.lhs.trunc.i = trunc nsw i64 %54 to i32
-  %55 = sdiv i32 %.lhs.trunc.i, 3600
-  %.sext.i = sext i32 %55 to i64
-  %.neg.i = mul nsw i64 %.sext.i, 4294963696
-  %56 = add nsw i64 %.neg.i, %54
+  %55 = udiv i32 %.lhs.trunc.i, 3600
+  %.zext.i = zext nneg i32 %55 to i64
+  %.neg.i = mul nuw nsw i64 %.zext.i, 4294963696
+  %56 = add nuw nsw i64 %.neg.i, %54
   %.lhs.trunc23.i = trunc i64 %56 to i32
   %57 = sdiv i32 %.lhs.trunc23.i, 60
-  %.sext24.i = sext i32 %57 to i64
-  %58 = srem i32 %.lhs.trunc.i, 60
-  %.sext26.i = sext i32 %58 to i64
+  %.sext.i = sext i32 %57 to i64
+  %58 = urem i32 %.lhs.trunc.i, 60
+  %.zext25.i = zext nneg i32 %58 to i64
   %59 = getelementptr inbounds i8, ptr %0, i64 24
-  store i64 %.sext.i, ptr %59, align 8
+  store i64 %.zext.i, ptr %59, align 8
   %60 = getelementptr inbounds i8, ptr %0, i64 32
-  store i64 %.sext24.i, ptr %60, align 8
+  store i64 %.sext.i, ptr %60, align 8
   %61 = getelementptr inbounds i8, ptr %0, i64 40
-  store i64 %.sext26.i, ptr %61, align 8
+  store i64 %.zext25.i, ptr %61, align 8
   br label %161
 
 62:                                               ; preds = %1
@@ -283,21 +283,21 @@ define hidden void @timelib_update_from_sse(ptr nocapture noundef initializes((0
   %106 = select i1 %isneg.i27, i64 86400, i64 0
   %107 = add nsw i64 %106, %74
   %.lhs.trunc.i28 = trunc nsw i64 %107 to i32
-  %108 = sdiv i32 %.lhs.trunc.i28, 3600
-  %.sext.i29 = sext i32 %108 to i64
-  %.neg.i30 = mul nsw i64 %.sext.i29, 4294963696
-  %109 = add nsw i64 %.neg.i30, %107
+  %108 = udiv i32 %.lhs.trunc.i28, 3600
+  %.zext.i29 = zext nneg i32 %108 to i64
+  %.neg.i30 = mul nuw nsw i64 %.zext.i29, 4294963696
+  %109 = add nuw nsw i64 %.neg.i30, %107
   %.lhs.trunc23.i31 = trunc i64 %109 to i32
   %110 = sdiv i32 %.lhs.trunc23.i31, 60
-  %.sext24.i32 = sext i32 %110 to i64
-  %111 = srem i32 %.lhs.trunc.i28, 60
-  %.sext26.i33 = sext i32 %111 to i64
+  %.sext.i32 = sext i32 %110 to i64
+  %111 = urem i32 %.lhs.trunc.i28, 60
+  %.zext25.i33 = zext nneg i32 %111 to i64
   %112 = getelementptr inbounds i8, ptr %0, i64 24
-  store i64 %.sext.i29, ptr %112, align 8
+  store i64 %.zext.i29, ptr %112, align 8
   %113 = getelementptr inbounds i8, ptr %0, i64 32
-  store i64 %.sext24.i32, ptr %113, align 8
+  store i64 %.sext.i32, ptr %113, align 8
   %114 = getelementptr inbounds i8, ptr %0, i64 40
-  store i64 %.sext26.i33, ptr %114, align 8
+  store i64 %.zext25.i33, ptr %114, align 8
   store i64 %69, ptr %7, align 8
   br label %161
 
@@ -351,21 +351,21 @@ define hidden void @timelib_update_from_sse(ptr nocapture noundef initializes((0
   %152 = select i1 %isneg.i40, i64 86400, i64 0
   %153 = add nsw i64 %152, %120
   %.lhs.trunc.i41 = trunc nsw i64 %153 to i32
-  %154 = sdiv i32 %.lhs.trunc.i41, 3600
-  %.sext.i42 = sext i32 %154 to i64
-  %.neg.i43 = mul nsw i64 %.sext.i42, 4294963696
-  %155 = add nsw i64 %.neg.i43, %153
+  %154 = udiv i32 %.lhs.trunc.i41, 3600
+  %.zext.i42 = zext nneg i32 %154 to i64
+  %.neg.i43 = mul nuw nsw i64 %.zext.i42, 4294963696
+  %155 = add nuw nsw i64 %.neg.i43, %153
   %.lhs.trunc23.i44 = trunc i64 %155 to i32
   %156 = sdiv i32 %.lhs.trunc23.i44, 60
-  %.sext24.i45 = sext i32 %156 to i64
-  %157 = srem i32 %.lhs.trunc.i41, 60
-  %.sext26.i46 = sext i32 %157 to i64
+  %.sext.i45 = sext i32 %156 to i64
+  %157 = urem i32 %.lhs.trunc.i41, 60
+  %.zext25.i46 = zext nneg i32 %157 to i64
   %158 = getelementptr inbounds i8, ptr %0, i64 24
-  store i64 %.sext.i42, ptr %158, align 8
+  store i64 %.zext.i42, ptr %158, align 8
   %159 = getelementptr inbounds i8, ptr %0, i64 32
-  store i64 %.sext24.i45, ptr %159, align 8
+  store i64 %.sext.i45, ptr %159, align 8
   %160 = getelementptr inbounds i8, ptr %0, i64 40
-  store i64 %.sext26.i46, ptr %160, align 8
+  store i64 %.zext25.i46, ptr %160, align 8
   br label %161
 
 161:                                              ; preds = %115, %62, %11
@@ -454,21 +454,21 @@ define hidden void @timelib_unixtime2local(ptr noundef initializes((228, 232)) %
   %51 = select i1 %isneg.i, i64 86400, i64 0
   %52 = add nsw i64 %51, %19
   %.lhs.trunc.i = trunc nsw i64 %52 to i32
-  %53 = sdiv i32 %.lhs.trunc.i, 3600
-  %.sext.i = sext i32 %53 to i64
-  %.neg.i = mul nsw i64 %.sext.i, 4294963696
-  %54 = add nsw i64 %.neg.i, %52
+  %53 = udiv i32 %.lhs.trunc.i, 3600
+  %.zext.i = zext nneg i32 %53 to i64
+  %.neg.i = mul nuw nsw i64 %.zext.i, 4294963696
+  %54 = add nuw nsw i64 %.neg.i, %52
   %.lhs.trunc23.i = trunc i64 %54 to i32
   %55 = sdiv i32 %.lhs.trunc23.i, 60
-  %.sext24.i = sext i32 %55 to i64
-  %56 = srem i32 %.lhs.trunc.i, 60
-  %.sext26.i = sext i32 %56 to i64
+  %.sext.i = sext i32 %55 to i64
+  %56 = urem i32 %.lhs.trunc.i, 60
+  %.zext25.i = zext nneg i32 %56 to i64
   %57 = getelementptr inbounds i8, ptr %0, i64 24
-  store i64 %.sext.i, ptr %57, align 8
+  store i64 %.zext.i, ptr %57, align 8
   %58 = getelementptr inbounds i8, ptr %0, i64 32
-  store i64 %.sext24.i, ptr %58, align 8
+  store i64 %.sext.i, ptr %58, align 8
   %59 = getelementptr inbounds i8, ptr %0, i64 40
-  store i64 %.sext26.i, ptr %59, align 8
+  store i64 %.zext25.i, ptr %59, align 8
   %60 = getelementptr inbounds i8, ptr %0, i64 192
   %61 = getelementptr inbounds i8, ptr %0, i64 220
   store i32 1, ptr %61, align 4
@@ -533,21 +533,21 @@ define hidden void @timelib_unixtime2local(ptr noundef initializes((228, 232)) %
   %106 = select i1 %isneg.i39, i64 86400, i64 0
   %107 = add nsw i64 %106, %74
   %.lhs.trunc.i40 = trunc nsw i64 %107 to i32
-  %108 = sdiv i32 %.lhs.trunc.i40, 3600
-  %.sext.i41 = sext i32 %108 to i64
-  %.neg.i42 = mul nsw i64 %.sext.i41, 4294963696
-  %109 = add nsw i64 %.neg.i42, %107
+  %108 = udiv i32 %.lhs.trunc.i40, 3600
+  %.zext.i41 = zext nneg i32 %108 to i64
+  %.neg.i42 = mul nuw nsw i64 %.zext.i41, 4294963696
+  %109 = add nuw nsw i64 %.neg.i42, %107
   %.lhs.trunc23.i43 = trunc i64 %109 to i32
   %110 = sdiv i32 %.lhs.trunc23.i43, 60
-  %.sext24.i44 = sext i32 %110 to i64
-  %111 = srem i32 %.lhs.trunc.i40, 60
-  %.sext26.i45 = sext i32 %111 to i64
+  %.sext.i44 = sext i32 %110 to i64
+  %111 = urem i32 %.lhs.trunc.i40, 60
+  %.zext25.i45 = zext nneg i32 %111 to i64
   %112 = getelementptr inbounds i8, ptr %0, i64 24
-  store i64 %.sext.i41, ptr %112, align 8
+  store i64 %.zext.i41, ptr %112, align 8
   %113 = getelementptr inbounds i8, ptr %0, i64 32
-  store i64 %.sext24.i44, ptr %113, align 8
+  store i64 %.sext.i44, ptr %113, align 8
   %114 = getelementptr inbounds i8, ptr %0, i64 40
-  store i64 %.sext26.i45, ptr %114, align 8
+  store i64 %.zext25.i45, ptr %114, align 8
   %115 = getelementptr inbounds i8, ptr %0, i64 56
   store i32 0, ptr %115, align 8
   %116 = getelementptr inbounds i8, ptr %0, i64 80
@@ -756,21 +756,21 @@ define hidden range(i32 -1, 1) i32 @timelib_apply_localtime(ptr noundef %0, i32 
   %48 = select i1 %isneg.i, i64 86400, i64 0
   %49 = add nsw i64 %48, %16
   %.lhs.trunc.i = trunc nsw i64 %49 to i32
-  %50 = sdiv i32 %.lhs.trunc.i, 3600
-  %.sext.i = sext i32 %50 to i64
-  %.neg.i = mul nsw i64 %.sext.i, 4294963696
-  %51 = add nsw i64 %.neg.i, %49
+  %50 = udiv i32 %.lhs.trunc.i, 3600
+  %.zext.i = zext nneg i32 %50 to i64
+  %.neg.i = mul nuw nsw i64 %.zext.i, 4294963696
+  %51 = add nuw nsw i64 %.neg.i, %49
   %.lhs.trunc23.i = trunc i64 %51 to i32
   %52 = sdiv i32 %.lhs.trunc23.i, 60
-  %.sext24.i = sext i32 %52 to i64
-  %53 = srem i32 %.lhs.trunc.i, 60
-  %.sext26.i = sext i32 %53 to i64
+  %.sext.i = sext i32 %52 to i64
+  %53 = urem i32 %.lhs.trunc.i, 60
+  %.zext25.i = zext nneg i32 %53 to i64
   %54 = getelementptr inbounds i8, ptr %0, i64 24
-  store i64 %.sext.i, ptr %54, align 8
+  store i64 %.zext.i, ptr %54, align 8
   %55 = getelementptr inbounds i8, ptr %0, i64 32
-  store i64 %.sext24.i, ptr %55, align 8
+  store i64 %.sext.i, ptr %55, align 8
   %56 = getelementptr inbounds i8, ptr %0, i64 40
-  store i64 %.sext26.i, ptr %56, align 8
+  store i64 %.zext25.i, ptr %56, align 8
   %57 = getelementptr inbounds i8, ptr %0, i64 56
   store i32 0, ptr %57, align 8
   %58 = getelementptr inbounds i8, ptr %0, i64 80

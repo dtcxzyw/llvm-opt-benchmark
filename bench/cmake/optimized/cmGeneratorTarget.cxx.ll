@@ -64915,7 +64915,7 @@ define dso_local void @_Z12impliedValueINSt7__cxx1112basic_stringIcSt11char_trai
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local range(i16 0, 512) i16 @_Z18consistentPropertyIbESt4pairIbT_ES1_S1_14CompatibleType(i1 noundef zeroext %0, i1 noundef zeroext %1, i32 noundef %2) local_unnamed_addr #6 {
+define dso_local range(i16 0, 258) i16 @_Z18consistentPropertyIbESt4pairIbT_ES1_S1_14CompatibleType(i1 noundef zeroext %0, i1 noundef zeroext %1, i32 noundef %2) local_unnamed_addr #6 {
   %4 = xor i1 %0, %1
   %5 = xor i1 %4, true
   %.sroa.2.0.insert.shift = select i1 %0, i16 256, i16 0

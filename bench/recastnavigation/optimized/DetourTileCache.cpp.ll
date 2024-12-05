@@ -362,13 +362,13 @@ define noundef range(i32 1073741824, -2147483639) i32 @_ZN11dtTileCache4initEPK1
   %94 = icmp ugt i32 %93, 65535
   %95 = select i1 %94, i32 16, i32 0
   %96 = lshr i32 %93, %95
-  %97 = icmp ugt i32 %96, 255
+  %97 = icmp samesign ugt i32 %96, 255
   %98 = select i1 %97, i32 8, i32 0
   %99 = lshr i32 %96, %98
-  %100 = icmp ugt i32 %99, 15
+  %100 = icmp samesign ugt i32 %99, 15
   %101 = select i1 %100, i32 4, i32 0
   %102 = lshr i32 %99, %101
-  %103 = icmp ugt i32 %102, 3
+  %103 = icmp samesign ugt i32 %102, 3
   %104 = select i1 %103, i32 2, i32 0
   %105 = lshr i32 %102, %104
   %106 = lshr i32 %105, 1

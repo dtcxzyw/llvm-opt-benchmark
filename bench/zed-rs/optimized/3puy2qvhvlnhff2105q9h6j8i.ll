@@ -107185,11 +107185,11 @@ define hidden void @"_ZN80_$LT$calloop..sources..timer..Timer$u20$as$u20$calloop
   %or.cond = select i1 %13, i1 true, i1 %16
   br i1 %or.cond, label %17, label %19
 
-17:                                               ; preds = %6, %149
+17:                                               ; preds = %6, %147
   %18 = getelementptr inbounds i8, ptr %0, i64 1
   store i8 0, ptr %18, align 1
   store i8 0, ptr %0, align 8
-  br label %152
+  br label %150
 
 19:                                               ; preds = %6
   %.sroa.5.0.extract.shift = lshr i64 %3, 48
@@ -107214,7 +107214,7 @@ define hidden void @"_ZN80_$LT$calloop..sources..timer..Timer$u20$as$u20$calloop
   %29 = getelementptr inbounds i8, ptr %0, i64 1
   store i8 0, ptr %29, align 1
   store i8 0, ptr %0, align 8
-  br label %152
+  br label %150
 
 30:                                               ; preds = %19
   %31 = load ptr, ptr %4, align 8, !noalias !27043, !nonnull !4, !align !5, !noundef !4
@@ -107258,29 +107258,29 @@ _ZN4gpui8platform5linux7wayland6client21WaylandClientStatePtr10get_client17h26d0
   %48 = getelementptr inbounds i8, ptr %.val.i, i64 1144
   %49 = load i64, ptr %48, align 8, !noalias !27054, !noundef !4
   %50 = icmp eq i64 %47, %49
-  br i1 %50, label %52, label %127
+  br i1 %50, label %52, label %125
 
 51:                                               ; preds = %_ZN4gpui8platform5linux7wayland6client21WaylandClientStatePtr10get_client17h26d09fb63c9f20bbE.exit.i.i
   invoke void @_ZN4core4cell22panic_already_borrowed17h47d80d4a02d76176E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.7523ee657f2e5dc230e124b7b1f1e478.853) #52
-          to label %76 unwind label %121, !noalias !27054
+          to label %76 unwind label %119, !noalias !27054
 
 52:                                               ; preds = %45
   %53 = getelementptr inbounds i8, ptr %.val.i, i64 1120
   %54 = load i32, ptr %53, align 8, !range !6893, !noalias !27054, !noundef !4
   %trunc.i.i = trunc nuw i32 %54 to i1
-  br i1 %trunc.i.i, label %55, label %127
+  br i1 %trunc.i.i, label %55, label %125
 
 55:                                               ; preds = %52
   %56 = getelementptr inbounds i8, ptr %.val.i, i64 2744
   %57 = load ptr, ptr %56, align 8, !noalias !27054, !noundef !4
   %58 = icmp eq ptr %57, null
-  br i1 %58, label %127, label %59
+  br i1 %58, label %125, label %59
 
 59:                                               ; preds = %55
   %60 = getelementptr inbounds i8, ptr %31, i64 80
   %61 = load i32, ptr %60, align 8, !alias.scope !27051, !noalias !27065, !noundef !4
   %62 = icmp eq i32 %61, 0
-  br i1 %62, label %127, label %63
+  br i1 %62, label %125, label %63
 
 63:                                               ; preds = %59
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8), !noalias !27054
@@ -107318,14 +107318,14 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h9b8317400d517581E.exit.i.i.i: ; preds = %
           cleanup
   br label %.thread.i.i
 
-76:                                               ; preds = %97, %51
+76:                                               ; preds = %.thread12.i.i, %51
   unreachable
 
-77:                                               ; preds = %97, %83, %79
+77:                                               ; preds = %.thread12.i.i, %83, %79
   %78 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr82drop_in_place$LT$gpui..platform..linux..wayland..window..WaylandWindowStatePtr$GT$17h438d51a88ee64d31E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %8) #54
-          to label %.thread.i.i unwind label %119, !noalias !27065
+          to label %.thread.i.i unwind label %117, !noalias !27065
 
 79:                                               ; preds = %_ZN5alloc2rc10RcInnerPtr10inc_strong17h9b8317400d517581E.exit.i.i.i
   store ptr %57, ptr %8, align 8, !noalias !27054
@@ -107346,175 +107346,171 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h9b8317400d517581E.exit.i.i.i: ; preds = %
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %7), !noalias !27054
   %85 = load i32, ptr %60, align 8, !alias.scope !27051, !noalias !27065, !noundef !4
   %86 = icmp eq i32 %85, 0
-  br i1 %86, label %97, label %select.unfold.i.i
+  br i1 %86, label %.thread12.i.i, label %87
 
-select.unfold.i.i:                                ; preds = %84
-  %87 = icmp eq i32 %85, 1
-  %88 = zext i1 %87 to i64
-  %89 = select i1 %87, i32 0, i32 1000000000
-  %90 = udiv i32 %89, %85
-  %91 = icmp samesign ugt i32 %90, 999999999
-  %92 = zext i1 %91 to i64
-  %.sroa.0.0.i.i.i.i = add nuw nsw i64 %92, %88
-  %spec.select.i.i = select i1 %91, i32 0, i32 %90
+87:                                               ; preds = %84
+  %88 = icmp eq i32 %85, 1
+  %89 = zext i1 %88 to i64
+  %90 = select i1 %88, i32 0, i32 1000000000
+  %91 = udiv i32 %90, %85
   tail call void @llvm.experimental.noalias.scope.decl(metadata !27073)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !27076)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !27079)
-  %93 = load ptr, ptr %8, align 8, !alias.scope !27082, !noalias !27054, !nonnull !4, !noundef !4
-  %94 = load i64, ptr %93, align 8, !noalias !27083, !noundef !4
-  %95 = add i64 %94, -1
-  store i64 %95, ptr %93, align 8, !noalias !27083
-  %96 = icmp eq i64 %95, 0
-  br i1 %96, label %98, label %"_ZN4core3ptr127drop_in_place$LT$alloc..rc..Rc$LT$core..cell..RefCell$LT$gpui..platform..linux..wayland..window..WaylandWindowState$GT$$GT$$GT$17h938cd1aeb20c3fcdE.exit.i.i.i"
+  %92 = load ptr, ptr %8, align 8, !alias.scope !27082, !noalias !27054, !nonnull !4, !noundef !4
+  %93 = load i64, ptr %92, align 8, !noalias !27083, !noundef !4
+  %94 = add i64 %93, -1
+  store i64 %94, ptr %92, align 8, !noalias !27083
+  %95 = icmp eq i64 %94, 0
+  br i1 %95, label %96, label %"_ZN4core3ptr127drop_in_place$LT$alloc..rc..Rc$LT$core..cell..RefCell$LT$gpui..platform..linux..wayland..window..WaylandWindowState$GT$$GT$$GT$17h938cd1aeb20c3fcdE.exit.i.i.i"
 
-97:                                               ; preds = %84
+.thread12.i.i:                                    ; preds = %84
   invoke void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.7523ee657f2e5dc230e124b7b1f1e478.851, i64 noundef 53, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.7523ee657f2e5dc230e124b7b1f1e478.852) #52
           to label %76 unwind label %77, !noalias !27065
 
-98:                                               ; preds = %select.unfold.i.i
-  %99 = getelementptr inbounds i8, ptr %93, i64 24
-  invoke void @"_ZN4core3ptr79drop_in_place$LT$gpui..platform..linux..wayland..window..WaylandWindowState$GT$17h3b525ee73496b435E.llvm.10989238744551635161"(ptr noalias noundef nonnull align 8 dereferenceable(4120) %99)
-          to label %.noexc.i.i.i unwind label %105, !noalias !27084
+96:                                               ; preds = %87
+  %97 = getelementptr inbounds i8, ptr %92, i64 24
+  invoke void @"_ZN4core3ptr79drop_in_place$LT$gpui..platform..linux..wayland..window..WaylandWindowState$GT$17h3b525ee73496b435E.llvm.10989238744551635161"(ptr noalias noundef nonnull align 8 dereferenceable(4120) %97)
+          to label %.noexc.i.i.i unwind label %103, !noalias !27084
 
-.noexc.i.i.i:                                     ; preds = %98
-  %100 = getelementptr inbounds i8, ptr %93, i64 8
-  %101 = load i64, ptr %100, align 8, !noalias !27083, !noundef !4
-  %102 = add i64 %101, -1
-  store i64 %102, ptr %100, align 8, !noalias !27083
-  %103 = icmp eq i64 %102, 0
-  br i1 %103, label %104, label %"_ZN4core3ptr127drop_in_place$LT$alloc..rc..Rc$LT$core..cell..RefCell$LT$gpui..platform..linux..wayland..window..WaylandWindowState$GT$$GT$$GT$17h938cd1aeb20c3fcdE.exit.i.i.i"
+.noexc.i.i.i:                                     ; preds = %96
+  %98 = getelementptr inbounds i8, ptr %92, i64 8
+  %99 = load i64, ptr %98, align 8, !noalias !27083, !noundef !4
+  %100 = add i64 %99, -1
+  store i64 %100, ptr %98, align 8, !noalias !27083
+  %101 = icmp eq i64 %100, 0
+  br i1 %101, label %102, label %"_ZN4core3ptr127drop_in_place$LT$alloc..rc..Rc$LT$core..cell..RefCell$LT$gpui..platform..linux..wayland..window..WaylandWindowState$GT$$GT$$GT$17h938cd1aeb20c3fcdE.exit.i.i.i"
 
-104:                                              ; preds = %.noexc.i.i.i
-  tail call void @__rust_dealloc(ptr noundef nonnull %93, i64 noundef 4144, i64 noundef 8) #53, !noalias !27083
+102:                                              ; preds = %.noexc.i.i.i
+  tail call void @__rust_dealloc(ptr noundef nonnull %92, i64 noundef 4144, i64 noundef 8) #53, !noalias !27083
   br label %"_ZN4core3ptr127drop_in_place$LT$alloc..rc..Rc$LT$core..cell..RefCell$LT$gpui..platform..linux..wayland..window..WaylandWindowState$GT$$GT$$GT$17h938cd1aeb20c3fcdE.exit.i.i.i"
 
-105:                                              ; preds = %98
-  %106 = landingpad { ptr, i32 }
+103:                                              ; preds = %96
+  %104 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN68_$LT$alloc..rc..Rc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h56e531b4d6843c64E.llvm.10989238744551635161"(ptr noalias noundef nonnull align 8 dereferenceable(8) %80)
-          to label %.thread.i.i unwind label %107, !noalias !27065
+          to label %.thread.i.i unwind label %105, !noalias !27065
 
-"_ZN4core3ptr127drop_in_place$LT$alloc..rc..Rc$LT$core..cell..RefCell$LT$gpui..platform..linux..wayland..window..WaylandWindowState$GT$$GT$$GT$17h938cd1aeb20c3fcdE.exit.i.i.i": ; preds = %104, %.noexc.i.i.i, %select.unfold.i.i
+"_ZN4core3ptr127drop_in_place$LT$alloc..rc..Rc$LT$core..cell..RefCell$LT$gpui..platform..linux..wayland..window..WaylandWindowState$GT$$GT$$GT$17h938cd1aeb20c3fcdE.exit.i.i.i": ; preds = %102, %.noexc.i.i.i, %87
   invoke void @"_ZN68_$LT$alloc..rc..Rc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h56e531b4d6843c64E.llvm.10989238744551635161"(ptr noalias noundef nonnull align 8 dereferenceable(8) %80)
           to label %"_ZN4core3ptr82drop_in_place$LT$gpui..platform..linux..wayland..window..WaylandWindowStatePtr$GT$17h438d51a88ee64d31E.exit.i.i" unwind label %74, !noalias !27065
 
-107:                                              ; preds = %105
-  %108 = landingpad { ptr, i32 }
+105:                                              ; preds = %103
+  %106 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #55, !noalias !27065
   unreachable
 
 "_ZN4core3ptr82drop_in_place$LT$gpui..platform..linux..wayland..window..WaylandWindowStatePtr$GT$17h438d51a88ee64d31E.exit.i.i": ; preds = %"_ZN4core3ptr127drop_in_place$LT$alloc..rc..Rc$LT$core..cell..RefCell$LT$gpui..platform..linux..wayland..window..WaylandWindowState$GT$$GT$$GT$17h938cd1aeb20c3fcdE.exit.i.i.i"
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8), !noalias !27054
-  %109 = load i64, ptr %.val.i, align 8, !noalias !27085, !noundef !4
-  %110 = add i64 %109, -1
-  store i64 %110, ptr %.val.i, align 8, !noalias !27085
-  %111 = icmp eq i64 %110, 0
-  br i1 %111, label %112, label %129
+  %107 = load i64, ptr %.val.i, align 8, !noalias !27085, !noundef !4
+  %108 = add i64 %107, -1
+  store i64 %108, ptr %.val.i, align 8, !noalias !27085
+  %109 = icmp eq i64 %108, 0
+  br i1 %109, label %110, label %127
 
-112:                                              ; preds = %"_ZN4core3ptr82drop_in_place$LT$gpui..platform..linux..wayland..window..WaylandWindowStatePtr$GT$17h438d51a88ee64d31E.exit.i.i"
-  %113 = getelementptr inbounds i8, ptr %.val.i, i64 24
-  call void @"_ZN4core3ptr79drop_in_place$LT$gpui..platform..linux..wayland..client..WaylandClientState$GT$17hf8594faf4b437067E.llvm.10989238744551635161"(ptr noalias noundef nonnull align 8 dereferenceable(2800) %113), !noalias !27090
-  %114 = getelementptr inbounds i8, ptr %.val.i, i64 8
-  %115 = load i64, ptr %114, align 8, !noalias !27085, !noundef !4
-  %116 = add i64 %115, -1
-  store i64 %116, ptr %114, align 8, !noalias !27085
-  %117 = icmp eq i64 %116, 0
-  br i1 %117, label %118, label %129
+110:                                              ; preds = %"_ZN4core3ptr82drop_in_place$LT$gpui..platform..linux..wayland..window..WaylandWindowStatePtr$GT$17h438d51a88ee64d31E.exit.i.i"
+  %111 = getelementptr inbounds i8, ptr %.val.i, i64 24
+  call void @"_ZN4core3ptr79drop_in_place$LT$gpui..platform..linux..wayland..client..WaylandClientState$GT$17hf8594faf4b437067E.llvm.10989238744551635161"(ptr noalias noundef nonnull align 8 dereferenceable(2800) %111), !noalias !27090
+  %112 = getelementptr inbounds i8, ptr %.val.i, i64 8
+  %113 = load i64, ptr %112, align 8, !noalias !27085, !noundef !4
+  %114 = add i64 %113, -1
+  store i64 %114, ptr %112, align 8, !noalias !27085
+  %115 = icmp eq i64 %114, 0
+  br i1 %115, label %116, label %127
 
-118:                                              ; preds = %112
+116:                                              ; preds = %110
   call void @__rust_dealloc(ptr noundef nonnull %.val.i, i64 noundef 2824, i64 noundef 8) #53, !noalias !27090
-  br label %129
+  br label %127
 
-119:                                              ; preds = %.thread.i.i, %77
-  %120 = landingpad { ptr, i32 }
+117:                                              ; preds = %.thread.i.i, %77
+  %118 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #55, !noalias !27065
   unreachable
 
-.thread.i.i:                                      ; preds = %121, %105, %77, %74
-  %.pn9.i.i = phi { ptr, i32 } [ %122, %121 ], [ %75, %74 ], [ %78, %77 ], [ %106, %105 ]
+.thread.i.i:                                      ; preds = %119, %103, %77, %74
+  %.pn9.i.i = phi { ptr, i32 } [ %120, %119 ], [ %75, %74 ], [ %78, %77 ], [ %104, %103 ]
   invoke void @"_ZN4core3ptr127drop_in_place$LT$alloc..rc..Rc$LT$core..cell..RefCell$LT$gpui..platform..linux..wayland..client..WaylandClientState$GT$$GT$$GT$17h16e830bc6edc2d92E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %9) #54
-          to label %common.resume unwind label %119, !noalias !27065
+          to label %common.resume unwind label %117, !noalias !27065
 
-121:                                              ; preds = %51
-  %122 = landingpad { ptr, i32 }
+119:                                              ; preds = %51
+  %120 = landingpad { ptr, i32 }
           cleanup
   br label %.thread.i.i
 
-common.resume:                                    ; preds = %.thread.i.i, %123
-  %common.resume.op = phi { ptr, i32 } [ %124, %123 ], [ %.pn9.i.i, %.thread.i.i ]
+common.resume:                                    ; preds = %.thread.i.i, %121
+  %common.resume.op = phi { ptr, i32 } [ %122, %121 ], [ %.pn9.i.i, %.thread.i.i ]
   resume { ptr, i32 } %common.resume.op
 
-123:                                              ; preds = %144
-  %124 = landingpad { ptr, i32 }
+121:                                              ; preds = %142
+  %122 = landingpad { ptr, i32 }
           cleanup
-  %125 = load i64, ptr %139, align 8, !noalias !27091, !noundef !4
-  %126 = add i64 %125, 1
-  store i64 %126, ptr %139, align 8, !noalias !27091
+  %123 = load i64, ptr %137, align 8, !noalias !27091, !noundef !4
+  %124 = add i64 %123, 1
+  store i64 %124, ptr %137, align 8, !noalias !27091
   br label %common.resume
 
-127:                                              ; preds = %59, %55, %52, %45
+125:                                              ; preds = %59, %55, %52, %45
   store i64 0, ptr %42, align 8, !noalias !27098
   store i64 %35, ptr %.val.i, align 8, !noalias !27105
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9), !noalias !27054
-  %128 = getelementptr inbounds i8, ptr %0, i64 1
-  store i8 3, ptr %128, align 1
+  %126 = getelementptr inbounds i8, ptr %0, i64 1
+  store i8 3, ptr %126, align 1
   store i8 0, ptr %0, align 8
-  br label %152
+  br label %150
 
-129:                                              ; preds = %118, %112, %"_ZN4core3ptr82drop_in_place$LT$gpui..platform..linux..wayland..window..WaylandWindowStatePtr$GT$17h438d51a88ee64d31E.exit.i.i"
+127:                                              ; preds = %116, %110, %"_ZN4core3ptr82drop_in_place$LT$gpui..platform..linux..wayland..window..WaylandWindowStatePtr$GT$17h438d51a88ee64d31E.exit.i.i"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9), !noalias !27054
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
-  %130 = call { i64, i32 } @_ZN3std4time7Instant3now17hdcdd74e15ba88872E()
-  %131 = extractvalue { i64, i32 } %130, 0
-  %132 = extractvalue { i64, i32 } %130, 1
-  store i64 %131, ptr %10, align 8
-  %133 = getelementptr inbounds i8, ptr %10, i64 8
-  store i32 %132, ptr %133, align 8
-  %134 = call { i64, i32 } @_ZN3std4time7Instant11checked_add17h6a5bb41be0d48eb2E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %10, i64 noundef %.sroa.0.0.i.i.i.i, i32 noundef %spec.select.i.i)
-  %135 = extractvalue { i64, i32 } %134, 1
-  %136 = icmp eq i32 %135, 1000000000
-  br i1 %136, label %142, label %137
+  %128 = call { i64, i32 } @_ZN3std4time7Instant3now17hdcdd74e15ba88872E()
+  %129 = extractvalue { i64, i32 } %128, 0
+  %130 = extractvalue { i64, i32 } %128, 1
+  store i64 %129, ptr %10, align 8
+  %131 = getelementptr inbounds i8, ptr %10, i64 8
+  store i32 %130, ptr %131, align 8
+  %132 = call { i64, i32 } @_ZN3std4time7Instant11checked_add17h6a5bb41be0d48eb2E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %10, i64 noundef %89, i32 noundef %91)
+  %133 = extractvalue { i64, i32 } %132, 1
+  %134 = icmp eq i32 %133, 1000000000
+  br i1 %134, label %140, label %135
 
-137:                                              ; preds = %129
-  %138 = extractvalue { i64, i32 } %134, 0
+135:                                              ; preds = %127
+  %136 = extractvalue { i64, i32 } %132, 0
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
-  %139 = getelementptr inbounds i8, ptr %12, i64 16
-  %140 = load i64, ptr %139, align 8, !noundef !4
-  %141 = icmp eq i64 %140, 0
-  br i1 %141, label %144, label %148
+  %137 = getelementptr inbounds i8, ptr %12, i64 16
+  %138 = load i64, ptr %137, align 8, !noundef !4
+  %139 = icmp eq i64 %138, 0
+  br i1 %139, label %142, label %146
 
-142:                                              ; preds = %129
+140:                                              ; preds = %127
   store i32 1000000000, ptr %14, align 8
-  %143 = getelementptr inbounds i8, ptr %0, i64 1
-  store i8 3, ptr %143, align 1
+  %141 = getelementptr inbounds i8, ptr %0, i64 1
+  store i8 3, ptr %141, align 1
   store i8 0, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
-  br label %152
+  br label %150
 
-144:                                              ; preds = %137
-  store i64 -1, ptr %139, align 8
-  %145 = getelementptr inbounds i8, ptr %12, i64 24
-  %146 = getelementptr inbounds i8, ptr %1, i64 16
-  %147 = load i32, ptr %146, align 8, !noundef !4
+142:                                              ; preds = %135
+  store i64 -1, ptr %137, align 8
+  %143 = getelementptr inbounds i8, ptr %12, i64 24
+  %144 = getelementptr inbounds i8, ptr %1, i64 16
+  %145 = load i32, ptr %144, align 8, !noundef !4
   %.sroa.013.0.copyload = load i64, ptr %20, align 8
-  invoke void @_ZN7calloop7sources5timer10TimerWheel12insert_reuse17hebe119f1fa4a77e3E(ptr noalias noundef nonnull align 8 dereferenceable(32) %145, i32 noundef %147, i64 noundef %138, i32 noundef %135, i64 %.sroa.013.0.copyload)
-          to label %149 unwind label %123
+  invoke void @_ZN7calloop7sources5timer10TimerWheel12insert_reuse17hebe119f1fa4a77e3E(ptr noalias noundef nonnull align 8 dereferenceable(32) %143, i32 noundef %145, i64 noundef %136, i32 noundef %133, i64 %.sroa.013.0.copyload)
+          to label %147 unwind label %121
 
-148:                                              ; preds = %137
+146:                                              ; preds = %135
   call void @_ZN4core4cell22panic_already_borrowed17h47d80d4a02d76176E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.7523ee657f2e5dc230e124b7b1f1e478.683) #52
   unreachable
 
-149:                                              ; preds = %144
-  %150 = load i64, ptr %139, align 8, !noalias !27110, !noundef !4
-  %151 = add i64 %150, 1
-  store i64 %151, ptr %139, align 8, !noalias !27110
-  store i64 %138, ptr %11, align 8
-  store i32 %135, ptr %14, align 8
+147:                                              ; preds = %142
+  %148 = load i64, ptr %137, align 8, !noalias !27110, !noundef !4
+  %149 = add i64 %148, 1
+  store i64 %149, ptr %137, align 8, !noalias !27110
+  store i64 %136, ptr %11, align 8
+  store i32 %133, ptr %14, align 8
   br label %17
 
-152:                                              ; preds = %127, %142, %28, %17
+150:                                              ; preds = %125, %140, %28, %17
   ret void
 }
 
