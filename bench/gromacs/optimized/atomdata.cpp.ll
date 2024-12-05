@@ -5642,7 +5642,7 @@ define internal void @_ZN16nbnxn_atomdata_t23reduceForcesOverThreadsEv.omp_outli
   %.not55 = icmp eq i64 %84, 0
   call void @llvm.experimental.noalias.scope.decl(metadata !99)
   call void @llvm.experimental.noalias.scope.decl(metadata !102)
-  %85 = icmp slt i32 %49, %51
+  %85 = icmp sgt i32 %47, 0
   br i1 %.not55, label %.preheader49.i, label %.preheader.i
 
 .preheader49.i:                                   ; preds = %80
@@ -5737,7 +5737,7 @@ define internal void @_ZN16nbnxn_atomdata_t23reduceForcesOverThreadsEv.omp_outli
   %.sroa.0.0.copyload = load i64, ptr %115, align 8
   %116 = and i64 %.sroa.0.0.copyload, 1
   %.not54 = icmp eq i64 %116, 0
-  %117 = icmp slt i32 %49, %51
+  %117 = icmp sgt i32 %47, 0
   %or.cond = select i1 %.not54, i1 %117, i1 false
   br i1 %or.cond, label %.lr.ph.preheader.i45, label %_ZL32nbnxn_atomdata_reduce_reals_simdPfbPPKfiii.exit
 

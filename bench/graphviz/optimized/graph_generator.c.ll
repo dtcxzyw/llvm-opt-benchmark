@@ -1219,7 +1219,7 @@ define dso_local void @makeBall(i32 noundef %0, i32 noundef %1, ptr nocapture no
 
 makeCylinder.exit:                                ; preds = %._crit_edge.us46.i, %3, %.preheader36.i
   %.not23 = icmp slt i32 %1, 1
-  br i1 %.not23, label %._crit_edge, label %.lr.ph
+  br i1 %.not23, label %._crit_edge29, label %.lr.ph
 
 .lr.ph:                                           ; preds = %makeCylinder.exit, %.lr.ph
   %.024 = phi i32 [ %22, %.lr.ph ], [ 1, %makeCylinder.exit ]
@@ -1228,22 +1228,21 @@ makeCylinder.exit:                                ; preds = %._crit_edge.us46.i,
   %exitcond.not = icmp eq i32 %.024, %1
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %.lr.ph, %makeCylinder.exit
+._crit_edge:                                      ; preds = %.lr.ph
   %23 = mul nsw i32 %1, %0
   %24 = add nsw i32 %23, 1
   %25 = add nsw i32 %0, -1
   %26 = mul nsw i32 %25, %1
-  %.not19.not25 = icmp slt i32 %26, %23
-  br i1 %.not19.not25, label %.lr.ph28, label %._crit_edge29
+  br label %.lr.ph28
 
 .lr.ph28:                                         ; preds = %._crit_edge, %.lr.ph28
   %.1.in26 = phi i32 [ %.1, %.lr.ph28 ], [ %26, %._crit_edge ]
   %.1 = add nsw i32 %.1.in26, 1
   tail call void %2(i32 noundef %.1, i32 noundef %24) #14
-  %exitcond31.not = icmp eq i32 %.1, %23
-  br i1 %exitcond31.not, label %._crit_edge29, label %.lr.ph28
+  %.not19.not = icmp slt i32 %.1, %23
+  br i1 %.not19.not, label %.lr.ph28, label %._crit_edge29
 
-._crit_edge29:                                    ; preds = %.lr.ph28, %._crit_edge
+._crit_edge29:                                    ; preds = %.lr.ph28, %makeCylinder.exit
   ret void
 }
 
