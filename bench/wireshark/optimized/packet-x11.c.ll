@@ -70478,8 +70478,8 @@ define internal fastcc void @xinputChangeDeviceProperty(ptr noundef %0, ptr noca
   %trunc = trunc nuw i32 %19 to i8
   switch i8 %trunc, label %listOfCard32.exit [
     i8 8, label %33
-    i8 16, label %46
-    i8 32, label %70
+    i8 16, label %39
+    i8 32, label %53
   ]
 
 33:                                               ; preds = %4
@@ -70491,90 +70491,75 @@ define internal fastcc void @xinputChangeDeviceProperty(ptr noundef %0, ptr noca
   store i32 %37, ptr %1, align 4
   %38 = srem i32 %37, 4
   %.not = icmp eq i32 %38, 0
-  br i1 %.not, label %listOfCard32.exit, label %39
+  br i1 %.not, label %listOfCard32.exit, label %listOfCard32.exit.sink.split
 
-39:                                               ; preds = %33
-  %40 = load i32, ptr @hf_x11_unused, align 4
-  %41 = sub nsw i32 4, %38
-  %42 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %40, ptr noundef %0, i32 noundef %37, i32 noundef %41, i32 noundef 0) #10
-  %43 = load i32, ptr %1, align 4
-  %44 = srem i32 %43, 4
-  %reass.sub = add i32 %43, 4
-  %45 = sub i32 %reass.sub, %44
-  store i32 %45, ptr %1, align 4
-  br label %listOfCard32.exit
-
-46:                                               ; preds = %4
-  %47 = load i32, ptr @hf_x11_xinput_ChangeDeviceProperty_16Bits_data16, align 4
-  %48 = load i32, ptr @hf_x11_xinput_ChangeDeviceProperty_16Bits_data16_item, align 4
-  %49 = shl i32 %27, 1
-  %50 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %47, ptr noundef %0, i32 noundef %32, i32 noundef %49, i32 noundef %3) #10
-  %51 = load i32, ptr @ett_x11_list_of_card32, align 4
-  %52 = tail call ptr @proto_item_add_subtree(ptr noundef %50, i32 noundef %51) #10
+39:                                               ; preds = %4
+  %40 = load i32, ptr @hf_x11_xinput_ChangeDeviceProperty_16Bits_data16, align 4
+  %41 = load i32, ptr @hf_x11_xinput_ChangeDeviceProperty_16Bits_data16_item, align 4
+  %42 = shl i32 %27, 1
+  %43 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %40, ptr noundef %0, i32 noundef %32, i32 noundef %42, i32 noundef %3) #10
+  %44 = load i32, ptr @ett_x11_list_of_card32, align 4
+  %45 = tail call ptr @proto_item_add_subtree(ptr noundef %43, i32 noundef %44) #10
   %.not13.i = icmp eq i32 %27, 0
   %.pre = load i32, ptr %1, align 4
   br i1 %.not13.i, label %listOfCard16.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %46, %.lr.ph.i
-  %53 = phi i32 [ %57, %.lr.ph.i ], [ %.pre, %46 ]
-  %.014.i = phi i32 [ %54, %.lr.ph.i ], [ %27, %46 ]
-  %54 = add i32 %.014.i, -1
-  %55 = tail call ptr @proto_tree_add_item(ptr noundef %52, i32 noundef %48, ptr noundef %0, i32 noundef %53, i32 noundef 2, i32 noundef %3) #10
-  %56 = load i32, ptr %1, align 4
-  %57 = add i32 %56, 2
-  store i32 %57, ptr %1, align 4
-  %.not.i = icmp eq i32 %54, 0
+.lr.ph.i:                                         ; preds = %39, %.lr.ph.i
+  %46 = phi i32 [ %50, %.lr.ph.i ], [ %.pre, %39 ]
+  %.014.i = phi i32 [ %47, %.lr.ph.i ], [ %27, %39 ]
+  %47 = add i32 %.014.i, -1
+  %48 = tail call ptr @proto_tree_add_item(ptr noundef %45, i32 noundef %41, ptr noundef %0, i32 noundef %46, i32 noundef 2, i32 noundef %3) #10
+  %49 = load i32, ptr %1, align 4
+  %50 = add i32 %49, 2
+  store i32 %50, ptr %1, align 4
+  %.not.i = icmp eq i32 %47, 0
   br i1 %.not.i, label %listOfCard16.exit, label %.lr.ph.i, !llvm.loop !40
 
-listOfCard16.exit:                                ; preds = %.lr.ph.i, %46
-  %58 = phi i32 [ %.pre, %46 ], [ %57, %.lr.ph.i ]
-  %59 = srem i32 %58, 4
-  %.not76 = icmp eq i32 %59, 0
-  br i1 %.not76, label %67, label %60
+listOfCard16.exit:                                ; preds = %.lr.ph.i, %39
+  %51 = phi i32 [ %.pre, %39 ], [ %50, %.lr.ph.i ]
+  %52 = srem i32 %51, 4
+  %.not76 = icmp eq i32 %52, 0
+  br i1 %.not76, label %listOfCard32.exit, label %listOfCard32.exit.sink.split
 
-60:                                               ; preds = %listOfCard16.exit
-  %61 = load i32, ptr @hf_x11_unused, align 4
-  %62 = sub nsw i32 4, %59
-  %63 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %61, ptr noundef %0, i32 noundef %58, i32 noundef %62, i32 noundef 0) #10
-  %64 = load i32, ptr %1, align 4
-  %65 = srem i32 %64, 4
-  %reass.sub77 = add i32 %64, 4
-  %66 = sub i32 %reass.sub77, %65
-  store i32 %66, ptr %1, align 4
-  br label %67
-
-67:                                               ; preds = %listOfCard16.exit, %60
-  %68 = phi i32 [ %58, %listOfCard16.exit ], [ %66, %60 ]
-  %69 = icmp eq i32 %19, 32
-  br i1 %69, label %70, label %listOfCard32.exit
-
-70:                                               ; preds = %4, %67
-  %71 = phi i32 [ %32, %4 ], [ %68, %67 ]
-  %72 = load i32, ptr @hf_x11_xinput_ChangeDeviceProperty_32Bits_data32, align 4
-  %73 = load i32, ptr @hf_x11_xinput_ChangeDeviceProperty_32Bits_data32_item, align 4
-  %74 = shl i32 %27, 2
-  %75 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %72, ptr noundef %0, i32 noundef %71, i32 noundef %74, i32 noundef %3) #10
-  %76 = load i32, ptr @ett_x11_list_of_card32, align 4
-  %77 = tail call ptr @proto_item_add_subtree(ptr noundef %75, i32 noundef %76) #10
+53:                                               ; preds = %4
+  %54 = load i32, ptr @hf_x11_xinput_ChangeDeviceProperty_32Bits_data32, align 4
+  %55 = load i32, ptr @hf_x11_xinput_ChangeDeviceProperty_32Bits_data32_item, align 4
+  %56 = shl i32 %27, 2
+  %57 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %54, ptr noundef %0, i32 noundef %32, i32 noundef %56, i32 noundef %3) #10
+  %58 = load i32, ptr @ett_x11_list_of_card32, align 4
+  %59 = tail call ptr @proto_item_add_subtree(ptr noundef %57, i32 noundef %58) #10
   %.not13.i78 = icmp eq i32 %27, 0
   br i1 %.not13.i78, label %listOfCard32.exit, label %.lr.ph.preheader.i79
 
-.lr.ph.preheader.i79:                             ; preds = %70
+.lr.ph.preheader.i79:                             ; preds = %53
   %.pre.i80 = load i32, ptr %1, align 4
   br label %.lr.ph.i81
 
 .lr.ph.i81:                                       ; preds = %.lr.ph.i81, %.lr.ph.preheader.i79
-  %78 = phi i32 [ %82, %.lr.ph.i81 ], [ %.pre.i80, %.lr.ph.preheader.i79 ]
-  %.014.i82 = phi i32 [ %79, %.lr.ph.i81 ], [ %27, %.lr.ph.preheader.i79 ]
-  %79 = add i32 %.014.i82, -1
-  %80 = tail call ptr @proto_tree_add_item(ptr noundef %77, i32 noundef %73, ptr noundef %0, i32 noundef %78, i32 noundef 4, i32 noundef %3) #10
-  %81 = load i32, ptr %1, align 4
-  %82 = add i32 %81, 4
-  store i32 %82, ptr %1, align 4
-  %.not.i83 = icmp eq i32 %79, 0
+  %60 = phi i32 [ %64, %.lr.ph.i81 ], [ %.pre.i80, %.lr.ph.preheader.i79 ]
+  %.014.i82 = phi i32 [ %61, %.lr.ph.i81 ], [ %27, %.lr.ph.preheader.i79 ]
+  %61 = add i32 %.014.i82, -1
+  %62 = tail call ptr @proto_tree_add_item(ptr noundef %59, i32 noundef %55, ptr noundef %0, i32 noundef %60, i32 noundef 4, i32 noundef %3) #10
+  %63 = load i32, ptr %1, align 4
+  %64 = add i32 %63, 4
+  store i32 %64, ptr %1, align 4
+  %.not.i83 = icmp eq i32 %61, 0
   br i1 %.not.i83, label %listOfCard32.exit, label %.lr.ph.i81, !llvm.loop !41
 
-listOfCard32.exit:                                ; preds = %.lr.ph.i81, %70, %39, %33, %4, %67
+listOfCard32.exit.sink.split:                     ; preds = %listOfCard16.exit, %33
+  %.sink6 = phi i32 [ %38, %33 ], [ %52, %listOfCard16.exit ]
+  %.sink4 = phi i32 [ %37, %33 ], [ %51, %listOfCard16.exit ]
+  %65 = load i32, ptr @hf_x11_unused, align 4
+  %66 = sub nsw i32 4, %.sink6
+  %67 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %65, ptr noundef %0, i32 noundef %.sink4, i32 noundef %66, i32 noundef 0) #10
+  %68 = load i32, ptr %1, align 4
+  %69 = srem i32 %68, 4
+  %reass.sub77 = add i32 %68, 4
+  %70 = sub i32 %reass.sub77, %69
+  store i32 %70, ptr %1, align 4
+  br label %listOfCard32.exit
+
+listOfCard32.exit:                                ; preds = %.lr.ph.i81, %listOfCard32.exit.sink.split, %listOfCard16.exit, %53, %33, %4
   ret void
 }
 
@@ -71284,8 +71269,8 @@ define internal fastcc void @xinputXIChangeProperty(ptr noundef %0, ptr nocaptur
   %trunc = trunc nuw i32 %10 to i8
   switch i8 %trunc, label %listOfCard32.exit [
     i8 8, label %26
-    i8 16, label %39
-    i8 32, label %63
+    i8 16, label %32
+    i8 32, label %46
   ]
 
 26:                                               ; preds = %4
@@ -71297,90 +71282,75 @@ define internal fastcc void @xinputXIChangeProperty(ptr noundef %0, ptr nocaptur
   store i32 %30, ptr %1, align 4
   %31 = srem i32 %30, 4
   %.not = icmp eq i32 %31, 0
-  br i1 %.not, label %listOfCard32.exit, label %32
+  br i1 %.not, label %listOfCard32.exit, label %listOfCard32.exit.sink.split
 
-32:                                               ; preds = %26
-  %33 = load i32, ptr @hf_x11_unused, align 4
-  %34 = sub nsw i32 4, %31
-  %35 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %33, ptr noundef %0, i32 noundef %30, i32 noundef %34, i32 noundef 0) #10
-  %36 = load i32, ptr %1, align 4
-  %37 = srem i32 %36, 4
-  %reass.sub = add i32 %36, 4
-  %38 = sub i32 %reass.sub, %37
-  store i32 %38, ptr %1, align 4
-  br label %listOfCard32.exit
-
-39:                                               ; preds = %4
-  %40 = load i32, ptr @hf_x11_xinput_XIChangeProperty_16Bits_data16, align 4
-  %41 = load i32, ptr @hf_x11_xinput_XIChangeProperty_16Bits_data16_item, align 4
-  %42 = shl i32 %20, 1
-  %43 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %40, ptr noundef %0, i32 noundef %25, i32 noundef %42, i32 noundef %3) #10
-  %44 = load i32, ptr @ett_x11_list_of_card32, align 4
-  %45 = tail call ptr @proto_item_add_subtree(ptr noundef %43, i32 noundef %44) #10
+32:                                               ; preds = %4
+  %33 = load i32, ptr @hf_x11_xinput_XIChangeProperty_16Bits_data16, align 4
+  %34 = load i32, ptr @hf_x11_xinput_XIChangeProperty_16Bits_data16_item, align 4
+  %35 = shl i32 %20, 1
+  %36 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %33, ptr noundef %0, i32 noundef %25, i32 noundef %35, i32 noundef %3) #10
+  %37 = load i32, ptr @ett_x11_list_of_card32, align 4
+  %38 = tail call ptr @proto_item_add_subtree(ptr noundef %36, i32 noundef %37) #10
   %.not13.i = icmp eq i32 %20, 0
   %.pre = load i32, ptr %1, align 4
   br i1 %.not13.i, label %listOfCard16.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %39, %.lr.ph.i
-  %46 = phi i32 [ %50, %.lr.ph.i ], [ %.pre, %39 ]
-  %.014.i = phi i32 [ %47, %.lr.ph.i ], [ %20, %39 ]
-  %47 = add i32 %.014.i, -1
-  %48 = tail call ptr @proto_tree_add_item(ptr noundef %45, i32 noundef %41, ptr noundef %0, i32 noundef %46, i32 noundef 2, i32 noundef %3) #10
-  %49 = load i32, ptr %1, align 4
-  %50 = add i32 %49, 2
-  store i32 %50, ptr %1, align 4
-  %.not.i = icmp eq i32 %47, 0
+.lr.ph.i:                                         ; preds = %32, %.lr.ph.i
+  %39 = phi i32 [ %43, %.lr.ph.i ], [ %.pre, %32 ]
+  %.014.i = phi i32 [ %40, %.lr.ph.i ], [ %20, %32 ]
+  %40 = add i32 %.014.i, -1
+  %41 = tail call ptr @proto_tree_add_item(ptr noundef %38, i32 noundef %34, ptr noundef %0, i32 noundef %39, i32 noundef 2, i32 noundef %3) #10
+  %42 = load i32, ptr %1, align 4
+  %43 = add i32 %42, 2
+  store i32 %43, ptr %1, align 4
+  %.not.i = icmp eq i32 %40, 0
   br i1 %.not.i, label %listOfCard16.exit, label %.lr.ph.i, !llvm.loop !40
 
-listOfCard16.exit:                                ; preds = %.lr.ph.i, %39
-  %51 = phi i32 [ %.pre, %39 ], [ %50, %.lr.ph.i ]
-  %52 = srem i32 %51, 4
-  %.not71 = icmp eq i32 %52, 0
-  br i1 %.not71, label %60, label %53
+listOfCard16.exit:                                ; preds = %.lr.ph.i, %32
+  %44 = phi i32 [ %.pre, %32 ], [ %43, %.lr.ph.i ]
+  %45 = srem i32 %44, 4
+  %.not71 = icmp eq i32 %45, 0
+  br i1 %.not71, label %listOfCard32.exit, label %listOfCard32.exit.sink.split
 
-53:                                               ; preds = %listOfCard16.exit
-  %54 = load i32, ptr @hf_x11_unused, align 4
-  %55 = sub nsw i32 4, %52
-  %56 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %54, ptr noundef %0, i32 noundef %51, i32 noundef %55, i32 noundef 0) #10
-  %57 = load i32, ptr %1, align 4
-  %58 = srem i32 %57, 4
-  %reass.sub72 = add i32 %57, 4
-  %59 = sub i32 %reass.sub72, %58
-  store i32 %59, ptr %1, align 4
-  br label %60
-
-60:                                               ; preds = %listOfCard16.exit, %53
-  %61 = phi i32 [ %51, %listOfCard16.exit ], [ %59, %53 ]
-  %62 = icmp eq i32 %10, 32
-  br i1 %62, label %63, label %listOfCard32.exit
-
-63:                                               ; preds = %4, %60
-  %64 = phi i32 [ %25, %4 ], [ %61, %60 ]
-  %65 = load i32, ptr @hf_x11_xinput_XIChangeProperty_32Bits_data32, align 4
-  %66 = load i32, ptr @hf_x11_xinput_XIChangeProperty_32Bits_data32_item, align 4
-  %67 = shl i32 %20, 2
-  %68 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %65, ptr noundef %0, i32 noundef %64, i32 noundef %67, i32 noundef %3) #10
-  %69 = load i32, ptr @ett_x11_list_of_card32, align 4
-  %70 = tail call ptr @proto_item_add_subtree(ptr noundef %68, i32 noundef %69) #10
+46:                                               ; preds = %4
+  %47 = load i32, ptr @hf_x11_xinput_XIChangeProperty_32Bits_data32, align 4
+  %48 = load i32, ptr @hf_x11_xinput_XIChangeProperty_32Bits_data32_item, align 4
+  %49 = shl i32 %20, 2
+  %50 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %47, ptr noundef %0, i32 noundef %25, i32 noundef %49, i32 noundef %3) #10
+  %51 = load i32, ptr @ett_x11_list_of_card32, align 4
+  %52 = tail call ptr @proto_item_add_subtree(ptr noundef %50, i32 noundef %51) #10
   %.not13.i73 = icmp eq i32 %20, 0
   br i1 %.not13.i73, label %listOfCard32.exit, label %.lr.ph.preheader.i74
 
-.lr.ph.preheader.i74:                             ; preds = %63
+.lr.ph.preheader.i74:                             ; preds = %46
   %.pre.i75 = load i32, ptr %1, align 4
   br label %.lr.ph.i76
 
 .lr.ph.i76:                                       ; preds = %.lr.ph.i76, %.lr.ph.preheader.i74
-  %71 = phi i32 [ %75, %.lr.ph.i76 ], [ %.pre.i75, %.lr.ph.preheader.i74 ]
-  %.014.i77 = phi i32 [ %72, %.lr.ph.i76 ], [ %20, %.lr.ph.preheader.i74 ]
-  %72 = add i32 %.014.i77, -1
-  %73 = tail call ptr @proto_tree_add_item(ptr noundef %70, i32 noundef %66, ptr noundef %0, i32 noundef %71, i32 noundef 4, i32 noundef %3) #10
-  %74 = load i32, ptr %1, align 4
-  %75 = add i32 %74, 4
-  store i32 %75, ptr %1, align 4
-  %.not.i78 = icmp eq i32 %72, 0
+  %53 = phi i32 [ %57, %.lr.ph.i76 ], [ %.pre.i75, %.lr.ph.preheader.i74 ]
+  %.014.i77 = phi i32 [ %54, %.lr.ph.i76 ], [ %20, %.lr.ph.preheader.i74 ]
+  %54 = add i32 %.014.i77, -1
+  %55 = tail call ptr @proto_tree_add_item(ptr noundef %52, i32 noundef %48, ptr noundef %0, i32 noundef %53, i32 noundef 4, i32 noundef %3) #10
+  %56 = load i32, ptr %1, align 4
+  %57 = add i32 %56, 4
+  store i32 %57, ptr %1, align 4
+  %.not.i78 = icmp eq i32 %54, 0
   br i1 %.not.i78, label %listOfCard32.exit, label %.lr.ph.i76, !llvm.loop !41
 
-listOfCard32.exit:                                ; preds = %.lr.ph.i76, %63, %32, %26, %4, %60
+listOfCard32.exit.sink.split:                     ; preds = %listOfCard16.exit, %26
+  %.sink6 = phi i32 [ %31, %26 ], [ %45, %listOfCard16.exit ]
+  %.sink4 = phi i32 [ %30, %26 ], [ %44, %listOfCard16.exit ]
+  %58 = load i32, ptr @hf_x11_unused, align 4
+  %59 = sub nsw i32 4, %.sink6
+  %60 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %58, ptr noundef %0, i32 noundef %.sink4, i32 noundef %59, i32 noundef 0) #10
+  %61 = load i32, ptr %1, align 4
+  %62 = srem i32 %61, 4
+  %reass.sub72 = add i32 %61, 4
+  %63 = sub i32 %reass.sub72, %62
+  store i32 %63, ptr %1, align 4
+  br label %listOfCard32.exit
+
+listOfCard32.exit:                                ; preds = %.lr.ph.i76, %listOfCard32.exit.sink.split, %listOfCard16.exit, %46, %26, %4
   ret void
 }
 
@@ -75295,8 +75265,8 @@ define internal void @xinputGetDeviceProperty_Reply(ptr noundef %0, ptr nocaptur
   %trunc = trunc nuw i32 %41 to i8
   switch i8 %trunc, label %listOfCard32.exit [
     i8 8, label %51
-    i8 16, label %64
-    i8 32, label %88
+    i8 16, label %57
+    i8 32, label %71
   ]
 
 51:                                               ; preds = %5
@@ -75308,90 +75278,75 @@ define internal void @xinputGetDeviceProperty_Reply(ptr noundef %0, ptr nocaptur
   store i32 %55, ptr %2, align 4
   %56 = srem i32 %55, 4
   %.not = icmp eq i32 %56, 0
-  br i1 %.not, label %listOfCard32.exit, label %57
+  br i1 %.not, label %listOfCard32.exit, label %listOfCard32.exit.sink.split
 
-57:                                               ; preds = %51
-  %58 = load i32, ptr @hf_x11_unused, align 4
-  %59 = sub nsw i32 4, %56
-  %60 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %58, ptr noundef %0, i32 noundef %55, i32 noundef %59, i32 noundef 0) #10
-  %61 = load i32, ptr %2, align 4
-  %62 = srem i32 %61, 4
-  %reass.sub = add i32 %61, 4
-  %63 = sub i32 %reass.sub, %62
-  store i32 %63, ptr %2, align 4
-  br label %listOfCard32.exit
-
-64:                                               ; preds = %5
-  %65 = load i32, ptr @hf_x11_xinput_GetDeviceProperty_reply_16Bits_data16, align 4
-  %66 = load i32, ptr @hf_x11_xinput_GetDeviceProperty_reply_16Bits_data16_item, align 4
-  %67 = shl i32 %34, 1
-  %68 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %65, ptr noundef %0, i32 noundef %50, i32 noundef %67, i32 noundef %4) #10
-  %69 = load i32, ptr @ett_x11_list_of_card32, align 4
-  %70 = tail call ptr @proto_item_add_subtree(ptr noundef %68, i32 noundef %69) #10
+57:                                               ; preds = %5
+  %58 = load i32, ptr @hf_x11_xinput_GetDeviceProperty_reply_16Bits_data16, align 4
+  %59 = load i32, ptr @hf_x11_xinput_GetDeviceProperty_reply_16Bits_data16_item, align 4
+  %60 = shl i32 %34, 1
+  %61 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %58, ptr noundef %0, i32 noundef %50, i32 noundef %60, i32 noundef %4) #10
+  %62 = load i32, ptr @ett_x11_list_of_card32, align 4
+  %63 = tail call ptr @proto_item_add_subtree(ptr noundef %61, i32 noundef %62) #10
   %.not13.i = icmp eq i32 %34, 0
   %.pre = load i32, ptr %2, align 4
   br i1 %.not13.i, label %listOfCard16.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %64, %.lr.ph.i
-  %71 = phi i32 [ %75, %.lr.ph.i ], [ %.pre, %64 ]
-  %.014.i = phi i32 [ %72, %.lr.ph.i ], [ %34, %64 ]
-  %72 = add i32 %.014.i, -1
-  %73 = tail call ptr @proto_tree_add_item(ptr noundef %70, i32 noundef %66, ptr noundef %0, i32 noundef %71, i32 noundef 2, i32 noundef %4) #10
-  %74 = load i32, ptr %2, align 4
-  %75 = add i32 %74, 2
-  store i32 %75, ptr %2, align 4
-  %.not.i = icmp eq i32 %72, 0
+.lr.ph.i:                                         ; preds = %57, %.lr.ph.i
+  %64 = phi i32 [ %68, %.lr.ph.i ], [ %.pre, %57 ]
+  %.014.i = phi i32 [ %65, %.lr.ph.i ], [ %34, %57 ]
+  %65 = add i32 %.014.i, -1
+  %66 = tail call ptr @proto_tree_add_item(ptr noundef %63, i32 noundef %59, ptr noundef %0, i32 noundef %64, i32 noundef 2, i32 noundef %4) #10
+  %67 = load i32, ptr %2, align 4
+  %68 = add i32 %67, 2
+  store i32 %68, ptr %2, align 4
+  %.not.i = icmp eq i32 %65, 0
   br i1 %.not.i, label %listOfCard16.exit, label %.lr.ph.i, !llvm.loop !40
 
-listOfCard16.exit:                                ; preds = %.lr.ph.i, %64
-  %76 = phi i32 [ %.pre, %64 ], [ %75, %.lr.ph.i ]
-  %77 = srem i32 %76, 4
-  %.not87 = icmp eq i32 %77, 0
-  br i1 %.not87, label %85, label %78
+listOfCard16.exit:                                ; preds = %.lr.ph.i, %57
+  %69 = phi i32 [ %.pre, %57 ], [ %68, %.lr.ph.i ]
+  %70 = srem i32 %69, 4
+  %.not87 = icmp eq i32 %70, 0
+  br i1 %.not87, label %listOfCard32.exit, label %listOfCard32.exit.sink.split
 
-78:                                               ; preds = %listOfCard16.exit
-  %79 = load i32, ptr @hf_x11_unused, align 4
-  %80 = sub nsw i32 4, %77
-  %81 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %79, ptr noundef %0, i32 noundef %76, i32 noundef %80, i32 noundef 0) #10
-  %82 = load i32, ptr %2, align 4
-  %83 = srem i32 %82, 4
-  %reass.sub88 = add i32 %82, 4
-  %84 = sub i32 %reass.sub88, %83
-  store i32 %84, ptr %2, align 4
-  br label %85
-
-85:                                               ; preds = %listOfCard16.exit, %78
-  %86 = phi i32 [ %76, %listOfCard16.exit ], [ %84, %78 ]
-  %87 = icmp eq i32 %41, 32
-  br i1 %87, label %88, label %listOfCard32.exit
-
-88:                                               ; preds = %5, %85
-  %89 = phi i32 [ %50, %5 ], [ %86, %85 ]
-  %90 = load i32, ptr @hf_x11_xinput_GetDeviceProperty_reply_32Bits_data32, align 4
-  %91 = load i32, ptr @hf_x11_xinput_GetDeviceProperty_reply_32Bits_data32_item, align 4
-  %92 = shl i32 %34, 2
-  %93 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %90, ptr noundef %0, i32 noundef %89, i32 noundef %92, i32 noundef %4) #10
-  %94 = load i32, ptr @ett_x11_list_of_card32, align 4
-  %95 = tail call ptr @proto_item_add_subtree(ptr noundef %93, i32 noundef %94) #10
+71:                                               ; preds = %5
+  %72 = load i32, ptr @hf_x11_xinput_GetDeviceProperty_reply_32Bits_data32, align 4
+  %73 = load i32, ptr @hf_x11_xinput_GetDeviceProperty_reply_32Bits_data32_item, align 4
+  %74 = shl i32 %34, 2
+  %75 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %72, ptr noundef %0, i32 noundef %50, i32 noundef %74, i32 noundef %4) #10
+  %76 = load i32, ptr @ett_x11_list_of_card32, align 4
+  %77 = tail call ptr @proto_item_add_subtree(ptr noundef %75, i32 noundef %76) #10
   %.not13.i89 = icmp eq i32 %34, 0
   br i1 %.not13.i89, label %listOfCard32.exit, label %.lr.ph.preheader.i90
 
-.lr.ph.preheader.i90:                             ; preds = %88
+.lr.ph.preheader.i90:                             ; preds = %71
   %.pre.i91 = load i32, ptr %2, align 4
   br label %.lr.ph.i92
 
 .lr.ph.i92:                                       ; preds = %.lr.ph.i92, %.lr.ph.preheader.i90
-  %96 = phi i32 [ %100, %.lr.ph.i92 ], [ %.pre.i91, %.lr.ph.preheader.i90 ]
-  %.014.i93 = phi i32 [ %97, %.lr.ph.i92 ], [ %34, %.lr.ph.preheader.i90 ]
-  %97 = add i32 %.014.i93, -1
-  %98 = tail call ptr @proto_tree_add_item(ptr noundef %95, i32 noundef %91, ptr noundef %0, i32 noundef %96, i32 noundef 4, i32 noundef %4) #10
-  %99 = load i32, ptr %2, align 4
-  %100 = add i32 %99, 4
-  store i32 %100, ptr %2, align 4
-  %.not.i94 = icmp eq i32 %97, 0
+  %78 = phi i32 [ %82, %.lr.ph.i92 ], [ %.pre.i91, %.lr.ph.preheader.i90 ]
+  %.014.i93 = phi i32 [ %79, %.lr.ph.i92 ], [ %34, %.lr.ph.preheader.i90 ]
+  %79 = add i32 %.014.i93, -1
+  %80 = tail call ptr @proto_tree_add_item(ptr noundef %77, i32 noundef %73, ptr noundef %0, i32 noundef %78, i32 noundef 4, i32 noundef %4) #10
+  %81 = load i32, ptr %2, align 4
+  %82 = add i32 %81, 4
+  store i32 %82, ptr %2, align 4
+  %.not.i94 = icmp eq i32 %79, 0
   br i1 %.not.i94, label %listOfCard32.exit, label %.lr.ph.i92, !llvm.loop !41
 
-listOfCard32.exit:                                ; preds = %.lr.ph.i92, %88, %57, %51, %5, %85
+listOfCard32.exit.sink.split:                     ; preds = %listOfCard16.exit, %51
+  %.sink100 = phi i32 [ %56, %51 ], [ %70, %listOfCard16.exit ]
+  %.sink98 = phi i32 [ %55, %51 ], [ %69, %listOfCard16.exit ]
+  %83 = load i32, ptr @hf_x11_unused, align 4
+  %84 = sub nsw i32 4, %.sink100
+  %85 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %83, ptr noundef %0, i32 noundef %.sink98, i32 noundef %84, i32 noundef 0) #10
+  %86 = load i32, ptr %2, align 4
+  %87 = srem i32 %86, 4
+  %reass.sub88 = add i32 %86, 4
+  %88 = sub i32 %reass.sub88, %87
+  store i32 %88, ptr %2, align 4
+  br label %listOfCard32.exit
+
+listOfCard32.exit:                                ; preds = %.lr.ph.i92, %listOfCard32.exit.sink.split, %listOfCard16.exit, %71, %51, %5
   ret void
 }
 
@@ -75980,8 +75935,8 @@ define internal void @xinputXIGetProperty_Reply(ptr noundef %0, ptr nocapture no
   %trunc = trunc nuw i32 %41 to i8
   switch i8 %trunc, label %listOfCard32.exit [
     i8 8, label %47
-    i8 16, label %60
-    i8 32, label %84
+    i8 16, label %53
+    i8 32, label %67
   ]
 
 47:                                               ; preds = %5
@@ -75993,90 +75948,75 @@ define internal void @xinputXIGetProperty_Reply(ptr noundef %0, ptr nocapture no
   store i32 %51, ptr %2, align 4
   %52 = srem i32 %51, 4
   %.not = icmp eq i32 %52, 0
-  br i1 %.not, label %listOfCard32.exit, label %53
+  br i1 %.not, label %listOfCard32.exit, label %listOfCard32.exit.sink.split
 
-53:                                               ; preds = %47
-  %54 = load i32, ptr @hf_x11_unused, align 4
-  %55 = sub nsw i32 4, %52
-  %56 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %54, ptr noundef %0, i32 noundef %51, i32 noundef %55, i32 noundef 0) #10
-  %57 = load i32, ptr %2, align 4
-  %58 = srem i32 %57, 4
-  %reass.sub = add i32 %57, 4
-  %59 = sub i32 %reass.sub, %58
-  store i32 %59, ptr %2, align 4
-  br label %listOfCard32.exit
-
-60:                                               ; preds = %5
-  %61 = load i32, ptr @hf_x11_xinput_XIGetProperty_reply_16Bits_data16, align 4
-  %62 = load i32, ptr @hf_x11_xinput_XIGetProperty_reply_16Bits_data16_item, align 4
-  %63 = shl i32 %34, 1
-  %64 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %61, ptr noundef %0, i32 noundef %46, i32 noundef %63, i32 noundef %4) #10
-  %65 = load i32, ptr @ett_x11_list_of_card32, align 4
-  %66 = tail call ptr @proto_item_add_subtree(ptr noundef %64, i32 noundef %65) #10
+53:                                               ; preds = %5
+  %54 = load i32, ptr @hf_x11_xinput_XIGetProperty_reply_16Bits_data16, align 4
+  %55 = load i32, ptr @hf_x11_xinput_XIGetProperty_reply_16Bits_data16_item, align 4
+  %56 = shl i32 %34, 1
+  %57 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %54, ptr noundef %0, i32 noundef %46, i32 noundef %56, i32 noundef %4) #10
+  %58 = load i32, ptr @ett_x11_list_of_card32, align 4
+  %59 = tail call ptr @proto_item_add_subtree(ptr noundef %57, i32 noundef %58) #10
   %.not13.i = icmp eq i32 %34, 0
   %.pre = load i32, ptr %2, align 4
   br i1 %.not13.i, label %listOfCard16.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %60, %.lr.ph.i
-  %67 = phi i32 [ %71, %.lr.ph.i ], [ %.pre, %60 ]
-  %.014.i = phi i32 [ %68, %.lr.ph.i ], [ %34, %60 ]
-  %68 = add i32 %.014.i, -1
-  %69 = tail call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %62, ptr noundef %0, i32 noundef %67, i32 noundef 2, i32 noundef %4) #10
-  %70 = load i32, ptr %2, align 4
-  %71 = add i32 %70, 2
-  store i32 %71, ptr %2, align 4
-  %.not.i = icmp eq i32 %68, 0
+.lr.ph.i:                                         ; preds = %53, %.lr.ph.i
+  %60 = phi i32 [ %64, %.lr.ph.i ], [ %.pre, %53 ]
+  %.014.i = phi i32 [ %61, %.lr.ph.i ], [ %34, %53 ]
+  %61 = add i32 %.014.i, -1
+  %62 = tail call ptr @proto_tree_add_item(ptr noundef %59, i32 noundef %55, ptr noundef %0, i32 noundef %60, i32 noundef 2, i32 noundef %4) #10
+  %63 = load i32, ptr %2, align 4
+  %64 = add i32 %63, 2
+  store i32 %64, ptr %2, align 4
+  %.not.i = icmp eq i32 %61, 0
   br i1 %.not.i, label %listOfCard16.exit, label %.lr.ph.i, !llvm.loop !40
 
-listOfCard16.exit:                                ; preds = %.lr.ph.i, %60
-  %72 = phi i32 [ %.pre, %60 ], [ %71, %.lr.ph.i ]
-  %73 = srem i32 %72, 4
-  %.not81 = icmp eq i32 %73, 0
-  br i1 %.not81, label %81, label %74
+listOfCard16.exit:                                ; preds = %.lr.ph.i, %53
+  %65 = phi i32 [ %.pre, %53 ], [ %64, %.lr.ph.i ]
+  %66 = srem i32 %65, 4
+  %.not81 = icmp eq i32 %66, 0
+  br i1 %.not81, label %listOfCard32.exit, label %listOfCard32.exit.sink.split
 
-74:                                               ; preds = %listOfCard16.exit
-  %75 = load i32, ptr @hf_x11_unused, align 4
-  %76 = sub nsw i32 4, %73
-  %77 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %75, ptr noundef %0, i32 noundef %72, i32 noundef %76, i32 noundef 0) #10
-  %78 = load i32, ptr %2, align 4
-  %79 = srem i32 %78, 4
-  %reass.sub82 = add i32 %78, 4
-  %80 = sub i32 %reass.sub82, %79
-  store i32 %80, ptr %2, align 4
-  br label %81
-
-81:                                               ; preds = %listOfCard16.exit, %74
-  %82 = phi i32 [ %72, %listOfCard16.exit ], [ %80, %74 ]
-  %83 = icmp eq i32 %41, 32
-  br i1 %83, label %84, label %listOfCard32.exit
-
-84:                                               ; preds = %5, %81
-  %85 = phi i32 [ %46, %5 ], [ %82, %81 ]
-  %86 = load i32, ptr @hf_x11_xinput_XIGetProperty_reply_32Bits_data32, align 4
-  %87 = load i32, ptr @hf_x11_xinput_XIGetProperty_reply_32Bits_data32_item, align 4
-  %88 = shl i32 %34, 2
-  %89 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %86, ptr noundef %0, i32 noundef %85, i32 noundef %88, i32 noundef %4) #10
-  %90 = load i32, ptr @ett_x11_list_of_card32, align 4
-  %91 = tail call ptr @proto_item_add_subtree(ptr noundef %89, i32 noundef %90) #10
+67:                                               ; preds = %5
+  %68 = load i32, ptr @hf_x11_xinput_XIGetProperty_reply_32Bits_data32, align 4
+  %69 = load i32, ptr @hf_x11_xinput_XIGetProperty_reply_32Bits_data32_item, align 4
+  %70 = shl i32 %34, 2
+  %71 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %68, ptr noundef %0, i32 noundef %46, i32 noundef %70, i32 noundef %4) #10
+  %72 = load i32, ptr @ett_x11_list_of_card32, align 4
+  %73 = tail call ptr @proto_item_add_subtree(ptr noundef %71, i32 noundef %72) #10
   %.not13.i83 = icmp eq i32 %34, 0
   br i1 %.not13.i83, label %listOfCard32.exit, label %.lr.ph.preheader.i84
 
-.lr.ph.preheader.i84:                             ; preds = %84
+.lr.ph.preheader.i84:                             ; preds = %67
   %.pre.i85 = load i32, ptr %2, align 4
   br label %.lr.ph.i86
 
 .lr.ph.i86:                                       ; preds = %.lr.ph.i86, %.lr.ph.preheader.i84
-  %92 = phi i32 [ %96, %.lr.ph.i86 ], [ %.pre.i85, %.lr.ph.preheader.i84 ]
-  %.014.i87 = phi i32 [ %93, %.lr.ph.i86 ], [ %34, %.lr.ph.preheader.i84 ]
-  %93 = add i32 %.014.i87, -1
-  %94 = tail call ptr @proto_tree_add_item(ptr noundef %91, i32 noundef %87, ptr noundef %0, i32 noundef %92, i32 noundef 4, i32 noundef %4) #10
-  %95 = load i32, ptr %2, align 4
-  %96 = add i32 %95, 4
-  store i32 %96, ptr %2, align 4
-  %.not.i88 = icmp eq i32 %93, 0
+  %74 = phi i32 [ %78, %.lr.ph.i86 ], [ %.pre.i85, %.lr.ph.preheader.i84 ]
+  %.014.i87 = phi i32 [ %75, %.lr.ph.i86 ], [ %34, %.lr.ph.preheader.i84 ]
+  %75 = add i32 %.014.i87, -1
+  %76 = tail call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %69, ptr noundef %0, i32 noundef %74, i32 noundef 4, i32 noundef %4) #10
+  %77 = load i32, ptr %2, align 4
+  %78 = add i32 %77, 4
+  store i32 %78, ptr %2, align 4
+  %.not.i88 = icmp eq i32 %75, 0
   br i1 %.not.i88, label %listOfCard32.exit, label %.lr.ph.i86, !llvm.loop !41
 
-listOfCard32.exit:                                ; preds = %.lr.ph.i86, %84, %53, %47, %5, %81
+listOfCard32.exit.sink.split:                     ; preds = %listOfCard16.exit, %47
+  %.sink94 = phi i32 [ %52, %47 ], [ %66, %listOfCard16.exit ]
+  %.sink92 = phi i32 [ %51, %47 ], [ %65, %listOfCard16.exit ]
+  %79 = load i32, ptr @hf_x11_unused, align 4
+  %80 = sub nsw i32 4, %.sink94
+  %81 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %79, ptr noundef %0, i32 noundef %.sink92, i32 noundef %80, i32 noundef 0) #10
+  %82 = load i32, ptr %2, align 4
+  %83 = srem i32 %82, 4
+  %reass.sub82 = add i32 %82, 4
+  %84 = sub i32 %reass.sub82, %83
+  store i32 %84, ptr %2, align 4
+  br label %listOfCard32.exit
+
+listOfCard32.exit:                                ; preds = %.lr.ph.i86, %listOfCard32.exit.sink.split, %listOfCard16.exit, %67, %47, %5
   ret void
 }
 

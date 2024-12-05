@@ -5515,7 +5515,7 @@ call3.i.i.i.noexc:                                ; preds = %if.then6
   invoke void @_ZN17ItemStackMetadata5clearEv(ptr noundef nonnull align 8 dereferenceable(272) %metadata4.i)
           to label %return unwind label %lpad
 
-lpad:                                             ; preds = %call3.i.i.i.i.noexc, %if.then.i, %call3.i.i.i.noexc, %if.then6
+lpad:                                             ; preds = %call3.i.i.i.noexc, %if.then6
   %19 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN9ItemStackD2Ev(ptr noundef nonnull align 8 dereferenceable(312) %agg.result) #29
@@ -5525,26 +5525,10 @@ if.else:                                          ; preds = %_ZN9ItemStackC2ERKS
   %conv7 = trunc nuw i32 %takecount to i16
   %sub.i = sub i16 %17, %conv7
   store i16 %sub.i, ptr %count, align 8, !tbaa !17
-  %cmp.i = icmp eq i16 %17, %conv7
-  br i1 %cmp.i, label %if.then.i, label %invoke.cont8
-
-if.then.i:                                        ; preds = %if.else
-  %20 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !14
-  %call3.i.i.i.i28 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef 0, i64 noundef %20, ptr noundef nonnull @.str.14, i64 noundef 0)
-          to label %call3.i.i.i.i.noexc unwind label %lpad
-
-call3.i.i.i.i.noexc:                              ; preds = %if.then.i
-  store i16 0, ptr %count, align 8, !tbaa !17
-  %wear.i.i = getelementptr inbounds i8, ptr %this, i64 34
-  store i16 0, ptr %wear.i.i, align 2, !tbaa !39
-  invoke void @_ZN17ItemStackMetadata5clearEv(ptr noundef nonnull align 8 dereferenceable(272) %metadata4.i)
-          to label %invoke.cont8 unwind label %lpad
-
-invoke.cont8:                                     ; preds = %call3.i.i.i.i.noexc, %if.else
   store i16 %conv7, ptr %count.i17, align 8, !tbaa !17
   br label %return
 
-return:                                           ; preds = %invoke.cont8, %call3.i.i.i.noexc, %if.then
+return:                                           ; preds = %if.else, %call3.i.i.i.noexc, %if.then
   ret void
 }
 
